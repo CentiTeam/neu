@@ -9,6 +9,7 @@ class GroupPayController extends AbstractActionController
 {
 	public function indexAction()
 	{
+	     return new ViewModel();
 	
 	}
 
