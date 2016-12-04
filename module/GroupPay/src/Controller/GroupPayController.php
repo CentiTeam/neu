@@ -1,3 +1,5 @@
+<?php
+
 namespace GroupPay\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
