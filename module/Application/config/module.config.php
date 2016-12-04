@@ -34,16 +34,6 @@ return [
                     ],
                 ],
             ],
-        		'groupPay' => [
-        				'type'    => Segment::class,
-        				'options' => [
-        						'route'    => '/groupPay[/:action]',
-        						'defaults' => [
-        								'controller' => Controller\IndexController::class,
-        								'action'     => 'index',
-        						],
-        				],
-        		],
         ],
     ],
     'controllers' => [
