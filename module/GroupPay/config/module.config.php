@@ -33,7 +33,7 @@ return [
 
 		'controllers' => [
 				'factories' => [
-						Controller\IndexController::class => InvokableFactory::class,
+						Controller\GroupPayController::class => InvokableFactory::class,
 				],
 		],
 		
