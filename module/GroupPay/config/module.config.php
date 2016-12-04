@@ -14,10 +14,10 @@ return [
 		],
 		 'router' => [
         'routes' => [
-            'groupPay' => [
+            'grouppay' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route' => '/groupPay[/:action[/:id]]',
+                    'route' => '/grouppay[/:action[/:id]]',
                     'constraints' => [
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'     => '[0-9]+',
@@ -33,7 +33,7 @@ return [
 		
 
 		'template_path_stack' => [
-				'groupPay' => __DIR__ . '/../view',
+				'grouppay' => __DIR__ . '/../view',
 		],
 		'view_manager' => [
 				'display_not_found_reason' => true,
@@ -43,7 +43,7 @@ return [
 				'exception_template'       => 'error/index',
 				'template_map' => [
 						'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
-						'groupPay/index/index' => __DIR__ . '/../view/groupPay/index/index.phtml',
+						'grouppay/index/index' => __DIR__ . '/../view/grouppay/index/index.phtml',
 						'error/404'               => __DIR__ . '/../view/error/404.phtml',
 						'error/index'             => __DIR__ . '/../view/error/index.phtml',
 				],
