@@ -1,3 +1,5 @@
+<?php
+
 namespace GroupPay;
 
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
