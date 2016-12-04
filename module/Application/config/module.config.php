@@ -34,6 +34,16 @@ return [
                     ],
                 ],
             ],
+        		'groupPay' => [
+        				'type'    => Segment::class,
+        				'options' => [
+        						'route'    => '/groupPay[/:action]',
+        						'defaults' => [
+        								'controller' => Controller\IndexController::class,
+        								'action'     => 'index',
+        						],
+        				],
+        		],
         ],
     ],
     'controllers' => [
@@ -50,6 +60,7 @@ return [
         'template_map' => [
             'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
             'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
+        	'groupPay/index/index' => __DIR__ . '/../view/groupPay/index/index.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ],
