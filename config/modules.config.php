@@ -13,5 +13,6 @@
 return [
     'Zend\Router',
     'Zend\Validator',
-    'Application'
+    'Application',
+		'GroupPay'
 ];
