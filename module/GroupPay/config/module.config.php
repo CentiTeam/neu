@@ -9,7 +9,7 @@ use Zend\ServiceManager\Factory\InvokableFactory;
 return [
 		'controllers' => [
 				'factories' => [
-						Controller\GroupPayController::class => InvokableFactory::class,
+						Controller\IndexController::class => InvokableFactory::class,
 				],
 		],
 		 'router' => [
@@ -23,19 +23,13 @@ return [
                         'id'     => '[0-9]+',
                     ],
                     'defaults' => [
-                        'controller' => Controller\GroupPayController::class,
+                        'controller' => Controller\IndexController::class,
                         'action'     => 'index',
                     ],
                 ],
             ],
         ],
     ],
-
-		'controllers' => [
-				'factories' => [
-						Controller\GroupPayController::class => InvokableFactory::class,
-				],
-		],
 		
 		'view_manager' => [
 				'display_not_found_reason' => true,
