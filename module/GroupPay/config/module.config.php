@@ -1,3 +1,6 @@
+<?php
+
+
 namespace GroupPay;
 
 use Zend\Router\Http\Segment;
