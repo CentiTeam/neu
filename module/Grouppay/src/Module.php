@@ -1,6 +1,6 @@
 <?php
 
-namespace GroupPay;
+namespace Grouppay;
 
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
 
