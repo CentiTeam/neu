@@ -40,6 +40,8 @@ return [
 				'template_map' => [
 						'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
 						'groupPay/groupPay/index' => __DIR__ . '/../view/groupPay/groupPay/index.phtml',
+						'error/404'               => __DIR__ . '/../view/error/404.phtml',
+						'error/index'             => __DIR__ . '/../view/error/index.phtml',
 				],
 				
 				'template_path_stack' => [
