@@ -37,7 +37,20 @@ return [
                 ],
             ],
         		
-        		
+        	'user' => [
+        		'type'    => Segment::class,
+        		'options' => [
+        			'route' => '/user[/:action[/:id]]',
+        				'constraints' => [
+        				'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+        				'id'     => '[0-9]+',
+        						],
+        				'defaults' => [
+        				    'controller' => Controller\UserController::class,
+        					 'action'     => 'index',
+        						],
+        				],
+        		],
         		
         ],
     		
@@ -49,6 +62,7 @@ return [
         'factories' => [
             Controller\IndexController::class => InvokableFactory::class,
         	Controller\OverviewController::class => InvokableFactory::class,
+        	Controller\UserController::class => InvokableFactory::class,
         		
         ],
     ],
