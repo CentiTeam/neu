@@ -31,6 +31,7 @@ return [
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
                         'action'     => 'index',
+                    	'controller' => Controller\OverviewController::class,
                     	'action'     => 'overview',
                     ],
                 ],
@@ -40,6 +41,8 @@ return [
     'controllers' => [
         'factories' => [
             Controller\IndexController::class => InvokableFactory::class,
+        	Controller\OverviewController::class => InvokableFactory::class,
+        		
         ],
     ],
     'view_manager' => [
