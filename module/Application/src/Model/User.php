@@ -146,5 +146,13 @@ class User
 		// fertige Liste von Mitarbeiter-Objekten zurückgeben
 		return $userListe;
 	}
+	//Setter für vorname
+	public function setVorname($value) {
+		$this->vorname = $value;
+	}
+	//Getter für vorname
+	public function getVorname() {
+		return $this->vorname;
+	}
 
 }

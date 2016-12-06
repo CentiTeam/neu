@@ -47,7 +47,7 @@ return [
         						],
         				'defaults' => [
         				    'controller' => Controller\UserController::class,
-        					 'action'     => 'index',
+        					 'action'     => 'login',
         						],
         				],
         		],
