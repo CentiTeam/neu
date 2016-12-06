@@ -31,7 +31,7 @@ return [
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
                         'action'     => 'index',
-                    	'controller' => Controller\IndexController::class,
+                    	'controller' => Controller\OverviewController::class,
                     	'action'     => 'overview',
                     ],
                 ],
