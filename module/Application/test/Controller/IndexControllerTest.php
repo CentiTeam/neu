@@ -18,7 +18,7 @@ class IndexControllerTest extends AbstractHttpControllerTestCase
         // The module configuration should still be applicable for tests.
         // You can override configuration here with test case specific values,
         // such as sample view templates, path stacks, module_listener_options,
-        // etc.
+        // etc....
         $configOverrides = [];
 
         $this->setApplicationConfig(ArrayUtils::merge(
