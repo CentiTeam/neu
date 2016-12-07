@@ -14,31 +14,7 @@
   </div>
  <br><br><br><br><br><br><br><br><br><br><br>
  
- <fieldset><legend>Anmeldung</legend>
 
-<?php
-// gibt (Fehler-)Meldungen nur dann aus, wenn welche vorhanden sind
-// wird die Abfrage mit isset($msg) nicht verwendet, gibt php einen Fehler aus, falls die Variable $msg leer w�re
-if (isset($msg)) echo $msg;
-?>
-
-	<form method='post' action='index.php'>
-		<input type='hidden' name='controller' value='User'>
-		<input type='hidden' name='action' value='login'>
-
-		<!-- 
-			der Ausdruck 'isset($login)?$login:""' ist eine ternärer Operator und die Kurzform einer Fallunterscheid
-			Syntax:
-				<Prüfung> ? <Wert für wahr> : <Wert für falsch>
-		 -->
-		Benutzername: <input type='text' name='username' value='<?=isset($username) ? $username : "" ?>' /><br />
-		Passwort: <input type='password' name='passwort' /><br />
-		<input class='button' type='submit' name='absenden' value='Anmelden' />
-	
-	</form>
-	
-
-</fieldset>
  
                
           

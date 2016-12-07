@@ -48,22 +48,29 @@ class loginController extends AbstractActionController{
 			//Prüfen, ob das eingegebene Passwort korrekt ist und der Benutzer aktiviert ist
 			if($row[4] == $pwd && $row[6]==0){
 			echo "Erfolgreich angemeldet";
-			$_SESSION['rolle'] = "benutzer";
+			//Wenn man angemeldet ist, so wird dies in der Sessionvariable "angemeldet" gespeichert.
+			$_SESSION['angemeldet'] = "ja";
 			}
 			else{
 			echo "Benutzername oder Passwort falsch, oder Benutzerkonto deaktiviert!";	
 			
 			}
 			
+			//Wenn der Benutzer angmeldet ist, so wird überprüft, ob er ein Admin ist
+			if($_SESSION('angemeldet') == 'ja'){
+				if($row[7]==1){
+					$_SESSION['admin'] = 'ja';
+				}
+				else{
+					$_SESSION['admin'] = 'nein';
+				}
+			}
+			
 			
 		
 		}
 		
-		//Funktionierende Einfügequery
-		//mysqli_query($con, "INSERT INTO User VALUES (5,'sepp', 'hallo', 'du', 'sfljdsa', 'sepp@gmx.de', 0, 1)");
-		
-
-		
+	
 
 	
 		return new ViewModel();
