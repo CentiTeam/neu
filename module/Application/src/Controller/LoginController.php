@@ -41,7 +41,7 @@ class loginController extends AbstractActionController{
 				printf ("%s (%s)\n",$row[0],$row[1]);
 			}
 			
-		}
+		
 		}
 		
 		//Funktionierende Einfügequery
