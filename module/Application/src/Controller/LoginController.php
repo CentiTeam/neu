@@ -20,7 +20,7 @@ class loginController extends AbstractActionController{
 		
 		
 		$query = "SELECT * FROM User";
-		mysqli_query($con, $query);
+		mysqli_query($con, "INSERT INTO User VALUES (5,'sepp', 'hallo', 'du', 'sfljdsa', 'sepp@gmx.de', 0, 1)");
 		
 
 		
