@@ -45,9 +45,8 @@ class loginController extends AbstractActionController{
 			//Holen der ersten (und hier einzigen, da nur ein Benutzername) Zeile des Ergebnisses
 			$row=mysqli_fetch_row($result);
 			
-			//Prüfen, ob das eingegebene Passwort korrekt ist
-
-			if($row[4] == $pwd){
+			//Prüfen, ob das eingegebene Passwort korrekt ist und der Benutzer aktiviert ist
+			if($row[4] == $pwd && $row[6]==0){
 			echo "Erfolgreich angemeldet";
 			$_SESSION['rolle'] = "benutzer";
 			}
