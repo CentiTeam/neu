@@ -31,11 +31,21 @@ return [
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
                         'action'     => 'index',
-                    	'controller' => Controller\OverviewController::class,
-                    	'action'     => 'overview',
                     ],
                 ],
             ],
+        		
+        	'overview' => [
+        			'type'    => Segment::class,
+        			'options' => [
+        					'route'    => '/application[/:action]',
+        					'defaults' => [
+        							'controller' => Controller\OverviewController::class,
+        							'action'     => 'overview',
+        					],
+        			],
+        	],
+        		
         		
         	'user' => [
         		'type'    => Segment::class,
