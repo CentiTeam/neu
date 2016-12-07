@@ -25,7 +25,7 @@ return [
                 ],
             ],
             'application' => [
-                'type'    => Literal::class,
+                'type'    => Segment::class,
                 'options' => [
                     'route'    => '/application[/:action]',
                     'defaults' => [
