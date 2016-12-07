@@ -6,7 +6,7 @@ use Zend\View\Model\ViewModel;
 
 class UserController extends AbstractActionController
 {
-	public function indexAction()
+	public function userAction()
 	{
 		return new ViewModel(); // HIER EVTL ETWAS ÄNDERN!!
 	}
