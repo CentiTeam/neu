@@ -41,6 +41,7 @@ class loginController extends AbstractActionController{
 			//Prüfen, ob das eingegebene Passwort korrekt ist
 			//echo $row[4];
 			echo $pwd;
+			echo $uname;
 			if($row[4] == $pwd){
 			echo "Erfolgreich angemeldet";
 			}
