@@ -59,7 +59,7 @@ class loginController extends AbstractActionController{
 		}
 		
 		//Wenn der Benutzer angmeldet ist, so wird überprüft, ob er ein Admin ist
-		if($_SESSION('angemeldet') == 'ja'){
+		if($_SESSION['angemeldet'] == 'ja'){
 			if($row[7]==1){
 				$_SESSION['admin'] = 'ja';
 			}
