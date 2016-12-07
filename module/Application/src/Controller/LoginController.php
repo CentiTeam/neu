@@ -1,12 +1,19 @@
 <?php
+
+
+
 namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
+
+
 class loginController extends AbstractActionController{
 	
 	public function loginAction(){
+		//Starten einer Session
+		session_start();
 		
 		//Speichern der Formulareingaben für Benutzername und Passwort in Variablen.
 		$uname = $_POST['uname'];
