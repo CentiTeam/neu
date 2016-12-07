@@ -12,10 +12,9 @@ use Zend\View\Model\ViewModel;
 
 class overviewController extends AbstractActionController
 {
-	public function overviewAction()
+	public function overviewAlction()
 	{
 
 		return new ViewModel();
-		echo "Hermann";
 	}
 }
