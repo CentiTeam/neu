@@ -1,3 +1,0 @@
-<?php
-	$connStr = "host=132.231.36.206 port=5432 dbname=root user=user password=Fup7bytM";
-?>

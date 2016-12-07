@@ -8,6 +8,7 @@ class loginController extends AbstractActionController{
 	
 	public function loginAction(){
 		
+		//Speichern der Formulareingaben für Benutzername und Passwort in Variablen.
 		$uname = $_POST['uname'];
 		$psw = $_POST['psw'];
 	
