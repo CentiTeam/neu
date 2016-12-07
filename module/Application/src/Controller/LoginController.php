@@ -9,7 +9,12 @@ class loginController extends AbstractActionController{
 	public function loginAction(){
 		
 		//Aufbau der Datenbankverbindung (gehört in extraklasse ausgelagert)		
-		$connection = new PDO("mysql:dbname=gpDB;host=132.231.36.206", root, Fup7bytM);
+		$db = new Zend_Db_Adapter_Pdo_Mysql(array(
+				'host'     => '127.0.0.1',
+				'username' => 'webuser',
+				'password' => 'xxxxxxxx',
+				'dbname'   => 'test'
+		));
 
 		
 		//Speichern der Formulareingaben für Benutzername und Passwort in Variablen.
