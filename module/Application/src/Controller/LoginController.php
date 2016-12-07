@@ -9,12 +9,12 @@ class loginController extends AbstractActionController{
 	public function loginAction(){
 		
 		//Aufbau der Datenbankverbindung (gehört in extraklasse ausgelagert)		
-		$db = new Zend_Db_Adapter_Pdo_Mysql(array(
-				'host'     => '127.0.0.1',
-				'username' => 'webuser',
-				'password' => 'xxxxxxxx',
-				'dbname'   => 'test'
-		));
+		$link = mysqli_connect('132.231.36.206', 'root', 'Fup7bytM');
+		if (!$link) {
+			die('Verbindung schlug fehl: ' . mysqli_error());
+		}
+		echo 'Erfolgreich verbunden';
+		mysqli_close($link);
 
 		
 		//Speichern der Formulareingaben für Benutzername und Passwort in Variablen.
