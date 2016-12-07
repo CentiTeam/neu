@@ -38,7 +38,7 @@ return [
         	'overview' => [
         			'type'    => Segment::class,
         			'options' => [
-        					'route'    => '/application[/:action]',
+        					'route'    => '/overview[/:action]',
         					'defaults' => [
         							'controller' => Controller\OverviewController::class,
         							'action'     => 'overview',
