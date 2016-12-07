@@ -18,7 +18,7 @@ class IndexController extends AbstractActionController
 		if(isset($_SESSION)){
 		echo $_SESSION['rolle'];
 		}
-		else "Rollevariable nicht vergeben!";
+		else echo "Rollenvariable nicht vergeben!";
 		
 		return new ViewModel();
 		
