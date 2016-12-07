@@ -51,7 +51,7 @@ class loginController extends AbstractActionController{
 			$_SESSION['rolle'] = "benutzer";
 			}
 			else{
-			echo "Benutzername oder Passwort falsch!";	
+			echo "Benutzername oder Passwort falsch, oder Benutzerkonto deaktiviert!";	
 			
 			}
 			
