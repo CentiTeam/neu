@@ -12,4 +12,4 @@ class UserController extends AbstractActionController
 	}
 
 
-	
+}	
