@@ -9,7 +9,7 @@ class loginController extends AbstractActionController{
 	public function loginAction(){
 		
 		//Aufbau der Datenbankverbindung (gehört in extraklasse ausgelagert)		
-		$link = mysqli_connect('132.231.36.206', 'root', 'Fup7bytM');
+		$link = mysqli_connect('132.231.36.206', 'root', 'Fup7bytM', 'gpDB');
 		if (!$link) {
 			die('Verbindung schlug fehl: ' . mysqli_error());
 		}
