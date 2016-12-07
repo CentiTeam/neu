@@ -8,7 +8,8 @@ class loginController extends AbstractActionController{
 	
 	public function loginAction(){
 		
-		echo $_POST['uname'];
+		$uname = $_POST['uname'];
+		$psw = $_POST['psw'];
 	
 		return new ViewModel();
 	}
