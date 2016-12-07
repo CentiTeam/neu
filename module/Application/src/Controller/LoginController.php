@@ -49,6 +49,7 @@ class loginController extends AbstractActionController{
 
 			if($row[4] == $pwd){
 			echo "Erfolgreich angemeldet";
+			$_SESSION['rolle'] = "benutzer";
 			}
 			else{
 			echo "Benutzername oder Passwort falsch!";	
