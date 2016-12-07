@@ -18,6 +18,10 @@ class loginController extends AbstractActionController{
 		}
 		else echo "verbunden";
 		
+		
+		$query = "SELECT * FROM User";
+		mysqli_query($con, $query);
+		
 
 		
 		//Speichern der Formulareingaben für Benutzername und Passwort in Variablen.
