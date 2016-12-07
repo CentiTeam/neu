@@ -10,7 +10,7 @@ class loginController extends AbstractActionController{
 		
 		//Speichern der Formulareingaben für Benutzername und Passwort in Variablen.
 		$uname = $_POST['uname'];
-		$psw = $_POST['psw'];
+		$pwd = $_POST['pwd'];
 		
 		//Aufbau der Datenbankverbindung (gehört in extraklasse ausgelagert)		
 		$con = mysqli_connect("localhost","root","Fup7bytM","gpDB");
@@ -35,11 +35,18 @@ class loginController extends AbstractActionController{
 		}
 		//Wenn Werte aus der Datenbank in $result geschrieben wurden, dann wird weitergemacht
 		else{
-			//Abarbeiten des Arrays an Ergebnissen (Zeile für Zeile)
-			while ($row=mysqli_fetch_row($result))
-			{
-				printf ("%s (%s)\n",$row[0],$row[1]);
+			//Holen der ersten (und hier einzigen, da nur ein Benutzername) Zeile des Ergebnisses
+			$row=mysqli_fetch_row($result);
+			
+			//Prüfen, ob das eingegebene Passwort korrekt ist
+			if($row[4] == $pwd){
+			echo "Erfolgreich angemeldet";
 			}
+			else{
+			echo "Benutzername oder Passwort falsch!";	
+			
+			}
+			
 			
 		
 		}
