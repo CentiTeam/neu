@@ -9,7 +9,7 @@ class loginController extends AbstractActionController{
 	public function loginAction(){
 		
 		//Aufbau der Datenbankverbindung (gehört in extraklasse ausgelagert)		
-		$con = mysqli_connect("localhost","root","Fup7bytM","dbGP");
+		$con = mysqli_connect("localhost","root","Fup7bytM","gpDB");
 		
 		// Check connection
 		if (mysqli_connect_errno())
