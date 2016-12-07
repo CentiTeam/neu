@@ -15,7 +15,7 @@ class IndexController extends AbstractActionController
 	public function indexAction()
 	{
 		session_start();
-		if(isset($_SESSION)){
+		if(!$_SESSION==''){
 		echo $_SESSION['rolle'];
 		}
 		else {
