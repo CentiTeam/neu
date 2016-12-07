@@ -29,10 +29,10 @@ return [
                 'options' => [
                     'route'    => '/application[/:action]',
                     'defaults' => [
-                        //'controller' => Controller\IndexController::class,
-                        //'action'     => 'index',
-                    	'controller' => Controller\OverviewController::class,
-                    	'action'     => 'overview',
+                        'controller' => Controller\IndexController::class,
+                        'action'     => 'index',
+                    	//'controller' => Controller\OverviewController::class,
+                    	//'action'     => 'overview',
                     ],
                 ],
             ],
