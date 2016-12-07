@@ -45,7 +45,16 @@ return [
         					],
         			],
         	],
-        		
+        	'login' => [
+        			'type'    => Segment::class,
+        			'options' => [
+        					'route'    => '/login[/:action]',
+        					'defaults' => [
+        							'controller' => Controller\LoginController::class,
+        							'action'     => 'login',
+        					],
+        			],
+        	],
         		
         	'user' => [
         		'type'    => Segment::class,
@@ -73,6 +82,7 @@ return [
             Controller\IndexController::class => InvokableFactory::class,
         	Controller\OverviewController::class => InvokableFactory::class,
         	Controller\UserController::class => InvokableFactory::class,
+        	Controller\LoginController::class => InvokableFactory::class,
         		
         ],
     ],
