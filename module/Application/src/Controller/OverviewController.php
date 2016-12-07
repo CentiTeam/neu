@@ -15,7 +15,7 @@ class overviewController extends AbstractActionController
 	public function overviewAction()
 	{
 
-		//return new ViewModel();
+		return new ViewModel();
 		echo "Hermann";
 	}
 }
