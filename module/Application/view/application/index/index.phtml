@@ -1,5 +1,10 @@
 
-               
+<?php
+session_start();
+if($_SESSION['angemeldet'] == 'ja'){
+	
+
+?>               
                <div class="container">
                <form method='post' action='login'>
     <label><b>Username</b></label>
@@ -14,7 +19,9 @@
   </div>
  <br><br><br><br><br><br><br><br><br><br><br>
  
-
+<?php 
+}
+?>
  
                
           
