@@ -28,7 +28,7 @@ class loginController extends AbstractActionController{
 		{
 			echo "Failed to connect to MySQL: " . mysqli_connect_error();
 		}
-		else echo "verbunden";
+		
 		
 		
 		//Query, um alle Daten des Benutzers, dessen Benutzername eingegeben wurde aus der Datenbank zu holen
