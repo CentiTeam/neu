@@ -91,7 +91,7 @@ return [
         						'route'    => '/hilfe[/:action]',
         						'defaults' => [
         								'controller' => Controller\HilfeController::class,
-        								'action'     => 'hilfe',
+        								'action'     => 'overview',
         						],
         				],
         		],
