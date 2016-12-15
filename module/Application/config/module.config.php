@@ -96,17 +96,7 @@ return [
         				],
         		],
         		
-        		'hilfe' => [
-        				'type'    => Segment::class,
-        				'options' => [
-        						'route'    => '/hilfe[/:action]',
-        						'defaults' => [
-        								'controller' => Controller\HilfeController::class,
-        								'action'     => 'hilfe',
-        						],
-        				],
-        		],
-        		
+        		        		
         ],
     		
     ],
@@ -121,8 +111,7 @@ return [
         	Controller\OverviewController::class => InvokableFactory::class,
         	Controller\UserController::class => InvokableFactory::class,
         	Controller\LoginController::class => InvokableFactory::class,
-         	Controller\HilfeController::class => InvokableFactory::class,
-        	Controller\HelpController::class => InvokableFactory::class,
+           	Controller\HelpController::class => InvokableFactory::class,
         	Controller\HalloController::class => InvokableFactory::class,
         		
 
