@@ -47,6 +47,17 @@ return [
         			],
         	],
         		
+        		'help' => [
+        				'type'    => Segment::class,
+        				'options' => [
+        						'route'    => '/help[/:action]',
+        						'defaults' => [
+        								'controller' => Help\HelpController::class,
+        								'action'     => 'help',
+        						],
+        				],
+        		],
+        		
         	'login' => [
         			'type'    => Segment::class,
         			'options' => [
@@ -100,6 +111,8 @@ return [
         	Controller\UserController::class => InvokableFactory::class,
         	Controller\LoginController::class => InvokableFactory::class,
          	Controller\HilfeController::class => InvokableFactory::class,
+        	Controller\HelpController::class => InvokableFactory::class,
+        		
 
         		
         	
