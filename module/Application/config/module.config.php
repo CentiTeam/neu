@@ -101,6 +101,8 @@ return [
         	Controller\LoginController::class => InvokableFactory::class,
         	Controller\HilfeController::class => InvokableFactory::class,
         		
+        	
+        		
         ],
     ],
     'view_manager' => [
