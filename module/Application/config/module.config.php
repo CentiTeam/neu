@@ -50,7 +50,7 @@ return [
         		'hallo' => [
         				'type'    => Segment::class,
         				'options' => [
-        						'route'    => '/overview[/:action]',
+        						'route'    => '/hallo[/:action]',
         						'defaults' => [
         								'controller' => Controller\HalloController::class,
         								'action'     => 'hallo',
