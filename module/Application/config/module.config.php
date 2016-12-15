@@ -99,7 +99,6 @@ return [
         	Controller\OverviewController::class => InvokableFactory::class,
         	Controller\UserController::class => InvokableFactory::class,
         	Controller\LoginController::class => InvokableFactory::class,
-        	
         		
         	
         		
