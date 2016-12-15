@@ -10,7 +10,7 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
-class hilfeController extends AbstractActionController
+class HilfeController extends AbstractActionController
 {
 	public function hilfeAction()
 	{
