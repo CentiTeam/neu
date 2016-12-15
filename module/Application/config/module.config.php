@@ -47,7 +47,7 @@ return [
         			],
         	],
         		
-        		'hallo => [
+        		'hallo' => [
         				'type'    => Segment::class,
         				'options' => [
         						'route'    => '/overview[/:action]',
@@ -63,7 +63,7 @@ return [
         				'options' => [
         						'route'    => '/help[/:action]',
         						'defaults' => [
-        								'controller' => Help\HelpController::class,
+        								'controller' => Controller\HelpController::class,
         								'action'     => 'help',
         						],
         				],
