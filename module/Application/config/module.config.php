@@ -47,6 +47,17 @@ return [
         			],
         	],
         		
+        		'hallo => [
+        				'type'    => Segment::class,
+        				'options' => [
+        						'route'    => '/overview[/:action]',
+        						'defaults' => [
+        								'controller' => Controller\HalloController::class,
+        								'action'     => 'hallo',
+        						],
+        				],
+        		],
+        		
         		'help' => [
         				'type'    => Segment::class,
         				'options' => [
@@ -112,6 +123,7 @@ return [
         	Controller\LoginController::class => InvokableFactory::class,
          	Controller\HilfeController::class => InvokableFactory::class,
         	Controller\HelpController::class => InvokableFactory::class,
+        	Controller\HalloController::class => InvokableFactory::class,
         		
 
         		
