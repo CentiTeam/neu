@@ -10,9 +10,9 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
-class overviewController extends AbstractActionController
+class HilfeController extends AbstractActionController
 {
-	public function overviewAction()
+	public function HilfeAction()
 	{
 
 		return new ViewModel();
