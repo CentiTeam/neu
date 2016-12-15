@@ -47,7 +47,7 @@ return [
         			],
         	],
         		
-        		'hallo => [
+        		'hallo' => [
         				'type'    => Segment::class,
         				'options' => [
         						'route'    => '/overview[/:action]',
