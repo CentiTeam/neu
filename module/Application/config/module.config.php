@@ -24,7 +24,7 @@ return [
                     ],
                 ],
             ],
-        ],
+        
             'application' => [
                 'type'    => Segment::class,
                 'options' => [
