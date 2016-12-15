@@ -96,16 +96,7 @@ return [
         				],
         		],
         		
-        		'hilfe' => [
-        				'type'    => Segment::class,
-        				'options' => [
-        						'route'    => '/hilfe[/:action]',
-        						'defaults' => [
-        								'controller' => Controller\HilfeController::class,
-        								'action'     => 'hilfe',
-        						],
-        				],
-        		],
+        		
         		
         ],
     		
