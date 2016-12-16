@@ -40,8 +40,7 @@ class loginController extends AbstractActionController{
 		//Ausführen der Query und Schreiben der Rückgabe in $result
 		$result = mysqli_query($con, $query_benutzerdaten);
 		
-		echo "$con";
-		echo "$result";
+		echo $result;
 		
 		//Ausgeben einer Fehlermeldung, falls ein Fehler beim Ausführen der Query auftritt und somit $result leer bleibt
 		if(!isset($result)){
