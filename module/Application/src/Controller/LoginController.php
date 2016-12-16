@@ -7,6 +7,7 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Model\DB_connection;
+use Application\Model\User;
 
 
 class loginController extends AbstractActionController{
@@ -15,7 +16,6 @@ class loginController extends AbstractActionController{
 		//Starten einer Session
 		session_start();
 		$_SESSION['uname'] = $_POST['uname'];
-		
 		//Speichern der Formulareingaben f�r Benutzername und Passwort in Variablen.
 		$uname = $_POST['uname'];
 		$pwd = $_POST['pwd'];
@@ -44,6 +44,16 @@ class loginController extends AbstractActionController{
 		
 		$result= $db->execute($query_benutzerdaten);
 		
+		/** Zweiter Ansatz, in else muss etwas verändert werden
+		 * 
+		if(!isset($result)){
+			echo "Fehler beim Holen der Daten aus der Datenbank";
+		}
+		else {
+			$user = User::getInstance();
+		}
+		*/
+		
 		//Ausgeben einer Fehlermeldung, falls ein Fehler beim Ausf�hren der Query auftritt und somit $result leer bleibt
 		if(!isset($result)){
 			echo "Fehler beim Holen der Daten aus der Datenbank";	
@@ -61,7 +71,6 @@ class loginController extends AbstractActionController{
 			}
 			else{
 			echo "Benutzername oder Passwort falsch, oder Benutzerkonto deaktiviert!";	
-			return new ViewModel();
 			}
 			
 		}
@@ -77,9 +86,9 @@ class loginController extends AbstractActionController{
 		}
 		
 	
-
-	
-		return new ViewModel();
+		return new ViewModel([
+				'user' => array ($user)
+		]);
 	}
 	/**
 	public function logoutAction() {

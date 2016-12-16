@@ -2,6 +2,7 @@
 namespace Application\Model;
 
 use Zend\Mvc\Controller\AbstractActionController;
+use Application\Model\DB_connection;
 
 class User
 {
@@ -13,6 +14,29 @@ class User
 	public $email;
 	public $deaktiviert;
 	public $systemadmin;
+	
+
+	/** Singleton-Instanz der Klasse */
+	private static $instance;
+	
+	
+	/**
+	 * Die Singleton-Instanz der Klasse ist der aktuelle Benutzer der Seite
+	 *
+	 * @return Singleton-Instanz
+	 */
+	/**
+	public static function getInstance() {
+	
+		// Pr�ft ob die Instanz bereits erstellt wurde
+		if (!isset(self::$instance)) {
+			// da noch keine Instanz vorhanden ist, wird eine Neue erstellt und gespeichert
+			self::$instance = new User();
+		}
+	
+		return self::$instance;
+	}
+	*/
 	
 /**
 	public function logout() {
