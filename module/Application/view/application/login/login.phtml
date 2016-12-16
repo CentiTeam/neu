@@ -1,16 +1,18 @@
-<?php
-session_start();
-if($_SESSION['angemeldet'] == 'ja'){
 
-echo "Hallo ";
-		echo $_SESSION['uname'];
-		echo "! ";
-		echo "Sie wurden erfolgreich eingeloggt!";
-		
-}
+               <div class="container">
+               <form method='post' action='login'>
+    <label><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required>
 
+    <label><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="pwd" required>
 
-?>
+    <button type="submit">  Login</button>
+    <input type="checkbox" checked="checked"> Remember me
+    </form>
+  </div>
+ <br><br><br><br><br><br><br><br><br><br><br><br><br>
+ 
 	
 
 
