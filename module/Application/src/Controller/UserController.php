@@ -1,7 +1,5 @@
 <?php
 
-
-
 namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
@@ -31,7 +29,7 @@ class UserController extends AbstractActionController{
 			}
 
 			*/
-
+		
 		$db = new DB_connection;
 
 		//Query, um alle Daten des Benutzers, dessen Benutzername eingegeben wurde aus der Datenbank zu holen
