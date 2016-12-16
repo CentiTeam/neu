@@ -43,6 +43,9 @@ return [
         						'defaults' => [
         								'controller' => Controller\AnmeldenController::class,
         								'action'     => 'anmelden',
+        			],
+        		],
+        	],
         		
         	'overview' => [
         			'type'    => Segment::class,
