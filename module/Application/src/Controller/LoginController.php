@@ -6,7 +6,7 @@ namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-
+use Application\Model\DB_connection;
 
 
 class loginController extends AbstractActionController{
@@ -20,6 +20,7 @@ class loginController extends AbstractActionController{
 		$uname = $_POST['uname'];
 		$pwd = $_POST['pwd'];
 		
+		/**
 		//Aufbau der Datenbankverbindung (gehört in extraklasse ausgelagert)		
 		$con = mysqli_connect("localhost","root","Fup7bytM","gpDB");
 		
@@ -29,7 +30,9 @@ class loginController extends AbstractActionController{
 			echo "Failed to connect to MySQL: " . mysqli_connect_error();
 		}
 		
+		*/
 		
+		$con = new DB_connection;
 		
 		//Query, um alle Daten des Benutzers, dessen Benutzername eingegeben wurde aus der Datenbank zu holen
 		$query_benutzerdaten = "SELECT * FROM User WHERE username = '".$uname."';";
