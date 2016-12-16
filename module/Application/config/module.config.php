@@ -36,6 +36,17 @@ return [
                 ],
             ],
         		
+        		'anmelden' => [
+        				'type'    => Segment::class,
+        				'options' => [
+        						'route'    => '/anmelden[/:action]',
+        						'defaults' => [
+        								'controller' => Controller\AnmeldenController::class,
+        								'action'     => 'anmelden',
+        			],
+        		],
+        	],
+        		
         	'overview' => [
         			'type'    => Segment::class,
         			'options' => [
@@ -113,6 +124,8 @@ return [
         	Controller\LoginController::class => InvokableFactory::class,
            	Controller\HelpController::class => InvokableFactory::class,
         	Controller\HalloController::class => InvokableFactory::class,
+        	Controller\AnmeldenController::class => InvokableFactory::class,
+        		
         		
 
         		
