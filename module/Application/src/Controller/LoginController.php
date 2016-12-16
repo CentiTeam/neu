@@ -16,12 +16,12 @@ class loginController extends AbstractActionController{
 		session_start();
 		$_SESSION['uname'] = $_POST['uname'];
 		
-		//Speichern der Formulareingaben für Benutzername und Passwort in Variablen.
+		//Speichern der Formulareingaben fï¿½r Benutzername und Passwort in Variablen.
 		$uname = $_POST['uname'];
 		$pwd = $_POST['pwd'];
 		
 		/**
-		//Aufbau der Datenbankverbindung (gehört in extraklasse ausgelagert)		
+		//Aufbau der Datenbankverbindung (gehï¿½rt in extraklasse ausgelagert)		
 		$con = mysqli_connect("localhost","root","Fup7bytM","gpDB");
 		
 		// Check connection
@@ -32,15 +32,19 @@ class loginController extends AbstractActionController{
 		
 		*/
 		
-		$con = new DB_connection;
+		$db = new DB_connection;
 		
 		//Query, um alle Daten des Benutzers, dessen Benutzername eingegeben wurde aus der Datenbank zu holen
 		$query_benutzerdaten = "SELECT * FROM User WHERE username = '".$uname."';";
 		
-		//Ausführen der Query und Schreiben der Rückgabe in $result
+		/**
+		//Ausfï¿½hren der Query und Schreiben der Rï¿½ckgabe in $result
 		$result = mysqli_query($con, $query_benutzerdaten);
+		*/
 		
-		//Ausgeben einer Fehlermeldung, falls ein Fehler beim Ausführen der Query auftritt und somit $result leer bleibt
+		$result= $db->execute($query_benutzerdaten);
+		
+		//Ausgeben einer Fehlermeldung, falls ein Fehler beim Ausfï¿½hren der Query auftritt und somit $result leer bleibt
 		if(!isset($result)){
 			echo "Fehler beim Holen der Daten aus der Datenbank";	
 		}
@@ -49,7 +53,7 @@ class loginController extends AbstractActionController{
 			//Holen der ersten (und hier einzigen, da nur ein Benutzername) Zeile des Ergebnisses
 			$row=mysqli_fetch_row($result);
 			
-			//Prüfen, ob das eingegebene Passwort korrekt ist und der Benutzer aktiviert ist
+			//Prï¿½fen, ob das eingegebene Passwort korrekt ist und der Benutzer aktiviert ist
 			if($row[4] == $pwd && $row[6]==0){
 			echo "Erfolgreich angemeldet";
 			//Wenn man angemeldet ist, so wird dies in der Sessionvariable "angemeldet" gespeichert.
@@ -62,7 +66,7 @@ class loginController extends AbstractActionController{
 			
 		}
 		
-		//Wenn der Benutzer angmeldet ist, so wird überprüft, ob er ein Admin ist
+		//Wenn der Benutzer angmeldet ist, so wird ï¿½berprï¿½ft, ob er ein Admin ist
 		if($_SESSION['angemeldet'] == 'ja'){
 			if($row[7]==1){
 				$_SESSION['admin'] = 'ja';
