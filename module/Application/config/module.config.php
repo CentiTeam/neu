@@ -121,6 +121,8 @@ return [
         	Controller\LoginController::class => InvokableFactory::class,
            	Controller\HelpController::class => InvokableFactory::class,
         	Controller\HalloController::class => InvokableFactory::class,
+        	Controller\AnmeldenController::class => InvokableFactory::class,
+        		
         		
 
         		
