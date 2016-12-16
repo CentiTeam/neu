@@ -36,7 +36,7 @@ return [
                 ],
             ],
         		
-        		'application' => [
+        		'anmelden' => [
         				'type'    => Segment::class,
         				'options' => [
         						'route'    => '/anmelden[/:action]',
