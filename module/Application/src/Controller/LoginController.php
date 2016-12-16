@@ -20,7 +20,7 @@ class loginController extends AbstractActionController{
 		$uname = $_POST['uname'];
 		$pwd = $_POST['pwd'];
 		
-		/**
+		/** kann weg
 		//Aufbau der Datenbankverbindung (geh�rt in extraklasse ausgelagert)		
 		$con = mysqli_connect("localhost","root","Fup7bytM","gpDB");
 		
@@ -37,7 +37,7 @@ class loginController extends AbstractActionController{
 		//Query, um alle Daten des Benutzers, dessen Benutzername eingegeben wurde aus der Datenbank zu holen
 		$query_benutzerdaten = "SELECT * FROM User WHERE username = '".$uname."';";
 		
-		/**
+		/** kann weg
 		//Ausf�hren der Query und Schreiben der R�ckgabe in $result
 		$result = mysqli_query($con, $query_benutzerdaten);
 		*/
