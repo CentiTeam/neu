@@ -74,4 +74,12 @@ class loginController extends AbstractActionController{
 	
 		return new ViewModel();
 	}
+	/**
+	public function logoutAction() {
+		if ($_SESSION['angemeldet'] == "ja") {
+			$user->logout();
+			return "Erfolgreich abgemeldet!";
+		}
+	}
+	*/
 }
