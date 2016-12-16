@@ -36,6 +36,14 @@ return [
                 ],
             ],
         		
+        		'application' => [
+        				'type'    => Segment::class,
+        				'options' => [
+        						'route'    => '/anmelden[/:action]',
+        						'defaults' => [
+        								'controller' => Controller\AnmeldenController::class,
+        								'action'     => 'anmelden',
+        		
         	'overview' => [
         			'type'    => Segment::class,
         			'options' => [
