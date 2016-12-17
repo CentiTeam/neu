@@ -2,7 +2,7 @@
 namespace Application\Model;
 
 
-use Application\Model\Db_connection;
+use Application\Model\DB_connection;
 
 class gruppe {
 	private $g_id;
