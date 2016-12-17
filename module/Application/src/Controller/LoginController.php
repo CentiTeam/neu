@@ -87,7 +87,7 @@ class loginController extends AbstractActionController{
 		
 	
 		return new ViewModel([
-				'user' => array ($user)
+				// 'user' => array ($user)
 		]);
 	} 
 	
