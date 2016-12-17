@@ -7,6 +7,7 @@ use Zend\View\Model\ViewModel;
 use Application\Model\Gruppe;
 use Zend\View\Renderer\PhpRenderer;
 use Application\Controller\Resolver\TemplateMapResolver;
+use Zend\View\Resolver;
 
  
  
