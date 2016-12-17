@@ -29,6 +29,8 @@ class GruppeController extends AbstractActionController {
             
         	$errorStr = $this->allgGruppeInfosVerarbeiten ($gruppe);
         	
+        	var_dump($gruppe->gruppenname);
+        	
         	if ($errorStr == "" && $gruppe->anlegen()) {
         		
         		array_push($msg, "Gruppe erfolgreich gespeichert!"); 
