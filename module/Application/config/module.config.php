@@ -58,7 +58,7 @@ return [
         			],
         	],
         		
-        		'gruppeanlegen' => [
+        		'gruppe' => [
         				'type'    => Segment::class,
         				'options' => [
         						'route'    => '/hallo[/:action]',
