@@ -36,7 +36,7 @@ return [
                 ],
             ],
         		
-        		'anmelden' => [
+        		/**'anmelden' => [
         				'type'    => Segment::class,
         				'options' => [
         						'route'    => '/anmelden[/:action]',
@@ -45,7 +45,7 @@ return [
         								'action'     => 'anmelden',
         			],
         		],
-        	],
+        	],*/
         		
         	'overview' => [
         			'type'    => Segment::class,
