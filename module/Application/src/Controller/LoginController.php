@@ -88,9 +88,9 @@ class loginController extends AbstractActionController{
 		$viewModel = new ViewModel();
 		
 		if ($_REQUEST["absenden"]) {
-			$viewModel = setTemplate('angemeldet');
+			$viewModel->setTemplate('angemeldet');
 		} else {
-			$viewModel = setTemplate('login');
+			$viewModel->setTemplate('login');
 		}
 		
 		return $viewModel;
