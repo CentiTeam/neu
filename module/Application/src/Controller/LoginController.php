@@ -85,6 +85,7 @@ class loginController extends AbstractActionController{
 			}
 		}
 		
+		/**
 		$viewModel = new ViewModel();
 		
 		if ($_REQUEST["absenden"]) {
@@ -94,8 +95,9 @@ class loginController extends AbstractActionController{
 		}
 		
 		return $viewModel;
+		*/ 
 		
-		// return new ViewModel();
+		return new ViewModel();
 	} 
 	
 															/**
