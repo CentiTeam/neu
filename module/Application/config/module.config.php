@@ -61,7 +61,7 @@ return [
         		'anlegen' => [
         				'type'    => Segment::class,
         				'options' => [
-        						'route'    => '/gruppe[/:action]',
+        						'route'    => '/GruppeAnlegen',
         						'defaults' => [
         								'controller' => Controller\GruppeController::class,
         								'action'     => 'anlegen',
