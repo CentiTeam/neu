@@ -91,7 +91,8 @@ class GruppeController extends AbstractActionController {
     		$errorStr .="Der Gruppenname darf nicht leer sein!<br>";
     	}
     	 var_dump["$gruppenname"];
-    	
+    	 die("Test");
+    	 
     	// Gruppe-Objekt mit Daten aus Request-Array füllen
     	$gruppe->setGruppenname($gruppenname);
     	$gruppe->setGruppenbeschreibung($gruppenbeschreibung);
