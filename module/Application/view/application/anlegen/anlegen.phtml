@@ -8,9 +8,9 @@
 
 <form method="POST">	
 	<table>
-		<tr><td>Gruppenname</td><td><input type="text" name="gruppenname" required value="<?=$gruppe->getGruppenname()?>" ></td></tr>
-		<tr><td>Beschreibung</td><td><input type="text" name="gruppenbeschreibung" value="<?=$gruppe->getGruppenbeschreibung()  ?>" ></td></tr>
-		<tr><td>Gruppenbildpfad </td><td><input type="text" name="gruppenbildpfad" value="<?=$gruppe->getGruppenbildpfad()?>"></td></tr>
+		<tr><td>Gruppenname</td><td><input type="text" name="gruppenname" required value="<?=$gruppe[0]->getGruppenname()?>" ></td></tr>
+		<tr><td>Beschreibung</td><td><input type="text" name="gruppenbeschreibung" value="<?=$gruppe[0]->getGruppenbeschreibung()  ?>" ></td></tr>
+		<tr><td>Gruppenbildpfad </td><td><input type="text" name="gruppenbildpfad" value="<?=$gruppe[0]->getGruppenbildpfad()?>"></td></tr>
 	</table>
 
 	<input type="hidden" name="g_id" readonly="readonly" value="<?=!is_null ($gruppe->getG_id()) ? $gruppe->getG_id():"<automatisch>"?>">
