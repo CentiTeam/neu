@@ -61,7 +61,7 @@ return [
         		'gruppe' => [
         				'type'    => Segment::class,
         				'options' => [
-        						'route'    => '/hallo[/:action]',
+        						'route'    => '/gruppe[/:action]',
         						'defaults' => [
         								'controller' => Controller\GruppeController::class,
         								'action'     => 'anlegen',
