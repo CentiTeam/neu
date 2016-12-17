@@ -10,6 +10,13 @@ use Application\Model\User;
 
 class UserController extends AbstractActionController{
 
+	public function indexAction()
+	{
+	
+	
+		return new ViewModel();
+	}
+	
 	public function loginAction(){
 		//Starten einer Session
 		session_start();
