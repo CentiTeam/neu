@@ -27,6 +27,9 @@ class gruppe {
 
 		$result = $db->execute($query);
 		
+		var_dump($this->gruppenname);
+		
+		
 		// GENAUE SYNTAX FEHLT!!
 		$isOK = mysqli_affected_rows ($result) > 0;
 		
