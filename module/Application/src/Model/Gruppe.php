@@ -6,7 +6,7 @@ use Application\Model\DB_connection;
 
 class gruppe {
 	private $g_id;
-	private $gruppenname;
+	public $gruppenname;
 	private $gruppenbeschreibung;
 	private $gruppenbildpfad;
 	
