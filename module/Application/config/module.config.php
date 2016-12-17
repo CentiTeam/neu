@@ -64,7 +64,7 @@ return [
         						'route'    => '/gruppe[/:action]',
         						'defaults' => [
         								'controller' => Controller\GruppeController::class,
-        								'action'     => 'anlegen',
+        								'action'     => 'GruppeAnlegen',
         						],
         				],
         		],
