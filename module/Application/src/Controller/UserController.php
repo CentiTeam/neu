@@ -64,6 +64,7 @@ class UserController extends AbstractActionController{
 			//Pr�fen, ob das eingegebene Passwort korrekt ist und der Benutzer aktiviert ist
 			if($row[4] == $pwd && $row[6]==0){
 				echo "Erfolgreich angemeldet_USerController";
+				die();
 				//Wenn man angemeldet ist, so wird dies in der Sessionvariable "angemeldet" gespeichert.
 				$_SESSION['angemeldet'] = "ja";
 			}
