@@ -102,7 +102,7 @@ return [
         						],
         				'defaults' => [
         				    'controller' => Controller\UserController::class,
-        					 'action'     => 'anmelden',
+        					 'action'     => 'index',
         						],
         				],
         		],
