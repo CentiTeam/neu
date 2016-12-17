@@ -1,7 +1,7 @@
 <?php
 namespace Application\Model;
 
-// MUSS NOCH AUSGELAGERT WERDEN!
+
 use Application\Model\Db_connection;
 
 class gruppe {
@@ -78,7 +78,6 @@ class gruppe {
 	public function setGruppenbildpfad() {
 		$this->gruppenbildpfad= $gruppenbildpfad;
 	}
-	
 	
 	
 }
