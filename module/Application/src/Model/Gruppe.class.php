@@ -25,4 +25,8 @@ class gruppe {
 	public function loeschen () {
 		
 	}
+	
+	public function listeHolen() {
+		
+	}
 }
