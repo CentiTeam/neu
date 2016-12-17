@@ -32,7 +32,7 @@ class GruppeController extends AbstractActionController {
         	
         	
         	if ($errorStr == "" && $gruppe->anlegen()) {
-        		var_dump($gruppe->gruppenname);
+        		
         		array_push($msg, "Gruppe erfolgreich gespeichert!"); 
         		$saved = true;
         	
@@ -46,6 +46,8 @@ class GruppeController extends AbstractActionController {
         		array_push($msg, "Fehler bei der Datenprüfung. Gruppe nicht gespeichert!");
         		$saved = false;
         		
+        		var_dump($gruppe->gruppenname);
+        		die ("Test");
         	}
         	
         	var_dump($gruppe);
