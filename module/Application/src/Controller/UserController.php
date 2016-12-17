@@ -18,6 +18,8 @@ class UserController extends AbstractActionController{
 	
 	public function loginAction(){
 		//Starten einer Session
+		
+		
 		session_start();
 		$_SESSION['uname'] = $_POST['uname'];
 		//Speichern der Formulareingaben f�r Benutzername und Passwort in Variablen.
@@ -58,6 +60,7 @@ class UserController extends AbstractActionController{
 			}
 			*/
 
+		
 		//Ausgeben einer Fehlermeldung, falls ein Fehler beim Ausf�hren der Query auftritt und somit $result leer bleibt
 		if(!isset($result)){
 			echo "Fehler beim Holen der Daten aus der Datenbank";
@@ -89,10 +92,17 @@ class UserController extends AbstractActionController{
 			}
 		}
 
+		/**
+		if($user->login($uname, $pwd)) {
+			return new ViewModel([
+					'user' => array ($user)
+			]);
+		}
 
 		return new ViewModel([
-				'user' => array ($user)
+				
 		]);
+		*/
 	}
 	/**
 	 public function logoutAction() {

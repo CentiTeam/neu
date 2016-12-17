@@ -15,6 +15,8 @@ class User
 	public $deaktiviert;
 	public $systemadmin;
 	
+	private $isloggedin;
+	
 
 	/** Singleton-Instanz der Klasse */
 	private static $instance;
@@ -37,6 +39,54 @@ class User
 		return self::$instance;
 	}
 	*/
+	
+	
+	public function login($username, $passwort) {
+		
+		$db = new DB_connection;
+		
+		//Query, um alle Daten des Benutzers, dessen Benutzername eingegeben wurde aus der Datenbank zu holen
+		$query_benutzerdaten = "SELECT * FROM User WHERE username = '".$username."' AND passwort = '".$passwort."';";
+		
+		$result= $db->execute($query_benutzerdaten);
+		
+		$this->isloggedin = false;
+		
+		//Ausgeben einer Fehlermeldung, falls ein Fehler beim Ausfï¿½hren der Query auftritt und somit $result leer bleibt
+		if(!isset($result)){
+			echo "Fehler beim Holen der Daten aus der Datenbank";
+		}
+		//Wenn Werte aus der Datenbank in $result geschrieben wurden, dann wird weitergemacht
+		else{
+			//Holen der ersten (und hier einzigen, da nur ein Benutzername) Zeile des Ergebnisses
+			$row=mysqli_fetch_row($result);
+		
+			//Prï¿½fen, ob das eingegebene Passwort korrekt ist und der Benutzer aktiviert ist
+			if($row[passwort] == $passwort && $row[deaktiviert]==0){
+				echo "Erfolgreich angemeldet_USerController";
+				//Wenn man angemeldet ist, so wird dies in der Sessionvariable "angemeldet" gespeichert.
+				$_SESSION['angemeldet'] = "ja";
+				
+				$this->u_id = $row[u_id];
+				$this->username = $row[username];
+				$this->vorname = $row[vorname];
+				$this->nachname = $row[nachname];
+				$this->passwort = $row[passwort];
+				$this->email = $row[email];
+				$this->deaktiviert = $row[deaktiviert];
+				$this->systemadmin = $row[systemadmin];
+				
+				$this->isloggedin = true;
+			}
+			else{
+				echo "Benutzername oder Passwort falsch, oder Benutzerkonto deaktiviert!";
+			}
+		
+		}
+		
+		return $this->isloggedin;
+		
+	}
 	
 /**
 	public function logout() {
