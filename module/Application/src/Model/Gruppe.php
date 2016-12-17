@@ -27,7 +27,7 @@ class gruppe {
 
 		$result = $db->execute($query);
 		
-		var_dump($this->gruppenname);
+		// var_dump($this->gruppenname);
 		
 		
 		// GENAUE SYNTAX FEHLT!!
