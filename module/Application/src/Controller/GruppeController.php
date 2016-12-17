@@ -41,8 +41,6 @@ class GruppeController extends AbstractActionController {
             	
         } 
         
-        $this->viewData["gruppe"]=$gruppe;
-        return $this->renderView ('anlegen');
         
         $viewModel = new ViewModel ();
         $viewModel->setTemplate ('anlegen');
