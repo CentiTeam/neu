@@ -1,5 +1,5 @@
  <?php
-/**
+
 
 
 namespace Application\Controller;
@@ -19,7 +19,7 @@ class loginController extends AbstractActionController{
 		//Speichern der Formulareingaben f�r Benutzername und Passwort in Variablen.
 		$uname = $_POST['uname'];
 		$pwd = $_POST['pwd'];
-*/		
+		
 															/** kann weg
 															//Aufbau der Datenbankverbindung (geh�rt in extraklasse ausgelagert)		
 															$con = mysqli_connect("localhost","root","Fup7bytM","gpDB");
@@ -32,17 +32,17 @@ class loginController extends AbstractActionController{
 		
 															*/
 		
-/**		$db = new DB_connection;
+		$db = new DB_connection;
 		
 		//Query, um alle Daten des Benutzers, dessen Benutzername eingegeben wurde aus der Datenbank zu holen
 		$query_benutzerdaten = "SELECT * FROM User WHERE username = '".$uname."';";
-*/		
+		
 															/** kann weg
 															//Ausf�hren der Query und Schreiben der R�ckgabe in $result
 															$result = mysqli_query($con, $query_benutzerdaten);
 															*/
 		
-//		$result= $db->execute($query_benutzerdaten);
+		$result= $db->execute($query_benutzerdaten);
 		
 															/** Zweiter Ansatz, in else muss etwas verändert werden
 															 * 
@@ -55,7 +55,7 @@ class loginController extends AbstractActionController{
 															*/
 		
 		//Ausgeben einer Fehlermeldung, falls ein Fehler beim Ausf�hren der Query auftritt und somit $result leer bleibt
-/**		if(!isset($result)){
+	if(!isset($result)){
 			echo "Fehler beim Holen der Daten aus der Datenbank";	
 		}
 		//Wenn Werte aus der Datenbank in $result geschrieben wurden, dann wird weitergemacht
@@ -90,7 +90,7 @@ class loginController extends AbstractActionController{
 				'user' => array ($user)
 		]);
 	} 
-*/
+	
 															/**
 															public function logoutAction() {
 															if ($_SESSION['angemeldet'] == "ja") {
@@ -99,4 +99,4 @@ class loginController extends AbstractActionController{
 															}
 															}
 															*/
-//}
+}
