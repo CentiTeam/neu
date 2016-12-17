@@ -59,9 +59,10 @@ return [
         	],
         		
         		'anlegen' => [
+        				die("TEst"),
         				'type'    => Segment::class,
         				'options' => [
-        						'route'    => '/GruppeAnlegen',
+        						'route'    => '/gruppe[/:action]',
         						'defaults' => [
         								'controller' => Controller\GruppeController::class,
         								'action'     => 'anlegen',
