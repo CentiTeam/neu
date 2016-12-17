@@ -95,9 +95,9 @@ class GruppeController extends AbstractActionController {
     	
     	 
     	// Gruppe-Objekt mit Daten aus Request-Array füllen
-    	$gruppe[gruppenname]->setGruppenname($gruppenname);
-    	$gruppe[gruppenbeschreibung]->setGruppenbeschreibung($gruppenbeschreibung);
-    	$gruppe[gruppenbildpfad]->setGruppenbildpfad($gruppenbildpfad);
+    	$gruppe->setGruppenname($gruppenname);
+    	$gruppe->setGruppenbeschreibung($gruppenbeschreibung);
+    	$gruppe->setGruppenbildpfad($gruppenbildpfad);
     	
     	
     	
