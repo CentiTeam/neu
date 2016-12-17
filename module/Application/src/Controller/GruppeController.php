@@ -33,10 +33,12 @@ class GruppeController extends AbstractActionController {
             $gruppe->setGruppenbeschreibung($_REQUEST["gruppenbeschreibung"]);
             $gruppe->setGruppenbildpfad($_REQUEST["gruppenbildpfad"]);
             
+            var_dump("$gruppe");
+            
             // Funktion der Klasse 
             $isOk = $gruppe->anlegen();
             
-            var_dump($_REQUEST["gruppenname"]);
+          
             
             if (!$isOk) {
             	array_push($errors, "Fehler beim anlegen der Gruppe!");
