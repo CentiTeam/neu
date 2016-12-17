@@ -145,7 +145,7 @@ return [
             'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
         	'application/overview/overview' => __DIR__ . '/../view/application/overview/overview.phtml',
         	'application/hilfe/hilfe' => __DIR__ . '/../view/application/hilfe/hilfe.phtml',
-        	'application/GruppeAnlegen/GruppeAnlegen' => __DIR__ . '/../view/application/GruppeAnlegen/GruppeAnlegen.phtml',
+        	'application/anlegen/anlegen' => __DIR__ . '/../view/application/anlegen/anlegen.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ],

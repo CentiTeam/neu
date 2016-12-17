@@ -40,12 +40,6 @@ class GruppeController extends AbstractActionController {
             }
             	
         } 
-         
-        $view = new ViewModel(array(
-        		'message' => 'Hello world',
-        ));
-        $view->setTemplate('Application/Gruppe/anlegen');
-        return $view;
         
         
         return new ViewModel([
