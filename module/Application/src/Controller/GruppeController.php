@@ -44,7 +44,7 @@ class GruppeController extends AbstractActionController {
             	
         } 
         
-        
+        /**
         $renderer = new PhpRenderer();
         
         $map = new Resolver\TemplateMapResolver(array(
@@ -56,13 +56,14 @@ class GruppeController extends AbstractActionController {
         
         $viewModel = new ViewModel ();
         $viewModel->setTemplate ('anlegen');
-        return $viewModel;
+        return new $viewModel;
+        */
         
-   		/**     
+   		     
         return new ViewModel([
                 'gruppe' => array($gruppe),
                 'errors'   => $errors
         ]);
-        */
+        
     }
 }
