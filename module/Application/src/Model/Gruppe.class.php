@@ -19,6 +19,10 @@ class gruppe {
 	}
 	
 	public function anlegen () {
-		$
+		
+	}
+	
+	public function loeschen () {
+		
 	}
 }
