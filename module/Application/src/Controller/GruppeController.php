@@ -20,23 +20,41 @@ class GruppeController extends AbstractActionController {
         // TODO Berechtigungsprüfung
                  
         $gruppe = new Gruppe();       
-         
+        
+        $saved= false;
+        $msg = array();
+        
         if ($_REQUEST['speichern']) {
             // Array, das eventuelle Fehlermeldungen enthält
             
-        	$saved= false;
+        	$errorStr = $this->allgGruppeInfosVerarbeiten ($gruppe);
+        	
+        	if ($errorStr == "" && $gruppe->anlegen()) {
+        		
+        		array_push($msg, "Gruppe erfolgreich gespeichert!"); 
+        		$saved = true;
+        	
+        	} elseif ($errorStr == "") {
+        		
+        		array_push($msg, "Datenprüfung in Ordnung, Fehler beim Speichern der Gruppe!");
+        		$saved = false;
+        	
+        	} else {
+        		
+        		array_push($msg, "Fehler bei der Datenprüfung. Gruppe nicht gespeichert!");
+        		$saved = false;
+        		
+        	}
+        	
+        	
         	
         	$errors = array();
              
-            // Pruefung-Objekt mit Daten aus Request-Array füllen
-            $gruppe->setGruppenname($_REQUEST["gruppenname"]);
-            $gruppe->setGruppenbeschreibung($_REQUEST["gruppenbeschreibung"]);
-            $gruppe->setGruppenbildpfad($_REQUEST["gruppenbildpfad"]);
-            
-            
+        
+            var_dump($gruppe);
             
             // Funktion der Klasse 
-            $isOk = $gruppe->anlegen();
+            //$isOk = $gruppe->anlegen();
             
             var_dump($gruppe);
             
@@ -51,8 +69,34 @@ class GruppeController extends AbstractActionController {
    		     
         return new ViewModel([
                 'gruppe' => array($gruppe),
-                'errors'   => $errors
+                'errors'   => $errors,
+        		'msg' => $msg
         ]);
         
+    }
+    
+    private function allgGruppeInfosVerarbeiten (Gruppe $gruppe) {
+    	
+    	// Schritt 1:  Werte aus Formular einlesen
+    	$g_id=$_REQUEST["g_id"];
+    	$gruppenname=$_REQUEST["gruppenname"];
+    	$gruppenbeschreibung=$_REQUEST["gruppenbeschreibung"];
+    	$gruppenbildpfad=$_REQUEST["gruppenbildpfad"];
+    	
+    	
+    	// Schritt 2: Daten prüfen
+    	$errorStr ="";
+    	
+    	if (empty($gruppenname)) {
+    		$errorStr .="Der Gruppenname darf nicht leer sein!<br>";
+    	}
+    	
+    	
+    	// Gruppe-Objekt mit Daten aus Request-Array füllen
+    	$gruppe->setGruppenname($gruppenname);
+    	$gruppe->setGruppenbeschreibung($gruppenbeschreibung);
+    	$gruppe->setGruppenbildpfad($gruppenbildpfad);
+    	
+    	return $errorStr; 
     }
 }
