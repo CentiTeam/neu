@@ -59,7 +59,6 @@ return [
         	],
         		
         		'anlegen' => [
-        				die("TEst"),
         				'type'    => Segment::class,
         				'options' => [
         						'route'    => '/gruppe[/:action]',
