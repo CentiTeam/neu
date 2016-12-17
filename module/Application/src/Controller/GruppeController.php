@@ -42,6 +42,15 @@ class GruppeController extends AbstractActionController {
         } 
         
         
+        $renderer = new PhpRenderer();
+        
+        $map = new Resolver\TemplateMapResolver(array(
+        		'anlegen' => __DIR__ . '/anlegen.phtml',
+        ));
+        
+        $resolver = new Resolver\TemplateMapResolver($map);
+        $renderer->setResolver($resolver);
+        
         $viewModel = new ViewModel ();
         $viewModel->setTemplate ('anlegen');
         return $viewModel;
