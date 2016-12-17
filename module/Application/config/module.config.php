@@ -58,13 +58,13 @@ return [
         			],
         	],
         		
-        		'hallo' => [
+        		'anlegen' => [
         				'type'    => Segment::class,
         				'options' => [
         						'route'    => '/hallo[/:action]',
         						'defaults' => [
-        								'controller' => Controller\HalloController::class,
-        								'action'     => 'hallo',
+        								'controller' => Controller\GruppeController::class,
+        								'action'     => 'anlegen',
         						],
         				],
         		],
