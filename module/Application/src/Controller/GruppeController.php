@@ -38,7 +38,7 @@ class GruppeController extends AbstractActionController {
             // Funktion der Klasse 
             $isOk = $gruppe->anlegen();
             
-            var_dump("$gruppe");
+            var_dump($gruppe);
             
             if (!$isOk) {
             	array_push($errors, "Fehler beim anlegen der Gruppe!");
