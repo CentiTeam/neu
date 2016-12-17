@@ -38,7 +38,7 @@ class GruppeController extends AbstractActionController {
             // Funktion der Klasse 
             $isOk = $gruppe->anlegen();
             
-            var_dump("$gruppe->gruppenname");
+            var_dump("$gruppe");
             
             if (!$isOk) {
             	array_push($errors, "Fehler beim anlegen der Gruppe!");
@@ -47,21 +47,6 @@ class GruppeController extends AbstractActionController {
             }
             	
         } 
-        
-        /**
-        $renderer = new PhpRenderer();
-        
-        $map = new Resolver\TemplateMapResolver(array(
-        		'anlegen' => __DIR__ . '/anlegen.phtml',
-        ));
-        
-        $resolver = new Resolver\TemplateMapResolver($map);
-        $renderer->setResolver($resolver);
-        
-        $viewModel = new ViewModel ();
-        $viewModel->setTemplate ('anlegen');
-        return new $viewModel;
-        */
         
    		     
         return new ViewModel([
