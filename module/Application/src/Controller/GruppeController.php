@@ -41,10 +41,15 @@ class GruppeController extends AbstractActionController {
             	
         } 
         
+        $viewMode = new ViewModel ();
+        $viewModel->setTemplate ('anlegen');
+        return $viewModel;
         
+   		/**     
         return new ViewModel([
                 'gruppe' => array($gruppe),
                 'errors'   => $errors
         ]);
+        */
     }
 }
