@@ -43,7 +43,6 @@ class GruppeController extends AbstractActionController {
          
         
         return new ViewModel([
-        		die("TEst"),
                 'gruppe' => array($gruppe),
                 'errors'   => $errors
         ]);
