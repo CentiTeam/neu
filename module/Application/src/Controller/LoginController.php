@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 
 namespace Application\Controller;
@@ -12,7 +12,7 @@ use Application\Model\User;
 class loginController extends AbstractActionController{
 	
 	public function loginAction(){
-
+		session_start();
 		$flag=0;
 		
 		if ($_REQUEST["loginfunc"])
