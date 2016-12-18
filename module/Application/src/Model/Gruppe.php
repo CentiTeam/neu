@@ -5,10 +5,10 @@ namespace Application\Model;
 use Application\Model\DB_connection;
 
 class gruppe {
-	private $g_id;
-	public $gruppenname;
-	private $gruppenbeschreibung;
-	private $gruppenbildpfad;
+	protected  $g_id;
+	protected  $gruppenname;
+	protected  $gruppenbeschreibung;
+	protected  $gruppenbildpfad;
 	
 	public function __construct() {
 		$this->gruppenname = "";
@@ -22,14 +22,18 @@ class gruppe {
 		
 		var_dump($this->gruppenname);
 		
+		
+		
 		$query = "INSERT INTO gruppe (gruppenname, gruppenbeschreibung, gruppenbildpfad) VALUES (
 				'".$this->gruppenname."', 
 				'".$this->gruppenbeschreibung."',
 				'".$this->gruppenbildpfad."')" ;
 
+		$DBstmt = new Zend_Db_Statement_Mysqli($db, $query);
+		
 		$result = $db->execute($query);
 		
-		// var_dump($this->gruppenname);
+		var_dump($this->gruppenname);
 		
 		
 		// GENAUE SYNTAX FEHLT!!
@@ -43,8 +47,63 @@ class gruppe {
 		
 	}
 	
-	public function listeHolen() {
+	public static function listeHolen() {
+	
+		// Liste initialisieren
+		$gruppeListe = array ();
+	
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+	
+		// DB-Befehl absetzen: ID's aller Gruppen in der DB laden
+		$dbStmt->execute("SELECT g_id FROM gruppe;");
+	
+		// Ergebnis Zeile f�r Zeile verarbeiten
+		while ($row = $dbStmt->nextRow()) {
+				
+			// neues Model erzeugen
+			$model = new Gruppe();
+				
+			// Model anhand der Nummer aus der Datenbankabfrage laden
+			$model->laden($row["g_id"]);
+				
+			// neues Model ans Ende des $gruppeListe-Arrays anf�gen
+			$gruppeListe[] = $model;
+		}
+	
+		// fertige Liste von Gruppe-Objekten zur�ckgeben
+		return $gruppeListe;
+	}
+	
+	/**
+	 * L�dt eine Gruppe
+	 *
+	 * @return true, wenn die Gruppe geladen werden konnte, sonst false
+	 */
+	public function laden ($g_id) {
+	
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+	
+		// DB-Befehl absetzen: alle Basisinformationen des Teams mit der �bergebenen $t_id abfragen
+		$dbStmt->execute("SELECT * FROM team WHERE g_id=$1;", array($g_id));
+	
+		// Variable, die speichert, ob das Team geladen werden konnte oder nicht
+		$isLoaded=false;
 		
+		// Ergebnis verarbeiten, falls vorhanden
+		if ($row=$dbStmt->nextRow()) {
+			$this->g_id=$row["g_id"];
+			$this->gruppenname=$row["gruppenname"];
+			$this->gruppenbeschreibung=$row["gruppenbeschreibung"];
+			$this->gruppenbildpfad=$row["gruppenbildpfad"];
+				
+			// speichern, dass die Basisinformationen des Teams erfolgreich geladen werden konnten
+			$isLoaded=true;
+		}
+	
+		// zur�ckgeben, ob beim Laden ein Fehler aufgetreten ist
+		return $isLoaded;
 	}
 	
 	
