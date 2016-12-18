@@ -14,7 +14,7 @@ use Application\Model\Gruppe;
 class GruppeController extends AbstractActionController {
      
     function anlegenAction() {
-        // TODO Berechtigungsprüfung
+        // TODO Berechtigungsprï¿½fung
                  
         $gruppe = new Gruppe();       
         
@@ -22,7 +22,7 @@ class GruppeController extends AbstractActionController {
         $msg = array();
         
         if ($_REQUEST['speichern']) {
-            // Array, das eventuelle Fehlermeldungen enthält
+            // Array, das eventuelle Fehlermeldungen enthï¿½lt
             
         	$errorStr = $this->allgGruppeInfosVerarbeiten ($gruppe);
         	
@@ -35,12 +35,12 @@ class GruppeController extends AbstractActionController {
         	
         	} elseif ($errorStr == "") {
         		
-        		array_push($msg, "Datenprüfung in Ordnung, Fehler beim Speichern der Gruppe!");
+        		array_push($msg, "Datenprï¿½fung in Ordnung, Fehler beim Speichern der Gruppe!");
         		$saved = false;
         	
         	} else {
         		
-        		array_push($msg, "Fehler bei der Datenprüfung. Gruppe nicht gespeichert!");
+        		array_push($msg, "Fehler bei der Datenprï¿½fung. Gruppe nicht gespeichert!");
         		$saved = false;
         		
         	}
@@ -65,6 +65,7 @@ class GruppeController extends AbstractActionController {
             	
         } 
         
+        return $this->render ('angemelden');
    		     
         return new ViewModel([
                 'gruppe' => array($gruppe),
@@ -83,7 +84,7 @@ class GruppeController extends AbstractActionController {
     	$gruppenbildpfad=$_REQUEST["gruppenbildpfad"];
     	
     	
-    	// Schritt 2: Daten prüfen
+    	// Schritt 2: Daten prï¿½fen
     	$errorStr ="";
     	
     	if (empty($gruppenname)) {
@@ -93,7 +94,7 @@ class GruppeController extends AbstractActionController {
     	var_dump("$gruppenname");
     	
     	 
-    	// Gruppe-Objekt mit Daten aus Request-Array füllen
+    	// Gruppe-Objekt mit Daten aus Request-Array fï¿½llen
     	$gruppe->setGruppenname($gruppenname);
     	$gruppe->setGruppenbeschreibung($gruppenbeschreibung);
     	$gruppe->setGruppenbildpfad($gruppenbildpfad);
