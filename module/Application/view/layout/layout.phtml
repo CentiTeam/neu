@@ -38,7 +38,6 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="<?= $this->url('home') ?>">Home</a></li>
                         <li class="active"><a href="<?= $this->url('overview') ?>">Overview</a></li>
                         <li class="active"><a href="<?= $this->url('help') ?>">Help</a></li>
                         <li class="active"><a href="<?= $this->url('anlegen') ?>">GruppenController</a></li>
@@ -50,7 +49,7 @@
        
 										
 										<?php if ($_SESSION['angemeldet']=='ja'){?> 
-											<li><a href="http://132.231.36.206/logout"><span class=></span>Logout</a></li>
+											<li><a href="http://132.231.36.206/"><span class=></span>Logout</a></li>
 										<?php } else {?>
 											<li><a href="http://132.231.36.206/login"><span class=></span>Login</a></li>
 											<li><a href="http://132.231.36.206/registrieren"><span class=></span> Registrieren</a></li>
