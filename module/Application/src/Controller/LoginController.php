@@ -21,18 +21,39 @@ class loginController extends AbstractActionController{
 			$uname = $_POST['uname'];
 			$pwd = $_POST['pwd'];	
 			
-			echo $uname;
+			$db = new DB_connection;
+		
+			//Query, um alle Daten des Benutzers, dessen Benutzername eingegeben wurde aus der Datenbank zu holen
+			$query_benutzerdaten = "SELECT * FROM User WHERE username = '".$uname."';";
+		
+		
+			$result= $db->execute($query_benutzerdaten);
+			
+			//Ausgeben einer Fehlermeldung, falls ein Fehler beim Ausf�hren der Query auftritt und somit $result leer bleibt
+			if(!isset($result)){
+				echo "Fehler beim Holen der Daten aus der Datenbank";
+			}
+			//Wenn Werte aus der Datenbank in $result geschrieben wurden, dann wird weitergemacht
+			else{
+				//Holen der ersten (und hier einzigen, da nur ein Benutzername) Zeile des Ergebnisses
+				$row=mysqli_fetch_row($result);
+			
+				//Pr�fen, ob das eingegebene Passwort korrekt ist und der Benutzer aktiviert ist
+				
+			if($row[4] == $pwd && $row[6]==0){
+					
+					//Wenn man angemeldet ist, so wird dies in der Sessionvariable "angemeldet" gespeichert.
+					$_SESSION['angemeldet'] = "ja";
+					return new ViewModel("overview");
+				}
+				else{
+					echo "Benutzername oder Passwort falsch, oder Benutzerkonto deaktiviert!";
+				}
 		}
-		return new ViewModel();
+		
 /**		
 	
-		$db = new DB_connection;
-		
-		//Query, um alle Daten des Benutzers, dessen Benutzername eingegeben wurde aus der Datenbank zu holen
-		$query_benutzerdaten = "SELECT * FROM User WHERE username = '".$uname."';";
-		
-		
-		$result= $db->execute($query_benutzerdaten);
+
 */
 	}
 	
