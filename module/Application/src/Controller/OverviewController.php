@@ -23,6 +23,11 @@ class overviewController extends AbstractActionController
 		else 
 		{
 			echo "Sie haben keine Berechtigung, auf diese Seite zuzugreifen!";
+			$view = new ViewModel(array(
+					'message' => 'Sie haben keine Berechtigung, auf diese Seite zuzugreifen!',
+			));
+			$view->setTemplate('application/index/index.phtml');
+			return $view;
 		}
 		
 	}
