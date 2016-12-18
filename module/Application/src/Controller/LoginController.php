@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 
 namespace Application\Controller;
