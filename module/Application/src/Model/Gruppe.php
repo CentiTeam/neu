@@ -30,7 +30,7 @@ class gruppe {
 				'".$this->gruppenbeschreibung."',
 				'".$this->gruppenbildpfad."')" ;
 
-		$DBstmt = new \Zend_Db_Statement_Mysqli($db, $query);
+		// $DBstmt = new Zend_Db_Statement_Mysqli($db, $query);
 		
 		$result = $db->execute($query);
 		
@@ -93,7 +93,7 @@ class gruppe {
 		$isLoaded=false;
 		
 		// Ergebnis verarbeiten, falls vorhanden
-		if ($row=$dbStmt->fetch()) {
+		if ($row=$dbStmt->nextRowset()) {
 			$this->g_id=$row["g_id"];
 			$this->gruppenname=$row["gruppenname"];
 			$this->gruppenbeschreibung=$row["gruppenbeschreibung"];
