@@ -10,7 +10,6 @@ use Application\Model\DB_connection;
 use Application\Model\User;
 use Zend\View\Renderer\PhpRenderer;
 
-
 class loginController extends AbstractActionController{
 	
 	public function loginAction(){
@@ -22,7 +21,7 @@ class loginController extends AbstractActionController{
 		{	
 			$flag=1;
 			echo "Random Shit";
-			return $this->render ('overview');
+			return $renderer->render ('overview');
 		}
 		
 /**		
