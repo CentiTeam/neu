@@ -69,6 +69,18 @@ return [
         				],
         		],
         		
+        		
+        		'angemeldet' => [
+        				'type'    => Segment::class,
+        				'options' => [
+        						'route'    => '/user[/:action]',
+        						'defaults' => [
+        								'controller' => Controller\UserController::class,
+        								'action'     => 'angemeldet',
+        						],
+        				],
+        		],
+        		
         		'help' => [
         				'type'    => Segment::class,
         				'options' => [

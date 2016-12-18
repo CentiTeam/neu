@@ -76,6 +76,8 @@ class User
 				$this->deaktiviert = $row[deaktiviert];
 				$this->systemadmin = $row[systemadmin];
 				
+				var_dump($this->vorname);
+				
 				$this->isloggedin = true;
 			}
 			else{
