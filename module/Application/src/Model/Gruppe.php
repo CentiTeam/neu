@@ -30,7 +30,7 @@ class gruppe {
 				'".$this->gruppenbeschreibung."',
 				'".$this->gruppenbildpfad."')" ;
 
-		$DBstmt = new Zend_Db_Statement_Mysqli($db, $query);
+		$DBstmt = new \Zend_Db_Statement_Mysqli($db, $query);
 		
 		$result = $db->execute($query);
 		
@@ -60,7 +60,7 @@ class gruppe {
 		$dbStmt->execute("SELECT g_id FROM gruppe;");
 	
 		// Ergebnis Zeile f�r Zeile verarbeiten
-		while ($row = $dbStmt->nextRow()) {
+		while ($row = $dbStmt->fetchAll()) {
 				
 			// neues Model erzeugen
 			$model = new Gruppe();
@@ -93,7 +93,7 @@ class gruppe {
 		$isLoaded=false;
 		
 		// Ergebnis verarbeiten, falls vorhanden
-		if ($row=$dbStmt->nextRow()) {
+		if ($row=$dbStmt->fetch()) {
 			$this->g_id=$row["g_id"];
 			$this->gruppenname=$row["gruppenname"];
 			$this->gruppenbeschreibung=$row["gruppenbeschreibung"];
