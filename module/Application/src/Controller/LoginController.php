@@ -35,31 +35,32 @@ class loginController extends AbstractActionController{
 			}
 			//Wenn Werte aus der Datenbank in $result geschrieben wurden, dann wird weitergemacht
 			else{
-				//Holen der ersten (und hier einzigen, da nur ein Benutzername) Zeile des Ergebnisses
-				$row=mysqli_fetch_row($result);
+					//Holen der ersten (und hier einzigen, da nur ein Benutzername) Zeile des Ergebnisses
+					$row=mysqli_fetch_row($result);
 			
-				//Pr�fen, ob das eingegebene Passwort korrekt ist und der Benutzer aktiviert ist
+					//Pr�fen, ob das eingegebene Passwort korrekt ist und der Benutzer aktiviert ist
 				
-			if($row[4] == $pwd && $row[6]==0){
+					if($row[4] == $pwd && $row[6]==0){
 					
 					//Wenn man angemeldet ist, so wird dies in der Sessionvariable "angemeldet" gespeichert.
 					$_SESSION['angemeldet'] = "ja";
 					return new ViewModel("overview");
-				}
-				else{
-					echo "Benutzername oder Passwort falsch, oder Benutzerkonto deaktiviert!";
-					return new ViewModel();
-				}
-		}
+					}
+					else{
+						echo "Benutzername oder Passwort falsch, oder Benutzerkonto deaktiviert!";
+						return new ViewModel();
+					}
+			}
 		
 /**		
 	
 
 */
 	}
-	
+	return new ViewModel();
 	//public function loginfuncAction(){
 		
 	//	echo "Random Shit";
 	//}
+	}
 }
