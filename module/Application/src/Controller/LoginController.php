@@ -47,6 +47,7 @@ class loginController extends AbstractActionController{
 					
 					$view = new ViewModel(array(
 							'message' => 'Erfolgreich eingeloggt!',
+							'uname' => $uname
 					));
 					$view->setTemplate('application/overview/overview.phtml');
 					return $view;
