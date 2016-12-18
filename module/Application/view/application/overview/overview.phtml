@@ -1,1 +1,15 @@
  <h1>GroupPaaaaaaaaaaaaaaaaaaaaaaay</span></h1>
+ 
+ <?php
+
+
+session_start();
+if($_SESSION['angemeldet'] == 'ja'){
+
+echo "Hallo ";
+		echo $_SESSION['uname'];
+		echo "! ";
+		echo "Sie wurden erfolgreich eingeloggt!";
+		
+}
+?>
