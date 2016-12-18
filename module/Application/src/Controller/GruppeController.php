@@ -5,7 +5,7 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Model\Gruppe;
-use Zend\View\Renderer\PhpRenderer;
+// use Zend\View\Renderer\PhpRenderer;
 
  
  
@@ -66,7 +66,7 @@ class GruppeController extends AbstractActionController {
             	
         } 
         
-        return $this->render ('angemelden');
+       // return $this->render ('angemelden');
    		     
         return new ViewModel([
                 'gruppe' => array($gruppe),
