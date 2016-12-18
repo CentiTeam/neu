@@ -23,7 +23,7 @@ class loginController extends AbstractActionController{
 			
 			echo $uname;
 		}
-		
+		return new ViewModel();
 /**		
 	
 		$db = new DB_connection;
