@@ -8,7 +8,6 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Model\DB_connection;
 use Application\Model\User;
-use Zend\View\Renderer\PhpRenderer;
 
 class loginController extends AbstractActionController{
 	
@@ -21,10 +20,11 @@ class loginController extends AbstractActionController{
 		{	
 			$flag=1;
 			echo "Random Shit";
-			$view = new ViewManager();
-			$view->setTemplate('application/overview/overview.phtml');  // module/Test/view/test/test/
 			
-			return $view;
+			$viewModel = new ViewModel;
+			$viewModel->setTemplate(application/overview/overview.phtml);
+			
+			return $viewModel;
 		}
 		
 /**		
