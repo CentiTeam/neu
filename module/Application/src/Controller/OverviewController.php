@@ -8,18 +8,24 @@
 namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
-use Application\Model\DB_connection;
-use Application\Model\User;
+
 
 class overviewController extends AbstractActionController
 {
 	public function overviewAction(){
-
+	
+		session_start();
+		
+		if ($_SESSION['angemeldet']=='ja')
+		{
+			echo "Hier kommen die Links zu den spezifischen Rollen hin";
 		}
-	
-	
-
-	
+		else 
+		{
+			echo "Sie haben keine Berechtigung, auf diese Seite zuzugreifen!";
+		}
+		
+	}
+		
 
 }
