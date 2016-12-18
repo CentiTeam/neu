@@ -14,7 +14,11 @@ class loginController extends AbstractActionController{
 	
 	public function loginAction(){
 
-		
+		if ($_REQUEST["loginfunc"])
+			
+		{
+			echo "Random Shit";
+		}
 		
 /**		$uname = $_POST['uname'];
 		$pwd = $_POST['pwd'];
@@ -29,8 +33,8 @@ class loginController extends AbstractActionController{
 */
 	}
 	
-	public function loginfuncAction(){
+	//public function loginfuncAction(){
 		
-		echo "Random Shit";
-	}
+	//	echo "Random Shit";
+	//}
 }
