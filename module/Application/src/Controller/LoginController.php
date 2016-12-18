@@ -18,18 +18,14 @@ class loginController extends AbstractActionController{
 		if ($_REQUEST["loginfunc"])
 			
 		{	
-			$flag=1;
-			echo "Random Shit";
+			$uname = $_POST['uname'];
+			$pwd = $_POST['pwd'];	
 			
-			$viewModel = new ViewModel;
-			$viewModel->setTemplate(application/overview/overview.phtml);
-			
-			return $viewModel;
+			echo $uname;
 		}
 		
 /**		
-			$uname = $_POST['uname'];
-			$pwd = $_POST['pwd'];		
+	
 		$db = new DB_connection;
 		
 		//Query, um alle Daten des Benutzers, dessen Benutzername eingegeben wurde aus der Datenbank zu holen
