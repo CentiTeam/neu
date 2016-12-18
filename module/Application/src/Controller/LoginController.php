@@ -21,7 +21,7 @@ class loginController extends AbstractActionController{
 		{	
 			$flag=1;
 			echo "Random Shit";
-			$this->redirect= "overview.phtml";
+			$this->redirect= "/overview";
 		}
 		
 /**		
