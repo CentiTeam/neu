@@ -44,7 +44,13 @@ class loginController extends AbstractActionController{
 					
 					//Wenn man angemeldet ist, so wird dies in der Sessionvariable "angemeldet" gespeichert.
 					$_SESSION['angemeldet'] = "ja";
-					return new ViewModel("overview");
+					
+					$view = new ViewModel(array(
+							'message' => 'Erfolgreich eingeloggt!',
+					));
+					$view->setTemplate('application/overview/overview.phtml');
+					return $view;
+	
 					}
 					else{
 						echo "Benutzername oder Passwort falsch, oder Benutzerkonto deaktiviert!";
