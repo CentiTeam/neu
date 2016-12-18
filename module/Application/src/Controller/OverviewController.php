@@ -14,7 +14,7 @@ use Application\Model\User;
 
 class overviewController extends AbstractActionController
 {
-	public function loginAction(){
+	public function overviewAction(){
 		//Starten einer Session
 		session_start();
 		$_SESSION['uname'] = $_POST['uname'];
