@@ -21,8 +21,7 @@ class loginController extends AbstractActionController{
 		{	
 			$flag=1;
 			echo "Random Shit";
-			$renderer= new PhpRenderer();
-			return $renderer->render ('overview');
+			$this->load->view('overview');
 		}
 		
 /**		
