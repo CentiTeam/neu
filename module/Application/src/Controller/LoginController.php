@@ -21,7 +21,10 @@ class loginController extends AbstractActionController{
 		{	
 			$flag=1;
 			echo "Random Shit";
-			$this->redirect= "/overview";
+			$view = new ViewManager();
+			$view->setTemplate('application/overview/overview.phtml');  // module/Test/view/test/test/
+			
+			return $view;
 		}
 		
 /**		
