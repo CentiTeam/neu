@@ -36,16 +36,7 @@ return [
                 ],
             ],
         		
-        	'anmelden' => [
-        				'type'    => Segment::class,
-        				'options' => [
-        						'route'    => '/anmelden[/:action]',
-        						'defaults' => [
-        								'controller' => Controller\AnmeldenController::class,
-        								'action'     => 'anmelden',
-        			],
-        		],
-        	],
+
         		
         	'overview' => [
         			'type'    => Segment::class,
@@ -70,16 +61,6 @@ return [
         		],
         		
         		
-        		'angemeldet' => [
-        				'type'    => Segment::class,
-        				'options' => [
-        						'route'    => '/angemeldet[/:action]',
-        						'defaults' => [
-        								'controller' => Controller\UserController::class,
-        								'action'     => 'angemeldet',
-        						],
-        				],
-        		],
         		
         		'help' => [
         				'type'    => Segment::class,
@@ -132,12 +113,10 @@ return [
         'factories' => [
             Controller\IndexController::class => InvokableFactory::class,
         	Controller\OverviewController::class => InvokableFactory::class,
-        	Controller\UserController::class => InvokableFactory::class,
         	Controller\GruppeController::class => InvokableFactory::class,
         	Controller\LoginController::class => InvokableFactory::class,
            	Controller\HelpController::class => InvokableFactory::class,
-        	Controller\HalloController::class => InvokableFactory::class,
-        	Controller\AnmeldenController::class => InvokableFactory::class,
+
         		
         		
 
