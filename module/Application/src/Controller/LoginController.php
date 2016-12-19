@@ -14,7 +14,7 @@ class loginController extends AbstractActionController{
 	public function loginAction(){
 		session_start();
 		
-		
+		echo "TEstLoginController";
 		
 		if ($_REQUEST["loginfunc"])
 			
@@ -22,7 +22,7 @@ class loginController extends AbstractActionController{
 			$uname = $_POST['uname'];
 			$pwd = $_POST['pwd'];	
 			
-			echo "TEstLoginController";
+			
 			/**
 			$db = new DB_connection;
 		
