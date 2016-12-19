@@ -58,12 +58,11 @@ class loginController extends AbstractActionController{
 					$isOK=$user->login($uname, $pwd);
 					
 					echo $user->getVorname();
-					/**
 					
 					$_SESSION['user'] = $user;
 					
-					$user = $_SESSION['user'];
-					*/
+					// $user = $_SESSION['user'];
+					
 					
 					
 					$view = new ViewModel(array(
