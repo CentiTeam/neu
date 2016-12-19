@@ -18,7 +18,7 @@ class GruppeanlegenController extends AbstractActionController {
 		$errors = array(); 
 		
 		// if($_SESSION['angemeldet'] != 'ja') {
-		if($user[0]->isloggedin()==false) {
+		if($user[0]->isloggedin()==NULL) {
 			
 			array_push($errors, "Sie müssen angemeldet sein um eine Gruppe zu erstellen!");
 			
