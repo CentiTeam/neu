@@ -1,18 +1,27 @@
  <h1>Overview</span></h1>
  
- 
- 
- <?php
+<?php
+	session_start();
+	if($_SESSION['angemeldet'] == 'ja'){
+	?>
 
-session_start();
-if($_SESSION['angemeldet'] == 'ja'){
+<div class=>Hallo <?=$user[0]->getNachname();?>! Sie wurden erfolgreich eingeloggt.</div>
 
-		echo "Hallo ";
-		echo $uname;
-		echo $vorname;
-		echo "! ";
-		echo "Sie wurden erfolgreich eingeloggt!";
+
+	
 		
-}
+<?php }
 ?>
-<?=$user[0]->getNachname();?>
+
+<?php 
+
+/** Löschen!!!
+
+	echo "Hallo ";
+
+	echo $uname; 
+	echo $vorname; 
+	echo "! ";
+	echo "Sie wurden erfolgreich eingeloggt!";
+*/
+?>
