@@ -1,10 +1,10 @@
 <?php
 namespace Application\Model;
 
-use Zend\Mvc\Controller\AbstractActionController;
+
 use Application\Model\DB_connection;
 
-class User
+class User extends DataObject implements Serializable
 {
 	protected $u_id;
 	protected $username;
@@ -17,7 +17,56 @@ class User
 	
 	private $isloggedin;
 	
+	
+	/**
+	 * PDO Datenbankverbindung
+	 * @param PDO
+	 */
+	protected $dbHandle = null;
+	
+	/**
+	 * Erzeugt ein neues User Datenobjekt
+	 *
+	 * @param PDO     $dbHandle  PDO Datenbankverbindung
+	 * @param integer $userID    ID eines Benutzerdatensatzes
+	 * @param string  $username  Benutzername
+	 */
+	public function __construct(PDO $dbHandle, $userID = null, $username = null) {
+		$this->dbHandle = $dbHandle;
+	
+		// Datenbankabfrage anhand User ID oder Benutzername
+		try {
+			$sql = "SELECT * FROM User WHERE '".$username."';";
+			$stmt = $this->dbHandle->prepare($sql);
+			$stmt->execute();
+			$row = $stmt->fetch();
+		} catch (PDOException $e) {
+			throw new SystemException();
+		}
+	
+		parent::__construct($row);
+	}
+	
+	/**
+	 * @see Serializable::serialize()
+	 */
+	public function serialize() {
+		return serialize($this->data);
+	}
+	
+	/**
+	 * @see Serializable::unserialize()
+	 */
+	public function unserialize($serializedData) {
+		$this->data = unserialize($serializedData);
+	}
+	
+	
+	
+	
+	
 
+	
 	public function login($username, $passwort) {
 		
 		echo "TEst";

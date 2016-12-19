@@ -9,6 +9,7 @@ use Zend\View\Model\ViewModel;
 use Application\Model\DB_connection;
 use Application\Model\User;
 
+
 class loginController extends AbstractActionController{
 	
 	public function loginAction(){
@@ -49,7 +50,14 @@ class loginController extends AbstractActionController{
 					//Wenn man angemeldet ist, so wird dies in der Sessionvariable "angemeldet" gespeichert.
 					$_SESSION['angemeldet'] = "ja";
 					
-					// User laden aus Datenbank
+					// Userobjektdaten in Session speichern
+					session_start();
+					require_once('Application/src/model/User.php');
+					$user = new User($dbHandle, null, $uname);
+					$_SESSION['user'] = $user;
+					
+					echo $_SESSION['user'];
+					/**
 					$user= new User();
 					
 					$user->u_id=$row['u_id'];
@@ -60,7 +68,7 @@ class loginController extends AbstractActionController{
 					$user->email=$row['email'];
 					$user->deaktiviert=$row['deaktiviert'];
 					$user->systemadmin=$row['systemadmin'];
-					
+					*/
 					
 					
 					
