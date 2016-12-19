@@ -17,34 +17,7 @@ class User
 	
 	private $isloggedin;
 	
-	
-	/** Singleton-Instanz der Klasse */
-	private static $instance;
-	
-	
-	/**
-	 * Die Singleton-Instanz der Klasse ist der aktuelle Benutzer der Seite
-	 *
-	 * @return Singleton-Instanz
-	 */
-	public static function getInstance() {
-	
-		// Pr�ft ob die Instanz bereits erstellt wurde
-		if (!isset(self::$instance)) {
-			// da noch keine Instanz vorhanden ist, wird eine Neue erstellt und gespeichert
-			self::$instance = new User();
-		}
-	
-		return self::$instance;
-	
-	}
-	
-	public function setAsInstance() {
-		self::$instance = $this;
-	}
-		
-	
-	
+
 	public function login($username, $passwort) {
 		
 		echo "TEst";

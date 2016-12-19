@@ -14,16 +14,12 @@ class loginController extends AbstractActionController{
 	public function loginAction(){
 		session_start();
 		
-		echo "TEstLoginController";
-		
 		if ($_REQUEST["loginfunc"])
 			
 		{	
 			$uname = $_POST['uname'];
 			$pwd = $_POST['pwd'];	
 			
-			
-			/**
 			$db = new DB_connection;
 		
 			//Query, um alle Daten des Benutzers, dessen Benutzername eingegeben wurde aus der Datenbank zu holen
@@ -31,17 +27,9 @@ class loginController extends AbstractActionController{
 		
 		
 			$result= $db->execute($query_benutzerdaten);
-			*/
 			
 			//Ausgeben einer Fehlermeldung, falls ein Fehler beim Ausf�hren der Query auftritt und somit $result leer bleibt
-			/**
 			if(!isset($result)){
-			*/
-			$user= User::getInstance();
-			
-			
-			
-			if (! $user->login($uname, $pwd)) {
 				echo "Fehler beim Holen der Daten aus der Datenbank";
 			}
 			//Wenn Werte aus der Datenbank in $result geschrieben wurden, dann wird weitergemacht
@@ -51,7 +39,7 @@ class loginController extends AbstractActionController{
 					// anhand dem Spaltennamen ausgelesen werden
 					
 					
-					/**
+					
 					$row=mysqli_fetch_array($result);
 			
 					//Pr�fen, ob das eingegebene Passwort korrekt ist und der Benutzer aktiviert ist
@@ -73,13 +61,13 @@ class loginController extends AbstractActionController{
 					$user->deaktiviert=$row['deaktiviert'];
 					$user->systemadmin=$row['systemadmin'];
 					
-					*/
+					
 					
 					
 					$view = new ViewModel(array(
 							'message' => 'Erfolgreich eingeloggt!',
 							'uname' => $uname,
-							'user' => array($user)
+							// 'user' => array($user)
 					));
 					$view->setTemplate('application/overview/overview.phtml');
 					return $view;
