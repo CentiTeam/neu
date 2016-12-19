@@ -70,7 +70,7 @@ class loginController extends AbstractActionController{
 					
 					$_SESSION['user'] = $user;
 					
-					echo "Hallo";
+					echo "Hallo nochmal";
 					echo $user->vorname;
 					/**
 					$user= new User();
