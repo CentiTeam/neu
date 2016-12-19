@@ -34,6 +34,20 @@ class User extends DataObject implements Serializable
 	public function __construct(PDO $dbHandle, $userID = null, $username = null) {
 		$this->dbHandle = $dbHandle;
 	
+		$db = new DB_connection;
+		
+		//Query, um alle Daten des Benutzers, dessen Benutzername eingegeben wurde aus der Datenbank zu holen
+		$query_benutzerdaten = "SELECT * FROM User WHERE username = '".$username."' AND passwort = '".$passwort."';";
+		$result= $db->execute($query_benutzerdaten);
+		$row=mysqli_fetch_array($result);
+		
+		//Ausgeben einer Fehlermeldung, falls ein Fehler beim Ausfï¿½hren der Query auftritt und somit $result leer bleibt
+		if(!isset($result)){
+			echo "Fehler beim Holen der Daten aus der Datenbank";
+		} 
+		
+		
+		/**
 		// Datenbankabfrage anhand User ID oder Benutzername
 		try {
 			$sql = "SELECT * FROM User WHERE '".$username."';";
@@ -43,8 +57,9 @@ class User extends DataObject implements Serializable
 		} catch (PDOException $e) {
 			throw new SystemException();
 		}
-	
+		*/
 		parent::__construct($row);
+		
 	}
 	
 	/**
