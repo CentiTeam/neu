@@ -20,9 +20,7 @@ class loginController extends AbstractActionController{
 			
 		session_start();
 		
-		if ($_REQUEST["loginfunc"])
-			
-		{	
+		if ($_REQUEST["loginfunc"])	{	
 			$uname = $_POST['uname'];
 			$pwd = $_POST['pwd'];	
 			
@@ -65,7 +63,7 @@ class loginController extends AbstractActionController{
 				
 					// session_start();
 					
-					$isOK=$user->login($uname, $pwd);
+					if ($user->login($uname, $pwd)){
 					
 					
 					echo $user->getVorname();
@@ -88,16 +86,11 @@ class loginController extends AbstractActionController{
 						return new ViewModel();
 					}
 			}
-		
-/**		
-	
 
-*/
-	}
+	
 	return new ViewModel();
 	//public function loginfuncAction(){
 		
 	//	echo "Random Shit";
-	//}
 	}
 }
