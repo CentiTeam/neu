@@ -15,8 +15,39 @@ class User
 	protected $deaktiviert;
 	protected $systemadmin;
 	
+	private $isloggedin;
+	
+	
+	/** Singleton-Instanz der Klasse */
+	private static $instance;
+	
+	
+	/**
+	 * Die Singleton-Instanz der Klasse ist der aktuelle Benutzer der Seite
+	 *
+	 * @return Singleton-Instanz
+	 */
+	public static function getInstance() {
+	
+		// Pr�ft ob die Instanz bereits erstellt wurde
+		if (!isset(self::$instance)) {
+			// da noch keine Instanz vorhanden ist, wird eine Neue erstellt und gespeichert
+			self::$instance = new User();
+		}
+	
+		return self::$instance;
+	
+	}
+	
+	public function setAsInstance() {
+		self::$instance = $this;
+	}
+		
+	
 	
 	public function login($username, $passwort) {
+		
+		
 		
 		$db = new DB_connection;
 		
@@ -25,7 +56,7 @@ class User
 		
 		$result= $db->execute($query_benutzerdaten);
 		
-		$this->isloggedin = false;
+		$this->isloggedin=false;
 		
 		//Ausgeben einer Fehlermeldung, falls ein Fehler beim Ausfï¿½hren der Query auftritt und somit $result leer bleibt
 		if(!isset($result)){
@@ -34,22 +65,22 @@ class User
 		//Wenn Werte aus der Datenbank in $result geschrieben wurden, dann wird weitergemacht
 		else{
 			//Holen der ersten (und hier einzigen, da nur ein Benutzername) Zeile des Ergebnisses
-			$row=mysqli_fetch_row($result);
+			$row=mysqli_fetch_array($result);
 		
 			//Prï¿½fen, ob das eingegebene Passwort korrekt ist und der Benutzer aktiviert ist
-			if($row[passwort] == $passwort && $row[deaktiviert]==0){
-				echo "Erfolgreich angemeldet_USerController";
+			if($row['passwort'] == $passwort && $row['deaktiviert']==0){
+				echo "Erfolgreich angemeldet_USerKlasse";
 				//Wenn man angemeldet ist, so wird dies in der Sessionvariable "angemeldet" gespeichert.
 				$_SESSION['angemeldet'] = "ja";
 				
-				$this->u_id = $row[u_id];
-				$this->username = $row[username];
-				$this->vorname = $row[vorname];
-				$this->nachname = $row[nachname];
-				$this->passwort = $row[passwort];
-				$this->email = $row[email];
-				$this->deaktiviert = $row[deaktiviert];
-				$this->systemadmin = $row[systemadmin];
+				$this->u_id = $row['u_id'];
+				$this->username = $row['username'];
+				$this->vorname = $row['vorname'];
+				$this->nachname = $row['nachname'];
+				$this->passwort = $row['passwort'];
+				$this->email = $row['email'];
+				$this->deaktiviert = $row['deaktiviert'];
+				$this->systemadmin = $row['systemadmin'];
 				
 				var_dump($this->vorname);
 				
@@ -114,6 +145,8 @@ class User
 		return $userListe;
 	}
 	
+	*/
+	
 	//Setter für vorname
 	public function setVorname($value) {
 		$this->vorname = $value;
@@ -123,6 +156,9 @@ class User
 		return $this->vorname;
 	}
 	
-	*/
+	// Getter für die EIgenschaft isloggedin
+	public function isloggedin() {
+		return $this->isloggedin;
+	}
 
 }
