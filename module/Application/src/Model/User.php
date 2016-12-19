@@ -73,19 +73,6 @@ class User
 		
 	}
 	
-/**
-	public function logout() {
-		$this->u_id=NULL;
-		$this->username="";
-		$this->vorname="";
-		$this->nachname="";
-		$this->passwort="";
-		$this->email="";
-		$this->deaktiviert="";
-		$this->systemadmin="";
-	}
-*/
-
 
 	//Übernommen von Webapp!!
 
