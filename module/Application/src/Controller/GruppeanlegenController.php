@@ -5,7 +5,6 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Model\Gruppe;
-use Application\Model\User;
 
 
 class GruppeanlegenController extends AbstractActionController {
@@ -14,12 +13,9 @@ class GruppeanlegenController extends AbstractActionController {
 		// TODO Berechtigungspr�fung
 		session_start();
 		
-		$user=$_SESSION['user'];
-		
 		$errors = array(); 
 		
-		// if($_SESSION['angemeldet'] != 'ja') {
-		if($user[0]->isloggedin()==NULL) {
+		if($_SESSION['angemeldet'] != 'ja') {
 			
 			array_push($errors, "Sie müssen angemeldet sein um eine Gruppe zu erstellen!");
 			
