@@ -65,8 +65,7 @@ class loginController extends AbstractActionController{
 					
 					if ($user->login($uname, $pwd)){
 					
-					
-					echo $user->getVorname();
+					// echo $user->getVorname(); nur Beispiel für Zugriff aufs Objekt: Kann gelöscht werden
 					
 					$_SESSION['user'] = $user;
 					

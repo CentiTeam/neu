@@ -21,7 +21,6 @@ class User
 	public function __construct($user_id = null) {
 		
 		$this->username = $user_id;
-		echo "User konstruiert!     ";
 	}
 
 	
@@ -47,7 +46,7 @@ class User
 		
 			//Prï¿½fen, ob das eingegebene Passwort korrekt ist und der Benutzer aktiviert ist
 			if($row['passwort'] == $passwort && $row['deaktiviert']==0){
-				echo "Erfolgreich angemeldet über die UserKlasse!     ";
+				echo "Erfolgreich angemeldet über die UserKlasse!";
 				//Wenn man angemeldet ist, so wird dies in der Sessionvariable "angemeldet" gespeichert.
 				$_SESSION['angemeldet'] = "ja";
 				

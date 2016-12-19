@@ -31,7 +31,7 @@ class overviewController extends AbstractActionController
 			$view->setTemplate('application/index/index.phtml');
 			return $view;
 		}
-	
+		
 		// TEST, um die Übergabe der Elemente des angemeldeten Users an eine andere Funktion anzuzeigen
 		$user=$_SESSION['user'];
 		echo "Nachname des angemeldeten Users: ";
