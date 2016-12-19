@@ -22,6 +22,7 @@ class loginController extends AbstractActionController{
 			$uname = $_POST['uname'];
 			$pwd = $_POST['pwd'];	
 			
+			echo "TEstLoginController";
 			/**
 			$db = new DB_connection;
 		
@@ -38,7 +39,7 @@ class loginController extends AbstractActionController{
 			*/
 			$user= User::getInstance();
 			
-			echo "TEstLoginController";
+			
 			
 			if ($user->login($uname, $pwd)) {
 				echo "Fehler beim Holen der Daten aus der Datenbank";
