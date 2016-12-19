@@ -58,8 +58,8 @@ class User extends DataObject implements Serializable
 			throw new SystemException();
 		}
 		*/
-		parent::__construct($row);
-		
+		// parent::__construct($row);
+		return true;
 	}
 	
 	/**
