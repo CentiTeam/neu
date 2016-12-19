@@ -18,9 +18,9 @@ class User
 	private $isloggedin;
 	
 
-	public function __construct($Username = null) {
+	public function __construct($user_id = null) {
 		
-		$this->username = $Username;
+		$this->username = $user_id;
 		echo "User konstruiert!     ";
 	}
 
