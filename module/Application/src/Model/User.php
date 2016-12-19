@@ -4,7 +4,7 @@ namespace Application\Model;
 
 use Application\Model\DB_connection;
 
-class User extends DataObject implements Serializable
+class User
 {
 	protected $u_id;
 	protected $username;
@@ -18,7 +18,9 @@ class User extends DataObject implements Serializable
 	private $isloggedin;
 	
 
-	public function __construct() {
+	public function __construct($Username = null) {
+		
+		$this->username = $Username;
 		echo "USer konstruiert!";
 	}
 
