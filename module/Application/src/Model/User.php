@@ -47,7 +47,7 @@ class User
 	
 	public function login($username, $passwort) {
 		
-		
+		echo "TEst";
 		
 		$db = new DB_connection;
 		

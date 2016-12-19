@@ -13,7 +13,8 @@ class loginController extends AbstractActionController{
 	
 	public function loginAction(){
 		session_start();
-		$flag=0;
+		
+		
 		
 		if ($_REQUEST["loginfunc"])
 			
@@ -35,6 +36,7 @@ class loginController extends AbstractActionController{
 			/**
 			if(!isset($result)){
 			*/
+			$user= User::getInstance();
 			
 			if ($user->login($uname, $pwd)) {
 				echo "Fehler beim Holen der Daten aus der Datenbank";
