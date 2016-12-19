@@ -41,7 +41,6 @@ class loginController extends AbstractActionController{
 					// anhand dem Spaltennamen ausgelesen werden
 					
 					
-					
 					$row=mysqli_fetch_array($result);
 			
 					//Pr�fen, ob das eingegebene Passwort korrekt ist und der Benutzer aktiviert ist
@@ -51,26 +50,19 @@ class loginController extends AbstractActionController{
 					//Wenn man angemeldet ist, so wird dies in der Sessionvariable "angemeldet" gespeichert.
 					// $_SESSION['angemeldet'] = "ja";
 					
-					// Userobjektdaten in Session speichern
-						
+					// Userobjektdaten in Session speichern	
 					$user = new User();
 					
 					session_start();
-					// $_SESSION['angemeldet'] = "ja";
 					
 					$isOK=$user->login($uname, $pwd);
 					
-					echo $isOK;
 					echo $user->getVorname();
 					/**
 					
 					$_SESSION['user'] = $user;
 					
 					$user = $_SESSION['user'];
-					echo "Hallo nochmal";
-					
-					
-					echo $user->getVorname();
 					*/
 					
 					

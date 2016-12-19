@@ -21,13 +21,11 @@ class User
 	public function __construct($Username = null) {
 		
 		$this->username = $Username;
-		echo "USer konstruiert!";
+		echo "User konstruiert!     ";
 	}
 
 	
 	public function login($username, $passwort) {
-		
-		echo "TEst";
 		
 		$db = new DB_connection;
 		
@@ -49,7 +47,7 @@ class User
 		
 			//Prï¿½fen, ob das eingegebene Passwort korrekt ist und der Benutzer aktiviert ist
 			if($row['passwort'] == $passwort && $row['deaktiviert']==0){
-				echo "Erfolgreich angemeldet_USerKlasse";
+				echo "Erfolgreich angemeldet über die UserKlasse!     ";
 				//Wenn man angemeldet ist, so wird dies in der Sessionvariable "angemeldet" gespeichert.
 				$_SESSION['angemeldet'] = "ja";
 				
@@ -62,7 +60,6 @@ class User
 				$this->deaktiviert = $row['deaktiviert'];
 				$this->systemadmin = $row['systemadmin'];
 				
-				var_dump($this->vorname);
 				
 				$this->isloggedin = true;
 			}
