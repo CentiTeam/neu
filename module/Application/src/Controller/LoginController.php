@@ -58,6 +58,7 @@ class loginController extends AbstractActionController{
 					
 					// $user = new User($dbHandle, null, $uname);
 					$user = new User();
+					
 					$_SESSION['user'] = $user;
 					
 					echo $_SESSION['user'];
