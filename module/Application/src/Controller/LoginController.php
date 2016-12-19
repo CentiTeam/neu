@@ -38,6 +38,8 @@ class loginController extends AbstractActionController{
 			*/
 			$user= User::getInstance();
 			
+			echo "TEstLoginController";
+			
 			if ($user->login($uname, $pwd)) {
 				echo "Fehler beim Holen der Daten aus der Datenbank";
 			}
