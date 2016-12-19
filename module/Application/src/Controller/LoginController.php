@@ -59,7 +59,7 @@ class loginController extends AbstractActionController{
 					
 					session_start();
 					$_SESSION['angemeldet'] = "ja";
-				/**
+				
 					$user->u_id=$row['u_id'];
 					$user->username=$row['username'];
 					$user->vorname=$row['vorname'];
@@ -68,13 +68,13 @@ class loginController extends AbstractActionController{
 					$user->email=$row['email'];
 					$user->deaktiviert=$row['deaktiviert'];
 					$user->systemadmin=$row['systemadmin'];
-					*/
+					
 					$_SESSION['user'] = $user;
 					
 					$user = $_SESSION['user'];
 					echo "Hallo nochmal";
 					
-					echo $user->vorname;
+					
 					echo $user->getVorname();
 					
 					
