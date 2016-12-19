@@ -8,7 +8,6 @@ session_start();
 if($_SESSION['angemeldet'] == 'ja'){
 
 		echo "Hallo ";
-		echo $user->nachname;
 		echo $uname;
 		echo $vorname;
 		echo "! ";
@@ -16,3 +15,4 @@ if($_SESSION['angemeldet'] == 'ja'){
 		
 }
 ?>
+<?=$user->getNachname();?>
