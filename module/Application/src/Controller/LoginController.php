@@ -59,9 +59,18 @@ class loginController extends AbstractActionController{
 					// $user = new User($dbHandle, null, $uname);
 					$user = new User();
 					
+					$user->u_id=$row['u_id'];
+					$user->username=$row['username'];
+					$user->vorname=$row['vorname'];
+					$user->nachname=$row['nachname'];
+					$user->passwort=$row['passwort'];
+					$user->email=$row['email'];
+					$user->deaktiviert=$row['deaktiviert'];
+					$user->systemadmin=$row['systemadmin'];
+					
 					$_SESSION['user'] = $user;
 					
-					echo $_SESSION['user'];
+					echo $user->vorname;
 					/**
 					$user= new User();
 					
