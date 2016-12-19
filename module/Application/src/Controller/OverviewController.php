@@ -34,9 +34,9 @@ class overviewController extends AbstractActionController
 	
 		// TEST, um die Übergabe der Elemente des angemeldeten Users an eine andere Funktion anzuzeigen
 		$user=$_SESSION['user'];
+		echo "     ";
 		echo "Nachname des angemeldeten Users: ";
 		echo $user->getNachname();
-		echo "     ";
 	}
 		
 
