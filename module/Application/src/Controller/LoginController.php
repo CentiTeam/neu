@@ -55,7 +55,7 @@ class loginController extends AbstractActionController{
 					
 					// Userobjektdaten in Session speichern
 					
-					
+					/**
 					// $user = new User($dbHandle, null, $uname);
 					$user = new User();
 					
@@ -72,6 +72,8 @@ class loginController extends AbstractActionController{
 					
 					echo "Hallo nochmal";
 					echo $user->vorname;
+					
+					*/
 					/**
 					$user= new User();
 					
