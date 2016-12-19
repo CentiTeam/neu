@@ -16,6 +16,10 @@ class loginController extends AbstractActionController{
 	public function loginAction(){
 		// session_start(); auch löschen
 		
+		$user = new User();
+			
+		session_start();
+		
 		if ($_REQUEST["loginfunc"])
 			
 		{	
@@ -57,11 +61,12 @@ class loginController extends AbstractActionController{
 					
 					
 					// Userobjektdaten in Session speichern	
-					$user = new User();
-					
-					session_start();
+					// $user = new User();
+				
+					// session_start();
 					
 					$isOK=$user->login($uname, $pwd);
+					
 					
 					echo $user->getVorname();
 					
@@ -74,6 +79,7 @@ class loginController extends AbstractActionController{
 							'user' => array($user)
 					));
 					$view->setTemplate('application/overview/overview.phtml');
+					
 					return $view;
 	
 					}
