@@ -65,8 +65,6 @@ class GruppeController extends AbstractActionController {
             }
             	
         } 
-        
-       // return $this->render ('angemeldet');
    		     
         return new ViewModel([
                 'gruppe' => array($gruppe),
