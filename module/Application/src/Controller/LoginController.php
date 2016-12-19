@@ -41,7 +41,7 @@ class loginController extends AbstractActionController{
 			
 			
 			
-			if ($user->login($uname, $pwd)) {
+			if (! $user->login($uname, $pwd)) {
 				echo "Fehler beim Holen der Daten aus der Datenbank";
 			}
 			//Wenn Werte aus der Datenbank in $result geschrieben wurden, dann wird weitergemacht
