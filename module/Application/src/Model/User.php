@@ -133,6 +133,17 @@ class User
 		return $this->vorname;
 	}
 	
+	
+	//Setter für nachname
+	public function setNAchname($value) {
+		$this->nachname = $value;
+	}
+	//Getter für nachname
+	public function getNachname() {
+		return $this->nachname;
+	}
+	
+	
 	// Getter für die EIgenschaft isloggedin
 	public function isloggedin() {
 		return $this->isloggedin;
