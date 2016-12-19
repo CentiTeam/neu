@@ -20,7 +20,7 @@ class overviewController extends AbstractActionController
 		
 		if ($_SESSION['angemeldet']=='ja')
 		{
-			echo "Hier kommen die Links zu den spezifischen Rollen hin      ";
+			echo "Hier kommen die Links zu den spezifischen Rollen hin      .";
 		}
 		else 
 		{
