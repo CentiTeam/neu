@@ -16,6 +16,7 @@ class overviewController extends AbstractActionController
 	public function overviewAction(){
 	
 		session_start();
+		echo $user->getNachname();
 		
 		if ($_SESSION['angemeldet']=='ja')
 		{
