@@ -8,6 +8,7 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Model\DB_connection;
 use Application\Model\User;
+// require_once('Application/src/model/User.php');
 
 
 class loginController extends AbstractActionController{
@@ -53,8 +54,8 @@ class loginController extends AbstractActionController{
 					$_SESSION['angemeldet'] = "ja";
 					
 					// Userobjektdaten in Session speichern
-					session_start();
-					require_once('Application/src/model/User.php');
+					
+					
 					$user = new User($dbHandle, null, $uname);
 					$_SESSION['user'] = $user;
 					
