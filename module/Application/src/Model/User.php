@@ -63,9 +63,6 @@ class User
 				
 				$this->isloggedin = true;
 			}
-			else{
-				echo "Benutzername oder Passwort falsch, oder Benutzerkonto deaktiviert!";
-			}
 		
 		}
 		
