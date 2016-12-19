@@ -14,13 +14,16 @@ use Application\Model\User;
 class loginController extends AbstractActionController{
 	
 	public function loginAction(){
-		// session_start();
+		// session_start(); auch löschen
 		
 		if ($_REQUEST["loginfunc"])
 			
 		{	
 			$uname = $_POST['uname'];
 			$pwd = $_POST['pwd'];	
+			
+		
+			/** ALLES LÖSCHEN, DA NUN IN USER-Klasse LOGIN
 			
 			$db = new DB_connection;
 		
@@ -48,9 +51,10 @@ class loginController extends AbstractActionController{
 					if($row['passwort'] == $pwd && $row['deaktiviert']==0){
 						
 					//Wenn man angemeldet ist, so wird dies in der Sessionvariable "angemeldet" gespeichert. Muss hier noch gelöscht werden, da es bereits
-					//in UserKlasse-Jogin behandelt wird
-					
+					//in UserKlasse-Login behandelt wird
 					// $_SESSION['angemeldet'] = "ja";
+					*/
+					
 					
 					// Userobjektdaten in Session speichern	
 					$user = new User();
