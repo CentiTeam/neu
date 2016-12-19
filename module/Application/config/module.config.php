@@ -49,16 +49,16 @@ return [
         			],
         	],
         		
-        		'anlegen' => [
-        				'type'    => Segment::class,
-        				'options' => [
-        						'route'    => '/gruppe[/:action]',
-        						'defaults' => [
-        								'controller' => Controller\GruppeController::class,
-        								'action'     => 'anlegen',
-        						],
-        				],
-        		],
+        	'gruppeanlegen' => [
+        			'type'    => Segment::class,
+        			'options' => [
+        					'route'    => '/gruppeanlegen[/:action]',
+        					'defaults' => [
+        							'controller' => Controller\GruppeanlegenController::class,
+        							'action'     => 'gruppeanlegen',
+        					],
+        			],
+        	],
         		
         		
         		
@@ -113,7 +113,7 @@ return [
         'factories' => [
             Controller\IndexController::class => InvokableFactory::class,
         	Controller\OverviewController::class => InvokableFactory::class,
-        	Controller\GruppeController::class => InvokableFactory::class,
+        	Controller\GruppeanlegenController::class => InvokableFactory::class,
         	Controller\LoginController::class => InvokableFactory::class,
            	Controller\HelpController::class => InvokableFactory::class,
 
