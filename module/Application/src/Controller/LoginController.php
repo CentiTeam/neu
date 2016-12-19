@@ -36,18 +36,18 @@ class loginController extends AbstractActionController{
 			//Wenn Werte aus der Datenbank in $result geschrieben wurden, dann wird weitergemacht
 			else{
 					//Holen der ersten (und hier einzigen, da nur ein Benutzername) Zeile des Ergebnisses
-					$row=mysqli_fetch_row($result);
+					$row=mysqli_fetch_array($result);
 			
 					//Pr�fen, ob das eingegebene Passwort korrekt ist und der Benutzer aktiviert ist
 				
-					if($row['passwort'] == $pwd && $row['deaktiviert']==0){
+					if($row['passwort'] == $pwd && $row[6]==0){
 					
 					//Wenn man angemeldet ist, so wird dies in der Sessionvariable "angemeldet" gespeichert.
 					$_SESSION['angemeldet'] = "ja";
 					
 					// User laden aus Datenbank
-					// $u_id=$row[0];
-					
+					$u_id=$row[0];
+					$
 					
 					
 					
