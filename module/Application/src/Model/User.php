@@ -6,39 +6,14 @@ use Application\Model\DB_connection;
 
 class User
 {
-	public $u_id;
-	public $username;
-	public $vorname;
-	public $nachname;
-	public $passwort;
-	public $email;
-	public $deaktiviert;
-	public $systemadmin;
-	
-	private $isloggedin;
-	
-
-	/** Singleton-Instanz der Klasse */
-	private static $instance;
-	
-	
-	/**
-	 * Die Singleton-Instanz der Klasse ist der aktuelle Benutzer der Seite
-	 *
-	 * @return Singleton-Instanz
-	 */
-	/**
-	public static function getInstance() {
-	
-		// Pr�ft ob die Instanz bereits erstellt wurde
-		if (!isset(self::$instance)) {
-			// da noch keine Instanz vorhanden ist, wird eine Neue erstellt und gespeichert
-			self::$instance = new User();
-		}
-	
-		return self::$instance;
-	}
-	*/
+	protected $u_id;
+	protected $username;
+	protected $vorname;
+	protected $nachname;
+	protected $passwort;
+	protected $email;
+	protected $deaktiviert;
+	protected $systemadmin;
 	
 	
 	public function login($username, $passwort) {
