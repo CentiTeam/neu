@@ -46,7 +46,8 @@ class loginController extends AbstractActionController{
 					//Pr�fen, ob das eingegebene Passwort korrekt ist und der Benutzer aktiviert ist
 				
 					if($row['passwort'] == $pwd && $row['deaktiviert']==0){
-					echo $row['passwort'];
+					
+						echo Passwort eingespeichert? $row['passwort'];
 					//Wenn man angemeldet ist, so wird dies in der Sessionvariable "angemeldet" gespeichert.
 					$_SESSION['angemeldet'] = "ja";
 					
