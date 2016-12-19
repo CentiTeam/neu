@@ -47,7 +47,9 @@ class loginController extends AbstractActionController{
 				
 					if($row['passwort'] == $pwd && $row['deaktiviert']==0){
 						
-					//Wenn man angemeldet ist, so wird dies in der Sessionvariable "angemeldet" gespeichert.
+					//Wenn man angemeldet ist, so wird dies in der Sessionvariable "angemeldet" gespeichert. Muss hier noch gelöscht werden, da es bereits
+					//in UserKlasse-Jogin behandelt wird
+					
 					// $_SESSION['angemeldet'] = "ja";
 					
 					// Userobjektdaten in Session speichern	
@@ -61,14 +63,11 @@ class loginController extends AbstractActionController{
 					
 					$_SESSION['user'] = $user;
 					
-					// $user = $_SESSION['user'];
-					
-					
 					
 					$view = new ViewModel(array(
 							'message' => 'Erfolgreich eingeloggt!',
 							'uname' => $uname,
-							// 'user' => array($user)
+							'user' => array($user)
 					));
 					$view->setTemplate('application/overview/overview.phtml');
 					return $view;

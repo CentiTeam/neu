@@ -20,7 +20,7 @@ class overviewController extends AbstractActionController
 		
 		if ($_SESSION['angemeldet']=='ja')
 		{
-			echo "Hier kommen die Links zu den spezifischen Rollen hin      .";
+			echo "Hier kommen die Links zu den spezifischen Rollen hin";
 		}
 		else 
 		{
@@ -36,6 +36,11 @@ class overviewController extends AbstractActionController
 		$user=$_SESSION['user'];
 		echo "Nachname des angemeldeten Users: ";
 		echo $user->getNachname();
+		
+		return new ViewModel([
+				'user' => array($user)
+		]
+				);
 	}
 		
 
