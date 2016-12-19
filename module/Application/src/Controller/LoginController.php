@@ -48,8 +48,6 @@ class loginController extends AbstractActionController{
 				
 					if($row['passwort'] == $pwd && $row['deaktiviert']==0){
 						
-						echo "Passwort eingespeichert?";
-						echo $row['passwort'];
 					//Wenn man angemeldet ist, so wird dies in der Sessionvariable "angemeldet" gespeichert.
 					// $_SESSION['angemeldet'] = "ja";
 					
@@ -58,20 +56,13 @@ class loginController extends AbstractActionController{
 					$user = new User();
 					
 					session_start();
-					$_SESSION['angemeldet'] = "ja";
+					// $_SESSION['angemeldet'] = "ja";
 					
 					$isOK=$user->login($uname, $pwd);
 					
 					echo $isOK;
+					echo $user->getVorname();
 					/**
-					$user->u_id=$row['u_id'];
-					$user->username=$row['username'];
-					$user->vorname=$row['vorname'];
-					$user->nachname=$row['nachname'];
-					$user->passwort=$row['passwort'];
-					$user->email=$row['email'];
-					$user->deaktiviert=$row['deaktiviert'];
-					$user->systemadmin=$row['systemadmin'];
 					
 					$_SESSION['user'] = $user;
 					
@@ -81,20 +72,6 @@ class loginController extends AbstractActionController{
 					
 					echo $user->getVorname();
 					*/
-					
-					/**
-					$user= new User();
-					
-					$user->u_id=$row['u_id'];
-					$user->username=$row['username'];
-					$user->vorname=$row['vorname'];
-					$user->nachname=$row['nachname'];
-					$user->passwort=$row['passwort'];
-					$user->email=$row['email'];
-					$user->deaktiviert=$row['deaktiviert'];
-					$user->systemadmin=$row['systemadmin'];
-					*/
-					
 					
 					
 					$view = new ViewModel(array(
