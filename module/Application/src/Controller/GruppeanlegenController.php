@@ -50,7 +50,7 @@ class GruppeanlegenController extends AbstractActionController {
 			}
 				
 			var_dump($gruppenname);
-			var_dump($gruppe->getGruppenname());
+			
 				
 			
 			// Gruppe-Objekt mit Daten aus Request-Array f�llen
@@ -58,7 +58,10 @@ class GruppeanlegenController extends AbstractActionController {
 			$gruppe->setGruppenbeschreibung($gruppenbeschreibung);
 			$gruppe->setGruppenbildpfad($gruppenbildpfad);
 			 
-			 
+			var_dump($gruppe->getGruppenname());
+			
+			if($gruppe->getGruppenname()==null) die("Gruppenname wurde nicht eingelesen.");
+			
 			if ($errorStr == "" && $gruppe->anlegen()) {
 
 				array_push($msg, "Gruppe erfolgreich gespeichert!");
