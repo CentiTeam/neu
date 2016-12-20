@@ -19,7 +19,7 @@ class User
 	
 
 	public function __construct($user_id = null) {
-		
+		echo "UserKonstruktor aufgerufen!";
 		$this->username = $user_id;
 	}
 
