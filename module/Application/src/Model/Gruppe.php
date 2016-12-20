@@ -13,8 +13,8 @@ class Gruppe {
 	
 	public function __construct() {
 		die("TEst Konstruktor");
-		$this->g_id= 50;
-		
+		$this->g_id= 51;
+		echo "$this->g_id";
 		
 	}
 	
