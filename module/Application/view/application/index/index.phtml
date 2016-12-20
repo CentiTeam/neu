@@ -8,8 +8,12 @@ session_destroy();
 
 <!-- GroupPay Logo -->
 
-<img src= "./neu/public/img/Logo2.png" height= "200px" width= "200px" alt = "GroupPay">
-<br>
+<!-- Le styles -->
+        <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/Logo2.png'])
+            ->prependStylesheet($this->basePath('css/style.css'))
+            ->prependStylesheet($this->basePath('css/bootstrap-theme.min.css'))
+            ->prependStylesheet($this->basePath('css/bootstrap.min.css'))
+        ?>
 
 
 <!-- Hier steht die Beschreibung der Website laut Pflichtenheft (F101) -->
