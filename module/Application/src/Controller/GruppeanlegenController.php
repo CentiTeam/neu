@@ -55,6 +55,7 @@ class GruppeanlegenController extends AbstractActionController {
 				
 			
 			// Gruppe-Objekt mit Daten aus Request-Array f�llen
+			$gruppe->setG_id($g_id);
 			$gruppe->setGruppenname($gruppenname);
 			$gruppe->setGruppenbeschreibung($gruppenbeschreibung);
 			$gruppe->setGruppenbildpfad($gruppenbildpfad);
