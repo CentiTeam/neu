@@ -21,7 +21,7 @@ class Gruppe {
 		
 		var_dump($this->gruppenname);
 		
-		
+		die ("In gruppenklasse angekomme");
 		
 		$query = "INSERT INTO gruppe (gruppenname, gruppenbeschreibung, gruppenbildpfad) VALUES (
 				'".$this->gruppenname."', 
