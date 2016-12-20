@@ -42,7 +42,7 @@ class overviewController extends AbstractActionController
 		
 		return new ViewModel([
 				'user' => array($user),
-				'gruppeliste' => array($gruppenliste)
+				'gruppenListe' => array($gruppenliste)
 		]
 				);
 	}
