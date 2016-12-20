@@ -144,6 +144,28 @@ class User
 		return $this->nachname;
 	}
 	
+	public function setUsername($value) {
+		$this->username = $value;
+	}
+	
+	public function getUsername() {
+		return $this->username;
+	}
+	
+	public function setPasswort($value) {
+		$this->passwort = $value;
+	}
+	public function getPasswort() {
+		return $this->passwort;
+	}
+	
+	public function setEmail($value) {
+		$this->email = $value;
+	}
+	
+	public function getEmail() {
+		return $this->email;
+	}
 	
 	// Getter für die EIgenschaft isloggedin
 	public function isloggedin() {
