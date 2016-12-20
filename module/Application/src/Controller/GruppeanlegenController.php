@@ -64,8 +64,9 @@ class GruppeanlegenController extends AbstractActionController {
 			
 			if($gruppe->getGruppenname()==null) die("Gruppenname wurde nicht eingelesen.");
 			
-			
-			
+			$isOK = $gruppe->anlegen();
+			if ($isOK) die ("Gruppeanlegen funktion wurde ausgeführt");
+			/**
 			if ($errorStr == "" && $gruppe->anlegen()) {
 
 				array_push($msg, "Gruppe erfolgreich gespeichert!");
@@ -82,7 +83,7 @@ class GruppeanlegenController extends AbstractActionController {
 				$saved = false;
 
 			}
-			 
+			*/ 
 			var_dump($gruppe);
 			 
 		}
