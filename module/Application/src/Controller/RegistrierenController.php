@@ -31,7 +31,6 @@ class RegistrierenController extends AbstractActionController{
 	
 			
 			// User-Objekt mit Daten aus Request-Array füllen
-			$user -> setU_id ($u_id);
 			$user -> setUsername ($username);
 			$user -> setPasswort ($passwort);
 			$user -> setEmail ($email);
