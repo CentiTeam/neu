@@ -47,6 +47,7 @@ class GruppeanlegenController extends AbstractActionController {
 				
 			if ($gruppenname=="Kinderporno") {
 				$errorStr .="Der Gruppenname darf nicht Kinderporno heißen!<br>";
+				die ("KInderpornotest1");
 			}
 				
 			var_dump($gruppenname);
