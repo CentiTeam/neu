@@ -16,12 +16,13 @@ class Gruppe {
 	}
 	
 	public function anlegen () {
+		die ("In gruppenklasse angekomme");
+		
 		
 		$db = new DB_connection();
 		
 		var_dump($this->gruppenname);
 		
-		die ("In gruppenklasse angekomme");
 		
 		$query = "INSERT INTO gruppe (gruppenname, gruppenbeschreibung, gruppenbildpfad) VALUES (
 				'".$this->gruppenname."', 

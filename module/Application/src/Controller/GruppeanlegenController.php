@@ -64,7 +64,7 @@ class GruppeanlegenController extends AbstractActionController {
 			
 			if($gruppe->getGruppenname()==null) die("Gruppenname wurde nicht eingelesen.");
 			
-			$isOK = $gruppe->anlegen();
+			$gruppe->anlegen();
 			if ($isOK) die ("Gruppeanlegen funktion wurde ausgeführt");
 			/**
 			if ($errorStr == "" && $gruppe->anlegen()) {
