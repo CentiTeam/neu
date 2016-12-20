@@ -11,21 +11,17 @@ class Gruppe {
 	protected  $gruppenbeschreibung;
 	protected  $gruppenbildpfad;
 	
-	public function __construct() {
+	public function __construct($gruppen_id = null) {
 		
-		$this->g_id= 52;
+		$this->g_id= $gruppen_id;
 		echo "$this->g_id";
+		
 		
 	}
 	
 	public function anlegen () {
-		die ("In gruppenklasse angekommen!!!");
-		
 		
 		$db = new DB_connection();
-		
-		var_dump($this->gruppenname);
-		
 		
 		$query = "INSERT INTO gruppe (gruppenname, gruppenbeschreibung, gruppenbildpfad) VALUES (
 				'".$this->gruppenname."', 
@@ -36,14 +32,12 @@ class Gruppe {
 		
 		$result = $db->execute($query);
 		
-		var_dump($this->gruppenname);
-		
 		
 		// GENAUE SYNTAX FEHLT!!
-		$isOK = mysqli_affected_rows ($result) > 0;
+		// $isOK = mysqli_affected_rows ($result) > 0;
 		
-		return $isOK;
 		
+		return $result;
 	}
 	
 	public function loeschen () {

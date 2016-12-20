@@ -49,10 +49,7 @@ class GruppeanlegenController extends AbstractActionController {
 					$errorStr .="Der Gruppenname darf nicht Kinderporno hei√üen!<br>";
 					die ("KInderpornotest1");
 				}
-
-				var_dump($gruppenname);
 					
-
 					
 				// Gruppe-Objekt mit Daten aus Request-Array fÔøΩllen
 				$gruppe->setG_id($g_id);
@@ -66,7 +63,7 @@ class GruppeanlegenController extends AbstractActionController {
 				if($gruppe->getGruppenname()==null) die("Gruppenname wurde nicht eingelesen.");
 					
 				$gruppe->anlegen();
-				if ($isOK) die ("Gruppeanlegen funktion wurde ausgef¸hrt!!");
+				// if ($isOK) die ("Gruppeanlegen funktion wurde ausgef¸hrt!!");
 				/**
 				 if ($errorStr == "" && $gruppe->anlegen()) {
 
