@@ -22,8 +22,27 @@ class User
 		$this->username = $user_id;
 	}
 
+		public function registrieren ($username, $passwort, $email, $vorname, $nachname) 
+		{
+			$db = new DB_connection;
+			$query = "INSERT INTO User (username, vorname, nachname, passwort, email, deaktiviert, systemadmin) VALUES (
+			
+				'".$this->username."',
+				'".$this->vorname."',
+				'".$this->nachname."',
+				'".$this->passwort."',
+				'".$this->email."',
+					0,
+					0)";
+		
+			$result = $db->execute($query);
+			$isOK = mysqli_affected_rows ($result) > 0;
+			return $isOK;
+		}
 	
-	public function login($username, $passwort) {
+	
+	
+		public function login($username, $passwort) {
 		
 		$db = new DB_connection;
 		
