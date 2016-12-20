@@ -13,6 +13,5 @@ class registrierenController extends AbstractActionController{
 		return new ViewModel();
 		
 		
-		
 	}
 }
