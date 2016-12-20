@@ -14,7 +14,7 @@ use Application\Model\User;
 class loginController extends AbstractActionController{
 	
 	public function loginAction(){
-		// session_start(); auch löschen
+		// session_start(); auch lï¿½schen
 		
 		$user = new User();
 			
@@ -24,48 +24,10 @@ class loginController extends AbstractActionController{
 			$uname = $_POST['uname'];
 			$pwd = $_POST['pwd'];	
 			
-		
-			/** ALLES LÖSCHEN, DA NUN IN USER-Klasse LOGIN
-			
-			$db = new DB_connection;
-		
-			//Query, um alle Daten des Benutzers, dessen Benutzername eingegeben wurde aus der Datenbank zu holen
-			$query_benutzerdaten = "SELECT * FROM User WHERE username = '".$uname."';";
-		
-		
-			$result= $db->execute($query_benutzerdaten);
-			
-			//Ausgeben einer Fehlermeldung, falls ein Fehler beim Ausfï¿½hren der Query auftritt und somit $result leer bleibt
-			if(!isset($result)){
-				echo "Fehler beim Holen der Daten aus der Datenbank";
-			}
-			//Wenn Werte aus der Datenbank in $result geschrieben wurden, dann wird weitergemacht
-			else{
-					//Holen der ersten (und hier einzigen, da nur ein Benutzername) Zeile des Ergebnisses
-					// Mit derr Funktion mysqli_fetch_array($result) anstelle von mysqli_fetch_row($result) können danach die Parameter 
-					// anhand dem Spaltennamen ausgelesen werden
-					
-					
-					$row=mysqli_fetch_array($result);
-			
-					//Prï¿½fen, ob das eingegebene Passwort korrekt ist und der Benutzer aktiviert ist
-				
-					if($row['passwort'] == $pwd && $row['deaktiviert']==0){
-						
-					//Wenn man angemeldet ist, so wird dies in der Sessionvariable "angemeldet" gespeichert. Muss hier noch gelöscht werden, da es bereits
-					//in UserKlasse-Login behandelt wird
-					// $_SESSION['angemeldet'] = "ja";
-					*/
-					
-					
-					// Userobjektdaten in Session speichern	
-					// $user = new User();
-				
-					// session_start();
 					
 					if ($user->login($uname, $pwd)){
 					
-					// echo $user->getVorname(); nur Beispiel für Zugriff aufs Objekt: Kann gelöscht werden
+					// echo $user->getVorname(); nur Beispiel fï¿½r Zugriff aufs Objekt: Kann gelï¿½scht werden
 					
 					$_SESSION['user'] = $user;
 					

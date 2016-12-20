@@ -118,7 +118,7 @@ class User
 	
 	
 	//Setter für nachname
-	public function setNAchname($value) {
+	public function setNachname($value) {
 		$this->nachname = $value;
 	}
 	//Getter für nachname

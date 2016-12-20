@@ -3,6 +3,7 @@
 <?php
 	session_start();
 	if($_SESSION['angemeldet'] == 'ja'){
+		echo $_POST['message'];
 	?>
 
 <div class=>Hallo <?=$user[0]->getVorname();?>! Sie wurden erfolgreich eingeloggt.</div>
@@ -15,7 +16,7 @@
 
 <?php 
 
-/** Löschen!!!
+/** Lï¿½schen!!!
 
 	echo "Hallo ";
 
