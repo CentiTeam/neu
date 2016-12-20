@@ -11,9 +11,9 @@ class Gruppe {
 	protected  $gruppenbeschreibung;
 	protected  $gruppenbildpfad;
 	
-	public function __construct($gruppen_id = null) {
+	public function __construct() {
 		
-		$this->g_id= $gruppen_id;
+		$this->g_id= 52;
 		echo "$this->g_id";
 		
 	}
@@ -117,7 +117,7 @@ class Gruppe {
 		return $this->g_id;
 	}
 	
-	public function setG_Id() {
+	public function setG_Id($g_id) {
 		$this->g_id= $g_id;
 	}
 	
@@ -125,7 +125,7 @@ class Gruppe {
 		return $this->gruppenname;
 	}
 	
-	public function setGruppenname() {
+	public function setGruppenname($gruppenname) {
 		$this->gruppenname= $gruppenname;
 	}
 	
@@ -133,7 +133,7 @@ class Gruppe {
 		return $this->gruppenbeschreibung;
 	}
 	
-	public function setGruppenbeschreibung() {
+	public function setGruppenbeschreibung($gruppenbeschreibung) {
 		$this->gruppenbeschreibung= $gruppenbeschreibung;
 	}
 	
@@ -141,7 +141,7 @@ class Gruppe {
 		return $this->gruppenbildpfad;
 	}
 	
-	public function setGruppenbildpfad() {
+	public function setGruppenbildpfad($gruppenbildpfad) {
 		$this->gruppenbildpfad= $gruppenbildpfad;
 	}
 	
