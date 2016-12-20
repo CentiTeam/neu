@@ -10,6 +10,7 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Model\User;
+use Application\Model\Gruppe;
 
 class overviewController extends AbstractActionController
 {
