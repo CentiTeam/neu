@@ -5,16 +5,14 @@ namespace Application\Model;
 use Application\Model\DB_connection;
 use Application\Model\Zend_Db_Statement_Mysqli;
 
-class gruppe {
+class Gruppe {
 	protected  $g_id;
 	protected  $gruppenname;
 	protected  $gruppenbeschreibung;
 	protected  $gruppenbildpfad;
 	
-	public function __construct() {
-		$this->gruppenname = "";
-		$this->gruppenbeschreibung = "";
-		$this->gruppenbildpfad ="";
+	public function __construct($gruppe_id = null) {
+		$this->g_id= $gruppe_id;
 	}
 	
 	public function anlegen () {

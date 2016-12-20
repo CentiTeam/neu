@@ -14,7 +14,6 @@ use Application\Model\User;
 class loginController extends AbstractActionController{
 	
 	public function loginAction(){
-		// session_start(); auch l�schen
 		
 		$user = new User();
 			
