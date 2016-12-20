@@ -49,6 +49,18 @@ return [
         			],
         	],
         		
+        	
+        		'registrieren' => [
+        				'type'    => Segment::class,
+        				'options' => [
+        						'route'    => '/registrieren[/:action]',
+        						'defaults' => [
+        								'controller' => Registrieren\RegistrierenController::class,
+        								'action'     => 'registrieren',
+        						],
+        				],
+        		],
+        		
         	'gruppeanlegen' => [
         			'type'    => Segment::class,
         			'options' => [
@@ -91,6 +103,7 @@ return [
         					'defaults' => [
         							'controller' => Controller\LoginController::class,
         							'action'     => 'login',
+        							
         					],
         			],
         	],
@@ -128,6 +141,7 @@ return [
         	Controller\LoginController::class => InvokableFactory::class,
            	Controller\HelpController::class => InvokableFactory::class,
         	Controller\GruppeController::class => InvokableFactory::class,
+        	Controller\RegistrierenController::class => InvokableFactory::class,
         		
         		
 
