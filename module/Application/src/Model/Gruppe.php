@@ -89,13 +89,13 @@ class Gruppe {
 		$dbStmt = new DB_connection();
 	
 		// DB-Befehl absetzen: alle Basisinformationen des Teams mit der �bergebenen $t_id abfragen
-		$dbStmt->execute("SELECT * FROM gruppe WHERE g_id=$1;", array($g_id));
+		$result=$dbStmt->execute("SELECT * FROM gruppe WHERE g_id=$1;", array($g_id));
 	
 		// Variable, die speichert, ob das Team geladen werden konnte oder nicht
 		$isLoaded=false;
 		
 		// Ergebnis verarbeiten, falls vorhanden
-		if ($row=$dbStmt->nextRowset()) {
+		if ($row=mysqli_fetch_array($result)) {
 			$this->g_id=$row["g_id"];
 			$this->gruppenname=$row["gruppenname"];
 			$this->gruppenbeschreibung=$row["gruppenbeschreibung"];
