@@ -71,7 +71,7 @@ class Gruppe {
 			// neues Model ans Ende des $gruppeListe-Arrays anf�gen
 			$gruppeListe[] = $model;
 			
-			echo $gruppeListe;
+			var_dump($gruppeListe->getGruppenname());
 		}
 	
 		// fertige Liste von Gruppe-Objekten zur�ckgeben
