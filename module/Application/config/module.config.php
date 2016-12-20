@@ -55,7 +55,7 @@ return [
         				'options' => [
         						'route'    => '/registrieren[/:action]',
         						'defaults' => [
-        								'controller' => Registrieren\RegistrierenController::class,
+        								'controller' => Controller\RegistrierenController::class,
         								'action'     => 'registrieren',
         						],
         				],

@@ -6,7 +6,7 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
 
-class registrierenController extends AbstractActionController{
+class RegistrierenController extends AbstractActionController{
 
 	public function registrierenAction(){
 		
