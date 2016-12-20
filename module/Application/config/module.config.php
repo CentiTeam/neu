@@ -71,6 +71,16 @@ return [
         					],
         			],
         	],
+        	'groupoverview' => [
+        			'type'    => Segment::class,
+        			'options' => [
+        					'route'    => '/groupoverview[/:action]',
+        					'defaults' => [
+        							'controller' => Controller\GroupoverviewController::class,
+        							'action'     => 'groupoverview',
+        					],
+        			],
+        	],
         		
         		'anlegen' => [
         				'type'    => Segment::class,
@@ -138,6 +148,7 @@ return [
             Controller\IndexController::class => InvokableFactory::class,
         	Controller\OverviewController::class => InvokableFactory::class,
         	Controller\GruppeanlegenController::class => InvokableFactory::class,
+        	Controller\GroupoverviewController::class => InvokableFactory::class,
         	Controller\LoginController::class => InvokableFactory::class,
            	Controller\HelpController::class => InvokableFactory::class,
         	Controller\GruppeController::class => InvokableFactory::class,

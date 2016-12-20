@@ -47,7 +47,6 @@ class GruppeanlegenController extends AbstractActionController {
 
 				if ($gruppenname=="Kinderporno") {
 					$errorStr .="Der Gruppenname darf nicht Kinderporno hei√üen!<br>";
-					die ("KInderpornotest1");
 				}
 					
 					
@@ -62,9 +61,9 @@ class GruppeanlegenController extends AbstractActionController {
 					
 				if($gruppe->getGruppenname()==null) die("Gruppenname wurde nicht eingelesen.");
 					
-				$gruppe->anlegen();
+				// $gruppe->anlegen();
 				// if ($isOK) die ("Gruppeanlegen funktion wurde ausgef¸hrt!!");
-				/**
+				
 				 if ($errorStr == "" && $gruppe->anlegen()) {
 
 				 array_push($msg, "Gruppe erfolgreich gespeichert!");
@@ -81,18 +80,20 @@ class GruppeanlegenController extends AbstractActionController {
 				 $saved = false;
 
 				 }
-				 */
-				var_dump($gruppe);
 
 			}
 		}
 
 
-		return new ViewModel([
+		$view = new ViewModel([
 				'gruppe' => array($gruppe),
 				'errors'   => $errors,
 				'msg' => $msg
 		]);
+		
+		$view->setTemplate('application/groupoverview/groupoverview.phtml');
+			
+		return $view;
 
 	}
 
