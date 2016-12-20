@@ -160,6 +160,7 @@ return [
             'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
             'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
         	'application/overview/overview' => __DIR__ . '/../view/application/overview/overview.phtml',
+        		'application/registrieren/registrieren' => __DIR__ . '/../view/application/registrieren/registrieren.phtml',
         	'application/hilfe/hilfe' => __DIR__ . '/../view/application/hilfe/hilfe.phtml',
         	'application/gruppe/anlegen' => __DIR__ . '/../view/application/anlegen/anlegen.phtml',
         	'application/user/login' => __DIR__ . '/../view/application/login/login.phtml',
