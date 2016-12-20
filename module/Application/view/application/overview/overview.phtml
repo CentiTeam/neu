@@ -8,21 +8,28 @@
 
 <div class=>Hallo <?=$user[0]->getVorname();?>! Sie wurden erfolgreich eingeloggt.</div>
 
+<table>
 
-	
+	<tr>
+		<th>GruppenNr</th>
+		<th>Gruppenname</th>
+		<th></th>
+	</tr>
+
+	<?php 
+	foreach ($userListe as $user) {
+	?>
+
+		<tr>
+			<td><?=$user[0]->getU_id()?></td>
+			<td><?=$user[0]->getGruppenname()?></td>
+		</tr>
+
+	<?php 
+	}
+	?>
+
+</table>
 		
 <?php }
-?>
-
-<?php 
-
-/** L�schen!!!
-
-	echo "Hallo ";
-
-	echo $uname; 
-	echo $vorname; 
-	echo "! ";
-	echo "Sie wurden erfolgreich eingeloggt!";
-*/
 ?>

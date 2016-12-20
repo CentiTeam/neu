@@ -9,7 +9,7 @@ class GroupoverviewController extends AbstractActionController
 {
 	public function groupoverviewAction()
 	{
-	/**
+	
 		$gruppe= new Gruppe();
 		
 		$g_id=$_REQUEST['g_id'];
@@ -20,6 +20,6 @@ class GroupoverviewController extends AbstractActionController
 			'gruppe' => array($gruppe),
 		]);
 		
-	*/
+	
 	}
 }
