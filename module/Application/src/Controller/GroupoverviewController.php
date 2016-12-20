@@ -9,9 +9,17 @@ class GroupoverviewController extends AbstractActionController
 {
 	public function groupoverviewAction()
 	{
-
+	/**
+		$gruppe= new Gruppe();
+		
+		$g_id=$_REQUEST['g_id'];
+		
+		$gruppe->laden($g_id);
+		
 		return new ViewModel([
-				// 'gruppe' -> $gruppe
+			'gruppe' => array($gruppe),
 		]);
+		
+	*/
 	}
 }
