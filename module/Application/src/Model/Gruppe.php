@@ -11,8 +11,9 @@ class Gruppe {
 	protected  $gruppenbeschreibung;
 	protected  $gruppenbildpfad;
 	
-	public function __construct($gruppe_id = null) {
-		$this->g_id= $gruppe_id;
+	public function __construct() {
+		$this->g_id= 50;
+		
 	}
 	
 	public function anlegen () {
