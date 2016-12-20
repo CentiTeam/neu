@@ -152,6 +152,7 @@ class User
 		return $this->username;
 	}
 	
+	
 	public function setPasswort($value) {
 		$this->passwort = $value;
 	}
