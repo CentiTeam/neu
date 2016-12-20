@@ -16,7 +16,7 @@ class Gruppe {
 	}
 	
 	public function anlegen () {
-		die ("In gruppenklasse angekomme");
+		die ("In gruppenklasse angekommen!!!");
 		
 		
 		$db = new DB_connection();
