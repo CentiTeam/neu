@@ -56,7 +56,7 @@ class Gruppe {
 		$dbStmt->execute("SELECT g_id FROM gruppe;");
 	
 		// Ergebnis Zeile f�r Zeile verarbeiten
-		while ($row = $dbStmt->fetchAll()) {
+		while ($row = $dbStmt->mysqli_fetch_row()) {
 				
 			// neues Model erzeugen
 			$model = new Gruppe();
