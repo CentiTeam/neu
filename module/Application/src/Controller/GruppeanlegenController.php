@@ -80,20 +80,21 @@ class GruppeanlegenController extends AbstractActionController {
 				 $saved = false;
 
 				 }
-
+				 
+				 $view = new ViewModel([
+				 		'gruppe' => array($gruppe),
+				 		'errors'   => $errors,
+				 		'msg' => $msg
+				 ]);
+				 
+				 $view->setTemplate('application/groupoverview/groupoverview.phtml');
+				 	
+				 return $view;
 			}
 		}
 
 
-		$view = new ViewModel([
-				'gruppe' => array($gruppe),
-				'errors'   => $errors,
-				'msg' => $msg
-		]);
-		
-		$view->setTemplate('application/groupoverview/groupoverview.phtml');
-			
-		return $view;
+		return new ViewModel();
 
 	}
 
