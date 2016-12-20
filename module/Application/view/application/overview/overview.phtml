@@ -3,7 +3,7 @@
 <?php
 	session_start();
 	if($_SESSION['angemeldet'] == 'ja'){
-		echo $_POST['message'];
+		echo $_REQUEST['message'];
 	?>
 
 <div class=>Hallo <?=$user[0]->getVorname();?>! Sie wurden erfolgreich eingeloggt.</div>
