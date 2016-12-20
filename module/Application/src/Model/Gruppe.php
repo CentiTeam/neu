@@ -5,7 +5,7 @@ namespace Application\Model;
 use Application\Model\DB_connection;
 use Application\Model\Zend_Db_Statement_Mysqli;
 
-class gruppe {
+class Gruppe {
 	protected  $g_id;
 	protected  $gruppenname;
 	protected  $gruppenbeschreibung;

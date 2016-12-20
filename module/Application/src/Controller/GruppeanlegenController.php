@@ -49,7 +49,8 @@ class GruppeanlegenController extends AbstractActionController {
 				$errorStr .="Der Gruppenname darf nicht Kinderporno heißen!<br>";
 			}
 				
-			var_dump("$gruppenname");
+			var_dump($gruppenname);
+			var_dump($gruppe->getGruppenname());
 				
 			
 			// Gruppe-Objekt mit Daten aus Request-Array f�llen
