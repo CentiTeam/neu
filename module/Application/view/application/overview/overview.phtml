@@ -8,28 +8,9 @@
 
 <div class=>Hallo <?=$user[0]->getVorname();?>! Sie wurden erfolgreich eingeloggt.</div>
 
-<table>
 
-	<tr>
-		<th>GruppenNr</th>
-		<th>Gruppenname</th>
-		<th></th>
-	</tr>
+<div class=>Gruppe mit ID 1: <?=$gruppe[0]->getGruppenname();?></div>	
 
-	<?php 
-	foreach ($gruppenListe as $gruppe) {
-	?>
-
-		<tr>
-			<td><?=$gruppe->getG_id()?></td>
-			<td><?=$gruppe->getGruppenname()?></td>
-		</tr>
-
-	<?php 
-	}
-	?>
-
-</table>
-		
+	
 <?php }
 ?>

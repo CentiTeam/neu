@@ -27,8 +27,6 @@ class Gruppe {
 				'".$this->gruppenname."', 
 				'".$this->gruppenbeschreibung."',
 				'".$this->gruppenbildpfad."')" ;
-
-		// $DBstmt = new Zend_Db_Statement_Mysqli($db, $query);
 		
 		$result = $db->execute($query);
 		
@@ -43,7 +41,7 @@ class Gruppe {
 	public function loeschen () {
 		
 	}
-	
+	/**
 	public static function listeHolen() {
 	
 		// Liste initialisieren
@@ -78,6 +76,7 @@ class Gruppe {
 		return $gruppeListe;
 		}
 	}
+	*/
 	
 	/**
 	 * L�dt eine Gruppe

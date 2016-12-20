@@ -38,11 +38,17 @@ class overviewController extends AbstractActionController
 		echo "Nachname des angemeldeten Users: ";
 		echo $user->getNachname();
 		
-		$gruppenliste = Gruppe::listeHolen();
+		// $gruppenliste = Gruppe::listeHolen();
+		
+		$gruppe= new Gruppe();
+		$g_id=1;
+		
+		$gruppe->laden($g_id);
 		
 		return new ViewModel([
 				'user' => array($user),
-				'gruppenListe' => array($gruppenliste)
+				// 'gruppenListe' => array($gruppenliste)
+				'gruppe' => array($gruppe)
 		]
 				);
 	}
