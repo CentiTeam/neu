@@ -50,13 +50,17 @@ class Gruppe {
 		$gruppeListe = array ();
 	
 		// Datenbankstatement erzeugen
-		$dbStmt = new DB_connection();
+		$db = new DB_connection();
 	
 		// DB-Befehl absetzen: ID's aller Gruppen in der DB laden
-		$dbStmt->execute("SELECT g_id FROM gruppe;");
+		//$dbStmt->execute("SELECT g_id FROM gruppe;");
+		
+		$abfrage="SELECT g_id FROM gruppe";
+		
+		if ($result=mysqli_query($db, $abfrage)) {
 	
 		// Ergebnis Zeile f�r Zeile verarbeiten
-		while ($row = $dbStmt->mysqli_fetch_row()) {
+		while ($row = mysqli_fetch_row()) {
 				
 			// neues Model erzeugen
 			$model = new Gruppe();
@@ -70,6 +74,7 @@ class Gruppe {
 	
 		// fertige Liste von Gruppe-Objekten zur�ckgeben
 		return $gruppeListe;
+		}
 	}
 	
 	/**
