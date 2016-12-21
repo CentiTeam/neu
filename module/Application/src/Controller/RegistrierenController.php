@@ -33,10 +33,9 @@ class RegistrierenController extends AbstractActionController{
 			
 			// Überprüfung, ob Passwort zwei mal richtig eingegeben wurde
 			
-			$errorStr ="";
 			
 			if ($passwort!=$passwortwdh) {
-				$errorStr .="Keine Übereinstimmung der Passwörter! Bitte erneut registrieren<br>";
+				echo "Keine Übereinstimmung der Passwörter! Bitte erneut registrieren<br>";
 			}
 			
 			
