@@ -42,12 +42,12 @@ class User
 	
 	
 	
-		public function login($username, $passwort) {
+		public function login($email, $passwort) {
 		
 		$db = new DB_connection;
 		
 		//Query, um alle Daten des Benutzers, dessen Benutzername eingegeben wurde aus der Datenbank zu holen
-		$query_benutzerdaten = "SELECT * FROM User WHERE username = '".$username."' AND passwort = '".$passwort."';";
+		$query_benutzerdaten = "SELECT * FROM User WHERE email = '".$email."' AND passwort = '".$passwort."';";
 		
 		$result= $db->execute($query_benutzerdaten);
 		

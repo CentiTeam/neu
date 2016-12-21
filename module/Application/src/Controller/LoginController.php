@@ -20,11 +20,11 @@ class loginController extends AbstractActionController{
 		session_start();
 		
 		if ($_REQUEST["loginfunc"])	{	
-			$uname = $_POST['uname'];
+			$email = $_POST['email'];
 			$pwd = $_POST['pwd'];	
 			
 					
-					if ($user->login($uname, $pwd)){
+					if ($user->login($email, $pwd)){
 					
 					// echo $user->getVorname(); nur Beispiel f�r Zugriff aufs Objekt: Kann gel�scht werden
 					
