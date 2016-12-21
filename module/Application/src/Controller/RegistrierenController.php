@@ -22,16 +22,28 @@ class RegistrierenController extends AbstractActionController{
 			
 			$username = $_REQUEST ["username"];
 			$passwort = $_REQUEST ["passwort"];
+			$passwortwdh = $_REQUEST ["passwortwdh"];
 			$email = $_REQUEST ["email"];
 			$vorname = $_REQUEST ["vorname"];
 			$nachname = $_REQUEST ["nachname"];
 			
 			
 			// TODO: Es muss noch überprüft werden, ob Benutzername und Passwort vorhanden
-	
+			
+			
+			// Überprüfung, ob Passwort zwei mal richtig eingegeben wurde
+			
+			$errorStr ="";
+			
+			if ($passwort!=$passwortwdh) {
+				$errorStr .="Keine Übereinstimmung der Passwörter! Bitte erneut registrieren<br>";
+			}
+			
+			
 			
 			// User-Objekt mit Daten aus Request-Array füllen
 			$user->setUsername ($username);
+			$user->setPasswortwdh($passwortwdh)
 			$user->setPasswort ($passwort);
 			$user->setEmail ($email);
 			$user->setVorname ($vorname);
