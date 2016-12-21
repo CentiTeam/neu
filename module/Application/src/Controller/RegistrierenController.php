@@ -43,7 +43,7 @@ class RegistrierenController extends AbstractActionController{
 			
 			// User-Objekt mit Daten aus Request-Array füllen
 			$user->setUsername ($username);
-			$user->setPasswortwdh($passwortwdh)
+			$user->setPasswortwdh($passwortwdh);
 			$user->setPasswort ($passwort);
 			$user->setEmail ($email);
 			$user->setVorname ($vorname);
