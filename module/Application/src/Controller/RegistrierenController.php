@@ -28,7 +28,7 @@ class RegistrierenController extends AbstractActionController{
 			$nachname = $_REQUEST ["nachname"];
 			
 			
-			// TODO: Es muss noch überprüft werden, ob Benutzername schon vorhanden (irgendwie wird das automatisch gemacht?)
+			// TODO: Überprüfung, ob Benutzername schon vorhanden ist(irgendwie wird das automatisch gemacht?)
 			
 			
 			// Überprüfung, ob Passwort zwei mal richtig eingegeben wurde
