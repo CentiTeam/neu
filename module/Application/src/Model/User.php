@@ -156,6 +156,13 @@ class User
 	public function setPasswort($value) {
 		$this->passwort = $value;
 	}
+	public function getPasswortwdh() {
+		return $this->passwortwdh;
+	}
+	
+	public function setPasswortwdh($value) {
+		$this->passwortwdh = $value;
+	}
 	public function getPasswort() {
 		return $this->passwort;
 	}
