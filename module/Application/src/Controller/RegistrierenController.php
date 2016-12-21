@@ -28,7 +28,7 @@ class RegistrierenController extends AbstractActionController{
 			$nachname = $_REQUEST ["nachname"];
 			
 			
-			// TODO: Es muss noch überprüft werden, ob Benutzername und Passwort vorhanden
+			// TODO: Es muss noch überprüft werden, ob Benutzername schon vorhanden (irgendwie wird das automatisch gemacht?)
 			
 			
 			// Überprüfung, ob Passwort zwei mal richtig eingegeben wurde
@@ -39,8 +39,15 @@ class RegistrierenController extends AbstractActionController{
 				$error = true;
 			}
 			
+			// TODO: Überprüfung, ob E-Mail schon vorhanden ist
+			
+			
+		
+			
+			// Keine Errors vorhanden, Funktion kann ausgeführt werden
 			
 			if (!$error) {
+				
 			// User-Objekt mit Daten aus Request-Array füllen
 			$user->setUsername ($username);
 			$user->setPasswortwdh($passwortwdh);
