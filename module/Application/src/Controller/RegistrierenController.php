@@ -12,7 +12,7 @@ class RegistrierenController extends AbstractActionController{
 		
 		
 		$user = new User ();
-		$saved = false;
+		$error = false;
 		$msg = array ();
 		
 		if ($_REQUEST['registrieren']) {
@@ -35,11 +35,12 @@ class RegistrierenController extends AbstractActionController{
 			
 			
 			if ($passwort!=$passwortwdh) {
-				echo "Keine Übereinstimmung der Passwörter! Bitte erneut registrieren<br>";
+				echo "Keine Uebereinstimmung der Passwoerter! Bitte erneut registrieren<br>";
+				$error = true;
 			}
 			
 			
-			
+			if (!$error) {
 			// User-Objekt mit Daten aus Request-Array füllen
 			$user->setUsername ($username);
 			$user->setPasswortwdh($passwortwdh);
@@ -54,6 +55,7 @@ class RegistrierenController extends AbstractActionController{
 				
 			$user->registrieren();
 			
+		}
 		}
 			
 
