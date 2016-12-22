@@ -89,6 +89,8 @@ class User
 				//Wenn man angemeldet ist, so wird dies in der Sessionvariable "angemeldet" gespeichert.
 				$_SESSION['angemeldet'] = "ja";
 				
+				
+				
 				$this->u_id = $row['u_id'];
 				$this->username = $row['username'];
 				$this->vorname = $row['vorname'];
@@ -97,6 +99,13 @@ class User
 				$this->email = $row['email'];
 				$this->deaktiviert = $row['deaktiviert'];
 				$this->systemadmin = $row['systemadmin'];
+				
+				//Wenn es sich um einen Systemadmin handelt, dann wird die Sessionvariable "angemeldet", welche für angemeldeter Benutzer steht, mit nein überschrieben und die Sessionvariable "systemadmin" erhält den Wert ja
+				if($this->systemadmin == 1){
+					$_SESSION['systemadmin'] == "ja";
+					$_SESSION['angemeldet'] == "nein";
+					
+				}
 				
 				
 				$this->isloggedin = true;
