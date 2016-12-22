@@ -10,9 +10,9 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
-class AdminoverviewController extends AbstractActionController
+class BenutzertabelleController extends AbstractActionController
 {
-	public function adminoverviewAction()
+	public function benutzertabelleAction()
 	{
 
 
