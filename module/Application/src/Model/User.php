@@ -31,8 +31,7 @@ class User
 			$query_emailueberpruefung = "SELECT * FROM User WHERE email ='".$this->email."';";
 			$result_emailueberpruefung = $db->execute($query_emailueberpruefung);
 			
-			$anzahl = mysqli_num_rows($result_emailueberpruefung);
-			echo $anzahl;
+			
 			
 			//Falls E-Mailadresse noch nicht verwendet wird, dann Schreiben der Daten in die Datenbank.
 			if(mysqli_num_rows($result_emailueberpruefung) == 0){ 
