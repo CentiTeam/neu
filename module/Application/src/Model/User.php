@@ -28,7 +28,7 @@ class User
 			$db = new DB_connection;
 			
 			//Erstellen und Ausführen einer Query zum Überprüfen, ob die eingegebene E-Mailadresse bereits verwendet wird
-			$query_emailueberpruefung = "SELECT email FROM User WHERE email ='".$email."';";
+			$query_emailueberpruefung = "SELECT * FROM User WHERE email ='".$email."';";
 			$result_emailueberpruefung = $db->execute($query_emailueberpruefung);
 			
 			echo mysqli_num_rows($result_emailueberpruefung);
