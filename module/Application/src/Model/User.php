@@ -32,7 +32,7 @@ class User
 			$result_emailueberpruefung = $db->execute($query_emailueberpruefung);
 			
 			//Falls E-Mailadresse noch nicht verwendet wird, dann Schreiben der Daten in die Datenbank.
-			if(mysqli_num_rows($result_emailueberpruefung) == 0){
+			if(mysqli_num_rows($result_emailueberpruefung) == 0){ 
 			
 			$query = "INSERT INTO User (username, vorname, nachname, passwort, email, deaktiviert, systemadmin) VALUES (
 			
