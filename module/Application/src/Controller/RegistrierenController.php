@@ -29,7 +29,6 @@ class RegistrierenController extends AbstractActionController{
 			
 			
 			
-			
 			// Überprüfung, ob Passwort zwei mal richtig eingegeben wurde
 			
 			
