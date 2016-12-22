@@ -30,9 +30,9 @@ class User
 			//Erstellen und Ausführen einer Query zum Überprüfen, ob die eingegebene E-Mailadresse bereits verwendet wird
 			$query_emailueberpruefung = "SELECT email FROM User WHERE email ='".$email."';";
 			$result_emailueberpruefung = $db->execute($query_emailueberpruefung);
-			//echo $result_emailueberpruefung;
+			echo $result_emailueberpruefung;
 			//echo mysqli_num_rows($result_emailueberpruefung);
-			echo "test";
+
 			
 			//Falls E-Mailadresse noch nicht verwendet wird, dann Schreiben der Daten in die Datenbank.
 			if(mysqli_num_rows($result_emailueberpruefung) == 0){ 
