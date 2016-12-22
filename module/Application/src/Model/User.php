@@ -99,9 +99,9 @@ class User
 				$this->email = $row['email'];
 				$this->deaktiviert = $row['deaktiviert'];
 				$this->systemadmin = $row['systemadmin']; 
-				
+
 				//Wenn es sich um einen Systemadmin handelt, dann wird die Sessionvariable "angemeldet", welche für angemeldeter Benutzer steht, mit nein überschrieben und die Sessionvariable "systemadmin" erhält den Wert ja
-				if($this->systemadmin == 1){
+				if($row['systemadmin'] == 1){
 					$_SESSION['systemadmin'] == "ja";
 					$_SESSION['angemeldet'] == "nein";
 					echo "test";
