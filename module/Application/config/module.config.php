@@ -67,7 +67,7 @@ return [
         			'options' => [
         					'route'    => '/benutzertabelle[/:action]',
         					'defaults' => [
-        							'controller' => Controller\BenutzerController::class,
+        							'controller' => Controller\BenutzertabelleController::class,
         							'action'     => 'benutzertabelle',
         					],
         			],
