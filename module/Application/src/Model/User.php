@@ -104,7 +104,7 @@ class User
 				if($this->systemadmin == 1){
 					$_SESSION['systemadmin'] == "ja";
 					$_SESSION['angemeldet'] == "nein";
-					
+					echo "test";
 				}
 				
 				
