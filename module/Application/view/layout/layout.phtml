@@ -43,10 +43,16 @@
 								<li class="active"><a href="<?= $this->url('overview') ?>">Overview</a></li>	
 								<li class="active"><a href="<?= $this->url('anlegen') ?>">GruppenController</a></li>
 								<li class="active"><a href="<?= $this->url('gruppeanlegen') ?>">GruppenanlegenController</a></li>
+								<?php } else if($_SESSION['systemadmin']=="ja") {?>
+								<li class="active"><a href="<?= $this->url('adminoverview') ?>">Adminoverview</a></li>	
+								<li class="active"><a href="<?= $this->url('benutzertabelle') ?>">Benutzertabelle</a></li>	
+								
+
 						<?php } else {?>
 								<li class="active"><a href="<?= $this->url('application') ?>">Startseite</a></li>
 								<li class="active"><a href="<?= $this->url('help') ?>">Hilfe</a></li>
 						<?php }?>
+						
                         
                         
                         
@@ -57,7 +63,7 @@
         				      				 		<li><a href="http://132.231.36.206/login"><span ></span> Login</a></li> -->
        
 										
-										<?php if ($_SESSION['angemeldet']=='ja'){?> 
+										<?php if ($_SESSION['angemeldet']=='ja' || $_SESSION['systemadmin']=="ja"){?> 
 											<li><a href="http://132.231.36.206/"><span class=></span>Logout</a></li>
 										<?php } else {?>
 											<li><a href="http://132.231.36.206/login"><span class=></span>Login</a></li>
