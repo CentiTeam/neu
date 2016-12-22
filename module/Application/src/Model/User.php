@@ -31,10 +31,14 @@ class User
 			$query_emailueberpruefung = "SELECT * FROM User WHERE email ='".$this->email."';";
 			$result_emailueberpruefung = $db->execute($query_emailueberpruefung);
 			
+			//Erstellen und Ausführen einer Query zum Überprüfen, ob der eingegebene Benutzername bereits verwendet wird
+			$query_benutzernamenueberpruefung = "SELECT * FROM User WHERE username ='".$this->username."';";
+			$result_benutzernamenueberpruefung = $db->execute($query_benutzernamenueberpruefung);
+			
 			
 			
 			//Falls E-Mailadresse noch nicht verwendet wird, dann Schreiben der Daten in die Datenbank.
-			if(mysqli_num_rows($result_emailueberpruefung) == 0){ 
+			if(mysqli_num_rows($result_emailueberpruefung) == 0 && mysqli_num_rows($result_benutzernamenueberpruefung) == 0){ 
 			
 			$query = "INSERT INTO User (username, vorname, nachname, passwort, email, deaktiviert, systemadmin) VALUES (
 			
@@ -51,7 +55,8 @@ class User
 			return $isOK;
 		}
 		else{
-			echo "<center><h4>E-Mailadresse bereits verwendet! Bitte erneut registrieren</h4></center>";
+
+			echo "<center><h4>Benutzername oder E-Mailadresse bereits verwendet! Bitte erneut registrieren</h4></center>";
 			
 		}
 		}
