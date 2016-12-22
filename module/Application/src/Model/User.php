@@ -106,7 +106,7 @@ class User
 				if($row['systemadmin'] == 1){
 					$_SESSION['systemadmin'] == "ja";
 					$_SESSION['angemeldet'] == "nein";
-					echo "test";
+					//echo "test";
 				}
 				
 				
