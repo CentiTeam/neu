@@ -28,7 +28,6 @@ class RegistrierenController extends AbstractActionController{
 			$nachname = $_REQUEST ["nachname"];
 			
 			
-			// TODO: Überprüfung, ob Benutzername schon vorhanden ist (Der User-Index in der DB wurde auf unique gesetzt, bitte ändern, da sonst nur die englische ausgabe möglich ist)
 			
 			
 			// Überprüfung, ob Passwort zwei mal richtig eingegeben wurde
@@ -38,8 +37,6 @@ class RegistrierenController extends AbstractActionController{
 				echo "<center><h4>Keine &Uumlbereinstimmung der Passw&oumlrter! Bitte erneut registrieren</h4></center>";
 				$error = true;
 			}
-			
-			// TODO: Überprüfung, ob E-Mail schon vorhanden ist
 			
 			
 		
