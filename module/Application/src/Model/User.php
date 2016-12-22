@@ -24,7 +24,16 @@ class User
 
 		public function registrieren ($username, $passwort, $email, $vorname, $nachname) 
 		{
+			//Aufbau einer Datenbankverbindung
 			$db = new DB_connection;
+			
+			//Erstellen und Ausführen einer Query zum Überprüfen, ob die eingegebene E-Mailadresse bereits verwendet wird
+			$query_emailueberpruefung = "SELECT email From user WHERE email ='".$email."';";
+			$result_emailueberpruefung = $db->execute($query_emailueberpruefung);
+			
+			//Falls E-Mailadresse noch nicht verwendet wird, dann Schreiben der Daten in die Datenbank.
+			if(mysqli_num_rows($result_emailueberpruefung) == 0){
+			
 			$query = "INSERT INTO User (username, vorname, nachname, passwort, email, deaktiviert, systemadmin) VALUES (
 			
 				'".$this->username."',
@@ -38,6 +47,11 @@ class User
 			$result = $db->execute($query);
 			$isOK = mysqli_affected_rows ($result) > 0;
 			return $isOK;
+		}
+		else{
+			echo "<center><h4>E-Mailadresse bereits verwendet! Bitte erneut registrieren</h4></center>";
+			
+		}
 		}
 	
 	
