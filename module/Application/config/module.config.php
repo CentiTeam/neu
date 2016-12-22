@@ -49,6 +49,19 @@ return [
         			],
         	],
         		
+        		
+        	'adminoverview' => [
+        			'type'    => Segment::class,
+        			'options' => [
+        					'route'    => '/adminoverview[/:action]',
+        					'defaults' => [
+        							'controller' => Controller\AdminoverviewController::class,
+        							'action'     => 'adminoverview',
+        					],
+        			],
+        	],
+        		
+        		
         	
         		'registrieren' => [
         				'type'    => Segment::class,
@@ -153,6 +166,7 @@ return [
            	Controller\HelpController::class => InvokableFactory::class,
         	Controller\GruppeController::class => InvokableFactory::class,
         	Controller\RegistrierenController::class => InvokableFactory::class,
+        	Controller\AdminoverviewController::class => InvokableFactory::class,
         		
         		
 
@@ -171,7 +185,8 @@ return [
             'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
             'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
         	'application/overview/overview' => __DIR__ . '/../view/application/overview/overview.phtml',
-        		'application/registrieren/registrieren' => __DIR__ . '/../view/application/registrieren/registrieren.phtml',
+        	'application/adminoverview/adminoverview' => __DIR__ . '/../view/application/adminoverview/adminoverview.phtml',
+        	'application/registrieren/registrieren' => __DIR__ . '/../view/application/registrieren/registrieren.phtml',
         	'application/hilfe/hilfe' => __DIR__ . '/../view/application/hilfe/hilfe.phtml',
         	'application/gruppe/anlegen' => __DIR__ . '/../view/application/anlegen/anlegen.phtml',
         	'application/user/login' => __DIR__ . '/../view/application/login/login.phtml',
