@@ -62,6 +62,17 @@ return [
         	],
         		
         		
+        	'benutzertabelle' => [
+        			'type'    => Segment::class,
+        			'options' => [
+        					'route'    => '/benutzertabelle[/:action]',
+        					'defaults' => [
+        							'controller' => Controller\BenutzerController::class,
+        							'action'     => 'benutzertabelle',
+        					],
+        			],
+        	],
+        		
         	
         		'registrieren' => [
         				'type'    => Segment::class,
@@ -167,6 +178,7 @@ return [
         	Controller\GruppeController::class => InvokableFactory::class,
         	Controller\RegistrierenController::class => InvokableFactory::class,
         	Controller\AdminoverviewController::class => InvokableFactory::class,
+        	Controller\BenutzertabelleController::class => InvokableFactory::class,
         		
         		
 
@@ -186,6 +198,7 @@ return [
             'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
         	'application/overview/overview' => __DIR__ . '/../view/application/overview/overview.phtml',
         	'application/adminoverview/adminoverview' => __DIR__ . '/../view/application/adminoverview/adminoverview.phtml',
+        	'application/benutzertabelle/benutzertabelle' => __DIR__ . '/../view/application/benutzertabelle/benutzertabelle.phtml',
         	'application/registrieren/registrieren' => __DIR__ . '/../view/application/registrieren/registrieren.phtml',
         	'application/hilfe/hilfe' => __DIR__ . '/../view/application/hilfe/hilfe.phtml',
         	'application/gruppe/anlegen' => __DIR__ . '/../view/application/anlegen/anlegen.phtml',
