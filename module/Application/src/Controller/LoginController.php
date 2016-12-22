@@ -36,7 +36,18 @@ class loginController extends AbstractActionController{
 							'uname' => $uname,
 							'user' => array($user)
 					));
+					
+					// Meldet man sich als Systemadmin an, wird auf ein anderes Template verwiesen
+					
+					if ($_SESSION['systemadmin'] == "ja")
+					{
+					$view->setTemplate('application/adminoverview/adminoverview.phtml');
+					}
+					
+					else
+					{
 					$view->setTemplate('application/overview/overview.phtml');
+					}
 					
 					return $view;
 	
