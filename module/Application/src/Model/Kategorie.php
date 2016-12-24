@@ -4,7 +4,7 @@ namespace Application\Model;
 
 use Application\Model\DB_connection;
 
-class Gruppe {
+class Kategorie {
 	protected  $k_id;
 	protected  $kategoriebeschreibung;
 	

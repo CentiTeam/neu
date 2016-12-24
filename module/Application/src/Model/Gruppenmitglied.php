@@ -4,7 +4,7 @@ namespace Application\Model;
 
 use Application\Model\DB_connection;
 
-class Gruppe {
+class Gruppenmitglied {
 	protected  $u_id;
 	protected  $g_id;
 	protected  $gruppenadmin;

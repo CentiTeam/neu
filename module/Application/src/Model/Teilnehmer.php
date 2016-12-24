@@ -4,7 +4,7 @@ namespace Application\Model;
 
 use Application\Model\DB_connection;
 
-class Gruppe {
+class Teilnehmer {
 	protected  $u_id;
 	protected  $teilnehmerbildpfad;
 	

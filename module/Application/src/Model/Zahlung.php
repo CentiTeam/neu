@@ -4,7 +4,7 @@ namespace Application\Model;
 
 use Application\Model\DB_connection;
 
-class Gruppe {
+class Zahlung {
 	protected  $z_id;
 	protected  $zahlungsbeschreibung;
 	protected  $erstellungsdatum;
