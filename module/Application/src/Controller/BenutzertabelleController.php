@@ -24,9 +24,7 @@ class BenutzertabelleController extends AbstractActionController
 		$user->listeHolen();
 	
 
-		return new ViewModel([
-				'user' => array($user),
-		]);
+		return new ViewModel;
 		
 		
 	}
