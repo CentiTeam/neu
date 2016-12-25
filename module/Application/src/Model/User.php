@@ -120,42 +120,44 @@ class User
 	}
 	
 
-	//Übernommen von Webapp!!
 
-	/**
- 	* Lädt eine Liste aller User und gibt diese als Array zurück
- 	*/
+	// TODO: Userliste holen ! funktioniert noch nicht
 	
-	/**
+	
 	public static function listeHolen() {
-
-		// Liste initialisieren
-		$userListe = array ();
-	
-		// Datenbankstatement erzeugen
-		$dbStmt = new DBStatement(DBConnection::getInstance());
-
-		// DB-Befehl absetzen: ID's aller User in der DB laden
-		$dbStmt->executeQuery("SELECT user_id FROM user;");
-
-		// Ergebnis Zeile für Zeile verarbeiten
-		while ($row = $dbStmt->nextRow()) {
+		
+		$db = new DB_connection;
+		$userliste = array ();
+		$zaehler = 0;
+		
+		$query_userliste = "SELECT * FROM User ORDER BY u_id;";
+		$result= $db->execute($query_userliste);
+		
+		
+		while ($row = mysqli_fetch_array($result))
+		{
 			
-			// neues Model erzeugen
-			$model = new User();
+			$_array[$zahler]= $row ['u_id'];
 			
-			// Model anhand der Nummer aus der Datenbankabfrage laden
-			$model->laden($row["user_id"]);
+			echo "<tr>";
+			echo "<td>". $row['u_id'] . "</td>";
+			echo "<td>". $row['username'] . "</td>";
+			echo "<td>". $row['vorname'] . "</td>";
+			echo "<td>". $row['nachname'] . "</td>";
+			echo "<td>". $row['passwort'] . "</td>";
+			echo "<td>". $row['email'] . "</td>";
+			echo "<td>". $row['deaktiviert'] . "</td>";
+			echo "<td>". $row['systemadmin'] . "</td>";
 			
-			// neues Model ans Ende des $liste-Arrays anfügen
-			$userListe[] = $model;
+			$zaehler++;
 		}
-
-		// fertige Liste von Mitarbeiter-Objekten zurückgeben
-		return $userListe;
+			
+		
+		
 	}
 	
-	*/
+	
+	
 	
 	//Setter für vorname
 	public function setVorname($value) {
