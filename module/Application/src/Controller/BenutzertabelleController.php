@@ -14,10 +14,20 @@ class BenutzertabelleController extends AbstractActionController
 {
 	public function benutzertabelleAction()
 	{
+	
 		
+		// nicht sicher, was hier hinkommen soll!
+		$user= new Userliste();
+		
+		$u_id=$_REQUEST['u_id'];
+		
+		$user->laden($u_id);
+	
 
-
-		return new ViewModel();
-
+		return new ViewModel([
+				'user' => array($list),
+		]);
+		
+		
 	}
 }
