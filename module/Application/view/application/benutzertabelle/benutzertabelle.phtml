@@ -22,7 +22,7 @@ while ($row = mysqli_fetch_array($result))
 		{
 			
 			$_array[$zahler]= $row ['u_id'];
-			 
+			 ?>
 			echo "<tr>";
 			echo "<td>". 	$row['u_id'] 			. "</td>";
 			echo "<td>". 	$row['username'] 		. "</td>";
@@ -34,7 +34,7 @@ while ($row = mysqli_fetch_array($result))
 			echo "<td>". 	$row['systemadmin']		. "</td>";
 			echo "<br>";
 			$zaehler++;
-		}	?>
+		}	
 </tr>
 
 </thead>
