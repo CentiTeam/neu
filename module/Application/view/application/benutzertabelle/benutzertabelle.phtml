@@ -16,15 +16,27 @@
 </tr>
 
 <tr>
-			<td>	$row['u_id']		</td>			
-			<td>	<?=$row[username]?> 	</td>
-			<td>	$row['vorname']		</td>
-			<td>	$row['nachname']  	</td>
-			<td>	$row['passwort']  	</td>
-			<td>	$row['email']  		</td>
-			<td>	$row['deaktiviert'] </td>
-			<td>	$row['systemadmin'] </td> 
 
+<?
+while ($row = mysqli_fetch_array($result))
+		{
+			
+			$_array[$zahler]= $row ['u_id'];
+			 
+			echo "<tr>";
+			echo "<td>". $row['u_id'] . "</td>";
+			echo "<td>". $row['username'] . "</td>";
+			echo "<td>". $row['vorname'] . "</td>";
+			echo "<td>". $row['nachname'] . "</td>";
+			echo "<td>". $row['passwort'] . "</td>";
+			echo "<td>". $row['email'] . "</td>";
+			echo "<td>". $row['deaktiviert'] . "</td>";
+			echo "<td>". $row['systemadmin'] . "</td>";
+			echo "<br>";
+			$zaehler++;
+		}
+		 
+?>
 </tr>
 
 </thead>
