@@ -126,34 +126,36 @@ class User
 	
 	public static function listeHolen() {
 		
-		$db = new DB_connection;
-		$userliste = array ();
-		$zaehler = 0;
 		
-		$query_userliste = "SELECT * FROM User ORDER BY u_id;";
-		$result= $db->execute($query_userliste);
+			// Datenbankstatement erzeugen
+			$dbStmt = new DB_connection();
 		
+			// DB-Befehl absetzen: alle Basisinformationen des Teams mit der ï¿½bergebenen $t_id abfragen
 		
-		while ($userliste= mysqli_fetch_array($result))
-		{
-			
-			$_array[$zahler]= $userliste ['u_id'];
-			 
-			echo "<tr>";
-			echo "<td>". 	 $userliste['u_id'] 			. "</td>";
-			echo "<td>". 	 $userliste['username'] 		. "</td>";
-			echo "<td>". 	 $userliste['vorname'] 		. "</td>";
-			echo "<td>". 	 $userliste['nachname'] 		. "</td>";
-			echo "<td>". 	 $userliste['passwort']		. "</td>";
-			echo "<td>". 	 $userliste['email'] 			. "</td>";
-			echo "<td>". 	 $userliste['deaktiviert']		. "</td>";
-			echo "<td>". 	 $userliste['systemadmin']		. "</td>";
-			echo "<br>";
-			$zaehler++;
+			$result=$dbStmt->execute("SELECT * FROM User;");
+		
+			// Variable, die speichert, ob das Team geladen werden konnte oder nicht
+			$isLoaded=false;
+		
+			// Ergebnis verarbeiten, falls vorhanden
+			if ($row=mysqli_fetch_array($result)) {
+				$this->u_id=$row["u_id"];
+				$this->usernname=$row["username"];
+				$this->vorname=$row["vorname"];
+				$this->nachname=$row["nachname"];
+				$this->passwort=$row["passwort"];
+				$this->email=$row["email"];
+				$this->deaktiviert=$row["deaktiviert"];
+				$this->systemadmin=$row["systemadmin"];
+		
+				// speichern, dass die Basisinformationen des Teams erfolgreich geladen werden konnten
+				$isLoaded=true;
+			}
+		
+			// zurï¿½ckgeben, ob beim Laden ein Fehler aufgetreten ist
+			return $isLoaded;
+		
 		}
-			
-		return $userliste;
-		
 	}
 	
 	
