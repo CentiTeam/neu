@@ -133,7 +133,26 @@ class User
 		$query_userliste = "SELECT * FROM User ORDER BY u_id;";
 		$result= $db->execute($query_userliste);
 		
-		return $result;
+		
+		while ($userliste= mysqli_fetch_array($result))
+		{
+			
+			$_array[$zahler]= $userliste ['u_id'];
+			 
+			echo "<tr>";
+			echo "<td>". 	 $userliste['u_id'] 			. "</td>";
+			echo "<td>". 	 $userliste['username'] 		. "</td>";
+			echo "<td>". 	 $userliste['vorname'] 		. "</td>";
+			echo "<td>". 	 $userliste['nachname'] 		. "</td>";
+			echo "<td>". 	 $userliste['passwort']		. "</td>";
+			echo "<td>". 	 $userliste['email'] 			. "</td>";
+			echo "<td>". 	 $userliste['deaktiviert']		. "</td>";
+			echo "<td>". 	 $userliste['systemadmin']		. "</td>";
+			echo "<br>";
+			$zaehler++;
+		}
+			
+		return $userliste;
 		
 	}
 	
