@@ -133,7 +133,7 @@ class User
 		$query_userliste = "SELECT * FROM User ORDER BY u_id;";
 		$result= $db->execute($query_userliste);
 		
-		while ($row = mysqli_fetch_array ($resulz))
+		while ($row = mysqli_fetch_array($result))
 		{
 			
 			$_array[$zahler] = $row ['u_id'];
