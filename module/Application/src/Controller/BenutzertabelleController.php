@@ -17,7 +17,7 @@ class BenutzertabelleController extends AbstractActionController
 	
 		
 		// nicht sicher, was hier hinkommen soll!
-		$user= new Userliste();
+		$user= new User();
 		
 		$u_id=$_REQUEST['u_id'];
 		
