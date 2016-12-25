@@ -15,7 +15,7 @@ class BenutzertabelleController extends AbstractActionController
 	public function benutzertabelleAction()
 	{
 		
-		
+		echo hallo;
 
 
 		return new ViewModel();
