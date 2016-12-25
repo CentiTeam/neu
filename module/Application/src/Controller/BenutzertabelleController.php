@@ -21,7 +21,7 @@ class BenutzertabelleController extends AbstractActionController
 		
 		$u_id=$_REQUEST['u_id'];
 		
-		$user->laden($u_id);
+		$user->listeHolen($u_id);
 	
 
 		return new ViewModel([
