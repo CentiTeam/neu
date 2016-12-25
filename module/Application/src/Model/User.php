@@ -139,16 +139,16 @@ class User
 			
 			$_array[$zahler]= $row ['u_id'];
 			 
-			echo "<tr>";
-			echo "<td>". $row['u_id'] . "</td>";
-			echo "<td>". $row['username'] . "</td>";
-			echo "<td>". $row['vorname'] . "</td>";
-			echo "<td>". $row['nachname'] . "</td>";
-			echo "<td>". $row['passwort'] . "</td>";
-			echo "<td>". $row['email'] . "</td>";
-			echo "<td>". $row['deaktiviert'] . "</td>";
-			echo "<td>". $row['systemadmin'] . "</td>";
-			echo "<br>";
+			$this->u_id=$row["u_id"];
+			$this->username=$row["username"];
+			$this->vorname=$row["vorname"];
+			$this->nachname=$row["nachname"];
+			$this->passwort=$row["passwort"];
+			$this->email=$row["email"];
+			$this->deaktiviert=$row["deaktiviert"];
+			$this->systemadmin=$row["systemadmin"];
+			
+			
 			$zaehler++;
 		}
 			
