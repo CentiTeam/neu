@@ -140,14 +140,14 @@ class User
 			$_array[$zahler]= $row ['u_id'];
 			 
 			echo "<tr>";
-			echo "<td>". $row['u_id'] . "</td>";
-			echo "<td>". $row['username'] . "</td>";
-			echo "<td>". $row['vorname'] . "</td>";
-			echo "<td>". $row['nachname'] . "</td>";
-			echo "<td>". $row['passwort'] . "</td>";
-			echo "<td>". $row['email'] . "</td>";
-			echo "<td>". $row['deaktiviert'] . "</td>";
-			echo "<td>". $row['systemadmin'] . "</td>";
+			echo "<td>". 	$row['u_id'] 			. "</td>";
+			echo "<td>". 	$row['username'] 		. "</td>";
+			echo "<td>". 	$row['vorname'] 		. "</td>";
+			echo "<td>". 	$row['nachname'] 		. "</td>";
+			echo "<td>". 	$row['passwort']		. "</td>";
+			echo "<td>". 	$row['email'] 			. "</td>";
+			echo "<td>". 	$row['deaktiviert']		. "</td>";
+			echo "<td>". 	$row['systemadmin']		. "</td>";
 			echo "<br>";
 			$zaehler++;
 		}
