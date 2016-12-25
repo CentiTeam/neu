@@ -124,7 +124,7 @@ class User
 	// TODO: Userliste holen ! funktioniert noch nicht
 	
 	
-	public static function listeHolen() {
+	public static function listeHolen($u_id) {
 		
 		
 			// Datenbankstatement erzeugen
