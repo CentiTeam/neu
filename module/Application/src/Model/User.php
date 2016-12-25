@@ -152,7 +152,7 @@ class User
 			$zaehler++;
 		}
 			
-		
+		return $result;
 		
 	}
 	
