@@ -128,6 +128,7 @@ class User
 		
 		$db = new DB_connection;
 		$zaehler = 0;
+		$userliste = array ();
 		
 		$query_userliste = "SELECT * FROM User ORDER BY u_id;";
 		$result= $db->execute($query_userliste);
@@ -143,7 +144,7 @@ class User
 			$zaehler++;
 		}
 		
-		
+		return $userliste;
 	}
 	
 	
