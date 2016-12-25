@@ -124,36 +124,24 @@ class User
 	// TODO: Userliste holen ! funktioniert noch nicht
 	
 	
-	public static function listeHolen($u_id) {
+	public static function listeHolen() {
 		
+		$db = new DB_connection;
+		$zaehler = 0;
 		
-			// Datenbankstatement erzeugen
-			$dbStmt = new DB_connection();
+		$query_userliste = "SELECT * FROM User ORDER BY u_id;";
+		$result= $db->execute($query_userliste);
 		
-			// DB-Befehl absetzen: alle Basisinformationen des Teams mit der ï¿½bergebenen $t_id abfragen
-		
-			$result=$dbStmt->execute("SELECT * FROM User;");
-		
-			// Variable, die speichert, ob das Team geladen werden konnte oder nicht
-			$isLoaded=false;
-		
-			// Ergebnis verarbeiten, falls vorhanden
-			if ($row=mysqli_fetch_array($result)) {
-				$this->u_id=$row["u_id"];
-				$this->usernname=$row["username"];
-				$this->vorname=$row["vorname"];
-				$this->nachname=$row["nachname"];
-				$this->passwort=$row["passwort"];
-				$this->email=$row["email"];
-				$this->deaktiviert=$row["deaktiviert"];
-				$this->systemadmin=$row["systemadmin"];
-		
-				// speichern, dass die Basisinformationen des Teams erfolgreich geladen werden konnten
-				$isLoaded=true;
-			}
-		
-			// zurï¿½ckgeben, ob beim Laden ein Fehler aufgetreten ist
-			return $isLoaded;
+		while ($row = mysqli_fetch_array ($resulz))
+		{
+			
+			$_array[$zahler] = $row ['u_id'];
+			
+			echo $row ['u_id'];
+			echo $row ['username'];
+			
+			$zaehler++;
+		}
 		
 		
 	}
