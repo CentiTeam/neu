@@ -155,7 +155,7 @@ class User
 			// zurï¿½ckgeben, ob beim Laden ein Fehler aufgetreten ist
 			return $isLoaded;
 		
-		}
+		
 	}
 	
 	
