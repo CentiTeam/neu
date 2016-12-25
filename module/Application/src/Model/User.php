@@ -140,6 +140,7 @@ class User
 			
 			echo $row ['u_id'];
 			echo $row ['username'];
+			echo "<br>";
 			
 			$zaehler++;
 		}
