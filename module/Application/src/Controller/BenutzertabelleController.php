@@ -16,18 +16,10 @@ class BenutzertabelleController extends AbstractActionController
 	{
 	
 		
-		// nicht sicher, was hier hinkommen soll!
-		$user= new User();
-		
-		$u_id=$_REQUEST['u_id'];
-		
-		$user->listeHolen($u_id);
+	// keine Ahnung was hier hinkommen soll!
 	
 
-		return new ViewModel([
-				'user' => array($user),
-		]);
-		
+		return new ViewModel;
 		
 	}
 }
