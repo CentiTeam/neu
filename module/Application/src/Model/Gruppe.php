@@ -70,12 +70,11 @@ class Gruppe {
 			// neues Model ans Ende des $gruppeListe-Arrays anf�gen
 			$gruppeListe[] = $model;
 			
-			var_dump($gruppeListe[1]->getGruppenname());
 			echo "Gruppe wurde geholt";
 		}
 		
 		echo "Fehlerabfangen in Model";
-		// var_dump($gruppeListe);
+		var_dump($gruppeListe);
 	
 		// fertige Liste von Gruppe-Objekten zur�ckgeben
 		return $gruppeListe;
