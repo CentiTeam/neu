@@ -19,6 +19,7 @@ class GroupoverviewController extends AbstractActionController
 		
 		$liste = Gruppe::listeHolen();
 		
+		echo "Fehlerabfangen in Controller";
 		var_dump($liste);
 		
 		return new ViewModel([

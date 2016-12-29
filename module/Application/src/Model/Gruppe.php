@@ -57,7 +57,7 @@ class Gruppe {
 		
 		// Eigentliche If-bedinung: $result=mysqli_query($db, $abfrage)
 		if (true) {
-	
+		echo "In while-Schleife";
 		// Ergebnis Zeile f�r Zeile verarbeiten
 		while ($row = mysqli_fetch_array($result)) {
 				
@@ -74,6 +74,7 @@ class Gruppe {
 			die ("Gruppe wurde geholt");
 		}
 		
+		echo "Fehlerabfangen in Model";
 		var_dump($gruppeListe);
 	
 		// fertige Liste von Gruppe-Objekten zur�ckgeben
