@@ -25,7 +25,7 @@ class GroupdeleteController extends AbstractActionController
 		
 		$isOK = $gruppe->laden ($g_id);
 		
-		$msg = "";
+		
 		// !!!!
 		// Prüfen, ob es noch offene Zahlungen gibt
 		// !!!!!
@@ -35,7 +35,15 @@ class GroupdeleteController extends AbstractActionController
 		// wenn die Aktion abgebrochen werden soll
 		if ($_REQUEST['abbrechen']) {
 			
-			$msg = "Abbruch";
+			$gruppenliste=Gruppe::listeholen(); 
+			
+			$view = new ViewModel([
+					'gruppenListe' => $gruppenliste
+			]);
+				
+			$view->setTemplate('application/groupoverview/groupoverview.phtml');
+			
+			return $view;
 		}
 				
 		// wenn das Formular zur Bestätigung des Löschens schon abgesendet wurde, soll dies hier ausgewertet werden
