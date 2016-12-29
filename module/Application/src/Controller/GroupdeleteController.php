@@ -50,13 +50,15 @@ class GroupdeleteController extends AbstractActionController
 			
 			// wenn der Ladevorgang erfolgreich war, wird versucht die Gruppe zu löschen
 			if ($isOK ) {
-				echo "in Loeschen in Controller reingesprungen";
+
+				$msg = array();
 				
 				$geloescht= $gruppe->loeschen ($g_id);
-				var_dump($geloescht);
+				// var_dump($geloescht);
 				
 				// ausgeben, dass die Gruppe gelöscht wurde (kein Template nötig!)
-				return sprintf ( "<div class='info'>Gruppe #%s #%s erfolgreich gelöscht!</div>", $gruppe->getG_id (), $gruppe->getGruppenname () );
+				array_push($msg, "Gruppe erfolgreich gelöscht!");
+				
 			} else {
 		
 				// ausgeben, dass das Team nicht gelöscht werden konnte (kein Template nötig!)
@@ -68,19 +70,21 @@ class GroupdeleteController extends AbstractActionController
 			// zur Ausgabe übergeben
 			
 			return new ViewModel([
-				'gruppe' => $gruppe
+				'gruppe' => $gruppe,
+				'msg' => array($msg)
 			]);
 		}
 		
-		/**
+		
 		$view = new ViewModel([
-				'gruppenListe' => $gruppenliste
+				'gruppenListe' => $gruppenliste,
+				'msg' => array($msg)
 		]);
 		
 		$view->setTemplate('application/groupoverview/groupoverview.phtml');
 			
 		return $view;
-		*/
+		
 	}
 	
 	
