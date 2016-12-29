@@ -25,7 +25,7 @@ class GroupdeleteController extends AbstractActionController
 		
 		$isOK = $gruppe->laden ($g_id);
 		
-		
+		$msg = "";
 		// !!!!
 		// Prüfen, ob es noch offene Zahlungen gibt
 		// !!!!!
@@ -35,15 +35,7 @@ class GroupdeleteController extends AbstractActionController
 		// wenn die Aktion abgebrochen werden soll
 		if ($_REQUEST['abbrechen']) {
 			
-			$gruppenliste=Gruppe::listeholen(); 
-			
-			$view = new ViewModel([
-					'gruppenListe' => $gruppenliste
-			]);
-				
-			$view->setTemplate('application/groupoverview/groupoverview.phtml');
-			
-			return $view;
+			$msg = "Abbruch";
 		}
 				
 		// wenn das Formular zur Bestätigung des Löschens schon abgesendet wurde, soll dies hier ausgewertet werden
@@ -58,11 +50,12 @@ class GroupdeleteController extends AbstractActionController
 				// ausgeben, dass die Gruppe gelöscht wurde (kein Template nötig!)
 				// array_push($msg, "Gruppe erfolgreich gelöscht!");
 				
-				$msg .= "Gruppe erfolgreich gelöscht!<br>";
+				$msg .= "Gruppe erfolgreich gel&ouml;scht!<br>";
 				
 			} else {
 		
 				// ausgeben, dass das Team nicht gelöscht werden konnte (kein Template nötig!)
+				$msg .= "Fehler beim L&ouml;schen der Gruppe!<br>";
 				return sprintf ( "<div class='error'>Fehler beim Löschen der Gruppe #%s %s!</div>" ,$gruppe->getG_id (), $gruppe->getGruppenname () );
 			}
 		} else {
