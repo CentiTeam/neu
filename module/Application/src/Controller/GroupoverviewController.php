@@ -12,9 +12,9 @@ class GroupoverviewController extends AbstractActionController
 	{
 	
 		// Testzweck: Gruppe 1 auslesen
-		$gruppe= new Gruppe();
-		$g_id= 2; 
-		$gruppe->laden($g_id);
+		//$gruppe= new Gruppe();
+		//$g_id= 2; 
+		//$gruppe->laden($g_id);
 		
 		
 		$liste = Gruppe::listeHolen();
