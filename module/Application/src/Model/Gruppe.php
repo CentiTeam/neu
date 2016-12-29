@@ -55,6 +55,8 @@ class Gruppe {
 		
 		$abfrage="SELECT g_id FROM gruppe";
 		
+		var_dump("in Model angekommen");
+		
 		if ($result=mysqli_query($db, $abfrage)) {
 	
 		// Ergebnis Zeile f�r Zeile verarbeiten
