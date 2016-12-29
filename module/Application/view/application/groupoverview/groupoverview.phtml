@@ -19,8 +19,8 @@
 			<td><?=$gruppe->getGruppenbeschreibung()?></td>
 			<td>
 			<a href='gruppeanzeigen.phtml?g_id=<?=$gruppe->getG_id()?>'>Anzeigen</a>
-			<a href='index.php?g_id=<?=$gruppe->getG_id()?>'>Bearbeiten</a>
-			<a href='index.php?g_id=<?=$gruppe->getG_id()?>'>Löschen</a>
+			<a href='gruppebearbeiten.phtml?g_id=<?=$gruppe->getG_id()?>'>Bearbeiten</a>
+			<a href='gruppeloeschen.phtml?g_id=<?=$gruppe->getG_id()?>'>Löschen</a>
 			</td>
 		</tr>
 
@@ -35,31 +35,6 @@
 	
 	<table>
 
-	<tr>
-		<th>TeamNr</th>
-		<th>Bezeichnung</th>
-		<th></th>
-	</tr>
-
-	<?php 
-	foreach ($teamListe as $team) {
-	?>
-
-		<tr>
-			<td><?=$team->getT_id()?></td>
-			<td><?=$team->getBezeichnung()?></td>
-			<td>
-			<a href='index.php?controller=Team&action=show&t_id=<?=$team->getT_id()?>'><img src='gfx/file_details_24.png' /></a>
-			<a href='index.php?controller=Team&action=edit&t_id=<?=$team->getT_id()?>'><img src='gfx/file_edit_24.png' /></a>
-			<a href='index.php?controller=Team&action=delete&t_id=<?=$team->getT_id()?>'><img src='gfx/file_delete_24.png' /></a>
-			</td>
-		</tr>
-
-	<?php 
-	}
-	?>
-
-</table>
 </table>	
 	
 	
