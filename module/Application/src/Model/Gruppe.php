@@ -53,10 +53,10 @@ class Gruppe {
 		// DB-Befehl absetzen: ID's aller Gruppen in der DB laden
 		//$dbStmt->execute("SELECT g_id FROM gruppe;");
 		
-		$abfrage="SELECT g_id FROM gruppe";
+		$query="SELECT g_id FROM gruppe";
 		
 		// Eigentliche If-bedinung: $result=mysqli_query($db, $abfrage)
-		if ($result = $db->execute($abfrage)) {
+		if ($result = $db->execute($query)) {
 		
 		// Ergebnis Zeile f�r Zeile verarbeiten
 		while ($row = mysqli_fetch_array($result)) {
@@ -69,13 +69,9 @@ class Gruppe {
 				
 			// neues Model ans Ende des $gruppeListe-Arrays anf�gen
 			$gruppeListe[] = $model;
-			
-			echo "Gruppe wurde geholt";
 		}
 		
-		echo "Fehlerabfangen in Model";
-		var_dump($gruppeListe);
-	
+
 		// fertige Liste von Gruppe-Objekten zur�ckgeben
 		return $gruppeListe;
 		}

@@ -13,14 +13,12 @@ class GroupoverviewController extends AbstractActionController
 	
 		// Testzweck: Gruppe 1 auslesen
 		$gruppe= new Gruppe();
-		$g_id= 1; 
+		$g_id= 2; 
 		$gruppe->laden($g_id);
 		
 		
 		$liste = Gruppe::listeHolen();
 		
-		echo "Fehlerabfangen in Controller";
-		// var_dump($liste);
 		
 		return new ViewModel([
 			'gruppe' => array($gruppe),
