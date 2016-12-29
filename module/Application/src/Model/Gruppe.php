@@ -30,11 +30,9 @@ class Gruppe {
 		$result = $db->execute($query);
 		
 		
-		// GENAUE SYNTAX FEHLT!!
+		// Könnte sein, dass hier mal Probleme auftreten
 		$isOK = mysqli_affected_rows ($result) > 0;
-		
-		echo "Veränderte Zeilen:";
-		echo mysqli_affected_rows ($result);
+
 		
 		return $isOK;
 	}
@@ -42,7 +40,8 @@ class Gruppe {
 	public function loeschen () {
 		
 	}
-	/**
+	
+	
 	public static function listeHolen() {
 	
 		// Liste initialisieren
@@ -77,7 +76,7 @@ class Gruppe {
 		return $gruppeListe;
 		}
 	}
-	*/
+	
 	
 	/**
 	 * Lï¿½dt eine Gruppe
