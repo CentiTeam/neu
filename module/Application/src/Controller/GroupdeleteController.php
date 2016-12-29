@@ -37,7 +37,7 @@ class GroupdeleteController extends AbstractActionController
 			$gruppenliste=Gruppe::listeholen();
 			
 			$view = new ViewModel([
-					'gruppenListe' => $gruppeliste
+					'gruppenListe' => $gruppenliste
 			]);
 				
 			$view->setTemplate('application/groupoverview/groupoverview.phtml');
