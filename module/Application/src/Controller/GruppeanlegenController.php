@@ -55,9 +55,6 @@ class GruppeanlegenController extends AbstractActionController {
 				$gruppe->setGruppenname($gruppenname);
 				$gruppe->setGruppenbeschreibung($gruppenbeschreibung);
 				$gruppe->setGruppenbildpfad($gruppenbildpfad);
-
-					
-				if($gruppe->getGruppenname()==null) die("Gruppenname wurde nicht eingelesen.");
 					
 				
 				 if ($errorStr == "" && $gruppe->anlegen()) {
