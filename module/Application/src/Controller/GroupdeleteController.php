@@ -68,7 +68,13 @@ class GroupdeleteController extends AbstractActionController
 			]);
 		}
 		
-	
+		$view = new ViewModel([
+				'gruppenListe' => $gruppenliste
+		]);
+		
+		$view->setTemplate('application/groupoverview/groupoverview.phtml');
+			
+		return $view;
 	}
 	
 	
