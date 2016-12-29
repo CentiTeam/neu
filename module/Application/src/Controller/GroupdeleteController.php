@@ -48,13 +48,11 @@ class GroupdeleteController extends AbstractActionController
 		// wenn das Formular zur Bestätigung des Löschens schon abgesendet wurde, soll dies hier ausgewertet werden
 		if ($_REQUEST['send']) {
 			
+			$msg = array();
+			
 			// wenn der Ladevorgang erfolgreich war, wird versucht die Gruppe zu löschen
-			if ($isOK ) {
+			if ($isOK && $gruppe->loeschen ($g_id)) {
 
-				$msg = array();
-				
-				$geloescht= $gruppe->loeschen ($g_id);
-				// var_dump($geloescht);
 				
 				// ausgeben, dass die Gruppe gelöscht wurde (kein Template nötig!)
 				array_push($msg, "Gruppe erfolgreich gelöscht!");
