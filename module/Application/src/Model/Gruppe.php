@@ -56,7 +56,7 @@ class Gruppe {
 		$abfrage="SELECT g_id FROM gruppe";
 		
 		// Eigentliche If-bedinung: $result=mysqli_query($db, $abfrage)
-		if (true) {
+		if ($result = $db->execute($abfrage)) {
 		echo "In while-Schleife";
 		// Ergebnis Zeile f�r Zeile verarbeiten
 		while ($row = mysqli_fetch_array($result)) {

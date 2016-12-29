@@ -135,8 +135,8 @@ class User
 		
 		while ($row = mysqli_fetch_array($result))
 		{
-			
-			$_array[$zahler] = $row ['u_id'];
+			// Tanja hat hier $zahler zu  $zaehler korrigiert 
+			$_array[$zaehler] = $row ['u_id'];
 			
 			echo $row ['u_id'];
 			echo $row ['username'];
