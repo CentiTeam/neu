@@ -19,6 +19,9 @@ class GroupoverviewController extends AbstractActionController
 		
 		$liste = Gruppe::listeHolen();
 		
+		for ($zaehler=0; $zaehler<5; $zaehler++) {
+		var_dump($liste[$zaehler]->getGruppenname());
+		}
 		
 		return new ViewModel([
 			// 'gruppe' => array($gruppe),
