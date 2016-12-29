@@ -6,9 +6,9 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Model\Gruppe;
 
-class GroupoverviewController extends AbstractActionController
+class SpecificgroupoverviewController extends AbstractActionController
 {
-	public function groupoverviewAction()
+	public function specificgroupoverviewAction()
 	{
 	
 		$gruppe= new Gruppe();

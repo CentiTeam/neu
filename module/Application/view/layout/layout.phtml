@@ -41,6 +41,7 @@
                     
                     	<?php if ($_SESSION['angemeldet']=='ja'){?> 
 								<li class="active"><a href="<?= $this->url('overview') ?>">Overview</a></li>
+								<li class="active"><a href="<?= $this->url('groupoverview') ?>">Meine Gruppen</a></li>	
 								<li class="active"><a href="<?= $this->url('gruppeanlegen') ?>">Gruppe anlegen</a></li>
 								<?php } else if($_SESSION['systemadmin']=="ja") {?>
 								<li class="active"><a href="<?= $this->url('adminoverview') ?>">Adminoverview</a></li>	
