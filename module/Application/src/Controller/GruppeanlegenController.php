@@ -92,7 +92,8 @@ class GruppeanlegenController extends AbstractActionController {
 
 
 		return new ViewModel([
-				'gruppe' => array($gruppe)
+				'gruppe' => array($gruppe),
+				'msg' => $msg
 		]);
 
 	}
