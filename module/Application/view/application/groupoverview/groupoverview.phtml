@@ -17,7 +17,11 @@
 			<td><?=$gruppe->getG_id()?></td>
 			<td><?=$gruppe->getGruppenname()?></td>
 			<td><?=$gruppe->getGruppenbeschreibung()?></td>
-			
+			<td>
+			<a href='gruppeanzeigen.phtml?g_id=<?=$gruppe->getG_id()?>'>Anzeigen</a>
+			<a href='index.php?g_id=<?=$gruppe->getG_id()?>'>Bearbeiten</a>
+			<a href='index.php?g_id=<?=$gruppe->getG_id()?>'>Löschen</a>
+			</td>
 		</tr>
 
 	<?php 
@@ -25,9 +29,38 @@
 	?>
 		<tr><td></td></tr>
 		<tr>
-		<th><li class="active"><a href="<?= $this->url('gruppeanlegen') ?>">Gruppe anlegen</a></li></th>
+		<th><li><a href="<?= $this->url('gruppeanlegen') ?>">Neue Gruppe anlegen</a></li></th>
 		</tr>
 
+	
+	<table>
+
+	<tr>
+		<th>TeamNr</th>
+		<th>Bezeichnung</th>
+		<th></th>
+	</tr>
+
+	<?php 
+	foreach ($teamListe as $team) {
+	?>
+
+		<tr>
+			<td><?=$team->getT_id()?></td>
+			<td><?=$team->getBezeichnung()?></td>
+			<td>
+			<a href='index.php?controller=Team&action=show&t_id=<?=$team->getT_id()?>'><img src='gfx/file_details_24.png' /></a>
+			<a href='index.php?controller=Team&action=edit&t_id=<?=$team->getT_id()?>'><img src='gfx/file_edit_24.png' /></a>
+			<a href='index.php?controller=Team&action=delete&t_id=<?=$team->getT_id()?>'><img src='gfx/file_delete_24.png' /></a>
+			</td>
+		</tr>
+
+	<?php 
+	}
+	?>
+
+</table>
+</table>	
 	
 	
 <!-- Alternative, falls es spinnt (und Anzahl in Controller hochzählen):
@@ -45,4 +78,3 @@
 	//}
 	?> -->
 
-</table>
