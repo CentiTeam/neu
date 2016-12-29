@@ -25,7 +25,8 @@ class GroupoverviewController extends AbstractActionController
 		
 		return new ViewModel([
 			// 'gruppe' => array($gruppe),
-			'gruppenListe' => array($liste),
+			'gruppenListe' => $liste,
+			//'gruppenListe' => array($liste)
 		]);
 		
 	
