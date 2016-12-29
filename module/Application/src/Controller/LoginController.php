@@ -6,8 +6,9 @@ namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use Application\Model\DB_connection;
+// use Application\Model\DB_connection;
 use Application\Model\User;
+use Application\Model\Gruppe;
 // require_once('Application/src/model/User.php');
 
 
