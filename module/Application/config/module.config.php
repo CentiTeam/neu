@@ -95,6 +95,20 @@ return [
         					],
         			],
         	],
+        		
+        		
+        	'gruppeloeschen' => [
+       				'type'    => Segment::class,
+       				'options' => [
+       						'route'    => '/gruppeloeschen[/:action]',
+       						'defaults' => [
+       								'controller' => Controller\GruppeloeschenController::class,
+       								'action'     => 'gruppeloeschen',
+       						],
+       				],
+       		],
+        		
+        		
         	'groupoverview' => [
         			'type'    => Segment::class,
         			'options' => [

@@ -50,11 +50,8 @@ class Gruppe {
 		$db = new DB_connection();
 		
 		$query="SELECT g_id FROM gruppe";
-	
 		
-		$zaehler=0;
-		
-		// Eigentliche If-bedinung: $result=mysqli_query($db, $abfrage)
+		// Wenn die Datenbankabfrage erfolgreich ausgeführt worden ist
 		if ($result = $db->execute($query)) {
 		
 		// Ergebnis Zeile fï¿½r Zeile verarbeiten
@@ -68,11 +65,6 @@ class Gruppe {
 				
 			// neues Model ans Ende des $gruppeListe-Arrays anfï¿½gen
 			$gruppeListe[] = $model;
-			
-
-			// var_dump($gruppeListe[$zaehler]->getGruppenname());
-			
-			$zaehler++;
 		}
 		
 		// fertige Liste von Gruppe-Objekten zurï¿½ckgeben
