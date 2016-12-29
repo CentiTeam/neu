@@ -37,8 +37,29 @@ class Gruppe {
 		return $isOK;
 	}
 	
-	public function loeschen () {
+	public function loeschen ($gruppe_id) {
 		
+		// Datenbankstatement erzeugen
+		$db = new DB_connection();
+		
+		// !!!
+		// !!!!! Loeschen der verbundenen Daten fehlt noch!!!!!
+		// !!!!
+		
+		
+		// Abfrage bauen
+		$query = "DELETE FROM gruppe WHERE g_id= '".$gruppe_id."' ";
+		
+		// Loeschen des Gruppe-Datensatzes
+		$result = $db->execute($query);
+		
+		
+		// speichert, ob mindestens eine Zeile gelöscht wurde
+		// dies ist gleichbedeutet mit der Information, ob eine Gruppe gelöscht wurde
+		$deleted = mysqli_affected_rows ($result) > 0;
+	
+		// Rückgabe, ob das Team gelöscht wurde oder nicht
+		return $deleted;
 	}
 	
 	
