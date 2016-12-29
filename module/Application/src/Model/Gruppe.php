@@ -60,7 +60,7 @@ class Gruppe {
 		
 		// Ergebnis Zeile f�r Zeile verarbeiten
 		while ($row = mysqli_fetch_array($result)) {
-			echo "In while-Schleife";
+			
 			// neues Model erzeugen
 			$model = new Gruppe();
 				
@@ -70,12 +70,12 @@ class Gruppe {
 			// neues Model ans Ende des $gruppeListe-Arrays anf�gen
 			$gruppeListe[] = $model;
 			
-			var_dump($gruppeListe[0]->getGruppenname());
+			var_dump($gruppeListe->getGruppenname());
 			echo "Gruppe wurde geholt";
 		}
 		
 		echo "Fehlerabfangen in Model";
-		var_dump($gruppeListe);
+		// var_dump($gruppeListe);
 	
 		// fertige Liste von Gruppe-Objekten zur�ckgeben
 		return $gruppeListe;
