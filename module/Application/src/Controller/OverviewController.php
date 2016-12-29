@@ -44,7 +44,6 @@ class overviewController extends AbstractActionController
 		$g_id= 1 ;
 		
 		$gruppe->laden($g_id);
-		echo $gruppe->getGruppenname();
 		
 		return new ViewModel([
 				'user' => array($user),

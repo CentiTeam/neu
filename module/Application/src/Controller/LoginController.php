@@ -30,11 +30,16 @@ class loginController extends AbstractActionController{
 					
 					$_SESSION['user'] = $user;
 					
+					$gruppe= new Gruppe();
+					$g_id= 1 ;
+					
+					$gruppe->laden($g_id);
 					
 					$view = new ViewModel(array(
 							'message' => 'Erfolgreich eingeloggt!',
 							'uname' => $uname,
-							'user' => array($user)
+							'user' => array($user),
+							'gruppe' => array($gruppe)
 					));
 					
 					// Meldet man sich als Systemadmin an, wird auf ein anderes Template verwiesen
