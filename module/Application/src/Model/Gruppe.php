@@ -47,13 +47,12 @@ class Gruppe {
 		// Liste initialisieren
 		$gruppeListe = array ();
 	
-		// Datenbankstatement erzeugen
 		$db = new DB_connection();
-	
-		// DB-Befehl absetzen: ID's aller Gruppen in der DB laden
-		//$dbStmt->execute("SELECT g_id FROM gruppe;");
 		
 		$query="SELECT g_id FROM gruppe";
+	
+		
+		$zaehler=0;
 		
 		// Eigentliche If-bedinung: $result=mysqli_query($db, $abfrage)
 		if ($result = $db->execute($query)) {
@@ -71,7 +70,9 @@ class Gruppe {
 			$gruppeListe[] = $model;
 			
 
-			var_dump($gruppeListe[]->getGruppenname());
+			var_dump($gruppeListe[$zaehler]->getGruppenname());
+			
+			$zaehler++;
 		}
 		
 		// fertige Liste von Gruppe-Objekten zur�ckgeben
