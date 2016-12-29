@@ -70,7 +70,7 @@ class Gruppe {
 			// neues Model ans Ende des $gruppeListe-Arrays anf�gen
 			$gruppeListe[] = $model;
 			
-			// var_dump($gruppeListe[]->getGruppenname());
+			var_dump($gruppeListe[1]->getGruppenname());
 			echo "Gruppe wurde geholt";
 		}
 		
