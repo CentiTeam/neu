@@ -71,7 +71,7 @@ class Gruppe {
 			$gruppeListe[] = $model;
 		}
 		
-		var_dump($gruppeListe->Gruppe->getGruppenname());
+		var_dump($gruppeListe->getGruppenname());
 		// fertige Liste von Gruppe-Objekten zur�ckgeben
 		return $gruppeListe;
 		}
