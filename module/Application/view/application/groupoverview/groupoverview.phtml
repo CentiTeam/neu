@@ -5,24 +5,6 @@
 		<th>Gruppenname</th>
 		<th></th>
 	</tr>
-
-	<?php 
-	
-	for ($zaehler=0; $zaehler<$anzahl; $zaehler++) {
-	?>
-
-		<tr>
-			<td><?=$gruppenListe[$zaehler]->getG_id()?></td>
-			<td><?=$gruppenListe[$zaehler]->getGruppenname()?></td>
-		</tr>
-
-	<?php 
-	}
-	?>
-	
-	
-	
-	
 	
 	<?php 
 	foreach ($gruppenListe as $zaehler => $gruppe) {
@@ -37,5 +19,21 @@
 	<?php 
 	}
 	?>
+	
+	
+<!-- Alternative, falls es spinnt (und Anzahl in Controller hochzählen):
+	<?php 
+	
+	//for ($zaehler=0; $zaehler<$anzahl; $zaehler++) {
+	?>
+
+		<tr>
+			<td><? //$gruppenListe[$zaehler]->getG_id()?></td>
+			<td><? //$gruppenListe[$zaehler]->getGruppenname()?></td>
+		</tr>
+
+	<?php 
+	//}
+	?> -->
 
 </table>

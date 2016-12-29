@@ -13,15 +13,17 @@ class GroupoverviewController extends AbstractActionController
 
 		$liste = Gruppe::listeHolen();
 		
+		/** Alternative, falls "normales" gruppeauflisten spinnt
 		$anzahl = 0;
 		
 		foreach ($liste as $gruppenliste) {
 			$anzahl++;
 		}
+		*/
 		
 		return new ViewModel([
 			'gruppenListe' => $liste,
-			'anzahl' => $anzahl
+			// 'anzahl' => $anzahl
 		]);
 		
 	
