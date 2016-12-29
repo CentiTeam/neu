@@ -58,7 +58,7 @@ class Gruppe {
 		if ($result=mysqli_query($db, $abfrage)) {
 	
 		// Ergebnis Zeile f�r Zeile verarbeiten
-		while ($row = mysqli_fetch_row()) {
+		while ($row = mysqli_fetch_all()) {
 				
 			// neues Model erzeugen
 			$model = new Gruppe();
@@ -70,7 +70,10 @@ class Gruppe {
 			$gruppeListe[] = $model;
 			
 			var_dump($gruppeListe->getGruppenname());
+			die ("Gruppe wurde geholt");
 		}
+		
+		var_dump($gruppeListe);
 	
 		// fertige Liste von Gruppe-Objekten zur�ckgeben
 		return $gruppeListe;
