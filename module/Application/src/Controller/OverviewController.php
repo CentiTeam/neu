@@ -41,7 +41,7 @@ class overviewController extends AbstractActionController
 		// $gruppenliste = Gruppe::listeHolen();
 		
 		$gruppe= new Gruppe();
-		$g_id=1;
+		$g_id= 1 ;
 		
 		$gruppe->laden($g_id);
 		
@@ -49,8 +49,7 @@ class overviewController extends AbstractActionController
 				'user' => array($user),
 				// 'gruppenListe' => array($gruppenliste)
 				'gruppe' => array($gruppe)
-		]
-				);
+		]);
 	}
 		
 
