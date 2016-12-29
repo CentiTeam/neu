@@ -11,16 +11,18 @@
 	?>
 
 		<tr>
-		
+			<td><?=$gruppe->getGruppenbildpfad()?></td>
 			<td><?=$gruppe->getG_id()?></td>
 			<td><?=$gruppe->getGruppenname()?></td>
+			<td><?=$gruppe->getGruppenbeschreibung()?></td>
+			
 		</tr>
 
 	<?php 
 	}
 	?>
+		<tr><td></td></tr>
 		<tr>
-		<td></td>
 		<th><li class="active"><a href="<?= $this->url('gruppeanlegen') ?>">Gruppe anlegen</a></li></th>
 		</tr>
 
