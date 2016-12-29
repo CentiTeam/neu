@@ -7,12 +7,13 @@
 	</tr>
 
 	<?php 
-	foreach ($gruppenListe as $zaehler => $gruppe) {
+	foreach ($gruppenListe as $rowzaehler => $column) {
+		foreach ($column as $columnzaehler => $gruppe) {
 	?>
 
 		<tr>
-			<td><?=$gruppe[$zaehler]->getG_id()?></td>
-			<td><?=$gruppe[$zaehler]->getGruppenname()?></td>
+			<td><?=$gruppe[$rowzaehler][$columnzaehler]->getG_id()?></td>
+			<td><?=$gruppe[$rowzaehler][$columnzaehler]->getGruppenname()?></td>
 			<td>
 			<a href='index.php?controller=Team&action=show&t_id=<?=$gruppe->getG_id()?>'>Anzeigen</a>
 			<a href='index.php?controller=Team&action=edit&t_id=<?=$gruppe->getG_id()?>'>Bearbeiten</a>
@@ -21,6 +22,8 @@
 		</tr>
 
 	<?php 
+	
+		}
 	}
 	?>
 
