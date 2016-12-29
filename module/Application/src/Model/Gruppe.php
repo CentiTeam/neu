@@ -58,11 +58,13 @@ class Gruppe {
 		// dies ist gleichbedeutet mit der Information, ob eine Gruppe gelöscht wurde
 		//$deleted = mysqli_affected_rows() > 0;
 	
-		$gelöschte= mysqli_affected_rows ($result) > 0;
+		$gelöschte= mysqli_affected_rows ($result);
+		
+		echo "Model";
 		var_dump ($gelöschte);
 		
 		$deleted = true;
-		// Rückgabe, ob das Team gelöscht wurde oder nicht
+		// Rückgabe, ob die Gruppe gelöscht wurde oder nicht
 		return $deleted;
 	}
 	
