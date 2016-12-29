@@ -7,6 +7,31 @@
 	</tr>
 
 	<?php 
+	$anzahl=count($gruppenListe);
+	$zaehler=0;
+	
+	while ($zaehler<=$anzahl) {
+	?>
+
+		<tr>
+			<td><?=$gruppe[$zaehler]->getG_id()?></td>
+			<td><?=$gruppe[$zaehler]->getGruppenname()?></td>
+			<td>
+			<a href='index.php?controller=Team&action=show&t_id=<?=$gruppe->getG_id()?>'>Anzeigen</a>
+			<a href='index.php?controller=Team&action=edit&t_id=<?=$gruppe->getG_id()?>'>Bearbeiten</a>
+			<a href='index.php?controller=Team&action=delete&t_id=<?=$$gruppe->getG_id()?>'>Löschen</a>
+			</td>
+		</tr>
+
+	<?php 
+	}
+	?>
+	
+	
+	
+	
+	
+	<?php 
 	foreach ($gruppenListe as $zaehler => $gruppe) {
 	?>
 
