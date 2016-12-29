@@ -97,13 +97,13 @@ return [
         	],
         		
         		
-        	'gruppeloeschen' => [
+        	'groupdelete' => [
        				'type'    => Segment::class,
        				'options' => [
-       						'route'    => '/gruppeloeschen[/:action]',
+       						'route'    => '/groupdelete[/:action]',
        						'defaults' => [
-       								'controller' => Controller\GruppeloeschenController::class,
-       								'action'     => 'gruppeloeschen',
+       								'controller' => Controller\GroupdeleteController::class,
+       								'action'     => 'groupdelete',
        						],
        				],
        		],
