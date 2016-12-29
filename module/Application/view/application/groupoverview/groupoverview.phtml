@@ -9,13 +9,15 @@
 	<?php 
 	$anzahl=count($gruppenListe);
 	$zaehler=0;
+	echo "Anzahl: ";
+	echo $anzahl;
 	
 	while ($zaehler<=$anzahl) {
 	?>
 
 		<tr>
-			<td><?=$gruppe[$zaehler]->getG_id()?></td>
-			<td><?=$gruppe[$zaehler]->getGruppenname()?></td>
+			<td><?=$gruppenListe[$zaehler]->getG_id()?></td>
+			<td><?=$gruppenListe[$zaehler]->getGruppenname()?></td>
 			<td>
 			<a href='index.php?controller=Team&action=show&t_id=<?=$gruppe->getG_id()?>'>Anzeigen</a>
 			<a href='index.php?controller=Team&action=edit&t_id=<?=$gruppe->getG_id()?>'>Bearbeiten</a>
