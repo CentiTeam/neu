@@ -56,7 +56,7 @@ class Gruppe {
 		
 		// speichert, ob mindestens eine Zeile gelöscht wurde
 		// dies ist gleichbedeutet mit der Information, ob eine Gruppe gelöscht wurde
-		$deleted = mysqli_affected_rows ($result) > 0;
+		$deleted = mysqli_affected_rows () > 0;
 	
 		// Rückgabe, ob das Team gelöscht wurde oder nicht
 		return $deleted;
