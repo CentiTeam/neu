@@ -70,7 +70,7 @@ class Gruppe {
 			$gruppeListe[] = $model;
 			
 
-			var_dump($gruppeListe[$zaehler]->getGruppenname());
+			// var_dump($gruppeListe[$zaehler]->getGruppenname());
 			
 			$zaehler++;
 		}
