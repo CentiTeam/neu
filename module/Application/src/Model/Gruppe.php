@@ -57,10 +57,10 @@ class Gruppe {
 		
 		// Eigentliche If-bedinung: $result=mysqli_query($db, $abfrage)
 		if ($result = $db->execute($abfrage)) {
-		echo "In while-Schleife";
+		
 		// Ergebnis Zeile f�r Zeile verarbeiten
 		while ($row = mysqli_fetch_array($result)) {
-				
+			echo "In while-Schleife";
 			// neues Model erzeugen
 			$model = new Gruppe();
 				
