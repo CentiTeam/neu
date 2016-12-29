@@ -80,7 +80,7 @@ class GruppeanlegenController extends AbstractActionController {
 				 		'msg' => $msg
 				 ]);
 				 
-				 $view->setTemplate('application/specificgroupoverview/specificgroupoverview.phtml');
+				 $view->setTemplate('application/groupshow/groupshow.phtml');
 				 	
 				 return $view;
 			}

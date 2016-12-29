@@ -120,18 +120,27 @@ return [
         			],
         	],
         		
-        		'anlegen' => [
-        				'type'    => Segment::class,
-        				'options' => [
-        						'route'    => '/gruppe[/:action]',
-        						'defaults' => [
-        								'controller' => Controller\GruppeController::class,
-        								'action'     => 'anlegen',
-        						],
-        				],
-        		],
+        	'groupshow' => [
+        			'type'    => Segment::class,
+       				'options' => [
+       						'route'    => '/groupshow[/:action]',
+       						'defaults' => [
+       								'controller' => Controller\GroupshowController::class,
+        							'action'     => 'groupshow',
+        					],
+       				],
+       		],
         		
-        		
+        	'groupedit' => [
+        			'type'    => Segment::class,
+       				'options' => [
+       						'route'    => '/groupedit[/:action]',
+       						'defaults' => [
+       								'controller' => Controller\GroupeditController::class,
+       								'action'     => 'groupedit',
+       						],
+       				],
+       		],
         		
         		'help' => [
         				'type'    => Segment::class,
