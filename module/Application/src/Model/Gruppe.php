@@ -71,7 +71,7 @@ class Gruppe {
 			$gruppeListe[] = $model;
 			
 			var_dump($gruppeListe[0]->getGruppenname());
-			die ("Gruppe wurde geholt");
+			echo "Gruppe wurde geholt";
 		}
 		
 		echo "Fehlerabfangen in Model";
