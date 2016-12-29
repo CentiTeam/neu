@@ -18,10 +18,9 @@
 			<td><?=$gruppe->getGruppenname()?></td>
 			<td><?=$gruppe->getGruppenbeschreibung()?></td>
 			<td>
-			<a href='gruppeanzeigen.phtml?g_id=<?=$gruppe->getG_id()?>'>Anzeigen</a>
-			<a href='gruppebearbeiten.phtml?g_id=<?=$gruppe->getG_id()?>'>Bearbeiten</a>
-			<a href='gruppeloeschen.phtml?g_id=<?=$gruppe->getG_id()?>'>Löschen</a>
-			<a href='help?g_id=<?=$gruppe->getG_id()?>'>Hilfe</a>
+			<a href='gruppeanzeigen?g_id=<?=$gruppe->getG_id()?>'>Anzeigen</a>
+			<a href='gruppebearbeiten?g_id=<?=$gruppe->getG_id()?>'>Bearbeiten</a>
+			<a href='gruppeloeschen?g_id=<?=$gruppe->getG_id()?>'>Löschen</a>
 			</td>
 		</tr>
 
@@ -30,7 +29,7 @@
 	?>
 		<tr><td></td></tr>
 		<tr>
-		<th><li><a href="<?= $this->url('gruppeanlegen') ?>">Neue Gruppe anlegen</a></li></th>
+		<th><li><a href='gruppeanlegen'>Neue Gruppe anlegen</a></li></th>
 		</tr>
 
 	
