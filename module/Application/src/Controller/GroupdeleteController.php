@@ -25,6 +25,7 @@ class GroupdeleteController extends AbstractActionController
 		
 		$isOK = $gruppe->laden ($g_id);
 		
+		$gruppenliste=Gruppe::listeholen();
 		// !!!!
 		// Prüfen, ob es noch offene Zahlungen gibt
 		// !!!!!
@@ -34,7 +35,6 @@ class GroupdeleteController extends AbstractActionController
 		// wenn die Aktion abgebrochen werden soll
 		if ($_REQUEST['abbrechen']) {
 			
-			$gruppenliste=Gruppe::listeholen();
 			
 			$view = new ViewModel([
 					'gruppenListe' => $gruppenliste
@@ -69,7 +69,6 @@ class GroupdeleteController extends AbstractActionController
 			
 			return new ViewModel([
 				'gruppe' => $gruppe,
-				'msg' => array($msg)
 			]);
 		}
 		
