@@ -19,9 +19,6 @@ class GroupoverviewController extends AbstractActionController
 			$anzahl++;
 		}
 		
-		echo "Neue Anzahl:";
-		echo $anzahl;
-		
 		return new ViewModel([
 			'gruppenListe' => $liste,
 			'anzahl' => $anzahl
