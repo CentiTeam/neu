@@ -10,23 +10,20 @@ class GroupoverviewController extends AbstractActionController
 {
 	public function groupoverviewAction()
 	{
-	
-		// Testzweck: Gruppe 1 auslesen
-		//$gruppe= new Gruppe();
-		//$g_id= 2; 
-		//$gruppe->laden($g_id);
-		
-		
+
 		$liste = Gruppe::listeHolen();
 		
-		for ($zaehler=0; $zaehler<5; $zaehler++) {
-		var_dump($liste[$zaehler]->getGruppenname());
+		$anzahl = 0;
+		
+		foreach ($liste as $gruppenliste) {
+			$anzahl++;
 		}
 		
+		echo "Neue Anzahl:";
+		echo $anzahl;
+		
 		return new ViewModel([
-			// 'gruppe' => array($gruppe),
 			'gruppenListe' => $liste,
-			//'gruppenListe' => array($liste)
 		]);
 		
 	
