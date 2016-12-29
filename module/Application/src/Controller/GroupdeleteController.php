@@ -47,7 +47,8 @@ class GroupdeleteController extends AbstractActionController
 				
 		// wenn das Formular zur Bestätigung des Löschens schon abgesendet wurde, soll dies hier ausgewertet werden
 		if ($_REQUEST['send']) {
-					
+			
+			echo "in Send reingesprungen";
 			// wenn der Ladevorgang erfolgreich war, wird versucht die Gruppe zu löschen
 			if ($isOK && $gruppe->loeschen ()) {
 		
@@ -68,6 +69,7 @@ class GroupdeleteController extends AbstractActionController
 			]);
 		}
 		
+		/**
 		$view = new ViewModel([
 				'gruppenListe' => $gruppenliste
 		]);
@@ -75,6 +77,7 @@ class GroupdeleteController extends AbstractActionController
 		$view->setTemplate('application/groupoverview/groupoverview.phtml');
 			
 		return $view;
+		*/
 	}
 	
 	
