@@ -44,6 +44,7 @@ class GruppeanlegenController extends AbstractActionController {
 
 				// Schritt 2: Daten pr�fen und Fehler in Array füllen
 				$errorStr ="";
+				$msg="";
 
 				if ($gruppenname=="Kinderporno") {
 					$errorStr .="Der Gruppenname darf nicht Kinderporno heißen!<br>";
@@ -58,18 +59,21 @@ class GruppeanlegenController extends AbstractActionController {
 					
 				
 				 if ($errorStr == "" && $gruppe->anlegen()) {
-
-				 array_push($msg, "Gruppe erfolgreich gespeichert!");
+		
+				 // array_push($msg, "Gruppe erfolgreich gespeichert!");
+				 $msg .= "Gruppe erfolgreich gespeichert!";
 				 $saved = true;
 				 	
 				 } elseif ($errorStr == "") {
 
-				 array_push($msg, "Datenpr�fung in Ordnung, Fehler beim Speichern der Gruppe!");
+				 // array_push($msg, "Datenpr�fung in Ordnung, Fehler beim Speichern der Gruppe!");
+				 	$msg .= "Datenpr�fung in Ordnung, Fehler beim Speichern der Gruppe!";
 				 $saved = false;
 				 	
 				 } else {
 
-				 array_push($msg, "Fehler bei der Datenpr�fung. Gruppe nicht gespeichert!");
+				 // array_push($msg, "Fehler bei der Datenpr�fung. Gruppe nicht gespeichert!");
+				 	$msg .= "Fehler bei der Datenpr�fung. Gruppe nicht gespeichert!";
 				 $saved = false;
 
 				 }
