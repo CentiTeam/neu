@@ -31,10 +31,12 @@ class Gruppe {
 		
 		
 		// GENAUE SYNTAX FEHLT!!
-		// $isOK = mysqli_affected_rows ($result) > 0;
+		$isOK = mysqli_affected_rows ($result) > 0;
 		
+		echo "Veränderte Zeilen:";
+		echo mysqli_affected_rows ($result);
 		
-		return $result;
+		return $isOK;
 	}
 	
 	public function loeschen () {
