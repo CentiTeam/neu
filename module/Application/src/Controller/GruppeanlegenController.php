@@ -68,17 +68,27 @@ class GruppeanlegenController extends AbstractActionController {
 				 // Neue G_id durch Laden der neu erstellten Gruppe ins Objekt laden
 				 $gruppe->laden();
 				 
-				 $user = new User();
+				 //$user = $_SESSION['user'];
+				 
+				 //$user->laden()
+				 //$_SESSION['user'] = $user;
+				 
+				 //echo "USER-OBJEKT:";
+				 //var_dump($_SESSION['u_id']);
+				 //echo "$_SESSION['vorname']";
+				 //$_SESSION['angemeldet'] != 'ja'
 				 session_start();
-				 $_SESSION['user'] = $user;
-				 var_dump($user);
+				 $user_id=$_SESSION['u_id'];
+				 
+				 
 				 
 				 $gruppenmitglied = new Gruppenmitglied();
 				 	
-				 $gruppenmitglied->setU_id($user->getU_id());
+				 $gruppenmitglied->setU_id($user_id);
 				 $gruppenmitglied->setG_id($gruppe->getG_id());
 				 $gruppenmitglied->setGruppenadmin(1);
-				 	
+				 
+				 echo "GRUPPENMITGLIED-OBJEKT:";
 				 var_dump($gruppenmitglied);
 				 	
 				 
