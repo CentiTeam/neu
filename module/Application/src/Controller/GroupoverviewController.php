@@ -15,7 +15,7 @@ class GroupoverviewController extends AbstractActionController
 		
 		$gruppenliste = Gruppe::listeHolen();
 		
-		//$mitgliederliste = Gruppenmitglied::listeHolen();
+		$mitgliederliste = Gruppenmitglied::listeHolen();
 		
 		
 		/** Fehlversuch
@@ -44,7 +44,7 @@ class GroupoverviewController extends AbstractActionController
 		
 		return new ViewModel([
 			'gruppenListe' => $gruppenliste,
-			//'mitgliederListe' => $mitgliederliste
+			'mitgliederListe' => $mitgliederliste
 			//'mitgliedschaften' => array($mitglieder_ids_array)
 			// 'anzahl' => $anzahl
 		]);
