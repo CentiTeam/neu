@@ -13,9 +13,8 @@
 	
 	<?php 
 	foreach ($gruppenListe as $zaehler => $gruppe) {
-		for ($count=0; $count==EOF; $count++) {
-			if ($gruppe->getG_id() == $mitgliedschaften[$count]) {
-			
+		foreach ($mitgliederListe as $counter => $gruppenmitglied) {
+			if ($gruppe->getG_id() == $gruppenmitglied->getG_id()) {
 	?>
 
 		<tr>

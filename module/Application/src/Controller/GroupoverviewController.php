@@ -18,9 +18,8 @@ class GroupoverviewController extends AbstractActionController
 		$mitgliederliste = Gruppenmitglied::listeHolen();
 		
 		
-		
+		/** Fehlversuch
 		$mitglieder_ids_array=array();
-		
 		
 		foreach ($mitgliederliste as $gruppenmitglied) {
 			$gruppenmitglied = new Gruppenmitglied();
@@ -33,6 +32,7 @@ class GroupoverviewController extends AbstractActionController
 				$mitglieder_ids_array[]=$gruppenmitglied->getG_id();
 			}
 		}
+		*/
 		
 		/** Alternative, falls "normales" gruppeauflisten spinnt
 		 $anzahl = 0;
@@ -43,8 +43,9 @@ class GroupoverviewController extends AbstractActionController
 		 */
 		
 		return new ViewModel([
-			'gruppenListe' => $liste,
-			'mitgliedschaften' => array($mitglieder_ids_array)
+			'gruppenListe' => $gruppenliste,
+			'mitgliederListe' => $mitgliederliste
+			//'mitgliedschaften' => array($mitglieder_ids_array)
 			// 'anzahl' => $anzahl
 		]);
 		
