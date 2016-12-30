@@ -52,7 +52,6 @@ class GruppeanlegenController extends AbstractActionController {
 					$errorStr .="Der Gruppenname darf nicht Kinderporno heiÃŸen!<br>";
 				}
 					
-				var_dump($g_id);
 				// Gruppe-Objekt mit Daten aus Request-Array fï¿½llen
 				$gruppe->setG_id($g_id);
 				$gruppe->setGruppenname($gruppenname);
@@ -60,29 +59,31 @@ class GruppeanlegenController extends AbstractActionController {
 				$gruppe->setGruppenbildpfad($gruppenbildpfad);
 				
 				
-				$user = new User();
-				session_start();
-				$_SESSION['user'] = $user;
-				
-				
-				
-				$gruppenmitglied = new Gruppenmitglied();
-				
-				// $gruppenmitglied->setU_id($user->getU_id());
-				$gruppenmitglied->setG_id($g_id);
-				$gruppenmitglied->setGruppenadmin(1);
-				
-				var_dump($gruppenmitglied);
-				
-				echo "Gruppen_id von Gruppenmitglied in Controller:";
-				echo $gruppenmitglied->getG_id();
-				
-				 if ($errorStr == "" && $gruppe->anlegen() && $gruppenmitglied->anlegen()) {
+				 if ($errorStr == "" && $gruppe->anlegen()) {
 		
 				 // array_push($msg, "Gruppe erfolgreich gespeichert!");
 				 $msg .= "Gruppe erfolgreich gespeichert!";
 				 $saved = true;
-				 	
+				 
+				 echo "Gruppen_id anch Anlegen:";
+				 var_dump($gruppe->getG_id());
+				 $verknüpfung=$gruppenmitglied->anlegen();
+				 
+				 $user = new User();
+				 session_start();
+				 $_SESSION['user'] = $user;
+				 
+				 
+				 
+				 $gruppenmitglied = new Gruppenmitglied();
+				 
+				 // $gruppenmitglied->setU_id($user->getU_id());
+				 $gruppenmitglied->setG_id($g_id);
+				 $gruppenmitglied->setGruppenadmin(1);
+				 
+				 var_dump($gruppenmitglied);
+				 
+				 
 				 } elseif ($errorStr == "") {
 
 				 // array_push($msg, "Datenprï¿½fung in Ordnung, Fehler beim Speichern der Gruppe!");
