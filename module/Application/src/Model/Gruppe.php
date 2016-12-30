@@ -41,8 +41,9 @@ class Gruppe {
 		
 		$query = "UPDATE gruppe SET
 				gruppenname = '".$this->gruppenname."',
-				gruppenbeschreibung = '".$this->gruppenbeschreibung."',
-				WHERE g_id = '".$this->gruppe_id."'";
+				gruppenbeschreibung = '".$this->gruppenbeschreibung."'
+				WHERE g_id = '".$this->g_id."'
+				";
 		
 		// gruppenbildpfad = '".$this->gruppenbildpfad."'
 		var_dump($query);
