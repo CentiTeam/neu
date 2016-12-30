@@ -35,18 +35,17 @@ class Gruppe {
 	}
 	
 		
-	public function bearbeiten ($gruppe_id) {
+	public function bearbeiten () {
 	
 		$db = new DB_connection();
 	
-		var_dump($this);
 		var_dump($gruppe_id);
 		
 		$query = "UPDATE gruppe SET
 				gruppenname = '".$this->gruppenname."',
 				gruppenbeschreibung = '".$this->gruppenbeschreibung."',
 				gruppenbildpfad = '".$this->gruppenbildpfad."' 
-				WHERE g_id = '".$gruppe_id."'";
+				WHERE g_id = '".$this->gruppe_id."'";
 	
 		var_dump($query);
 		
