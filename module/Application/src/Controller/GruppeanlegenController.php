@@ -69,7 +69,7 @@ class GruppeanlegenController extends AbstractActionController {
 				
 				
 				
-				$gruppenmitglied->setU_id($user->getU_id());
+				// $gruppenmitglied->setU_id($user->getU_id());
 				$gruppenmitglied->setG_id($g_id);
 				$gruppenmitglied->setGruppenadmin(1);
 				
