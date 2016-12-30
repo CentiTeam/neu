@@ -70,6 +70,9 @@ class GruppeanlegenController extends AbstractActionController {
 				$gruppenmitglied->setG_id($g_id);
 				$gruppenmitglied->setGruppenadmin(1);
 				
+				echo "Gruppen_id von Gruppenmitglied in Controller:";
+				echo $gruppenmitglied->getG_id();
+				
 				 if ($errorStr == "" && $gruppe->anlegen() && $gruppenmitglied->anlegen()) {
 		
 				 // array_push($msg, "Gruppe erfolgreich gespeichert!");
