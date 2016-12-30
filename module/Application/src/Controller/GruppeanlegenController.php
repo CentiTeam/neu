@@ -16,7 +16,7 @@ class GruppeanlegenController extends AbstractActionController {
 		session_start();
 		
 		//$user=$_SESSION['user'];
-		//echo "User_id";
+		echo "User_id";
 		//var_dump($user->getU_id());
 
 		$errors = array();
