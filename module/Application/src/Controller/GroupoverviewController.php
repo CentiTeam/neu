@@ -7,6 +7,9 @@ use Zend\View\Model\ViewModel;
 use Application\Model\Gruppe;
 use Application\Model\Gruppenmitglied;
 
+#TODO nur die Gruppen anzeigen, zu denen man gehört; hierfür "Listeholen aus Gruppenmitglied" und 
+#"Listeholen aus Gruppe" kombinieren
+
 class GroupoverviewController extends AbstractActionController
 {
 	public function groupoverviewAction()
