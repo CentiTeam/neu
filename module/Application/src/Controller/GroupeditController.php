@@ -17,7 +17,7 @@ class GruppeanlegenController extends AbstractActionController {
 
 		if($_SESSION['angemeldet'] != 'ja') {
 				
-			array_push($errors, "Sie müssen angemeldet sein um eine Gruppe zu erstellen!");
+			array_push($errors, "Sie müssen angemeldet sein um eine Gruppe zu bearbeiten!");
 				
 			$view = new ViewModel(array(
 					$errors
@@ -28,6 +28,10 @@ class GruppeanlegenController extends AbstractActionController {
 		} else {
 
 			$gruppe = new Gruppe();
+			
+			if (! $gruppe->laden($_REQUEST('g_id'))) {
+				array_push($errors, "Fehler beim Laden der Gruppe!");	
+			}
 
 			$saved= false;
 			$msg = array();
@@ -58,7 +62,7 @@ class GruppeanlegenController extends AbstractActionController {
 				$gruppe->setGruppenbildpfad($gruppenbildpfad);
 					
 				
-				 if ($errorStr == "" && $gruppe->anlegen()) {
+				 if ($errorStr == "" && $gruppe->bearbeiten()) {
 		
 				 // array_push($msg, "Gruppe erfolgreich gespeichert!");
 				 $msg .= "Gruppe erfolgreich gespeichert!";

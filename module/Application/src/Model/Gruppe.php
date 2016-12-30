@@ -37,6 +37,27 @@ class Gruppe {
 		return $isOK;
 	}
 	
+	public function bearbeiten () {
+	
+		$db = new DB_connection();
+	
+		$query = "UPDATE gruppe SET
+				gruppenname = '".$this->gruppenname."'
+				gruppenbeschreibung = '".$this->gruppenbeschreibung."',
+				gruppenbildpfad = '".$this->gruppenbildpfad."' ";
+	
+		$result = $db->execute($query);
+	
+	
+		// Könnte sein, dass hier mal Probleme auftreten
+		$isOK = mysqli_affected_rows ($result) > 0;
+		var_dump($isOK);
+	
+		return $isOK;
+	}
+	
+	
+	
 	public function loeschen ($gruppe_id) {
 		
 		// Datenbankstatement erzeugen
