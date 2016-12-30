@@ -58,11 +58,10 @@ class GruppeanlegenController extends AbstractActionController {
 				$gruppe->setGruppenbeschreibung($gruppenbeschreibung);
 				$gruppe->setGruppenbildpfad($gruppenbildpfad);
 				
-				//unnötig
-				// $user = new User();
-				// $_SESSION['user'] = $user;
 				
-				$user = $_SESSION['user'];
+				$user = new User();
+				$_SESSION['user'] = $user;
+				
 				
 				$gruppenmitglied = new Gruppenmitglied();
 				
