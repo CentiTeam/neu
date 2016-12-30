@@ -125,31 +125,72 @@ class User
 	
 	
 	public static function listeHolen() {
-		
-		$db = new DB_connection;
-		$zaehler = 0;
-		$userliste = array ();
-		
-		$query_userliste = "SELECT * FROM User ORDER BY u_id;";
-		$result= $db->execute($query_userliste);
-		
-		while ($row = mysqli_fetch_array($result))
-		{
-			// Tanja hat hier $zahler zu  $zaehler korrigiert 
-			$_array[$zaehler] = $row ['u_id'];
-			
-			echo $row ['u_id'];
-			echo $row ['username'];
-			echo "<br>";
-			
-			$zaehler++;
+	
+		// Liste initialisieren
+		$userListe = array ();
+	
+		$db = new DB_connection();
+	
+		$query="SELECT u_id FROM User";
+	
+		// Wenn die Datenbankabfrage erfolgreich ausgeführt worden ist
+		if ($result = $db->execute($query)) {
+	
+			// Ergebnis Zeile fï¿½r Zeile verarbeiten
+			while ($row = mysqli_fetch_array($result)) {
+					
+				// neues Model erzeugen
+				$model = new User();
+	
+				// Model anhand der Nummer aus der Datenbankabfrage laden
+				$model->laden($row["u_id"]);
+	
+				// neues Model ans Ende des $userListe-Arrays anfï¿½gen
+				$userListe[] = $model;
+			}
+	
+			// fertige Liste von User-Objekten zurï¿½ckgeben
+			return $userListe;
 		}
-		
-		
-		return $userliste;
 	}
 	
 	
+	
+	/**
+	 * Lï¿½dt einen User
+	 *
+	 * @return true, wenn der User geladen werden konnte, sonst false
+	 */
+	public function laden ($u_id) {
+	
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+	
+		// DB-Befehl absetzen: alle Basisinformationen des Teams mit der ï¿½bergebenen $t_id abfragen
+	
+		$result=$dbStmt->execute("SELECT * FROM User WHERE u_id= '".$u_id."';");
+	
+		// Variable, die speichert, ob das Team geladen werden konnte oder nicht
+		$isLoaded=false;
+	
+		// Ergebnis verarbeiten, falls vorhanden
+		if ($row=mysqli_fetch_array($result)) {
+			$this->u_id=$row["u_id"];
+			$this->username=$row["username"];
+			$this->vorname=$row["vorname"];
+			$this->nachname=$row["nachname"];
+			$this->email=$row["email"];
+			$this->nachname=$row["nachname"];
+			$this->deaktiviert=$row["deaktiviert"];
+			$this->systemadmin=$row["systemadmin"];
+	
+			// speichern, dass die Basisinformationen der User erfolgreich geladen werden konnten
+			$isLoaded=true;
+		}
+	
+		// zurï¿½ckgeben, ob beim Laden ein Fehler aufgetreten ist
+		return $isLoaded;
+	}
 	
 	//Setter für u_id
 	public function setU_id($value) {
@@ -214,4 +255,20 @@ class User
 		return $this->isloggedin;
 	}
 
+
+	public function setDeaktiviert($value) {
+		$this->deaktiviert = $value;
+	}
+	public function getDeaktiviert() {
+		return $this->deaktiviert;
+	}
+	
+
+	public function setSystemadmin($value) {
+		$this->systemadmin = $value;
+	}
+	public function getSystemadmin() {
+		return $this->systemadmin;
+	}
+	
 }

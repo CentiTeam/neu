@@ -14,17 +14,22 @@
 <th> Systemadmin 	</th>
 
 </tr>
-
+<?php 
+	foreach ($userListe as $zaehler => $user) {
+	?>
 <tr>
-			<td>			</td>
-			<td>			</td>
-			<td>			</td>
-			<td>	 		</td>
-			<td>	 		</td>
-			<td>	 		</td>
-			<td>			</td>
-			<td>	 		</td> 
+			<td>	<?=$user->getU_id()?>			</td>
+			<td>	<?=$user->getUsername()?>		</td>
+			<td>	<?=$user->getVorname()?>		</td>
+			<td>	<?=$user->getNachname()?>		</td>
+			<td>	<?=$user->getPasswort()?>		</td>
+			<td>	<?=$user->getEmail()?>			</td>
+			<td>	<?=$user->getDeaktiviert()?>	</td>
+			<td>	<?=$user->getSystemadmin()?>	</td> 
 
+<?php
+}
+?>
 </tr>
 
 </thead>
