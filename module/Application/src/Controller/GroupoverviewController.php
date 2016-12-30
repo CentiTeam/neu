@@ -21,7 +21,7 @@ class GroupoverviewController extends AbstractActionController
 		
 		$mitglieder_ids_array=array();
 		
-		foreach ($mitgliederliste as $zaehler => $gruppenmitglied) {
+		foreach ($mitgliederliste as $counter => $gruppenmitglied) {
 			if ($gruppenmitglied->getU_id() == $_SESSION['u_id']) {
 				
 				$mitglieder_ids_array[]=$gruppenmitglied->getG_id();
