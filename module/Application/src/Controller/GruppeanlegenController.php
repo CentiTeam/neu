@@ -73,7 +73,7 @@ class GruppeanlegenController extends AbstractActionController {
 				 //$user->laden()
 				 //$_SESSION['user'] = $user;
 				 echo "USER-OBJEKT:";
-				 var_dump($_SESSION['u_id']);
+				 var_dump($_SESSION['user']);
 				 
 				 $gruppenmitglied = new Gruppenmitglied();
 				 	
