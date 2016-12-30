@@ -181,8 +181,17 @@ return [
         				],
         		],
         		
-        		        		
-        ],
+        	'file' => [
+        			'type'    => Segment::class,
+       				'options' => [
+       						'route'    => '/file[/:action]',
+       						'defaults' => [
+       								'controller' => Controller\FileController::class,
+       								'action'     => 'upload',
+       						],
+       				],
+        		],
+       	],
     		
     ],
 		
