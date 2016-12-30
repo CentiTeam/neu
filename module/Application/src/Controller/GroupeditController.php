@@ -7,9 +7,9 @@ use Zend\View\Model\ViewModel;
 use Application\Model\Gruppe;
 
 
-class GruppeanlegenController extends AbstractActionController {
+class GroupeditController extends AbstractActionController {
 
-	function gruppeanlegenAction() {
+	function groupeditAction() {
 		// TODO Berechtigungspr�fung
 		session_start();
 
