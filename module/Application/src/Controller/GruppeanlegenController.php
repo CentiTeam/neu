@@ -79,7 +79,8 @@ class GruppeanlegenController extends AbstractActionController {
 				 //$_SESSION['angemeldet'] != 'ja'
 				 session_start();
 				 $user_id=$_SESSION['u_id'];
-				 
+				 echo "User_id";
+				 var_dump($user_id);
 				 
 				 
 				 $gruppenmitglied = new Gruppenmitglied();
