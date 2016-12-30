@@ -207,6 +207,7 @@ return [
         	Controller\GroupoverviewController::class => InvokableFactory::class,
         	Controller\GroupdeleteController::class => InvokableFactory::class,
         	Controller\LoginController::class => InvokableFactory::class,
+        	Controller\FileController::class => InvokableFactory::class,
            	Controller\HelpController::class => InvokableFactory::class,
         	Controller\RegistrierenController::class => InvokableFactory::class,
         	Controller\AdminoverviewController::class => InvokableFactory::class,
