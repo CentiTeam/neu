@@ -39,6 +39,8 @@ class Gruppe {
 	
 		$db = new DB_connection();
 	
+		var_dump($this->gruppenbeschreibung);
+		
 		$query = "UPDATE gruppe SET
 				gruppenname = '".$this->gruppenname."',
 				gruppenbeschreibung = '".$this->gruppenbeschreibung."',
