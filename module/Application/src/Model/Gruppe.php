@@ -37,14 +37,15 @@ class Gruppe {
 		return $isOK;
 	}
 	
-	public function bearbeiten () {
+	public function bearbeiten ($gruppe_id) {
 	
 		$db = new DB_connection();
 	
 		$query = "UPDATE gruppe SET
-				gruppenname = '".$this->gruppenname."'
+				gruppenname = '".$this->gruppenname."',
 				gruppenbeschreibung = '".$this->gruppenbeschreibung."',
-				gruppenbildpfad = '".$this->gruppenbildpfad."' ";
+				gruppenbildpfad = '".$this->gruppenbildpfad."' 
+				WHERE g_id = '".$gruppe_id."'";
 	
 		$result = $db->execute($query);
 	
