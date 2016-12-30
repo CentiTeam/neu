@@ -43,7 +43,7 @@ class GroupeditController extends AbstractActionController {
 				$g_id=$_REQUEST["g_id"];
 				$gruppenname=$_REQUEST["gruppenname"];
 				$gruppenbeschreibung=$_REQUEST["gruppenbeschreibung"];
-				$gruppenbildpfad=$_REQUEST["gruppenbildpfad"];
+				// $gruppenbildpfad=$_REQUEST["gruppenbildpfad"];
 
 
 				// Schritt 2: Daten pr�fen und Fehler in Array füllen
@@ -59,7 +59,7 @@ class GroupeditController extends AbstractActionController {
 				$gruppe->setG_id($g_id);
 				$gruppe->setGruppenname($gruppenname);
 				$gruppe->setGruppenbeschreibung($gruppenbeschreibung);
-				$gruppe->setGruppenbildpfad($gruppenbildpfad);
+				// $gruppe->setGruppenbildpfad($gruppenbildpfad);
 					
 				
 				 if ($errorStr == "" && $gruppe->bearbeiten()) {
