@@ -15,16 +15,12 @@ class BenutzertabelleController extends AbstractActionController
 	public function benutzertabelleAction()
 	{
 	
-		
-		// nicht sicher, was hier hinkommen soll!
-		$user= new User();
-		
-		
-		
-		$user->listeHolen();
-	
 
-		return new ViewModel;
+		$liste = User::listeHolen();
+	
+		return new ViewModel([
+				'userListe' => $liste,
+		]);
 		
 		
 	}
