@@ -1,24 +1,34 @@
-<?php
+<?php 
 
 namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
-use Application\Controller\Zend_File_Transfer_Adapter_Http;
 
-class FileController extends AbstractActionController
-{
-	public function uploadAction()
-	{
+
+class FileController extends AbstractActionController {
 	
-		$adapter = new Zend_File_Transfer_Adapter_Http();
-		 
-		$adapter->setDestination('\img');
-		 
-		if (!$adapter->receive()) {
-			$messages = $adapter->getMessages();
-			echo implode("\n", $messages);
-		}
-	
+
+	public function uploadFormAction() {
+    	$form = new UploadForm('upload-form');
+
+	    $request = $this->getRequest();
+    	if ($request->isPost()) {
+        	// Make certain to merge the files info!
+ 	       $post = array_merge_recursive(
+    	        $request->getPost()->toArray(),
+        	    $request->getFiles()->toArray()
+  	      );
+
+    	    $form->setData($post);
+        	if ($form->isValid()) {
+   	         $data = $form->getData();
+    	        // Form is valid, save the form!
+        	    return $this->redirect()->toRoute('upload-form/success');
+        	}
+    	}
+
+   	 return array('form' => $form);
 	}
 }
+
+?>
