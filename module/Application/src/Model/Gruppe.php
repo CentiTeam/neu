@@ -113,15 +113,20 @@ class Gruppe {
 	 *
 	 * @return true, wenn die Gruppe geladen werden konnte, sonst false
 	 */
-	public function laden ($g_id) {
+	public function laden ($g_id = null) {
 	
 		// Datenbankstatement erzeugen
 		$dbStmt = new DB_connection();
 	
 		// DB-Befehl absetzen: alle Basisinformationen des Teams mit der �bergebenen $t_id abfragen
 		
+		
+		if ($g_id) {
 		$result=$dbStmt->execute("SELECT * FROM gruppe WHERE g_id= '".$g_id."';");
-	
+		}
+		else {
+			$result=$dbStmt->execute("SELECT * FROM gruppe WHERE g_id =(SELECT MAX(g_id) FROM gruppe)");
+		}
 		// Variable, die speichert, ob das Team geladen werden konnte oder nicht
 		$isLoaded=false;
 		

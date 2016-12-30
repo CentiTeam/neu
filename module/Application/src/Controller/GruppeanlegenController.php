@@ -65,6 +65,8 @@ class GruppeanlegenController extends AbstractActionController {
 				 $msg .= "Gruppe erfolgreich gespeichert!";
 				 $saved = true;
 				 
+				 $neueGruppe= new Gruppe();
+				 $gruppe->laden();
 				 echo "Gruppen_id anch Anlegen:";
 				 var_dump($gruppe->getG_id());
 				 
