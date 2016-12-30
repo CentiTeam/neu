@@ -13,11 +13,11 @@
 		<tr><td>Gruppenname</td><td><input type="text" name="gruppenname" required value="<?=$gruppe[0]->getGruppenname()?>" ></td></tr>
 		<tr><td>Beschreibung</td><td><input type="text" name="gruppenbeschreibung" value="<?=$gruppe[0]->getGruppenbeschreibung()  ?>" ></td></tr>
 		<tr><td><input type="hidden" name="MAX_FILE_SIZE" value="100000" />
-            Gruppenbild auswählen: <input name="uploadedfile" type="file" /></td></tr>
+            Gruppenbild ausw&auml;hlen: <input name="uploadedfile" type="file" /></td></tr>
 		<tr><td>Gruppenbildpfad </td><td><input type="text" name="gruppenbildpfad" value="<?=$gruppe[0]->getGruppenbildpfad()?>"></td></tr>
 	</table>
 
 	<input type="hidden" name="g_id" readonly="readonly" value="<?=!is_null ($gruppe[0]->getG_id()) ? $gruppe[0]->getG_id():"<automatisch>"?>">
 	
-	<input type="submit" name="speichern" value="gruppeanlegen">
+	<input type="submit" name="speichern" value="Gruppe anlegen">
 </form>
