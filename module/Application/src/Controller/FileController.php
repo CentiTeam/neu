@@ -9,7 +9,7 @@ use Application\UploadForm;
 class FileController extends AbstractActionController {
 	
 
-	public function uploadAction() {
+	public function uploadFormAction() {
     	
 		$form = new UploadForm('uploadform');
 
