@@ -6,10 +6,8 @@ namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-// use Application\Model\DB_connection;
 use Application\Model\User;
 use Application\Model\Gruppe;
-// require_once('Application/src/model/User.php');
 
 
 class loginController extends AbstractActionController{
@@ -31,10 +29,10 @@ class loginController extends AbstractActionController{
 					
 					$_SESSION['user'] = $user;
 					
-					$gruppe= new Gruppe();
-					$g_id= 1 ;
-					
-					$gruppe->laden($g_id);
+					// Was ist das???
+					//$gruppe= new Gruppe();
+					//$g_id= 1 ;
+					//$gruppe->laden($g_id);
 					
 					$view = new ViewModel(array(
 							'message' => 'Erfolgreich eingeloggt!',

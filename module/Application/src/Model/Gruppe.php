@@ -14,9 +14,6 @@ class Gruppe {
 	public function __construct($gruppen_id = null) {
 		
 		$this->g_id= $gruppen_id;
-		echo "$this->g_id";
-		
-		
 	}
 	
 	
@@ -27,7 +24,8 @@ class Gruppe {
 		$query = "INSERT INTO gruppe (gruppenname, gruppenbeschreibung, gruppenbildpfad) VALUES (
 				'".$this->gruppenname."', 
 				'".$this->gruppenbeschreibung."',
-				'".$this->gruppenbildpfad."')" ;
+				'".$this->gruppenbildpfad."'
+				)" ;
 		
 		$result = $db->execute($query);
 		

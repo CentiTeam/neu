@@ -56,9 +56,20 @@ class GruppeanlegenController extends AbstractActionController {
 				$gruppe->setGruppenname($gruppenname);
 				$gruppe->setGruppenbeschreibung($gruppenbeschreibung);
 				$gruppe->setGruppenbildpfad($gruppenbildpfad);
-					
 				
-				 if ($errorStr == "" && $gruppe->anlegen()) {
+				//unnötig
+				// $user = new User();
+				// $_SESSION['user'] = $user;
+				
+				$user = $_SESSION['user'];
+				
+				$gruppenmitglied = new Gruppenmitglied();
+				
+				$gruppenmitglied->setU_id($user->getU_id());
+				$gruppenmitglied->setG_id($g_id);
+				$gruppenmitglied->setGruppenadmin(1);
+				
+				 if ($errorStr == "" && $gruppe->anlegen() && $gruppenmitglied->anlegen()) {
 		
 				 // array_push($msg, "Gruppe erfolgreich gespeichert!");
 				 $msg .= "Gruppe erfolgreich gespeichert!";

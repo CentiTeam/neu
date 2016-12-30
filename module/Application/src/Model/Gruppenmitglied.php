@@ -9,9 +9,31 @@ class Gruppenmitglied {
 	protected  $g_id;
 	protected  $gruppenadmin;
 	
-	public function __construct() {
-	}
+	public function __construct($user_id = null, $gruppen_id = null) {
 		
+		$this->u_id = $user_id;
+		$this->g_id= $gruppen_id;
+	}
+	
+	
+	public function anlegen () {
+		
+		$db = new DB_connection();
+		
+		$query = "INSERT INTO gruppenteilnehmer (u_id, g_id, gruppenadmin) VALUES (
+				'".$this->u_id."',
+				'".$this->g_id."',
+				'".$$this->gruppenadmin."'
+				";
+		
+		$result = $db->execute($query);
+		
+		return $result;
+	}
+	
+	public function bearbeiten ($admin) {
+		
+	}
 		
 	// Getter und Setter
 	
