@@ -58,8 +58,16 @@ class Gruppe {
 		// !!!
 		// !!!!! Loeschen der verbundenen Daten fehlt noch!!!!!
 		// !!!!
+		
+		
+		$max=$db->execute("SELECT MAX(u_id) FROM gruppenmitglied");
+		
+		//for ($zaehler=1; zaehler<=$max; $zaehler++) {
+			//$query_verbundeneDaten1="DELETE FROM gruppenmitglied WHERE g_id='".$gruppe_id."' AND u_id='".$zaehler."' ";
+			//$db->execute($query_verbundeneDaten1);
+		//}
 		$query_verbundeneDaten1="DELETE FROM gruppenmitglied WHERE g_id='".$gruppe_id."' ";
-		$db->execute($query);
+		$db->execute($query_verbundeneDaten1);
 		
 		// Abfrage bauen
 		$query = "DELETE FROM gruppe WHERE g_id= '".$gruppe_id."' ";
