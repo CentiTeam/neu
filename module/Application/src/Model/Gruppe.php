@@ -45,8 +45,6 @@ class Gruppe {
 				gruppenbildpfad = '".$this->gruppenbildpfad."'
 				WHERE g_id = '".$this->g_id."'
 				";
-	
-		var_dump($query);
 		
 		$result = $db->execute($query);
 	
