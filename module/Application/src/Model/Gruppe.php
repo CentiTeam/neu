@@ -39,7 +39,8 @@ class Gruppe {
 	
 		$db = new DB_connection();
 	
-		var_dump($this->gruppenbeschreibung);
+		var_dump($this);
+		var_dump($gruppe_id);
 		
 		$query = "UPDATE gruppe SET
 				gruppenname = '".$this->gruppenname."',
@@ -47,6 +48,8 @@ class Gruppe {
 				gruppenbildpfad = '".$this->gruppenbildpfad."' 
 				WHERE g_id = '".$gruppe_id."'";
 	
+		var_dump($query);
+		
 		$result = $db->execute($query);
 	
 		return $result;

@@ -71,13 +71,13 @@ class GroupeditController extends AbstractActionController {
 				 } elseif ($errorStr == "") {
 
 				 // array_push($msg, "Datenprï¿½fung in Ordnung, Fehler beim Speichern der Gruppe!");
-				 	$msg .= "Datenprï¿½fung in Ordnung, Fehler beim Speichern der Gruppe!";
+				 	$msg .= "Datenprüfung in Ordnung, Fehler beim Speichern der Gruppe!";
 				 $saved = false;
 				 	
 				 } else {
 
 				 // array_push($msg, "Fehler bei der Datenprï¿½fung. Gruppe nicht gespeichert!");
-				 	$msg .= "Fehler bei der Datenprï¿½fung. Gruppe nicht gespeichert!";
+				 	$msg .= "Fehler bei der Datenprüfung. Gruppe nicht gespeichert!";
 				 $saved = false;
 
 				 }
