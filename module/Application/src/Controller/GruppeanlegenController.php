@@ -67,6 +67,17 @@ class GruppeanlegenController extends AbstractActionController {
 				 
 				 echo "Gruppen_id anch Anlegen:";
 				 var_dump($gruppe->getG_id());
+				 
+				
+				 $gruppenmitglied = new Gruppenmitglied();
+				 	
+				 // $gruppenmitglied->setU_id($user->getU_id());
+				 $gruppenmitglied->setG_id($g_id);
+				 $gruppenmitglied->setGruppenadmin(1);
+				 	
+				 var_dump($gruppenmitglied);
+				 	
+				 
 				 $verknüpfung=$gruppenmitglied->anlegen();
 				 
 				 $user = new User();
@@ -75,14 +86,7 @@ class GruppeanlegenController extends AbstractActionController {
 				 
 				 
 				 
-				 $gruppenmitglied = new Gruppenmitglied();
-				 
-				 // $gruppenmitglied->setU_id($user->getU_id());
-				 $gruppenmitglied->setG_id($g_id);
-				 $gruppenmitglied->setGruppenadmin(1);
-				 
-				 var_dump($gruppenmitglied);
-				 
+				
 				 
 				 } elseif ($errorStr == "") {
 
