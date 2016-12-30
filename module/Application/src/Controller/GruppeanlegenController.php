@@ -65,15 +65,17 @@ class GruppeanlegenController extends AbstractActionController {
 				 $msg .= "Gruppe erfolgreich gespeichert!";
 				 $saved = true;
 				 
-				 // $neueGruppe= new Gruppe();
+				 // Neue G_id durch Laden der neu erstellten Gruppe ins Objekt laden
 				 $gruppe->laden();
-				 echo "Gruppen_id nach Anlegen:";
-				 var_dump($gruppe->getG_id());
 				 
-				
+				 $user = new User();
+				 session_start();
+				 $_SESSION['user'] = $user;
+				 var_dump($user);
+				 
 				 $gruppenmitglied = new Gruppenmitglied();
 				 	
-				 // $gruppenmitglied->setU_id($user->getU_id());
+				 $gruppenmitglied->setU_id($user->getU_id());
 				 $gruppenmitglied->setG_id($gruppe->getG_id());
 				 $gruppenmitglied->setGruppenadmin(1);
 				 	
@@ -82,9 +84,7 @@ class GruppeanlegenController extends AbstractActionController {
 				 
 				 $verknüpfung=$gruppenmitglied->anlegen();
 				 
-				 $user = new User();
-				 session_start();
-				 $_SESSION['user'] = $user;
+				
 				 
 				 
 				 
