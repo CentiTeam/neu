@@ -55,19 +55,17 @@ class Gruppe {
 		// Datenbankstatement erzeugen
 		$db = new DB_connection();
 		
-		$result=0;
 		// !!!
 		// !!!!! Loeschen der verbundenen Daten fehlt noch!!!!!
 		// !!!!
 		$query_verbundeneDaten1="DELETE FROM gruppenmitglied WHERE g_id='".$gruppe_id."' ";
-		$deleted = $db->execute($query);
+		$db->execute($query);
 		
-		if ($deleted) {
-			// Abfrage bauen
-			$query = "DELETE FROM gruppe WHERE g_id= '".$gruppe_id."' ";
+		// Abfrage bauen
+		$query = "DELETE FROM gruppe WHERE g_id= '".$gruppe_id."' ";
 		
-			// Loeschen des Gruppe-Datensatzes
-			$result = $db->execute($query);
+		// Loeschen des Gruppe-Datensatzes
+		$result = $db->execute($query);
 		
 		
 		// speichert, ob mindestens eine Zeile gelöscht wurde
@@ -75,8 +73,6 @@ class Gruppe {
 		//$deleted = mysqli_affected_rows() > 0;
 		//return $deleted;
 		
-		}	
-			
 		// Rückgabe, ob die Gruppe gelöscht wurde oder nicht
 		return $result;
 	}

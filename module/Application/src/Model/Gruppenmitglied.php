@@ -18,8 +18,6 @@ class Gruppenmitglied {
 	
 	public function anlegen () {
 		
-		echo "In Gruppenmitglied-Model angekommen";
-		
 		$db = new DB_connection();
 		
 		$query = "INSERT INTO gruppenmitglied (u_id, g_id, gruppenadmin) VALUES (
@@ -27,7 +25,6 @@ class Gruppenmitglied {
 				'".$this->g_id."',
 				'".$this->gruppenadmin."'
 				)";
-		echo $query;
 		
 		$result = $db->execute($query);
 		
