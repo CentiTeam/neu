@@ -181,7 +181,7 @@ return [
         				],
         		],
         		
-        	'upload' => [
+        	'file' => [
         			'type'    => Segment::class,
        				'options' => [
        						'route'    => '/upload[/:action]',
