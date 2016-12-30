@@ -29,7 +29,7 @@ class GroupeditController extends AbstractActionController {
 
 			$gruppe = new Gruppe();
 			
-			if (! $gruppe->laden($_REQUEST('g_id'))) {
+			if (! $gruppe->laden($_REQUEST['g_id'])) {
 				array_push($errors, "Fehler beim Laden der Gruppe!");	
 			}
 
