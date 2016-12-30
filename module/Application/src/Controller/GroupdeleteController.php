@@ -6,6 +6,8 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Model\Gruppe;
 
+#TODO @Tanja Fehler abprüfen!
+
 class GroupdeleteController extends AbstractActionController
 {
 
