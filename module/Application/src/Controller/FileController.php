@@ -3,13 +3,15 @@
 namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
+use Application\UploadForm;
 
 
 class FileController extends AbstractActionController {
 	
 
 	public function uploadFormAction() {
-    	$form = new UploadForm('uploadform');
+    	
+		$form = new UploadForm('uploadform');
 
 	    $request = $this->getRequest();
     	if ($request->isPost()) {
