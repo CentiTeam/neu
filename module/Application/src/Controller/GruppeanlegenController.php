@@ -64,11 +64,12 @@ class GruppeanlegenController extends AbstractActionController {
 				session_start();
 				$_SESSION['user'] = $user;
 				
+				var_dump($g_id);
 				
 				$gruppenmitglied = new Gruppenmitglied();
 				
 				// $gruppenmitglied->setU_id($user->getU_id());
-				$gruppenmitglied->setG_id(50);
+				$gruppenmitglied->setG_id($g_id);
 				$gruppenmitglied->setGruppenadmin(1);
 				
 				var_dump($gruppenmitglied);
