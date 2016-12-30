@@ -38,8 +38,6 @@ class Gruppe {
 	public function bearbeiten () {
 	
 		$db = new DB_connection();
-	
-		var_dump($gruppe_id);
 		
 		$query = "UPDATE gruppe SET
 				gruppenname = '".$this->gruppenname."',
