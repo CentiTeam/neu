@@ -15,8 +15,8 @@ class GruppeanlegenController extends AbstractActionController {
 		// TODO Berechtigungspr�fung
 		session_start();
 		
-		var_dump($_SESSION['angemeldet']);
-		echo "User_id:";
+		//var_dump($_SESSION['angemeldet']);
+		//echo "User_id:";
 		//var_dump($user->getU_id());
 
 		$errors = array();
@@ -81,15 +81,17 @@ class GruppeanlegenController extends AbstractActionController {
 				 //var_dump($_SESSION['u_id']);
 				 //echo "$_SESSION['vorname']";
 				 //$_SESSION['angemeldet'] != 'ja'
-				 session_start();
-				 $user_id=$_SESSION['u_id'];
-				 echo "User_id";
-				 var_dump($user_id);
+				 
+				 $user=$_SESSION['user'];
+				 echo "Nachname des angemeldeten Users: ";
+				 echo $user->getNachname();
+				 echo $user->getU_id();
+				
 				 
 				 
 				 $gruppenmitglied = new Gruppenmitglied();
 				 	
-				 $gruppenmitglied->setU_id($user_id);
+				 $gruppenmitglied->setU_id($user->getU_id());
 				 $gruppenmitglied->setG_id($gruppe->getG_id());
 				 $gruppenmitglied->setGruppenadmin(1);
 				 
