@@ -14,6 +14,10 @@ class GruppeanlegenController extends AbstractActionController {
 	function gruppeanlegenAction() {
 		// TODO Berechtigungspr�fung
 		session_start();
+		
+		$user_id=$_SESSION['u_id'];
+		echo "User_id";
+		var_dump($user_id);
 
 		$errors = array();
 
