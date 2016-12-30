@@ -10,6 +10,7 @@ class Gruppe {
 	protected  $gruppenbeschreibung;
 	protected  $gruppenbildpfad;
 	
+	
 	public function __construct($gruppen_id = null) {
 		
 		$this->g_id= $gruppen_id;
@@ -17,6 +18,7 @@ class Gruppe {
 		
 		
 	}
+	
 	
 	public function anlegen () {
 		
@@ -29,14 +31,10 @@ class Gruppe {
 		
 		$result = $db->execute($query);
 		
-		
-		// Könnte sein, dass hier mal Probleme auftreten
-		$isOK = mysqli_affected_rows ($result) > 0;
-
-		
-		return $isOK;
+		return $result;
 	}
 	
+		
 	public function bearbeiten ($gruppe_id) {
 	
 		$db = new DB_connection();
@@ -49,14 +47,8 @@ class Gruppe {
 	
 		$result = $db->execute($query);
 	
-	
-		// Könnte sein, dass hier mal Probleme auftreten
-		$isOK = mysqli_affected_rows ($result) > 0;
-		var_dump($result);
-	
-		return $isOK;
+		return $result;
 	}
-	
 	
 	
 	public function loeschen ($gruppe_id) {
