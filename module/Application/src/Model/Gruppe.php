@@ -52,7 +52,7 @@ class Gruppe {
 	
 		// Könnte sein, dass hier mal Probleme auftreten
 		$isOK = mysqli_affected_rows ($result) > 0;
-		var_dump($isOK);
+		var_dump($result);
 	
 		return $isOK;
 	}
