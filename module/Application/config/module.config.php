@@ -97,18 +97,6 @@ return [
         	],
         		
         		
-        	'groupdelete' => [
-       				'type'    => Segment::class,
-       				'options' => [
-       						'route'    => '/groupdelete[/:action]',
-       						'defaults' => [
-       								'controller' => Controller\GroupdeleteController::class,
-       								'action'     => 'groupdelete',
-       						],
-       				],
-       		],
-        		
-        		
         	'groupoverview' => [
         			'type'    => Segment::class,
         			'options' => [
@@ -142,16 +130,27 @@ return [
        				],
        		],
         		
-        		'help' => [
-        				'type'    => Segment::class,
-        				'options' => [
-        						'route'    => '/help[/:action]',
-        						'defaults' => [
-        								'controller' => Controller\HelpController::class,
-        								'action'     => 'help',
-        						],
-        				],
-        		],
+        	'groupdelete' => [
+        			'type'    => Segment::class,
+       				'options' => [
+       						'route'    => '/groupdelete[/:action]',
+       						'defaults' => [
+       								'controller' => Controller\GroupdeleteController::class,
+       								'action'     => 'groupdelete',
+       						],
+       				],
+       		],	
+        		
+        	'help' => [
+        			'type'    => Segment::class,
+       				'options' => [
+       						'route'    => '/help[/:action]',
+       						'defaults' => [
+       								'controller' => Controller\HelpController::class,
+       								'action'     => 'help',
+        					],
+       				],
+       		],
         		
         	'login' => [
         			'type'    => Segment::class,
@@ -205,6 +204,8 @@ return [
         	Controller\OverviewController::class => InvokableFactory::class,
         	Controller\GruppeanlegenController::class => InvokableFactory::class,
         	Controller\GroupoverviewController::class => InvokableFactory::class,
+        	Controller\GroupshowController::class => InvokableFactory::class,
+        	Controller\GroupeditController::class => InvokableFactory::class,
         	Controller\GroupdeleteController::class => InvokableFactory::class,
         	Controller\LoginController::class => InvokableFactory::class,
         	Controller\FileController::class => InvokableFactory::class,
