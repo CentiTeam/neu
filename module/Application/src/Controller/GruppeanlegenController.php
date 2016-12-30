@@ -15,9 +15,9 @@ class GruppeanlegenController extends AbstractActionController {
 		// TODO Berechtigungspr�fung
 		session_start();
 		
-		$user_id=$_SESSION['u_id'];
+		$user=$_SESSION['user'];
 		echo "User_id";
-		var_dump($user_id);
+		var_dump($user->getU_id());
 
 		$errors = array();
 
