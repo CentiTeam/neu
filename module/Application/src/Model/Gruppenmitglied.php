@@ -25,7 +25,7 @@ class Gruppenmitglied {
 		$query = "INSERT INTO gruppenmitglied (u_id, g_id, gruppenadmin) VALUES (
 				'".$this->u_id."',
 				'".$this->g_id."',
-				'".$$this->gruppenadmin."'
+				'".$this->gruppenadmin."'
 				";
 		
 		$result = $db->execute($query);
