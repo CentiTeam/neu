@@ -151,6 +151,14 @@ class User
 	
 	
 	
+	//Setter für u_id
+	public function setU_id($value) {
+		$this->u_id = $value;
+	}
+	//Getter für u_id
+	public function getU_id() {
+		return $this->u_id;
+	}
 	
 	//Setter für vorname
 	public function setVorname($value) {
@@ -160,7 +168,6 @@ class User
 	public function getVorname() {
 		return $this->vorname;
 	}
-	
 	
 	//Setter für nachname
 	public function setNachname($value) {
