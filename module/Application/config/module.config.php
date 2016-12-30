@@ -180,6 +180,21 @@ return [
         				],
         		],
         		
+        		
+        		'kategorien' => [
+        				'type'    => Segment::class,
+        				'options' => [
+        						'route'    => '/kategorien[/:action]',
+        						'defaults' => [
+        								'controller' => Controller\KategorienController::class,
+        								'action'     => 'kategorien',
+        						],
+        				],
+        		],
+        		
+        		
+        		
+        		
         	'file' => [
         			'type'    => Segment::class,
        				'options' => [
@@ -213,6 +228,7 @@ return [
         	Controller\RegistrierenController::class => InvokableFactory::class,
         	Controller\AdminoverviewController::class => InvokableFactory::class,
         	Controller\BenutzertabelleController::class => InvokableFactory::class,
+        	Controller\KategorienController::class => InvokableFactory::class,
         		
         		
 
