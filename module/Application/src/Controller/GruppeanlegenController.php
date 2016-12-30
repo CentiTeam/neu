@@ -52,7 +52,7 @@ class GruppeanlegenController extends AbstractActionController {
 					$errorStr .="Der Gruppenname darf nicht Kinderporno heißen!<br>";
 				}
 					
-					
+				var_dump($g_id);
 				// Gruppe-Objekt mit Daten aus Request-Array f�llen
 				$gruppe->setG_id($g_id);
 				$gruppe->setGruppenname($gruppenname);
@@ -64,7 +64,7 @@ class GruppeanlegenController extends AbstractActionController {
 				session_start();
 				$_SESSION['user'] = $user;
 				
-				var_dump($g_id);
+				
 				
 				$gruppenmitglied = new Gruppenmitglied();
 				
