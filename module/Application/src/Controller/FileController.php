@@ -4,6 +4,7 @@ namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use Application\Controller\Zend_File_Transfer_Adapter_Http;
 
 class FileController extends AbstractActionController
 {
