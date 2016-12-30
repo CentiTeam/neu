@@ -187,7 +187,7 @@ return [
        						'route'    => '/file[/:action]',
        						'defaults' => [
        								'controller' => Controller\FileController::class,
-       								'action'     => 'uploadForm',
+       								'action'     => 'upload',
        						],
        				],
         		],
