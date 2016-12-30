@@ -25,8 +25,8 @@ class GroupoverviewController extends AbstractActionController
 		foreach ($mitgliederliste as $gruppenmitglied) {
 			$gruppenmitglied = new Gruppenmitglied();
 			
-			echo $gruppenmitglied->getU_id();
-			echo $_SESSION['u_id'];
+			var_dump($gruppenmitglied->getU_id());
+			var_dump($_SESSION['u_id']);
 			
 			if ($gruppenmitglied->getU_id() == $_SESSION['u_id']) {
 				
