@@ -13,6 +13,9 @@
 	
 	<?php 
 	foreach ($gruppenListe as $zaehler => $gruppe) {
+		for ($zaehler=0; $zaehler==EOF; $zaehler++) {
+			if ($gruppe->getG_id() == $mitgliedschaften) {
+			
 	?>
 
 		<tr>
@@ -28,6 +31,9 @@
 		</tr>
 
 	<?php 
+	
+			}
+		}
 	}
 	?>
 		<tr><td> </td></tr>

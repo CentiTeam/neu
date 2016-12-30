@@ -10,8 +10,22 @@ class GroupoverviewController extends AbstractActionController
 {
 	public function groupoverviewAction()
 	{
-
-		$liste = Gruppe::listeHolen();
+		session_start();
+		
+		$gruppenliste = Gruppe::listeHolen();
+		
+		$mitgliederliste = Gruppenmitglied::listeHolen();
+		
+		
+		
+		$mitglieder_ids_array=array();
+		
+		foreach ($mitgliederliste as $zaehler => $gruppenmitglied) {
+			if ($gruppenmitglied->getU_id() == $_SESSION['u_id']) {
+				
+				$mitglieder_ids_array[]=$gruppenmitglied->getG_id();
+			}
+		}
 		
 		/** Alternative, falls "normales" gruppeauflisten spinnt
 		 $anzahl = 0;
@@ -23,6 +37,7 @@ class GroupoverviewController extends AbstractActionController
 		
 		return new ViewModel([
 			'gruppenListe' => $liste,
+			'mitgliedschaften' => array($mitglieder_ids_array)
 			// 'anzahl' => $anzahl
 		]);
 		
