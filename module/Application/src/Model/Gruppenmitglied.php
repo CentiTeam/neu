@@ -26,7 +26,7 @@ class Gruppenmitglied {
 				'".$this->u_id."',
 				'".$this->g_id."',
 				'".$this->gruppenadmin."'
-				";
+				)";
 		echo $query;
 		
 		$result = $db->execute($query);
