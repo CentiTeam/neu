@@ -9,7 +9,7 @@ class FileController extends AbstractActionController {
 	
 
 	public function uploadFormAction() {
-    	$form = new UploadForm('upload-form');
+    	$form = new UploadForm('uploadform');
 
 	    $request = $this->getRequest();
     	if ($request->isPost()) {
@@ -23,7 +23,7 @@ class FileController extends AbstractActionController {
         	if ($form->isValid()) {
    	         $data = $form->getData();
     	        // Form is valid, save the form!
-        	    return $this->redirect()->toRoute('upload-form/success');
+        	    return $this->redirect()->toRoute('uploadform/success');
         	}
     	}
 
