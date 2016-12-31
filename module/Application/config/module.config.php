@@ -61,6 +61,17 @@ return [
         			],
         	],
         		
+       		'benutzerdeaktivieren' => [
+       				'type'    => Segment::class,
+       				'options' => [
+       						'route'    => '/benutzerdeaktivieren[/:action]',
+       						'defaults' => [
+       								'controller' => Controller\BenutzerdeaktivierenController::class,
+        							'action'     => 'benutzerdeaktivieren',
+        					],
+        			],
+        	],
+        		
         		
         	'benutzertabelle' => [
         			'type'    => Segment::class,
