@@ -193,7 +193,7 @@ class User
 	}
 	
 	
-	public function deaktiviertInDBschreiben(){
+	public function deaktiviertInDbSchreiben(){
 		
 		// Datenbankstatement erzeugen
 		$dbStmt = new DB_connection();
