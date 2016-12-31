@@ -13,7 +13,7 @@ class BenutzerdeaktivierenController extends AbstractActionController{
 		//neues Model anlegen
 		$user = new User();
 		
-		// Model anhand der übergebenen $g_id laden lassen und speichern, ob dies funktioniert hat
+		// Model anhand der übergebenen $u_id laden lassen und speichern, ob dies funktioniert hat
 		$u_id=$_REQUEST['u_id'];
 		
 		$isOK = $user->laden ($u_id);
@@ -64,6 +64,17 @@ class BenutzerdeaktivierenController extends AbstractActionController{
 					'user' => $user,
 			]);
 		}
+		
+		$userliste=User::listeholen();
+		
+		$view = new ViewModel([
+				'userListe' => $userliste,
+				'msg' => $msg
+		]);
+		
+		$view->setTemplate('application/benutzertabelle/benutzertabelle.phtml');
+			
+		return $view;
 		
 		
 		
