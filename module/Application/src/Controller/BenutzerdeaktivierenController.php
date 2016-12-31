@@ -17,7 +17,7 @@ class BenutzerdeaktivierenController extends AbstractActionController{
 		// Model anhand der übergebenen $u_id laden lassen und speichern, ob dies funktioniert hat
 		$u_id=$_REQUEST['u_id'];
 		
-		$isOK = $user->laden ($u_id);
+		$isOK = $user->laden($u_id);
 		
 		
 		// wenn die Aktion abgebrochen werden soll
