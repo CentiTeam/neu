@@ -52,6 +52,8 @@ class BenutzerdeaktivierenController extends AbstractActionController{
 				$msg .= "Benutzer erfolgreich deaktiviert!<br>";
 		
 			} else {
+				
+				echo "nope";
 		
 				// ausgeben, dass der Benutzer nicht deaktiviert werden konnte (kein Template nötig!)
 				$msg .= "Fehler beim Deaktivieren des Benutzers!<br>";
