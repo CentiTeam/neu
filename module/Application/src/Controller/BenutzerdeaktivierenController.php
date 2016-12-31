@@ -39,6 +39,7 @@ class BenutzerdeaktivierenController extends AbstractActionController{
 		// wenn das Formular zur Bestätigung des Deaktivierens schon abgesendet wurde, soll dies hier ausgewertet werden
 		if ($_REQUEST['ja']) {
 			echo "test!";
+			echo $isOK;
 		
 			$msg = "";
 		
