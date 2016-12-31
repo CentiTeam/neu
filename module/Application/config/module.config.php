@@ -67,7 +67,7 @@ return [
        						'route'    => '/benutzerdeaktivieren[/:action]',
        						'defaults' => [
        								'controller' => Controller\BenutzerdeaktivierenController::class,
-        							'action'     => 'userdeaktivieren',
+        							'action'     => 'benutzerdeaktivieren',
         					],
         			],
         	],

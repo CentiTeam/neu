@@ -9,7 +9,7 @@ use Application\Model\User;
 
 class BenutzerdeaktivierenController extends AbstractActionController{
 	
-	public function userdeaktivierenAction(){
+	public function benutzerdeaktivierenAction(){
 		
 		//neues Model anlegen
 		$user = new User();
