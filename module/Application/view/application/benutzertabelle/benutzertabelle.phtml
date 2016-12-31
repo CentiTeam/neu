@@ -30,15 +30,15 @@
 			<td>	<?=$user->getDeaktiviert()?>	</td>
 			<td>	<?=$user->getSystemadmin()?>	</td> 
 			
-			<? if($user->getDeaktiviert() == 0){ ?>
+			<?php if($user->getDeaktiviert() == 0){ ?>
 			<td>	<a href=benutzerdeaktivieren?u_id=<?=$user->getU_id()?>>Benutzer deaktivieren</a>
-			<?} 
+			<?php } 
 			else{ ?>
 			<td>	<a href=benutzerreaktivieren?u_id=<?=$user->getU_id()?>>Benutzer reaktivieren</a>
 
 <?php
 			}
-
+	}
 ?>
 </tr>
 </table>
