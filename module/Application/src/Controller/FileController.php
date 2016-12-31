@@ -48,24 +48,7 @@ class FileController extends AbstractActionController {
 				echo $result;
 				 }
 				 
-				 $view = new ViewModel([
-				 		'gruppe' => array($gruppe),
-				 		'errors'   => $errors,
-				 		'msg' => $msg
-				 ]);
-				 
-				 $view->setTemplate('application/groupshow/groupshow.phtml');
-				 	
-				 return $view;
-			}
 		}
-
-
-		return new ViewModel([
-				'gruppe' => array($gruppe),
-				'msg' => $msg
-		]);
-
 	}
 
 }
