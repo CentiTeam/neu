@@ -192,6 +192,22 @@ class User
 		return $isLoaded;
 	}
 	
+	
+	public function inDBschreiben(){
+		
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+		
+		// DB-Befehl absetzen: alle Basisinformationen des Teams mit der ï¿½bergebenen $t_id abfragen
+		
+		$result=$dbStmt->execute("UPDATE * FROM User WHERE u_id= '".$u_id."';");		
+		
+		
+	
+	}
+	
+	
+
 	//Setter für u_id
 	public function setU_id($value) {
 		$this->u_id = $value;
@@ -263,6 +279,7 @@ class User
 		return $this->deaktiviert;
 	}
 	
+	
 
 	public function setSystemadmin($value) {
 		$this->systemadmin = $value;
@@ -272,3 +289,5 @@ class User
 	}
 	
 }
+
+
