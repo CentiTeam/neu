@@ -240,6 +240,7 @@ return [
         	Controller\AdminoverviewController::class => InvokableFactory::class,
         	Controller\BenutzertabelleController::class => InvokableFactory::class,
         	Controller\KategorienController::class => InvokableFactory::class,
+        	Controller\BenutzerdeaktivierenController::class => InvokableFactory::class,
         		
         		
 
