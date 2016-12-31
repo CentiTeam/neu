@@ -193,18 +193,7 @@ class User
 	}
 	
 	
-	public function deaktiviertInDbSchreiben(){
-		
-		// Datenbankstatement erzeugen
-		$dbStmt = new DB_connection();
-		
-		// DB-Befehl absetzen: alle Basisinformationen des Teams mit der ï¿½bergebenen $t_id abfragen
-		
-		$result=$dbStmt->execute("UPDATE User SET 'deaktiviert' =".$this->getDeaktiviert()." WHERE u_id= '".$this->getU_id()."';");		
-		
-		
-	
-	}
+
 	
 	
 
