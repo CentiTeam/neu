@@ -1,46 +1,10 @@
-<?=$msg?>
+<form method='post'>
 
-<h1>Benutzerliste</h1>
-<center>
-<table border = 1>
-<tr>
+<input type='hidden' name='u_id' value='<?=$user->getU_id()?>'>
 
-<th> User-ID 		</th>
-<th> Benutzername 	</th>
-<th> Vorname 		</th>
-<th> Nachname 		</th>
-<th> Passwort		</th>
-<th> E-Mail			</th>
-<th> Deaktiviert 	</th>
-<th> Systemadmin 	</th>
-<th> 				</th>
-<th> 				</th>
-
-</tr>
-<?php 
-	foreach ($userListe as $zaehler => $user) {
-	?>
-<tr>
-			<td>	<?=$user->getU_id()?>			</td>
-			<td>	<?=$user->getUsername()?>		</td>
-			<td>	<?=$user->getVorname()?>		</td>
-			<td>	<?=$user->getNachname()?>		</td>
-			<td>	<?=$user->getPasswort()?>		</td>
-			<td>	<?=$user->getEmail()?>			</td>
-			<td>	<?=$user->getDeaktiviert()?>	</td>
-			<td>	<?=$user->getSystemadmin()?>	</td> 
-			
-			<?php if($user->getDeaktiviert() == 0){ ?>
-			<td>	<a href=benutzerdeaktivieren?u_id=<?=$user->getU_id()?>>Benutzer deaktivieren</a>
-			<?php } 
-			else{ ?>
-			<td>	<a href=benutzerreaktivieren?u_id=<?=$user->getU_id()?>>Benutzer reaktivieren</a>
-
-<?php
-			}
-	}
-?>
-</tr>
-</table>
-
-</center>
+Soll der Benutzer #<?=$user->getU_id()?> '<?=$user->getUsername()?>' wirklich deaktiviert werden?
+		
+	<input class='button' type='submit' name='send' value='Ja'>
+	<input class='button' type='submit' name='abbrechen' value='Nein'>
+		
+</form>
