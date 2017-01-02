@@ -13,7 +13,7 @@ class FileController extends AbstractActionController {
 	function fileAction() {
 		// TODO Berechtigungspr�fung
 		session_start();
-			$upload=$_POST["upload"];
+			$upload=$_REQUEST["upload"];
 			echo $upload;
 		
 			$uploadedfile=$_REQUEST["uploadedfile"];
