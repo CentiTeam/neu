@@ -10,7 +10,7 @@ class Bildupload
 
 
 	public function bildupload($uploadedfile) {
-
+		echo "Test";
 		//Pfadangabe	
 		$filename = pathinfo($_FILES["uploadedfile"]["name"], PATHINFO_FILENAME);
 		$extension = strtolower(pathinfo($_FILES["uploadedfile"]["name"], PATHINFO_EXTENSION));
@@ -48,7 +48,6 @@ class Bildupload
 				$id++;
 			} while(file_exists($new_path));
 		
-		echo $new_path;
 		return $new_path;
 		
 				
