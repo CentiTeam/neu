@@ -32,7 +32,7 @@ class FileController extends AbstractActionController {
 				
 		} else {
 
-			//$bildupload = new Bildupload();
+			$bildupload = new Bildupload();
 			
 
 			
@@ -43,11 +43,11 @@ class FileController extends AbstractActionController {
 
 					
 				// Schritt 1:  Werte aus Formular einlesen
-				$uploadedfile=$_REQUEST["uploadedfile"];
+				$uploadedfile=$_FILES["uploadedfile"]["name"];
 
 				
 				
-				// $result = $uploadedfile->Bildupload($bildupload);
+				$result = $uploadedfile->Bildupload($bildupload);
 
 				echo $result;
 				}
