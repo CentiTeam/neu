@@ -36,7 +36,7 @@ class Bildupload
 		}
 
 		//Pfad zusammensetzen
-		$new_path = $this->upload_folder.$filename.'.'.$extension;
+		$new_path = $upload_folder.$filename.'.'.$extension;
 
 		//Falls Dateiname bereits vorhanden, Erweiterung des Pfades um nächsthöhere Nummer
 		if(file_exists($new_path))
