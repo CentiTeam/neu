@@ -22,7 +22,7 @@ class Kategorie {
 	
 		$db = new DB_connection();
 	
-		$query="SELECT k_id FROM User";
+		$query="SELECT k_id FROM kategorie";
 	
 		// Wenn die Datenbankabfrage erfolgreich ausgeführt worden ist
 		if ($result = $db->execute($query)) {
@@ -89,15 +89,13 @@ class Kategorie {
 	
 	
 	
-	
-	
 	// Getter und Setter
 	
 	public function getK_id () {
 		return $this->k_id;
 	}
 	
-	public function setK_Id($k_id) {
+	public function setK_id($k_id) {
 		$this->k_id= $k_id;
 	}
 
