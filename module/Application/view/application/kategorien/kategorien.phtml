@@ -1,1 +1,28 @@
-<h1>Kategorien anzeigen und bearbeiten</h1>
+<h1>Kategorien</h1>
+<center>
+<table border = 1>
+<tr>
+
+<th> Kategorie-ID	</th>
+<th> Kategoriebeschreibung 	</th>
+<th> 				</th>
+<th> 				</th>
+
+</tr>
+<?php 
+	foreach ($userListe as $zaehler => $user) {
+	?>
+<tr>
+			<td>	<?=$user->getK_id()?>			</td>
+			<td>	<?=$user->getKategoriebeschreibung()?>		</td>
+			
+			
+		
+
+<?php
+}	
+?>
+</tr>
+</table>
+
+</center>

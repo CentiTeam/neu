@@ -9,14 +9,19 @@ namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-
+use Application\Model\Kategorie;
 class KategorienController extends AbstractActionController
 {
 	public function kategorienAction()
 	{
 
 
-		return new ViewModel();
+		$liste = Kategorie::listeHolen();
+
+		return new ViewModel([
+				'kategorieListe' => $liste,
+		]);
+
 
 	}
 }
