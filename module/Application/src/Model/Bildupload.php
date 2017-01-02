@@ -34,6 +34,8 @@ class Bildupload
 			die ("Nur der Upload von Bildern ist erlaubt!");
 		}
 
+		$upload_folder = $this->upload_folder;
+		
 		//Pfad zusammensetzen
 		$new_path = $upload_folder.$filename.'.'.$extension;
 
