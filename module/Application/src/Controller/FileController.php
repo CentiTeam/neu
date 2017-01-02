@@ -28,7 +28,7 @@ class FileController extends AbstractActionController {
 				
 		} else {
 
-			$bildupload = new Bildupload();
+			//$bildupload = new Bildupload();
 			
 
 			$saved= false;
