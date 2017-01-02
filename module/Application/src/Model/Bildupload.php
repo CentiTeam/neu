@@ -47,7 +47,8 @@ class Bildupload
 				$new_path = $upload_folder.$filename.'_'.$id.'.'.$extension;
 				$id++;
 			} while(file_exists($new_path));
-				
+			
+			
 		}
 		
 		//TODO Hier steckt der Wurm drin -> Verflixtes move_uploaded_file
