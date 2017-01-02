@@ -5,7 +5,7 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Model\Gruppe;
-use Application\Model\bildupload;
+use Application\Model\Bildupload;
 
 
 class FileController extends AbstractActionController {
@@ -28,7 +28,7 @@ class FileController extends AbstractActionController {
 				
 		} else {
 
-			$bildupload = new bildupload();
+			$bildupload = new Bildupload();
 			
 
 			$saved= false;
@@ -40,7 +40,7 @@ class FileController extends AbstractActionController {
 				// Schritt 1:  Werte aus Formular einlesen
 				$uploadedfile=$_REQUEST["uploadedfile"];
 
-				$result = $uploadedfile->bildupload($bildupload);
+				$result = $uploadedfile->Bildupload($bildupload);
 
 				echo $result;
 				 }

@@ -1,7 +1,7 @@
 <?php
 namespace Application\Model;
 
-class bildupload
+class Bildupload
 {
 	private $upload_folder    			= "/img/";	
 	private $allowed_extensions			= array("png", "jpg", "jpeg", "gif");
