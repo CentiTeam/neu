@@ -22,7 +22,7 @@ class Kategorie {
 	
 		$db = new DB_connection();
 	
-		$query="SELECT k_id FROM User";
+		$query="SELECT k_id FROM kategorie";
 	
 		// Wenn die Datenbankabfrage erfolgreich ausgeführt worden ist
 		if ($result = $db->execute($query)) {
