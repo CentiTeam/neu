@@ -48,7 +48,9 @@ class Bildupload
 				$id++;
 			} while(file_exists($new_path));
 		
+		echo $new_path;
 		return $new_path;
+		
 				
 		}
 	}
