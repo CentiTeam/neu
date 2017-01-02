@@ -59,7 +59,7 @@ class Bildupload
 			
 			$new_filename = pathinfo($_FILES["new_path"]["name"], PATHINFO_FILENAME);
 			$new_extension = strtolower(pathinfo($_FILES["new_path"]["name"], PATHINFO_EXTENSION));
-			$path = $img_folder.$filename.'.'.$extension;
+			$path = $this->img_folder.$filename.'.'.$extension;
 			
 			echo 'Bild erfolgreich hochgeladen: <a href="'.$path.'">'.$path.'</a>';
 			return $path;
