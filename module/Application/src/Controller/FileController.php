@@ -10,10 +10,10 @@ use Application\Model\Bildupload;
 
 class FileController extends AbstractActionController {
 
-	function uploadAction() {
+	function fileAction() {
 		// TODO Berechtigungspr�fung
 		session_start();
-echo "Hallo";
+	
 		$errors = array();
 
 		if($_SESSION['angemeldet'] != 'ja') {
@@ -31,7 +31,7 @@ echo "Hallo";
 			//$bildupload = new Bildupload();
 			
 			
-/*
+
 			$saved= false;
 			$msg = array();
 
@@ -47,7 +47,7 @@ echo "Hallo";
 
 				echo $result;
 				}
-*/
+
 				 
 				 
 		}
