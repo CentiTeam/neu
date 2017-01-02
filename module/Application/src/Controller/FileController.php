@@ -16,7 +16,7 @@ class FileController extends AbstractActionController {
 			$upload=$_REQUEST["upload"];
 			echo $upload;
 		
-			$uploadedfile=$_FILES["uploadedfile"];
+			$uploadedfile=$_FILES["uploadedfile"]["name"];
 			echo $uploadedfile;	
 		$errors = array();
 
