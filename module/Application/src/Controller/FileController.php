@@ -13,7 +13,11 @@ class FileController extends AbstractActionController {
 	function fileAction() {
 		// TODO Berechtigungspr�fung
 		session_start();
-
+			$upload=$_REQUEST["upload"];
+			echo $upload;
+		
+			$uploadedfile=$_FILES["uploadedfile"];
+			echo $uploadedfile;	
 		$errors = array();
 
 		if($_SESSION['angemeldet'] != 'ja') {
@@ -28,7 +32,7 @@ class FileController extends AbstractActionController {
 				
 		} else {
 
-			
+			//$bildupload = new Bildupload();
 			
 
 			
@@ -42,8 +46,8 @@ class FileController extends AbstractActionController {
 				$uploadedfile=$_REQUEST["uploadedfile"];
 
 				
-				$bildupload = new Bildupload();
-				$result = $uploadedfile->Bildupload($bildupload);
+				
+				// $result = $uploadedfile->Bildupload($bildupload);
 
 				echo $result;
 				}
