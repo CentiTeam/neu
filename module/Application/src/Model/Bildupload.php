@@ -50,9 +50,15 @@ class Bildupload
 				
 		}
 		
-		move_uploaded_file($_FILES["uploadedfile"]["tmp_name"], $new_path);
+		if (move_uploaded_file($_FILES["uploadedfile"]["tmp_name"], $new_path))
+		{
 		echo 'Bild erfolgreich hochgeladen: <a href="'.$new_path.'">'.$new_path.'</a>';
-		
 		return $new_path;
+		}
+		else 
+		{
+			echo "Fehler beim Upload";
+		}
+		
 	}
 }
