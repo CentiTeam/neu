@@ -43,7 +43,7 @@ class FileController extends AbstractActionController {
 
 					
 				// Schritt 1:  Werte aus Formular einlesen
-				$uploadedfile=$_FILES["uploadedfile"]["name"];
+				$uploadedfile=$_REQUEST["uploadedfile"];
 
 				
 				
