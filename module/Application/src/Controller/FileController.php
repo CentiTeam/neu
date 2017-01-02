@@ -30,7 +30,8 @@ class FileController extends AbstractActionController {
 
 			//$bildupload = new Bildupload();
 			
-
+			echo "Hallo";
+/*
 			$saved= false;
 			$msg = array();
 
@@ -45,6 +46,7 @@ class FileController extends AbstractActionController {
 				// $result = $uploadedfile->Bildupload($bildupload);
 
 				echo $result;
+*/
 				 }
 				 
 		}
