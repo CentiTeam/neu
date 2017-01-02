@@ -89,8 +89,6 @@ class Kategorie {
 	
 	
 	
-	
-	
 	// Getter und Setter
 	
 	public function getK_id () {
