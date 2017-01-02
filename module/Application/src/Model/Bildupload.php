@@ -10,7 +10,7 @@ class Bildupload
 
 
 	public function bildupload($uploadedfile) {
-		echo "Test1";
+
 		//Pfadangabe	
 		$filename = pathinfo($_FILES["uploadedfile"]["name"], PATHINFO_FILENAME);
 		$extension = strtolower(pathinfo($_FILES["uploadedfile"]["name"], PATHINFO_EXTENSION));
@@ -34,10 +34,10 @@ class Bildupload
 		{
 			die ("Nur der Upload von Bildern ist erlaubt!");
 		}
-		echo "Test2";
+
 		//Pfad zusammensetzen
 		$new_path = $this->upload_folder.$filename.'.'.$extension;
-		echo "Test3";
+
 		//Falls Dateiname bereits vorhanden, Erweiterung des Pfades um nächsthöhere Nummer
 		if(file_exists($new_path))
 		{
