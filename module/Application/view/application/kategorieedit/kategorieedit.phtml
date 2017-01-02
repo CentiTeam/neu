@@ -1,0 +1,23 @@
+<?php session_start();?>
+
+<h1>Kategorienamen bearbeiten</h1>
+
+<?php if (isset($errors)) {
+	foreach ($errors as $err) {
+		echo "Fehler: " . $err . "<br>";
+	}
+}?>
+
+<form method="POST">	
+	<table>
+		<tr><td>Kategoriename</td><td><input type="text" name="kategoriebeschreibung" required value="<?=$kategorie[0]->getKategoriebeschreibung()?>" ></td></tr>
+		
+	</table>
+
+	<input type="hidden" name="g_id" readonly="readonly" value="<?=!is_null ($kategorie[0]->getG_id()) ? $kategorie[0]->getK_id():"<automatisch>"?>">
+	
+	<input type="submit" name="speichern" value="Speichern">
+</form>
+
+    
+ 

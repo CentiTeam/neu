@@ -108,6 +108,19 @@ return [
         		],
         		
         		
+        		
+        		'kategorieedit' => [
+        				'type'    => Segment::class,
+        				'options' => [
+        						'route'    => '/kategorieedit[/:action]',
+        						'defaults' => [
+        								'controller' => Controller\KategorieeditController::class,
+        								'action'     => 'kategorieedit',
+        						],
+        				],
+        		],
+        		
+        		
         	'gruppeanlegen' => [
         			'type'    => Segment::class,
         			'options' => [
@@ -254,6 +267,7 @@ return [
         	Controller\KategorienController::class => InvokableFactory::class,
         	Controller\BenutzerdeaktivierenController::class => InvokableFactory::class,
         	Controller\KategorieanlegenController::class => InvokableFactory::class,
+        	Controller\KategorieeditController::class => InvokableFactory::class,
         		
         		
 

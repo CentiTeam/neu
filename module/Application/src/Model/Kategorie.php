@@ -31,7 +31,17 @@ class Kategorie {
 	}
 	
 	
+	public function bearbeiten () {
 	
+		$db = new DB_connection();
+	
+		$query = "UPDATE kategorie SET
+				kategoriebeschreibung = '".$this->kategoriebeschreibung."'";
+	
+		$result = $db->execute($query);
+	
+		return $result;
+	}
 	
 	
 	public static function listeHolen() {
