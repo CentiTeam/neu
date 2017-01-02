@@ -209,10 +209,10 @@ return [
         	'file' => [
         			'type'    => Segment::class,
        				'options' => [
-       						'route'    => '/upload[/:action]',
+       						'route'    => '/file[/:action]',
        						'defaults' => [
        								'controller' => Controller\FileController::class,
-       								'action'     => 'upload',
+       								'action'     => 'file',
        						],
        				],
         		],
