@@ -28,7 +28,7 @@ class FileController extends AbstractActionController {
 				
 		} else {
 
-			$bildupload = new Bildupload();
+			
 			
 
 			
@@ -42,7 +42,7 @@ class FileController extends AbstractActionController {
 				$uploadedfile=$_REQUEST["uploadedfile"];
 
 				
-				
+				$bildupload = new Bildupload();
 				$result = $uploadedfile->Bildupload($bildupload);
 
 				echo $result;
