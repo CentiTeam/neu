@@ -8,7 +8,6 @@ class Bildupload
 	private $max_size					= 2048*2048;
 	private $allowed_types				= array(IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_GIF);
 
-
 	public function bildupload($uploadedfile) {
 
 		//Pfadangabe	
