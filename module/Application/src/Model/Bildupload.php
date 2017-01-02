@@ -50,6 +50,7 @@ class Bildupload
 				
 		}
 		
+		//TODO Hier steckt der Wurm drin -> Verflixtes move_uploaded_file
 		if (move_uploaded_file($_FILES["uploadedfile"]["tmp_name"], $new_path))
 		{
 			echo 'Bild erfolgreich hochgeladen: <a href="'.$new_path.'">'.$new_path.'</a>';
