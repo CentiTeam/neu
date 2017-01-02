@@ -96,6 +96,18 @@ return [
         				],
         		],
         		
+        		'kategorieanlegen' => [
+        				'type'    => Segment::class,
+        				'options' => [
+        						'route'    => '/kategorieanlegen[/:action]',
+        						'defaults' => [
+        								'controller' => Controller\KategorieanlegenController::class,
+        								'action'     => 'kategorieanlegen',
+        						],
+        				],
+        		],
+        		
+        		
         	'gruppeanlegen' => [
         			'type'    => Segment::class,
         			'options' => [
@@ -241,6 +253,7 @@ return [
         	Controller\BenutzertabelleController::class => InvokableFactory::class,
         	Controller\KategorienController::class => InvokableFactory::class,
         	Controller\BenutzerdeaktivierenController::class => InvokableFactory::class,
+        	Controller\KategorieanlegenController::class => InvokableFactory::class,
         		
         		
 

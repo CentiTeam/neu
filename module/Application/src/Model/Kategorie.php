@@ -15,6 +15,25 @@ class Kategorie {
 			
 	}
 	
+	
+	public function anlegen () {
+	
+		$db = new DB_connection();
+	
+		$query = "INSERT INTO kategorie (kategoriebeschreibung) VALUES (
+					
+				'".$this->kategoriebeschreibung."'
+				)" ;
+	
+		$result = $db->execute($query);
+	
+		return $result;
+	}
+	
+	
+	
+	
+	
 	public static function listeHolen() {
 	
 		// Liste initialisieren
