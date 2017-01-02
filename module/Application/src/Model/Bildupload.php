@@ -34,10 +34,10 @@ class Bildupload
 			die ("Nur der Upload von Bildern ist erlaubt!");
 		}
 
-		$upload_folder = $this->upload_folder;
+		
 		
 		//Pfad zusammensetzen
-		$new_path = $upload_folder.$filename.'.'.$extension;
+		$new_path = '/img/'.$filename.'.'.$extension;
 
 		//Falls Dateiname bereits vorhanden, Erweiterung des Pfades um nächsthöhere Nummer
 		if(file_exists($new_path))
@@ -45,7 +45,7 @@ class Bildupload
 			$id = 1;
 			do 
 			{
-				$new_path = $upload_folder.$filename.'_'.$id.'.'.$extension;
+				$new_path = '/img/'.$filename.'_'.$id.'.'.$extension;
 				$id++;
 			} while(file_exists($new_path));
 			
