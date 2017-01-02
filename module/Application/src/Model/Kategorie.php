@@ -36,7 +36,8 @@ class Kategorie {
 		$db = new DB_connection();
 	
 		$query = "UPDATE kategorie SET
-				kategoriebeschreibung = '".$this->kategoriebeschreibung."'";
+				kategoriebeschreibung = '".$this->kategoriebeschreibung."'
+				WHERE k_id = '".$this->k_id."'";
 	
 		$result = $db->execute($query);
 	
