@@ -7,6 +7,7 @@ class Bildupload
 	private $allowed_extensions			= array("png", "jpg", "jpeg", "gif");
 	private $max_size					= 2048*2048;
 	private $allowed_types				= array(IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_GIF);
+	private $img_folder					= "/img/";
 
 	public function bildupload($uploadedfile) {
 
@@ -58,7 +59,7 @@ class Bildupload
 			
 			$new_filename = pathinfo($_FILES["new_path"]["name"], PATHINFO_FILENAME);
 			$new_extension = strtolower(pathinfo($_FILES["new_path"]["name"], PATHINFO_EXTENSION));
-			$path = $filename.'.'.$extension;
+			$path = $img_folder.$filename.'.'.$extension;
 			
 			echo 'Bild erfolgreich hochgeladen: <a href="'.$path.'">'.$path.'</a>';
 			return $path;
