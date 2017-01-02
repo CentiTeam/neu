@@ -15,6 +15,82 @@ class Kategorie {
 			
 	}
 	
+	public static function listeHolen() {
+	
+		// Liste initialisieren
+		$kategorieListe = array ();
+	
+		$db = new DB_connection();
+	
+		$query="SELECT k_id FROM User";
+	
+		// Wenn die Datenbankabfrage erfolgreich ausgeführt worden ist
+		if ($result = $db->execute($query)) {
+	
+			// Ergebnis Zeile fï¿½r Zeile verarbeiten
+			while ($row = mysqli_fetch_array($result)) {
+					
+				// neues Model erzeugen
+				$model = new Kategorie();
+	
+				// Model anhand der Nummer aus der Datenbankabfrage laden
+				$model->laden($row["k_id"]);
+	
+				// neues Model ans Ende des $userListe-Arrays anfï¿½gen
+				$kategorieListe[] = $model;
+			}
+	
+			// fertige Liste von User-Objekten zurï¿½ckgeben
+			return $kategorieListe;
+		}
+	}
+	
+	
+	
+	/**
+	 * Lï¿½dt eine Kategorie
+	 *
+	 * @return true, wenn die Kategorie geladen werden konnte, sonst false
+	 */
+	public function laden ($k_id) {
+	
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+	
+		// DB-Befehl absetzen: alle Basisinformationen des Teams mit der ï¿½bergebenen $k_id abfragen
+	
+		$result=$dbStmt->execute("SELECT * FROM kategorie WHERE k_id= '".$k_id."';");
+	
+		// Variable, die speichert, ob die Kategorie geladen werden konnte oder nicht
+		$isLoaded=false;
+	
+		// Ergebnis verarbeiten, falls vorhanden
+		if ($row=mysqli_fetch_array($result)) {
+			$this->k_id=$row["k_id"];
+			$this->kategoriebeschreibung=$row["kategoriebeschreibung"];
+			
+	
+			// speichern, dass die Kategorien erfolgreich geladen werden konnten
+			$isLoaded=true;
+		}
+	
+		// zurï¿½ckgeben, ob beim Laden ein Fehler aufgetreten ist
+		return $isLoaded;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	// Getter und Setter
 	
 	public function getK_id () {

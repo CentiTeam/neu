@@ -119,10 +119,6 @@ class User
 		
 	}
 	
-
-
-	// TODO: Userliste holen ! funktioniert noch nicht
-	
 	
 	public static function listeHolen() {
 	
