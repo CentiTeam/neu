@@ -97,7 +97,7 @@ class Kategorie {
 		return $this->k_id;
 	}
 	
-	public function setK_Id($k_id) {
+	public function setK_id($k_id) {
 		$this->k_id= $k_id;
 	}
 
