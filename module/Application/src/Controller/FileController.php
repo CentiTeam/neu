@@ -30,9 +30,6 @@ class FileController extends AbstractActionController {
 
 			$bildupload = new bildupload();
 			
-			if (! $gruppe->laden($_REQUEST['g_id'])) {
-				array_push($errors, "Fehler beim Laden der Gruppe!");	
-			}
 
 			$saved= false;
 			$msg = array();
@@ -43,7 +40,7 @@ class FileController extends AbstractActionController {
 				// Schritt 1:  Werte aus Formular einlesen
 				$uploadedfile=$_REQUEST["uploadedfile"];
 
-				$result = $uploadedfile->uploadbild($bildupload);
+				$result = $uploadedfile->bildupload($bildupload);
 
 				echo $result;
 				 }

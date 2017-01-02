@@ -9,7 +9,7 @@ class bildupload
 	private $allowed_types				= array(IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_GIF);
 
 
-	public function uploadbild($uploadedfile) {
+	public function bildupload($uploadedfile) {
 
 		//Pfadangabe	
 		$filename = pathinfo($_FILES["uploadedfile"]["name"], PATHINFO_FILENAME);
