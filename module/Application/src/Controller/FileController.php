@@ -49,7 +49,7 @@ class FileController extends AbstractActionController {
 				
 				$result = $bildupload->bildupload($uploadedfile);
 
-				echo $result;
+				echo "result";
 				}
 
 				 
