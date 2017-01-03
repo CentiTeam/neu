@@ -40,7 +40,7 @@ use Application\Model\Gruppenmitglied;
 			
 			<?php 
 				foreach ($mitgliedschaft as $infos) {
-				 if ($mitglied->getU_id() == $infos->getU_id() && isset ($infos->getGruppenadmin)) {
+				 if ($mitglied->getU_id() == $infos->getU_id() && $infos->getGruppenadmin()==1) {
 				?>
 				 }
 				<td>ja</td>
