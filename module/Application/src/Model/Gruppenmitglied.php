@@ -52,7 +52,6 @@ class Gruppenmitglied {
 			$this->u_id=$row["u_id"];
 			$this->gruppenadmin=$row["gruppenadmin"];
 		
-			echo $this->gruppenadmin;
 			// speichern, dass die Basisinformationen des Teams erfolgreich geladen werden konnten
 			$isLoaded=true;
 		}
