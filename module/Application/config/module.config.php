@@ -72,7 +72,7 @@ return [
         			],
         	],
         		
-        	'benutzerdeaktivieren' => [
+        	'benutzerreaktivieren' => [
         			'type'    => Segment::class,
         			'options' => [
         					'route'    => '/benutzerreaktivieren[/:action]',
