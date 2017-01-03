@@ -49,6 +49,7 @@ class FileController extends AbstractActionController {
 				$result = Gruppe::bild($path, $g_id);
 				
 				$view = new ViewModel([
+						'gruppe' => array($gruppe),
 				]);
 					
 				$view->setTemplate('application/groupoverview/groupoverview.phtml');
@@ -58,6 +59,7 @@ class FileController extends AbstractActionController {
 				}
 
 				return new ViewModel([
+						'gruppe' => array($gruppe),
 				]);
 				
 				 
