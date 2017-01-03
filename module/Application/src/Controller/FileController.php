@@ -53,7 +53,7 @@ class FileController extends AbstractActionController {
 						'msg' => $msg
 				]);
 					
-				$view->setTemplate('application/groupshow/groupshow.phtml');
+				$view->setTemplate('application/groupoverview/groupoverview.phtml');
 				
 				return $view;
 
