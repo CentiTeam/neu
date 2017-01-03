@@ -129,12 +129,13 @@ class Gruppe {
 	
 		// Liste initialisieren
 		$gruppeListe = array ();
-	
+		$u_id=$_SESSION['u_id'];
+		
 		$db = new DB_connection();
 	
 		$query="SELECT * FROM `gruppe` 
 				LEFT JOIN gruppenmitglied ON (gruppe.g_id=gruppenmitglied.g_id) 
-				WHERE u_id= '".$this->g_id."' ";
+				WHERE u_id= '".$u_id."' ";
 	
 		// Wenn die Datenbankabfrage erfolgreich ausgeführt worden ist
 		if ($result = $db->execute($query)) {
