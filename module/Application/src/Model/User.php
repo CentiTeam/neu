@@ -158,6 +158,7 @@ class User
 		$userListe = array ();
 	
 		$db = new DB_connection();
+		$username = $_REQUEST ["username"];
 	
 		$query="SELECT u_id FROM User WHERE systemadmin = 0 AND username LIKE '".$username."';"; 
 		echo "$username";
