@@ -9,8 +9,6 @@ use Application\Model\User;
 use Application\Model\Gruppenmitglied;
 
 
-#TODO Gruppenmitglied-Objekt mitladen, um Admin-Rechte anzuzeigen
-
 class GroupshowController extends AbstractActionController
 {
 	public function GroupshowAction()
@@ -28,12 +26,14 @@ class GroupshowController extends AbstractActionController
 		$mitgliedschaft=array();
 		
 		// Für jedes Gruppenmitglied mit die Gruppenmitgliedschafts-Infos (inkl. Gruppenadmin) laden
-		// und Mitgliedschaftsinfos in Array speichern
+		// und Mitgliedschaftsinfos in Array speichern, wenn Gruppenmitgliedschaft besteht
 		foreach ($mitgliederliste as $mitglied) {
 			
+			// Gruppenmitglied instanzieren
 			$gruppenmitglied= new Gruppenmitglied();
 			$gruppenmitglied->laden ($g_id, $mitglied->getU_id());
 			
+			// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter befüllt
 			if ($gruppenmitglied->getU_id() == $mitglied->getU_id()) {
 				
 				$mitgliedschaft[]=$gruppenmitglied;
