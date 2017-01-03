@@ -134,7 +134,7 @@ class Gruppe {
 	
 		$query="SELECT * FROM `gruppe`
 				LEFT JOIN gruppenmitglied ON (gruppe.g_id=gruppenmitglied.g_id)
-				WHERE g_id= '".$gruppen_id."' ";
+				WHERE gruppe.g_id= '".$gruppen_id."' ";
 	
 		// Wenn die Datenbankabfrage erfolgreich ausgeführt worden ist
 		if ($result = $db->execute($query)) {
