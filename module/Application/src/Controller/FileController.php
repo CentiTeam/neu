@@ -57,7 +57,8 @@ class FileController extends AbstractActionController {
 
 				}
 
-
+				return new ViewModel([
+				]);
 				
 				 
 		}
