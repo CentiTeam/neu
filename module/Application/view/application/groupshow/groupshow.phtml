@@ -42,7 +42,9 @@ use Application\Model\Gruppenmitglied;
 			<?php 
 				foreach ($mitgliedschaft as $counter => $infos) {
 				 if ($mitglied->getU_id() == $infos->getU_id() ) {
-					echo $infos->getGruppenadmin();
+					
+				 	var_dump ($infos);
+					
 					if ($infos->getGruppenadmin()=="1") { 
 					?>
 					<td>ja</td>
