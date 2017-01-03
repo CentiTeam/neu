@@ -37,35 +37,35 @@ class Bildupload
 			$errorstr .= "Nur der Upload von Bildern ist erlaubt!";
 		}
 
-		if ($errorstr = "")
+		if ($errorstr == "")
 		{
-		//Pfad zusammensetzen
-		$new_path = $this->upload_folder.$filename.'.'.$extension;
-		$path = $this->img_folder.$filename.'.'.$extension;
+			//Pfad zusammensetzen
+			$new_path = $this->upload_folder.$filename.'.'.$extension;
+			$path = $this->img_folder.$filename.'.'.$extension;
 		
-		//Falls Dateiname bereits vorhanden, Erweiterung des Pfades um nächsthöhere Nummer
-		if(file_exists($new_path))
-		{
-			$id = 1;
-			do 
+			//Falls Dateiname bereits vorhanden, Erweiterung des Pfades um nächsthöhere Nummer
+			if(file_exists($new_path))
 			{
-				$new_path = $this->upload_folder.$filename.'_'.$id.'.'.$extension;
-				$path = $this->img_folder.$filename.'_'.$id.'.'.$extension;
-				$id++;
-			} while(file_exists($new_path));
+				$id = 1;
+				do 
+				{
+					$new_path = $this->upload_folder.$filename.'_'.$id.'.'.$extension;
+					$path = $this->img_folder.$filename.'_'.$id.'.'.$extension;
+					$id++;
+				} while(file_exists($new_path));
 			
 		
-		}
+			}
 		
-		//Das Bild wird in den Ordner Bilder mit absoluten Pfad verschoben, der relative Pfad wird zurückgegeben
-		if (move_uploaded_file($_FILES["uploadedfile"]["tmp_name"], $new_path))
-		{	
-			return $path;
-		}
-		else 
-		{
+			//Das Bild wird in den Ordner Bilder mit absoluten Pfad verschoben, der relative Pfad wird zurückgegeben
+			if (move_uploaded_file($_FILES["uploadedfile"]["tmp_name"], $new_path))
+			{	
+				return $path;
+			}
+			else 
+			{
 			echo "Fehler beim Upload";
-		}
+			}
 		}
 		
 	}
