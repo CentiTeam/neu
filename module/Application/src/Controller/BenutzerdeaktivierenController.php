@@ -44,8 +44,8 @@ class BenutzerdeaktivierenController extends AbstractActionController{
 			$msg = "";
 		
 			// wenn der Ladevorgang erfolgreich war, wird versucht den Benutzer zu deaktivieren
-			if ($isOK) {
-				$user->deaktivieren();
+			if ($isOK && $user->deaktivieren()) {
+				
 				
 		
 		
