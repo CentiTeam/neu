@@ -29,7 +29,7 @@ class BenutzerdeaktivierenController extends AbstractActionController{
 					'userListe' => $userliste
 			]);
 		
-			$view->setTemplate('application/benutertabelle/benutzertabelle.phtml');
+			$view->setTemplate('application/benutzertabelle/benutzertabelle.phtml');
 		
 			return $view;
 		}
