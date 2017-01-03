@@ -16,10 +16,18 @@ class Kategorie {
 	}
 	
 	
-	public function anlegen () {
+	public function anlegen ($kategoriebeschreibung) {
 	
 		$db = new DB_connection();
+		
+		// Überprüfen, ob Kategoriebeschreibung schon vorhanden ist
+		
+		$query_beschreibungsueberpruefung = "SELECT * FROM kategorie WHERE kategoriebeschreibung = '".$this->kategoriebeschreibung."';";
+		$result_beschreibungsueberpruefung = $db->execute($query_beschreibungsueberpruefung);
 	
+		// Falls der Name noch nicht vorhanden ist, kann die Insert-Query ausgeführt werden
+		if(mysqli_num_rows($result_beschreibungsueberpruefung) == 0 ){
+		
 		$query = "INSERT INTO kategorie (kategoriebeschreibung) VALUES (
 					
 				'".$this->kategoriebeschreibung."'
@@ -28,7 +36,18 @@ class Kategorie {
 		$result = $db->execute($query);
 	
 		return $result;
+		
+		}
+		
+		// Ist der Name schon vorhanden, muss ein anderer Name verwendet werden
+		
+		else{
+		
+			echo "<center><h4>Kategoriename bereits verwendet! Bitte erneut versuchen</h4></center>";
 	}
+	
+	}
+	
 	
 	
 	public function bearbeiten () {
