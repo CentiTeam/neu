@@ -35,6 +35,31 @@ class Gruppenmitglied {
 		
 	}
 		
+	public function laden ($g_id, $u_id) {
+	
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+	
+		// DB-Befehl absetzen: alle Basisinformationen des Teams mit der �bergebenen $t_id abfragen
+		$result=$dbStmt->execute("SELECT * FROM gruppe WHERE g_id= '".$g_id."' AND u_id= '".$u_id."';");
+
+		// Variable, die speichert, ob das Team geladen werden konnte oder nicht
+		$isLoaded=false;
+	
+		// Ergebnis verarbeiten, falls vorhanden
+		if ($row=mysqli_fetch_array($result)) {
+			$this->g_id=$row["g_id"];
+			$this->u_id=$row["u_id"];
+			$this->gruppenadmin=$row["gruppenadmin"];
+	
+			// speichern, dass die Basisinformationen des Teams erfolgreich geladen werden konnten
+			$isLoaded=true;
+		}
+	
+		// zur�ckgeben, ob beim Laden ein Fehler aufgetreten ist
+		return $isLoaded;
+	}
+	
 	
 	public static function listeHolen() {
 	
@@ -55,7 +80,7 @@ class Gruppenmitglied {
 				$model = new Gruppenmitglied();
 	
 				// Model anhand der Nummer aus der Datenbankabfrage laden
-				$model->laden($row["g_id"]);
+				$model->laden($row["g_id"], $row["u_id"]);
 	
 				// neues Model ans Ende des $gruppeListe-Arrays anf�gen
 				$gruppenmitgliedListe[] = $model;
