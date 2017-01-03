@@ -88,8 +88,7 @@ class Gruppe {
 				gruppenbildpfad = '".$path."'
 				WHERE g_id = '".$g_id."'
 				";
-		
-		
+				
 		$result = $db->execute($query);
 		
 		return $result;
