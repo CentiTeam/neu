@@ -17,7 +17,7 @@ class GroupshowController extends AbstractActionController
 		$gruppe->laden($g_id);
 		
 		// Gruppenmitglieder-Liste holen
-		$mitgliederliste = User::gruppenmitgliederlisteholen($g_id);
+		$mitgliederliste = User::gruppenmitgliederlisteholen($g_id); 
 		
 		return new ViewModel([
 			'gruppe' => array($gruppe),
