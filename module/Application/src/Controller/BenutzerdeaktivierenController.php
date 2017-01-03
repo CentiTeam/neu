@@ -21,7 +21,7 @@ class BenutzerdeaktivierenController extends AbstractActionController{
 		
 		
 		// wenn die Aktion abgebrochen werden soll
-		if ($_REQUEST['abbrechen']) {
+		if ($_REQUEST['nein']) {
 		
 			$userliste=User::listeholen();
 		
@@ -29,7 +29,7 @@ class BenutzerdeaktivierenController extends AbstractActionController{
 					'userListe' => $userliste
 			]);
 		
-			$view->setTemplate('application/benutertabelle/benutzertabelle.phtml');
+			$view->setTemplate('application/benutzertabelle/benutzertabelle.phtml');
 		
 			return $view;
 		}
@@ -38,14 +38,13 @@ class BenutzerdeaktivierenController extends AbstractActionController{
 		
 		// wenn das Formular zur Bestätigung des Deaktivierens schon abgesendet wurde, soll dies hier ausgewertet werden
 		if ($_REQUEST['ja']) {
-			echo "test!";
-			echo $isOK;
+
 		
 			$msg = "";
 		
 			// wenn der Ladevorgang erfolgreich war, wird versucht den Benutzer zu deaktivieren
-			if ($isOK) {
-				$user-> setDeaktiviert(1);
+			if ($isOK && $user->deaktivieren()) {
+				
 				
 		
 		
@@ -56,7 +55,6 @@ class BenutzerdeaktivierenController extends AbstractActionController{
 		
 			} else {
 				
-				echo "nope";
 		
 				// ausgeben, dass der Benutzer nicht deaktiviert werden konnte (kein Template nötig!)
 				$msg .= "Fehler beim Deaktivieren des Benutzers!<br>";

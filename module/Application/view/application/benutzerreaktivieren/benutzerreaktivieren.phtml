@@ -1,0 +1,10 @@
+<form method='post'>
+
+<input type='hidden' name='u_id' value='<?=$user->getU_id()?>'>
+
+Soll der Benutzer #<?=$user->getU_id()?> '<?=$user->getUsername()?>' wirklich reaktiviert werden?
+		
+	<input class='button' type='submit' name='ja' value='Ja'>
+	<input class='button' type='submit' name='nein' value='Nein'>
+		
+</form>
