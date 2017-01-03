@@ -47,10 +47,24 @@ class FileController extends AbstractActionController {
 				$g_id=$_REQUEST["g_id"]; 
 				
 				$result = Gruppe::bild($path, $g_id);
+				
+				$view = new ViewModel([
+						'gruppe' => array($gruppe),
+						'errors'   => $errors,
+						'msg' => $msg
+				]);
+					
+				$view->setTemplate('application/groupedit/groupedit.phtml');
+				
+				return $view;
 
 				}
 
-				 
+				return new ViewModel([
+						'gruppe' => array($gruppe),
+						'msg' => $msg
+				]);
+				
 				 
 		}
 	}
