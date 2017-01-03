@@ -52,17 +52,17 @@ class Gruppenmitglied {
 			while ($row = mysqli_fetch_array($result)) {
 					
 				// neues Model erzeugen
-				$model = new Gruppe();
+				$model = new Gruppenmitglied();
 	
 				// Model anhand der Nummer aus der Datenbankabfrage laden
 				$model->laden($row["g_id"]);
 	
 				// neues Model ans Ende des $gruppeListe-Arrays anf�gen
-				$gruppeListe[] = $model;
+				$gruppenmitgliedListe[] = $model;
 			}
 	
 			// fertige Liste von Gruppe-Objekten zur�ckgeben
-			return $gruppeListe;
+			return $gruppenmitgliedListe;
 		}
 	}
 	

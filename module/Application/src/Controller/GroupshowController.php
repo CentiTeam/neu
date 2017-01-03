@@ -7,6 +7,9 @@ use Zend\View\Model\ViewModel;
 use Application\Model\Gruppe;
 use Application\Model\User;
 
+
+#TODO Gruppenmitglied-Objekt mitladen
+
 class GroupshowController extends AbstractActionController
 {
 	public function GroupshowAction()
@@ -20,9 +23,24 @@ class GroupshowController extends AbstractActionController
 		// Gruppenmitglieder-Liste holen
 		$mitgliederliste = User::gruppenmitgliederlisteholen($g_id); 
 		
+		/**
+		$mitgliedschaft=array();
+		
+		foreach ($mitgliederliste as $mitglied) {
+			
+			if ($g_id == $mitglied->getG_id()) {
+				
+				$mitgliedschaft[]=$mitglied;
+			}
+		}
+		*/
+		
+		// $gruppenmitgliedliste=Gruppenmitglied::gruppelisteholen($g_id);
+		
 		return new ViewModel([
 			'gruppe' => array($gruppe),
-			'mitgliederListe' => $mitgliederliste
+			'mitgliederListe' => $mitgliederliste,
+			// 'gruppenmitgliedListe' =>$gruppenmitgliedliste
 		]);
 		
 	
