@@ -21,7 +21,7 @@ class UsersuchenController extends AbstractActionController
 			// Werte aus Formular einlesen
 				
 			$username = $_REQUEST ["username"];
-			$user->suchelisteHolen();
+			$user->suchlisteHolen();
 				
 
 		$liste = User::suchlisteHolen();
