@@ -178,7 +178,7 @@ class User
 			}
 	
 			// fertige Liste von Gruppe-Objekten zurï¿½ckgeben
-			return $userListe;
+			return $userListe; 
 		}
 	}
 	
