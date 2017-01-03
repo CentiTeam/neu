@@ -46,7 +46,11 @@ class FileController extends AbstractActionController {
 				
 				$g_id=$_REQUEST["g_id"]; 
 				
+				if ($path!=false)
+				{
 				$result = Gruppe::bild($path, $g_id);
+				}
+				
 				$gruppenliste = Gruppe::listeholen();
 				
 				$view = new ViewModel([
