@@ -21,7 +21,7 @@ class GroupshowController extends AbstractActionController
 		$gruppe->laden($g_id);
 		
 		// Gruppenmitglieder-Liste holen
-		$mitgliederliste = User::gruppenmitgliederlisteholen($u_id); 
+		$mitgliederliste = User::gruppenmitgliederlisteholen($g_id); 
 		
 		echo $mitgliederliste;
 		
