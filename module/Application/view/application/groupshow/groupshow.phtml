@@ -37,13 +37,11 @@ use Application\Model\Gruppenmitglied;
 			<td><?=$mitglied->getVorname()?></td>
 			<td><?=$mitglied->getNachname()?></td>
 			<td><?=$mitglied->getUsername()?></td>
-		</tr>
+		
 			
 			<?php 
 				foreach ($mitgliedschaft as $counter => $infos) {
 				 if ($mitglied->getU_id() == $infos->getU_id() ) {
-					
-				 	var_dump ($infos);
 					
 					if ($infos->getGruppenadmin()=="1") { 
 					?>
@@ -56,7 +54,7 @@ use Application\Model\Gruppenmitglied;
 				 }		
 				}
 			?> 
-
+	</tr>
 
 	<?php 
 	}

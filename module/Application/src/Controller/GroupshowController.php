@@ -36,20 +36,16 @@ class GroupshowController extends AbstractActionController
 			
 			if ($gruppenmitglied->getU_id() == $mitglied->getU_id()) {
 				
-				
 				$mitgliedschaft[]=$gruppenmitglied;
 				
 			}
 		}
 		
-		var_dump($mitgliedschaft);
-		// $gruppenmitgliedliste=Gruppenmitglied::gruppelisteholen($g_id);
 		
 		return new ViewModel([
 			'gruppe' => array($gruppe),
 			'mitgliederListe' => $mitgliederliste,
 			'mitgliedschaft' => $mitgliedschaft
-			// 'gruppenmitgliedListe' =>$gruppenmitgliedliste
 		]);
 		
 	
