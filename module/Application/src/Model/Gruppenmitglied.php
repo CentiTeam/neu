@@ -68,7 +68,7 @@ class Gruppenmitglied {
 	
 		$db = new DB_connection();
 	
-		$query="SELECT g_id FROM gruppenmitglied";
+		$query="SELECT g_id, u_id FROM gruppenmitglied";
 	
 		// Wenn die Datenbankabfrage erfolgreich ausgeführt worden ist
 		if ($result = $db->execute($query)) {

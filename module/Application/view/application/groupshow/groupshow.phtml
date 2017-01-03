@@ -29,10 +29,8 @@ use Application\Model\Gruppenmitglied;
 	</tr>
 	
 	<?php 
-	foreach ($mitgliedschaft as $counter => $infos) {
 	foreach ($mitgliederListe as $zaehler => $mitglied) {
-		
-		?>
+	?>
 
 		<tr>
 			<td><img src ="img/anonymeruser.png" height = "50" width = "50" alt = "Kein Bild vorhanden"></td>
@@ -42,7 +40,7 @@ use Application\Model\Gruppenmitglied;
 		</tr>
 			
 			<?php 
-				
+				foreach ($mitgliedschaft as $counter => $infos) {
 				 if ($mitglied->getU_id() == $infos->getU_id() ) {
 					
 				 	var_dump ($infos);
