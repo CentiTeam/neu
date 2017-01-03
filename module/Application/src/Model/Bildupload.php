@@ -26,7 +26,9 @@ class Bildupload
 		//Maximale Bildgröße überprüfen
 		if($_FILES["uploadedfile"]["size"] > $this->max_size)
 		{
-			die ("Bilder können nicht mehr als 2 mb groß sein!");
+			echo "Bilder können nicht mehr als 2 mb groß sein!";
+			$path = false;
+			return $path;
 		}
 		
 		//Erlaubte Dateiendung
@@ -34,7 +36,9 @@ class Bildupload
 		
 		if(!in_array($detected_type, $this->allowed_types))
 		{
-			die ("Nur der Upload von Bildern ist erlaubt!");
+			echo "Nur der Upload von Bildern ist erlaubt!";
+			$path = false;
+			return $path;
 		}
 
 		$upload_folder = $this->upload_folder;
