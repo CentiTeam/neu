@@ -29,6 +29,7 @@ class Bildupload
 			$errorstr .= "Bilder können nicht mehr als 2 mb groß sein!";
 		}
 		
+		
 		//Erlaubte Dateiendung
 		$detected_type = exif_imagetype($_FILES["uploadedfile"]["tmp_name"]);
 		
