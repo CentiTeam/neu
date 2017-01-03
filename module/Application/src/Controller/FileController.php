@@ -46,23 +46,36 @@ class FileController extends AbstractActionController {
 				
 				$g_id=$_REQUEST["g_id"]; 
 				
-				if ($path!=false)
-				{
-				$result = Gruppe::bild($path, $g_id);
-				}
-				
-				$gruppenliste = Gruppe::listeholen();
-				
-				$view = new ViewModel([
-						'gruppenListe'=>$gruppenliste
-				]);
-					
-				
-				$view->setTemplate('application/groupoverview/groupoverview.phtml');
-				
-				return $view;
+				if ($path!=false) {
 
+					$result = Gruppe::bild($path, $g_id);
+				
+					$gruppenliste = Gruppe::listeholen();
+				
+					$view = new ViewModel([
+							'gruppenListe'=>$gruppenliste
+					]);
+				
+					$view->setTemplate('application/groupoverview/groupoverview.phtml');
+					
+					return $view;
+				}				
+				else {
+					
+					$gruppe = new Gruppe();
+					
+					$gruppe->laden($g_id);
+					
+					$view = new ViewModel([
+							'gruppe' => array($gruppe)
+					]);
+					
+					$view->setTemplate('application/groupedit/groupedit.phtml');
+						
+					return $view;
 				}
+				
+			}
 
 				return new ViewModel([
 				]);

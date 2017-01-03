@@ -11,3 +11,34 @@
 
 
 <div>Hierhin kommt das interne Message-Board einer Gruppe </div>
+
+
+<table>
+	<tr><th>Gruppenmitglieder:</th></tr>
+	<tr>
+		<th></th>
+		<th>Vorname</th>
+		<th>Nachname</th>
+		<th>Benutzername</th>
+		<th>Gruppenadmin</th>
+		<th></th>
+	</tr>
+	
+	<?php 
+	foreach ($mitgliederListe as $zaehler => $mitglied) {
+	?>
+
+		<tr>
+			<td><img src ="img/anonymeruser.png" height = "50" width = "50" alt = "Kein Bild vorhanden"></td>
+			<td><?=$mitglied->getVorname()?></td>
+			<td><?=$mitglied->getNachname()?></td>
+			<td><?=$mitglied->getUsername()?></td>
+			<td><?=$mitglied->getGruppenadmin()?></td>
+			<td>
+			<a href='gruppenadminadd?g_id=<?=$gruppe->getG_id()?>&&u_id=<?=$mitglied->getU_id()?>'><img src="img/add.jpg" /></a>
+			</td>
+		</tr>
+
+	<?php 
+	}
+	?>
