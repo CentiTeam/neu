@@ -21,7 +21,7 @@ class GroupoverviewController extends AbstractActionController
 		//$user=$_SESSION['user'];
 		//$gruppenliste = Gruppe::eigenelisteHolen($user->getU_id());
 		
-		$user_id=$_SESSION['user']->u_id;
+		$user_id=$_SESSION['user']->getU_id();
 		$gruppenliste = Gruppe::eigenelisteholen($user_id);
 		
 		
