@@ -49,8 +49,6 @@ class FileController extends AbstractActionController {
 				$result = Gruppe::bild($path, $g_id);
 				
 				$view = new ViewModel([
-						'errors'   => $errors,
-						'msg' => $msg
 				]);
 					
 				$view->setTemplate('application/groupoverview/groupoverview.phtml');
