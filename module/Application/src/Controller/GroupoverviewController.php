@@ -18,7 +18,7 @@ class GroupoverviewController extends AbstractActionController
 		
 		$user_id=$_SESSION['u_id'];
 		$gruppenliste = Gruppe::eigenelisteHolen($user_id);
-		$var_dump($user_id);
+		var_dump($user_id);
 		
 		$mitgliederliste = Gruppenmitglied::listeHolen();
 		
