@@ -49,7 +49,6 @@ class FileController extends AbstractActionController {
 				$result = Gruppe::bild($path, $g_id);
 				
 				$view = new ViewModel([
-						'gruppe' => array($gruppe),
 						'errors'   => $errors,
 						'msg' => $msg
 				]);
@@ -61,8 +60,6 @@ class FileController extends AbstractActionController {
 				}
 
 				return new ViewModel([
-						'gruppe' => array($gruppe),
-						'msg' => $msg
 				]);
 				
 				 
