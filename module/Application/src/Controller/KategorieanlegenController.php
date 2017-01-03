@@ -61,23 +61,24 @@ class KategorieanlegenController extends AbstractActionController {
 				 	
 				 // Neue K_id durch Laden der neu erstellten Gruppe ins Objekt laden
 				 $kategorie->laden();
-				 	
-				
+				}	 	
+			
+			
+	
+			//	} elseif ($errorStr == "") {
 
-				} elseif ($errorStr == "") {
+			//	 // array_push($msg, "Datenpr�fung in Ordnung, Fehler beim Speichern der Gruppe!");
+			//		$msg .= "Datenpr�fung in Ordnung, Fehler beim Speichern der Kategorie!";
+			//	 $saved = false;
 
-				 // array_push($msg, "Datenpr�fung in Ordnung, Fehler beim Speichern der Gruppe!");
-					$msg .= "Datenpr�fung in Ordnung, Fehler beim Speichern der Kategorie!";
-				 $saved = false;
+			//	} else {
 
-				} else {
+			//	 // array_push($msg, "Fehler bei der Datenpr�fung. Gruppe nicht gespeichert!");
+			//		$msg .= "Fehler bei der Datenpr�fung. Kategorie nicht gespeichert!";
+			//	 $saved = false;
 
-				 // array_push($msg, "Fehler bei der Datenpr�fung. Gruppe nicht gespeichert!");
-					$msg .= "Fehler bei der Datenpr�fung. Kategorie nicht gespeichert!";
-				 $saved = false;
-
-				}
-					
+			//	}
+			//		
 				$view = new ViewModel([
 						'kategorie' => array($kategorie),
 						'errors'   => $errors,
