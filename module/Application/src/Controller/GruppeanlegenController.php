@@ -45,9 +45,8 @@ class GruppeanlegenController extends AbstractActionController {
 				$g_id=$_REQUEST["g_id"];
 				$gruppenname=$_REQUEST["gruppenname"];
 				$gruppenbeschreibung=$_REQUEST["gruppenbeschreibung"];
-				$gruppenbildpfad=$_REQUEST["gruppenbildpfad"];
 
-
+				
 				// Schritt 2: Daten prï¿½fen und Fehler in Array fÃ¼llen
 				$errorStr ="";
 				$msg="";
@@ -55,12 +54,16 @@ class GruppeanlegenController extends AbstractActionController {
 				if ($gruppenname=="Kinderporno") {
 					$errorStr .="Der Gruppenname darf nicht Kinderporno heiÃŸen!<br>";
 				}
-					
+				
+				$uploadedfile=$_REQUEST["uploadedfile"];
+				
+				//Bilddatei an die Funktion Bildupload übergeben, Rückgabe des Bildpfades
+				$path = $bildupload->bildupload($uploadedfile);
+				
 				// Gruppe-Objekt mit Daten aus Request-Array fï¿½llen
 				$gruppe->setG_id($g_id);
 				$gruppe->setGruppenname($gruppenname);
 				$gruppe->setGruppenbeschreibung($gruppenbeschreibung);
-				$gruppe->setGruppenbildpfad($gruppenbildpfad);
 				
 				
 				 if ($errorStr == "" && $gruppe->anlegen()) {
@@ -69,6 +72,13 @@ class GruppeanlegenController extends AbstractActionController {
 				 $msg .= "Gruppe erfolgreich gespeichert!";
 				 $saved = true;
 				 
+				 
+				 if ($path!=false) {
+				 
+				 	$result = Gruppe::bild($path, $g_id);
+
+				 }
+				 	
 				 // Neue G_id durch Laden der neu erstellten Gruppe ins Objekt laden
 				 $gruppe->laden();
 				 
