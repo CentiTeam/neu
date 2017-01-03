@@ -15,16 +15,18 @@ class Bildupload
 		$filename = pathinfo($_FILES["uploadedfile"]["name"], PATHINFO_FILENAME);
 		$extension = strtolower(pathinfo($_FILES["uploadedfile"]["name"], PATHINFO_EXTENSION));
 		
+		$errorstr = "";
+		
 		//Dateiendung überprüfen
 		if(!in_array($extension, $this->allowed_extensions))
 		{
-			die ("Ungültige Dateiendung! Nur png, jpg, jpeg und gif Dateien!");
+			$errorstr .= "Ungültige Dateiendung! Nur png, jpg, jpeg und gif Dateien!";
 		}
 		
 		//Maximale Bildgröße überprüfen
 		if($_FILES["uploadedfile"]["size"] > $this->max_size)
 		{
-			die ("Bilder können nicht mehr als 2 mb groß sein!");
+			$errorstr .= "Bilder können nicht mehr als 2 mb groß sein!";
 		}
 		
 		//Erlaubte Dateiendung
@@ -32,11 +34,11 @@ class Bildupload
 		
 		if(!in_array($detected_type, $this->allowed_types))
 		{
-			die ("Nur der Upload von Bildern ist erlaubt!");
+			$errorstr .= "Nur der Upload von Bildern ist erlaubt!";
 		}
 
-		$upload_folder = $this->upload_folder;
-		
+		if ($errorstr = "")
+		{
 		//Pfad zusammensetzen
 		$new_path = $this->upload_folder.$filename.'.'.$extension;
 		$path = $this->img_folder.$filename.'.'.$extension;
@@ -63,6 +65,7 @@ class Bildupload
 		else 
 		{
 			echo "Fehler beim Upload";
+		}
 		}
 		
 	}
