@@ -46,7 +46,7 @@ class FileController extends AbstractActionController {
 				
 				$g_id=$_REQUEST["g_id"]; 
 				
-				$result = $Gruppe::bild($path, $g_id);
+				$result = Gruppe::bild($path, $g_id);
 
 				}
 
