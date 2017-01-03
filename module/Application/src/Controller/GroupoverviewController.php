@@ -15,9 +15,11 @@ class GroupoverviewController extends AbstractActionController
 {
 	public function groupoverviewAction()
 	{
-		//$user = new User();
+		
 		session_start();
 		
+		//Alternative zu den unteren Zeilen zum Abruf der aktuellen g_id
+		//$user = new User();
 		//$user=$_SESSION['user'];
 		//$gruppenliste = Gruppe::eigenelisteHolen($user->getU_id());
 		
