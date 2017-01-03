@@ -44,17 +44,10 @@ class FileController extends AbstractActionController {
 				//Bilddatei an die Funktion Bildupload übergeben, Rückgabe des Bildpfades
 				$path = $bildupload->bildupload($uploadedfile);
 				
-				if ($path == "")
-				{
 				$g_id=$_REQUEST["g_id"]; 
 				
 				$result = Gruppe::bild($path, $g_id);
 				$gruppenliste = Gruppe::listeholen();
-				}
-				else
-				{
-					echo $path;
-				}
 				
 				$view = new ViewModel([
 						'gruppenListe'=>$gruppenliste
