@@ -67,7 +67,7 @@ class FileController extends AbstractActionController {
 					$gruppe->laden($g_id);
 					
 					$view = new ViewModel([
-							'gruppe' => $gruppe
+							'gruppe' => array($gruppe)
 					]);
 					
 					$view->setTemplate('application/groupedit/groupedit.phtml');
