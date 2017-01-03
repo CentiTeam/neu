@@ -18,8 +18,7 @@ class Bildupload
 		//Dateiendung überprüfen
 		if(!in_array($extension, $this->allowed_extensions))
 		{
-			echo "Ungültige Dateiendung! Nur png, jpg, jpeg und gif Dateien!";
-			break;
+			exit ("Ungültige Dateiendung! Nur png, jpg, jpeg und gif Dateien!");
 		}
 		
 		//Maximale Bildgröße überprüfen
