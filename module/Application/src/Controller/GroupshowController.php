@@ -23,7 +23,7 @@ class GroupshowController extends AbstractActionController
 		// Gruppenmitglieder-Liste holen
 		$mitgliederliste = User::gruppenmitgliederlisteholen($g_id); 
 		
-		/**
+		
 		$mitgliedschaft=array();
 		
 		foreach ($mitgliederliste as $mitglied) {
@@ -33,13 +33,14 @@ class GroupshowController extends AbstractActionController
 				$mitgliedschaft[]=$mitglied;
 			}
 		}
-		*/
+		
 		
 		// $gruppenmitgliedliste=Gruppenmitglied::gruppelisteholen($g_id);
 		
 		return new ViewModel([
 			'gruppe' => array($gruppe),
 			'mitgliederListe' => $mitgliederliste,
+			'mitgliedschaft' => $mitgliedschaft
 			// 'gruppenmitgliedListe' =>$gruppenmitgliedliste
 		]);
 		
