@@ -54,7 +54,7 @@ class FileController extends AbstractActionController {
 						'msg' => $msg
 				]);
 					
-				$view->setTemplate('application/groupedit/groupedit.phtml');
+				$view->setTemplate('application/groupshow/groupshow.phtml');
 				
 				return $view;
 
