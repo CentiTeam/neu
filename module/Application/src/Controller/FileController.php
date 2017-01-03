@@ -53,6 +53,7 @@ class FileController extends AbstractActionController {
 						'gruppenListe'=>$gruppenliste
 				]);
 					
+				
 				$view->setTemplate('application/groupoverview/groupoverview.phtml');
 				
 				return $view;
