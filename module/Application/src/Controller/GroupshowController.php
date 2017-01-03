@@ -27,11 +27,11 @@ class GroupshowController extends AbstractActionController
 		$mitgliedschaft=array();
 		
 		foreach ($mitgliederliste as $mitglied) {
-			
+			echo "Test";
 			if ($u_id == $mitglied->getU_id()) {
 				
 				$mitgliedschaft[]=$mitglied;
-				echo "Test";
+				
 			}
 		}
 		
