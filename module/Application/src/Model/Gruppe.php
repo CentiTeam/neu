@@ -125,17 +125,16 @@ class Gruppe {
 	}
 	
 	
-	public static function eigenelisteHolen() {
+	public static function eigenelisteHolen($user_id) {
 	
 		// Liste initialisieren
 		$gruppeListe = array ();
-		$u_id=$_SESSION['u_id'];
-		var_dump($u_id);
+		
 		$db = new DB_connection();
 	
 		$query="SELECT * FROM `gruppe` 
 				LEFT JOIN gruppenmitglied ON (gruppe.g_id=gruppenmitglied.g_id) 
-				WHERE u_id= '".$u_id."' ";
+				WHERE u_id= '".$user_id."' ";
 	
 		// Wenn die Datenbankabfrage erfolgreich ausgeführt worden ist
 		if ($result = $db->execute($query)) {
