@@ -8,7 +8,7 @@ use Application\Model\Gruppe;
 use Application\Model\User;
 
 
-#TODO Gruppenmitglied-Objekt mitladen
+#TODO Gruppenmitglied-Objekt mitladen, um Admin-Rechte anzuzeigen
 
 class GroupshowController extends AbstractActionController
 {
