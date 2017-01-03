@@ -41,7 +41,7 @@ class Gruppenmitglied {
 		$dbStmt = new DB_connection();
 	
 		// DB-Befehl absetzen: alle Basisinformationen des Teams mit der �bergebenen $t_id abfragen
-		$result=$dbStmt->execute("SELECT * FROM gruppe WHERE g_id= '".$g_id."' AND u_id= '".$u_id."';");
+		$result=$dbStmt->execute("SELECT * FROM gruppenmitglied WHERE g_id= '".$g_id."' AND u_id= '".$u_id."';");
 
 		// Variable, die speichert, ob das Team geladen werden konnte oder nicht
 		$isLoaded=false;
