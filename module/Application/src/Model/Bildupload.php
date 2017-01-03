@@ -5,7 +5,7 @@ class Bildupload
 {
 	private $upload_folder    			= "public/img/";	
 	private $allowed_extensions			= array("png", "jpg", "jpeg", "gif");
-	private $max_size					= 2048*2048;
+	private $max_size					= 2*1024*1024;
 	private $allowed_types				= array(IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_GIF);
 	private $img_folder					= "/img/";
 
