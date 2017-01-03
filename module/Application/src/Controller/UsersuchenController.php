@@ -15,7 +15,13 @@ class UsersuchenController extends AbstractActionController
 	public function usersuchenAction()
 	{
 
-		
+		if ($_REQUEST['username']) {
+				
+				
+			// Werte aus Formular einlesen
+				
+			$username = $_REQUEST ["username"];
+				
 
 		$liste = User::suchlisteHolen();
 
@@ -24,5 +30,5 @@ class UsersuchenController extends AbstractActionController
 		]);
 
 
-	}
+		}}
 }
