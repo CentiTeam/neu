@@ -151,6 +151,7 @@ class User
 	}
 	
 	
+	
 	public static function suchlisteHolen($username) {
 	
 		// Liste initialisieren
