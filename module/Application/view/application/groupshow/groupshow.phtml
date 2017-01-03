@@ -2,9 +2,12 @@
 
 <h1>Gruppen&uumlbersicht</h1>
 
-<div class=><img src =<?=$gruppe[0]->getGruppenbildpfad()?> height = "100" width = "100" alt = "Kein Bild vorhanden"></div> 
-<div class=>Gruppenname: <?=$gruppe[0]->getGruppenname()?></div>
-<div class=>Beschreibung: <?=$gruppe[0]->getGruppenbeschreibung()?></div>
+<div class=>
+<table>
+<tr><td>Gruppenname: <?=$gruppe[0]->getGruppenname()?></td><td rowspan=2><img src =<?=$gruppe[0]->getGruppenbildpfad()?> height = "100" width = "100" alt = "Kein Bild vorhanden"></td></tr>
+<tr><td>Beschreibung: <?=$gruppe[0]->getGruppenbeschreibung()?></td></tr>
+</table>
+</div>
 
 
 <div>Hierhin kommt das interne Message-Board einer Gruppe </div>
