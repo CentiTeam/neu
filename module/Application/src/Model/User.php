@@ -158,7 +158,7 @@ class User
 		$db = new DB_connection();
 	
 		$query="SELECT * FROM `User`
-				LEFT JOIN gruppenmitglied ON (User.g_id=gruppenmitglied.u_id)
+				LEFT JOIN gruppenmitglied ON (User.u_id=gruppenmitglied.u_id)
 				WHERE gruppenmitglied.g_id= '".$gruppen_id."' ";
 	
 		// Wenn die Datenbankabfrage erfolgreich ausgeführt worden ist
