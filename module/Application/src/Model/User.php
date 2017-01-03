@@ -153,7 +153,7 @@ class User
 	public static function gruppenmitgliederlisteHolen($gruppen_id) {
 	
 		// Liste initialisieren
-		$gruppeListe = array ();
+		$userListe = array ();
 	
 		$db = new DB_connection();
 	
@@ -168,17 +168,17 @@ class User
 			while ($row = mysqli_fetch_array($result)) {
 					
 				// neues Model erzeugen
-				$model = new Gruppe();
+				$model = new User();
 	
 				// Model anhand der Nummer aus der Datenbankabfrage laden
-				$model->laden($row["g_id"]);
+				$model->laden($row["u_id"]);
 	
 				// neues Model ans Ende des $gruppeListe-Arrays anfï¿½gen
-				$gruppeListe[] = $model;
+				$userListe[] = $model;
 			}
 	
 			// fertige Liste von Gruppe-Objekten zurï¿½ckgeben
-			return $gruppeListe;
+			return $userListe;
 		}
 	}
 	
