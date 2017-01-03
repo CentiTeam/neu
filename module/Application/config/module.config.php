@@ -95,6 +95,18 @@ return [
         			],
         	],
         		
+        		
+        		
+        		'usersuchen' => [
+        				'type'    => Segment::class,
+        				'options' => [
+        						'route'    => '/usersuchen[/:action]',
+        						'defaults' => [
+        								'controller' => Controller\UsersuchenController::class,
+        								'action'     => 'usersuchen',
+        						],
+        				],
+        		],
         	
         		'registrieren' => [
         				'type'    => Segment::class,
@@ -280,6 +292,8 @@ return [
         	Controller\BenutzerreaktivierenController::class => InvokableFactory::class,
         	Controller\KategorieanlegenController::class => InvokableFactory::class,
         	Controller\KategorieeditController::class => InvokableFactory::class,
+        	Controller\UsersuchenController::class => InvokableFactory::class,
+        		
         		
         		
 

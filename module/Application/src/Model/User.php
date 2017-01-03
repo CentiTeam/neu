@@ -151,6 +151,36 @@ class User
 	}
 	
 	
+	public static function suchlisteHolen($username) {
+	
+		// Liste initialisieren
+		$userListe = array ();
+	
+		$db = new DB_connection();
+	
+		$query="SELECT u_id FROM User WHERE systemadmin = 0 AND username LIKE %$username%";
+	
+		// Wenn die Datenbankabfrage erfolgreich ausgeführt worden ist
+		if ($result = $db->execute($query)) {
+	
+			// Ergebnis Zeile fï¿½r Zeile verarbeiten
+			while ($row = mysqli_fetch_array($result)) {
+					
+				// neues Model erzeugen
+				$model = new User();
+	
+				// Model anhand der Nummer aus der Datenbankabfrage laden
+				$model->laden($row["u_id"]);
+	
+				// neues Model ans Ende des $userListe-Arrays anfï¿½gen
+				$userListe[] = $model;
+			}
+	
+			// fertige Liste von User-Objekten zurï¿½ckgeben
+			return $userListe;
+		}
+	}
+	
 	
 	/**
 	 * Lï¿½dt einen User
