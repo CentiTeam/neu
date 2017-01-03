@@ -7,7 +7,7 @@ use Zend\View\Model\ViewModel;
 use Application\Model\Gruppe;
 use Application\Model\User;
 use Application\Model\Gruppenmitglied;
-
+use Application\Model\Bildupload;
 
 class GruppeanlegenController extends AbstractActionController {
 
