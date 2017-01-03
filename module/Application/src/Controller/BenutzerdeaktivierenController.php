@@ -21,7 +21,7 @@ class BenutzerdeaktivierenController extends AbstractActionController{
 		
 		
 		// wenn die Aktion abgebrochen werden soll
-		if ($_REQUEST['abbrechen']) {
+		if ($_REQUEST['nein']) {
 		
 			$userliste=User::listeholen();
 		
