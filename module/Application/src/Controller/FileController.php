@@ -40,10 +40,13 @@ class FileController extends AbstractActionController {
 					
 				// Schritt 1:  Werte aus Formular einlesen
 				$uploadedfile=$_REQUEST["uploadedfile"];
-
+				
+				//Bilddatei an die Funktion Bildupload übergeben, Rückgabe des Bildpfades
+				$path = $bildupload->bildupload($uploadedfile);
+				
+				$g_id=$_REQUEST["g_id"];
 				
 				
-				$result = $bildupload->bildupload($uploadedfile);
 
 				}
 
