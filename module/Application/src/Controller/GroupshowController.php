@@ -6,6 +6,7 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Model\Gruppe;
 use Application\Model\User;
+use Application\Controller\Gruppenmitglied;
 
 
 #TODO Gruppenmitglied-Objekt mitladen, um Admin-Rechte anzuzeigen
