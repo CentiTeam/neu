@@ -155,7 +155,7 @@ class User
 	public static function suchlisteHolen($username) {
 	
 		// Liste initialisieren
-		$userListe = array ();
+		$suchuserListe = array ();
 	
 		$db = new DB_connection();
 		$username = $_REQUEST ["username"];
@@ -175,11 +175,11 @@ class User
 				$model->laden($row["u_id"]);
 	
 				// neues Model ans Ende des $userListe-Arrays anfï¿½gen
-				$userListe[] = $model;
+				$suchuserListe[] = $model;
 			}
 	
 			// fertige Liste von User-Objekten zurï¿½ckgeben
-			return $userListe;
+			return $suchuserListe;
 		}
 	}
 	
