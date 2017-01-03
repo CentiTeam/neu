@@ -14,6 +14,7 @@ class GroupoverviewController extends AbstractActionController
 {
 	public function groupoverviewAction()
 	{
+		$user = new User();
 		session_start();
 		
 		$user_id=$_SESSION['u_id'];
