@@ -42,7 +42,7 @@ class GroupshowController extends AbstractActionController
 			}
 		}
 		
-		
+		var_dump($mitgliedschaft);
 		// $gruppenmitgliedliste=Gruppenmitglied::gruppelisteholen($g_id);
 		
 		return new ViewModel([
