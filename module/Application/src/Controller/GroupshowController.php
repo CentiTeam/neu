@@ -21,14 +21,14 @@ class GroupshowController extends AbstractActionController
 		$gruppe->laden($g_id);
 		
 		// Gruppenmitglieder-Liste holen
-		$mitgliederliste = User::gruppenmitgliederlisteholen($g_id); 
+		$mitgliederliste = User::gruppenmitgliederlisteholen($u_id); 
 		
 		
 		$mitgliedschaft=array();
 		
 		foreach ($mitgliederliste as $mitglied) {
 			
-			if ($g_id == $mitglied->getG_id()) {
+			if ($u_id == $mitglied->getU_id()) {
 				
 				$mitgliedschaft[]=$mitglied;
 			}
