@@ -16,7 +16,7 @@ class GroupoverviewController extends AbstractActionController
 	{
 		session_start();
 		
-		$gruppenliste = Gruppe::listeHolen();
+		$gruppenliste = Gruppe::eigenelisteHolen();
 		
 		$mitgliederliste = Gruppenmitglied::listeHolen();
 		
