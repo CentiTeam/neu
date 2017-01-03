@@ -150,6 +150,38 @@ class User
 		}
 	}
 	
+	public static function gruppenmitgliederlisteHolen($gruppen_id) {
+	
+		// Liste initialisieren
+		$gruppeListe = array ();
+	
+		$db = new DB_connection();
+	
+		$query="SELECT * FROM `User`
+				LEFT JOIN gruppenmitglied ON (User.g_id=gruppenmitglied.u_id)
+				WHERE gruppenmitglied.g_id= '".$gruppen_id."' ";
+	
+		// Wenn die Datenbankabfrage erfolgreich ausgeführt worden ist
+		if ($result = $db->execute($query)) {
+	
+			// Ergebnis Zeile fï¿½r Zeile verarbeiten
+			while ($row = mysqli_fetch_array($result)) {
+					
+				// neues Model erzeugen
+				$model = new Gruppe();
+	
+				// Model anhand der Nummer aus der Datenbankabfrage laden
+				$model->laden($row["g_id"]);
+	
+				// neues Model ans Ende des $gruppeListe-Arrays anfï¿½gen
+				$gruppeListe[] = $model;
+			}
+	
+			// fertige Liste von Gruppe-Objekten zurï¿½ckgeben
+			return $gruppeListe;
+		}
+	}
+	
 	
 	
 	public static function suchlisteHolen($username) {
