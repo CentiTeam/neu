@@ -18,7 +18,6 @@ class GroupeditController extends AbstractActionController {
 		if($_SESSION['angemeldet'] != 'ja') {
 				
 			array_push($errors, "Sie müssen angemeldet sein um eine Gruppe zu bearbeiten!");
-			echo "TEst";	
 			$view = new ViewModel(array(
 					$errors
 			));
