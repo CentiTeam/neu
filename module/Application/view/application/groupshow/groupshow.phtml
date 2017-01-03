@@ -43,7 +43,7 @@ use Application\Model\Gruppenmitglied;
 				foreach ($mitgliedschaft as $counter => $infos) {
 				 if ($mitglied->getU_id() == $infos->getU_id() ) {
 					echo $infos->getGruppenadmin();
-					if ($infos->getGruppenadmin()==1) { 
+					if ($infos->getGruppenadmin()=="1") { 
 					?>
 					<td>ja</td>
 					<?php 	} else {
