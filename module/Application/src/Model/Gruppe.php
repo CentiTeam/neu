@@ -130,7 +130,7 @@ class Gruppe {
 		// Liste initialisieren
 		$gruppeListe = array ();
 		$u_id=$_SESSION['u_id'];
-		
+		var_dump($u_id);
 		$db = new DB_connection();
 	
 		$query="SELECT * FROM `gruppe` 
