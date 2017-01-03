@@ -15,19 +15,13 @@ class UsersuchenController extends AbstractActionController
 	public function usersuchenAction()
 	{
 
-		if ($_REQUEST['username']) {
-				
-				
-			// Werte aus Formular einlesen
-				
-			$username = $_REQUEST ["username"];
-			$user->suchlisteHolen();
-				
+
+		$liste = User::suchlisteHolen();
 
 		return new ViewModel([
 				'userListe' => $liste,
 		]);
 
 
-		}}
+	}
 }
