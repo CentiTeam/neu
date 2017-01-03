@@ -161,8 +161,6 @@ class User
 	
 		$query="SELECT u_id FROM User WHERE systemadmin = 0 AND username LIKE '".$username."';"; 
 		echo "$username";
-		echo "hallo";
-	
 		// Wenn die Datenbankabfrage erfolgreich ausgeführt worden ist
 		if ($result = $db->execute($query)) {
 	
