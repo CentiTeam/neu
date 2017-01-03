@@ -133,7 +133,7 @@ class Gruppe {
 		$db = new DB_connection();
 	
 		$query="SELECT * FROM `gruppe`
-				LEFT JOIN gruppenmitglied ON (gruppe.g_id=gruppenmitglied.g_id)
+				RIGHT JOIN gruppenmitglied ON (gruppe.g_id=gruppenmitglied.g_id)
 				WHERE gruppe.g_id= '".$gruppen_id."' ";
 	
 		// Wenn die Datenbankabfrage erfolgreich ausgeführt worden ist
