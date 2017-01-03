@@ -36,6 +36,7 @@ class Kategorie {
 		$result = $db->execute($query);
 	
 		return $result;
+		
 		}
 		
 		// Ist der Name schon vorhanden, muss ein anderer Name verwendet werden
