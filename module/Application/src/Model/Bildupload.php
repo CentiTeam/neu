@@ -55,7 +55,7 @@ class Bildupload
 		
 		}
 		
-		//TODO Hier steckt der Wurm drin -> Verflixtes move_uploaded_file
+		//Das Bild wird in den Ordner Bilder mit absoluten Pfad verschoben, der relative Pfad wird zurückgegeben
 		if (move_uploaded_file($_FILES["uploadedfile"]["tmp_name"], $new_path))
 		{	
 			echo 'Bild erfolgreich hochgeladen: <a href="'.$path.'">'.$path.'</a>';
