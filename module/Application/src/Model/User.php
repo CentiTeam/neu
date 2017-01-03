@@ -188,6 +188,25 @@ class User
 		return $isLoaded;
 	}
 	
+	//Methode um Benutzer in Datenbank und im Objekt selbst zu deaktivieren
+	public function deaktivieren(){
+		
+		$this->deaktiviert = 1;
+		
+		$db = new DB_connection();
+		
+		$query = "UPDATE User SET
+				deaktiviert = '".$this->kategoriebeschreibung."'
+				WHERE u_id = '".$this->u_id."'
+			
+						";
+		
+		$result = $db->execute($query);
+		
+		return $result;
+	
+	}
+	
 	
 
 	
