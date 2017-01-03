@@ -79,15 +79,16 @@ class Gruppe {
 		return $result;
 	}
 	
-	public static function bild($g_id) {
+	public static function bild($path, $g_id) {
 		
 		// Datenbankstatement erzeugen
 		$db = new DB_connection();
 		
 		$query = "UPDATE gruppe SET
-				gruppenbildpfad = '".$this->gruppenbildpfad."'
+				gruppenbildpfad = '".$path."'
 				WHERE g_id = '".$g_id."'
 				";
+		
 		
 		$result = $db->execute($query);
 		
