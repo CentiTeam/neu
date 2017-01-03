@@ -47,8 +47,10 @@ class FileController extends AbstractActionController {
 				$g_id=$_REQUEST["g_id"]; 
 				
 				$result = Gruppe::bild($path, $g_id);
+				$gruppenliste = Gruppe::listeholen();
 				
 				$view = new ViewModel([
+						'gruppenListe'=>$gruppenliste
 				]);
 					
 				$view->setTemplate('application/groupoverview/groupoverview.phtml');
