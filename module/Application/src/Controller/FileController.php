@@ -50,6 +50,8 @@ class FileController extends AbstractActionController {
 				
 				$view = new ViewModel([
 						'gruppe' => array($gruppe),
+						'errors'   => $errors,
+						'msg' => $msg
 				]);
 					
 				$view->setTemplate('application/groupoverview/groupoverview.phtml');
@@ -60,6 +62,7 @@ class FileController extends AbstractActionController {
 
 				return new ViewModel([
 						'gruppe' => array($gruppe),
+						'msg' => $msg
 				]);
 				
 				 
