@@ -46,6 +46,8 @@ class FileController extends AbstractActionController {
 				
 				$g_id=$_REQUEST["g_id"]; 
 				
+				$gruppe = new Gruppe();
+				
 				$result = $Gruppe->bild($path, $g_id);
 
 				}
