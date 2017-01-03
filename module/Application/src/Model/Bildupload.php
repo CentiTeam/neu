@@ -38,15 +38,17 @@ class Bildupload
 		$upload_folder = $this->upload_folder;
 		
 		//Pfad zusammensetzen
-		$new_path = $upload_folder.$filename.'.'.$extension;
-
+		$new_path = $this->upload_folder.$filename.'.'.$extension;
+		$path = $this->img_folder.$filename.'.'.$extension;
+		
 		//Falls Dateiname bereits vorhanden, Erweiterung des Pfades um nächsthöhere Nummer
 		if(file_exists($new_path))
 		{
 			$id = 1;
 			do 
 			{
-				$new_path = $upload_folder.$filename.'_'.$id.'.'.$extension;
+				$new_path = $this->upload_folder.$filename.'_'.$id.'.'.$extension;
+				$path = $this->img_folder.$filename.'_'.$id.'.'.$extension;
 				$id++;
 			} while(file_exists($new_path));
 			
@@ -55,12 +57,7 @@ class Bildupload
 		
 		//TODO Hier steckt der Wurm drin -> Verflixtes move_uploaded_file
 		if (move_uploaded_file($_FILES["uploadedfile"]["tmp_name"], $new_path))
-		{
-			
-			$new_filename = pathinfo($_FILES["new_path"]["name"], PATHINFO_FILENAME);
-			$new_extension = strtolower(pathinfo($_FILES["new_path"]["name"], PATHINFO_EXTENSION));
-			$path = $this->img_folder.$filename.'.'.$extension;
-			
+		{	
 			echo 'Bild erfolgreich hochgeladen: <a href="'.$path.'">'.$path.'</a>';
 			return $path;
 		}
