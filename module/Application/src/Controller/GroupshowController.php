@@ -31,6 +31,7 @@ class GroupshowController extends AbstractActionController
 			if ($u_id == $mitglied->getU_id()) {
 				
 				$mitgliedschaft[]=$mitglied;
+				echo "Test";
 			}
 		}
 		
