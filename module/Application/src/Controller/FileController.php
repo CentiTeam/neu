@@ -51,7 +51,7 @@ class FileController extends AbstractActionController {
 				$view = new ViewModel([
 				]);
 					
-				$view->setTemplate('application/index/index.phtml');
+				$view->setTemplate('application/groupoverview/groupoverview.phtml');
 				
 				return $view;
 
