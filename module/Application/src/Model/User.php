@@ -196,7 +196,7 @@ class User
 		$db = new DB_connection();
 		
 		$query = "UPDATE User SET
-				deaktiviert = '".$this->kategoriebeschreibung."'
+				deaktiviert = '".$this->deaktiviert."'
 				WHERE u_id = '".$this->u_id."'
 			
 						";
