@@ -29,8 +29,9 @@ use Application\Model\Gruppenmitglied;
 	</tr>
 	
 	<?php 
+	foreach ($mitgliedschaft as $counter => $infos) {
 	foreach ($mitgliederListe as $zaehler => $mitglied) {
-		foreach ($mitgliedschaft as $counter => $infos) {
+		
 		?>
 
 		<tr>
