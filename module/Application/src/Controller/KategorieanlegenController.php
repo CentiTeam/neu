@@ -62,9 +62,9 @@ class KategorieanlegenController extends AbstractActionController {
 				 // Neue K_id durch Laden der neu erstellten Gruppe ins Objekt laden
 				 $kategorie->laden();
 				}	 	
-				
-			}
-		}
+			
+			
+	
 			//	} elseif ($errorStr == "") {
 
 			//	 // array_push($msg, "Datenpr�fung in Ordnung, Fehler beim Speichern der Gruppe!");
@@ -79,17 +79,17 @@ class KategorieanlegenController extends AbstractActionController {
 
 			//	}
 			//		
-			//	$view = new ViewModel([
-			//			'kategorie' => array($kategorie),
-			//			'errors'   => $errors,
-			//			'msg' => $msg
-			//	]);
-			//		
-			//	$view->setTemplate('application/kategorien/kategorien.phtml');
+				$view = new ViewModel([
+						'kategorie' => array($kategorie),
+						'errors'   => $errors,
+						'msg' => $msg
+				]);
+					
+				$view->setTemplate('application/kategorien/kategorien.phtml');
 
-			//	return $view;
-			//}
-		//}
+				return $view;
+			}
+		}
 
 
 		return new ViewModel([
