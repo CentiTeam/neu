@@ -175,6 +175,7 @@ class User
 			$this->username=$row["username"];
 			$this->vorname=$row["vorname"];
 			$this->nachname=$row["nachname"];
+			$this->passwort=$row["passwort"];
 			$this->email=$row["email"];
 			$this->nachname=$row["nachname"];
 			$this->deaktiviert=$row["deaktiviert"];
