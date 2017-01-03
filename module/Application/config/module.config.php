@@ -72,6 +72,17 @@ return [
         			],
         	],
         		
+        	'benutzerdeaktivieren' => [
+        			'type'    => Segment::class,
+        			'options' => [
+        					'route'    => '/benutzerreaktivieren[/:action]',
+        					'defaults' => [
+        							'controller' => Controller\BenutzerreaktivierenController::class,
+        							'action'     => 'benutzerreaktivieren',
+        					],
+        			],
+        	],
+        		
         		
         	'benutzertabelle' => [
         			'type'    => Segment::class,
@@ -266,6 +277,7 @@ return [
         	Controller\BenutzertabelleController::class => InvokableFactory::class,
         	Controller\KategorienController::class => InvokableFactory::class,
         	Controller\BenutzerdeaktivierenController::class => InvokableFactory::class,
+        	Controller\BenutzerreaktivierenController::class => InvokableFactory::class,
         	Controller\KategorieanlegenController::class => InvokableFactory::class,
         	Controller\KategorieeditController::class => InvokableFactory::class,
         		
