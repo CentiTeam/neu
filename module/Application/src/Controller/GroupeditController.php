@@ -45,12 +45,12 @@ class GroupeditController extends AbstractActionController {
 				$gruppenbeschreibung=$_REQUEST["gruppenbeschreibung"];
 				
 				echo "Request-Pfad:";
-				var_dump($_REQUEST["gruppenbildpfad"]);
+				print_r ( $_FILES );
 				
-				//if ($_REQUEST["uploadedfile"]) == null) {
-					//$path=$gruppe->getGruppenbildpfad();
-				//}
-				//else {
+				if ($_REQUEST["uploadedfile"] == "") {
+					$path=$gruppe->getGruppenbildpfad();
+				}
+				else {
 					
 					$bildupload = new Bildupload();
 					
@@ -80,7 +80,7 @@ class GroupeditController extends AbstractActionController {
 					
 						return $view;
 					}
-				//}
+				}
 
 
 				// Schritt 2: Daten pr�fen und Fehler in Array füllen
