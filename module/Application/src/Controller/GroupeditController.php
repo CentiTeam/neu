@@ -47,7 +47,7 @@ class GroupeditController extends AbstractActionController {
 				echo "Request-Pfad:";
 				print_r ( $_FILES );
 				
-				if ($_REQUEST["uploadedfile"] == "") {
+				if ($_FILES -> uploadedfile == NULL) {
 					$path=$gruppe->getGruppenbildpfad();
 				}
 				else {
