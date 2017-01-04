@@ -5,6 +5,7 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Model\Gruppe;
+use Application\Model\Bildupload;
 
 
 class GroupeditController extends AbstractActionController {
@@ -46,10 +47,10 @@ class GroupeditController extends AbstractActionController {
 				echo "Request-Pfad:";
 				var_dump($_REQUEST["gruppenbildpfad"]);
 				
-				if (!isset($_REQUEST["gruppenbildpfad"])) {
-					$path=$gruppe->getGruppenbildpfad();
-				}
-				else {
+				//if ($_REQUEST["uploadedfile"]) == null) {
+					//$path=$gruppe->getGruppenbildpfad();
+				//}
+				//else {
 					
 					$bildupload = new Bildupload();
 					
@@ -79,7 +80,7 @@ class GroupeditController extends AbstractActionController {
 					
 						return $view;
 					}
-				}
+				//}
 
 
 				// Schritt 2: Daten pr�fen und Fehler in Array füllen
