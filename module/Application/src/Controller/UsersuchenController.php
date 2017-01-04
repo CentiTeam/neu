@@ -33,8 +33,10 @@ class UsersuchenController extends AbstractActionController
 			
 			$g_id= $_REQUEST["g_id"];
 			
-			var_dump($g_id);
+			
 			$liste = User::gruppensuchlisteHolen($suche, $g_id);
+			
+			var_dump($liste);
 			
 			$view = new ViewModel([
 					'suchuserListe' => $liste,
