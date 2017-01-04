@@ -52,7 +52,7 @@ class GruppeanlegenController extends AbstractActionController {
 				
 				//Bilddatei an die Funktion Bildupload übergeben, Rückgabe des Bildpfades
 				$path = $bildupload->bildupload($uploadedfile);
-				var_dump($path);
+				
 				// Schritt 2: Daten prï¿½fen und Fehler in Array fÃ¼llen
 				$errorStr ="";
 				$msg="";
@@ -74,7 +74,7 @@ class GruppeanlegenController extends AbstractActionController {
 				 	}
 				 	
 				 // array_push($msg, "Gruppe erfolgreich gespeichert!");
-				 $msg .= "Gruppe erfolgreich gespeichert!";
+				 //  $msg .= "Gruppe erfolgreich gespeichert!";
 				 $saved = true;
 				 
 				 // Neue G_id durch Laden der neu erstellten Gruppe ins Objekt laden
@@ -106,10 +106,36 @@ class GruppeanlegenController extends AbstractActionController {
 
 				 }
 				 
+				 
+				 // Liste der User-Objekte der Gruppenmitglieder holen
+				 $mitgliederliste = User::gruppenmitgliederlisteholen($g_id);
+				 
+				 
+				 $mitgliedschaft=array();
+				 
+				 // Für jedes Gruppenmitglied mit die Gruppenmitgliedschafts-Infos (inkl. Gruppenadmin) laden
+				 // und Mitgliedschaftsinfos in Array speichern, wenn Gruppenmitgliedschaft besteht
+				 foreach ($mitgliederliste as $mitglied) {
+				 		
+				 	// Gruppenmitglied instanzieren
+				 	$gruppenmitglied= new Gruppenmitglied();
+				 	$gruppenmitglied->laden ($g_id, $mitglied->getU_id());
+				 		
+				 	// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter befüllt
+				 	if ($gruppenmitglied->getU_id() == $mitglied->getU_id()) {
+				 
+				 		$mitgliedschaft[]=$gruppenmitglied;
+				 
+				 	}
+				 }
+				 
+				 
 				 $view = new ViewModel([
 				 		'gruppe' => array($gruppe),
 				 		'errors'   => $errors,
-				 		'msg' => $msg
+				 		'msg' => $msg,
+				 		'mitgliederListe' => $mitgliederliste,
+				 		'mitgliedschaft' => $mitgliedschaft
 				 ]);
 				 
 				 $view->setTemplate('application/groupshow/groupshow.phtml');
