@@ -13,6 +13,7 @@ class GroupdeleteController extends AbstractActionController
 
 	public function groupdeleteAction() {
 		
+		session_start();
 		/** Prüfen, ob Gruppenmitglied
 		if (User::getInstance ()->getTeam()->getBezeichnung() != "Personal") {
 			return "<div class='error'>Nicht berechtigt!</div>";
@@ -78,36 +79,13 @@ class GroupdeleteController extends AbstractActionController
 			]);
 		}
 		
-		//$gruppenliste=Gruppe::listeholen();
+		$user_id=$_SESSION['user']->getU_id();
 		
-		// Liste der User-Objekte der Gruppenmitglieder holen
-		$mitgliederliste = User::gruppenmitgliederlisteholen($g_id);
-		
-		
-		$mitgliedschaft=array();
-		
-		// Für jedes Gruppenmitglied mit die Gruppenmitgliedschafts-Infos (inkl. Gruppenadmin) laden
-		// und Mitgliedschaftsinfos in Array speichern, wenn Gruppenmitgliedschaft besteht
-		foreach ($mitgliederliste as $mitglied) {
-				
-			// Gruppenmitglied instanzieren
-			$gruppenmitglied= new Gruppenmitglied();
-			$gruppenmitglied->laden ($g_id, $mitglied->getU_id());
-				
-			// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter befüllt
-			if ($gruppenmitglied->getU_id() == $mitglied->getU_id()) {
-		
-				$mitgliedschaft[]=$gruppenmitglied;
-		
-			}
-		}
-		
+		$gruppenliste=Gruppe::eigenelisteholen($user_id);
 		
 		
 		$view = new ViewModel([
-				//'gruppenListe' => $gruppenliste,
-				'mitgliederListe' => $mitgliederliste,
-				'mitgliedschaft' => $mitgliedschaft,
+				'gruppenListe' => $gruppenliste,
 				'msg' => $msg
 		]);
 		
