@@ -228,7 +228,7 @@ class User
 	
 		$db = new DB_connection();
 			
-	
+		/**
 		$query="SELECT u_id FROM User WHERE systemadmin = 0
 		AND username LIKE '%$suche%'
 		OR vorname LIKE '%$suche%'
@@ -236,6 +236,18 @@ class User
 		OR email LIKE '%$suche%'
 		AND u_id NOT IN (SELECT u_id FROM gruppenmitglied WHERE g_id = '".$gruppen_id."')
 		;";
+		*/
+		
+		$query = "SELECT DISTINCT u_id, vorname FROM User
+				JOIN gruppenmitglied USING (u_id)
+				WHERE systemadmin = 0
+				AND username LIKE '%a%'
+					OR vorname LIKE '%a%'
+					OR nachname LIKE '%a%'
+					OR email LIKE '%a%'
+				AND u_id NOT IN 
+					(SELECT u_id FROM gruppenmitglied WHERE u_id = User.u_id AND g_id='".$gruppen_id."')
+				;";
 	
 		// Wenn die Datenbankabfrage erfolgreich ausgeführt worden ist
 		if ($result = $db->execute($query)) {
