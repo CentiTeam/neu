@@ -76,27 +76,27 @@ class GruppeanlegenController extends AbstractActionController {
 				$gruppe->setGruppenname($gruppenname);
 				$gruppe->setGruppenbeschreibung($gruppenbeschreibung);
 				
+				// Gruppenbildpfad setzen oder auch nicht
+				
+				// Wenn kein Bild hochgeladen werden soll
 				if ($_FILES["uploadedfile"]["name"] == NULL) {
 					$path= "";
 					$gruppe->setGruppenbildpfad($path);
+				// Wenn es einen Fehler/Problem beim Upload gibt
 				} elseif ($path==false) {
 					
 					return new ViewModel([
 							'gruppe' => array($gruppe),
 							'msg' => $msg
 					]);
+				// Wenn man ein Bild hochladen will und es keine Fehlermeldungen beim Upload gibt
 				} else {
 					$gruppe->setGruppenbildpfad($path);
 				}
 				
-				
-				
-				
+			
+				// Wenn temporäres Objekt gefüllt wurde kann mit diesen Werten das Objekt über die anlegen-Fkt in die DB geschrieben werden
 				 if ($errorStr == "" && $gruppe->anlegen()) {
-				 
-				 	//if ($path!=false) {
-				 		//$result = Gruppe::bild($path, $g_id);
-				 //	}
 				 	
 				 // array_push($msg, "Gruppe erfolgreich gespeichert!");
 				 //  $msg .= "Gruppe erfolgreich gespeichert!";
