@@ -28,7 +28,7 @@ class UsersuchenController extends AbstractActionController
 		}
 		
 		else {
-			
+			return  "normalerr Teilnehmer";
 		}
 
 
