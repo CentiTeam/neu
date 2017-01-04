@@ -221,6 +221,43 @@ class User
 	}
 	
 	
+	public static function gruppensuchlisteHolen($suche, $gruppen_id) {
+	
+		// Liste initialisieren
+		$gruppensuchuserListe = array ();
+	
+		$db = new DB_connection();
+			
+	
+		$query="SELECT u_id FROM User WHERE systemadmin = 0
+		AND username LIKE '%$suche%'
+		OR vorname LIKE '%$suche%'
+		OR nachname LIKE '%$suche%'
+		OR email LIKE '%$suche%'
+		AND u_id NOT IN (SELECT u_id FROM gruppenmitglied WHERE g_id = '".$gruppen_id."')
+		;";
+	
+		// Wenn die Datenbankabfrage erfolgreich ausgeführt worden ist
+		if ($result = $db->execute($query)) {
+	
+			// Ergebnis Zeile fï¿½r Zeile verarbeiten
+			while ($row = mysqli_fetch_array($result)) {
+					
+				// neues Model erzeugen
+				$model = new User();
+	
+				// Model anhand der Nummer aus der Datenbankabfrage laden
+				$model->laden($row["u_id"]);
+	
+				// neues Model ans Ende des $userListe-Arrays anfï¿½gen
+				$gruppensuchuserListe[] = $model;
+			}
+	
+			// fertige Liste von User-Objekten zurï¿½ckgeben
+			return $gruppensuchuserListe;
+		}
+	}
+	
 	/**
 	 * Lï¿½dt einen User
 	 *
