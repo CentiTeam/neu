@@ -7,6 +7,7 @@ use Zend\View\Model\ViewModel;
 use Application\Model\Gruppe;
 use Application\Model\User;
 use Application\Model\Gruppenmitglied;
+use Application\Model\Bildupload;
 
 
 class GruppeanlegenController extends AbstractActionController {
@@ -34,6 +35,7 @@ class GruppeanlegenController extends AbstractActionController {
 		} else {
 
 			$gruppe = new Gruppe();
+			$bildupload = new Bildupload();
 
 			$saved= false;
 			$msg = array();
@@ -45,8 +47,11 @@ class GruppeanlegenController extends AbstractActionController {
 				$g_id=$_REQUEST["g_id"];
 				$gruppenname=$_REQUEST["gruppenname"];
 				$gruppenbeschreibung=$_REQUEST["gruppenbeschreibung"];
-				$gruppenbildpfad=$_REQUEST["gruppenbildpfad"];
-
+	
+				$uploadedfile=$_REQUEST["uploadedfile"];
+				
+				//Bilddatei an die Funktion Bildupload übergeben, Rückgabe des Bildpfades
+				$path = $bildupload->bildupload($uploadedfile);
 
 				// Schritt 2: Daten prï¿½fen und Fehler in Array fÃ¼llen
 				$errorStr ="";
@@ -60,11 +65,14 @@ class GruppeanlegenController extends AbstractActionController {
 				$gruppe->setG_id($g_id);
 				$gruppe->setGruppenname($gruppenname);
 				$gruppe->setGruppenbeschreibung($gruppenbeschreibung);
-				$gruppe->setGruppenbildpfad($gruppenbildpfad);
 				
 				
 				 if ($errorStr == "" && $gruppe->anlegen()) {
-		
+				 
+				 	if ($path!=false) {
+				 		$result = Gruppe::bild($path, $g_id);
+				 	}
+				 	
 				 // array_push($msg, "Gruppe erfolgreich gespeichert!");
 				 $msg .= "Gruppe erfolgreich gespeichert!";
 				 $saved = true;

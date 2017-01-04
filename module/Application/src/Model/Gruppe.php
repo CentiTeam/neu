@@ -21,10 +21,9 @@ class Gruppe {
 		
 		$db = new DB_connection();
 		
-		$query = "INSERT INTO gruppe (gruppenname, gruppenbeschreibung, gruppenbildpfad) VALUES (
+		$query = "INSERT INTO gruppe (gruppenname, gruppenbeschreibung) VALUES (
 				'".$this->gruppenname."', 
-				'".$this->gruppenbeschreibung."',
-				'".$this->gruppenbildpfad."'
+				'".$this->gruppenbeschreibung."'
 				)" ;
 		
 		$result = $db->execute($query);
