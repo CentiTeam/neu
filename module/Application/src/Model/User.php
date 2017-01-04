@@ -238,7 +238,7 @@ class User
 						(SELECT u_id FROM User WHERE u_id NOT IN 
             	       		(SELECT u_id FROM gruppenmitglied 
                 	    		WHERE gruppenmitglied.u_id = User.u_id
-      							AND gruppenmitglied.g_id =1));";
+      							AND gruppenmitglied.g_id ='".$gruppen_id."'));";
 	
 		// Wenn die Datenbankabfrage erfolgreich ausgeführt worden ist
 		if ($result = $db->execute($query)) {
