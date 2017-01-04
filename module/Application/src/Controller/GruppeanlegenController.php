@@ -50,6 +50,8 @@ class GruppeanlegenController extends AbstractActionController {
 	
 				$uploadedfile=$_REQUEST["uploadedfile"];
 				
+				var_dump($uploadedfile);
+				
 				//Bilddatei an die Funktion Bildupload übergeben, Rückgabe des Bildpfades
 				$path = $bildupload->bildupload($uploadedfile);
 				
