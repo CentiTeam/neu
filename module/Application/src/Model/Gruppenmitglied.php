@@ -16,7 +16,7 @@ class Gruppenmitglied {
 	}
 	
 	
-	public function anlegen () {
+	public function anlegen () { 
 		
 		$db = new DB_connection();
 		
