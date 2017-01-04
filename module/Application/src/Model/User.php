@@ -227,17 +227,8 @@ class User
 		$gruppensuchuserListe = array ();
 	
 		$db = new DB_connection();
-			
-		/**
-		$query="SELECT u_id FROM User WHERE systemadmin = 0
-		AND username LIKE '%$suche%'
-		OR vorname LIKE '%$suche%'
-		OR nachname LIKE '%$suche%'
-		OR email LIKE '%$suche%'
-		AND u_id NOT IN (SELECT u_id FROM gruppenmitglied WHERE g_id = '".$gruppen_id."')
-		;";
-		*/
 		
+		// Alle User, die nicth Systemadmin sind, die nicht bereits Mitglied in der Gruppe sind und den Kriterien der Suche entsprechen
 		$query ="SELECT * FROM User WHERE systemadmin = 0
 					AND (username LIKE '%$suche%'
 						OR vorname LIKE '%$suche%'
