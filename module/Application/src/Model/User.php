@@ -234,12 +234,15 @@ class User
 						OR vorname LIKE '%$suche%'
 						OR nachname LIKE '%$suche%'
 						OR email LIKE '%$suche%')
-    	  			AND u_id IN 
-						(SELECT u_id FROM User WHERE u_id NOT IN 
-            	       		(SELECT u_id FROM gruppenmitglied 
-                	    		WHERE gruppenmitglied.u_id = User.u_id
-      							AND gruppenmitglied.g_id ='".$gruppen_id."'));";
-	
+    	  			AND u_id NOT IN 
+						(SELECT u_id FROM User 
+							LEFT JOIN gruppenmitglied USING (u_id)
+							LEFT JOIN gruppe USING (g_id)
+								WHERE systemadmin = 0
+								AND gruppenmitglied.g_id = '".$gruppen_id."'
+							GROUP BY u_id)
+				;";
+
 		// Wenn die Datenbankabfrage erfolgreich ausgeführt worden ist
 		if ($result = $db->execute($query)) {
 	
