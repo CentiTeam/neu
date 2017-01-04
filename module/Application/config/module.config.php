@@ -107,6 +107,19 @@ return [
         						],
         				],
         		],
+        		
+        		
+        		'teilnehmersuchetabelle' => [
+        				'type'    => Segment::class,
+        				'options' => [
+        						'route'    => '/teilnehmersuchetabelle[/:action]',
+        						'defaults' => [
+        								'controller' => Controller\UsersuchenController::class,
+        								'action'     => 'usersuchen',
+        						],
+        				],
+        		],
+        		
         	
         		'registrieren' => [
         				'type'    => Segment::class,

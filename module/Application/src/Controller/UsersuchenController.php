@@ -29,6 +29,13 @@ class UsersuchenController extends AbstractActionController
 		
 		else {
 			echo "normaler User";
+			$view = new ViewModel([
+					'suchuserListe' => $liste,
+			]);
+				
+			$view->setTemplate('application/teilnehmersuchetabelle/teilnehmersuchetabelle.phtml');
+			
+			return $view;
 		}
 
 

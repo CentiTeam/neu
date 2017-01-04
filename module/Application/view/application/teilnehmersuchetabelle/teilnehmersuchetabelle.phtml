@@ -1,0 +1,57 @@
+<?=$msg?>
+
+<h1>Teilnehmerliste</h1>
+<center>
+
+<form action="usersuchen" method="post">
+
+
+<table>
+	<tr><td>Suche:</td><td><input name="suche" type="text" maxlength="255" size="20" required></td>
+	<td><input type="submit" value="User suchen"></td> </tr> 
+</table>
+</form>
+<br>
+
+<table border = 1>
+<tr>
+
+<th> User-ID 		</th>
+<th> Benutzername 	</th>
+<th> Vorname 		</th>
+<th> Nachname 		</th>
+<th> Passwort		</th>
+<th> E-Mail			</th>
+<th> Deaktiviert 	</th>
+<th> Systemadmin 	</th>
+<th> 				</th>
+<th> 				</th>
+
+</tr>
+<?php 
+	foreach ($userListe as $zaehler => $user) {
+	?>
+<tr>
+			<td>	<?=$user->getU_id()?>			</td>
+			<td>	<?=$user->getUsername()?>		</td>
+			<td>	<?=$user->getVorname()?>		</td>
+			<td>	<?=$user->getNachname()?>		</td>
+			<td>	<?=$user->getPasswort()?>		</td>
+			<td>	<?=$user->getEmail()?>			</td>
+			<td>	<?=$user->getDeaktiviert()?>	</td>
+			<td>	<?=$user->getSystemadmin()?>	</td> 
+			
+			<?php if($user->getDeaktiviert() == 0){ ?>
+			<td>	<a href=benutzerdeaktivieren?u_id=<?=$user->getU_id()?>>Benutzer deaktivieren</a>
+			<?php } 
+			else{ ?>
+			<td>	<a href=benutzerreaktivieren?u_id=<?=$user->getU_id()?>>Benutzer reaktivieren</a>
+
+<?php
+			}
+	}
+?>
+</tr>
+</table>
+
+</center>
