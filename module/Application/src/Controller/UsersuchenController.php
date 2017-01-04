@@ -14,7 +14,8 @@ class UsersuchenController extends AbstractActionController
 {
 	public function usersuchenAction()
 	{
-
+		session_start();
+		
 		$username = $_REQUEST ["suche"];
 		
 		$liste = User::suchlisteHolen($username);  
