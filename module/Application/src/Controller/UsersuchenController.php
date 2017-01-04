@@ -28,7 +28,7 @@ class UsersuchenController extends AbstractActionController
 		}
 		
 		else {
-			echo "normaler";
+			echo "normaler User";
 		}
 
 

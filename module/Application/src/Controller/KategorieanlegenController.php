@@ -79,10 +79,14 @@ class KategorieanlegenController extends AbstractActionController {
 
 			//	}
 			//		
+				
+				$kategorieListe = Kategorie::listeholen();
+				
 				$view = new ViewModel([
 						'kategorie' => array($kategorie),
 						'errors'   => $errors,
-						'msg' => $msg
+						'msg' => $msg,
+						'kategorieListe' => $kategorieListe 
 				]);
 					
 				$view->setTemplate('application/kategorien/kategorien.phtml');
