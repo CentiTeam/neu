@@ -75,13 +75,28 @@ class GruppeanlegenController extends AbstractActionController {
 				$gruppe->setG_id($g_id);
 				$gruppe->setGruppenname($gruppenname);
 				$gruppe->setGruppenbeschreibung($gruppenbeschreibung);
-				$gruppe->setGruppenbildpfad($path);
+				
+				if ($_FILES["uploadedfile"]["name"] == NULL) {
+					$path= "";
+					$gruppe->setGruppenbildpfad($path);
+				} elseif ($path==false) {
+					
+					return new ViewModel([
+							'gruppe' => array($gruppe),
+							'msg' => $msg
+					]);
+				} else {
+					$gruppe->setGruppenbildpfad($path);
+				}
+				
+				
+				
 				
 				 if ($errorStr == "" && $gruppe->anlegen()) {
 				 
-				 	if ($path!=false) {
-				 		$result = Gruppe::bild($path, $g_id);
-				 	}
+				 	//if ($path!=false) {
+				 		//$result = Gruppe::bild($path, $g_id);
+				 //	}
 				 	
 				 // array_push($msg, "Gruppe erfolgreich gespeichert!");
 				 //  $msg .= "Gruppe erfolgreich gespeichert!";

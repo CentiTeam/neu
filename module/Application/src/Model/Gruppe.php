@@ -79,6 +79,7 @@ class Gruppe {
 		return $result;
 	}
 	
+	/** wird nicht mehr benötigt
 	public static function bild($path, $g_id) {
 		
 		// Datenbankstatement erzeugen
@@ -93,6 +94,7 @@ class Gruppe {
 		
 		return $result;
 	}
+	*/
 	
 	public static function listeHolen() {
 	

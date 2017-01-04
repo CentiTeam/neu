@@ -60,10 +60,7 @@ class GroupeditController extends AbstractActionController {
 					$path = $bildupload->bildupload($uploadedfile);
 					
 					
-					if ($path!=false) {
-						//$result = Gruppe::bild($path, $g_id);
-					}
-					else {
+					if ($path == false) {
 							
 						$gruppe = new Gruppe();
 							
