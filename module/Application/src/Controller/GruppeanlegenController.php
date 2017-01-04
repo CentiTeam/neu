@@ -35,7 +35,7 @@ class GruppeanlegenController extends AbstractActionController {
 		} else {
 
 			$gruppe = new Gruppe();
-			$bildupload = new Bildupload();
+			
 
 			$saved= false;
 			$msg = array();
@@ -48,12 +48,20 @@ class GruppeanlegenController extends AbstractActionController {
 				$gruppenname=$_REQUEST["gruppenname"];
 				$gruppenbeschreibung=$_REQUEST["gruppenbeschreibung"];
 	
-				$uploadedfile=$_REQUEST["uploadedfile"];
 				
-				var_dump($uploadedfile);
+				if ($_FILES ["uploadedfile"]["name"] == NULL) {
+					$path="";
+				} 
+				else {
+					
+					$bildupload = new Bildupload();
 				
-				//Bilddatei an die Funktion Bildupload übergeben, Rückgabe des Bildpfades
-				$path = $bildupload->bildupload($uploadedfile);
+					$uploadedfile=$_REQUEST["uploadedfile"];
+				
+				
+					//Bilddatei an die Funktion Bildupload übergeben, Rückgabe des Bildpfades
+					$path = $bildupload->bildupload($uploadedfile);
+				}
 				
 				// Schritt 2: Daten prï¿½fen und Fehler in Array fÃ¼llen
 				$errorStr ="";

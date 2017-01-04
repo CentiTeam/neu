@@ -44,18 +44,12 @@ class GroupeditController extends AbstractActionController {
 				$gruppenname=$_REQUEST["gruppenname"];
 				$gruppenbeschreibung=$_REQUEST["gruppenbeschreibung"];
 				
-				echo "Request-Pfad:";
-				// print_r ( $_FILES );
-				echo $_FILES ["uploadedfile"]["error"];
-				echo $_FILES ["uploadedfile"]["name"];
 				
 				if ($_FILES ["uploadedfile"]["name"] == NULL) {
 					$path=$gruppe->getGruppenbildpfad();
-					echo "IF";
 				}
 				else {
 					
-					echo "else";
 					$bildupload = new Bildupload();
 					
 					// Schritt 1:  Werte aus Formular einlesen
