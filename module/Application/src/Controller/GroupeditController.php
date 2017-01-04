@@ -16,7 +16,7 @@ class GroupeditController extends AbstractActionController {
 		$errors = array();
 
 		if($_SESSION['angemeldet'] != 'ja') {
-				
+
 			array_push($errors, "Sie mÃ¼ssen angemeldet sein um eine Gruppe zu bearbeiten!");
 			$view = new ViewModel(array(
 					$errors
@@ -42,7 +42,38 @@ class GroupeditController extends AbstractActionController {
 				$g_id=$_REQUEST["g_id"];
 				$gruppenname=$_REQUEST["gruppenname"];
 				$gruppenbeschreibung=$_REQUEST["gruppenbeschreibung"];
-				$gruppenbildpfad=$_REQUEST["gruppenbildpfad"];
+				
+				if (!isset($_REQUEST["uploadfile"])) {
+					$path=$gruppe->getGruppenbildpfad();
+				}
+				else {
+					
+					$bildupload = new Bildupload();
+					
+					// Schritt 1:  Werte aus Formular einlesen
+					$uploadedfile=$_REQUEST["uploadedfile"];
+					
+					//Bilddatei an die Funktion Bildupload übergeben, Rückgabe des Bildpfades
+					$path = $bildupload->bildupload($uploadedfile);
+					
+					if ($path!=false) {
+						$result = Gruppe::bild($path, $g_id);
+					}
+					else {
+							
+						$gruppe = new Gruppe();
+							
+						$gruppe->laden($g_id);
+							
+						$view = new ViewModel([
+								'gruppe' => array($gruppe)
+						]);
+							
+						$view->setTemplate('application/groupedit/groupedit.phtml');
+					
+						return $view;
+					}
+				}
 
 
 				// Schritt 2: Daten prï¿½fen und Fehler in Array fÃ¼llen
@@ -58,7 +89,7 @@ class GroupeditController extends AbstractActionController {
 				$gruppe->setG_id($g_id);
 				$gruppe->setGruppenname($gruppenname);
 				$gruppe->setGruppenbeschreibung($gruppenbeschreibung);
-				$gruppe->setGruppenbildpfad($gruppenbildpfad);
+				$gruppe->setGruppenbildpfad($path);
 					
 				
 				 if ($errorStr == "" && $gruppe->bearbeiten()) {
