@@ -7,6 +7,13 @@ use Zend\View\Model\ViewModel;
 use Application\Model\Gruppe;
 use Application\Model\Bildupload;
 
+/**
+ * FILE-Controller wird nur noch als Vorlage verwendet!!!! 
+ * Die Funktionalität wurde in GroupeditController und GruppeanlegenController übernommen
+ * @author Tanja
+ *
+ */
+
 
 class FileController extends AbstractActionController {
 

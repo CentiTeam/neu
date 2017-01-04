@@ -61,7 +61,7 @@ class GroupeditController extends AbstractActionController {
 					
 					
 					if ($path!=false) {
-						$result = Gruppe::bild($path, $g_id);
+						//$result = Gruppe::bild($path, $g_id);
 					}
 					else {
 							
