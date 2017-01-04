@@ -15,7 +15,7 @@
 		
 	</table>
 
-	
+	<input type="hidden" name="gruppenbildpfad" reaonly="readonly" value="<?=$gruppe[0]->getGruppenbildpfad()?>">
 
 <br>
       
@@ -25,8 +25,7 @@
         	<tr><td><img src =<?=$gruppe[0]->getGruppenbildpfad()?> height = "50" width = "50" alt = "Kein Bild vorhanden"></td></tr>
         	</table>
         <input type="file" name="uploadedfile" />
-        <input type="hidden" name="g_id" readonly="readonly" value="<?=$gruppe[0]->getG_id()?>">
-        <input type="hidden" name="gruppenbildpfad" readonly="readonly" value="<?=$gruppe[0]->getGruppenbildpfad()?>">
+        <input type="hidden" name="g_id" readonly="readonly" value="<?=!is_null ($gruppe[0]->getG_id()) ? $gruppe[0]->getG_id():"<automatisch>"?>">
         <br />
         <input type="submit" name="speichern" value="Speichern">
     </form>

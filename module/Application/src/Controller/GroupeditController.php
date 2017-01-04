@@ -43,6 +43,9 @@ class GroupeditController extends AbstractActionController {
 				$gruppenname=$_REQUEST["gruppenname"];
 				$gruppenbeschreibung=$_REQUEST["gruppenbeschreibung"];
 				
+				echo "Request-Pfad:";
+				var_dump($_REQUEST["uploadedfile"]);
+				
 				if (!isset($_REQUEST["uploadfile"])) {
 					$path=$gruppe->getGruppenbildpfad();
 				}
@@ -55,6 +58,9 @@ class GroupeditController extends AbstractActionController {
 					
 					//Bilddatei an die Funktion Bildupload übergeben, Rückgabe des Bildpfades
 					$path = $bildupload->bildupload($uploadedfile);
+					
+					echo "Pfad";
+					var_dump ($path);
 					
 					if ($path!=false) {
 						$result = Gruppe::bild($path, $g_id);
