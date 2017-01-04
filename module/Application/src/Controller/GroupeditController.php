@@ -6,7 +6,8 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Model\Gruppe;
 use Application\Model\Bildupload;
-
+use Application\Model\User;
+use Application\Model\Gruppenmitglied;
 
 class GroupeditController extends AbstractActionController {
 
