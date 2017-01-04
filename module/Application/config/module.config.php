@@ -199,6 +199,19 @@ return [
        						],
        				],
        		],	
+        
+        		
+        	'gruppenmitgliedhinzufuegen' => [
+        			'type'    => Segment::class,
+       				'options' => [
+       						'route'    => '/gruppenmitgliedhinzufuegen[/:action]',
+       						'defaults' => [
+       								'controller' => Controller\GruppenmitgliedhinzufuegenController::class,
+       								'action'     => 'gruppenmitgliedhinzufuegen',
+       						],
+       				],
+       		],
+        		
         		
         	'help' => [
         			'type'    => Segment::class,
@@ -282,6 +295,7 @@ return [
         	Controller\GroupshowController::class => InvokableFactory::class,
         	Controller\GroupeditController::class => InvokableFactory::class,
         	Controller\GroupdeleteController::class => InvokableFactory::class,
+        	Controller\GruppenmitgliedhinzufuegenController::class => InvokableFactory::class,
         	Controller\LoginController::class => InvokableFactory::class,
         	Controller\FileController::class => InvokableFactory::class,
            	Controller\HelpController::class => InvokableFactory::class,

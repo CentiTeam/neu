@@ -59,3 +59,14 @@ use Application\Model\Gruppenmitglied;
 	<?php 
 	}
 	?>
+	<tr><td><a href='gruppenmitgliedhinzufuegen?g_id=<?=$gruppe->getG_id()?>'><img src="img/add.jpg" /></a></td></tr>
+	</table>
+	
+	
+	<form action="usersuchen" method="post">
+
+	<table>
+		<tr><td>Suche:</td><td><input name="suche" type="text" maxlength="255" size="20" required></td>
+		<td><input type="submit" value="User suchen"></td> </tr>
+	</table>
+	</form>
