@@ -38,7 +38,8 @@ class GroupdeleteController extends AbstractActionController
 		// wenn die Aktion abgebrochen werden soll
 		if ($_REQUEST['abbrechen']) {
 			
-			$gruppenliste=Gruppe::listeholen(); 
+			$user_id=$_SESSION['user']->getU_id();
+			$gruppenliste=Gruppe::eigenelisteholen(); 
 			
 			$view = new ViewModel([
 					'gruppenListe' => $gruppenliste
@@ -79,8 +80,8 @@ class GroupdeleteController extends AbstractActionController
 			]);
 		}
 		
-		$user_id=$_SESSION['user']->getU_id();
 		
+		$user_id=$_SESSION['user']->getU_id();
 		$gruppenliste=Gruppe::eigenelisteholen($user_id);
 		
 		
