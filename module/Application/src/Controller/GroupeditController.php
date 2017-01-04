@@ -45,7 +45,7 @@ class GroupeditController extends AbstractActionController {
 				$gruppenbeschreibung=$_REQUEST["gruppenbeschreibung"];
 				
 				echo "Request-Pfad:";
-				print_r ( $_FILES );
+				// print_r ( $_FILES );
 				echo $_FILES -> uploadedfile -> error;
 				
 				if ($_FILES -> uploadedfile -> error != 0) {
