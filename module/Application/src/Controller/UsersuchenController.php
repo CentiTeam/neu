@@ -31,13 +31,15 @@ class UsersuchenController extends AbstractActionController
 		
 		else {
 			
+			$gruppe = new Gruppe();
 			$g_id= $_REQUEST["g_id"];
-			
+			$gruppe->laden($g_id);
 			
 			$liste = User::gruppensuchlisteHolen($suche, $g_id);
 			
 			$view = new ViewModel([
 					'suchuserListe' => $liste,
+					'gruppe' => array($gruppe)
 			]);
 				
 			$view->setTemplate('application/teilnehmersuchetabelle/teilnehmersuchetabelle.phtml');
