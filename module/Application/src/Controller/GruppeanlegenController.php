@@ -52,7 +52,7 @@ class GruppeanlegenController extends AbstractActionController {
 				
 				//Bilddatei an die Funktion Bildupload übergeben, Rückgabe des Bildpfades
 				$path = $bildupload->bildupload($uploadedfile);
-
+				var_dump($path);
 				// Schritt 2: Daten prï¿½fen und Fehler in Array fÃ¼llen
 				$errorStr ="";
 				$msg="";
@@ -65,7 +65,7 @@ class GruppeanlegenController extends AbstractActionController {
 				$gruppe->setG_id($g_id);
 				$gruppe->setGruppenname($gruppenname);
 				$gruppe->setGruppenbeschreibung($gruppenbeschreibung);
-				
+				$gruppe->setGruppenbildpfad($path);
 				
 				 if ($errorStr == "" && $gruppe->anlegen()) {
 				 
