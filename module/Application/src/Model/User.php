@@ -184,7 +184,7 @@ class User
 	
 	
 	
-	public static function suchlisteHolen($username) {
+	public static function suchlisteHolen($suche) {
 	
 		// Liste initialisieren
 		$suchuserListe = array ();
@@ -192,7 +192,13 @@ class User
 		$db = new DB_connection();
 		 
 	
-		$query="SELECT u_id FROM User WHERE systemadmin = 0 AND username LIKE '%$username%';"; 
+		$query="SELECT u_id FROM User WHERE systemadmin = 0 
+				AND username LIKE '%$suche%' 
+				OR vorname LIKE '%$suche%'
+				OR nachname LIKE '%$suche%'
+				OR email LIKE '%$suche%'
+				;"; 
+		
 		// Wenn die Datenbankabfrage erfolgreich ausgeführt worden ist
 		if ($result = $db->execute($query)) {
 	

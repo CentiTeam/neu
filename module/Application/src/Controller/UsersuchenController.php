@@ -16,9 +16,9 @@ class UsersuchenController extends AbstractActionController
 	{
 		session_start(); 
 		
-		$username = $_REQUEST ["suche"];
+		$suche = $_REQUEST ["suche"];
 		
-		$liste = User::suchlisteHolen($username);  
+		$liste = User::suchlisteHolen($suche);  
 
 		if ($_SESSION['user']->getSystemadmin()==true) {
 		
