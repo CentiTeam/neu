@@ -106,6 +106,9 @@ class GruppeanlegenController extends AbstractActionController {
 
 				 }
 				 
+				 // Gruppen-Objekt laden
+				 $gruppe= new Gruppe();
+				 $g_id=$_REQUEST['g_id'];
 				 $gruppe->laden($g_id);
 				 
 				 // Liste der User-Objekte der Gruppenmitglieder holen
