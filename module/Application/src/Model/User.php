@@ -238,8 +238,7 @@ class User
 						(SELECT u_id FROM User 
 							LEFT JOIN gruppenmitglied USING (u_id)
 							LEFT JOIN gruppe USING (g_id)
-								WHERE systemadmin = 0
-								AND gruppenmitglied.g_id = '".$gruppen_id."'
+								WHERE gruppenmitglied.g_id = '".$gruppen_id."'
 							GROUP BY u_id)
 				;";
 
