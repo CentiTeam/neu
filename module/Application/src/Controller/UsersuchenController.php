@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @link      http://github.com/zendframework/ZendSkeletonApplication for the canonical source repository
 * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
@@ -6,6 +7,8 @@
 */
 
 namespace Application\Controller;
+
+header("Content-Type: text/html; charset=utf-8");
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
@@ -71,9 +74,6 @@ HIER KOMMT DER LINK HIN.";
 				$msg= "$empfaengerUsername wurde erfolgreich eingeladen!";
 				
 			}
-			
-			
-			
 			
 			
 			
