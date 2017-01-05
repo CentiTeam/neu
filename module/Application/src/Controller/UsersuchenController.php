@@ -42,12 +42,12 @@ class UsersuchenController extends AbstractActionController
 			
 			if ($_REQUEST['einladen']) {
 				
-				//$empfaenger= new User();
-				//$empfaenger->laden($_REQUEST['g_id']);
+				$empfaenger= new User();
+				$empfaenger->laden($_REQUEST['u_id']);
+				$empfaengerMail=$empfaenger->getEmail();
 				
 				
-				
-				$empfaenger = "fenn01@gw.uni-passau.de";
+				$empfaenger = "$empfaengerMail";
 				$betreff = "Die Mail-Funktion";
 				//$from = "From: Franz Reimers <absender@domain.de>";
 				$text = "Hier lernt Ihr, wie man mit PHP Mails verschickt";
