@@ -71,7 +71,7 @@ $text =
 Du wurdest von $absenderVorname $absenderNachname in die Gruppe $gruppenName eingeladen.
 						
 Über diesen Link kannst die die Einladung annehmen:
-HIER KOMMT DER LINK HIN.
+<a href='einladungannehmen?g_id=<?=$gruppe->getG_id()?>?u_id=<?=$empfaenger->getU_id()?>'
 
 Viele Grüße
 Dein Grouppay-Team";
