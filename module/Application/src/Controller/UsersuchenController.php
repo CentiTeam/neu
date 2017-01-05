@@ -59,7 +59,7 @@ class UsersuchenController extends AbstractActionController
 				$gruppenName=$gruppe->getGruppenname();
 				
 				//$link=132.231.36.206/einladungannehmen;
-				//echo "<a href='einladungannehmen?g_id=<?=$gruppe->getG_id()?>?u_id=<?=$empfaenger->getU_id()?>'";
+				//echo "<a href='einladungannehmen?g_id=<?=$gruppe->getG_id()
 				
 				
 				$empfaenger = "$empfaengerMail";
