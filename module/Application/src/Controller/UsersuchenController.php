@@ -42,7 +42,7 @@ class UsersuchenController extends AbstractActionController
 			
 			if ($_REQUEST['einladen']) {
 				
-				$msg=array();
+				$msg="";
 				
 				$empfaenger= new User();
 				$empfaenger->laden($_REQUEST['u_id']);
@@ -58,16 +58,17 @@ class UsersuchenController extends AbstractActionController
 				$empfaenger = "$empfaengerMail";
 				$betreff = "Grouppay: Einladung in die Gruppe $gruppenName";
 				//$from = "From: Franz Reimers <absender@domain.de>";
-				$text = "Hallo $empfaengerVorname!
+$text = 
+"Hallo $empfaengerVorname!
 				
-						Du wurdest von $absenderVorname $absenderNachname in die Gruppe $gruppenName eingeladen.
+Du wurdest von $absenderVorname $absenderNachname in die Gruppe $gruppenName eingeladen.
 						
-						Über diesen Link kannst die die Einladung annehmen:
-						HIER KOMMT DER LINK HIN.";
+Über diesen Link kannst die die Einladung annehmen:
+HIER KOMMT DER LINK HIN.";
 				
 				mail($empfaenger, $betreff, $text);
 				
-				array_push($msg, "$empfaengerUsername wurde erfolgreich eingeladen!");
+				$msg= "$empfaengerUsername wurde erfolgreich eingeladen!";
 				
 			}
 			
@@ -79,7 +80,7 @@ class UsersuchenController extends AbstractActionController
 			$view = new ViewModel([
 					'suchuserListe' => $liste,
 					'gruppe' => array($gruppe),
-					'msg' => array($msg)
+					'msg' => $msg
 			]);
 				
 			$view->setTemplate('application/teilnehmersuchetabelle/teilnehmersuchetabelle.phtml');
