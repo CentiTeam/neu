@@ -47,7 +47,7 @@ class UsersuchenController extends AbstractActionController
 				
 				
 				
-				$empfaenger = "zehentnersebastian@web.de";
+				$empfaenger = "zehent06@gw.uni-passau.de";
 				$betreff = "Die Mail-Funktion";
 				//$from = "From: Franz Reimers <absender@domain.de>";
 				$text = "Hier lernt Ihr, wie man mit PHP Mails verschickt";
