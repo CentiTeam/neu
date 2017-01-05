@@ -42,10 +42,13 @@ class UsersuchenController extends AbstractActionController
 			
 			if ($_REQUEST['einladen']) {
 				
+				$msg=array();
+				
 				$empfaenger= new User();
 				$empfaenger->laden($_REQUEST['u_id']);
 				$empfaengerMail=$empfaenger->getEmail();
 				$empfaengerVorname=$empfaenger->getVorname();
+				$empfaengerUsername=$empfaenger->getUsername();
 				
 				$absenderVorname=$_SESSION['user']->getVorname();
 				$absenderNachname=$_SESSION['user']->getNachname();
@@ -55,13 +58,16 @@ class UsersuchenController extends AbstractActionController
 				$empfaenger = "$empfaengerMail";
 				$betreff = "Grouppay: Einladung in die Gruppe $gruppenName";
 				//$from = "From: Franz Reimers <absender@domain.de>";
-				$text = "Hallo $empfaengerVorname!<br><br>
-						Du wurdest von $absenderVorname $absenderNachname in die Gruppe $gruppenName eingeladen. <br><br>
-						&Uuml;ber diesen Link kannst die die Einladung annehmen: <br>
+				$text = "Hallo $empfaengerVorname!
+				
+						Du wurdest von $absenderVorname $absenderNachname in die Gruppe $gruppenName eingeladen.
+						
+						Über diesen Link kannst die die Einladung annehmen:
 						HIER KOMMT DER LINK HIN.";
 				
 				mail($empfaenger, $betreff, $text);
 				
+				array_push($msg, "$empfaengerUsername wurde erfolgreich eingeladen!");
 				
 			}
 			

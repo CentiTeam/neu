@@ -25,14 +25,7 @@ class loginController extends AbstractActionController{
 					
 					if ($user->login($email, $pwd)){
 					
-					// echo $user->getVorname(); nur Beispiel f�r Zugriff aufs Objekt: Kann gel�scht werden
-					
 					$_SESSION['user'] = $user;
-					
-					// Was ist das???
-					//$gruppe= new Gruppe();
-					//$g_id= 1 ;
-					//$gruppe->laden($g_id);
 					
 					$view = new ViewModel(array(
 							'message' => 'Erfolgreich eingeloggt!',
