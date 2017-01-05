@@ -45,12 +45,20 @@ class UsersuchenController extends AbstractActionController
 				$empfaenger= new User();
 				$empfaenger->laden($_REQUEST['u_id']);
 				$empfaengerMail=$empfaenger->getEmail();
+				$empfaengerVorname=$empfaenger->getVorname();
 				
+				$absenderVorname=$_SESSION['user']->getVorname();
+				$absenderNachname=$_SESSION['user']->getNachname();
+				
+				$gruppenName=$gruppe->getGruppenname();
 				
 				$empfaenger = "$empfaengerMail";
-				$betreff = "Die Mail-Funktion";
+				$betreff = "Grouppay: Einladung in die Gruppe $gruppenName";
 				//$from = "From: Franz Reimers <absender@domain.de>";
-				$text = "Hier lernt Ihr, wie man mit PHP Mails verschickt";
+				$text = "Hallo $empfaengerVorname!<br><br>
+						Du wurdest von $absenderVorname $absenderNachname in die Gruppe $gruppenName eingeladen. <br><br>
+						&Uuml;ber diesen Link kannst die die Einladung annehmen: <br>
+						HIER KOMMT DER LINK HIN.";
 				
 				mail($empfaenger, $betreff, $text);
 				
