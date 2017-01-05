@@ -59,7 +59,7 @@ class UsersuchenController extends AbstractActionController
 				$gruppenName=$gruppe->getGruppenname();
 				
 				//$link=132.231.36.206/einladungannehmen;
-				echo "<a href='einladungannehmen?g_id=<?=$gruppe->getG_id()?>?u_id=<?=$empfaenger->getU_id()?>'";
+				//echo "<a href='einladungannehmen?g_id=<?=$gruppe->getG_id()?>?u_id=<?=$empfaenger->getU_id()?>'";
 				
 				
 				$empfaenger = "$empfaengerMail";
@@ -71,7 +71,7 @@ $text =
 Du wurdest von $absenderVorname $absenderNachname in die Gruppe $gruppenName eingeladen.
 						
 Über diesen Link kannst die die Einladung annehmen:
-<a href='einladungannehmen?g_id=<?=$gruppe->getG_id()?>?u_id=<?=$empfaenger->getU_id()?>'
+<a href='132.231.36.206/einladungannehmen?g_id=<?=$gruppe->getG_id()?>?u_id=<?=$empfaenger->getU_id()?>'>Einladung annehmen</a>
 
 Viele Grüße
 Dein Grouppay-Team";
