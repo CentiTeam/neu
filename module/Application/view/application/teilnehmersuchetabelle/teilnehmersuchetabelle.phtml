@@ -14,6 +14,8 @@
 </form>
 <br>
 
+
+
 <table border = 1>
 <tr>
 
@@ -35,15 +37,12 @@
 			<td>	<?=$user->getNachname()?>		</td>
 			<td>	<?=$user->getEmail()?>			</td>
 			<td>	<?=$user->getDeaktiviert()?>	</td>
-			
-			<?php if($user->getDeaktiviert() == 0){ ?>
-			<td>	<a href=benutzerdeaktivieren?u_id=<?=$user->getU_id()?>>Benutzer deaktivieren</a>
-			<?php } 
-			else{ ?>
-			<td>	<a href=benutzerreaktivieren?u_id=<?=$user->getU_id()?>>Benutzer reaktivieren</a>
-
+		
+		<form action="einladen" method="post">	
+			<td><input type="submit" name="einladen" value="Einladen"></td>
+		</form>
 <?php
-			}
+			
 	}
 ?>
 </tr>
