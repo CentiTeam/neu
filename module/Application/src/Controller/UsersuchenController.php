@@ -65,7 +65,7 @@ class UsersuchenController extends AbstractActionController
 				$betreff = "Grouppay: Einladung in die Gruppe $gruppenName";
 				//$from = "From: Franz Reimers <absender@domain.de>";
 				
-				$link="132.231.36.206/index";
+				$link="<a href='132.231.36.206/index'>Einladung annehmen</a>";
 				/**
 				echo '<a href='132.231.36.206/einladungannehmen?g_id=<?=$gruppe->getG_id()?>?u_id=<?=$empfaenger->getU_id()?>'>Einladung annehmen</a>';
 				*/
