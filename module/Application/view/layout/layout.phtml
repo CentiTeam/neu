@@ -65,15 +65,20 @@
        
 										
 										<?php if ($_SESSION['angemeldet']=='ja' || $_SESSION['systemadmin']=="ja"){?> 
-											<li><a href="http://132.231.36.206/"><span class=></span>Logout</a></li>
+											<li><a href="http://grouppay.ml/"><span class=></span>Logout</a></li>
 										<?php } else {?>
-											<li><a href="/login"><span class=></span>Login</a></li>
-											<li><a href="/registrieren"><span class=></span> Registrieren</a></li>
+											<li><a href="http://grouppay.ml/login"><span class=></span>Login</a></li>
+											<li><a href="http://grouppay.ml/registrieren"><span class=></span> Registrieren</a></li>
 										<?php }?>
       				</ul>
       				 	      			
                 </div>
             </div>
-        </n     <?= $this->inlineScript() ?>
+        </nav>
+        <div class="container">
+            <?= $this->content ?>
+            <hr>
+        </div>
+        <?= $this->inlineScript() ?>
     </body>
 </html>
