@@ -108,6 +108,18 @@ return [
         				],
         		],
         		
+        		'passwortvergessen' => [
+        				'type'    => Segment::class,
+        				'options' => [
+        						'route'    => '/passwortvergessen[/:action]',
+        						'defaults' => [
+        								'controller' => Controller\PasswortvergessenController::class,
+        								'action'     => 'passwortvergessen',
+        						],
+        				],
+        		],
+        		
+        		
         		
         		'teilnehmersuchetabelle' => [
         				'type'    => Segment::class,
@@ -321,6 +333,7 @@ return [
         	Controller\KategorieanlegenController::class => InvokableFactory::class,
         	Controller\KategorieeditController::class => InvokableFactory::class,
         	Controller\UsersuchenController::class => InvokableFactory::class,
+        	Controller\PasswortvergessenController::class => InvokableFactory::class,
         		
         		
         		
