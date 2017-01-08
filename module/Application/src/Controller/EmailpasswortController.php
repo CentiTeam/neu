@@ -42,12 +42,15 @@ class EmailpasswortController extends AbstractActionController
 			
 			mail($empfaenger, $betreff, $text);
 			
-			$msg= "Passwort wurde erfolgreich zurückgesetzt!";
+			$msg= "E-Mail wurde erfolgreich versendet!";
 			
 			}
 				
-		
+			$view->setTemplate('application/login/login.phtml');
+			echo "$msg";
+			return $view;
 			return new ViewModel();
+			
 
 	}
 }
