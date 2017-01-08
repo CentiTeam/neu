@@ -338,6 +338,18 @@ class User
 	
 	}
 	
+	// Methode für das Zurücksetzen des Passwortes
+	
+	public function passwortvergessen($passwort, $email){
+		
+		$db = new DB_connection();
+		
+		$query = "UPDATE User SET passwort = '".$this->$passwort."' 
+				  WHERE email = '".$this->$email."';";
+		
+		return $result;
+	}
+	
 	
 
 	
