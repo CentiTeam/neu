@@ -14,9 +14,40 @@ class EmailpasswortController extends AbstractActionController
 {
 	public function emailpasswortAction()
 	{
+		session_start();
+		
+		if ($_REQUEST['emailpasswort']) {
+		
+			
+			$msg="";
+			
+			$empfaenger= $_REQUEST ['email'];
+			
+			$empfaengerVorname=$empfaenger->getVorname();
+			$empfaengerUsername=$empfaenger->getUsername();
 
-
-		return new ViewModel();
+			
+			$betreff = "Grouppay: Passwort zurücksetzen";
+			
+			$link="http://132.231.36.206/passwortvergessen";
+			
+			$text =
+			"Hallo $empfaengerVorname!
+			
+			Über diesen Link kannst du dein Passwort zurücksetzen:
+			$link
+			
+			Viele Grüße
+			Dein Grouppay-Team";
+			
+			mail($empfaenger, $betreff, $text);
+			
+			$msg= "Passwort wurde erfolgreich zurückgesetzt!";
+			
+			}
+				
+		
+			return new ViewModel();
 
 	}
 }
