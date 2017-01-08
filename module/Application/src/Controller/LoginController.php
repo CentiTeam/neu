@@ -51,8 +51,9 @@ class loginController extends AbstractActionController{
 					}
 					else{
 						echo "Benutzername oder Passwort falsch, oder Benutzerkonto deaktiviert!";
+						echo "Falls das Passwort vergessen wurde, bitte unten auf den Link klicken!"
 						
-						//TODO Passwort vergessen LINK einfügen
+						
 						return new ViewModel();
 					}
 			}
