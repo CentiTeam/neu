@@ -23,8 +23,8 @@ class EmailpasswortController extends AbstractActionController
 			
 			$empfaenger= $_REQUEST ['email'];
 			
-			$empfaengerVorname=$empfaenger->getVorname();
-			$empfaengerUsername=$empfaenger->getUsername();
+			// $empfaengerVorname=$empfaenger->getVorname();
+			// $empfaengerUsername=$empfaenger->getUsername();
 
 			
 			$betreff = "Grouppay: Passwort zurücksetzen";
@@ -32,7 +32,7 @@ class EmailpasswortController extends AbstractActionController
 			$link="http://132.231.36.206/passwortvergessen";
 			
 			$text =
-			"Hallo $empfaengerVorname!
+			"Hallo!
 			
 			Über diesen Link kannst du dein Passwort zurücksetzen:
 			$link
