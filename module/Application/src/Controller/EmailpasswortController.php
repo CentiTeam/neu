@@ -32,13 +32,12 @@ class EmailpasswortController extends AbstractActionController
 			$link="http://132.231.36.206/passwortvergessen";
 			
 			$text =
-			"Hallo!
+"Hallo!
+Über diesen Link kannst du dein Passwort zurücksetzen:
+$link
 			
-			Über diesen Link kannst du dein Passwort zurücksetzen:
-			$link
-			
-			Viele Grüße
-			Dein Grouppay-Team";
+Viele Grüße
+Dein Grouppay-Team";
 			
 			mail($empfaenger, $betreff, $text);
 			
@@ -46,9 +45,8 @@ class EmailpasswortController extends AbstractActionController
 			
 			}
 				
-			$view->setTemplate('application/user/login.phtml');
-			echo "$msg";
-			return $view;
+		
+			return new ViewModel();
 			
 
 	}
