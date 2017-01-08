@@ -132,6 +132,18 @@ return [
         				],
         		],
         		
+        		
+        		
+        		'emailpasswort' => [
+        				'type'    => Segment::class,
+        				'options' => [
+        						'route'    => '/emailpasswort[/:action]',
+        						'defaults' => [
+        								'controller' => Controller\EmailpasswortController::class,
+        								'action'     => 'emailpasswort',
+        						],
+        				],
+        		],
         	
         		'registrieren' => [
         				'type'    => Segment::class,
@@ -334,6 +346,7 @@ return [
         	Controller\KategorieeditController::class => InvokableFactory::class,
         	Controller\UsersuchenController::class => InvokableFactory::class,
         	Controller\PasswortvergessenController::class => InvokableFactory::class,
+        	Controller\EmailpasswortController::class => InvokableFactory::class,
         		
         		
         		
