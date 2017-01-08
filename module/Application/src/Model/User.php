@@ -344,10 +344,10 @@ class User
 		
 		$db = new DB_connection();
 		
-		$query = "UPDATE User SET passwort = '".$this->$passwort."' 
-				  WHERE email = '".$this->$email."';";
+		//$query = "UPDATE User SET passwort = '".$this->$passwort."' 
+		//		  WHERE email = '".$this->$email."';";
 		
-		return $result;
+		//return $result;
 	}
 	
 	
