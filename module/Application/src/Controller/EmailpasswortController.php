@@ -46,7 +46,7 @@ class EmailpasswortController extends AbstractActionController
 			
 			}
 				
-			$view->setTemplate('application/login/login.phtml');
+			$view->setTemplate('application/user/login.phtml');
 			echo "$msg";
 			return $view;
 			return new ViewModel();
