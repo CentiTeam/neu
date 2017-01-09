@@ -91,11 +91,10 @@ use Application\Model\Kategorie;
 		<tr><td>Betrag: </td><td><input name="betrag" type="text" maxlength="50" size="20" required></td></tr>
 		<tr><td>Zahlungsdatum: </td><td><input name="zahlungsdatum" type="date" required></td></tr>
 		<tr><td>Kategorie: </td><td><select name="kategorie" size="3" required>
-											<option>test</option>
 										 <?php 
 										//Alle Kategorien in die Auswahlliste schreiben
 										foreach ($kategorieListe as $zaehler => $kategorie) { ?>
-											<option> <? $kategorie->getKategoriebeschreibung() ?></option>
+											<option> <? $kategorie->getKategoriebeschreibung() ?> </option>
 										
 										
 										<?php } ?> 
