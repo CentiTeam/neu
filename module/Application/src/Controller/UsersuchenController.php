@@ -66,11 +66,11 @@ class UsersuchenController extends AbstractActionController
 				$betreff = "Grouppay: Einladung in die Gruppe $gruppenName";
 				
 				//kann weg
-				//$link="http://132.231.36.206/einladungannehmen?g_id=$g_id&u_id=$empfaenger_id";
-				//$text="Hallo!
-						//$link";
+				$link="http://132.231.36.206/einladungannehmen?g_id=$g_id&amp;u_id=$empfaenger_id";
+				$text="Hallo!
+						$link";
 				
-				
+				/**
 				$text=
 				"<html>
 					<body>		
@@ -84,7 +84,7 @@ class UsersuchenController extends AbstractActionController
 						<div>Dein Grouppay-Team</div>
 					</body>
 				</html>";
-				
+				*/
 				$header  = 'MIME-Version: 1.0' . "\r\n";
 				$header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 				
