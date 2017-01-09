@@ -10,20 +10,24 @@
 <tr><td>Zahlungsbeschreibung: </td><td><input name="zahlungsbeschreibung" type="text" maxlength="50" size="20" required></td></tr>
 <tr><td>Betrag: </td><td><input name="betrag" type="text" maxlength="50" size="20" required></td></tr>
 <tr><td>Zahlungsdatum: </td><td><input type="date" name="zahlungsdatum" placeholder="YYYY-MM-DD" required></td></tr>
-<tr><td>Kategorie: </td><td><select name="k_id" size="5">
-<?php
-//Alle Kategorien in die Auswahlliste schreiben
-foreach ($kategorieListe as $zaehler => $kategorie) { ?>
-		<option value='<?=$kategorie->getK_id()?>'> <?=$kategorie->getKategoriebeschreibung() ?> </option>
-<?php } ?> 
-										</select></td></tr>
-		<tr><td>Teilnehmer: </td><td><select name="kategorie" size="5" multiple required>
-								 <?php 
-								//Alle Gruppenmitglieder in die Auswahlliste schreiben
-								foreach ($mitgliederListe as $zaehler => $mitglied2) { ?>
-									<option> <?=$mitglied2->getUsername() ?> </option>						
-								<?php } ?> 
-								</select></td></tr>
+<tr><td>Kategorie: </td><td>
+	<select name="k_id" size="5">
+	<?php
+	//Alle Kategorien in die Auswahlliste schreiben
+	foreach ($kategorieListe as $zaehler => $kategorie) { ?>
+			<option value='<?=$kategorie->getK_id()?>'> <?=$kategorie->getKategoriebeschreibung() ?> </option>
+	<?php } ?> 
+	</select>
+</td></tr>
+<tr><td>Teilnehmer: </td><td>
+	<select name="u_id" size="5" multiple required>
+		<?php 
+		//Alle Gruppenmitglieder in die Auswahlliste schreiben
+		foreach ($mitgliederListe as $zaehler => $mitglied) { ?>
+			<option value='<?=$mitglied->getU_id()?>'> <?=$mitglied->getUsername() ?> </option>						
+		<?php } ?> 
+		</select>
+</td></tr>
 										
 																			
 		<tr><td><input type="submit" name="speichern" value="Zahlung anlegen"></td> </tr>
