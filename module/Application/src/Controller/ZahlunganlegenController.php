@@ -55,13 +55,16 @@ class ZahlunganlegenController extends AbstractActionController {
 					
 				// Schritt 1:  Werte aus Formular einlesen
 				$z_id=$_REQUEST["z_id"];
-				$erstellungsdatum=$_REQUEST["erstellungsdatum"];
 				$zahlungsdatum=$_REQUEST["zahlungsdatum"];
 				$betrag=$_REQUEST["betrag"];
 				$k_id=$_REQUEST["k_id"];
 				$aenderungsdatum=$_REQUEST["aenderungsdatum"];
 				
-
+				$erstellungsdatum=getDate();
+				
+				//var_dump($erstellungsdatum);
+				
+				
 				// Schritt 2: Daten pr�fen und Fehler in Array füllen
 				$errorStr ="";
 				$msg="";
@@ -74,14 +77,16 @@ class ZahlunganlegenController extends AbstractActionController {
 				$zahlung->setErstellungsdatum($erstellungsdatum);
 				$zahlung->setZahlungsdatum($zahlungsdatum);
 				$zahlung->setBetrag($betrag);
-				$zahlung->setKategorie($k_id);
+				$zahlung->setK_id($k_id);
 				$zahlung->setAenderungsdatum($aenderungsdatum);
 
-				
+				var_dump($zahlung);
 					
 				// Wenn tempor�res Objekt gef�llt wurde kann mit diesen Werten das Objekt �ber die anlegen-Fkt in die DB geschrieben werden
 				if ($errorStr == "" && $zahlung->anlegen()) {
-
+				
+				
+				
 				 // array_push($msg, "Gruppe erfolgreich gespeichert!");
 				 //  $msg .= "Gruppe erfolgreich gespeichert!";
 				 $saved = true;
