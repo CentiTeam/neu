@@ -29,6 +29,7 @@ class EinladungannehmenController extends AbstractActionController
 		$g_id=$_GET['g_id'];
 		$u_id=$_GET['u_id'];
 
+		var_dump($u_id);
 		
 		$gruppe=new Gruppe();
 		$isOKgruppe = $gruppe->laden ($g_id);
