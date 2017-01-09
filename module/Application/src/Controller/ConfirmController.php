@@ -33,7 +33,6 @@ class ConfirmController extends AbstractActionController
 
 		// Überprüfung, ob Email zwei mal richtig eingegeben wurde
 			
-		
 			
 		if ($email!=$emailwdh) {
 			echo "<center><h4>Keine &Uumlbereinstimmung der E-Mail! Bitte erneut versuchen</h4></center>";
