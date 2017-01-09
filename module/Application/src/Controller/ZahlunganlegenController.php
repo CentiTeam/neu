@@ -62,9 +62,9 @@ class ZahlunganlegenController extends AbstractActionController {
 				
 				date_default_timezone_set("Europe/Berlin");
 				$timestamp=time();
-				$erstellungsdatum= date($timestamp);
+				$erstellungsdatum= date('Y-m-d', $timestamp);
 				
-				$aenderungsdatum= date($timestamp);
+				$aenderungsdatum= date('Y-m-d',$timestamp);
 				
 				
 				// Schritt 2: Daten pr�fen und Fehler in Array füllen
