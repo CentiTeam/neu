@@ -73,6 +73,7 @@ class UsersuchenController extends AbstractActionController
 				echo $link;
 				var_dump($link);
 
+/**
 $text="				
 Hallo $empfaengerVorname!
 
@@ -84,8 +85,8 @@ $link
 Viele Gr&uuml;&szlig;e
 Dein Grouppay-Team
 ";
-		
-/**
+*/		
+
 				$text=
 				"<html>
 					<body>		
@@ -94,13 +95,13 @@ Dein Grouppay-Team
 						<div>Du wurdest von $absenderVorname $absenderNachname in die Gruppe $gruppenName eingeladen.</div>
 						<br>
 						<div>&Uuml;ber diesen Link kannst Du die Einladung annehmen:</div>
-						$test
+						$link
 						
 						<div>Viele Gr&uuml;&szlig;e</div> 
 						<div>Dein Grouppay-Team</div>
 					</body>
 				</html>";
-*/				
+				
 				$header  = 'MIME-Version: 1.0' . "\r\n";
 				$header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 			
