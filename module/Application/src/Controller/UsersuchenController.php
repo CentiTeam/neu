@@ -66,7 +66,7 @@ class UsersuchenController extends AbstractActionController
 				$betreff = "Grouppay: Einladung in die Gruppe $gruppenName";
 				
 				//kann weg
-				$link="http://132.231.36.206/einladungannehmen?g_id=$g_id&u_id=$empfaenger_id";
+				$link="http://132.231.36.206/einladungannehmen?g_id=2&u_id=86";
 				$text="Hallo!
 						$link";
 				
