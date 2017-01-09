@@ -57,7 +57,8 @@ class UsersuchenController extends AbstractActionController
 				$absenderNachname=$_SESSION['user']->getNachname();
 				
 				$gruppenName=$gruppe->getGruppenname();
-				
+				$gruppen_id=$gruppe->getG_id();
+				$empfaenger_id=$empfaenger->getU_id();
 				//$link=132.231.36.206/einladungannehmen;
 				//echo "<a href='einladungannehmen?g_id=<?=$gruppe->getG_id()
 				
@@ -65,7 +66,7 @@ class UsersuchenController extends AbstractActionController
 				$betreff = "Grouppay: Einladung in die Gruppe $gruppenName";
 				//$from = "From: Franz Reimers <absender@domain.de>";
 				
-				$link="http://132.231.36.206/einladungannehmen?g_id=$gruppe->getG_id()?u_id=$empfaenger->getU_id()";
+				$link="http://132.231.36.206/einladungannehmen?g_id=$g_id?u_id=$empfaenger_id";
 				//$link = "$diensturl/newsletter.php?mail=$thisemail&name=$thisname";
 				/**
 				echo '<a href='132.231.36.206/einladungannehmen?g_id=<?=$gruppe->getG_id()?>?u_id=<?=$empfaenger->getU_id()?>'>Einladung annehmen</a>';
