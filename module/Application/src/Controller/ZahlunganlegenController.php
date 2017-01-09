@@ -15,6 +15,8 @@ class ZahlunganlegenController extends AbstractActionController {
 	function zahlunganlegenAction() {
 		// TODO Berechtigungsprï¿½fung
 		session_start();
+		
+
 
 
 		$errors = array();
@@ -30,6 +32,9 @@ class ZahlunganlegenController extends AbstractActionController {
 			return $view;
 
 		} else {
+			
+			//Liste alle verfügbaren Kateforien holen
+			$kategorieliste = Kategorie::listeHolen();
 
 			$gruppe = new Gruppe();
 				
@@ -168,7 +173,8 @@ class ZahlunganlegenController extends AbstractActionController {
 
 		return new ViewModel([
 				'gruppe' => array($gruppe),
-				'msg' => $msg
+				'msg' => $msg,
+				'kategorieListe' => $kategorieliste
 		]);
 
 	}
