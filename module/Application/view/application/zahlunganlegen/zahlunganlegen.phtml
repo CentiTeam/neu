@@ -14,7 +14,7 @@
 <?php
 //Alle Kategorien in die Auswahlliste schreiben
 foreach ($kategorieListe as $zaehler => $kategorie) { ?>
-		<option value='<?=$kategorie->getK_id()?>'> <?=$kategorie->getKategoriebeschreibung() ?> </option>
+		<option name='<?=$kategorie->getK_id()?>'> <?=$kategorie->getKategoriebeschreibung() ?> </option>
 <?php } ?> 
 										</select></td></tr>
 		<tr><td>Teilnehmer: </td><td><select name="kategorie" size="5" multiple required>
