@@ -41,7 +41,7 @@ class ZahlunganlegenController extends AbstractActionController {
 			$gruppe = new Gruppe();
 			$gruppe->laden($_SESSION['g_id']);
 			
-			echo $gruppe;
+			var_dump($gruppe);
 			
 			$mitgliederliste = User::gruppenmitgliederlisteholen($gruppe->getG_id());
 			
@@ -85,7 +85,6 @@ class ZahlunganlegenController extends AbstractActionController {
 				$zahlung->setK_id($k_id);
 				$zahlung->setAenderungsdatum($aenderungsdatum);
 
-				var_dump($zahlung);
 					
 				// Wenn tempor�res Objekt gef�llt wurde kann mit diesen Werten das Objekt �ber die anlegen-Fkt in die DB geschrieben werden
 				if ($errorStr == "" && $zahlung->anlegen()) {
