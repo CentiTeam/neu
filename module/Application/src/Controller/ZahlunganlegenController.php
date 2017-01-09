@@ -38,6 +38,9 @@ class ZahlunganlegenController extends AbstractActionController {
 			$kategorieliste = Kategorie::listeHolen();
 
 			// Liste der User-Objekte der Gruppenmitglieder holen
+			$gruppe = new Gruppe();
+			$gruppe->laden($_SESSION['g_id']);
+			
 			$mitgliederliste = User::gruppenmitgliederlisteholen($gruppe->getG_id());
 			
 			
