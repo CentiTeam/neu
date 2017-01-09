@@ -76,10 +76,11 @@ $text =
 				
 Du wurdest von $absenderVorname $absenderNachname in die Gruppe $gruppenName eingeladen.
 						
-�ber diesen Link kannst die die Einladung annehmen:
+Über diesen Link kannst die die Einladung annehmen:
 $link
+<a href='http://132.231.36.206/einladungannehmen?g_id=$g_id?u_id=$empfaenger_id'>Einladung annehmen</a>
 
-Viele Gr��e
+Viele Grüße
 Dein Grouppay-Team";
 				
 				mail($empfaenger, $betreff, $text);
