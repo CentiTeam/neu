@@ -69,10 +69,22 @@ class UsersuchenController extends AbstractActionController
 				//$link="http://132.231.36.206/einladungannehmen?g_id=$g_id&u_id=$empfaenger_id";
 				////	$link";
 				
-				$test= "<a href=\"einladungannehmen?g_id=$g_id&u_id=$empfaenger_id\">Einladung annehmen</a>";
-				echo $test;
-				var_dump($test);
-				
+				$link= "<a href=\"einladungannehmen?g_id=$g_id&u_id=$empfaenger_id\">Einladung annehmen</a>";
+				echo $link;
+				var_dump($link);
+$text="				
+Hallo $empfaengerVorname!
+
+Du wurdest von $absenderVorname $absenderNachname in die Gruppe $gruppenName eingeladen.
+
+&Uuml;ber diesen Link kannst Du die Einladung annehmen:
+$link
+
+Viele Gr&uuml;&szlig;e
+Dein Grouppay-Team
+";
+		
+/**
 				$text=
 				"<html>
 					<body>		
@@ -87,12 +99,12 @@ class UsersuchenController extends AbstractActionController
 						<div>Dein Grouppay-Team</div>
 					</body>
 				</html>";
-				
+*/				
 				$header  = 'MIME-Version: 1.0' . "\r\n";
 				$header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-				
+			
 				// Mail verschicken
-				mail($empfaenger, $betreff, $text2, $header);
+				mail($empfaenger, $betreff, $text, $header);
 				
 				$msg= "$empfaengerUsername wurde erfolgreich eingeladen!";
 				
