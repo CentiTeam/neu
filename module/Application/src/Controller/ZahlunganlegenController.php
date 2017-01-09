@@ -77,7 +77,7 @@ class ZahlunganlegenController extends AbstractActionController {
 				$zahlung->setErstellungsdatum($erstellungsdatum);
 				$zahlung->setZahlungsdatum($zahlungsdatum);
 				$zahlung->setBetrag($betrag);
-				$zahlung->setKategorie($k_id);
+				$zahlung->setK_id($k_id);
 				$zahlung->setAenderungsdatum($aenderungsdatum);
 
 				var_dump($zahlung);
