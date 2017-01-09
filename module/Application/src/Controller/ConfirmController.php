@@ -53,17 +53,13 @@ class ConfirmController extends AbstractActionController
 				
 			$user->confirm();
 			
-			
+			echo "Bestätigung erfolgreich. Sie können sich jetzt anmelden!";
 		
 		}
-		$view = new ViewModel([
-					
-		]);
-			
-		$view->setTemplate('application/login/login.phtml');
-		echo "Bestätigung erfolgreich. Sie können sich jetzt anmelden!";
 		
-		return $view;
+		
+		
+		
 		return new ViewModel();
 		
 	}	
