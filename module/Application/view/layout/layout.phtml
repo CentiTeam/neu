@@ -43,7 +43,7 @@
 								<li class="active"><a href="<?= $this->url('overview') ?>">Overview</a></li>
 								<li class="active"><a href="<?= $this->url('groupoverview') ?>">Meine Gruppen</a></li>
 								<?php if(ISSET($_REQUEST['g_id'])){?>	
-								<a href='zahlunganlegen?g_id=<?=$_REQUEST['g_id']?>'>Zahlung anlegen</a>
+								<li class="active><a href='zahlunganlegen?g_id=<?=$_REQUEST['g_id']?>'></a></li>
 								<?php } ?>
 								<?php } else if($_SESSION['systemadmin']=="ja") {?>
 								<li class="active"><a href="<?= $this->url('adminoverview') ?>">Adminstartseite</a></li>	
