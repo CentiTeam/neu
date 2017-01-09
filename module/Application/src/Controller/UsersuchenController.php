@@ -78,7 +78,7 @@ class UsersuchenController extends AbstractActionController
 						<div>Du wurdest von $absenderVorname $absenderNachname in die Gruppe $gruppenName eingeladen.</div>
 						<br>
 						<div>&Uuml;ber diesen Link kannst Du die Einladung annehmen:</div>
-						<div><a href='http://132.231.36.206/einladungannehmen?g_id=".$g_id."&u_id=".$empfaenger_id.">Einladung annehmen</a></div><br>
+						<div><a href='http://132.231.36.206/einladungannehmen?g_id=".$g_id."&ampu_id=".$empfaenger_id.">Einladung annehmen</a></div><br>
 						<div>Viele Gr&uuml;&szlig;e</div> 
 						<div>Dein Grouppay-Team</div>
 					</body>
