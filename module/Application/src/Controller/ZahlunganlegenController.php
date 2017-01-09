@@ -41,6 +41,8 @@ class ZahlunganlegenController extends AbstractActionController {
 			$gruppe = new Gruppe();
 			$gruppe->laden($_SESSION['g_id']);
 			
+			echo $gruppe;
+			
 			$mitgliederliste = User::gruppenmitgliederlisteholen($gruppe->getG_id());
 			
 			

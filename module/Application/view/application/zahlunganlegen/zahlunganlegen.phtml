@@ -1,10 +1,5 @@
 <form action="zahlunganlegen" method="post">
 
-<br>
-<br>
-
-
-
 <table>
 <th>Zahlung erstellen</th>
 <tr><td>Zahlungsbeschreibung: </td><td><input name="zahlungsbeschreibung" type="text" maxlength="50" size="20" required></td></tr>
@@ -26,7 +21,7 @@
 		foreach ($mitgliederListe as $zaehler => $mitglied) { ?>
 			<option value='<?=$mitglied->getU_id()?>'> <?=$mitglied->getUsername() ?> </option>						
 		<?php } ?> 
-		</select>
+	</select>
 </td></tr>
 										
 																			
