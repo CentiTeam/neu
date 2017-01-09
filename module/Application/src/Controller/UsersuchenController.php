@@ -65,7 +65,7 @@ class UsersuchenController extends AbstractActionController
 				$betreff = "Grouppay: Einladung in die Gruppe $gruppenName";
 				//$from = "From: Franz Reimers <absender@domain.de>";
 				
-				$link="http://132.231.36.206";
+				$link="http://132.231.36.206/einladungannehmen?g_id=$gruppe->getG_id()?u_id=$empfaenger->getU_id()";
 				//$link = "$diensturl/newsletter.php?mail=$thisemail&name=$thisname";
 				/**
 				echo '<a href='132.231.36.206/einladungannehmen?g_id=<?=$gruppe->getG_id()?>?u_id=<?=$empfaenger->getU_id()?>'>Einladung annehmen</a>';
@@ -75,10 +75,10 @@ $text =
 				
 Du wurdest von $absenderVorname $absenderNachname in die Gruppe $gruppenName eingeladen.
 						
-Über diesen Link kannst die die Einladung annehmen:
+ï¿½ber diesen Link kannst die die Einladung annehmen:
 $link
 
-Viele Grüße
+Viele Grï¿½ï¿½e
 Dein Grouppay-Team";
 				
 				mail($empfaenger, $betreff, $text);
