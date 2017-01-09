@@ -65,38 +65,28 @@ class UsersuchenController extends AbstractActionController
 				$empfaenger = "$empfaengerMail";
 				$betreff = "Grouppay: Einladung in die Gruppe $gruppenName";
 				
-				$link="http://132.231.36.206/einladungannehmen?g_id=$g_id?u_id=$empfaenger_id";
+				//kann weg
+				//$link="http://132.231.36.206/einladungannehmen?g_id=$g_id?u_id=$empfaenger_id";
 				
-/**
-$text = 
-"Hallo $empfaengerVorname!
-				
-Du wurdest von $absenderVorname $absenderNachname in die Gruppe $gruppenName eingeladen.
-						
-Über diesen Link kannst die die Einladung annehmen:
-$link
 
-Viele Grüße
-Dein Grouppay-Team";
-*/
-
-			$text2=
-			"<html>
-				<body>		
-					<div>Hallo $empfaengerVorname!</div>
-					<br>
-					<div>Du wurdest von $absenderVorname $absenderNachname in die Gruppe $gruppenName eingeladen.</div>
-					<br>
-					<div>&uuml;ber diesen Link kannst die die Einladung annehmen:</div>
-					<div><a href='http://132.231.36.206/einladungannehmen?g_id=$g_id?u_id=$empfaenger_id'>Einladung annehmen</a></div><br>
-					<div>Viele Gr&uuml;&szlig;e</div>
-					<div>Dein Grouppay-Team</div>
-				</body>
-			</html>";
+				$text=
+				"<html>
+					<body>		
+						<div>Hallo $empfaengerVorname!</div>
+						<br>
+						<div>Du wurdest von $absenderVorname $absenderNachname in die Gruppe $gruppenName eingeladen.</div>
+						<br>
+						<div>&Uuml;ber diesen Link kannst Du die Einladung annehmen:</div>
+						<div><a href='http://132.231.36.206/einladungannehmen?g_id=$g_id?u_id=$empfaenger_id'>Einladung annehmen</a></div><br>
+						<div>Viele Gr&uuml;&szlig;e</div>
+						<div>Dein Grouppay-Team</div>
+					</body>
+				</html>";
 			
-			$header  = 'MIME-Version: 1.0' . "\r\n";
-			$header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+				$header  = 'MIME-Version: 1.0' . "\r\n";
+				$header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 				
+				// Mail verschicken
 				mail($empfaenger, $betreff, $text2, $header);
 				
 				$msg= "$empfaengerUsername wurde erfolgreich eingeladen!";

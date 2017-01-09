@@ -1,0 +1,10 @@
+<form method='post'>
+
+<div>Wollen Sie die Einladung in die Gruppe <?=$gruppe->getGruppenname()?> annehmen?</div>div>
+	
+	<input type='hidden' name='u_id' value='<?=$user->getU_id()?>'>
+		
+	<input class='button' type='submit' name='speichern' value='Ja'>
+	<input class='button' type='submit' name='abbrechen' value='Nein'>
+		
+</form>

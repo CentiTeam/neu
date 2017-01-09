@@ -15,19 +15,16 @@
 	</table>
 
 	<input type="hidden" name="g_id" readonly="readonly" value="<?=!is_null ($gruppe[0]->getG_id()) ? $gruppe[0]->getG_id():"<automatisch>"?>">
-	
 
     
-<?php #TODO: Hier ist nur eine Idee für den HTML-Part. Muss noch korrigiert werden und in Controller und Model eingebaut werden ?>   
-    
        <!-- <input type="hidden" name="MAX_FILE_SIZE" value="100000" /> -->
-          <table>
-        	<tr><td>Gruppenbild ausw&auml;hlen:</td></tr>
-        	</table>
-        <input type="file" name="uploadedfile" />
-        <input type="hidden" name="g_id" readonly="readonly" value="<?=!is_null ($gruppe[0]->getG_id()) ? $gruppe[0]->getG_id():"<automatisch>"?>">
-        <br />
-       	<input type="submit" name="speichern" value="Gruppe anlegen">
+	<table>
+       	<tr><td>Gruppenbild ausw&auml;hlen:</td></tr>
+	</table>
+	<input type="file" name="uploadedfile" />
+    <input type="hidden" name="g_id" readonly="readonly" value="<?=!is_null ($gruppe[0]->getG_id()) ? $gruppe[0]->getG_id():"<automatisch>"?>">
+    <br />
+    <input type="submit" name="speichern" value="Gruppe anlegen">
        <!-- <input type="submit" name="upload" value="Gruppenbild &auml;ndern" /> -->
-    </form>  
+</form>  
          
