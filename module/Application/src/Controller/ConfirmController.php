@@ -53,8 +53,7 @@ class ConfirmController extends AbstractActionController
 				
 			$user->confirm();
 			
-			echo "Bestätigung erfolgreich. Sie können sich jetzt anmelden!";
-		
+			
 		}
 		
 		
