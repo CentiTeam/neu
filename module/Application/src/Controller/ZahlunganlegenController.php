@@ -59,12 +59,14 @@ class ZahlunganlegenController extends AbstractActionController {
 				$zahlungsdatum=$_REQUEST["zahlungsdatum"];
 				$betrag=$_REQUEST["betrag"];
 				$k_id=$_REQUEST["k_id"];
+				$aenderungsdatum=$_REQUEST["aenderungsdatum"];
+				
 				
 				date_default_timezone_set("Europe/Berlin");
 				$timestamp=time();
 				$erstellungsdatum= date("d.m.Y",$timestamp);
 				
-				$aenderungsdatum="";
+				
 				//var_dump($erstellungsdatum);
 				
 				
