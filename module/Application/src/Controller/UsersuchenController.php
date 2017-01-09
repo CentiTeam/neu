@@ -69,6 +69,7 @@ class UsersuchenController extends AbstractActionController
 				//$link="http://132.231.36.206/einladungannehmen?g_id=$g_id&u_id=$empfaenger_id";
 				////	$link";
 				
+				echo '<a href=\"http://132.231.36.206/einladungannehmen?g_id=$g_id&u_id=$empfaenger_id\">Einladung annehmen</a>';
 				
 				$text=
 				"<html>
