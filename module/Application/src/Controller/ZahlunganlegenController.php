@@ -39,7 +39,7 @@ class ZahlunganlegenController extends AbstractActionController {
 
 			// Liste der User-Objekte der Gruppenmitglieder holen
 			$gruppe = new Gruppe();
-			$gruppe->laden($_SESSION['g_id']);
+			$gruppe->laden($_GET['g_id']);
 			
 			var_dump($gruppe);
 			

@@ -22,15 +22,13 @@ class GroupshowController extends AbstractActionController
 		$g_id=$_REQUEST['g_id'];
 		$gruppe->laden($g_id);
 		
-
-		
 		// Liste der User-Objekte der Gruppenmitglieder holen
 		$mitgliederliste = User::gruppenmitgliederlisteholen($g_id); 
 		
 		
 		$mitgliedschaft=array();
 		
-		// Für jedes Gruppenmitglied mit die Gruppenmitgliedschafts-Infos (inkl. Gruppenadmin) laden
+		// Fï¿½r jedes Gruppenmitglied mit die Gruppenmitgliedschafts-Infos (inkl. Gruppenadmin) laden
 		// und Mitgliedschaftsinfos in Array speichern, wenn Gruppenmitgliedschaft besteht
 		foreach ($mitgliederliste as $mitglied) {
 			
@@ -38,7 +36,7 @@ class GroupshowController extends AbstractActionController
 			$gruppenmitglied= new Gruppenmitglied();
 			$gruppenmitglied->laden ($g_id, $mitglied->getU_id());
 			
-			// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter befüllt
+			// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter befï¿½llt
 			if ($gruppenmitglied->getU_id() == $mitglied->getU_id()) {
 				
 				$mitgliedschaft[]=$gruppenmitglied;
