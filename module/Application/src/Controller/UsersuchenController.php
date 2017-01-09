@@ -69,8 +69,6 @@ class UsersuchenController extends AbstractActionController
 				//$link="http://132.231.36.206/einladungannehmen?g_id=$g_id&u_id=$empfaenger_id";
 				////	$link";
 				
-				echo $g_id;
-				echo $empfaenger_id;
 				
 				$text=
 				"<html>
@@ -81,7 +79,7 @@ class UsersuchenController extends AbstractActionController
 						<br>
 						<div>&Uuml;ber diesen Link kannst Du die Einladung annehmen:</div>
 						
-						<a href='http://132.231.36.206/einladungannehmen?g_id=$g_id&u_id=$empfaenger_id'>Einladung annehmen</a>
+						<a href=\"http://132.231.36.206/einladungannehmen?g_id=$g_id&u_id=$empfaenger_id\">Einladung annehmen</a>
 						<div>Viele Gr&uuml;&szlig;e</div> 
 						<div>Dein Grouppay-Team</div>
 					</body>
