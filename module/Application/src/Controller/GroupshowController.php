@@ -14,10 +14,15 @@ class GroupshowController extends AbstractActionController
 	public function GroupshowAction()
 	{
 		
+		//Liste alle verfügbaren Kateforien holen
+		$katergorieliste = Kategorie::listeholen();
+		
 		// Gruppen-Objekt laden
 		$gruppe= new Gruppe();
 		$g_id=$_REQUEST['g_id'];
 		$gruppe->laden($g_id);
+		
+
 		
 		// Liste der User-Objekte der Gruppenmitglieder holen
 		$mitgliederliste = User::gruppenmitgliederlisteholen($g_id); 
@@ -45,7 +50,8 @@ class GroupshowController extends AbstractActionController
 		return new ViewModel([
 			'gruppe' => array($gruppe),
 			'mitgliederListe' => $mitgliederliste,
-			'mitgliedschaft' => $mitgliedschaft
+			'mitgliedschaft' => $mitgliedschaft,
+			'kategorieListe' => $kategorieliste
 		]);
 		
 	
