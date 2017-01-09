@@ -153,7 +153,7 @@ class ZahlunganlegenController extends AbstractActionController {
 						// 'mitgliedschaft' => $mitgliedschaft
 				]);
 					
-				$view->setTemplate('application/zahlungsanzeigen/zahlunganzeigen.phtml');
+				$view->setTemplate('application/zahlunganzeigen/zahlunganzeigen.phtml');
 
 				return $view;
 			}
