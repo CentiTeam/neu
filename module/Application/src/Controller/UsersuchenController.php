@@ -90,12 +90,12 @@ $text2=
 </head>
 <body>		
 	<div>Hallo $empfaengerVorname!</div>
-	<br><br>
+	<br>
 	<div>Du wurdest von $absenderVorname $absenderNachname in die Gruppe $gruppenName eingeladen.</div>
-	<br><br>
-	<div>Über diesen Link kannst die die Einladung annehmen:</div><br>
-	<a href='http://132.231.36.206/einladungannehmen?g_id=$g_id?u_id=$empfaenger_id'>Einladung annehmen</a><br>
-	<div>Viele Grüße</div><br>
+	<br>
+	<div>Über diesen Link kannst die die Einladung annehmen:</div>
+	<div><a href='http://132.231.36.206/einladungannehmen?g_id=$g_id?u_id=$empfaenger_id'>Einladung annehmen</a></div>
+	<div>Viele Gr&uuml;&szlig;e</div>
 	<div>Dein Grouppay-Team</div>
 	
 </body>
