@@ -56,8 +56,7 @@ class RegistrierenController extends AbstractActionController{
 			
 			if($user->getUsername()==null) die("Benutzername wurde nicht eingelesen.");
 				
-			$user->registrieren();
-			
+		
 			
 			
 
@@ -86,7 +85,8 @@ class RegistrierenController extends AbstractActionController{
 			
 		}
 		
-
+		$user->registrieren();
+			
 		return new ViewModel([
 				'user' => array($user),
 				'errors'   => $errors,
