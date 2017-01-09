@@ -64,13 +64,10 @@ class UsersuchenController extends AbstractActionController
 				
 				$empfaenger = "$empfaengerMail";
 				$betreff = "Grouppay: Einladung in die Gruppe $gruppenName";
-				//$from = "From: Franz Reimers <absender@domain.de>";
 				
 				$link="http://132.231.36.206/einladungannehmen?g_id=$g_id?u_id=$empfaenger_id";
-				//$link = "$diensturl/newsletter.php?mail=$thisemail&name=$thisname";
-				/**
-				echo '<a href='132.231.36.206/einladungannehmen?g_id=<?=$gruppe->getG_id()?>?u_id=<?=$empfaenger->getU_id()?>'>Einladung annehmen</a>';
-				*/
+				
+/**
 $text = 
 "Hallo $empfaengerVorname!
 				
@@ -81,27 +78,24 @@ $link
 
 Viele Grüße
 Dein Grouppay-Team";
+*/
 
-
-$text2=
-"<html>
-<head>
-  <title>Einladung in die Gruppe $gruppenName!</title>
-</head>
-<body>		
-	<div>Hallo $empfaengerVorname!</div>
-	<br>
-	<div>Du wurdest von $absenderVorname $absenderNachname in die Gruppe $gruppenName eingeladen.</div>
-	<br>
-	<div>Über diesen Link kannst die die Einladung annehmen:</div>
-	<div><a href='http://132.231.36.206/einladungannehmen?g_id=$g_id?u_id=$empfaenger_id'>Einladung annehmen</a></div>
-	<div>Viele Gr&uuml;&szlig;e</div>
-	<div>Dein Grouppay-Team</div>
-	
-</body>
-</html>";
-		$header  = 'MIME-Version: 1.0' . "\r\n";
-		$header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+			$text2=
+			"<html>
+				<body>		
+					<div>Hallo $empfaengerVorname!</div>
+					<br>
+					<div>Du wurdest von $absenderVorname $absenderNachname in die Gruppe $gruppenName eingeladen.</div>
+					<br>
+					<div>&uuml;ber diesen Link kannst die die Einladung annehmen:</div>
+					<div><a href='http://132.231.36.206/einladungannehmen?g_id=$g_id?u_id=$empfaenger_id'>Einladung annehmen</a></div><br>
+					<div>Viele Gr&uuml;&szlig;e</div>
+					<div>Dein Grouppay-Team</div>
+				</body>
+			</html>";
+			
+			$header  = 'MIME-Version: 1.0' . "\r\n";
+			$header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 				
 				mail($empfaenger, $betreff, $text2, $header);
 				
