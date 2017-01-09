@@ -88,7 +88,7 @@ use Application\Model\Kategorie;
 										 <?php 
 										//Alle Kategorien in die Auswahlliste schreiben
 										foreach ($kategorieListe as $zaehler => $kategorie) { ?>
-											<option> <? $kategorie ?></option>
+											<option> <? $kategorie->getKategoriebeschreibung() ?></option>
 										
 										
 										<?php } ?> 
@@ -114,3 +114,13 @@ use Application\Model\Kategorie;
     </select>
   </label>
 </form>
+
+
+
+
+<?php 
+										//Alle Kategorien in die Auswahlliste schreiben
+										foreach ($kategorieListe as $zaehler => $kategorie) {
+											echo 'sepp';
+										}
+										}
