@@ -7,6 +7,7 @@ use Zend\View\Model\ViewModel;
 use Application\Model\Gruppe;
 use Application\Model\User;
 use Application\Model\Gruppenmitglied;
+use Application\Model\Kategorie;
 
 
 class GroupshowController extends AbstractActionController
@@ -15,7 +16,7 @@ class GroupshowController extends AbstractActionController
 	{
 		
 		//Liste alle verfügbaren Kateforien holen
-		//$katergorieliste = Kategorie::listeHolen();
+		$katergorieliste = Kategorie::listeHolen();
 		
 		// Gruppen-Objekt laden
 		$gruppe= new Gruppe();
