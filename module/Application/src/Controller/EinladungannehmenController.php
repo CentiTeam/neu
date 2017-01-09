@@ -87,9 +87,13 @@ class EinladungannehmenController extends AbstractActionController
 					'user' => array($user)
 			]);
 		}
-
+		
+		session_start();
 		$view = new ViewModel([
-				'msg' => $msg
+				'msg' => $msg,
+				'gruppe' => array($gruppe),
+				'user' => array($user)
+				
 		]);
 
 		$view->setTemplate('application/groupoverview/groupoverview.phtml');
