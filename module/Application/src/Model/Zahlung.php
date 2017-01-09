@@ -20,6 +20,64 @@ class Zahlung {
 			
 	}
 	
+	
+	public function anlegen () {
+	
+		$db = new DB_connection();
+	
+		$query = "INSERT INTO zahlung (zahlungsbeschreibung, erstellungsdatum, zahlungsdatum, betrag, k_id, aenderungsdatum) VALUES (
+				'".$this->zahlungsbeschreibung."',
+				'".$this->erstellungsdatum."',
+				'".$this->zahlungsdatum."',
+				'".$this->betrag."',
+				'".$this->k_id."',
+				'".$this->aenderungsdatum."'		
+				)" ;
+	
+		$result = $db->execute($query);
+	
+		return $result;
+	}
+	
+	
+	public function laden ($z_id = null) {
+	
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+	
+		// DB-Befehl absetzen: alle Basisinformationen des Teams mit der �bergebenen $t_id abfragen
+	
+	
+		if ($g_id) {
+			$result=$dbStmt->execute("SELECT * FROM zahlung WHERE z_id= '".$z_id."';");
+		}
+		else {
+			$result=$dbStmt->execute("SELECT * FROM zahlung WHERE z_id =(SELECT MAX(z_id) FROM zahlung)");
+		}
+		// Variable, die speichert, ob das Team geladen werden konnte oder nicht
+		$isLoaded=false;
+	
+		// Ergebnis verarbeiten, falls vorhanden
+		if ($row=mysqli_fetch_array($result)) {
+			$this->z_id=$row["z_id"];
+			$this->zahlungsbeschreibung=$row["zahlungsbeschreibung"];
+			$this->erstellungsdatum=$row["erstellungsdatum"];
+			$this->zahlungsdatum=$row["zahlungsdatum"];
+			$this->betrag=$row["betrag"];
+			$this->k_id=$row["k_id"];
+			$this->aenderungsdatum=$row["aenderungsdatum"]; 
+	
+			// speichern, dass die Basisinformationen des Teams erfolgreich geladen werden konnten
+			$isLoaded=true;
+		}
+	
+		// zur�ckgeben, ob beim Laden ein Fehler aufgetreten ist
+		return $isLoaded;
+	}
+	
+	
+	
+	
 	// Getter und Setter
 	
 	public function getZ_id () {
