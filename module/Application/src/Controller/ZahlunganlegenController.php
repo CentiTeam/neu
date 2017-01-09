@@ -64,7 +64,7 @@ class ZahlunganlegenController extends AbstractActionController {
 				$timestamp=time();
 				$erstellungsdatum= date("d.m.Y",$timestamp);
 				
-				$aenderungsdatum=NULL;
+				$aenderungsdatum="";
 				//var_dump($erstellungsdatum);
 				
 				
