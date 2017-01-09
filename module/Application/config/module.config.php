@@ -326,6 +326,17 @@ return [
         				],
         		],
         		
+        		'zahlunganzeigen' => [
+        				'type'    => Segment::class,
+        				'options' => [
+        						'route'    => '/zahlunganzeigen[/:action]',
+        						'defaults' => [
+        								'controller' => Controller\ZahlunganzeigenController::class,
+        								'action'     => 'zahlunganzeigen',
+        						],
+        				],
+        		],
+        		
         		
         		
         		
@@ -373,6 +384,7 @@ return [
         	Controller\PasswortvergessenController::class => InvokableFactory::class,
         	Controller\EmailpasswortController::class => InvokableFactory::class,
 			Controller\ZahlunganlegenController::class => InvokableFactory::class,
+        	Controller\ZahlunganzeigenController::class => InvokableFactory::class,
         	Controller\ConfirmController::class => InvokableFactory::class,
         		
         		
