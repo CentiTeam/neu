@@ -149,7 +149,7 @@ class ZahlunganlegenController extends AbstractActionController {
 						'gruppe' => array($gruppe),
 						'errors'   => $errors,
 						'msg' => $msg,
-						'mitgliederListe' => $mitgliederliste,
+						//'mitgliederListe' => $mitgliederliste,
 						// 'mitgliedschaft' => $mitgliedschaft
 				]);
 					
