@@ -57,7 +57,7 @@ class RegistrierenController extends AbstractActionController{
 			if($user->getUsername()==null) die("Benutzername wurde nicht eingelesen.");
 				
 		
-			
+		
 			
 
 			$msg="";
