@@ -301,6 +301,17 @@ return [
         				],
         		],
         		
+        		'zahlunganlegen' => [
+        				'type'    => Segment::class,
+        				'options' => [
+        						'route'    => '/zahlunganlegen[/:action]',
+        						'defaults' => [
+        								'controller' => Controller\ZahlunganlegenController::class,
+        								'action'     => 'zahlunganlegen',
+        						],
+        				],
+        		],
+        		
         		
         		
         		
@@ -347,6 +358,7 @@ return [
         	Controller\UsersuchenController::class => InvokableFactory::class,
         	Controller\PasswortvergessenController::class => InvokableFactory::class,
         	Controller\EmailpasswortController::class => InvokableFactory::class,
+        	Controller\ZahlunganlegenController::class => InvokableFactory::class,
         		
         		
         		
