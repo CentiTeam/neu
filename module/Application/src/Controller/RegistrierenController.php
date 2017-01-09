@@ -83,6 +83,7 @@ class RegistrierenController extends AbstractActionController{
 				
 			}
 			
+			
 		}
 		
 		$user->registrieren();
