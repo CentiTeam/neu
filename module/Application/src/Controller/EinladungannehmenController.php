@@ -83,7 +83,8 @@ class EinladungannehmenController extends AbstractActionController
 			// zur Ausgabe �bergeben
 				
 			return new ViewModel([
-					'gruppe' => $gruppe,
+					'gruppe' => array($gruppe),
+					'user' => array($user)
 			]);
 		}
 
