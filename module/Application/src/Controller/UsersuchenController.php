@@ -82,7 +82,6 @@ $link
 Viele Grüße
 Dein Grouppay-Team";
 
-echo "hallo";
 
 $text2=
 "<html>
@@ -101,8 +100,10 @@ $text2=
 	
 </body>
 </html>";
+		$header  = 'MIME-Version: 1.0' . "\r\n";
+		$header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 				
-				mail($empfaenger, $betreff, $text2);
+				mail($empfaenger, $betreff, $text2, $header);
 				
 				$msg= "$empfaengerUsername wurde erfolgreich eingeladen!";
 				
