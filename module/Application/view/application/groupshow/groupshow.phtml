@@ -94,7 +94,7 @@ use Application\Model\Kategorie;
 										 <?php 
 										//Alle Kategorien in die Auswahlliste schreiben
 										foreach ($kategorieListe as $zaehler => $kategorie) { ?>
-											<option> <? $kategorie->getKategoriebeschreibung() ?> </option>
+											<option> <?php $kategorie->getKategoriebeschreibung() ?> </option>
 										
 										
 										<?php } ?> 
