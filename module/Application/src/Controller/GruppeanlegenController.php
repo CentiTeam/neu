@@ -80,7 +80,7 @@ class GruppeanlegenController extends AbstractActionController {
 				
 				// Wenn kein Bild hochgeladen werden soll
 				if ($_FILES["uploadedfile"]["name"] == NULL) {
-					$path= "img/gruppe_anonym.jpg";
+					$path= $this->img_folder."gruppe_anonym.jpg";
 					$gruppe->setGruppenbildpfad($path);
 				// Wenn es einen Fehler/Problem beim Upload gibt
 				} elseif ($path==false) {
