@@ -78,12 +78,31 @@ Du wurdest von $absenderVorname $absenderNachname in die Gruppe $gruppenName ein
 						
 Über diesen Link kannst die die Einladung annehmen:
 $link
-<a href='http://132.231.36.206/einladungannehmen?g_id=$g_id?u_id=$empfaenger_id'>Einladung annehmen</a>
 
 Viele Grüße
 Dein Grouppay-Team";
+
+echo "hallo";
+
+$text2=
+"<html>
+<head>
+  <title>Einladung in die Gruppe $gruppenName!</title>
+</head>
+<body>		
+	<div>Hallo $empfaengerVorname!</div>
+	<br><br>
+	<div>Du wurdest von $absenderVorname $absenderNachname in die Gruppe $gruppenName eingeladen.</div>
+	<br><br>
+	<div>Über diesen Link kannst die die Einladung annehmen:</div><br>
+	<a href='http://132.231.36.206/einladungannehmen?g_id=$g_id?u_id=$empfaenger_id'>Einladung annehmen</a><br>
+	<div>Viele Grüße</div><br>
+	<div>Dein Grouppay-Team</div>
+	
+</body>
+</html>";
 				
-				mail($empfaenger, $betreff, $text);
+				mail($empfaenger, $betreff, $text2);
 				
 				$msg= "$empfaengerUsername wurde erfolgreich eingeladen!";
 				
