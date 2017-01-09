@@ -59,7 +59,7 @@ class GruppeanlegenController extends AbstractActionController {
 					$uploadedfile=$_REQUEST["uploadedfile"];
 				
 				
-					//Bilddatei an die Funktion Bildupload übergeben, Rückgabe des Bildpfades
+					//Bilddatei an die Funktion Bildupload ï¿½bergeben, Rï¿½ckgabe des Bildpfades
 					$path = $bildupload->bildupload($uploadedfile);
 				}
 				
@@ -80,7 +80,7 @@ class GruppeanlegenController extends AbstractActionController {
 				
 				// Wenn kein Bild hochgeladen werden soll
 				if ($_FILES["uploadedfile"]["name"] == NULL) {
-					$path= "";
+					$path= "img/gruppe_anonym.jpg";
 					$gruppe->setGruppenbildpfad($path);
 				// Wenn es einen Fehler/Problem beim Upload gibt
 				} elseif ($path==false) {
@@ -95,7 +95,7 @@ class GruppeanlegenController extends AbstractActionController {
 				}
 				
 			
-				// Wenn temporäres Objekt gefüllt wurde kann mit diesen Werten das Objekt über die anlegen-Fkt in die DB geschrieben werden
+				// Wenn temporï¿½res Objekt gefï¿½llt wurde kann mit diesen Werten das Objekt ï¿½ber die anlegen-Fkt in die DB geschrieben werden
 				 if ($errorStr == "" && $gruppe->anlegen()) {
 				 	
 				 // array_push($msg, "Gruppe erfolgreich gespeichert!");
@@ -114,7 +114,7 @@ class GruppeanlegenController extends AbstractActionController {
 				 $gruppenmitglied->setG_id($gruppe->getG_id());
 				 $gruppenmitglied->setGruppenadmin(1);	
 				 
-				 $verknüpfung=$gruppenmitglied->anlegen();
+				 $verknï¿½pfung=$gruppenmitglied->anlegen();
 				 
 		
 				 } elseif ($errorStr == "") {
@@ -137,7 +137,7 @@ class GruppeanlegenController extends AbstractActionController {
 				 
 				 $mitgliedschaft=array();
 				 
-				 // Für jedes Gruppenmitglied mit die Gruppenmitgliedschafts-Infos (inkl. Gruppenadmin) laden
+				 // Fï¿½r jedes Gruppenmitglied mit die Gruppenmitgliedschafts-Infos (inkl. Gruppenadmin) laden
 				 // und Mitgliedschaftsinfos in Array speichern, wenn Gruppenmitgliedschaft besteht
 				 foreach ($mitgliederliste as $mitglied) {
 				 		
@@ -145,7 +145,7 @@ class GruppeanlegenController extends AbstractActionController {
 				 	$gruppenmitglied= new Gruppenmitglied();
 				 	$gruppenmitglied->laden ($gruppe->getG_id(), $mitglied->getU_id());
 				 		
-				 	// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter befüllt
+				 	// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter befï¿½llt
 				 	if ($gruppenmitglied->getU_id() == $mitglied->getU_id()) {
 				 
 				 		$mitgliedschaft[]=$gruppenmitglied;
