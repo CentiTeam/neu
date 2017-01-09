@@ -16,7 +16,7 @@ class ZahlunganlegenController extends AbstractActionController {
 	function zahlunganlegenAction() {
 		// TODO Berechtigungspr�fung
 		session_start();
-		
+		  
 
 
 

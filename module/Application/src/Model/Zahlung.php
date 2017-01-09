@@ -65,7 +65,7 @@ class Zahlung {
 			$this->zahlungsdatum=$row["zahlungsdatum"];
 			$this->betrag=$row["betrag"];
 			$this->k_id=$row["k_id"];
-			$this->aenderungsdatum=$row["aenderungsdatum"];
+			$this->aenderungsdatum=$row["aenderungsdatum"]; 
 	
 			// speichern, dass die Basisinformationen des Teams erfolgreich geladen werden konnten
 			$isLoaded=true;
