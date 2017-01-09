@@ -81,7 +81,23 @@ use Application\Model\Gruppenmitglied;
 	<table>
 		<tr><td>Zahlungsbeschreibung: </td><td><input name="zahlungsbeschreibung" type="text" maxlength="50" size="20" required></td></tr>
 		<tr><td>Betrag: </td><td><input name="betrag" type="text" maxlength="50" size="20" required></td></tr>
-		<tr><td>Zahlungsdatum: </td><td><input name="zahlungsdatum" type="date" size="20" required></td></tr>
+		<tr><td>Zahlungsdatum: </td><td><input name="zahlungsdatum" type="date" required></td></tr>
+		<tr><td>Kategorie: </td><td><input name="kategorie" type="text" maxlength="50" size="20" required></td></tr>
 		<tr><td><input type="submit" value="Zahlung anlegen"></td> </tr>
 	</table>
 	</form>
+	
+	
+	
+	
+	<form>
+  <label>Künstler(innen):
+    <select name="top5" size="5" multiple>
+      <option>Heino</option>
+      <option>Michael Jackson</option>
+      <option>Tom Waits</option>
+      <option>Nina Hagen</option>
+      <option>Marianne Rosenberg</option>
+    </select>
+  </label>
+</form>
