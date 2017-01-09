@@ -17,6 +17,13 @@ use Application\Model\Kategorie;
 
 <div>Hierhin kommt das interne Message-Board einer Gruppe </div>
 
+<?php 
+										//Alle Kategorien in die Auswahlliste schreiben
+										foreach ($kategorieListe as $fred => $kategorie) {
+											echo 'sepp';
+										}
+										?>
+
 
 <table>
 	<tr><th>Gruppenmitglieder:</th></tr>
@@ -28,6 +35,11 @@ use Application\Model\Kategorie;
 		<th>Gruppenadmin</th>
 		<th></th>
 	</tr>
+	
+	
+	
+	
+	
 	
 	<?php 
 	foreach ($mitgliederListe as $zaehler => $mitglied) {
@@ -118,10 +130,5 @@ use Application\Model\Kategorie;
 
 
 
-<?php 
-										//Alle Kategorien in die Auswahlliste schreiben
-										foreach ($kategorieListe as $fred => $kategorie) {
-											echo 'sepp';
-										}
-										?>
+
 										
