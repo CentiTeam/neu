@@ -61,6 +61,20 @@ return [
         			],
         	],
         		
+        		
+        		'confirm' => [
+        				'type'    => Segment::class,
+        				'options' => [
+        						'route'    => '/confirm[/:action]',
+        						'defaults' => [
+        								'controller' => Controller\ConfirmController::class,
+        								'action'     => 'confirm',
+        						],
+        				],
+        		],
+        		
+        	
+        		
        		'benutzerdeaktivieren' => [
        				'type'    => Segment::class,
        				'options' => [
@@ -358,10 +372,15 @@ return [
         	Controller\UsersuchenController::class => InvokableFactory::class,
         	Controller\PasswortvergessenController::class => InvokableFactory::class,
         	Controller\EmailpasswortController::class => InvokableFactory::class,
-        	Controller\ZahlunganlegenController::class => InvokableFactory::class,
+			Controller\ZahlunganlegenController::class => InvokableFactory::class,
+        	Controller\ConfirmController::class => InvokableFactory::class,
         		
         		
         		
+        		
+        		
+        		
+
 
         		
         	

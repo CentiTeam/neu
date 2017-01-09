@@ -58,14 +58,39 @@ class RegistrierenController extends AbstractActionController{
 				
 			$user->registrieren();
 			
-		}
-		}
 			
+			
+
+			$msg="";
+				
+			$empfaenger= $email;
+				
+				
+			$betreff = "Grouppay: Registrierung bestätigen";
+				
+			$link="http://132.231.36.206/confirm";
+				
+			$text =
+			"Hallo!
+			Über diesen Link kannst du deine Registrierung bestätigen:
+			$link
+				
+			Viele Grüße
+			Dein Grouppay-Team";
+				
+			mail($empfaenger, $betreff, $text);
+				
+			$msg= "E-Mail wurde erfolgreich versendet!";
+				
+			}
+			
+		}
+		
 
 		return new ViewModel([
 				'user' => array($user),
 				'errors'   => $errors,
 				'msg' => $msg
 		]);
-	}
+}
 }
