@@ -71,18 +71,19 @@ class UsersuchenController extends AbstractActionController
 				
 				
 				$text=
-				"<phtml>
+				"<html>
 					<body>		
 						<div>Hallo $empfaengerVorname!</div>
 						<br>
 						<div>Du wurdest von $absenderVorname $absenderNachname in die Gruppe $gruppenName eingeladen.</div>
 						<br>
 						<div>&Uuml;ber diesen Link kannst Du die Einladung annehmen:</div>
-						<div><a href='http://132.231.36.206/einladungannehmen?g_id=$g_id&u_id=$empfaenger_id'/>Einladung annehmen</a></div><br>
+						
+						<a href='http://132.231.36.206/einladungannehmen?g_id=<?=$g_id&u_id=$u_id'>Einladung annehmen</a>
 						<div>Viele Gr&uuml;&szlig;e</div> 
 						<div>Dein Grouppay-Team</div>
 					</body>
-				</phtml>";
+				</html>";
 				
 				$header  = 'MIME-Version: 1.0' . "\r\n";
 				$header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
