@@ -55,12 +55,13 @@ class ZahlunganlegenController extends AbstractActionController {
 					
 				// Schritt 1:  Werte aus Formular einlesen
 				$z_id=$_REQUEST["z_id"];
+				$zahlungsbeschreibung=$_REQUEST["zahlungsbeschreibung"];
 				$zahlungsdatum=$_REQUEST["zahlungsdatum"];
 				$betrag=$_REQUEST["betrag"];
 				$k_id=$_REQUEST["k_id"];
 				$aenderungsdatum=$_REQUEST["aenderungsdatum"];
 				
-				$erstellungsdatum=getDate();
+				$erstellungsdatum=getDate("d.m.Y");
 				
 				//var_dump($erstellungsdatum);
 				
@@ -75,6 +76,7 @@ class ZahlunganlegenController extends AbstractActionController {
 				
 				// Zahlung-Objekt mit Daten aus Request-Array f�llen
 				$zahlung->setErstellungsdatum($erstellungsdatum);
+				$zahlung->setZahlungsbeschreibung($zahlungsbeschreibung);
 				$zahlung->setZahlungsdatum($zahlungsdatum);
 				$zahlung->setBetrag($betrag);
 				$zahlung->setK_id($k_id);
