@@ -34,10 +34,14 @@ class ZahlunganlegenController extends AbstractActionController {
 
 		} else {
 			
-			//Liste alle verfügbaren Kateforien holen
+			//Liste alle verfï¿½gbaren Kateforien holen
 			$kategorieliste = Kategorie::listeHolen();
 
-			$gruppe = new Gruppe();
+			// Liste der User-Objekte der Gruppenmitglieder holen
+			$mitgliederliste = User::gruppenmitgliederlisteholen($gruppe->getG_id());
+			
+			
+			$zahlung = new Zahlung();
 				
 
 			$saved= false;
@@ -47,100 +51,75 @@ class ZahlunganlegenController extends AbstractActionController {
 
 					
 				// Schritt 1:  Werte aus Formular einlesen
-				$g_id=$_REQUEST["g_id"];
-				$gruppenname=$_REQUEST["gruppenname"];
-				$gruppenbeschreibung=$_REQUEST["gruppenbeschreibung"];
-
-
-				if ($_FILES ["uploadedfile"]["name"] == NULL) {
-					$path="";
-				}
-				else {
-						
-					$bildupload = new Bildupload();
-
-					$uploadedfile=$_REQUEST["uploadedfile"];
-
-
-					//Bilddatei an die Funktion Bildupload übergeben, Rückgabe des Bildpfades
-					$path = $bildupload->bildupload($uploadedfile);
-				}
+				$z_id=$_REQUEST["z_id"];
+				$erstellungsdatum=$_REQUEST["erstellungsdatum"];
+				$zahlungsdatum=$_REQUEST["zahlungsdatum"];
+				$betrag=$_REQUEST["betrag"];
+				$k_id=$_REQUEST["k_id"];
+				$aenderungsdatum=$_REQUEST["aenderungsdatum"];
+				
 
 				// Schritt 2: Daten prï¿½fen und Fehler in Array fÃ¼llen
 				$errorStr ="";
 				$msg="";
+				
+				//TODO
+				// FehlerÃ¼berprÃ¼fung fehlt!
+				
+				
+				// Zahlung-Objekt mit Daten aus Request-Array fï¿½llen
+				$zahlung->setErstellungsdatum($erstellungsdatum);
+				$zahlung->setZahlungsdatum($zahlungsdatum);
+				$zahlung->setBetrag($betrag);
+				$zahlung->setKategorie($k_id);
+				$zahlung->setAenderungsdatum($aenderungsdatum);
 
-				if ($gruppenname=="Kinderporno") {
-					$errorStr .="Der Gruppenname darf nicht Kinderporno heiÃŸen!<br>";
-				}
+				
 					
-				// Gruppe-Objekt mit Daten aus Request-Array fï¿½llen
-				$gruppe->setG_id($g_id);
-				$gruppe->setGruppenname($gruppenname);
-				$gruppe->setGruppenbeschreibung($gruppenbeschreibung);
-
-				// Gruppenbildpfad setzen oder auch nicht
-
-				// Wenn kein Bild hochgeladen werden soll
-				if ($_FILES["uploadedfile"]["name"] == NULL) {
-					$path= "";
-					$gruppe->setGruppenbildpfad($path);
-					// Wenn es einen Fehler/Problem beim Upload gibt
-				} elseif ($path==false) {
-						
-					return new ViewModel([
-							'gruppe' => array($gruppe),
-							'msg' => $msg
-					]);
-					// Wenn man ein Bild hochladen will und es keine Fehlermeldungen beim Upload gibt
-				} else {
-					$gruppe->setGruppenbildpfad($path);
-				}
-
-					
-				// Wenn temporäres Objekt gefüllt wurde kann mit diesen Werten das Objekt über die anlegen-Fkt in die DB geschrieben werden
-				if ($errorStr == "" && $gruppe->anlegen()) {
+				// Wenn temporï¿½res Objekt gefï¿½llt wurde kann mit diesen Werten das Objekt ï¿½ber die anlegen-Fkt in die DB geschrieben werden
+				if ($errorStr == "" && $zahlung->anlegen()) {
 
 				 // array_push($msg, "Gruppe erfolgreich gespeichert!");
 				 //  $msg .= "Gruppe erfolgreich gespeichert!";
 				 $saved = true;
 				 	
 				 // Neue G_id durch Laden der neu erstellten Gruppe ins Objekt laden
-				 $gruppe->laden();
+				 $zahlung->laden();
 				 	
 				 $user=$_SESSION['user'];
 
-				 	
-				 $gruppenmitglied = new Gruppenmitglied();
+				 /**	
+				 $zahlungsteilnehmer = new Zahlungsteilnehmer();
 
 				 $gruppenmitglied->setU_id($user->getU_id());
 				 $gruppenmitglied->setG_id($gruppe->getG_id());
 				 $gruppenmitglied->setGruppenadmin(1);
 				 	
-				 $verknüpfung=$gruppenmitglied->anlegen();
-				 	
+				 $verknï¿½pfung=$gruppenmitglied->anlegen();
+				 */	
 
 				} elseif ($errorStr == "") {
 
 				 // array_push($msg, "Datenprï¿½fung in Ordnung, Fehler beim Speichern der Gruppe!");
-					$msg .= "Datenprï¿½fung in Ordnung, Fehler beim Speichern der Gruppe!";
+					$msg .= "DatenprÃ¼fung in Ordnung, Fehler beim Speichern der Zahlung!";
 				 $saved = false;
 
 				} else {
 
 				 // array_push($msg, "Fehler bei der Datenprï¿½fung. Gruppe nicht gespeichert!");
-					$msg .= "Fehler bei der Datenprï¿½fung. Gruppe nicht gespeichert!";
+					$msg .= "Fehler bei der DatenprÃ¼fung. Zahlung nicht gespeichert!";
 				 $saved = false;
 
 				}
 					
 
-				// Liste der User-Objekte der Gruppenmitglieder holen
-				$mitgliederliste = User::gruppenmitgliederlisteholen($gruppe->getG_id());
-					
+				
+				
+				/**
 				$mitgliedschaft=array();
 					
-				// Für jedes Gruppenmitglied mit die Gruppenmitgliedschafts-Infos (inkl. Gruppenadmin) laden
+				
+				// Fï¿½r jedes Gruppenmitglied mit die Gruppenmitgliedschafts-Infos (inkl. Gruppenadmin) laden
 				// und Mitgliedschaftsinfos in Array speichern, wenn Gruppenmitgliedschaft besteht
 				foreach ($mitgliederliste as $mitglied) {
 						
@@ -148,13 +127,14 @@ class ZahlunganlegenController extends AbstractActionController {
 					$gruppenmitglied= new Gruppenmitglied();
 					$gruppenmitglied->laden ($gruppe->getG_id(), $mitglied->getU_id());
 						
-					// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter befüllt
+					// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter befï¿½llt
 					if ($gruppenmitglied->getU_id() == $mitglied->getU_id()) {
 							
 						$mitgliedschaft[]=$gruppenmitglied;
 							
 					}
 				}
+				*/
 					
 					
 				$view = new ViewModel([
@@ -162,10 +142,10 @@ class ZahlunganlegenController extends AbstractActionController {
 						'errors'   => $errors,
 						'msg' => $msg,
 						'mitgliederListe' => $mitgliederliste,
-						'mitgliedschaft' => $mitgliedschaft
+						// 'mitgliedschaft' => $mitgliedschaft
 				]);
 					
-				$view->setTemplate('application/groupshow/groupshow.phtml');
+				$view->setTemplate('application/zahlungsanzeigen/zahlunganzeigen.phtml');
 
 				return $view;
 			}
@@ -175,7 +155,8 @@ class ZahlunganlegenController extends AbstractActionController {
 		return new ViewModel([
 				'gruppe' => array($gruppe),
 				'msg' => $msg,
-				'kategorieListe' => $kategorieliste
+				'kategorieListe' => $kategorieliste,
+				'mitgliederListe' => $mitgliederliste,
 		]);
 
 	}
