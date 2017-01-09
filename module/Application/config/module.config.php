@@ -264,6 +264,18 @@ return [
        		],
         		
         		
+        		'einladungannehmen' => [
+        				'type'    => Segment::class,
+        				'options' => [
+        						'route'    => '/einladungannehmen[/:action]',
+        						'defaults' => [
+        								'controller' => Controller\EinladungannehmenController::class,
+        								'action'     => 'einladungannehmen',
+        						],
+        				],
+        		],
+        		
+        		
         	'help' => [
         			'type'    => Segment::class,
        				'options' => [
@@ -369,6 +381,7 @@ return [
         	Controller\GroupeditController::class => InvokableFactory::class,
         	Controller\GroupdeleteController::class => InvokableFactory::class,
         	Controller\GruppenmitgliedhinzufuegenController::class => InvokableFactory::class,
+        	Controller\EinladungannehmenController::class => InvokableFactory::class,
         	Controller\LoginController::class => InvokableFactory::class,
         	Controller\FileController::class => InvokableFactory::class,
            	Controller\HelpController::class => InvokableFactory::class,
