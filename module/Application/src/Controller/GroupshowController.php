@@ -15,7 +15,7 @@ class GroupshowController extends AbstractActionController
 	{
 		
 		//Liste alle verfügbaren Kateforien holen
-		$katergorieliste = Kategorie::listeHolen();
+		//$katergorieliste = Kategorie::listeHolen();
 		
 		// Gruppen-Objekt laden
 		$gruppe= new Gruppe();
