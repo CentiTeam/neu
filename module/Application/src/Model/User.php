@@ -47,7 +47,7 @@ class User
 				'".$this->nachname."',
 				'".$this->passwort."',
 				'".$this->email."',
-					0,
+					1,
 					0)";
 		
 			$result = $db->execute($query);
@@ -73,6 +73,21 @@ class User
 			$result = $db->execute($query);
 			return $result;
 		}
+		
+		// Methode zur Email-Bestätigung bei der Registrierung
+		
+		public function confirm ($email) {
+			
+			$db = new DB_connection;
+			$query = "UPDATE User SET deaktiviert = 0
+					WHERE email = '".$this->email."'
+							";
+			
+			$result = $db->execute($query);
+			return $result;
+		}
+		
+		
 	
 	
 	
@@ -411,6 +426,14 @@ class User
 	
 	public function getEmail() {
 		return $this->email;
+	}
+	
+	public function setEmailwdh($value) {
+		$this->emailwdh = $value;
+	}
+	
+	public function getEmailwdh() {
+		return $this->emailwdh;
 	}
 	
 	// Getter für die EIgenschaft isloggedin

@@ -61,6 +61,8 @@ return [
         			],
         	],
         		
+        	
+        		
        		'benutzerdeaktivieren' => [
        				'type'    => Segment::class,
        				'options' => [
@@ -347,8 +349,7 @@ return [
         	Controller\UsersuchenController::class => InvokableFactory::class,
         	Controller\PasswortvergessenController::class => InvokableFactory::class,
         	Controller\EmailpasswortController::class => InvokableFactory::class,
-        		
-        		
+        
         		
 
         		
