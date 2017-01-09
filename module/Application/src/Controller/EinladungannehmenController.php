@@ -26,8 +26,9 @@ class EinladungannehmenController extends AbstractActionController
 		$gruppenmitglied = new Gruppenmitglied ();
 
 		// Model anhand der �bergebenen $g_id laden lassen und speichern, ob dies funktioniert hat
-		$g_id=$_GET['g_id'];
 		$u_id=$_GET['u_id'];
+		$g_id=$_GET['g_id'];
+		
 
 		var_dump($u_id);
 		
