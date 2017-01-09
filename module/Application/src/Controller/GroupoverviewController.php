@@ -8,7 +8,7 @@ use Application\Model\Gruppe;
 // use Application\Model\Gruppenmitglied;
 use Application\Model\User;
 
-#TODO nur die Gruppen anzeigen, zu denen man gehört; hierfür "Listeholen aus Gruppenmitglied" und 
+#TODO nur die Gruppen anzeigen, zu denen man gehï¿½rt; hierfï¿½r "Listeholen aus Gruppenmitglied" und 
 #"Listeholen aus Gruppe" kombinieren
 
 class GroupoverviewController extends AbstractActionController
@@ -37,7 +37,8 @@ class GroupoverviewController extends AbstractActionController
 		 */
 		
 		return new ViewModel([
-			'gruppenListe' => $gruppenliste
+			'gruppenListe' => $gruppenliste,
+			'u_id' => $user_id
 			// 'anzahl' => $anzahl
 		]);
 		
