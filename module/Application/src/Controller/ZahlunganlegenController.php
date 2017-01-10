@@ -113,15 +113,17 @@ class ZahlunganlegenController extends AbstractActionController {
 				 $anteile=array();
 				 $i=0;
 				 
-				 var_dump( $_POST['anteilsbetrag']);
-				 /**
+				
+				 
 				 foreach ($_POST['anteilsbetrag'] as $zaehler => $anteil) {
+				 	var_dump( $anteil);
+				 	
 				 	$anteile[$i]=$anteil;
 				 	$i++;
 				 	echo $i;
 				 	echo $anteile[$i];
 				 }
-				 */
+				 
 				 die ("Stop!");
 				 
 				 // Legt die zugehörigen Zahlungsteilnehmer Datensätze an, außer für sich selbst (info wird aber für Anteil benötigt!)
