@@ -28,7 +28,7 @@ class ConfirmController extends AbstractActionController
 			$email = $_REQUEST ["email"];
 			$emailwdh = $_REQUEST ["emailwdh"];
 			
-		}
+		
 		
 
 		// Überprüfung, ob Email zwei mal richtig eingegeben wurde
@@ -37,6 +37,8 @@ class ConfirmController extends AbstractActionController
 		if ($email!=$emailwdh) {
 			echo "<center><h4>Keine &Uumlbereinstimmung der E-Mail! Bitte erneut versuchen</h4></center>";
 			$error = true;
+			
+			return new ViewModel();
 		}
 		
 		// Keine Errors vorhanden, Funktion kann ausgeführt werden
@@ -53,9 +55,18 @@ class ConfirmController extends AbstractActionController
 			$user->confirm();
 			
 			
+			
 		}
 		
+		$view = new ViewModel([
+				'user' => $user
+		]);
+			
+		$view->setTemplate('application/login/login.phtml');
 		
+		return $view;
+		
+		}
 		
 		
 		return new ViewModel();
