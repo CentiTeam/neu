@@ -79,8 +79,7 @@ class ZahlunganlegenController extends AbstractActionController {
 				$errorStr ="";
 				$msg="";
 				
-				//TODO
-				// Fehlerüberprüfung fehlt!
+				// #TODO Fehlerüberprüfung fehlt!
 				
 				
 				// Zahlung-Objekt mit Daten aus Request-Array f�llen
@@ -126,6 +125,7 @@ class ZahlunganlegenController extends AbstractActionController {
 				 	
 				 	$anteil=0;
 				 	$zahlungsempfaenger=$_SESSION['user']->getU_id();
+	
 				 	
 				 	$zahlungsteilnehmer->setU_id($user_id);
 				 	$zahlungsteilnehmer->setZ_id($zahlungs_id);
@@ -152,37 +152,11 @@ class ZahlunganlegenController extends AbstractActionController {
 
 				}
 					
-
-				
-				
-				/**
-				$mitgliedschaft=array();
-					
-				
-				// F�r jedes Gruppenmitglied mit die Gruppenmitgliedschafts-Infos (inkl. Gruppenadmin) laden
-				// und Mitgliedschaftsinfos in Array speichern, wenn Gruppenmitgliedschaft besteht
-				foreach ($mitgliederliste as $mitglied) {
-						
-					// Gruppenmitglied instanzieren
-					$gruppenmitglied= new Gruppenmitglied();
-					$gruppenmitglied->laden ($gruppe->getG_id(), $mitglied->getU_id());
-						
-					// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter bef�llt
-					if ($gruppenmitglied->getU_id() == $mitglied->getU_id()) {
-							
-						$mitgliedschaft[]=$gruppenmitglied;
-							
-					}
-				}
-				*/
-					
 					
 				$view = new ViewModel([
 						'gruppe' => array($gruppe),
 						'errors'   => $errors,
 						'msg' => $msg,
-						//'mitgliederListe' => $mitgliederliste,
-						// 'mitgliedschaft' => $mitgliedschaft
 				]);
 					
 				$view->setTemplate('application/zahlunganzeigen/zahlunganzeigen.phtml');
