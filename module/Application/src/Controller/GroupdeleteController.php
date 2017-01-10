@@ -25,6 +25,7 @@ class GroupdeleteController extends AbstractActionController
 		$gruppenmitglied=new Gruppenmitglied();
 		$gruppenmitglied->laden($gruppen_id, $user_id);
 		
+		/**
 		// Prüfen, in welchen Gruppen Admin
 		$gruppenadminListe=array();
 		
@@ -43,6 +44,7 @@ class GroupdeleteController extends AbstractActionController
 		
 			}
 		}
+		*/
 		
 		// Berechtigungsprüfung: Pr�fen, ob Gruppeadmin
 		if ($gruppenmitglied->getGruppenadmin()==false) {
