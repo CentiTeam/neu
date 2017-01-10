@@ -52,25 +52,23 @@ class EinladungannehmenController extends AbstractActionController
 		if ($_REQUEST['speichern']) {
 				
 			$msg = "";
-			
+			$errorStr = "";
 			
 			$gruppenmitglied->setU_id($u_id);
 			$gruppenmitglied->setG_id($g_id);
 			$gruppenmitglied->setGruppenadmin(0);
 				
 			
-			$errStr = "";
-			
 			$gruppenmitgliedListe=Gruppenmitglied::listeholen();
 			
 			foreach ($gruppenmitgliedListe as $liste) {
 				if ($gruppenmitglied->getU_id()==$liste->getU_id() && $gruppenmitglied->getG_id()==$liste->getG_id()) {
 					
-					$errStr .= "Du bist bereits Mitglied der Gruppe!";
+					$errorStr .= "Du bist bereits Mitglied der Gruppe!";
 				}
 			}
 			// wenn der Ladevorgang erfolgreich war, wird versucht die Gruppe zu l�schen
-			if ($errStr="" && $gruppenmitglied->anlegen()) {
+			if ($errorStr="" && $gruppenmitglied->anlegen()) {
 				$gruppenname=$gruppe->getGruppenname();
 				$vorname=$user->getVorname();
 				// ausgeben, dass die Gruppe gel�scht wurde (kein Template n�tig!)
@@ -81,11 +79,11 @@ class EinladungannehmenController extends AbstractActionController
 			} else {
 				// ausgeben, dass das Team nicht gel�scht werden konnte (kein Template n�tig!)
 				$msg .= "Fehler beim Hinzufügen zu der Gruppe!<br>";
-				var_dump($errStr);
-				var_dump($msg);
+				var_dump($errorStr);
+				
 				$view = new ViewModel([
 						'msg' => $msg,
-						'err' => $errStr
+						'err' => $errorStr
 				]);
 				
 				$view->setTemplate('application/index/index.phtml');
