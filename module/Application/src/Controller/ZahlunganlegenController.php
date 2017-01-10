@@ -19,7 +19,7 @@ class ZahlunganlegenController extends AbstractActionController {
 		session_start();
 		  
 
-
+		
 
 		$errors = array();
 
@@ -35,6 +35,8 @@ class ZahlunganlegenController extends AbstractActionController {
 
 		} else {
 			
+			
+			
 			//Liste alle verf�gbaren Kateforien holen
 			$kategorieliste = Kategorie::listeHolen();
 
@@ -44,6 +46,10 @@ class ZahlunganlegenController extends AbstractActionController {
 			
 			$mitgliederliste = User::gruppenmitgliederlisteholen($gruppe->getG_id());
 			
+			// HEutigers Datum als erstellungsdatum
+			date_default_timezone_set("Europe/Berlin");
+			$timestamp=time();
+			$erstellungsdatum= date('Y-m-d', $timestamp);
 			
 			$zahlung = new Zahlung();
 				
@@ -61,9 +67,9 @@ class ZahlunganlegenController extends AbstractActionController {
 				$betrag=$_REQUEST["betrag"];
 				$k_id=$_REQUEST["k_id"];
 				
-				date_default_timezone_set("Europe/Berlin");
-				$timestamp=time();
-				$erstellungsdatum= date('Y-m-d', $timestamp);
+				//date_default_timezone_set("Europe/Berlin");
+				//$timestamp=time();
+				//$erstellungsdatum= date('Y-m-d', $timestamp);
 				
 				$aenderungsdatum= date('Y-m-d',$timestamp);
 				$gruppen_id=$gruppe->getG_id();
@@ -183,9 +189,7 @@ class ZahlunganlegenController extends AbstractActionController {
 			}
 		}
 
-		date_default_timezone_set("Europe/Berlin");
-		$timestamp=time();
-		$erstellungsdatum= date('Y-m-d', $timestamp);
+		
 
 		return new ViewModel([
 				'gruppe' => array($gruppe),
