@@ -106,43 +106,27 @@ class ZahlunganlegenController extends AbstractActionController {
 				 	
 				 $user_id=$_SESSION['user']->getU_id();
 				 
+				
 				 
-					//$zaehler=0;	
-					//$anteile=array($_POST['anteil']);
-					
 				 $anteile=array();
 				 $i=0;
 				 
-				
-				 
 				 foreach ($_POST['anteilsbetrag'] as $zaehler => $anteil) {
-				 	
-				 	
+
 				 	$anteile[]=$anteil;
-				 	
-				 	// var_dump( $anteile);
-				 	
-				 	
+
 				 	echo $anteile[$i];
 				 	$i++;
-				 	
-				 	//echo $anteile[$i];
+
 				 }
 				 
-				 die ("Stop!");
 				 
+				 $counter=0;
 				 // Legt die zugehörigen Zahlungsteilnehmer Datensätze an, außer für sich selbst (info wird aber für Anteil benötigt!)
 				 foreach ($_POST['zahlungsteilnehmer'] as $key => $value) {
 				 	
-				 	$anteil=$_POST['anteil'];
+				 	$anteil=[$counter];
 				 	
-					/**
-				 	for ($counter=0; $counter==$zaehler; $counter++) {
-				 		if ($counter==$zaehler) {
-				 			$anteil=$anteile[$counter];
-				 		}
-				 	}
-				 	*/
 			 		$zahlungsteilnehmer=new Zahlungsteilnehmer();
 				 	
 			 		
@@ -166,7 +150,7 @@ class ZahlunganlegenController extends AbstractActionController {
 				 		
 					$zahlungsteilnehmer->anlegen();
 					
-					$zahler++;
+					$counter++;
 				 }
 				 
 				 
