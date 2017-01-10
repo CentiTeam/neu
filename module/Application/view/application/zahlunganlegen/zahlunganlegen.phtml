@@ -14,8 +14,9 @@
 	<?php } ?> 
 	</select>
 </td></tr>
-<tr><td>Teilnehmer: </td><td><fieldset>
-	
+<tr><td>Teilnehmer: </td>
+
+	<td><fieldset>
 		<?php 
 		//Alle Gruppenmitglieder in die Auswahlliste schreiben
 		foreach ($mitgliederListe as $zaehler => $mitglied) { ?>	
@@ -25,8 +26,12 @@
 			</label><br></input>	 				
 		<?php 
 		} ?> 
+	</fieldset></td>
 	
-</fieldset></td></tr>
+	<td>
+		Anteil: <input type="text" name="anteil[]" placeholder="Euro.Cent">
+	</td>
+</tr>
 
 
 										
