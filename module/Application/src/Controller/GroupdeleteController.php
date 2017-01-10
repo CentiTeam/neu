@@ -5,6 +5,7 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Model\Gruppe;
+use Application\Model\Gruppenmitglied;
 
 #TODO @Tanja Fehler abpr�fen!
 
