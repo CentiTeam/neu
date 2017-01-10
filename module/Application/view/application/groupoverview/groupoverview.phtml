@@ -31,7 +31,12 @@ use Application\Model\Gruppenmitglied;?>
 			if ($gruppenmitglied->getG_id()==$gruppe->getG_id() && $gruppenmitglied->getU_id()==$u_id && $gruppenmitglied->getGruppenadmin()==1) { ?>
 			<td><a href='groupedit?g_id=<?=$gruppe->getG_id()?>'><img src="img/edit.jpg" /></a></td>
 			<td><a href='groupdelete?g_id=<?=$gruppe->getG_id()?>'><img src="img/delete.png" /></a></td>
+			<?php }
+			else { ?>
+				<td></td>
+				<td></td>
 			<?php }?>
+			
 		</tr>
 
 	<?php 
