@@ -63,7 +63,7 @@ class EinladungannehmenController extends AbstractActionController
 				
 			// wenn der Ladevorgang erfolgreich war, wird versucht die Gruppe zu l�schen
 			if ($isOK) {
-
+				echo "if";
 				$gruppenname=$gruppe->getGruppenname();
 				$vorname=$user->getVorname();
 				// ausgeben, dass die Gruppe gel�scht wurde (kein Template n�tig!)
@@ -72,7 +72,7 @@ class EinladungannehmenController extends AbstractActionController
 				$msg .= "Du wurdest erfolgreich zu der Gruppe $gruppenname hinzugefügt, $vorname!<br>";
 
 			} else {
-
+				echo "esle";
 				// ausgeben, dass das Team nicht gel�scht werden konnte (kein Template n�tig!)
 				$msg .= "Fehler beim Hinzufügen zu der Gruppe!<br>";
 				return sprintf ( "<div class='error'>Fehler beim Hinzufügen zu der Gruppe #%s %s!</div>" ,$gruppe->getG_id (), $gruppe->getGruppenname () );
