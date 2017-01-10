@@ -18,26 +18,24 @@ class statistikenController extends AbstractActionController
 
 		session_start();
 
-
-		if ($_SESSION['angemeldet']=='ja')
-		{
-			echo "Hier kommen die Links zu den spezifischen Rollen hin";
-		}
-		else
-		{
-			echo "Sie haben keine Berechtigung, auf diese Seite zuzugreifen!";
-			$view = new ViewModel(array(
-					'message' => 'Sie haben keine Berechtigung, auf diese Seite zuzugreifen!',
-			));
-			$view->setTemplate('application/index/index.phtml');
-			return $view;
-		}
-
-		// TEST, um die Übergabe der Elemente des angemeldeten Users an eine andere Funktion anzuzeigen
-		$user=$_SESSION['user'];
-		echo "Nachname des angemeldeten Users: ";
-		echo $user->getNachname();
-
+			
+			$user_id=$_SESSION['user']->getU_id();
+			$zahlungenliste = Zahlungen::eigenezahlungenholen($user_id);
+			
+			
+			foreach ($zahlungenliste as $liste) {
+			
+				// Gruppenmitglied instanzieren
+				$gruppenmitglied= new Gruppenmitglied();
+				$gruppenmitglied->laden ($liste->getG_id(), $user_id);
+			
+				// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter befï¿½llt
+				if ($gruppenmitglied->getGruppenadmin() == true) {
+			
+					$gruppenadminListe[]=$gruppenmitglied;
+			
+				}
+			}
 
 
 		return new ViewModel([
