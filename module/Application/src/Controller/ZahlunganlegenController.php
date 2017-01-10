@@ -120,7 +120,7 @@ class ZahlunganlegenController extends AbstractActionController {
 				 	echo $anteile[$i];
 				 }
 				 
-				 die ("Stop!");
+				 die "Stop!";
 				 
 				 // Legt die zugehörigen Zahlungsteilnehmer Datensätze an, außer für sich selbst (info wird aber für Anteil benötigt!)
 				 foreach ($_POST['zahlungsteilnehmer'] as $key => $value) {
