@@ -31,7 +31,7 @@ class GroupcsvController extends AbstractActionController
 			echo $zahlung->getBetrag();
 		}
 
-		
+		 
 		
 		return new ViewModel([
 
