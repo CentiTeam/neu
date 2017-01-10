@@ -122,7 +122,7 @@ class ZahlunganlegenController extends AbstractActionController {
  				 	var_dump ($summe);
 				 	
  				 	echo ("Die Anteile müssen zusammen der Gesamtsumme entsprechen.");
- 				 } else {
+ 				 }else {
 				 
 				 
 				 $counter=0;
@@ -183,7 +183,7 @@ class ZahlunganlegenController extends AbstractActionController {
 				
 				}
 			}
-		}
+		
 
 		
 
@@ -195,6 +195,6 @@ class ZahlunganlegenController extends AbstractActionController {
 				'erstellungsdatum' => $erstellungsdatum
 		]);
 
-	}
+	}}
 
 }
