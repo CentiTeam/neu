@@ -8,7 +8,7 @@ use Application\Model\Gruppe;
 use Application\Model\User;
 use Application\Model\Gruppenmitglied;
 use Application\Model\Kategorie;
-
+use Application\Model\Zahlung;
 
 class GroupcsvController extends AbstractActionController
 {
@@ -22,6 +22,9 @@ class GroupcsvController extends AbstractActionController
 		$g_id=$_REQUEST['g_id'];
 		$gruppe->laden($g_id);
 		
+		
+		// Liste der Zahlungs-Objekte der Gruppen holen
+		$zahlungsliste = Zahlung::gruppenzahlungslisteholen($g_id);
 	
 		
 		
