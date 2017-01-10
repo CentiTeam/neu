@@ -33,7 +33,7 @@ class GroupdeleteController extends AbstractActionController
 			
 			
 			// Liste der User-Objekte der Gruppenmitglieder holen
-			$mitgliederliste = User::gruppenmitgliederlisteholen($g_id);
+			//$mitgliederliste = User::gruppenmitgliederlisteholen($g_id);
 				
 			$gruppenadminListe=array();
 				
