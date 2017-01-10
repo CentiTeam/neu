@@ -183,7 +183,9 @@ class ZahlunganlegenController extends AbstractActionController {
 			}
 		}
 
-		
+		date_default_timezone_set("Europe/Berlin");
+		$timestamp=time();
+		$erstellungsdatum= date('Y-m-d', $timestamp);
 
 		return new ViewModel([
 				'gruppe' => array($gruppe),
