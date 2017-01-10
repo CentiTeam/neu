@@ -94,7 +94,7 @@ class EinladungannehmenController extends AbstractActionController
 		$_SESSION['user']=$user;
 		$_SESSION['angemeldet']="ja";
 		
-		$mitgliederListe=User::gruppenmitgliederlisteHolen();
+		$mitgliederListe=User::gruppenmitgliederlisteHolen($gruppe->getG_id());
 		
 		$mitgliedschaft=array();
 		
@@ -104,7 +104,7 @@ class EinladungannehmenController extends AbstractActionController
 				
 			// Gruppenmitglied instanzieren
 			$gruppenmitglied= new Gruppenmitglied();
-			$gruppenmitglied->laden ($g_id, $mitglied->getU_id());
+			$gruppenmitglied->laden ($gruppe->getG_id(), $mitglied->getU_id());
 				
 			// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter bef�llt
 			if ($gruppenmitglied->getU_id() == $mitglied->getU_id()) {
