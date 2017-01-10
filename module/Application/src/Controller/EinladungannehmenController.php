@@ -15,7 +15,6 @@ class EinladungannehmenController extends AbstractActionController
 
 	public function einladungannehmenAction() {
 
-		session_start();
 		/** Pr�fen, ob Gruppenmitglied
 		 if (User::getInstance ()->getTeam()->getBezeichnung() != "Personal") {
 			return "<div class='error'>Nicht berechtigt!</div>";
