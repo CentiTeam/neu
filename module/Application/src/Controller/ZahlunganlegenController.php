@@ -110,11 +110,16 @@ class ZahlunganlegenController extends AbstractActionController {
 				 
 				 $anteile=array();
 				 $i=0;
-				 
+				 $summe=0;
 				 foreach ($_POST['anteilsbetrag'] as $zaehler => $anteil) {
 
 				 	$anteile[]=$anteil;
 				 	$i++;
+				 	$summe += $anteil;
+				 }
+				 vardump ($summe);
+				 if($summe == $betrag){
+				  echo "lalalaaaaaaaaaa";
 				 }
 				 
 				 
