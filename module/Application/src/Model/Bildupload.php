@@ -32,7 +32,7 @@ class Bildupload
 		}
 		
 		//Maximale Auflösung überprüfen
-		$size = getimagesize($_FILES['uploadedfile']);
+		$size = getimagesize($_FILES["uploadedfile"]["name"]);
 		$width = $size[0];
 		$height = $size[1];
 		
