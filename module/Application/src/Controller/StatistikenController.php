@@ -20,7 +20,7 @@ class statistikenController extends AbstractActionController
 
 			
 			$user_id=$_SESSION['user']->getU_id();
-			$zahlungenliste = Zahlungen::eigenezahlungenholen($user_id);
+			$zahlungenliste = Zahlung::eigenezahlungenholen($user_id);
 			
 			
 			foreach ($zahlungenliste as $liste) {
