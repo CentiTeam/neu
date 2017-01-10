@@ -59,6 +59,21 @@ class ZahlunganlegenController extends AbstractActionController {
 
 			if ($_REQUEST['speichern']) {
 
+				$anteile=array();
+				$i=0;
+				$summe=0;
+				foreach ($_POST['anteilsbetrag'] as $zaehler => $anteil) {
+				
+					$anteile[]=$anteil;
+					$i++;
+					$summe += $anteil;
+				}
+				var_dump ($summe);
+				if($summe != $betrag){
+					var_dump ($summe);
+				
+					echo ("Die Anteile müssen zusammen der Gesamtsumme entsprechen.");
+				}else {
 					
 				// Schritt 1:  Werte aus Formular einlesen
 				$z_id=$_REQUEST["z_id"];
@@ -108,22 +123,7 @@ class ZahlunganlegenController extends AbstractActionController {
 				 
 				
 				 
-				 $anteile=array();
-				 $i=0;
-				 $summe=0;
-				 foreach ($_POST['anteilsbetrag'] as $zaehler => $anteil) {
-
-				 	$anteile[]=$anteil;
-				 	$i++;
-				 	$summe += $anteil;
-				 }
-				 var_dump ($summe);
- 				 if($summe != $betrag){
- 				 	var_dump ($summe);
-				 	
- 				 	echo ("Die Anteile müssen zusammen der Gesamtsumme entsprechen.");
- 				 }else {
- 					echo ("Das sollte hier eigentlich echt nich stehen");
+				// hier war der Code nach if ($_REQUEST['speichern']) { zuvor
  				 		
 				 
 				 $counter=0;
