@@ -1,4 +1,5 @@
-<?php session_start();?>
+<?php session_start();
+use Application\Model\Gruppenmitglied;?>
 <?=$msg?>
 <?=$err?>
 
@@ -24,7 +25,7 @@
 			<td><?=$gruppe->getGruppenbeschreibung()?></td>
 			<td>
 			<a href='groupshow?g_id=<?=$gruppe->getG_id()?>'><img src="img/show.jpg" /></a>
-			<?php
+			<?php //Nicht schön programmiert
 			$gruppenmitglied=new Gruppenmitglied();
 			$gruppenmitglied->laden($gruppe->getG_id(), $user_id);
 			if ($gruppenmitglied->getGruppenadmin()==true) { ?>
