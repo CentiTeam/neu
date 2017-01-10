@@ -8,6 +8,7 @@ use Application\Model\Gruppe;
 use Application\Model\User;
 use Application\Model\Gruppenmitglied;
 use Application\Model\Kategorie;
+use Application\Model\Zahlung;
 
 
 class GroupshowController extends AbstractActionController
@@ -21,6 +22,12 @@ class GroupshowController extends AbstractActionController
 		$gruppe= new Gruppe();
 		$g_id=$_REQUEST['g_id'];
 		$gruppe->laden($g_id);
+		
+		
+		
+		
+		//Liste der Zahlungs-Objekt der Gruppe holen
+		$zahlungsliste = Zahlung::gruppenzahlungenlisteholen($g_id);
 		
 		// Liste der User-Objekte der Gruppenmitglieder holen
 		$mitgliederliste = User::gruppenmitgliederlisteholen($g_id); 
