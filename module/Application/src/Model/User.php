@@ -188,7 +188,7 @@ class User
 		$query="SELECT * FROM `User`
 				LEFT JOIN gruppenmitglied ON (User.u_id=gruppenmitglied.u_id)
 				WHERE gruppenmitglied.g_id= '".$gruppen_id."' 
-				SORT BY vorname ASC
+				ORDER BY vorname ASC
 				";
 	
 		// Wenn die Datenbankabfrage erfolgreich ausgeführt worden ist
