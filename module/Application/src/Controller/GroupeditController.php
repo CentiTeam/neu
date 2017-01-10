@@ -28,9 +28,35 @@ class GroupeditController extends AbstractActionController {
 				
 			$errStr="Nicht berechtigt!";
 			$gruppenliste=Gruppe::eigenelisteholen($user_id);
-				
+			
+			// Liste der User-Objekte der Gruppenmitglieder holen
+			$mitgliederliste = User::gruppenmitgliederlisteholen($g_id);
+			
+			$gruppenadminListe=array();
+			
+			// F�r jede Gruppe speichern, ob aktueller USer Admin ist und diese Gruppenmitglied-Datensätze
+			// in Array speichern
+			foreach ($gruppenliste as $liste) {
+			
+				// Gruppenmitglied instanzieren
+				$gruppenmitglied= new Gruppenmitglied();
+				$gruppenmitglied->laden ($liste->getG_id(), $user_id);
+			
+				// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter bef�llt
+				if ($gruppenmitglied->getGruppenadmin() == true) {
+			
+					$gruppenadminListe[]=$gruppenmitglied;
+			
+				}
+			}
+			
+			
+			
+			
+			
 			$view = new ViewModel([
 					'gruppenListe' => $gruppenliste,
+					'gruppenadminListe' => $gruppenadminListe,
 					'err' => $errStr
 			]);
 		

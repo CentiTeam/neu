@@ -27,8 +27,8 @@ class GroupoverviewController extends AbstractActionController
 		
 		$gruppenadminListe=array();
 		
-		// F�r jedes Gruppenmitglied mit die Gruppenmitgliedschafts-Infos (inkl. Gruppenadmin) laden
-		// und Mitgliedschaftsinfos in Array speichern, wenn Gruppenmitgliedschaft besteht
+		// F�r jede Gruppe speichern, ob aktueller USer Admin ist und diese Gruppenmitglied-Datensätze
+		// in Array speichern
 		foreach ($gruppenliste as $liste) {
 				
 			// Gruppenmitglied instanzieren
