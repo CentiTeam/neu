@@ -18,14 +18,13 @@
 	
 		<?php 
 		//Alle Gruppenmitglieder in die Auswahlliste schreiben
-		foreach ($mitgliederListe as $zaehler => $mitglied) { ?>
-			$counter=0;		
-			<label>
+		foreach ($mitgliederListe as $zaehler => $mitglied) { ?>	
+			<label><li>
 			<input type="checkbox" name="zahlungsteilnehmer" value='<?=$mitglied->getU_id()?>'> <?=$mitglied->getUsername() ?>" required>
 			<?=$mitglied->getUsername()?>
-			</label></input>	
-			$counter++;					
-		<?php } ?> 
+			</label></li></input>					
+		<?php 
+		} ?> 
 	
 </td></tr>
 										
