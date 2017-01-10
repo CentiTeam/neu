@@ -117,11 +117,11 @@ class ZahlunganlegenController extends AbstractActionController {
 				 	$i++;
 				 	$summe += $anteil;
 				 }
-				 vardump ($summe);
+				
 				 if($summe == $betrag){
-				  echo "lalalaaaaaaaaaa";
+				  die(lalalaaaaaaaaaa);
 				 }
-				 
+				 var_dump ($summe);
 				 
 				 $counter=0;
 				 // Legt die zugehörigen Zahlungsteilnehmer Datensätze an, außer für sich selbst (info wird aber für Anteil benötigt!)
