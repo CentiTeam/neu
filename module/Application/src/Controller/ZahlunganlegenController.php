@@ -106,7 +106,7 @@ class ZahlunganlegenController extends AbstractActionController {
 				 	var_dump( $_POST['zahlungsteilnehmer']);
 				 	echo "Valiueeee jetzt:";
 				 	echo $value;
-				 	die("Test");
+				 	
 				 	$zahlungsteilnehmer=new Zahlungsteilnehmer();
 				 	
 				 	}
