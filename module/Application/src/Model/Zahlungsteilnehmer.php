@@ -15,6 +15,24 @@ class Zahlungsteilnehmer {
 			
 	}
 	
+	public function anlegen () {
+	
+		$db = new DB_connection();
+	
+		$query = "INSERT INTO zahlungsteilnehmer (u_id, z_id, status, anteil, zahlungsempfaenger) VALUES (
+				'".$this->u_id."',
+				'".$this->z_id."',
+				'".$this->status."',
+				'".$this->anteil."',
+				'".$this->zahlungsempfaenger."'
+				)" ;
+	
+		$result = $db->execute($query);
+	
+		return $result;
+	}
+	
+	
 	// Getter und Setter
 	
 	public function getU_id () {

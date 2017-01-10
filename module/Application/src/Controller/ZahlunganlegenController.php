@@ -118,7 +118,7 @@ class ZahlunganlegenController extends AbstractActionController {
 				 	$zahlungsteilnehmer->setAnteil($anteil);
 				 	$zahlungsteilnehmer->setZahlungsempfaenger($zahlungsempfaenger);
 				 	
-				 	$verknuepfung=$zahlungsmitglied->anlegen();
+				 	$verknuepfung=$zahlungsteilnehmer->anlegen();
 				 }
 				 
 				 
