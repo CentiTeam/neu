@@ -25,7 +25,12 @@ class GroupcsvController extends AbstractActionController
 		
 		// Liste der Zahlungs-Objekte der Gruppen holen
 		$zahlungsliste = Zahlung::gruppenzahlungenlisteholen($g_id);
-	
+		
+
+		foreach($zahlungsliste as $zahlung){
+			echo $zahlung->getBetrag();
+		}
+
 		
 		
 		return new ViewModel([
