@@ -29,8 +29,6 @@ class GroupeditController extends AbstractActionController {
 			$errStr="Nicht berechtigt!";
 			$gruppenliste=Gruppe::eigenelisteholen($user_id);
 			
-			// Liste der User-Objekte der Gruppenmitglieder holen
-			$mitgliederliste = User::gruppenmitgliederlisteholen($g_id);
 			
 			$gruppenadminListe=array();
 			
@@ -81,7 +79,7 @@ class GroupeditController extends AbstractActionController {
 			return $view;
 				
 		} else {
-
+			
 			$gruppe = new Gruppe();
 			
 			if (! $gruppe->laden($_REQUEST['g_id'])) {
