@@ -6,7 +6,7 @@
 //header('Content-Disposition: attachment; filename=data.csv');
 
 // create a file pointer connected to the output stream
-$output = fopen('php://output', 'w');
+$output = fopen('/tmp/report.csv', 'w');
 
 // output the column headings
 fputcsv($output, array('Betrag'));
@@ -25,6 +25,14 @@ foreach($zahlungsliste as $zahlung){
 }
 
 fclose($output);
+
+// output headers so that the file is downloaded rather than displayed
+header("Content-type: text/csv");
+header("Content-disposition: attachment; filename = report.csv");
+readfile("/tmp/report.csv");
+
+
+
 
 
 ?>
