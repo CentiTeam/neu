@@ -18,7 +18,8 @@ fputcsv($output, array('Betrag'));
 //while ($row = mysql_fetch_assoc($rows)) fputcsv($output, $row);
 
 foreach($zahlungsliste as $zahlung){
-	fputcsv($output, $zahlung->getBetrag());
+	$betrag = $zahlung->getBetrag();
+	fputcsv($output, $betrag);
 }
 
 
