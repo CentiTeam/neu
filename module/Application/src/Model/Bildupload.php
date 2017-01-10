@@ -31,6 +31,18 @@ class Bildupload
 			return $path;
 		}
 		
+		//Maximale Auflösung überprüfen
+		$size = getimagesize($filename);
+		$width = $size[0];
+		$height = $size[1];
+		
+		if($width < 1024 AND $height < 1204)
+		{
+			echo "Die unterstützte Auflösung von Bildern liegen bei 1024*1024";
+			$path = false;
+			return $path;
+		}
+		
 		//Erlaubte Dateiendung
 		$detected_type = exif_imagetype($_FILES["uploadedfile"]["tmp_name"]);
 		
