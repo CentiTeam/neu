@@ -410,6 +410,8 @@ return [
 			Controller\ZahlunganlegenController::class => InvokableFactory::class,
         	Controller\ZahlunganzeigenController::class => InvokableFactory::class,
         	Controller\ConfirmController::class => InvokableFactory::class,
+        	Controller\StatistikenController::class => InvokableFactory::class,
+        		
         		
         		
         		
