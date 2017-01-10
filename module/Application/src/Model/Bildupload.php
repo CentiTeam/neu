@@ -31,20 +31,6 @@ class Bildupload
 			return $path;
 		}
 		
-		//Maximale Auflösung überprüfen
-		$size = getimagesize($filename);
-		$width = $size[0];
-		$height = $size[1];
-		
-		echo $width;
-		
-		if($width < 1024 AND $height < 1204)
-		{
-			echo "Die unterst&uumltzte Aufl&oumlsung von Bildern liegen bei 1024*1024";
-			$path = false;
-			return $path;
-		}
-		
 		//Erlaubte Dateiendung
 		$detected_type = exif_imagetype($_FILES["uploadedfile"]["tmp_name"]);
 		
@@ -60,6 +46,20 @@ class Bildupload
 		//Pfad zusammensetzen
 		$new_path = $this->upload_folder.$filename.'.'.$extension;
 		$path = $this->img_folder.$filename.'.'.$extension;
+		
+		//Maximale Auflösung überprüfen
+		$size = getimagesize($path);
+		$width = $size[0];
+		$height = $size[1];
+		
+		echo $width;
+		
+		if($width < 1024 AND $height < 1024)
+		{
+			echo "Die unterst&uumltzte Aufl&oumlsung von Bildern liegen bei 1024*1024";
+			$path = false;
+			return $path;
+		}
 		
 		//Falls Dateiname bereits vorhanden, Erweiterung des Pfades um nächsthöhere Nummer
 		if(file_exists($new_path))
