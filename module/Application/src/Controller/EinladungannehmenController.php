@@ -123,7 +123,7 @@ class EinladungannehmenController extends AbstractActionController
 				
 		]);
 
-		$view->setTemplate('application/groupoverview/groupoverview.phtml');
+		$view->setTemplate('application/groupshow/groupshow.phtml');
 			
 		return $view;
 
