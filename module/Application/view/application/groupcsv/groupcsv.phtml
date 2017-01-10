@@ -21,7 +21,10 @@ foreach($zahlungsliste as $zahlung){
 	$betrag = $zahlung->getBetrag();
 	//echo $betrag;
 	fputcsv($output, $betrag);
+	
 }
+
+fclose($output);
 
 
 ?>
