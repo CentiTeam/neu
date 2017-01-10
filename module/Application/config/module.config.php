@@ -360,6 +360,18 @@ return [
         				],
         		],
         		
+        		'groupcsv' => [
+        				'type'    => Segment::class,
+        				'options' => [
+        						'route'    => '/groupcsv[/:action]',
+        						'defaults' => [
+        								'controller' => Controller\GroupcsvController::class,
+        								'action'     => 'groupcsv',
+        						],
+        				],
+        		],
+        		
+        		
         		
         		
         		
@@ -411,6 +423,7 @@ return [
         	Controller\ZahlunganzeigenController::class => InvokableFactory::class,
         	Controller\ConfirmController::class => InvokableFactory::class,
         	Controller\StatistikenController::class => InvokableFactory::class,
+        	Controller\GroupcsvController::class => InvokableFactory::class,
         		
         		
         		
