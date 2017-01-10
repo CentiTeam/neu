@@ -20,6 +20,8 @@ class Gruppenmitglied {
 		
 		$db = new DB_connection();
 		
+		var_dump($this->u_id);
+		
 		$query = "INSERT INTO gruppenmitglied (u_id, g_id, gruppenadmin) VALUES (
 				'".$this->u_id."',
 				'".$this->g_id."',
@@ -27,7 +29,7 @@ class Gruppenmitglied {
 				)";
 		
 		$result = $db->execute($query);
-		
+		var_dump($result);
 		return $result;
 	}
 	
@@ -70,7 +72,7 @@ class Gruppenmitglied {
 	
 		$query="SELECT g_id, u_id FROM gruppenmitglied";
 	
-		// Wenn die Datenbankabfrage erfolgreich ausgeführt worden ist
+		// Wenn die Datenbankabfrage erfolgreich ausgefï¿½hrt worden ist
 		if ($result = $db->execute($query)) {
 	
 			// Ergebnis Zeile fï¿½r Zeile verarbeiten
