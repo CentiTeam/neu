@@ -116,9 +116,11 @@ class ZahlunganlegenController extends AbstractActionController {
 				
 				 
 				 foreach ($_POST['anteilsbetrag'] as $zaehler => $anteil) {
-				 	var_dump( $anteile[]);
+				 	
 				 	
 				 	$anteile[]=$anteil;
+				 	
+				 	var_dump( $anteile[]);
 				 	echo $i;
 				 	$i++;
 				 	
