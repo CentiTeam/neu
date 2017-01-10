@@ -27,13 +27,12 @@ class GroupcsvController extends AbstractActionController
 		$zahlungsliste = Zahlung::gruppenzahlungenlisteholen($g_id);
 		
 
-		foreach($zahlungsliste as $zahlung){
-			echo $zahlung->getBetrag();
-		}
+
 
 		 
 		
 		return new ViewModel([
+				'zahlungsliste' => $zahlungsliste,
 
 
 		]);
