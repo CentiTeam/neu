@@ -140,7 +140,7 @@ class ZahlunganlegenController extends AbstractActionController {
 				 	$zahlungsteilnehmer->setU_id($value);
 				 	$zahlungsteilnehmer->setZ_id($zahlungs_id);
 				 	$zahlungsteilnehmer->setStatus($status);
-				 	$zahlungsteilnehmer->setAnteil($anteil);
+				 	$zahlungsteilnehmer->setAnteil($anteil); 
 					$zahlungsteilnehmer->setZahlungsempfaenger($zahlungsempfaenger);
 				 		
 					$zahlungsteilnehmer->anlegen();
