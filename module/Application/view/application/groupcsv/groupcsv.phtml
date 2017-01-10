@@ -19,7 +19,7 @@ fputcsv($output, array('Betrag'));
 
 foreach($zahlungsliste as $zahlung){
 	$betrag = $zahlung->getBetrag();
-	fputcsv($output, $betrag);
+	fputcsv($output, $zahlungsliste);
 }
 
 
