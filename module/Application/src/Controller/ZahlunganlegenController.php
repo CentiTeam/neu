@@ -68,7 +68,7 @@ class ZahlunganlegenController extends AbstractActionController {
 					$i++;
 					$summe += $anteil;
 				}
-				var_dump ($summe);
+				var_dump ($betrag);
 				if($summe != $betrag){
 					var_dump ($summe);
 				
