@@ -112,7 +112,37 @@ class Zahlung {
 		}
 	}
 	
+	public static function eigenezahlungenholen($user_id) {
 	
+		// Liste initialisieren
+		$zahlungenListe = array ();
+	
+		$db = new DB_connection();
+	
+		$query="SELECT * FROM `zahlung`
+				LEFT JOIN zahlungsmitglied ON (zahlung.z_id=zahlungsmitglied.z_id)
+				WHERE u_id= '".$user_id."' ";
+	
+		// Wenn die Datenbankabfrage erfolgreich ausgeführt worden ist
+		if ($result = $db->execute($query)) {
+	
+			// Ergebnis Zeile fï¿½r Zeile verarbeiten
+			while ($row = mysqli_fetch_array($result)) {
+					
+				// neues Model erzeugen
+				$model = new Zahlung();
+	
+				// Model anhand der Nummer aus der Datenbankabfrage laden
+				$model->laden($row["z_id"]);
+	
+				// neues Model ans Ende des $gruppeListe-Arrays anfï¿½gen
+				$gruppeListe[] = $model;
+			}
+	
+			// fertige Liste von Gruppe-Objekten zurï¿½ckgeben
+			return $gruppeListe;
+		}
+	}
 	
 	
 	// Getter und Setter
