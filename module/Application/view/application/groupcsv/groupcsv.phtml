@@ -27,8 +27,8 @@ foreach($zahlungsliste as $zahlung){
 fclose($output);
 
 // output headers so that the file is downloaded rather than displayed
-header("Content-type: text/csv");
-header("Content-disposition: attachment; filename = report.csv");
+//header("Content-type: text/csv");
+//header("Content-disposition: attachment; filename = report.csv");
 readfile("/tmp/report.csv");
 
 
