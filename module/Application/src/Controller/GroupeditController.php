@@ -14,7 +14,34 @@ class GroupeditController extends AbstractActionController {
 	function groupeditAction() {
 		// TODO Berechtigungsprï¿½fung
 		session_start();
-
+		
+		// Prï¿½fen, ob Gruppeadmin
+		
+		$user_id=$_SESSION['user']->getU_id();
+		$gruppen_id=$_REQUEST['g_id'];
+		
+		$gruppenmitglied=new Gruppenmitglied();
+		$gruppenmitglied->laden($gruppen_id, $user_id);
+		
+		// BerechtigungsprÃ¼fung: Prï¿½fen, ob Gruppeadmin
+		if ($gruppenmitglied->getGruppenadmin()==false) {
+				
+			$errStr="Nicht berechtigt!";
+			$gruppenliste=Gruppe::eigenelisteholen($user_id);
+				
+			$view = new ViewModel([
+					'gruppenListe' => $gruppenliste,
+					'err' => $errStr
+			]);
+		
+			$view->setTemplate('application/groupoverview/groupoverview.phtml');
+				
+			return $view;
+		}
+		
+		
+		
+		
 		$errors = array();
 
 		if($_SESSION['angemeldet'] != 'ja') {
@@ -56,7 +83,7 @@ class GroupeditController extends AbstractActionController {
 					// Schritt 1:  Werte aus Formular einlesen
 					$uploadedfile=$_REQUEST["uploadedfile"];
 					
-					//Bilddatei an die Funktion Bildupload übergeben, Rückgabe des Bildpfades
+					//Bilddatei an die Funktion Bildupload ï¿½bergeben, Rï¿½ckgabe des Bildpfades
 					$path = $bildupload->bildupload($uploadedfile);
 					
 					
@@ -102,13 +129,13 @@ class GroupeditController extends AbstractActionController {
 				 } elseif ($errorStr == "") {
 
 				 // array_push($msg, "Datenprï¿½fung in Ordnung, Fehler beim Speichern der Gruppe!");
-				 	$msg .= "Datenprüfung in Ordnung, Fehler beim Speichern der Gruppe!";
+				 	$msg .= "Datenprï¿½fung in Ordnung, Fehler beim Speichern der Gruppe!";
 				 $saved = false;
 				 	
 				 } else {
 
 				 // array_push($msg, "Fehler bei der Datenprï¿½fung. Gruppe nicht gespeichert!");
-				 	$msg .= "Fehler bei der Datenprüfung. Gruppe nicht gespeichert!";
+				 	$msg .= "Fehler bei der Datenprï¿½fung. Gruppe nicht gespeichert!";
 				 $saved = false;
 
 				 }
@@ -121,7 +148,7 @@ class GroupeditController extends AbstractActionController {
 				 
 				 $mitgliedschaft=array();
 				 
-				 // Für jedes Gruppenmitglied mit die Gruppenmitgliedschafts-Infos (inkl. Gruppenadmin) laden
+				 // Fï¿½r jedes Gruppenmitglied mit die Gruppenmitgliedschafts-Infos (inkl. Gruppenadmin) laden
 				 // und Mitgliedschaftsinfos in Array speichern, wenn Gruppenmitgliedschaft besteht
 				 foreach ($mitgliederliste as $mitglied) {
 				 		
@@ -129,7 +156,7 @@ class GroupeditController extends AbstractActionController {
 				 	$gruppenmitglied= new Gruppenmitglied();
 				 	$gruppenmitglied->laden ($g_id, $mitglied->getU_id());
 				 		
-				 	// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter befüllt
+				 	// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter befï¿½llt
 				 	if ($gruppenmitglied->getU_id() == $mitglied->getU_id()) {
 				 
 				 		$mitgliedschaft[]=$gruppenmitglied;
