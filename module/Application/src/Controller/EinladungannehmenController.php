@@ -58,11 +58,17 @@ class EinladungannehmenController extends AbstractActionController
 			$gruppenmitglied->setG_id($g_id);
 			$gruppenmitglied->setGruppenadmin(0);
 				
-			$isOk=$gruppenmitglied->anlegen();
 			
+			$errStr="";
+			$gruppenmitgliedListe=Gruppenmitglied::listeholen();
 			
+			foreach ($gruppenmitgliedListe as $liste) {
+				if ($gruppenmitglied->getU_id()==$liste->getU_id() && $gruppenmitglied->getG_id()==$liste->getU_id()) {
+					$errStr .= "Du bist bereits Mitglied der Gruppe $gruppenname";
+				}
+			}
 			// wenn der Ladevorgang erfolgreich war, wird versucht die Gruppe zu l�schen
-			if ($isOk==true) {
+			if ($errStr="" && $gruppenmitglied->anlegen()) {
 				$gruppenname=$gruppe->getGruppenname();
 				$vorname=$user->getVorname();
 				// ausgeben, dass die Gruppe gel�scht wurde (kein Template n�tig!)
