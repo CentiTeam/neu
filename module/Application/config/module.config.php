@@ -54,7 +54,7 @@ return [
         			'options' => [
         					'route'    => '/statistiken[/:action]',
         					'defaults' => [
-        							'controller' => Controller\SatistikenController::class,
+        							'controller' => Controller\StatistikenController::class,
         							'action'     => 'statistiken',
         					],
         			],
