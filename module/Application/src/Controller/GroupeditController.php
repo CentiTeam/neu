@@ -57,6 +57,7 @@ class GroupeditController extends AbstractActionController {
 			$view = new ViewModel([
 					'gruppenListe' => $gruppenliste,
 					'gruppenadminListe' => $gruppenadminListe,
+					'u_id' => $user_id,
 					'err' => $errStr
 			]);
 		
