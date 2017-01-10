@@ -9,7 +9,7 @@ class Zahlungsteilnehmer {
 	protected  $z_id;
 	protected  $status;
 	protected  $anteil;
-	protected  $zahlungsempfaenger;
+	protected  $zahlungsempfaenger; 
 	
 	public function __construct() {
 			

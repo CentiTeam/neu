@@ -128,7 +128,7 @@ class Zahlung {
 	}
 	
 	public function setK_Id($k_id) {
-		$this->k_id= $k_id;
+		$this->k_id= $k_id; 
 	}
 	
 	public function getAenderungsdatum () {

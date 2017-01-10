@@ -99,7 +99,7 @@ class Gruppe {
 	public static function listeHolen() {
 	
 		// Liste initialisieren
-		$gruppeListe = array ();
+		$gruppeListe = array (); 
 	
 		$db = new DB_connection();
 		

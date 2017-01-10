@@ -84,7 +84,7 @@ class ZahlunganlegenController extends AbstractActionController {
 				$zahlung->setBetrag($betrag);
 				$zahlung->setK_id($k_id);
 				$zahlung->setAenderungsdatum($aenderungsdatum);
-				$zahlung->setG_id($gruppen_id);
+				$zahlung->setG_id($gruppen_id); 
 
 					
 				// Wenn tempor�res Objekt gef�llt wurde kann mit diesen Werten das Objekt �ber die anlegen-Fkt in die DB geschrieben werden
