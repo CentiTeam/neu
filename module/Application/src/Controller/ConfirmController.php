@@ -59,7 +59,7 @@ class ConfirmController extends AbstractActionController
 		}
 		
 		$view = new ViewModel([
-				'user' => $user
+				'user' => array($user)
 		]);
 			
 		$view->setTemplate('application/login/login.phtml');

@@ -59,9 +59,8 @@ class loginController extends AbstractActionController{
 			}
 
 	
-	return new ViewModel();
-	//public function loginfuncAction(){
-		
-	//	echo "Random Shit";
-	}
+	return new ViewModel([
+			'user' => array($user)
+	]);
+	
 }
