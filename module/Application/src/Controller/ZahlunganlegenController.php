@@ -98,6 +98,25 @@ class ZahlunganlegenController extends AbstractActionController {
 				 	
 				 $user=$_SESSION['user'];
 
+				 
+				 $i = 0;
+				 foreach ($_POST['zahlungsteilnehmer'] as $key => $value) {
+				 	
+				 	var_dump( $_POST['zahlungsteilnehmer']);
+				 	echo "Valiueeee jetzt:";
+				 	echo $value;
+				 	
+				 	$zahlungsteilnehmer=new Zahlungsteilnehmer();
+				 	
+				 	}
+				 	/**
+				 	if ($i == 0) $ausgabe .= $value;
+				 	else $ausgabe .= ', '.$value;
+				 	$i++;
+				 	*/
+				 }
+				 
+				 
 				 /**	
 				 $zahlungsteilnehmer = new Zahlungsteilnehmer();
 
@@ -108,6 +127,10 @@ class ZahlunganlegenController extends AbstractActionController {
 				 $verkn�pfung=$gruppenmitglied->anlegen();
 				 */	
 
+				 
+				 
+				 
+				 
 				} elseif ($errorStr == "") {
 
 				 // array_push($msg, "Datenpr�fung in Ordnung, Fehler beim Speichern der Gruppe!");

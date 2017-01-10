@@ -14,19 +14,19 @@
 	<?php } ?> 
 	</select>
 </td></tr>
-<tr><td>Teilnehmer: </td><td>
+<tr><td>Teilnehmer: </td><td><fieldset>
 	
 		<?php 
 		//Alle Gruppenmitglieder in die Auswahlliste schreiben
 		foreach ($mitgliederListe as $zaehler => $mitglied) { ?>	
 			<label>
-			<input type="checkbox" name="zahlungsteilnehmer" value='<?=$mitglied->getU_id()?>'>
+			<input type="checkbox" name="zahlungsteilnehmer[]" value='<?=$mitglied->getU_id()?>'>
 			<?=$mitglied->getUsername()?>
 			</label><br></input>					
 		<?php 
 		} ?> 
 	
-</td></tr>
+</fieldset></td></tr>
 										
 <input type="hidden" name="g_id" value='<?=$gruppe[0]->getG_id()?>'>																		
 <tr><td><input type="submit" name="speichern" value="Zahlung anlegen"></td> </tr>
