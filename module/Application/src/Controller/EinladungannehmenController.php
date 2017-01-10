@@ -60,9 +60,10 @@ class EinladungannehmenController extends AbstractActionController
 			$gruppenmitglied->setGruppenadmin(0);
 				
 			$isOk=$gruppenmitglied->anlegen();
-				
+			var_dump($isOk);
+			
 			// wenn der Ladevorgang erfolgreich war, wird versucht die Gruppe zu l�schen
-			if ($isOK==true) {
+			if (true) {
 				echo "if";
 				$gruppenname=$gruppe->getGruppenname();
 				$vorname=$user->getVorname();
