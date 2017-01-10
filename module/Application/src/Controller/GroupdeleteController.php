@@ -25,7 +25,7 @@ class GroupdeleteController extends AbstractActionController
 		$gruppenmitglied->laden($gruppen_id, $user_id);
 		
 		if ($gruppenmitglied->getGruppenadmin()==false) {
-			return $err="Nicht berechtigt!";
+			return "<div >Nicht berechtigt!</div>";
 		}
 		
 		
