@@ -183,12 +183,14 @@ class ZahlunganlegenController extends AbstractActionController {
 			}
 		}
 
+		
 
 		return new ViewModel([
 				'gruppe' => array($gruppe),
 				'msg' => $msg,
 				'kategorieListe' => $kategorieliste,
 				'mitgliederListe' => $mitgliederliste,
+				'erstellungsdatum' => $erstellungsdatum
 		]);
 
 	}
