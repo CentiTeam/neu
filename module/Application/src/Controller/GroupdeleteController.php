@@ -28,6 +28,8 @@ class GroupdeleteController extends AbstractActionController
 			
 			$errStr="Nicht berechtigt!";
 			
+			$gruppenliste=Gruppe::eigenelisteholen($user_id);
+			
 			$view = new ViewModel([
 					'gruppenListe' => $gruppenliste,
 					'err' => $errStr
