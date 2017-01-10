@@ -121,7 +121,7 @@ class ZahlunganlegenController extends AbstractActionController {
 				 	
 			 		$zahlungsteilnehmer=new Zahlungsteilnehmer();
 				 	
-				 	$user_id=$value;
+			 		
 				 	$zahlungs_id=$zahlung->getZ_id();
 				 	
 				 	if($value == $user_id) {
