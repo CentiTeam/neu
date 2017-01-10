@@ -18,15 +18,13 @@ class GroupdeleteController extends AbstractActionController
 		session_start();
 		
 		// Pr�fen, ob Gruppeadmin
-		
 		$user_id=$_SESSION['user']->getU_id();
 		$gruppen_id=$_REQUEST['g_id'];
 		
 		$gruppenmitglied=new Gruppenmitglied();
 		$gruppenmitglied->laden($gruppen_id, $user_id);
 		
-		/**
-		// Prüfen, in welchen Gruppen Admin
+		// Prüfen, in welchen Gruppen der aktuelle User Admin ist
 		$gruppenadminListe=array();
 		
 		// F�r jede Gruppe speichern, ob aktueller USer Admin ist und diese Gruppenmitglied-Datensätze
@@ -44,7 +42,7 @@ class GroupdeleteController extends AbstractActionController
 		
 			}
 		}
-		*/
+		
 		
 		// Berechtigungsprüfung: Pr�fen, ob Gruppeadmin
 		if ($gruppenmitglied->getGruppenadmin()==false) {
@@ -130,7 +128,7 @@ class GroupdeleteController extends AbstractActionController
 				
 			// da das Formular zum Best�tigen des L�schens der Gruppe noch nicht angezeigt wurde, wird es hier generiert und an den ViewModelController
 			// zur Ausgabe �bergeben
-			echo "Hallo";
+			
 			return new ViewModel([
 				'gruppe' => $gruppe,
 			]);
