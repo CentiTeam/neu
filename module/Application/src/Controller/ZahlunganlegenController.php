@@ -123,7 +123,8 @@ class ZahlunganlegenController extends AbstractActionController {
 				 	
  				 	echo ("Die Anteile müssen zusammen der Gesamtsumme entsprechen.");
  				 }else {
-				 
+ 					echo ("Das sollte hier eigentlich echt nich stehen");
+ 				 		
 				 
 				 $counter=0;
 				 // Legt die zugehörigen Zahlungsteilnehmer Datensätze an, außer für sich selbst (info wird aber für Anteil benötigt!)
