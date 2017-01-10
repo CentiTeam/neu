@@ -114,7 +114,7 @@ class ZahlunganlegenController extends AbstractActionController {
 				 	else $ausgabe .= ', '.$value;
 				 	$i++;
 				 	*/
-				 }
+				 
 				 
 				 
 				 /**	
