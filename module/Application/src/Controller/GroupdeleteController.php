@@ -26,8 +26,7 @@ class GroupdeleteController extends AbstractActionController
 		
 		if ($gruppenmitglied->getGruppenadmin()==false) {
 			
-			"<div >Nicht berechtigt!</div>";
-			return new ViewModel();
+			return "<div >Nicht berechtigt!</div>";
 		}
 		
 		
