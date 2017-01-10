@@ -79,7 +79,7 @@ class EinladungannehmenController extends AbstractActionController
 			} else {
 				// ausgeben, dass das Team nicht gel�scht werden konnte (kein Template n�tig!)
 				$msg .= "Fehler beim Hinzufügen zu der Gruppe!<br>";
-				echo $errStr;
+				var_dump($errStr);
 				$view = new ViewModel([
 						'msg' => $msg,
 						'err' => $errStr
