@@ -24,15 +24,37 @@ class GroupdeleteController extends AbstractActionController
 		$gruppenmitglied=new Gruppenmitglied();
 		$gruppenmitglied->laden($gruppen_id, $user_id);
 		
+		$gruppenadminListe=array();
+			
+		// F�r jede Gruppe speichern, ob aktueller USer Admin ist und diese Gruppenmitglied-Datensätze
+		// in Array speichern
+		foreach ($gruppenliste as $liste) {
+				
+			// Gruppenmitglied instanzieren
+			$gruppenmitglied= new Gruppenmitglied();
+			$gruppenmitglied->laden ($liste->getG_id(), $user_id);
+				
+			// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter bef�llt
+			if ($gruppenmitglied->getGruppenadmin() == true) {
+					
+				$gruppenadminListe[]=$gruppenmitglied;
+					
+			}
+		}
+		
 		// Berechtigungsprüfung: Pr�fen, ob Gruppeadmin
 		if ($gruppenmitglied->getGruppenadmin()==false) {
 			
 			$errStr="Nicht berechtigt!";
 			$gruppenliste=Gruppe::eigenelisteholen($user_id);
 			
+			
+			
 			$view = new ViewModel([
 					'gruppenListe' => $gruppenliste,
-					'err' => $errStr
+					'err' => $errStr,
+					'gruppenadminListe' => $gruppenadminListe,
+					'u_id' => $user_id
 			]);
 				
 			$view->setTemplate('application/groupoverview/groupoverview.phtml');
