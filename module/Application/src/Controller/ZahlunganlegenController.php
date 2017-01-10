@@ -118,7 +118,7 @@ class ZahlunganlegenController extends AbstractActionController {
 				 	$summe += $anteil;
 				 }
 				 var_dump ($summe);
- 				 if($summe == $betrag){
+ 				 if($summe != $betrag){
  				 	var_dump ($summe);
 				 	
  				 	echo ("Die Anteile müssen zusammen der Gesamtsumme entsprechen.");
