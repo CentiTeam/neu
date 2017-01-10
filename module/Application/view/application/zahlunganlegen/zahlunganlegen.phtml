@@ -15,13 +15,13 @@
 	</select>
 </td></tr>
 <tr><td>Teilnehmer: </td><td>
-	<select name="u_id" size="5" required>
+	<input type="checkbox" name="u_id" required>
 		<?php 
 		//Alle Gruppenmitglieder in die Auswahlliste schreiben
-		foreach ($mitgliederListe as $zaehler => $mitglied) { ?>
+		foreach ($mitgliederListe as $zaehler => $mitglied) { ?>		
 			<option value='<?=$mitglied->getU_id()?>'> <?=$mitglied->getUsername() ?> </option>						
 		<?php } ?> 
-	</select>
+	</input>
 </td></tr>
 										
 <input type="hidden" name="g_id" value='<?=$gruppe[0]->getG_id()?>'>																		
