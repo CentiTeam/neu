@@ -28,7 +28,7 @@ use Application\Model\Gruppenmitglied;?>
 			<a href='groupshow?g_id=<?=$gruppe->getG_id()?>'><img src="img/show.jpg" /></a>
 			<?php //Nicht schön programmiert
 			foreach ($gruppenadminListe as $counter => $gruppenmitglied) {
-			if ($gruppenmitglied->getGruppenadmin()==1) { ?>
+			if ($gruppenmitglied->getG_id()==$gruppe->getG_id() && $gruppenmitglied->getU_id()==$u_id && $gruppenmitglied->getGruppenadmin()==1) { ?>
 			<a href='groupedit?g_id=<?=$gruppe->getG_id()?>'><img src="img/edit.jpg" /></a>
 			<a href='groupdelete?g_id=<?=$gruppe->getG_id()?>'><img src="img/delete.png" /></a>
 			<?php }?>
