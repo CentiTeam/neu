@@ -75,7 +75,14 @@ class EinladungannehmenController extends AbstractActionController
 				echo "esle";
 				// ausgeben, dass das Team nicht gel�scht werden konnte (kein Template n�tig!)
 				$msg .= "Fehler beim Hinzufügen zu der Gruppe!<br>";
-				return new ViewModel('application/index/index.phtml');
+				
+				$view = new ViewModel([
+						'msg' => $msg,
+				]);
+				
+				$view->setTemplate('application/index/index.phtml');
+					
+				return $view;
 			}
 		} else {
 
