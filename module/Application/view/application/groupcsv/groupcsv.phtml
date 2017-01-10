@@ -29,7 +29,7 @@ fclose($output);
 // output headers so that the file is downloaded rather than displayed
 //header("Content-type: text/csv");
 //header("Content-disposition: attachment; filename = report.csv");
-if (file_exists($output)) {
+{
 	header('Content-Description: File Transfer');
 	header('Content-Type: text/csv');
 	header('Content-Disposition: attachment; filename="report.csv"');
