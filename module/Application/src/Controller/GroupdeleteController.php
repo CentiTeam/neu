@@ -130,7 +130,7 @@ class GroupdeleteController extends AbstractActionController
 				
 			// da das Formular zum Best�tigen des L�schens der Gruppe noch nicht angezeigt wurde, wird es hier generiert und an den ViewModelController
 			// zur Ausgabe �bergeben
-			
+			echo "Hallo";
 			return new ViewModel([
 				'gruppe' => $gruppe,
 			]);
