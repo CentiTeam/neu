@@ -125,7 +125,7 @@ class ZahlunganlegenController extends AbstractActionController {
 				 	$zahlungs_id=$zahlung->getZ_id();
 				 	
 				 	if($value == $user_id) {
-					 		$status="beglichen";
+					 		$status="beglichen"; 
 				 	} else {
 					 		$status="offen";
 				 	}
