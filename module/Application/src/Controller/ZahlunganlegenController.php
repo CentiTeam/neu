@@ -94,42 +94,30 @@ class ZahlunganlegenController extends AbstractActionController {
 				 //  $msg .= "Gruppe erfolgreich gespeichert!";
 				 $saved = true;
 				 	
-				 // Neue G_id durch Laden der neu erstellten Gruppe ins Objekt laden
+				 // Neue Z_id durch Laden der neu erstellten Gruppe ins Objekt laden
 				 $zahlung->laden();
 				 	
 				 $user=$_SESSION['user'];
 
 				 
-				 $i = 0;
 				 foreach ($_POST['zahlungsteilnehmer'] as $key => $value) {
-				 	
-				 	var_dump( $_POST['zahlungsteilnehmer']);
-				 	echo "Valiueeee jetzt:";
-				 	echo $value;
 				 	
 				 	$zahlungsteilnehmer=new Zahlungsteilnehmer();
 				 	
-				 	}
-				 	/**
-				 	if ($i == 0) $ausgabe .= $value;
-				 	else $ausgabe .= ', '.$value;
-				 	$i++;
-				 	*/
-				 
-				 
-				 
-				 /**	
-				 $zahlungsteilnehmer = new Zahlungsteilnehmer();
-
-				 $gruppenmitglied->setU_id($user->getU_id());
-				 $gruppenmitglied->setG_id($gruppe->getG_id());
-				 $gruppenmitglied->setGruppenadmin(1);
+				 	$user_id=$value;
+				 	$zahlungs_id=$zahlung->getZ_id();
+				 	$status="offen";
+				 	$anteil=0;
+				 	$zahlungsempfaenger=$_POST['zahlungsempfaenger'];
 				 	
-				 $verkn�pfung=$gruppenmitglied->anlegen();
-				 */	
-
-				 
-				 
+				 	$zahlungsteilnehmer->setU_id($user_id);
+				 	$zahlungsteilnehmer->setZ_id($zahlungs_id);
+				 	$zahlungsteilnehmer->setStatus($status);
+				 	$zahlungsteilnehmer->setAnteil($anteil);
+				 	$zahlungsteilnehmer->setZahlungsempfaenger($zahlungsempfaenger);
+				 	
+				 	$verknuepfung=$zahlungsmitglied->anlegen();
+				 }
 				 
 				 
 				} elseif ($errorStr == "") {
