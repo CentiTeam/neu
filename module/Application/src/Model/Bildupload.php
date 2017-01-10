@@ -32,7 +32,7 @@ class Bildupload
 		}
 		
 		//Maximale Auflösung überprüfen
-		/** **/
+		/** 
 		 $size = getimagesize($uploadedfile);
 		 $width = $size[0];
 		 $height = $size[1];
@@ -45,7 +45,7 @@ class Bildupload
 		 $path = false;
 		 return $path;
 		 }
-		 
+		 **/
 		
 		//Erlaubte Dateiendung
 		$detected_type = exif_imagetype($_FILES["uploadedfile"]["tmp_name"]);
