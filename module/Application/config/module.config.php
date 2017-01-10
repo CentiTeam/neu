@@ -49,6 +49,17 @@ return [
         			],
         	],
         		
+        	'statistiken' => [
+        			'type'    => Segment::class,
+        			'options' => [
+        					'route'    => '/statistiken[/:action]',
+        					'defaults' => [
+        							'controller' => Controller\SatistikenController::class,
+        							'action'     => 'statistiken',
+        					],
+        			],
+        	],
+        		
         		
         	'adminoverview' => [
         			'type'    => Segment::class,
