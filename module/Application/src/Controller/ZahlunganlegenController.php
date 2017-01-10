@@ -117,11 +117,13 @@ class ZahlunganlegenController extends AbstractActionController {
 				 	$i++;
 				 	$summe += $anteil;
 				 }
-				
-				 if($summe == $betrag){
-				  die(lalalaaaaaaaaaa);
-				 }
 				 var_dump ($summe);
+ 				 if($summe == $betrag){
+ 				 	var_dump ($summe);
+				 	
+ 				 	echo ("Die Anteile müssen zusammen der Gesamtsumme entsprechen.");
+ 				 } else {
+				 
 				 
 				 $counter=0;
 				 // Legt die zugehörigen Zahlungsteilnehmer Datensätze an, außer für sich selbst (info wird aber für Anteil benötigt!)
@@ -154,7 +156,7 @@ class ZahlunganlegenController extends AbstractActionController {
 				 }
 				 
 				 
-				} elseif ($errorStr == "") {
+				} if ($errorStr == "") {
 
 				 // array_push($msg, "Datenprï¿½fung in Ordnung, Fehler beim Speichern der Gruppe!");
 					$msg .= "DatenprÃ¼fung in Ordnung, Fehler beim Speichern der Zahlung!";
@@ -178,6 +180,8 @@ class ZahlunganlegenController extends AbstractActionController {
 				$view->setTemplate('application/zahlunganzeigen/zahlunganzeigen.phtml');
 
 				return $view;
+				
+				}
 			}
 		}
 
