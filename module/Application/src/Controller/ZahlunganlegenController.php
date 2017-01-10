@@ -66,6 +66,7 @@ class ZahlunganlegenController extends AbstractActionController {
 				$erstellungsdatum= date('Y-m-d', $timestamp);
 				
 				$aenderungsdatum= date('Y-m-d',$timestamp);
+				$gruppen_id=$gruppe->getG_id();
 				
 				
 				// Schritt 2: Daten pr�fen und Fehler in Array füllen
@@ -83,6 +84,7 @@ class ZahlunganlegenController extends AbstractActionController {
 				$zahlung->setBetrag($betrag);
 				$zahlung->setK_id($k_id);
 				$zahlung->setAenderungsdatum($aenderungsdatum);
+				$zahlung->setG_id($gruppen_id);
 
 					
 				// Wenn tempor�res Objekt gef�llt wurde kann mit diesen Werten das Objekt �ber die anlegen-Fkt in die DB geschrieben werden
@@ -108,7 +110,7 @@ class ZahlunganlegenController extends AbstractActionController {
 				 	$zahlungs_id=$zahlung->getZ_id();
 				 	$status="offen";
 				 	$anteil=0;
-				 	$zahlungsempfaenger=$_POST['zahlungsempfaenger'];
+				 	$zahlungsempfaenger=$_SESSION['user']->getU_id();
 				 	
 				 	$zahlungsteilnehmer->setU_id($user_id);
 				 	$zahlungsteilnehmer->setZ_id($zahlungs_id);

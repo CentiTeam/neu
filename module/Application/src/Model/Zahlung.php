@@ -12,6 +12,7 @@ class Zahlung {
 	protected  $betrag;
 	protected  $k_id;
 	protected  $aenderungsdatum;
+	protected  $g_id;
 	
 	public function __construct($zahlung_id = null) {
 		
@@ -25,13 +26,14 @@ class Zahlung {
 	
 		$db = new DB_connection();
 	
-		$query = "INSERT INTO zahlung (zahlungsbeschreibung, erstellungsdatum, zahlungsdatum, betrag, k_id, aenderungsdatum) VALUES (
+		$query = "INSERT INTO zahlung (zahlungsbeschreibung, erstellungsdatum, zahlungsdatum, betrag, k_id, aenderungsdatum, g_id) VALUES (
 				'".$this->zahlungsbeschreibung."',
 				CURDATE(),
 				'".$this->zahlungsdatum."',
 				'".$this->betrag."',
 				'".$this->k_id."',
-				'".$this->aenderungsdatum."'		
+				'".$this->aenderungsdatum."',
+				'".$this->g_id."'
 				)" ;
 	
 		$result = $db->execute($query);
@@ -66,7 +68,8 @@ class Zahlung {
 			$this->betrag=$row["betrag"];
 			$this->k_id=$row["k_id"];
 			$this->aenderungsdatum=$row["aenderungsdatum"]; 
-	
+			$this->g_id=$row["g_id"];
+			
 			// speichern, dass die Basisinformationen des Teams erfolgreich geladen werden konnten
 			$isLoaded=true;
 		}
@@ -136,5 +139,12 @@ class Zahlung {
 		$this->aenderungsdatum= $aenderungsdatum;
 	}
 	
+	public function getG_id () {
+		return $this->g_id;
+	}
+	
+	public function setG_Id($g_id) {
+		$this->g_id= $g_id;
+	}
 	
 }
