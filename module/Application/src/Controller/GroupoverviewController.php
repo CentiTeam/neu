@@ -5,7 +5,7 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Model\Gruppe;
-//use Application\Model\Gruppenmitglied;
+// use Application\Model\Gruppenmitglied;
 use Application\Model\User;
 
 #TODO nur die Gruppen anzeigen, zu denen man geh�rt; hierf�r "Listeholen aus Gruppenmitglied" und 
@@ -20,13 +20,34 @@ class GroupoverviewController extends AbstractActionController
 		
 		$user_id=$_SESSION['user']->getU_id();
 		$gruppenliste = Gruppe::eigenelisteholen($user_id);
-
 		
+	
+		// Liste der User-Objekte der Gruppenmitglieder holen
+		$mitgliederliste = User::gruppenmitgliederlisteholen($g_id);
+		
+		$gruppenadminListe=array();
+		
+		// F�r jedes Gruppenmitglied mit die Gruppenmitgliedschafts-Infos (inkl. Gruppenadmin) laden
+		// und Mitgliedschaftsinfos in Array speichern, wenn Gruppenmitgliedschaft besteht
+		foreach ($gruppenliste as $liste) {
+				
+			// Gruppenmitglied instanzieren
+			$gruppenmitglied= new Gruppenmitglied();
+			$gruppenmitglied->laden ($liste->getG_id(), $user_id);
+				
+			// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter bef�llt
+			if ($gruppenmitglied->getGruppenadmin() == true) {
+		
+				$gruppenadminListe[]=$gruppenmitglied;
+		
+			}
+		}
+
 		
 		return new ViewModel([
 			'gruppenListe' => $gruppenliste,
-			'u_id' => $user_id
-			// 'anzahl' => $anzahl
+			'u_id' => $user_id,
+			'gruppenadminListe' => $gruppenadminListe,
 		]);
 		
 	
