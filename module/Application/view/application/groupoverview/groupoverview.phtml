@@ -28,7 +28,7 @@ use Application\Model\Gruppenmitglied;?>
 			<?php //Nicht schön programmiert
 			$gruppenmitglied=new Gruppenmitglied();
 			$gruppenmitglied->laden($gruppe->getG_id(), $user_id);
-			if ($gruppenmitglied->getGruppenadmin()==true) { ?>
+			if ($gruppenmitglied->getGruppenadmin()=="1") { ?>
 			<a href='groupedit?g_id=<?=$gruppe->getG_id()?>'><img src="img/edit.jpg" /></a>
 			<a href='groupdelete?g_id=<?=$gruppe->getG_id()?>'><img src="img/delete.png" /></a>
 			<?php }?>
