@@ -95,7 +95,7 @@ Dein Grouppay-Team
 						<div>Du wurdest von $absenderVorname $absenderNachname in die Gruppe $gruppenName eingeladen.</div>
 						<br>
 						<div>&Uuml;ber diesen Link kannst Du die Einladung annehmen:</div>
-						$link
+						<div>$link</div><br>
 						
 						<div>Viele Gr&uuml;&szlig;e</div> 
 						<div>Dein Grouppay-Team</div>
