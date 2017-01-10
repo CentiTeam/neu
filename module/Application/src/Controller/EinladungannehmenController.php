@@ -72,7 +72,6 @@ class EinladungannehmenController extends AbstractActionController
 				$msg .= "Du wurdest erfolgreich zu der Gruppe $gruppenname hinzugefügt, $vorname!<br>";
 
 			} else {
-				echo "esle";
 				// ausgeben, dass das Team nicht gel�scht werden konnte (kein Template n�tig!)
 				$msg .= "Fehler beim Hinzufügen zu der Gruppe!<br>";
 				
@@ -106,7 +105,7 @@ class EinladungannehmenController extends AbstractActionController
 		
 		// F�r jedes Gruppenmitglied mit die Gruppenmitgliedschafts-Infos (inkl. Gruppenadmin) laden
 		// und Mitgliedschaftsinfos in Array speichern, wenn Gruppenmitgliedschaft besteht
-		foreach ($mitgliederliste as $mitglied) {
+		foreach ($mitgliederListe as $mitglied) {
 				
 			// Gruppenmitglied instanzieren
 			$gruppenmitglied= new Gruppenmitglied();
