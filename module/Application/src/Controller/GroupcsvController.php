@@ -16,7 +16,7 @@ class GroupcsvController extends AbstractActionController
 	{
 		
 
-		
+		 
 		// Gruppen-Objekt laden
 		$gruppe= new Gruppe();
 		$g_id=$_REQUEST['g_id'];
