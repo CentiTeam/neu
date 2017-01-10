@@ -25,7 +25,6 @@ class GroupshowController extends AbstractActionController
 		// Liste der User-Objekte der Gruppenmitglieder holen
 		$mitgliederliste = User::gruppenmitgliederlisteholen($g_id); 
 		
-		
 		$mitgliedschaft=array();
 		
 		// F�r jedes Gruppenmitglied mit die Gruppenmitgliedschafts-Infos (inkl. Gruppenadmin) laden

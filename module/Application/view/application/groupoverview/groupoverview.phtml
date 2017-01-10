@@ -24,8 +24,13 @@
 			<td><?=$gruppe->getGruppenbeschreibung()?></td>
 			<td>
 			<a href='groupshow?g_id=<?=$gruppe->getG_id()?>'><img src="img/show.jpg" /></a>
+			<?php
+			$gruppenmitglied=new Gruppenmitglied();
+			$gruppenmitglied->laden($gruppe->getG_id(), $user_id);
+			if ($gruppenmitglied->getGruppenadmin()==true) { ?>
 			<a href='groupedit?g_id=<?=$gruppe->getG_id()?>'><img src="img/edit.jpg" /></a>
 			<a href='groupdelete?g_id=<?=$gruppe->getG_id()?>'><img src="img/delete.png" /></a>
+			<?php }?>
 			</td>
 		</tr>
 

@@ -20,6 +20,17 @@ class GroupoverviewController extends AbstractActionController
 		
 		$user_id=$_SESSION['user']->getU_id();
 		$gruppenliste = Gruppe::eigenelisteholen($user_id);
+
+				
+			$view = new ViewModel([
+					'gruppenListe' => $gruppenliste,
+					'user_id' => $user_id
+			]);
+		
+			$view->setTemplate('application/groupoverview/groupoverview.phtml');
+				
+			return $view;
+		}
 		
 		
 
