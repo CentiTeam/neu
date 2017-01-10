@@ -82,6 +82,7 @@ class EinladungannehmenController extends AbstractActionController
 				
 				$view = new ViewModel([
 						'msg' => $msg,
+						'err' => $errStr
 				]);
 				
 				$view->setTemplate('application/index/index.phtml');
