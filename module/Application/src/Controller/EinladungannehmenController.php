@@ -60,10 +60,10 @@ class EinladungannehmenController extends AbstractActionController
 			$gruppenmitglied->setGruppenadmin(0);
 				
 			$isOk=$gruppenmitglied->anlegen();
-			var_dump($isOk);
+			echo $isOk;
 			
 			// wenn der Ladevorgang erfolgreich war, wird versucht die Gruppe zu l�schen
-			if (true) {
+			if ($isOk==true) {
 				echo "if";
 				$gruppenname=$gruppe->getGruppenname();
 				$vorname=$user->getVorname();
@@ -89,11 +89,37 @@ class EinladungannehmenController extends AbstractActionController
 			]);
 		}
 		
+		
 		session_start();
+		$_SESSION['user']=$user;
+		$_SESSION['angemeldet']="ja";
+		
+		$mitgliederListe=User::gruppenmitgliederlisteHolen();
+		
+		$mitgliedschaft=array();
+		
+		// F�r jedes Gruppenmitglied mit die Gruppenmitgliedschafts-Infos (inkl. Gruppenadmin) laden
+		// und Mitgliedschaftsinfos in Array speichern, wenn Gruppenmitgliedschaft besteht
+		foreach ($mitgliederliste as $mitglied) {
+				
+			// Gruppenmitglied instanzieren
+			$gruppenmitglied= new Gruppenmitglied();
+			$gruppenmitglied->laden ($g_id, $mitglied->getU_id());
+				
+			// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter bef�llt
+			if ($gruppenmitglied->getU_id() == $mitglied->getU_id()) {
+		
+				$mitgliedschaft[]=$gruppenmitglied;
+		
+			}
+		}
+		
 		$view = new ViewModel([
 				'msg' => $msg,
 				'gruppe' => array($gruppe),
-				'user' => array($user)
+				'user' => array($user),
+				'mitgliederListe' => $mitgliederListe,
+				'mitgliedschaft' => $mitgliedschaft,
 				
 		]);
 
