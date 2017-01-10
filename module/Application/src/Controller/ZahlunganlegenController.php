@@ -119,9 +119,10 @@ class ZahlunganlegenController extends AbstractActionController {
 				 	var_dump( $anteil);
 				 	
 				 	$anteile[$i]=$anteil;
-				 	$i++;
 				 	echo $i;
-				 	echo $anteile[$i];
+				 	$i++;
+				 	
+				 	//echo $anteile[$i];
 				 }
 				 
 				 die ("Stop!");
