@@ -26,7 +26,16 @@ class GroupdeleteController extends AbstractActionController
 		
 		if ($gruppenmitglied->getGruppenadmin()==false) {
 			
-			return "<div >Nicht berechtigt!</div>";
+			$errStr="Nicht berechtigt!";
+			
+			$view = new ViewModel([
+					'gruppenListe' => $gruppenliste,
+					'err' => $errStr
+			]);
+				
+			$view->setTemplate('application/groupoverview/groupoverview.phtml');
+			
+			return $view;
 		}
 		
 		
