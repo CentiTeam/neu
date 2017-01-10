@@ -69,7 +69,7 @@ class EinladungannehmenController extends AbstractActionController
 				}
 			}
 			// wenn der Ladevorgang erfolgreich war, wird versucht die Gruppe zu l�schen
-			if ($errorStr="" && $gruppenmitglied->anlegen()) {
+			if ($errorStr=="" && $gruppenmitglied->anlegen()) {
 				$gruppenname=$gruppe->getGruppenname();
 				$vorname=$user->getVorname();
 				// ausgeben, dass die Gruppe gel�scht wurde (kein Template n�tig!)
