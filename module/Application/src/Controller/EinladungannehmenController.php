@@ -64,7 +64,7 @@ class EinladungannehmenController extends AbstractActionController
 			$gruppenmitgliedListe=Gruppenmitglied::listeholen();
 			
 			foreach ($gruppenmitgliedListe as $liste) {
-				if ($gruppenmitglied->getU_id()==$liste->getU_id() && $gruppenmitglied->getG_id()==$liste->getU_id()) {
+				if ($gruppenmitglied->getU_id()==$liste->getU_id() && $gruppenmitglied->getG_id()==$liste->getG_id()) {
 					echo "Hallo";
 					$errStr .= "Du bist bereits Mitglied der Gruppe!";
 				}
