@@ -52,8 +52,6 @@ class GroupdeleteController extends AbstractActionController
 						
 				}
 			}
-				
-			
 			
 			
 			$view = new ViewModel([
