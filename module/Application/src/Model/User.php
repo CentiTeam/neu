@@ -14,6 +14,7 @@ class User
 	protected $email;
 	protected $deaktiviert;
 	protected $systemadmin;
+	protected $teilnehmerbildpfad;
 	
 	private $isloggedin;
 	
@@ -40,7 +41,7 @@ class User
 			//Falls E-Mailadresse noch nicht verwendet wird, dann Schreiben der Daten in die Datenbank.
 			if(mysqli_num_rows($result_emailueberpruefung) == 0 && mysqli_num_rows($result_benutzernamenueberpruefung) == 0){ 
 			
-			$query = "INSERT INTO User (username, vorname, nachname, passwort, email, deaktiviert, systemadmin) VALUES (
+			$query = "INSERT INTO User (username, vorname, nachname, passwort, email, deaktiviert, systemadmin, teilnehmerbildpfad) VALUES (
 			
 				'".$this->username."',
 				'".$this->vorname."',
@@ -48,7 +49,8 @@ class User
 				'".$this->passwort."',
 				'".$this->email."',
 					1,
-					0)";
+					0,
+				'/img/anonymeruser.png')";
 		
 			$result = $db->execute($query);
 			$isOK = mysqli_affected_rows ($result) > 0;
@@ -127,7 +129,8 @@ class User
 				$this->passwort = $row['passwort'];
 				$this->email = $row['email'];
 				$this->deaktiviert = $row['deaktiviert'];
-				$this->systemadmin = $row['systemadmin']; 
+				$this->systemadmin = $row['systemadmin'];
+				$this->teilnehmerbildpfad = $row['teilnehmerbildpfad'];
 
 
 				//Wenn es sich um einen Systemadmin handelt, dann wird die Sessionvariable "angemeldet", welche für angemeldeter Benutzer steht, mit nein überschrieben und die Sessionvariable "systemadmin" erhält den Wert ja
@@ -321,6 +324,7 @@ class User
 			$this->nachname=$row["nachname"];
 			$this->deaktiviert=$row["deaktiviert"];
 			$this->systemadmin=$row["systemadmin"];
+			$this->teilnehmerbildpfad=$row["teilnehmerbildpfad"];
 	
 			// speichern, dass die Basisinformationen der User erfolgreich geladen werden konnten
 			$isLoaded=true;
@@ -449,9 +453,7 @@ class User
 	}
 	public function getDeaktiviert() {
 		return $this->deaktiviert;
-	}
-	
-	
+	}	
 
 	public function setSystemadmin($value) {
 		$this->systemadmin = $value;
@@ -460,6 +462,13 @@ class User
 		return $this->systemadmin;
 	}
 	
+	public function getTeilnehmerbildpfad () {
+		return $this->teilnehmerbildpfad;
+	}
+	
+	public function setTeilnehmerbildpfad($teilnehmerbildpfad) {
+		$this->teilnehmerbildpfad= $teilnehmerbildpfad;
+	}
 }
 
 
