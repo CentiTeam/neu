@@ -64,7 +64,7 @@ class EinladungannehmenController extends AbstractActionController
 			
 			foreach ($gruppenmitgliedListe as $liste) {
 				if ($gruppenmitglied->getU_id()==$liste->getU_id() && $gruppenmitglied->getG_id()==$liste->getU_id()) {
-					$errStr .= "Du bist bereits Mitglied der Gruppe $gruppenname";
+					$errStr .= "Du bist bereits Mitglied der Gruppe!";
 				}
 			}
 			// wenn der Ladevorgang erfolgreich war, wird versucht die Gruppe zu l�schen
