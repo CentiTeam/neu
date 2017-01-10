@@ -130,7 +130,7 @@ class ZahlunganlegenController extends AbstractActionController {
 					 		$status="offen";
 				 	}
 				 	
-				 	$anteil=0;
+				 	
 				 	$zahlungsempfaenger=$_SESSION['user']->getU_id();
 	
 				 	
