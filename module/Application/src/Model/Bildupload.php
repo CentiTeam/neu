@@ -18,7 +18,7 @@ class Bildupload
 		//Dateiendung überprüfen
 		if(!in_array($extension, $this->allowed_extensions))
 		{
-			echo "Ungültige Dateiendung! Nur png, jpg, jpeg und gif Dateien!";
+			echo "Ung&uumlltige Dateiendung! Nur png, jpg, jpeg und gif Dateien!";
 			$path = false;
 			return $path;
 		}
@@ -26,7 +26,7 @@ class Bildupload
 		//Maximale Bildgröße überprüfen
 		if($_FILES["uploadedfile"]["size"] > $this->max_size)
 		{
-			echo "Bilder können nicht mehr als 2 mb groß sein!";
+			echo "Bilder k&oumlnnen nicht mehr als 2 mb groß sein!";
 			$path = false;
 			return $path;
 		}
@@ -36,9 +36,11 @@ class Bildupload
 		$width = $size[0];
 		$height = $size[1];
 		
+		echo $width;
+		
 		if($width < 1024 AND $height < 1204)
 		{
-			echo "Die unterstützte Auflösung von Bildern liegen bei 1024*1024";
+			echo "Die unterst&uumltzte Aufl&oumlsung von Bildern liegen bei 1024*1024";
 			$path = false;
 			return $path;
 		}
