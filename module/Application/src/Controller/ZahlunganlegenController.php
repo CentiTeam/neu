@@ -105,7 +105,9 @@ class ZahlunganlegenController extends AbstractActionController {
 				 // Neue Z_id durch Laden der neu erstellten Gruppe ins Objekt laden
 				 $zahlung->laden();
 				 	
-				 $user=$_SESSION['user'];
+				 $user_id=$_SESSION['user']->getU_id();
+				 
+				 
 
 				 // Legt die zugehörigen Zahlungsteilnehmer Datensätze an, außer für sich selbst (info wird aber für Anteil benötigt!)
 				 foreach ($_POST['zahlungsteilnehmer'] as $key => $value) {
@@ -116,7 +118,7 @@ class ZahlunganlegenController extends AbstractActionController {
 				 	$user_id=$value;
 				 	$zahlungs_id=$zahlung->getZ_id();
 				 	
-				 	if($value == $user->getG_id()) {
+				 	if($value == $user_id) {
 					 		$status="beglichen";
 				 	} else {
 					 		$status="offen";
