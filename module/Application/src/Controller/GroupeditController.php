@@ -23,29 +23,35 @@ class GroupeditController extends AbstractActionController {
 		$gruppenmitglied=new Gruppenmitglied();
 		$gruppenmitglied->laden($gruppen_id, $user_id);
 		
-		// Liste erstellen für Gruppen, wo User Admin ist
-		$gruppenadminListe=array();
-			
-		// F�r jede Gruppe speichern, ob aktueller USer Admin ist und diese Gruppenmitglied-Datensätze
-		// in Array speichern
-		foreach ($gruppenliste as $liste) {
-				
-			// Gruppenmitglied instanzieren
-			$gruppenmitglied= new Gruppenmitglied();
-			$gruppenmitglied->laden ($liste->getG_id(), $user_id);
-				
-			// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter bef�llt
-			if ($gruppenmitglied->getGruppenadmin() == true) {
-					
-				$gruppenadminListe[]=$gruppenmitglied;
-					
-			}
-		}
 		// Berechtigungsprüfung: Pr�fen, ob Gruppeadmin
 		if ($gruppenmitglied->getGruppenadmin()==false) {
 				
 			$errStr="Nicht berechtigt!";
 			$gruppenliste=Gruppe::eigenelisteholen($user_id);
+			
+			// Liste der User-Objekte der Gruppenmitglieder holen
+			$mitgliederliste = User::gruppenmitgliederlisteholen($g_id);
+			
+			$gruppenadminListe=array();
+			
+			// F�r jede Gruppe speichern, ob aktueller USer Admin ist und diese Gruppenmitglied-Datensätze
+			// in Array speichern
+			foreach ($gruppenliste as $liste) {
+			
+				// Gruppenmitglied instanzieren
+				$gruppenmitglied= new Gruppenmitglied();
+				$gruppenmitglied->laden ($liste->getG_id(), $user_id);
+			
+				// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter bef�llt
+				if ($gruppenmitglied->getGruppenadmin() == true) {
+			
+					$gruppenadminListe[]=$gruppenmitglied;
+			
+				}
+			}
+			
+			
+			
 			
 			
 			$view = new ViewModel([
@@ -75,7 +81,7 @@ class GroupeditController extends AbstractActionController {
 			return $view;
 				
 		} else {
-			
+
 			$gruppe = new Gruppe();
 			
 			if (! $gruppe->laden($_REQUEST['g_id'])) {
