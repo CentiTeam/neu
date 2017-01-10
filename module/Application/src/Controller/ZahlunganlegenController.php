@@ -9,6 +9,7 @@ use Application\Model\User;
 use Application\Model\Gruppenmitglied;
 use Application\Model\Kategorie;
 use Application\Model\Zahlung;
+use Application\Model\Zahlungsteilnehmer;
 
 
 class ZahlunganlegenController extends AbstractActionController {
@@ -105,7 +106,7 @@ class ZahlunganlegenController extends AbstractActionController {
 				 	var_dump( $_POST['zahlungsteilnehmer']);
 				 	echo "Valiueeee jetzt:";
 				 	echo $value;
-				 	
+				 	die("Test");
 				 	$zahlungsteilnehmer=new Zahlungsteilnehmer();
 				 	
 				 	}
