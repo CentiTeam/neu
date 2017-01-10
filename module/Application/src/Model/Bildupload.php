@@ -52,7 +52,7 @@ class Bildupload
 		$width = $size[0];
 		$height = $size[1];
 		
-		echo $width;
+		echo $size;
 		
 		if($width < 1024 AND $height < 1024)
 		{
