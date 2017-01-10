@@ -37,6 +37,8 @@ class Bildupload
 		 $width = $size[0];
 		 $height = $size[1];
 		
+		 echo $width;
+		 
 		 if($width < 1024 AND $height < 1024)
 		 {
 		 echo "Die unterst&uumltzte Aufl&oumlsung von Bildern liegt bei 1024*1024";
