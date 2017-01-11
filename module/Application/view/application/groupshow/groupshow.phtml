@@ -47,13 +47,7 @@ use Application\Model\Kategorie;
 	
 	<form action="groupcsv" method="post">
 
-	<table>
-		<th>Download aller Zahlungen dieser Gruppe als CSV</th>
-		<td><input type="submit" value="User suchen"></td> </tr>
-		<td><input type="hidden" value=<?=$_REQUEST['g_id']?>></td> </tr>
-	</table>
-	</form>	
-	
+
 	
 	
 	
@@ -92,6 +86,16 @@ use Application\Model\Kategorie;
 	</table>
 	<br>
 	<br> 
+	
+		<table>
+		<th>Download aller Zahlungen dieser Gruppe als CSV</th>
+		<td><input type="submit" value="User suchen"></td> </tr>
+		<td><input type="hidden" value=<?=$_REQUEST['g_id']?>></td> </tr>
+	</table>
+	</form>	
+	
+	<br>
+	<br>
 	
 	
 	<form action="usersuchen" method="post">
