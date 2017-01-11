@@ -372,36 +372,6 @@ class User
 	
 	}
 
-	public static function userladen($user_id) {
-	
-		// Liste initialisieren
-		$userladen = array ();
-	
-		$db = new DB_connection();
-	
-		$query="SELECT * FROM `User`
-				WHERE u_id= '".$user_id."' ";
-	
-		// Wenn die Datenbankabfrage erfolgreich ausgeführt worden ist
-		if ($result = $db->execute($query)) {
-	
-			// Ergebnis Zeile fï¿½r Zeile verarbeiten
-			while ($row = mysqli_fetch_array($result)) {
-					
-				// neues Model erzeugen
-				$model = new User();
-	
-				// Model anhand der Nummer aus der Datenbankabfrage laden
-				$model->laden($row["u_id"]);
-	
-				// neues Model ans Ende des $gruppeListe-Arrays anfï¿½gen
-				$userladen[] = $model;
-			}
-	
-			// fertige Liste von Gruppe-Objekten zurï¿½ckgeben
-			return $userladen;
-		}
-	}
 	
 	
 

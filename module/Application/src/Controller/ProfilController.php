@@ -36,7 +36,15 @@ class ProfilController extends AbstractActionController {
 		} else {
 			
 			$user_id=$_SESSION['user']->getU_id();
-			$userladen = User::userladen($user_id);
+			
+			$user = new User();
+			$user = User::laden(user_id);
+			
+			$view = new ViewModel([
+					'user'=>$user
+			]);
+			
+			return view;
 			
 
 			
