@@ -8,6 +8,7 @@ use Application\Model\Gruppe;
 use Application\Model\User;
 use Application\Model\Gruppenmitglied;
 use Application\Model\Kategorie;
+use Application\Model\Nachricht;
 
 
 class GroupshowController extends AbstractActionController
@@ -53,4 +54,5 @@ class GroupshowController extends AbstractActionController
 		
 	
 	}
+	
 }
