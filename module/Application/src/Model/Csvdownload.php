@@ -53,7 +53,7 @@ class Csvdownload{
 		header("Content-Type: application/octet-stream");
 		header("Content-Disposition: attachment; filename=\"$table.csv\";" );
 		header("Content-Transfer-Encoding: binary");
-		
+		exit();
 		//OUTPUT CSV CONTENT
 		echo($csv);
 		
