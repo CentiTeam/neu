@@ -1,4 +1,3 @@
- <h1>Statistiken</span></h1>
  <?php session_start();
 use Application\Model\Zahlungsteilnehmer;?>
 <?=$msg?>
@@ -10,7 +9,7 @@ use Application\Model\Zahlungsteilnehmer;?>
 		<th>Zahlungsbeschreibung  </th>
 		<th>Zahlungsdatum </th>
 		<th>Betrag </th>
-		<th>Kategorie </th>
+		<th>Kategorie
 		<th></th>
 		<th></th>
 		<th></th>
@@ -22,23 +21,12 @@ use Application\Model\Zahlungsteilnehmer;?>
 	?>
 
 		<tr>
-			<td><?=$zahlung->getZ_id()?></td>
 			<td><?=$zahlung->getZahlungsbeschreibung()?></td>
+			<td><?=$zahlung->getZahlungsdatum()?></td>
 			<td><?=$zahlung->getBetrag()?></td>
 			<td><?=$zahlung->getK_id()?></td>
 			
-			<td><a href='groupshow?g_id=<?=$gruppe->getG_id()?>'><img src="img/show.jpg" /></a>
-			<?php //Nicht schön programmiert
-			foreach ($gruppenadminListe as $counter => $gruppenmitglied) { 
-				
-				if ($gruppenmitglied->getG_id()==$gruppe->getG_id() && $gruppenmitglied->getU_id()==$u_id && $gruppenmitglied->getGruppenadmin()==1) { ?>
-					<a href='groupedit?g_id=<?=$gruppe->getG_id()?>'><img src="img/edit.jpg" /></a>
-					<a href='groupdelete?g_id=<?=$gruppe->getG_id()?>'><img src="img/delete.png" /></a>
-				<?php }
-				
-				}
-			?>
-			</td>
+			
 		</tr>
 
 	<?php 
