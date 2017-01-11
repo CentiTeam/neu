@@ -45,51 +45,57 @@ class ProfilController extends AbstractActionController {
 			
 
 			
-			$bildupload = new Bildupload();
-			
-			$saved= false;
-			$msg = array();
+				$saved= false;
+				$msg = array();				
 
 			if ($_REQUEST['profilbild']) {
-
-					
-				// Schritt 1:  Werte aus Formular einlesen
-				$uploadedfile=$_REQUEST["uploadedfile"];
 				
-				//Bilddatei an die Funktion Bildupload übergeben, Rückgabe des Bildpfades
-				$path = $bildupload->bildupload($uploadedfile);
-				
-				$u_id=$_REQUEST["u_id"]; 
-				
-				if ($path!=false) {
-
-					$result = User::bild($path, $u_id);
-				
-					$user->laden($u_id);
-						
-					return new ViewModel([
-							'user' => array($user),
-					]);
-				
-					$view->setTemplate('application/profil/profil.phtml');
-					
-					return $view;
-				}				
-				else {
-					
-					$user = new User();
-					
-					$user->laden($u_id);
-					
-					$view = new ViewModel([
-							'user' => array($user)
-					]);
-					
-					$view->setTemplate('application/profil/profil.phtml');
-						
-					return $view;
+				if ($_FILES ["uploadedfile"]["name"] == NULL) 
+				{
+					$path=$user->getTeilnehmerbildpfad();
 				}
+				else
+				{
+					$bildupload = new Bildupload();
 				
+					// Schritt 1:  Werte aus Formular einlesen
+					$uploadedfile=$_REQUEST["uploadedfile"];
+				
+					//Bilddatei an die Funktion Bildupload übergeben, Rückgabe des Bildpfades
+					$path = $bildupload->bildupload($uploadedfile);
+				
+					$u_id=$_REQUEST["u_id"]; 
+				
+					if ($path!=false) {
+
+						$result = User::bild($path, $u_id);
+					
+						$user->laden($u_id);
+						
+						return new ViewModel([
+							'user' => array($user),
+						]);
+				
+						$view->setTemplate('application/profil/profil.phtml');
+					
+						return $view;
+					}				
+					
+					else {
+					
+						$user = new User();
+					
+						$user->laden($u_id);
+					
+						$view = new ViewModel([
+							'user' => array($user)
+						]);
+					
+						$view->setTemplate('application/profil/profil.phtml');
+						
+						return $view;
+					}
+				}
 			}
 
 				return new ViewModel([
