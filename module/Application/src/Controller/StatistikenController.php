@@ -40,11 +40,12 @@ class statistikenController extends AbstractActionController
 //  			}
 
 
-		return new ViewModel([
-				'user' => array($user),
-				'gruppe' => array($gruppe)
-		]);
-	}
+  			return new ViewModel([
+  					'zahlungenliste' => $zahlungenliste,
+  					'u_id' => $user_id,
+  			]);
+  			
 
 
+}
 }
