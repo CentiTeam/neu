@@ -62,11 +62,11 @@ return [
         		
         	'zahlung' => [
         			'type'    => Segment::class,
-        				'options' => [
+        			'options' => [
         					'route'    => '/zahlung[/:action]',
         					'defaults' => [
         							'controller' => Controller\ZahlungController::class,
-        							'action'     => 'zahlungshow',
+        							'action'     => 'zahlung',
         					],
         			],
         	],
