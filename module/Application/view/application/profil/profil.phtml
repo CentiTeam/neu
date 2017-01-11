@@ -9,6 +9,7 @@
 		<tr><td></td><td></td><td>	<form enctype="multipart/form-data" action="profil" method="POST">
 									<input type="file" name="uploadedfile" />
         							<input type="hidden" name="u_id" readonly="readonly" value="<?=!is_null ($user[0]->getU_id()) ? $user[0]->getU_id():"<automatisch>"?>">
-        							<input type="submit" name="profilbild" value="Bild ändern">
+        							<input type="submit" name="profilbild" value="Bild &aumlndern">
    									 </form>
 	</table>
+ 
