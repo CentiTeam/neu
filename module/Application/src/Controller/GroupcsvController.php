@@ -29,7 +29,7 @@ class GroupcsvController extends AbstractActionController
 		
 
 
-		Csvdownload::makeCsv();
+		Csvdownload::sepp();
 		 
 		
 		return new ViewModel([
