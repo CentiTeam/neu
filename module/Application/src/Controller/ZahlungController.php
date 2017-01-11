@@ -9,6 +9,10 @@ namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use Application\Model\Zahlung;
+use Application\Model\User;
+use Application\Model\Zahlungsteilnehmer;
+use Application\Model\Gruppe;
 
 class ZahlungController extends AbstractActionController
 {
