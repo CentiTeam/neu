@@ -8,29 +8,35 @@ class Csvdownload{
 	
 	
 	static function makeCsv(){
-		// create a file pointer connected to the output stream
-		$output = fopen('/tmp/test.csv', 'w');
+		//NAME THE FILE
+		$table = "test";
 		
-		// output the column headings
-		fputcsv($output, array('Betrag'));
-		//, 'Column 2', 'Column 3'));
+		//BUILD CSV CONTENT
+		$csv = '"z_id","Zahlungsbeschreibung", "Erstellungsdatum, Zahlungsdatum, Betrag, k_id, Aenderungsdatum, g_id' . "\n";
 		
-		//Schliessen der CSV-Datei
-		fclose($output);
+		//BUILD CSV ROWS
+		$csv .= '"Column 1 Content","Column 2 Content"' . "\n";
+		$csv .= '"Column 1 Content","Column 2 Content"' . "\n";
+		$csv .= '"Column 1 Content","Column 2 Content"' . "\n";
+		$csv .= '"Column 1 Content","Column 2 Content"' . "\n";
+		$csv .= '"Column 1 Content","Column 2 Content"' . "\n";
 		
+		//OUPUT HEADERS
+		header("Pragma: public");
+		header("Expires: 0");
+		header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+		header("Cache-Control: private",false);
+		header("Content-Type: application/octet-stream");
+		header("Content-Disposition: attachment; filename=\"$table.csv\";" );
+		header("Content-Transfer-Encoding: binary");
 		
-		
-		
-		
-		
-		
-		
-		//Starten des Downloads
-		Csvdownload::makeDownload("test.csv", $output);
+		//OUTPUT CSV CONTENT
+		echo($csv);
+		exit();
 	}
 	
 	
-	
+	//Behalten als Vorlage, weil es funktioniert!!!!!
 	static function sepp(){
 		//NAME THE FILE
 		$table = "test";
