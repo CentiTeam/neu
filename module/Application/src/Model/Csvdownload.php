@@ -17,8 +17,8 @@ class Csvdownload{
 		//BUILD CSV ROWS
 		
 		foreach ($zahlungsliste as $zahlung){
-			$csv .= $zahlung->getZ_id();
-			$csv .= ",";
+			$csv .= $zahlung->getZ_id().',';
+			$csv .= ',';
 			
 			
 			
