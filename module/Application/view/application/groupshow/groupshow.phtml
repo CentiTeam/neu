@@ -20,10 +20,19 @@ use Application\Model\Kategorie;
 
 <form  method="post">
     <label>Nachricht:</label><br />
-    <textarea name="message" cols="70" rows="6"></textarea><br />
+    <div class="message_buttons">
+        <input type="button" value="Bold" onclick="javascript:insert('[b]', '[/b]', 'message');" /><!--
+        --><input type="button" value="Italic" onclick="javascript:insert('[i]', '[/i]', 'message');" /><!--
+        --><input type="button" value="Underlined" onclick="javascript:insert('[u]', '[/u]', 'message');" /><!--
+        --><input type="button" value="Image" onclick="javascript:insert('[img]', '[/img]', 'message');" /><!--
+        --><input type="button" value="Link" onclick="javascript:insert('[url]', '[/url]', 'message');" /><!--
+        --><input type="button" value="Left" onclick="javascript:insert('[left]', '[/left]', 'message');" /><!--
+        --><input type="button" value="Center" onclick="javascript:insert('[center]', '[/center]', 'message');" /><!--
+        --><input type="button" value="Right" onclick="javascript:insert('[right]', '[/right]', 'message');" />
+    </div>
+    <textarea name="message"cols="70" rows="6"></textarea><br />
     <input type="submit" value="Abschicken" />
 </form>
-
 
 
 
