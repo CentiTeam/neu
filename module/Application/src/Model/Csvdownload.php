@@ -36,7 +36,7 @@ class Csvdownload{
 	}
 	
 	
-	static function download(''){
+	static function download(){
 		
 		$downloadfile = "bilder/download.jpg";
 		$filename = "download.jpg";
