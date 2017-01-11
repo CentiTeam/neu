@@ -29,7 +29,7 @@ class GroupcsvController extends AbstractActionController
 		
 
 
-		Csvdownload::makeDownload("", "test.csv");
+		Csvdownload::makeDownload("test.csv", "");
 		 
 		
 		return new ViewModel([
