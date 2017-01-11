@@ -41,10 +41,10 @@ class ProfilController extends AbstractActionController {
 			
 			$user->laden($u_id);
 			
-			if ($user->getIsloaded() = false)
-			{
-				echo "Daten konnten nicht geladen werden";
-			}
+			//if ($user->getIsloaded() = false)
+			//{
+			//	echo "Daten konnten nicht geladen werden";
+			//}
 
 			
 			$bildupload = new Bildupload();
