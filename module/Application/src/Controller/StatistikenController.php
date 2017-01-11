@@ -11,6 +11,8 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Model\User;
 use Application\Model\Gruppe;
+use Application\Model\Zahlung;
+
 
 class statistikenController extends AbstractActionController
 {
@@ -19,23 +21,23 @@ class statistikenController extends AbstractActionController
 		session_start();
 
 			
-// 			$user_id=$_SESSION['user']->getU_id();
- // 			$zahlungenliste = Zahlung::eigenezahlungenholen($user_id);
+ 			$user_id=$_SESSION['user']->getU_id();
+  			$zahlungenliste = Zahlung::eigenezahlungenholen($user_id);
 			
 			
-// 			foreach ($zahlungenliste as $liste) {
+ 			foreach ($zahlungenliste as $liste) {
 			
-// 				// Gruppenmitglied instanzieren
-// 				$gruppenmitglied= new Gruppenmitglied();
-// 				$gruppenmitglied->laden ($liste->getG_id(), $user_id);
+ 				// Gruppenmitglied instanzieren
+ 				$gruppenmitglied= new Gruppenmitglied();
+ 				$gruppenmitglied->laden ($liste->getG_id(), $user_id);
 			
-// 				// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter bef�llt
-// 				if ($gruppenmitglied->getGruppenadmin() == true) {
+ 				// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter bef�llt
+ 				if ($gruppenmitglied->getGruppenadmin() == true) {
 			
-// 					$gruppenadminListe[]=$gruppenmitglied;
+ 					$gruppenadminListe[]=$gruppenmitglied;
 			
-// 				}
-// 			}
+ 				}
+ 			}
 
 
 		return new ViewModel([
