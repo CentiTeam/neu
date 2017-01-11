@@ -37,7 +37,14 @@ class ProfilController extends AbstractActionController {
 			
 			$u_id=$_SESSION['user']->getU_id();
 			
-			$user=User::laden($u_id);
+			$user= new User();
+			
+			$user->laden($u_id);
+			
+			if ($user->getIsloaded() = false)
+			{
+				echo "Daten konnten nicht geladen werden";
+			}
 
 			
 			$bildupload = new Bildupload();
