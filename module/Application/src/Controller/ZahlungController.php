@@ -14,7 +14,15 @@ class ZahlungController extends AbstractActionController
 {
 	public function zahlungAction()
 	{
+		$zahlung= new Zahlung();
+		$z_id=$_REQUEST['z_id'];
+		$zahlung->laden($z_id);
 
-		return new ViewModel();
+		return new ViewModel([
+ 				'zahlung' => array($zahlung)
+// 				'mitgliederListe' => $mitgliederliste,
+// 				'mitgliedschaft' => $mitgliedschaft,
+		
+		]);
 	}
 }
