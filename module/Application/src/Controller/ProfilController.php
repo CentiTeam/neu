@@ -90,7 +90,7 @@ class ProfilController extends AbstractActionController {
 						
 						return $view;
 					}
-				}
+				
 			}
 
 				return new ViewModel([
