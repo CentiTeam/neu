@@ -1,1 +1,15 @@
-<div>In Zahlung anzeigen angekommen!</div>
+<?=$msg?>
+
+<?php 
+use Application\Model\Zahlung;
+use Application\Model\Zahlungsteilnehmer;
+?>
+
+<h1>Zahlungsübersicht</h1>
+
+<div class=>
+<table>
+<tr><td>Beschreibung: <?=$zahlung[0]->getZahlungsbeschreibung()?></td>
+<tr><td>Beschreibung: <?=$zahlung[0]->getBetrag()?></td></tr>
+</table>
+</div>
