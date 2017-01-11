@@ -372,6 +372,20 @@ class User
 	
 	}
 
+	public static function bild($path, $u_id) {
+	
+		// Datenbankstatement erzeugen
+		$db = new DB_connection();
+	
+		$query = "UPDATE User SET
+				teilnehmerbildpfad = '".$path."'
+				WHERE u_id = '".$u_id."'
+				";
+	
+		$result = $db->execute($query);
+	
+		return $result;
+	}
 	
 	
 

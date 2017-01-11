@@ -50,7 +50,7 @@ class ProfilController extends AbstractActionController {
 			$saved= false;
 			$msg = array();
 
-			if ($_REQUEST['upload']) {
+			if ($_REQUEST['profilbild']) {
 
 					
 				// Schritt 1:  Werte aus Formular einlesen
@@ -59,33 +59,33 @@ class ProfilController extends AbstractActionController {
 				//Bilddatei an die Funktion Bildupload übergeben, Rückgabe des Bildpfades
 				$path = $bildupload->bildupload($uploadedfile);
 				
-				$g_id=$_REQUEST["g_id"]; 
+				$u_id=$_REQUEST["u_id"]; 
 				
 				if ($path!=false) {
 
-					$result = Gruppe::bild($path, $g_id);
+					$result = User::bild($path, $u_id);
 				
-					$gruppenliste = Gruppe::listeholen();
-				
-					$view = new ViewModel([
-							'gruppenListe'=>$gruppenliste
+					$user->laden($u_id);
+						
+					return new ViewModel([
+							'user' => array($user),
 					]);
 				
-					$view->setTemplate('application/groupoverview/groupoverview.phtml');
+					$view->setTemplate('application/profil/profil.phtml');
 					
 					return $view;
 				}				
 				else {
 					
-					$gruppe = new Gruppe();
+					$user = new User();
 					
-					$gruppe->laden($g_id);
+					$user->laden($u_id);
 					
 					$view = new ViewModel([
-							'gruppe' => array($gruppe)
+							'user' => array($user)
 					]);
 					
-					$view->setTemplate('application/groupedit/groupedit.phtml');
+					$view->setTemplate('application/profil/profil.phtml');
 						
 					return $view;
 				}
