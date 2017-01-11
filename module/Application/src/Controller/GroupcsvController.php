@@ -25,7 +25,7 @@ class GroupcsvController extends AbstractActionController
 		
 		
 		// Liste der Zahlungs-Objekte der Gruppen holen
-		$zahlungsliste = Zahlung::gruppenzahlungenlisteholen();
+		$zahlungsliste = Zahlung::gruppenzahlungenlisteholen($g_id);
 		
 
 
