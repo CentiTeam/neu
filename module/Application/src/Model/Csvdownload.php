@@ -18,7 +18,14 @@ class Csvdownload{
 		
 		foreach ($zahlungsliste as $zahlung){
 			$csv .= $zahlung->getZ_id().',';
-			$csv .= ',';
+			$csv .= $zahlung->getZahlungsbeschreibung().',';
+			$csv .= $zahlung->getErstellungsdatum().',';
+			$csv .= $zahlung->getZahlungsdatum().',';
+			$csv .= $zahlung->getBetrag().',';
+			$csv .= $zahlung->getK_id().',';
+			$csv .= $zahlung->getAenderungsdatum().',';
+			$csv .= $zahlung->getG_id();
+
 			
 			
 			
