@@ -21,7 +21,7 @@ class Csvdownload{
 		
 		
 		
-		header("Content-Type: text/csv");
+		header("Content-Type: csv");
 		header("Content-Disposition: attachment; filename='\test.csv\'");
 		
 		readfile($output);
