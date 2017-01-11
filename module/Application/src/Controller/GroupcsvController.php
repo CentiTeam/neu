@@ -32,11 +32,7 @@ class GroupcsvController extends AbstractActionController
 		Csvdownload::makeCsv($zahlungsliste);
 		 
 		
-		return new ViewModel([
-				'zahlungsliste' => $zahlungsliste,
 
-
-		]);
 		
 	
 	}
