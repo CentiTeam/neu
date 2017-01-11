@@ -12,7 +12,7 @@ class Csvdownload{
 		$table = "test";
 		
 		//BUILD CSV CONTENT
-		$csv = '"z_id","Zahlungsbeschreibung", "Erstellungsdatum, Zahlungsdatum, Betrag, k_id, Aenderungsdatum, g_id' . "\n";
+		$csv = '"z_id","Zahlungsbeschreibung", "Erstellungsdatum, Zahlungsdatum, Betrag, k_id, Aenderungsdatum, g_id' . "\n"; 
 		
 		//BUILD CSV ROWS
 		$csv .= '"Column 1 Content","Column 2 Content"' . "\n";
