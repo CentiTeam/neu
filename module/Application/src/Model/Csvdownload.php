@@ -8,14 +8,13 @@ class Csvdownload{
 	
 	
 	static function makeCsv($zahlungsliste){
-		//NAME THE FILE
-		$table = "test";
+		//Benennen des CSVs
+		$table = "Zahlungen";
 		
-		//BUILD CSV CONTENT
+		//Aufbau der ersten CSV-Zeile
 		$csv = '"z_id","zahlungsbeschreibung","erstellungsdatum","zahlungsdatum","betrag","k_id","aenderungsdatum","g_id"' . "\n"; 
 		
-		//BUILD CSV ROWS
-		
+		//Aufbau der CSV-Zeilen		
 		foreach ($zahlungsliste as $zahlung){
 			$csv .= $zahlung->getZ_id().',';
 			$csv .= $zahlung->getZahlungsbeschreibung().',';
@@ -25,16 +24,12 @@ class Csvdownload{
 			$csv .= $zahlung->getK_id().',';
 			$csv .= $zahlung->getAenderungsdatum().',';
 			$csv .= $zahlung->getG_id();
-
-			
-			
-			
 			$csv .= "\n";
 		}
 		
 
 		
-		//OUPUT HEADERS
+		//OUPUT HEADERS (nötig für Download)
 		header("Pragma: public");
 		header("Expires: 0");
 		header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
@@ -43,8 +38,8 @@ class Csvdownload{
 		header("Content-Disposition: attachment; filename=\"$table.csv\";" );
 		header("Content-Transfer-Encoding: binary");
 		
-		//OUTPUT CSV CONTENT
-		//echo($csv);
+		//Schreiben des Inhalts in die CSV
+		echo($csv);
 		exit();
 	}
 	
