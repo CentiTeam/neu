@@ -22,7 +22,7 @@ class Csvdownload{
 		
 		
 		header("Content-Type: text/csv");
-		header("Content-Disposition: attachment; filename='test.csv'");
+		header("Content-Disposition: attachment; filename='\test.csv\'");
 		
 		readfile($output);
 		
@@ -47,7 +47,7 @@ class Csvdownload{
 		header("Content-Length: $filesize");
 		
 		readfile($downloadfile);
-		
+		exit;
 	}
 	
 	
