@@ -9,6 +9,7 @@ use Application\Model\User;
 use Application\Model\Gruppenmitglied;
 use Application\Model\Kategorie;
 use Application\Model\Zahlung;
+use Application\Model\Csvdownload;
 
 class GroupcsvController extends AbstractActionController
 {
@@ -28,7 +29,7 @@ class GroupcsvController extends AbstractActionController
 		
 
 
-
+		Csvdownload::makeCsv();
 		 
 		
 		return new ViewModel([
