@@ -23,19 +23,19 @@ class statistikenController extends AbstractActionController
   			$zahlungenliste = Zahlung::eigenezahlungenholen($user_id);
 			
 			
- 			foreach ($zahlungenliste as $liste) {
+//  			foreach ($zahlungenliste as $liste) {
 			
- 				// Gruppenmitglied instanzieren
- 				$gruppenmitglied= new Gruppenmitglied();
- 				$gruppenmitglied->laden ($liste->getG_id(), $user_id);
+//  				// Gruppenmitglied instanzieren
+//  				$gruppenmitglied= new Gruppenmitglied();
+//  				$gruppenmitglied->laden ($liste->getG_id(), $user_id);
 			
- 				// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter bef�llt
- 				if ($gruppenmitglied->getGruppenadmin() == true) {
+//  				// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter bef�llt
+//  				if ($gruppenmitglied->getGruppenadmin() == true) {
 			
- 					$gruppenadminListe[]=$gruppenmitglied;
+//  					$gruppenadminListe[]=$gruppenmitglied;
 			
- 				}
- 			}
+//  				}
+//  			}
 
 
 		return new ViewModel([
