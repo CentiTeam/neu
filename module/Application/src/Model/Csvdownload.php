@@ -9,7 +9,7 @@ class Csvdownload{
 	
 	static function makeCsv(){
 		// create a file pointer connected to the output stream
-		$output = fopen('/tmp/report.csv', 'w');
+		$output = fopen('/tmp/test.csv', 'w');
 		
 		// output the column headings
 		fputcsv($output, array('Betrag'));
