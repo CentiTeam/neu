@@ -50,12 +50,6 @@ class ProfilController extends AbstractActionController {
 
 			if ($_REQUEST['profilbild']) {
 				
-				if ($_FILES ["uploadedfile"]["name"] == NULL) 
-				{
-					$path=$user->getTeilnehmerbildpfad();
-				}
-				else
-				{
 					$bildupload = new Bildupload();
 				
 					// Schritt 1:  Werte aus Formular einlesen
@@ -63,6 +57,7 @@ class ProfilController extends AbstractActionController {
 				
 					//Bilddatei an die Funktion Bildupload übergeben, Rückgabe des Bildpfades
 					$path = $bildupload->bildupload($uploadedfile);
+					echo $path;
 				
 					$u_id=$_REQUEST["u_id"]; 
 				
