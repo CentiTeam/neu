@@ -47,7 +47,7 @@ class Csvdownload{
 		header("Content-Length: $filesize");
 		
 		readfile($downloadfile);
-		exit;
+		
 	}
 	
 	
