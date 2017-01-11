@@ -4,7 +4,7 @@ namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use Application\Model\Gruppe;
+use Application\Model\User;
 use Application\Model\Bildupload;
 
 /**
@@ -15,9 +15,9 @@ use Application\Model\Bildupload;
  */
 
 
-class FileController extends AbstractActionController {
+class ProfilController extends AbstractActionController {
 
-	function fileAction() {
+	function profilAction() {
 		// TODO Berechtigungspr�fung
 		session_start();
 	

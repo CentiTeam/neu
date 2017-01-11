@@ -375,13 +375,13 @@ return [
         		
         		
         		
-        	'file' => [
+        	'profil' => [
         			'type'    => Segment::class,
        				'options' => [
-       						'route'    => '/file[/:action]',
+       						'route'    => '/profil[/:action]',
        						'defaults' => [
-       								'controller' => Controller\FileController::class,
-       								'action'     => 'file',
+       								'controller' => Controller\ProfilController::class,
+       								'action'     => 'profil',
        						],
        				],
         		],
