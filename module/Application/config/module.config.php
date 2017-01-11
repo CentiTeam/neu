@@ -406,7 +406,7 @@ return [
         	Controller\GruppenmitgliedhinzufuegenController::class => InvokableFactory::class,
         	Controller\EinladungannehmenController::class => InvokableFactory::class,
         	Controller\LoginController::class => InvokableFactory::class,
-        	Controller\FileController::class => InvokableFactory::class,
+        	Controller\ProfilController::class => InvokableFactory::class,
            	Controller\HelpController::class => InvokableFactory::class,
         	Controller\RegistrierenController::class => InvokableFactory::class,
         	Controller\AdminoverviewController::class => InvokableFactory::class,
