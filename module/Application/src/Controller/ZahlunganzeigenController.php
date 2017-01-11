@@ -14,9 +14,9 @@ use Application\Model\User;
 use Application\Model\Zahlungsteilnehmer;
 use Application\Model\Gruppe;
 
-class ZahlungController extends AbstractActionController
+class ZahlunganzeigenController extends AbstractActionController
 {
-	public function zahlungAction()
+	public function zahlunganzeigenAction()
 	{
 		$zahlung= new Zahlung();
 		$z_id=$_REQUEST['z_id'];

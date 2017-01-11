@@ -60,13 +60,13 @@ return [
         			],
         	],
         		
-        	'zahlung' => [
+        	'zahlunganzeigen' => [
         			'type'    => Segment::class,
         			'options' => [
-        					'route'    => '/zahlung[/:action]',
+        					'route'    => '/zahlunganzeigen[/:action]',
         					'defaults' => [
-        							'controller' => Controller\ZahlungController::class,
-        							'action'     => 'zahlung',
+        							'controller' => Controller\ZahlunganzeigenController::class,
+        							'action'     => 'zahlunganzeigen',
         					],
         			],
         	],
@@ -435,7 +435,7 @@ return [
         	Controller\ConfirmController::class => InvokableFactory::class,
         	Controller\StatistikenController::class => InvokableFactory::class,
         	Controller\GroupcsvController::class => InvokableFactory::class,
-        	Controller\ZahlungController::class => InvokableFactory::class,
+        	Controller\ZahlunganzeigenController::class => InvokableFactory::class,
         		
         		
         		
