@@ -7,14 +7,6 @@ use Zend\View\Model\ViewModel;
 use Application\Model\User;
 use Application\Model\Bildupload;
 
-/**
- * FILE-Controller wird nur noch als Vorlage verwendet!!!! 
- * Die Funktionalität wurde in GroupeditController und GruppeanlegenController übernommen
- * @author Tanja
- *
- */
-
-
 class ProfilController extends AbstractActionController {
 
 	function profilAction() {
@@ -49,6 +41,8 @@ class ProfilController extends AbstractActionController {
 				$msg = array();				
 
 			if ($_REQUEST['profilbild']) {
+				
+					echo "Hallo";
 				
 					$bildupload = new Bildupload();
 				
