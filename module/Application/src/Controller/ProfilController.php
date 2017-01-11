@@ -15,17 +15,7 @@ class ProfilController extends AbstractActionController {
 	
 		$errors = array();
 
-		if($_SESSION['angemeldet'] != 'ja' || $_SESSION['systemadmin'] != 'ja') {
-				
-			array_push($errors, "Sie müssen angemeldet sein um Ihr Profil zu sehen!");
-				
-			$view = new ViewModel(array(
-					$errors
-			));
-			$view->setTemplate('application/index/index.phtml');
-			return $view;
-				
-		} else {
+		if($_SESSION['angemeldet'] == 'ja' || $_SESSION['systemadmin'] == 'ja') {
 			
 			$u_id=$_SESSION['user']->getU_id();
 			$user = new User();
@@ -87,8 +77,18 @@ class ProfilController extends AbstractActionController {
 			}
 
 				return new ViewModel([
-				]);
+				]);	
+
 				
+		} else {
+			
+			array_push($errors, "Sie müssen angemeldet sein um Ihr Profil zu sehen!");
+				
+			$view = new ViewModel(array(
+					$errors
+			));
+			$view->setTemplate('application/index/index.phtml');
+			return $view;		
 				 
 		}
 	}
