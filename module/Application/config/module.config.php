@@ -60,6 +60,17 @@ return [
         			],
         	],
         		
+        	'zahlung' => [
+        			'type'    => Segment::class,
+        				'options' => [
+        					'route'    => '/zahlung[/:action]',
+        					'defaults' => [
+        							'controller' => Controller\ZahlungController::class,
+        							'action'     => 'zahlungshow',
+        					],
+        			],
+        	],
+        		
         		
         	'adminoverview' => [
         			'type'    => Segment::class,
@@ -424,6 +435,8 @@ return [
         	Controller\ConfirmController::class => InvokableFactory::class,
         	Controller\StatistikenController::class => InvokableFactory::class,
         	Controller\GroupcsvController::class => InvokableFactory::class,
+        	Controller\ZahlungController::class => InvokableFactory::class,
+        		
         		
         		
         		
