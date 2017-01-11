@@ -15,7 +15,7 @@ class ProfilController extends AbstractActionController {
 	
 		$errors = array();
 
-		if($_SESSION['angemeldet'] != 'ja') {
+		if($_SESSION['angemeldet'] != 'ja' OR $_SESSION['systemadmin'] != 'ja') {
 				
 			array_push($errors, "Sie müssen angemeldet sein um Ihr Profil zu sehen!");
 				
