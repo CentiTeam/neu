@@ -25,7 +25,7 @@ class ProfilController extends AbstractActionController {
 
 		if($_SESSION['angemeldet'] != 'ja') {
 				
-			array_push($errors, "Sie mÃ¼ssen angemeldet sein um eine Gruppe zu bearbeiten!");
+			array_push($errors, "Sie mÃ¼ssen angemeldet sein um Ihr Profil zu sehen!");
 				
 			$view = new ViewModel(array(
 					$errors
@@ -57,7 +57,6 @@ class ProfilController extends AbstractActionController {
 				
 					//Bilddatei an die Funktion Bildupload übergeben, Rückgabe des Bildpfades
 					$path = $bildupload->bildupload($uploadedfile);
-					echo $path;
 				
 					$u_id=$_REQUEST["u_id"]; 
 				
