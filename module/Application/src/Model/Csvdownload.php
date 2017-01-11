@@ -21,34 +21,14 @@ class Csvdownload{
 		
 		
 		
-		header("Content-Type: csv");
-		header("Content-Disposition: attachment; filename='\test.csv\'");
-		
-		readfile($output);
-		
-		
 		
 		
 		
 		
 		//Starten des Downloads
-		//Csvdownload::makeDownload("test.csv", $output);
+		Csvdownload::makeDownload("test.csv", $output);
 	}
 	
-	
-	static function download(){
-		
-		$downloadfile = "bilder/download.jpg";
-		$filename = "download.jpg";
-		$filesize = filesize($downloadfile);
-		
-		header("Content-Type: image/jpeg");
-		header("Content-Disposition: attachment; filename='$filename'");
-		header("Content-Length: $filesize");
-		
-		readfile($downloadfile);
-		exit;
-	}
 	
 	
 	
