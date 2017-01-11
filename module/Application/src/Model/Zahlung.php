@@ -120,7 +120,7 @@ class Zahlung {
 		$db = new DB_connection();
 	
 		$query="SELECT * FROM `zahlung`
-				LEFT JOIN zahlungsmitglied ON (zahlung.z_id=zahlungsmitglied.z_id)
+				LEFT JOIN zahlungsteilnehmer ON (zahlung.z_id=zahlungsteilnehmer.z_id)
 				WHERE u_id= '".$user_id."' ";
 	
 		// Wenn die Datenbankabfrage erfolgreich ausgeführt worden ist
@@ -155,7 +155,7 @@ class Zahlung {
 		$this->z_id= $z_id;
 	}
 
-	public function getZzahlungsbeschreibung () {
+	public function getZahlungsbeschreibung () {
 		return $this->zahlungsbeschreibung;
 	}
 	
