@@ -35,17 +35,16 @@ class ProfilController extends AbstractActionController {
 				
 		} else {
 			
-			$user_id=$_SESSION['user']->getU_id();
+			$u_id=$_SESSION['user']->getU_id();
 			
 			$user = new User();
 				
-			if (! $user->laden($user_id)) {
+			if (! $user->laden($u_id)) {
 				array_push($errors, "Fehler beim Laden des Profils!");
 			}
 
-			$bildupload = new Bildupload();
 			
-
+			$bildupload = new Bildupload();
 			
 			$saved= false;
 			$msg = array();
