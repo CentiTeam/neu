@@ -7,7 +7,7 @@ class Csvdownload{
 	
 	
 	
-	static function makeCsv(){
+	static function makeCsv($zahlungsliste){
 		//NAME THE FILE
 		$table = "test";
 		
@@ -15,6 +15,14 @@ class Csvdownload{
 		$csv = '"z_id","zahlungsbeschreibung","erstellungsdatum","zahlungsdatum","betrag","k_id","aenderungsdatum","g_id"' . "\n"; 
 		
 		//BUILD CSV ROWS
+		
+		foreach ($zahlungsliste as $zahlung){
+			foreach ($zahlung as $element){
+				$csv .= $element;
+			}
+			$csv .= "\n";
+		}
+		
 		$csv .= '"Column 1 Content","Column 2 Content"' . "\n";
 		$csv .= '"Column 1 Content","Column 2 Content"' . "\n";
 		$csv .= '"Column 1 Content","Column 2 Content"' . "\n";
