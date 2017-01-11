@@ -74,7 +74,7 @@ class ProfilController extends AbstractActionController {
 					
 						return $view;
 					}				
-					
+					 
 					else {
 					
 						$user = new User();
