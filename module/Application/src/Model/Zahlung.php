@@ -50,7 +50,7 @@ class Zahlung {
 		// DB-Befehl absetzen: alle Basisinformationen des Teams mit der �bergebenen $t_id abfragen
 	
 	
-		if ($g_id) {
+		if ($z_id) {
 			$result=$dbStmt->execute("SELECT * FROM zahlung WHERE z_id= '".$z_id."';");
 		}
 		else {
