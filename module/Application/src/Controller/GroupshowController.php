@@ -61,7 +61,7 @@ class GroupshowController extends AbstractActionController
 				
 			// Werte aus Formular einlesen
 				
-			$message = $_REQUEST ["text"];
+			$text = $_REQUEST ["text"];
 			
 			
 			
