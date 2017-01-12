@@ -62,7 +62,7 @@ class GroupshowController extends AbstractActionController
 			// Werte aus Formular einlesen
 				
 			$text = $_REQUEST ["text"];
-			
+			echo $text;
 			
 			
 			// Keine Errors vorhanden, Funktion kann ausgeführt werden
