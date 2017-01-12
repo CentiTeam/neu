@@ -45,7 +45,7 @@ class GroupshowController extends AbstractActionController
 		
 		
 		$nachrichtenliste = Nachricht::getMessage($g_id);
-		$nachrichtarray = array();
+	
 		
 		foreach ($nachrichtenliste as $message) {
 			$nachricht = new Nachricht ();
