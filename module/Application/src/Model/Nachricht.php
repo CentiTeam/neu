@@ -33,6 +33,7 @@ class Nachricht {
 				)";
 		
 		
+		
 		$result = $db->execute($query);
 		return $result;
 	}
