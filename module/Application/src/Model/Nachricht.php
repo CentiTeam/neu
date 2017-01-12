@@ -26,12 +26,11 @@ class Nachricht {
 		
 		$query = "INSERT INTO nachricht (datum, text, u_id, g_id) VALUES (
 				
-					01.01.2000,
+				$zeit,
 				'".$this->text."',
-			
-				1,
-				1,
-						";
+				'".$this->u_id."',
+				'".$this->g_id."',
+				";
 		
 		
 		$result = $db->execute($query);
