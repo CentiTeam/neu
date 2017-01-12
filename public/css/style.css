@@ -61,4 +61,9 @@ div.container a.navbar-brand > img {
 .big-circular-image img:hover {
 	width: 400px;
 	height:400px;
+	-webkit-border-radius: 200px;
+	-moz-border-radius: 200px;
+	-ms-border-radius: 200px;
+	-o-border-radius: 200px; 
+	border-radius: 200px;   
 }
