@@ -14,44 +14,9 @@ class GroupshowController extends AbstractActionController
 {
 	public function GroupshowAction()
 	{
-		$nachricht = new Nachricht();
 		
-		if ($_REQUEST['abschicken']) {
-		
-		
-			// Werte aus Formular einlesen
-		
-			$text = $_REQUEST ["text"];
-				
-				
-				
-			// Keine Errors vorhanden, Funktion kann ausgeführt werden
-		
-			if (!$error) {
-		
-				// Nachrichten-Objekt mit Daten aus Request-Array füllen
-				//$nachricht->setN_id ($n_id);
-				//$nachricht->setDatum($datum);
-				$nachricht->setText ($text);
-				//$nachricht->setU_id ($u_id);
-				//$nachricht->setG_id ($g_id);
-		
-		
-					
-		
-			}
-		
-		
-		}
-		
-		$nachricht->sendMessage();
-			
-		return new ViewModel([
-		
-		]);
-		}
 
-}
+		$nachricht = new Nachricht();
 		// Gruppen-Objekt laden
 		$gruppe= new Gruppe();
 		$g_id=$_REQUEST['g_id'];
@@ -89,7 +54,44 @@ class GroupshowController extends AbstractActionController
 		
 		
 		
+		
+		
+		if ($_REQUEST['abschicken']) {
+				
+				
+			// Werte aus Formular einlesen
+				
+			$message = $_REQUEST ["text"];
+			
+			
+			
+			// Keine Errors vorhanden, Funktion kann ausgeführt werden
+				
+			if (!$error) {
+		
+				// Nachrichten-Objekt mit Daten aus Request-Array füllen
+				$nachricht->setN_id ($n_id);
+				$nachricht->setDatum($datum);
+				$nachricht->setText ($text);
+				$nachricht->setU_id ($u_id);
+				$nachricht->setG_id ($g_id);
+				
 
+					
+		
+			}
+				
+				
+		}
+		
+		$nachricht->sendMessage();
+			
+		return new ViewModel([
+				
+		]);
+		}
+		
+	
 	
 	
 }
