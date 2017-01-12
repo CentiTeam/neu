@@ -43,8 +43,8 @@ div.container a.navbar-brand > img {
 }
 
 .big-circular-image img {
-	width: 130px;
-	height: 130px;
+	width: 150px;
+	height: 150px;
 	-webkit-border-radius: 150px;
 	-moz-border-radius: 150px;
 	-ms-border-radius: 150px;
