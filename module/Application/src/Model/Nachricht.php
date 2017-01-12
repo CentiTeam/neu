@@ -31,7 +31,6 @@ class Nachricht {
 				'".$this->message."',
 				'".$this->u_id."',
 				'".$this->g_id."',
-						
 						";
 		
 		

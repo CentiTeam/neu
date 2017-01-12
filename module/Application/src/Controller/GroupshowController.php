@@ -48,8 +48,11 @@ class GroupshowController extends AbstractActionController
 			'gruppe' => array($gruppe),
 			'mitgliederListe' => $mitgliederliste,
 			'mitgliedschaft' => $mitgliedschaft,
+				
 
 		]);
+		
+		
 		
 		
 		
