@@ -10,9 +10,9 @@ use Application\Model\Gruppenmitglied;
 use Application\Model\Nachricht;
 
 
-class GroupshowController extends AbstractActionController
+class GruppenverlaufController extends AbstractActionController
 {
-	public function GroupshowAction()
+	public function GruppenverlaufAction()
 	{
 
 
