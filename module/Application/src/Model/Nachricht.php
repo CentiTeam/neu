@@ -19,14 +19,14 @@ class Nachricht {
 	}
 	
 	
-	public function sendMessage($text, $u_id, $g_id) {
+	public function sendMessage($datum, $text, $u_id, $g_id) {
 		
 		$db = new DB_connection;
-		$zeit = time ();
+		
 		
 		$query = "INSERT INTO nachricht (datum, text, u_id, g_id) VALUES (
 				
-				$zeit,
+				'".$this->datum."',
 				'".$this->text."',
 				'".$this->u_id."',
 				'".$this->g_id."',
