@@ -54,7 +54,9 @@ class loginController extends AbstractActionController{
 						echo "Falls das Passwort vergessen wurde, bitte unten auf den Link klicken!";
 						
 						
-						return new ViewModel();
+						return new ViewModel([
+							'email' => $email	
+						]);
 					}
 			}
 
