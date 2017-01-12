@@ -78,7 +78,6 @@ class GroupshowController extends AbstractActionController
 				$nachricht->setG_id ($g_id);
 				
 
-					
 		
 			}
 				
