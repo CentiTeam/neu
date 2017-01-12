@@ -37,6 +37,7 @@ class Nachricht {
 		return $result;
 	}
 	
+	
 	// Getter und Setter
 	
 	public function getN_id () {
