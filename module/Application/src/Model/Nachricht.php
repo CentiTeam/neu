@@ -44,7 +44,7 @@ class Nachricht {
 		$db = new DB_connection;
 		
 		$query = "SELECT datum, text, u_id FROM nachricht
-				WHERE g_id = $this->g_id;";
+				WHERE g_id = '".$this->g_id."';";
 		
 		$result = $db->execute($query);
 		return $result;
