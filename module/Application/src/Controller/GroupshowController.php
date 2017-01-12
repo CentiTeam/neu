@@ -16,7 +16,7 @@ class GroupshowController extends AbstractActionController
 	{
 		
 
-		$nachricht = new Nachricht();
+	
 		// Gruppen-Objekt laden
 		$gruppe= new Gruppe();
 		$g_id=$_REQUEST['g_id'];
@@ -57,22 +57,27 @@ class GroupshowController extends AbstractActionController
 		
 		
 		if ($_REQUEST['abschicken']) {
-				
+			
+				$nachricht = new Nachricht();
 				$error = false;
+				
 			// Werte aus Formular einlesen
 				
 			$text = $_REQUEST ["text"];
+
 			
 			// Keine Errors vorhanden, Funktion kann ausgeführt werden
 				
 			if (!$error) {
 		
 				// Nachrichten-Objekt mit Daten aus Request-Array füllen
-
+				
+				$nachricht->setDatum($datum);
 				$nachricht->setText ($text);
+				$nachricht->setU_id ($u_id);
+				$nachricht->setG_id ($g_id);
 				
 
-					
 		
 			}
 				
