@@ -31,7 +31,7 @@ class ConfirmController extends AbstractActionController
 		
 		
 
-		// Überprüfung, ob Email zwei mal richtig eingegeben wurde
+		// ï¿½berprï¿½fung, ob Email zwei mal richtig eingegeben wurde
 			
 			
 		if ($email!=$emailwdh) {
@@ -41,11 +41,11 @@ class ConfirmController extends AbstractActionController
 			return new ViewModel();
 		}
 		
-		// Keine Errors vorhanden, Funktion kann ausgeführt werden
+		// Keine Errors vorhanden, Funktion kann ausgefï¿½hrt werden
 			
 		if (!$error) {
 		
-			// User-Objekt mit Daten aus Request-Array füllen
+			// User-Objekt mit Daten aus Request-Array fï¿½llen
 				
 			$user->setEmail ($email);
 			$user->setEmailwdh ($emailwdh);
@@ -58,8 +58,11 @@ class ConfirmController extends AbstractActionController
 			
 		}
 		
+		$email=$user->getEmail();
+		
 		$view = new ViewModel([
-				'user' => array($user)
+				'user' => array($user),
+				'email' => $email
 		]);
 			
 		$view->setTemplate('application/login/login.phtml');
