@@ -1,7 +1,7 @@
 body {
     padding-top: 60px;
     padding-bottom: 40px;
-    background-colour: linen;
+    background-color: linen;
 }
 
 .zf-green {
@@ -28,7 +28,7 @@ body {
 }
 
 div.container a.navbar-brand > img {
-    background-colour: linen;
+    background-color: linen;
     display: inline;
     margin-right: 4px;
     margin-top: -2px;
