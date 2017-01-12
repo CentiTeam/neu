@@ -33,7 +33,7 @@ div.container a.navbar-brand > img {
 }
 
 .small-circular-image img {
-	width: 70px;
+	width: 60px;
 	height: 70px;
 	-webkit-border-radius: 150px;
 	-moz-border-radius: 150px;
@@ -43,7 +43,7 @@ div.container a.navbar-brand > img {
 }
 
 .big-circular-image img {
-	width: 120px;
+	width: 130px;
 	height: 120px;
 	-webkit-border-radius: 150px;
 	-moz-border-radius: 150px;
