@@ -89,7 +89,7 @@ class GroupshowController extends AbstractActionController
 		$nachricht->sendMessage();
 			
 		return new ViewModel([
-				
+				'nachricht' => array($nachricht),
 		]);
 		}
 		
