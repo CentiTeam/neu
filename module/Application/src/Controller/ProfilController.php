@@ -71,6 +71,7 @@ class ProfilController extends AbstractActionController {
 			}
 
 				return new ViewModel([
+						'user' => array($user),
 				]);	
 
 				
