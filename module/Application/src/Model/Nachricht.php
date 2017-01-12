@@ -28,7 +28,7 @@ class Nachricht {
 				
 				'01.01.2017',
 				'".$this->text."',
-				'".$this->u_id."',
+				'1',
 				'".$this->g_id."'
 				)";
 		

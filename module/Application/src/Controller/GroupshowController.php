@@ -57,7 +57,7 @@ class GroupshowController extends AbstractActionController
 				
 			$text = $_REQUEST ['text'];
 			//$datum = time ();
-			$u_id = $_REQUEST ['u_id'];
+			//$u_id = $_REQUEST ['u_id'];
 			$g_id = $_REQUEST ['g_id'];
 
 			
@@ -69,7 +69,7 @@ class GroupshowController extends AbstractActionController
 				
 				//$nachricht->setDatum($datum);
 				$nachricht->setText ($text);
-				$nachricht->setU_id ($u_id);
+				//$nachricht->setU_id ($u_id);
 				$nachricht->setG_id ($g_id);
 				
 
