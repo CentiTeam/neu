@@ -20,13 +20,7 @@ class ProfilController extends AbstractActionController {
 			$u_id=$_SESSION['user']->getU_id();
 			$user = new User();
 			$user->laden($u_id);
-			
-			return new ViewModel([
-					'user' => array($user),	
-			]);
-			
-
-			
+						
 				$saved= false;
 				$msg = array();				
 
