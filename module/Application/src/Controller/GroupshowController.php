@@ -43,11 +43,14 @@ class GroupshowController extends AbstractActionController
 			}
 		}
 		
+		if ($_REQUEST['gruppenadmin']) {
+			
+		}
 		
 		
+		// Nachricht abschicken
 		$nachricht = new Nachricht ();
 		$nachricht-> getMessage($g_id);
-		
 		
 		
 		if ($_REQUEST['abschicken']) {
@@ -65,11 +68,11 @@ class GroupshowController extends AbstractActionController
 			$g_id = $_REQUEST ['g_id'];
 
 			
-			// Keine Errors vorhanden, Funktion kann ausgeführt werden
+			// Keine Errors vorhanden, Funktion kann ausgefï¿½hrt werden
 				
 			if (!$error) {
 		
-				// Nachrichten-Objekt mit Daten aus Request-Array füllen
+				// Nachrichten-Objekt mit Daten aus Request-Array fï¿½llen
 				
 				$nachricht->setDatum($datum);
 				$nachricht->setText ($text);

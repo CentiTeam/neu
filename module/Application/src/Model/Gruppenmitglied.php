@@ -33,6 +33,16 @@ class Gruppenmitglied {
 	
 	public function bearbeiten ($admin) {
 		
+		$db = new DB_connection();
+		
+		$query = "UPDATE gruppenmitglied SET
+				gruppenadmin = '".$admin."',
+				WHERE g_id = '".$this->g_id."' AND u_id='".$this->u_id."'
+				";
+		
+		$result = $db->execute($query);
+		
+		return $result;
 	}
 		
 	public function laden ($g_id, $u_id) {
