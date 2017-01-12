@@ -44,6 +44,8 @@ class ZahlunganlegenController extends AbstractActionController {
 			$gruppe = new Gruppe();
 			$gruppe->laden($_GET['g_id']);
 			
+			var_dump($_GET['g_id']);
+			
 			$mitgliederliste = User::gruppenmitgliederlisteholen($gruppe->getG_id());
 			
 			// HEutigers Datum als erstellungsdatum
@@ -68,8 +70,10 @@ class ZahlunganlegenController extends AbstractActionController {
 					$i++;
 					$summe += $anteil;
 				}
+				echo "betrag:";
 				var_dump ($_REQUEST["betrag"]);
 				if($summe != $_REQUEST["betrag"]){
+					echo "summe";
 					var_dump ($summe);
 				
 					echo ("Die Anteile m�ssen zusammen der Gesamtsumme entsprechen.");
