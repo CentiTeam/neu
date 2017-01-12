@@ -256,7 +256,7 @@ return [
         			'options' => [
         					'route'    => '/gruppenverlauf[/:action]',
         					'defaults' => [
-        							'controller' => Controller\GroupshowController::class,
+        							'controller' => Controller\GruppenverlaufController::class,
         							'action'     => 'gruppenverlauf',
         					],
         			],
