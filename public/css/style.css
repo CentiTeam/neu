@@ -4,11 +4,11 @@ body {
 }
 
 .zf-green {
-    color: #68b604;
+    color: linen;
 }
 
 .btn-success {
-    background-color: #57a900;
+    background-color: linen;
     background-image: -moz-linear-gradient(top, #70d900, #57a900);
     background-image: -ms-linear-gradient(top, #70d900, #57a900);
     background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#70d900), to(#57a900));
@@ -23,7 +23,7 @@ body {
 .btn-success.active,
 .btn-success.disabled,
 .btn-success[disabled] {
-    background-color: #57a900;
+    background-color: linen;
 }
 
 div.container a.navbar-brand > img {
