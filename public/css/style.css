@@ -33,8 +33,8 @@ div.container a.navbar-brand > img {
 }
 
 .circular-image img {
-	width: 800px;
-	height: 800px;
+	width: 80px;
+	height: 80px;
 	-webkit-border-radius: 150px;
 	-moz-border-radius: 150px;
 	-ms-border-radius: 150px;
