@@ -19,7 +19,7 @@ class Nachricht {
 	}
 	
 	
-	public function sendMessage($n_id, $message, $u_id, $g_id) {
+	public function sendMessage($n_id, $text, $u_id, $g_id) {
 		
 		$db = new DB_connection;
 		$zeit = time ();
@@ -28,7 +28,7 @@ class Nachricht {
 				
 				'".$this->n_id."',
 					$zeit,
-				'".$this->message."',
+				'".$this->text."',
 				'".$this->u_id."',
 				'".$this->g_id."',
 						";
