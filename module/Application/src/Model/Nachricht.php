@@ -47,6 +47,7 @@ class Nachricht {
 				WHERE g_id = '".$this->g_id."';";
 		
 		$result = $db->execute($query);
+		echo $result;
 		return $result;
 		
 		
