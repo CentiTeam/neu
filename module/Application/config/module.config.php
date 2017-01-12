@@ -251,6 +251,17 @@ return [
        				],
        		],
         		
+        	'gruppenverlauf' => [
+        			'type'    => Segment::class,
+        			'options' => [
+        					'route'    => '/gruppenverlauf[/:action]',
+        					'defaults' => [
+        							'controller' => Controller\GruppenverlaufController::class,
+        							'action'     => 'gruppenverlauf',
+        					],
+        			],
+        	],
+        		
         	'groupedit' => [
         			'type'    => Segment::class,
        				'options' => [
@@ -436,6 +447,8 @@ return [
         	Controller\StatistikenController::class => InvokableFactory::class,
         	Controller\GroupcsvController::class => InvokableFactory::class,
         	Controller\ZahlunganzeigenController::class => InvokableFactory::class,
+        	Controller\GruppenverlaufController::class => InvokableFactory::class,
+        		
         		
         		
         		
