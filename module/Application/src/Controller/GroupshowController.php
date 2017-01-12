@@ -85,8 +85,7 @@ class GroupshowController extends AbstractActionController
 					'gruppe' => array($gruppe),
 					'mitgliederListe' => $mitgliederliste,
 					'mitgliedschaft' => $mitgliedschaft,
-					'nachricht' => $getMessage,
-					'nachricht' => $sendMessage,
+					'nachricht' => array ($nachricht),
 					
 			
 			
@@ -100,8 +99,7 @@ class GroupshowController extends AbstractActionController
 				'gruppe' => array($gruppe),
 				'mitgliederListe' => $mitgliederliste,
 				'mitgliedschaft' => $mitgliedschaft,
-				'nachricht' => $getMessage,
-				'nachricht' => $sendMessage,
+				'nachricht' => array ($nachricht),
 					
 					
 		]);
