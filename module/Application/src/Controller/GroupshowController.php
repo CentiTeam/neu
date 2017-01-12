@@ -56,7 +56,7 @@ class GroupshowController extends AbstractActionController
 			// Werte aus Formular einlesen
 				
 			$text = $_REQUEST ["text"];
-			$datum = time ();
+			//$datum = time ();
 			$u_id = $_REQUEST ["u_id"];
 			$g_id = $_REQUEST ['g_id'];
 
@@ -67,7 +67,7 @@ class GroupshowController extends AbstractActionController
 		
 				// Nachrichten-Objekt mit Daten aus Request-Array füllen
 				
-				$nachricht->setDatum($datum);
+				//$nachricht->setDatum($datum);
 				$nachricht->setText ($text);
 				$nachricht->setU_id ($u_id);
 				$nachricht->setG_id ($g_id);
