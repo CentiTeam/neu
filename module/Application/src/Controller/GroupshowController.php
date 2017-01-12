@@ -55,7 +55,6 @@ class GroupshowController extends AbstractActionController
 		
 		
 		
-		
 		if ($_REQUEST['abschicken']) {
 			
 				$nachricht = new Nachricht();
