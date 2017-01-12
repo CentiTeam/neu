@@ -58,7 +58,7 @@ class GroupshowController extends AbstractActionController
 		
 		if ($_REQUEST['abschicken']) {
 				
-				
+				$error = false;
 			// Werte aus Formular einlesen
 				
 			$text = $_REQUEST ["text"];
