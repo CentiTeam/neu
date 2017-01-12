@@ -55,9 +55,9 @@ class GroupshowController extends AbstractActionController
 				
 			// Werte aus Formular einlesen
 				
-			$text = $_REQUEST ["text"];
+			$text = $_REQUEST ['text'];
 			//$datum = time ();
-			$u_id = $_REQUEST ["u_id"];
+			$u_id = $_REQUEST ['u_id'];
 			$g_id = $_REQUEST ['g_id'];
 
 			
