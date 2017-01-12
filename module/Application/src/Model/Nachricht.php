@@ -26,7 +26,7 @@ class Nachricht {
 		
 		$query = "INSERT INTO nachricht (datum, text, u_id, g_id) VALUES (
 				
-				'01.01.2017',
+				'2017-01-12',
 				'".$this->text."',
 				'1',
 				'".$this->g_id."'
