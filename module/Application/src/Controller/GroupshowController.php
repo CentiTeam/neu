@@ -55,7 +55,6 @@ class GroupshowController extends AbstractActionController
 		
 		
 		
-		
 		if ($_REQUEST['abschicken']) {
 			
 				$nachricht = new Nachricht();
@@ -64,6 +63,9 @@ class GroupshowController extends AbstractActionController
 			// Werte aus Formular einlesen
 				
 			$text = $_REQUEST ["text"];
+			$datum = time ();
+			$u_id = $_REQUEST ["u_id"];
+			$g_id = $_REQUEST ['g_id'];
 
 			
 			// Keine Errors vorhanden, Funktion kann ausgeführt werden
