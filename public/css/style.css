@@ -31,3 +31,12 @@ div.container a.navbar-brand > img {
     margin-right: 4px;
     margin-top: -2px;
 }
+
+.circular-image img {
+	width: 300px;
+	height: 300px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	-ms-border-radius: 150px;
+	-o-border-radius: 150px; 
+	border-radius: 150px;                               }
