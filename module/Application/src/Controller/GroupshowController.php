@@ -52,6 +52,7 @@ class GroupshowController extends AbstractActionController
 		]);
 		
 		
+		
 		if ($_REQUEST['Abschicken']) {
 				
 				
