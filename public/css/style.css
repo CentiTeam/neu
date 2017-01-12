@@ -43,6 +43,11 @@ div.container a.navbar-brand > img {
 	border-radius: 150px;                               
 }
 
+.small-circular-image img:hover {
+	width: 200px;
+	height:200px;
+}
+
 .big-circular-image img {
 	width: 150px;
 	height: 150px;
