@@ -29,7 +29,7 @@ class Nachricht {
 				'".$this->datum."',
 				'".$this->text."',
 				'".$this->u_id."',
-				'".$this->g_id."',
+				'".$this->g_id."'
 				)";
 		
 		
