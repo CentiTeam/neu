@@ -39,6 +39,20 @@ class Nachricht {
 	}
 	
 	
+	public function getMessage($g_id) {
+		
+		$db = new DB_connection;
+		
+		$query = "SELECT datum, text, u_id FROM nachricht
+				WHERE g_id = $this->g_id;";
+		
+		$result = $db->execute($query);
+		return $result;
+		
+		
+	}
+	
+	
 	// Getter und Setter
 	
 	public function getN_id () {
