@@ -72,7 +72,7 @@ class ZahlunganlegenController extends AbstractActionController {
 				if($summe != $_REQUEST["betrag"]){
 					var_dump ($summe);
 				
-					echo ("Die Anteile müssen zusammen der Gesamtsumme entsprechen.");
+					echo ("Die Anteile mï¿½ssen zusammen der Gesamtsumme entsprechen.");
 				}else {
 					
 				// Schritt 1:  Werte aus Formular einlesen
@@ -127,7 +127,7 @@ class ZahlunganlegenController extends AbstractActionController {
  				 		
 				 
 				 $counter=0;
-				 // Legt die zugehörigen Zahlungsteilnehmer Datensätze an, außer für sich selbst (info wird aber für Anteil benötigt!)
+				 // Legt die zugehï¿½rigen Zahlungsteilnehmer Datensï¿½tze an, auï¿½er fï¿½r sich selbst (info wird aber fï¿½r Anteil benï¿½tigt!)
 				 foreach ($_POST['zahlungsteilnehmer'] as $key => $value) {
 				 	
 				 	// Variablen befuellen
@@ -156,6 +156,8 @@ class ZahlunganlegenController extends AbstractActionController {
 					$counter++;
 				 }
 				 
+				//$zahlungsteilnehmerListe=Zahlungsteilnehmer::listeHolen();
+				 
 				 
 				} if ($errorStr == "") {
 
@@ -176,6 +178,8 @@ class ZahlunganlegenController extends AbstractActionController {
 						'gruppe' => array($gruppe),
 						'errors'   => $errors,
 						'msg' => $msg,
+						'zahlung' => array($zahlung),
+						
 				]);
 					
 				$view->setTemplate('application/zahlunganzeigen/zahlunganzeigen.phtml');
