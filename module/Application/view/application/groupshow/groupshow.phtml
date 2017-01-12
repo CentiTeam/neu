@@ -4,7 +4,7 @@
 
 <div class=>
 <table>
-<tr><td>Gruppenname: <?=$gruppe[0]->getGruppenname()?></td><td rowspan=2 width="300" align="right"><div class="circular-image"><img src =<?=$gruppe[0]->getGruppenbildpfad()?> height = "100" width = "100" alt = "Kein Bild vorhanden"></div></td></tr>
+<tr><td>Gruppenname: <?=$gruppe[0]->getGruppenname()?></td><td rowspan=2 width="300" align="right"><div class="big-circular-image"><img src =<?=$gruppe[0]->getGruppenbildpfad()?> height = "100" width = "100" alt = "Kein Bild vorhanden"></div></td></tr>
 <tr><td>Beschreibung: <?=$gruppe[0]->getGruppenbeschreibung()?></td></tr>
 </table>
 </div>
@@ -69,7 +69,7 @@
 	?>
 
 		<tr>
-			<td><div class="circular-image"><img src =<?=$mitglied->getTeilnehmerbildpfad()?> height = "100" width = "100" alt = "Kein Bild vorhanden"></div></td>
+			<td><div class="small-circular-image"><img src =<?=$mitglied->getTeilnehmerbildpfad()?> height = "100" width = "100" alt = "Kein Bild vorhanden"></div></td>
 			<td><?=$mitglied->getVorname()?></td>
 			<td><?=$mitglied->getNachname()?></td>
 			<td><?=$mitglied->getUsername()?></td>

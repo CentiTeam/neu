@@ -32,11 +32,22 @@ div.container a.navbar-brand > img {
     margin-top: -2px;
 }
 
-.circular-image img {
-	width: 80px;
-	height: 80px;
+.small-circular-image img {
+	width: 70px;
+	height: 70px;
 	-webkit-border-radius: 150px;
 	-moz-border-radius: 150px;
 	-ms-border-radius: 150px;
 	-o-border-radius: 150px; 
-	border-radius: 150px;                               }
+	border-radius: 150px;                               
+}
+
+.big-circular-image img {
+	width: 120px;
+	height: 120px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	-ms-border-radius: 150px;
+	-o-border-radius: 150px; 
+	border-radius: 150px;                               
+}
