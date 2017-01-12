@@ -91,8 +91,10 @@ class ZahlunganlegenController extends AbstractActionController {
 				//$erstellungsdatum= date('Y-m-d', $timestamp);
 				
 				$aenderungsdatum= date('Y-m-d',$timestamp);
-				$gruppen_id=$gruppe->getG_id();
+				$gruppen_id=$_REQUEST["g_id"];
 				
+				echo "Nach Speichern";
+				var_dump($gruppen_id);
 				
 				// Schritt 2: Daten pr�fen und Fehler in Array füllen
 				$errorStr ="";
