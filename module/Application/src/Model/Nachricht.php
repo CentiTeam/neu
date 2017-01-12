@@ -33,6 +33,7 @@ class Nachricht {
 				'".$this->g_id."',
 						";
 		
+		echo $query;
 		
 		$result = $db->execute($query);
 		return $result;
