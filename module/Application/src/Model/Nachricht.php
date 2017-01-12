@@ -30,7 +30,7 @@ class Nachricht {
 				'".$this->text."',
 				'".$this->u_id."',
 				'".$this->g_id."',
-				";
+				)";
 		
 		
 		$result = $db->execute($query);
