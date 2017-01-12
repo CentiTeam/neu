@@ -24,10 +24,23 @@
 <br><br>
 
 <table>
+<tr>
+<th> Absender: </th>
+<th> Nachricht: </th>
+</tr>
 
-<tr><td> Absender: 1 </tr></td>
-<tr><td> Nachricht: <?=$nachricht[0]->getText()?></tr></td>
-
+	<?php 
+	foreach ($nachrichtenliste as $zaehler => $message) {
+	?>
+  
+  <tr> 
+  <td> 1 </td>
+  <td> <?=$nachricht[0]->getText()?> </td>
+  </tr>
+					
+					
+							
+						
 
 
 </table>
