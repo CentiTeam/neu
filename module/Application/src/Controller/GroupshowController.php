@@ -46,7 +46,7 @@ class GroupshowController extends AbstractActionController
 		
 		
 		$nachricht = new Nachricht ();
-		$nachricht-> getMessage($u_id);
+		$nachricht-> getMessage($g_id);
 		
 		
 		
