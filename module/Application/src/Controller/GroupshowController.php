@@ -7,7 +7,6 @@ use Zend\View\Model\ViewModel;
 use Application\Model\Gruppe;
 use Application\Model\User;
 use Application\Model\Gruppenmitglied;
-use Application\Model\Kategorie;
 use Application\Model\Nachricht;
 
 
@@ -17,7 +16,7 @@ class GroupshowController extends AbstractActionController
 	{
 		
 
-		
+		$nachricht = new Nachricht();
 		// Gruppen-Objekt laden
 		$gruppe= new Gruppe();
 		$g_id=$_REQUEST['g_id'];
@@ -52,7 +51,43 @@ class GroupshowController extends AbstractActionController
 
 		]);
 		
+		
+		if ($_REQUEST['Abschicken']) {
+				
+				
+			// Werte aus Formular einlesen
+				
+			$message = $_REQUEST ["message"];
+			
+			
+			
+			// Keine Errors vorhanden, Funktion kann ausgeführt werden
+				
+			if (!$error) {
+		
+				// Nachrichten-Objekt mit Daten aus Request-Array füllen
+				$nachricht->setN_id ($n_id);
+				$nachricht->setDatum($datum);
+				$nachricht->setText ($text);
+				$nachricht->setU_id ($u_id);
+				$nachricht->setG_id ($g_id);
+				
+
+					
+		
+			}
+				
+				
+		}
+		
+		$nachricht->sendMessage();
+			
+		return new ViewModel([
+				
+		]);
+		}
+		
 	
-	}
+	
 	
 }
