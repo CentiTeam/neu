@@ -6,10 +6,10 @@
 <form method='post'>
 
 <table>
-<input type="email" value="<?=isset($email) ? $email : ""?>"
+<input type="email" value="<?=isset($email) ? $email : ""?>" placeholder="E-Mail"
 onfocus="if(this.value=='')
 this.value='';" onblur="if(this.value=='')
-this.value='E-Mail';" > 
+this.value='' placeholder="E-Mail";" > 
 
 <tr><td>E-Mail:</td><td> <input type="email" name="email" value="<?=isset($email) ? $email : ""?>" placeholder="E-Mail" required></td></tr>
 <tr><td>Passwort:</td><td> <input type="password" name="pwd" placeholder="Passwort" required></td></tr>
