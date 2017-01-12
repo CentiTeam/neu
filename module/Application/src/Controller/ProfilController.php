@@ -26,8 +26,6 @@ class ProfilController extends AbstractActionController {
 
 			if ($_REQUEST['profilbild']) {
 				
-					echo "Hallo";
-				
 					$bildupload = new Bildupload();
 				
 					// Schritt 1:  Werte aus Formular einlesen
