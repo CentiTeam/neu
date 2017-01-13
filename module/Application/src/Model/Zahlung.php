@@ -97,7 +97,7 @@ class Zahlung {
 		$db = new DB_connection();
 	
 		$query="SELECT * FROM `zahlung`
-				WHERE g_id= '".$gruppen_id."'
+				WHERE gruppen_id= '".$gruppen_id."'
 				ORDER BY erstellungsdatum ASC
 				";
 	
