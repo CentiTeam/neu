@@ -86,6 +86,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						
 					// Schritt 1:  Werte aus Formular einlesen
 					$zahlungsbeschreibung=$_REQUEST["zahlungsbeschreibung"];
+					echo $zahlungsbeschreibung;
 					$zahlungsdatum=$_REQUEST["zahlungsdatum"];
 					$betrag=$_REQUEST["betrag"];
 					$kategorie_id=$_REQUEST["kategorie"];
