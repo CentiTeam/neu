@@ -60,6 +60,9 @@ class ZahlunganlegenController extends AbstractActionController {
 
 			$saved= false;
 			$msg = array();
+			
+			echo "hallo";
+			echo $zahlung[1];
 
 			if ($_REQUEST['speichern']) {
 
