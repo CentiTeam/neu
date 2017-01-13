@@ -128,7 +128,8 @@ class ZahlungbearbeitenController extends AbstractActionController {
 					$zahlung->setAenderungsdatum($aenderungsdatum);
 						
 
-								
+								echo "seppl";
+								echo $errorStr;
 							// Wenn tempor�res Objekt gef�llt wurde kann mit diesen Werten das Objekt �ber die Bearbeiten-Fkt in die DB geschrieben werden
 							if ($errorStr == "" && $zahlung->bearbeiten()) {
 
