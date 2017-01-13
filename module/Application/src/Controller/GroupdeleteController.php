@@ -85,8 +85,12 @@ class GroupdeleteController extends AbstractActionController
 		if ($_REQUEST['abbrechen']) {
 			
 			$user_id=$_SESSION['user']->getU_id();
-			$gruppenliste=Gruppe::eigenelisteholen($user_id); 
 			
+			// Lösung ist hier mit Objektorientierung
+			$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
+			
+			/** Kann raus, wenn Objektorientierung bleibt
+			$gruppenliste=Gruppe::eigenelisteholen($user_id); 
 			
 			$gruppenadminListe=array();
 				
@@ -105,6 +109,7 @@ class GroupdeleteController extends AbstractActionController
 						
 				}
 			}
+			*/
 			
 			$view = new ViewModel([
 					'gruppenListe' => $gruppenliste,
