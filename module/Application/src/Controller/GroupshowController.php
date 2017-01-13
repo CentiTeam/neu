@@ -36,7 +36,7 @@ class GroupshowController extends AbstractActionController
 			$gruppenmitglied->laden ($g_id, $mitglied->getU_id());
 			
 			// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter bef�llt
-			if ($gruppenmitglied->getGruppe()->getU_id() == $mitglied->getU_id()) {
+			if ($gruppenmitglied->getUser()->getU_id() == $mitglied->getU_id()) {
 				
 				$mitgliedschaft[]=$gruppenmitglied;
 				
