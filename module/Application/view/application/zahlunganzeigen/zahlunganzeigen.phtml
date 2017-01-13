@@ -7,5 +7,8 @@
 <table>
 <tr><td>Betrag: <?=$zahlung[0]->getBetrag()?></td>
 <tr><td>Zahlungsdatum: <?=$zahlung[0]->getZahlungsdatum()?></td></tr>
+<tr><td>Kategorie: <?=$zahlung[0]->getKategorie()->getKategoriebeschreibung()?></td></tr>
+<tr><td>Gruppe: <?=$zahlung[0]->getGruppe()->getGruppenname()?></td></tr>
+<tr><td>Zahlungsteilnehmer:</td></tr>
 </table>
 </div>
