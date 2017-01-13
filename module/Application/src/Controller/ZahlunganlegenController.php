@@ -126,7 +126,11 @@ class ZahlunganlegenController extends AbstractActionController {
 					$zahlung->setAenderungsdatum($aenderungsdatum);
 					if ($gruppen_id != null)
 						$zahlung->setGruppe($gruppe); 
-
+					
+					
+						echo "gruppe derr Zhalung";
+						echo $zahlung->getGruppe();
+						
 					
 					// Wenn tempor�res Objekt gef�llt wurde kann mit diesen Werten das Objekt �ber die anlegen-Fkt in die DB geschrieben werden
 					if ($errorStr == "" && $zahlung->anlegen()) {
