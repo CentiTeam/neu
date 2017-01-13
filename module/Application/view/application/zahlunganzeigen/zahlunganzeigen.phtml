@@ -16,13 +16,13 @@
 <br>
 <br>
 
-<a href="zahlungbearbeiten?z_id=<?=$zahlung[0]->getZ_id()?>"><img src="img/edit.jpg" /></a>
+<a href="zahlungbearbeiten?z_id=<?=$zahlung[0]->getZ_id()?>&g_id=<?=$zahlung[0]->getGruppe()->getG_id()?>"><img src="img/edit.jpg" /></a>
 
-
+<!--  
 <form action="zahlungbearbeiten" method="post">
 <table>
 <th>Bearbeiten dieser Zahlung</th></tr>
-<td><input type="hidden" name='g_id' value=<?=$_REQUEST['g_id']?></td> </tr>
-<td><input type="submit" value="Zahlung bearbeiten"></td> </tr>
+<td><input type="hidden" name='g_id' value=<?php //$_REQUEST['g_id'] ?></td> </tr>
 </table>
 </form>	
+-->
