@@ -27,7 +27,7 @@ class GroupdeleteController extends AbstractActionController
 		
 		
 		// Berechtigungsprüfung: Pr�fen, ob Gruppeadmin
-		if ($gruppenmitglied->getGruppenadmin()==false) {
+		if ($gruppenmitglied->getGruppenadmin()=="0") {
 			
 			$errStr="Nicht berechtigt!";
 			$gruppenliste=Gruppe::eigenelisteholen($user_id);
