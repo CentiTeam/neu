@@ -22,7 +22,7 @@
 		foreach ($mitgliederListe as $zaehler => $mitglied) { ?>	
 			<label>
 			<input type="checkbox" name="zahlungsteilnehmer[]" value='<?=$mitglied?>'>
-			<?=$mitglied->getUsername()?>
+
 			<br>Anteil: <input type="text" name="anteilsbetrag[]" placeholder="Euro.Cent">
 			</label><br></input>	 	 			
 		<?php 
