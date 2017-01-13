@@ -6,7 +6,7 @@
 <tr><td>Betrag: </td><td><input name="betrag" type="text" maxlength="50" size="20" required></td></tr>
 <tr><td>Zahlungsdatum: </td><td><input type="date" name="zahlungsdatum" value="<?=$erstellungsdatum?>" placeholder="YYYY-MM-DD" required></td></tr>
 <tr><td>Kategorie: </td><td>
-	<select name="k_id" size="5">
+	<select name="kategorie" size="5">
 	<?php
 	//Alle Kategorien in die Auswahlliste schreiben
 	foreach ($kategorieListe as $zaehler => $kategorie) { ?>
@@ -33,7 +33,7 @@
 
 
 										
-<input type="hidden" name="g_id" value='<?=$gruppe[0]->getG_id()?>'>																		
+<input type="hidden" name="gruppe" value='<?=$gruppe[0]->getG_id()?>'>																		
 <tr><td><input type="submit" name="speichern" value="Zahlung anlegen"></td> </tr>
 	</table>
 	</form>

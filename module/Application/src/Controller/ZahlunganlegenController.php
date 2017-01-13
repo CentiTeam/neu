@@ -40,7 +40,7 @@ class ZahlunganlegenController extends AbstractActionController {
 			//Liste alle verf�gbaren Kateforien holen
 			$kategorieliste = Kategorie::listeHolen();
 
-			// Liste der User-Objekte der Gruppenmitglieder holen
+			
 			$gruppe = new Gruppe();
 			$gruppe->laden($_GET['g_id']);
 			
@@ -83,7 +83,7 @@ class ZahlunganlegenController extends AbstractActionController {
 				$zahlungsbeschreibung=$_REQUEST["zahlungsbeschreibung"];
 				$zahlungsdatum=$_REQUEST["zahlungsdatum"];
 				$betrag=$_REQUEST["betrag"];
-				$k_id=$_REQUEST["k_id"];
+				$kategorie_id=$_REQUEST["k_id"];
 				
 				//date_default_timezone_set("Europe/Berlin");
 				//$timestamp=time();
@@ -91,6 +91,23 @@ class ZahlunganlegenController extends AbstractActionController {
 				
 				$aenderungsdatum= date('Y-m-d',$timestamp);
 				$gruppen_id=$_REQUEST["g_id"];
+				
+				
+				// verkn�pfte Models laden
+				if ($kategorie_id != null) {
+					$kategorie = new Kategorie();
+					if (! $kategorie->laden ($kategorie_id)) {
+						$errorStr .= "Keine g&uuml;ltige Kategorie angegeben!<br />";
+				}
+					
+				// verkn�pfte Models laden
+				if ($gruppen_id != null) {
+					$gruppe = new Gruppe();
+					if (! $gruppe->laden ($gruppen_id)) {
+						$errorStr .= "Keine g&uuml;ltige Gruppe angegeben!<br />";
+					}
+				
+				
 				
 				
 				// Schritt 2: Daten pr�fen und Fehler in Array füllen
@@ -105,9 +122,11 @@ class ZahlunganlegenController extends AbstractActionController {
 				$zahlung->setZahlungsbeschreibung($zahlungsbeschreibung);
 				$zahlung->setZahlungsdatum($zahlungsdatum);
 				$zahlung->setBetrag($betrag);
-				$zahlung->setK_id($k_id);
+				if ($kategorie_id != null)
+					$zahlung->setKategorie($kategorie);
 				$zahlung->setAenderungsdatum($aenderungsdatum);
-				$zahlung->setG_id($gruppen_id); 
+				if ($gruppen_id != null)
+					$zahlung->setGruppe($gruppe); 
 
 					
 				// Wenn tempor�res Objekt gef�llt wurde kann mit diesen Werten das Objekt �ber die anlegen-Fkt in die DB geschrieben werden
