@@ -19,7 +19,7 @@ class GroupoverviewController extends AbstractActionController
 		session_start();
 		
 		$user_id=$_SESSION['user']->getU_id();
-		$gruppenliste = Gruppe::eigenelisteholen($user_id);
+		//$gruppenliste = Gruppe::eigenelisteholen($user_id);
 		
 		/**
 		// Liste der User-Objekte der Gruppenmitglieder holen
@@ -44,7 +44,7 @@ class GroupoverviewController extends AbstractActionController
 		}
 		*/
 		
-		$gruppenListe=Gruppenmitglied::eigenelisteholen($user_id);
+		$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
 		
 		return new ViewModel([
 			'gruppenListe' => $gruppenliste,
