@@ -122,7 +122,7 @@ class Zahlungsteilnehmer {
 		$db = new DB_connection();
 		
 		$query = "DELETE FROM zahlungsteilnehmer
-					WHERE zahlung_id = '".$z_id."'
+					WHERE z_id = '".$z_id."'
 					;" ;
 		
 	}
