@@ -21,8 +21,8 @@ class Gruppenmitglied {
 		$db = new DB_connection();
 		
 		$query = "INSERT INTO gruppenmitglied (u_id, g_id, gruppenadmin) VALUES (
-				'".$this->u_id."',
-				'".$this->g_id."',
+				'".$this->getUser()->getU_id()."',
+				'".$this->getGruppe()->getG_id()."',
 				'".$this->gruppenadmin."'
 				)";
 		
@@ -37,7 +37,7 @@ class Gruppenmitglied {
 		
 		$query = "UPDATE gruppenmitglied SET
 				gruppenadmin = '".$admin."',
-				WHERE g_id = '".$this->g_id."' AND u_id='".$this->u_id."'
+				WHERE g_id = '".$this->getGruppe->getG_id()."' AND u_id='".$this->getUser->getU_id()."'
 				";
 		
 		$result = $db->execute($query);
@@ -58,8 +58,15 @@ class Gruppenmitglied {
 	
 		// Ergebnis verarbeiten, falls vorhanden
 		if ($row=mysqli_fetch_array($result)) {
-			$this->g_id=$row["g_id"];
-			$this->u_id=$row["u_id"];
+
+			$gruppen_id=$row["g_id"];
+			$this->gruppe=new Gruppe();
+			$this->gruppe->laden($gruppen_id);
+			
+			$user_id=$row["u_id"];
+			$this->user=new User();
+			$this->user->laden($user_id);
+			
 			$this->gruppenadmin=$row["gruppenadmin"];
 		
 			// speichern, dass die Basisinformationen des Teams erfolgreich geladen werden konnten
@@ -104,20 +111,20 @@ class Gruppenmitglied {
 	
 	// Getter und Setter
 	
-	public function getU_id () {
-		return $this->u_id;
+	public function getUser () {
+		return $this->user;
 	}
 	
-	public function setU_Id($u_id) {
-		$this->u_id= $u_id;
+	public function setUser($user) {
+		$this->user= $user;
 	}
 	
-	public function getG_id () {
-		return $this->g_id;
+	public function getGruppe () {
+		return $this->grupee;
 	}
 	
-	public function setG_Id($g_id) {
-		$this->g_id= $g_id;
+	public function setGruppe($gruppe) {
+		$this->gruppe= $gruppe;
 	}
 	
 	public function getGruppenadmin () {

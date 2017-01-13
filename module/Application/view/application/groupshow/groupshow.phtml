@@ -73,23 +73,17 @@
 			<td><?=$mitglied->getVorname()?></td>
 			<td><?=$mitglied->getNachname()?></td>
 			<td><?=$mitglied->getUsername()?></td>
-		
-			
-			<?php 
-				foreach ($mitgliedschaft as $counter => $infos) {
-				 if ($mitglied->getU_id() == $infos->getU_id() ) {
-					
-					if ($infos->getGruppenadmin()=="1") { 
-					?>
+			<td><?php
+			if ($mitglied->getUser()->getGruppenadmin() == "1") {
+				?>
 					<td>ja</td>
-					<?php 	} else {
-					?>
+			<?php } else {
+				?>
 					<td>nein</td>
 			<?php 
-					}
-				 }		
-				}
-			?> 
+				}		
+			?>
+			 
 			<td><input type="submit" name="gruppenadmin" value="Gruppenadminrechte &auml;ndern"><img src="img/add.jpg" /></td>
 		</tr>
 
