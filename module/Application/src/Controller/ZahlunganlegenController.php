@@ -121,9 +121,8 @@ class ZahlunganlegenController extends AbstractActionController {
 					$zahlung->setZahlungsbeschreibung($zahlungsbeschreibung);
 					$zahlung->setZahlungsdatum($zahlungsdatum);
 					$zahlung->setBetrag($betrag);
-					if ($kategorie_id != null) {
+					if ($kategorie_id != null)
 						$zahlung->setKategorie($kategorie);
-					echo "Test"; }
 					$zahlung->setAenderungsdatum($aenderungsdatum);
 					if ($gruppen_id != null)
 						$zahlung->setGruppe($gruppe); 

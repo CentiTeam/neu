@@ -209,7 +209,7 @@ class Zahlung {
 	}
 	
 	public function setKategorie($kategorie) {
-		$this->k_id= $kategorie; 
+		$this->kategorie= $kategorie; 
 	}
 	
 	public function getAenderungsdatum () {
@@ -225,7 +225,7 @@ class Zahlung {
 	}
 	
 	public function setGruppe($gruppe) {
-		$this->g_id= $gruppe;
+		$this->gruppe= $gruppe;
 	}
 	
 }
