@@ -40,13 +40,6 @@ class Zahlung {
 	
 		$result = $db->execute($query);
 		
-		// Ist eine Alternative zu der LadenFunktion beim anlegen!!!
-		if ($result) {
-			// auslesen der neu angelegten Z_Id
-			$dbStmt->execute("SELECT MAX(z_id) AS new_z_id FROM zahlung;");
-			$row= $dbStmt->nextRow();
-			$this->z_id = $row["new_z_id"];
-		}
 	
 		return $result;
 	}
