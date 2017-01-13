@@ -82,14 +82,14 @@ class ZahlunganlegenController extends AbstractActionController {
 					$zahlungsbeschreibung=$_REQUEST["zahlungsbeschreibung"];
 					$zahlungsdatum=$_REQUEST["zahlungsdatum"];
 					$betrag=$_REQUEST["betrag"];
-					$kategorie_id=$_REQUEST["k_id"];
+					$kategorie_id=$_REQUEST["kategorie"];
 				
 					//date_default_timezone_set("Europe/Berlin");
 					//$timestamp=time();
 					//$erstellungsdatum= date('Y-m-d', $timestamp);
 				
 					$aenderungsdatum= date('Y-m-d',$timestamp);
-					$gruppen_id=$_REQUEST["g_id"];
+					$gruppen_id=$_REQUEST["gruppe"];
 				
 				
 					// verkn�pfte Models laden
