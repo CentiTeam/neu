@@ -32,7 +32,7 @@ use Application\Model\Gruppenmitglied;?>
 			if ($gruppenmitglied->getGruppenadmin()=="1") {
 			?>
 				<a href='groupedit?g_id=<?=$gruppenmitglied->getGruppe()->getG_id()?>'><img src="img/edit.jpg" /></a>
-				<a href='groupdelete?g_id=<?=$gruppenmitglied->getGruppe()->getG_id()?'>><img src="img/delete.png" /></a>
+				<a href='groupdelete?g_id=<?=$gruppenmitglied->getGruppe()->getG_id()?>'><img src="img/delete.png" /></a>
 			<?php }
 			?>
 			</td>
