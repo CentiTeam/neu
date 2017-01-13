@@ -21,7 +21,7 @@ class statistikenController extends AbstractActionController
 		session_start();
 
 			
- 			$user_id=$_SESSION['user'];
+ 			$user_id=$_SESSION['user']->getU_id();
   			$zahlungenliste = Zahlung::eigenezahlungenholen($user_id);
 			
 			
