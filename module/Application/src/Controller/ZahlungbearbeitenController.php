@@ -85,16 +85,10 @@ class ZahlungbearbeitenController extends AbstractActionController {
 
 						
 					// Schritt 1:  Werte aus Formular einlesen
-					// Wird zuvor schon gmeacht: $z_id=$z_id
 					$zahlungsbeschreibung=$_REQUEST["zahlungsbeschreibung"];
 					$zahlungsdatum=$_REQUEST["zahlungsdatum"];
 					$betrag=$_REQUEST["betrag"];
 					$kategorie_id=$_REQUEST["kategorie"];
-
-					//date_default_timezone_set("Europe/Berlin");
-					//$timestamp=time();
-					//$erstellungsdatum= date('Y-m-d', $timestamp);
-
 					$aenderungsdatum= date('Y-m-d',$timestamp);
 					$gruppen_id=$zahlung->getGruppe()->getG_id();
 						
