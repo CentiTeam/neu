@@ -12,7 +12,7 @@ use Zend\View\Model\ViewModel;
 use Application\Model\User;
 use Application\Model\Gruppe;
 use Application\Model\Zahlung;
-
+use Application\Model\Kategorie;
 
 class statistikenController extends AbstractActionController
 {

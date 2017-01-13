@@ -20,12 +20,12 @@ class Kategorie {
 	
 		$db = new DB_connection();
 		
-		// Überprüfen, ob Kategoriebeschreibung schon vorhanden ist
+		// ï¿½berprï¿½fen, ob Kategoriebeschreibung schon vorhanden ist
 		
 		$query_beschreibungsueberpruefung = "SELECT * FROM kategorie WHERE kategoriebeschreibung = '".$this->kategoriebeschreibung."';";
 		$result_beschreibungsueberpruefung = $db->execute($query_beschreibungsueberpruefung);
 	
-		// Falls der Name noch nicht vorhanden ist, kann die Insert-Query ausgeführt werden
+		// Falls der Name noch nicht vorhanden ist, kann die Insert-Query ausgefï¿½hrt werden
 		if(mysqli_num_rows($result_beschreibungsueberpruefung) == 0 ){
 		
 		$query = "INSERT INTO kategorie (kategoriebeschreibung) VALUES (
@@ -75,7 +75,7 @@ class Kategorie {
 	
 		$query="SELECT k_id FROM kategorie";
 	
-		// Wenn die Datenbankabfrage erfolgreich ausgeführt worden ist
+		// Wenn die Datenbankabfrage erfolgreich ausgefï¿½hrt worden ist
 		if ($result = $db->execute($query)) {
 	
 			// Ergebnis Zeile fï¿½r Zeile verarbeiten
@@ -128,15 +128,6 @@ class Kategorie {
 		// zurï¿½ckgeben, ob beim Laden ein Fehler aufgetreten ist
 		return $isLoaded;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
