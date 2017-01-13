@@ -139,6 +139,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 
 								// Neue Z_id durch Laden der neu erstellten Gruppe ins Objekt laden
 								$zahlung->laden();
+								echo $zahlung->getZ_id();
 
 								$user_id=$_SESSION['user']->getU_id();
 									
