@@ -155,7 +155,7 @@ class ZahlunganlegenController extends AbstractActionController {
 			 		
 					 		$zahlungs_id=$zahlung->getZ_id();
 					 	
-						 	if($value == $user_id) {
+						 	if($value->getU_id() == $user_id) {
 						 		//Der Status bei dem, der die Zahlung erstellt hat ist "ersteller", dies erleichtert die nachträgliche Bearbeitung von
 						 		//Zahlungen, da Zahlungen nur bearbeitet werden dürfen, wenn sie nicht den Status "beglichen" Aufweisen.
 							 		$status="ersteller"; 
@@ -168,8 +168,8 @@ class ZahlunganlegenController extends AbstractActionController {
 						 	$zahlungsempfaenger=$_SESSION['user']->getU_id();
 	
 						 	// Variablenwerte in Objekt einlesen
-						 	$zahlungsteilnehmer->setU_id($value); 
-						 	$zahlungsteilnehmer->setZ_id($zahlungs_id);
+						 	$zahlungsteilnehmer->setUser($value); 
+						 	$zahlungsteilnehmer->setZahlung($zahlung);
 					 		$zahlungsteilnehmer->setStatus($status);
 						 	$zahlungsteilnehmer->setAnteil($anteil); 
 							$zahlungsteilnehmer->setZahlungsempfaenger($zahlungsempfaenger);
