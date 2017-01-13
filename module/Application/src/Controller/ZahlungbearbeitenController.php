@@ -12,7 +12,7 @@ use Application\Model\Zahlung;
 use Application\Model\Zahlungsteilnehmer;
 
 
-class ZahlunganlegenController extends AbstractActionController {
+class ZahlungbearbeitenController extends AbstractActionController {
 
 	function zahlungbearbeitenAction() {
 		// TODO Berechtigungspr�fung
@@ -31,24 +31,22 @@ class ZahlunganlegenController extends AbstractActionController {
 			return $view;
 
 		} else {
-				
+
 
 			//Liste alle verf�gbaren Kateforien holen
 			$kategorieliste = Kategorie::listeHolen();
 
-				
+			$g_id = $_POST['g_id'];	
 			$gruppe = new Gruppe();
-			$gruppe->laden($_GET['g_id']);
-				
+			$gruppe->laden($g_id);
 				
 			$mitgliederliste = User::gruppenmitgliederlisteholen($gruppe->getG_id());
-				
+			
 			// HEutigers Datum als akutellesdatum
 			date_default_timezone_set("Europe/Berlin");
 			$timestamp=time();
 			$aktuellesdatum= date('Y-m-d', $timestamp);
 				
-			$zahlung = new Zahlung();
 			
 			
 			
@@ -62,7 +60,7 @@ class ZahlunganlegenController extends AbstractActionController {
 
 			$saved= false;
 			$msg = array();
-
+			
 			if ($_REQUEST['speichern']) {
 
 				// Anteile in Schleife speichern und überprüfen, ob Summe dem Gesamtbetrag entspricht
@@ -234,7 +232,8 @@ class ZahlunganlegenController extends AbstractActionController {
 					'msg' => $msg,
 					'kategorieListe' => $kategorieliste,
 					'mitgliederListe' => $mitgliederliste,
-					'erstellungsdatum' => $erstellungsdatum
+					'erstellungsdatum' => $erstellungsdatum,
+					'zahlung' => array($zahlung)
 			]);
 		}
 	}

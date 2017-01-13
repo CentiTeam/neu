@@ -109,9 +109,7 @@ class GruppeanlegenController extends AbstractActionController {
 				 $user=$_SESSION['user'];
 				 $user_id=$_SESSION['user']->getU_id();
 
-				echo "ID's";
-				var_dump($gruppe->getG_id());
-				var_dump($user_id);
+				
 				
 				 // Gruppenmitglied-Objekte erstellen
 				 $gruppenmitglied = new Gruppenmitglied();
@@ -132,16 +130,12 @@ class GruppeanlegenController extends AbstractActionController {
 				 	}
 				 }
 				 
-				 
-				 
 				 $gruppenmitglied->setUser($user);
 				 $gruppenmitglied->setGruppe($gruppe);
 				 $gruppenmitglied->setGruppenadmin(1);	
+				  
 				 
-					echo $gruppenmitglied->getUser();
-				 // echo $gruppenmitglied->getUser()->getU_id();
-				 
-				 $verknuepfung=$gruppenmitglied->anlegen();
+				$gruppenmitglied->anlegen();
 				 
 		
 				 } elseif ($errorStr == "") {
@@ -158,7 +152,7 @@ class GruppeanlegenController extends AbstractActionController {
 
 				 }
 				 
-				
+				/**
 				 // Liste der User-Objekte der Gruppenmitglieder holen
 				 $mitgliederliste = User::gruppenmitgliederlisteholen($gruppe->getG_id());
 				 
@@ -173,12 +167,15 @@ class GruppeanlegenController extends AbstractActionController {
 				 	$gruppenmitglied->laden ($gruppe->getG_id(), $mitglied->getU_id());
 				 		
 				 	// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter bef�llt
-				 	if ($gruppenmitglied->getU_id() == $mitglied->getU_id()) {
+				 	if ($gruppenmitglied->getUser() == $mitglied->getU_id()) {
 				 
 				 		$mitgliedschaft[]=$gruppenmitglied;
 				 
 				 	}
 				 }
+				 */
+				 
+				 $mitgliederliste=Gruppenmitglied::gruppenmitgliederlisteHolen($g_id);
 				 
 				 
 				 $view = new ViewModel([
