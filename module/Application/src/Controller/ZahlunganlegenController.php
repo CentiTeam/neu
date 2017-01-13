@@ -156,8 +156,11 @@ class ZahlunganlegenController extends AbstractActionController {
 					 		$zahlungs_id=$zahlung->getZ_id();
 					 	
 						 	if($value == $user_id) {
-							 		$status="beglichen"; 
+						 		//Der Status bei dem, der die Zahlung erstellt hat ist "ersteller", dies erleichtert die nachträgliche Bearbeitung von
+						 		//Zahlungen, da Zahlungen nur bearbeitet werden dürfen, wenn sie nicht den Status "beglichen" Aufweisen.
+							 		$status="ersteller"; 
 						 	} else {
+						 		//Der Status für alle anderen Zahlungsteilnehmer ist offen.
 							 		$status="offen";
 					 		}
 						 	$anteil=$anteile[$counter];
