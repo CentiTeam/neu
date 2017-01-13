@@ -22,6 +22,12 @@ class Gruppenmitglied {
 		
 		$db = new DB_connection();
 		
+		echo "Versuch 1";
+		var_dump($this->user);
+		
+		echo "Versuch 2";
+		var_dump($this->getUser()->getU_id());
+		
 		$query = "INSERT INTO gruppenmitglied (u_id, g_id, gruppenadmin) VALUES (
 				'".$this->getUser()->getU_id()."',
 				'".$this->getGruppe()->getG_id()."',

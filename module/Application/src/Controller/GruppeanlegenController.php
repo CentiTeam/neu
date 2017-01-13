@@ -139,9 +139,9 @@ class GruppeanlegenController extends AbstractActionController {
 				 $gruppenmitglied->setGruppenadmin(1);	
 				  
 					echo $gruppenmitglied->getUser()->getU_id();
-				 // echo $gruppenmitglied->getUser()->getU_id();
 					echo "Hallo";
-				 $verknuepfung=$gruppenmitglied->anlegen();
+				 
+				$gruppenmitglied->anlegen();
 				 
 		
 				 } elseif ($errorStr == "") {
