@@ -22,7 +22,7 @@ use Application\Model\Gruppenmitglied;?>
 	?>
 
 		<tr>
-			<td><div class="small-circular-image"><img src ='<?=$gruppenmitglied->getGruppe()->getGruppenbildpfad()?>' height = "50" width = "50" alt = "Kein Bild vorhanden"></div></td>
+			<td><div class="small-circular-image"><img src ="<?=$gruppenmitglied->getGruppe()->getGruppenbildpfad()?>" height = "50" width = "50" alt = "Kein Bild vorhanden"></div></td>
 			<td><?=$gruppenmitglied->getGruppe()->getG_id()?></td>
 			<td><?=$gruppenmitglied->getGruppe()->getGruppenname()?></td>
 			<td><?=$gruppenmitglied->getGruppe()->getGruppenbeschreibung()?></td>
