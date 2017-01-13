@@ -26,7 +26,6 @@ class StatistikenController extends AbstractActionController
  			$user_id=$_SESSION['user']->getU_id();
   			$zahlungenliste = Zahlungsteilnehmer::teilnehmerzahlungenholen($user_id); 
   			
-			var_dump($zahlungenliste);
 			
 //  			foreach ($zahlungenliste as $liste) {
 			
