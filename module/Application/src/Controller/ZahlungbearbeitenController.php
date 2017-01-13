@@ -62,7 +62,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			$msg = array();
 			
 			echo "hallo";
-			echo $zahlung[1];
+			var_dump ($zahlung);
 
 			if ($_REQUEST['speichern']) {
 
