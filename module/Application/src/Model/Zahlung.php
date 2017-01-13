@@ -28,7 +28,7 @@ class Zahlung {
 	
 		$db = new DB_connection();
 	
-		$query = "INSERT INTO zahlung (zahlungsbeschreibung, erstellungsdatum, zahlungsdatum, betrag, k_id, aenderungsdatum, g_id) VALUES (
+		$query = "INSERT INTO zahlung (zahlungsbeschreibung, erstellungsdatum, zahlungsdatum, betrag, kategorie, aenderungsdatum, gruppe) VALUES (
 				'".$this->zahlungsbeschreibung."',
 				CURDATE(),
 				'".$this->zahlungsdatum."',
