@@ -49,7 +49,7 @@ class GroupoverviewController extends AbstractActionController
 		
 		
 		return new ViewModel([
-			'gruppenliste' => $gruppenliste,
+			'gruppenListe' => $gruppenliste,
 			'u_id' => $user_id,
 			'gruppenadminListe' => $gruppenadminListe,
 		]);
