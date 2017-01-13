@@ -3,6 +3,8 @@ namespace Application\Model;
 
 
 use Application\Model\DB_connection;
+use Application\Model\Gruppe;
+use Application\Model\Kategorie;
 
 class Zahlung {
 	protected  $z_id;
