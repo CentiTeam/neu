@@ -171,7 +171,9 @@ class GroupeditController extends AbstractActionController {
 				 }
 				 
 				 // Gruppenmitgliederliste anzeigen
+				 $mitgliederliste=Gruppenmitglied::gruppenmitgliederlisteHolen($g_id);
 				 
+				 /** Kann raus, wenn objektorietierung bleibt
 				 // Liste der User-Objekte der Gruppenmitglieder holen
 				 $mitgliederliste = User::gruppenmitgliederlisteholen($g_id);
 				 
@@ -187,12 +189,13 @@ class GroupeditController extends AbstractActionController {
 				 	$gruppenmitglied->laden ($g_id, $mitglied->getU_id());
 				 		
 				 	// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter bef�llt
-				 	if ($gruppenmitglied->getU_id() == $mitglied->getU_id()) {
+				 	if ($gruppenmitglied->getUser()->getU_id() == $mitglied->getU_id()) {
 				 
 				 		$mitgliedschaft[]=$gruppenmitglied;
 				 
 				 	}
-				 }
+				 }*/
+				
 				 
 				 
 				 $view = new ViewModel([
