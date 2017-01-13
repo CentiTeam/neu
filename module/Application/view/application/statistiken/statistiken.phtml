@@ -25,6 +25,7 @@ use Application\Model\Zahlungsteilnehmer;?>
 			<td><?=$zahlungsteilnehmer->getZahlung()->getBetrag()?></td>
 			<td><?=$zahlungsteilnehmer->getZahlung()->getKategorie()->getKategoriebeschreibung()?></td> 
 			<td><?=$zahlungsteilnehmer->getStatus()?></td>
+			<td><?=$zahlungsteilnehmer->getZahlung()->getGruppe()->getGruppenbeschreibung()?></td>
 			<td><a href='zahlunganzeigen?z_id=<?=$zahlungsteilnehmer->getZahlung()->getZ_id()?>'><img src="img/show.jpg" /></a>
 		</tr>
 
