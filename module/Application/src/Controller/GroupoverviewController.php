@@ -21,7 +21,7 @@ class GroupoverviewController extends AbstractActionController
 		$user_id=$_SESSION['user']->getU_id();
 		//$gruppenliste = Gruppe::eigenelisteholen($user_id);
 		
-		/**
+		/** Kann raus, wenn Objektorientierung bleibt
 		// Liste der User-Objekte der Gruppenmitglieder holen
 		$mitgliederliste = User::gruppenmitgliederlisteholen($g_id);
 		

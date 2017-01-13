@@ -26,7 +26,7 @@ class GroupshowController extends AbstractActionController
 		
 		
 		
-		/**
+		/** Kann raus, wenn objektorientierung bleibt
 		// Liste der User-Objekte der Gruppenmitglieder holen
 		$mitgliederliste = User::gruppenmitgliederlisteholen($g_id); 
 		
