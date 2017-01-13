@@ -33,6 +33,15 @@ class Zahlungsteilnehmer {
 	}
 	
 	
+	public static function loeschen($z_id){
+		$db = new DB_connection();
+		
+		$query = "DELETE FROM zahlungsteilnehmer
+					WHERE zahlung_id = '".$z_id."'
+					;" ;
+		
+	}
+	
 	// Getter und Setter
 	
 	public function getU_id () {

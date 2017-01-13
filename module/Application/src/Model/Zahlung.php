@@ -44,6 +44,19 @@ class Zahlung {
 		return $result;
 	}
 	
+	public function bearbeiten() {
+		
+		$db = new DB_connection();
+		
+		$query = "UPDATE zahlung
+					SET zahlungsbeschreibung ='".$this->zahlungsbeschreibung."',
+						zahlungsdatum ='".$this->zahlungsdatum."',
+						betrag ='".$this->betrag."',
+						kategorie_id ='".$this->getKategorie()->getK_id()."',
+						aenderungsdatum ='".$this->aenderungsdatum."'
+								;" ;
+	}
+	
 	
 	public function laden ($z_id = null) {
 	
