@@ -31,7 +31,7 @@ class ZahlunganlegenController extends AbstractActionController {
 			return $view;
 
 		} else {
-				
+			echo "hallo1";
 
 			//Liste alle verf�gbaren Kateforien holen
 			$kategorieliste = Kategorie::listeHolen();
