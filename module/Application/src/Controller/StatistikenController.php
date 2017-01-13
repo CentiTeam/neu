@@ -14,7 +14,7 @@ use Application\Model\Gruppe;
 use Application\Model\Zahlung;
 use Application\Model\Kategorie;
 
-class statistikenController extends AbstractActionController
+class StatistikenController extends AbstractActionController
 {
 	public function statistikenAction(){
 
