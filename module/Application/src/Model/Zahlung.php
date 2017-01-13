@@ -72,11 +72,11 @@ class Zahlung {
 			
 			$this->aenderungsdatum=$row["aenderungsdatum"]; 
 			
-			$kategorie_id=$row["k_id"];
+			$kategorie_id=$row["kategorie"];
 			$this->kategorie=new Kategorie();
 			$this->kategorie->laden($kategorie_id);
 			
-			$gruppen_id=$row["g_id"];
+			$gruppen_id=$row["gruppe"];
 			$this->gruppe=new Gruppe();
 			$this->gruppe->laden($gruppen_id);
 			
