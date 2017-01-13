@@ -91,8 +91,6 @@ class ZahlunganlegenController extends AbstractActionController {
 					$aenderungsdatum= date('Y-m-d',$timestamp);
 					$gruppen_id=$_REQUEST["g_id"];
 					
-					echo "Gruppe";
-					var_dump($gruppen_id);
 				
 					// verkn�pfte Models laden
 					if ($kategorie_id != null) {
