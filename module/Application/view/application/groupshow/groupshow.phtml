@@ -65,16 +65,16 @@
 	
 	
 	<?php 
-	foreach ($mitgliederListe as $zaehler => $mitglied) {
+	foreach ($mitgliederListe as $zaehler => $gruppenmitglied) {
 	?>
 
 		<tr>
-			<td><div class="small-circular-image"><img src =<?=$mitglied->getTeilnehmerbildpfad()?> height = "100" width = "100" alt = "Kein Bild vorhanden"></div></td>
-			<td><?=$mitglied->getVorname()?></td>
-			<td><?=$mitglied->getNachname()?></td>
-			<td><?=$mitglied->getUsername()?></td>
+			<td><div class="small-circular-image"><img src =<?=$gruppenmitglied->getUser()->getTeilnehmerbildpfad()?> height = "100" width = "100" alt = "Kein Bild vorhanden"></div></td>
+			<td><?=$gruppenmitglied->getUser()->getVorname()?></td>
+			<td><?=$gruppenmitglied->getUser()->getNachname()?></td>
+			<td><?=$gruppenmitglied->getUser()->getUsername()?></td>
 			<td><?php
-			if ($mitglied->getUser()->getGruppenadmin() == "1") {
+			if ($gruppenmitglied->getGruppenadmin() == "1") {
 				?>
 					<td>ja</td>
 			<?php } else {

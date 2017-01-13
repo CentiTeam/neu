@@ -22,6 +22,11 @@ class GroupshowController extends AbstractActionController
 		$g_id=$_REQUEST['g_id'];
 		$gruppe->laden($g_id);
 		
+		$mitgliederliste=Gruppenmitglied::gruppenmitgliederlisteHolen($g_id);
+		
+		
+		
+		/**
 		// Liste der User-Objekte der Gruppenmitglieder holen
 		$mitgliederliste = User::gruppenmitgliederlisteholen($g_id); 
 		
@@ -42,6 +47,12 @@ class GroupshowController extends AbstractActionController
 				
 			}
 		}
+		
+		*/
+		
+		
+		
+		
 		
 		if ($_REQUEST['gruppenadmin']) {
 			
