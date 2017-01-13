@@ -12,8 +12,6 @@ use Application\Model\Zahlungsteilnehmer;?>
 		<th>Kategorie </th>
 		<th>Status </th>
 		<th></th>
-		<th></th>
-		<th></th>
 	</tr>
 
 <?php 
@@ -26,6 +24,7 @@ use Application\Model\Zahlungsteilnehmer;?>
 			<td><?=$zahlung->getZahlungsdatum()?></td>
 			<td><?=$zahlung->getBetrag()?></td>
 			<td><?=$zahlung->getKategorie()->getKategoriebeschreibung()?></td>
+			<td></td>
 			<td><a href='zahlunganzeigen?z_id=<?=$zahlung->getZ_id()?>'><img src="img/show.jpg" /></a>
 			
 			
