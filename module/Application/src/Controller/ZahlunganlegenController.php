@@ -100,6 +100,8 @@ class ZahlunganlegenController extends AbstractActionController {
 						}
 					}
 					
+					var_dump($kategorie);
+					
 					// verkn�pfte Models laden
 					if ($gruppen_id != null) {
 						$gruppe = new Gruppe();
