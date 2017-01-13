@@ -36,11 +36,11 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			//Liste alle verf�gbaren Kateforien holen
 			$kategorieliste = Kategorie::listeHolen();
 
-			$g_id = $_POST['g_id'];	
+			$g_id = $_REQUEST['g_id'];	
 			$gruppe = new Gruppe();
 			$gruppe->laden($g_id);
 				
-			$mitgliederliste = User::gruppenmitgliederlisteholen($gruppe->getG_id());
+			$mitgliederliste = User::gruppenmitgliederlisteholen($g_id);
 			
 			// HEutigers Datum als akutellesdatum
 			date_default_timezone_set("Europe/Berlin");
