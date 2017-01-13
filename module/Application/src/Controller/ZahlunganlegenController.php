@@ -169,7 +169,7 @@ class ZahlunganlegenController extends AbstractActionController {
 					 		}
 						 	$anteil=$anteile[$counter];
 				 	
-						 	$zahlungsempfaenger=$_SESSION['user']->getU_id();
+						 	$zahlungsempfaenger=$_SESSION['user'];
 	
 						 	// Variablenwerte in Objekt einlesen
 						 	$zahlungsteilnehmer->setUser($akt_benutzer); 
