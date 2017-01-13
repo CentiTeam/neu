@@ -22,7 +22,7 @@ class Csvdownload{
 			$csv .= $zahlung->getErstellungsdatum().',';
 			$csv .= $zahlung->getZahlungsdatum().',';
 			$csv .= $zahlung->getBetrag().',';
-			$csv .= $zahlung->getK_id().',';
+			$csv .= $zahlung->getKategorie().',';
 			$csv .= $zahlung->getAenderungsdatum().',';
 			$csv .= $zahlung->getG_id();
 			$csv .= "\n";
