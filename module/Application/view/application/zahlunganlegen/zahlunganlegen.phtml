@@ -18,15 +18,15 @@
 
 	<td><fieldset> 
 		<?php 
-		/** //Alle Gruppenmitglieder in die Auswahlliste schreiben
+		//Alle Gruppenmitglieder in die Auswahlliste schreiben
 		foreach ($mitgliederListe as $zaehler => $mitglied) { ?>	
 			<label>
-			<input type="checkbox" name="zahlungsteilnehmer[]" value='<?=$mitglied?>'>
+			<input type="checkbox" name="zahlungsteilnehmer[]" value='<?=$mitglied->getU_id()?>'>
 
 			<br>Anteil: <input type="text" name="anteilsbetrag[]" placeholder="Euro.Cent">
 			</label><br></input>	 	 			
 		<?php 
-		}*/ ?> 
+		} ?> 
 	</fieldset></td>
 
 </tr>
