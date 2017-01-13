@@ -46,7 +46,7 @@ class GroupoverviewController extends AbstractActionController
 		
 		$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
 		
-		var_dump($gruppenliste);
+		
 		
 		return new ViewModel([
 			'gruppenliste' => $gruppenliste,
