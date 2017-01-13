@@ -18,7 +18,7 @@ class GroupeditController extends AbstractActionController {
 		// Pr�fen, ob Gruppeadmin
 		
 		$user_id=$_SESSION['user']->getU_id();
-		$gruppen_id=$_REQUEST['g_id'];
+		$gruppen_id=$_GET['g_id'];
 		
 		echo "$gruppen_id";
 		echo "$user_id";
