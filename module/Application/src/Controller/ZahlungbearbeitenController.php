@@ -161,6 +161,10 @@ class ZahlunganlegenController extends AbstractActionController {
 								// Legt die zugehï¿½rigen Zahlungsteilnehmer Datensï¿½tze an, auï¿½er fï¿½r sich selbst (info wird aber fï¿½r Anteil benï¿½tigt!)
 								foreach ($_POST['zahlungsteilnehmer'] as $key => $value) {
 
+									//Aus der ID des Übergebenen Arrays User-Objekt erstellen
+									$akt_benutzer = new User();
+									$akt_benutzer->laden($value);
+									
 									// Variablen befuellen
 									$zahlungsteilnehmer=new Zahlungsteilnehmer();
 
@@ -176,11 +180,11 @@ class ZahlunganlegenController extends AbstractActionController {
 									}
 									$anteil=$anteile[$counter];
 
-									$zahlungsempfaenger=$_SESSION['user']->getU_id();
+									$zahlungsempfaenger=$_SESSION['user'];
 
 									// Variablenwerte in Objekt einlesen
-									$zahlungsteilnehmer->setUser($value);
-									$zahlungsteilnehmer->setZahlung($zahlungs_id);
+									$zahlungsteilnehmer->setUser($akt_benutzer);
+									$zahlungsteilnehmer->setZahlung($zahlung);
 									$zahlungsteilnehmer->setStatus($status);
 									$zahlungsteilnehmer->setAnteil($anteil);
 									$zahlungsteilnehmer->setZahlungsempfaenger($zahlungsempfaenger);
