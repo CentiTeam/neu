@@ -12,7 +12,7 @@ class Zahlungsteilnehmer {
 	protected  $zahlungsempfaenger; 
 	
 	// HIER Kann evtl. ein Fehler liegen!!! (Objekt muss beachtet werden?)
-	public function __construct($zahlung_id, $user_id) {
+	public function __construct($zahlung_id = null, $user_id = null) {
 		$this->zahlung= $zahlung_id;
 		$this->user=$user_id;
 		echo "$this->zahlung";

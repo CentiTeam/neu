@@ -5,14 +5,14 @@ namespace Application\Model;
 use Application\Model\DB_connection;
 
 class Gruppenmitglied {
-	protected  $u_id;
-	protected  $g_id;
+	protected  $user;
+	protected  $gruppe;
 	protected  $gruppenadmin;
 	
 	public function __construct($user_id = null, $gruppen_id = null) {
 		
-		$this->u_id = $user_id;
-		$this->g_id= $gruppen_id;
+		$this->user = $user_id;
+		$this->gruppe= $gruppen_id;
 	}
 	
 	
