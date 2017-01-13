@@ -155,7 +155,7 @@ class GroupdeleteController extends AbstractActionController
 		
 		
 		$user_id=$_SESSION['user']->getU_id();
-		$gruppenliste=Gruppe::eigenelisteholen($user_id);
+		$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
 		
 		
 		$view = new ViewModel([
