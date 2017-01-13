@@ -10,9 +10,9 @@ class Zahlung {
 	protected  $erstellungsdatum;
 	protected  $zahlungsdatum;
 	protected  $betrag;
-	protected  $k_id;
+	protected  $kategorie;
 	protected  $aenderungsdatum;
-	protected  $g_id;
+	protected  $gruppe;
 	
 	public function __construct($zahlung_id = null) {
 		
@@ -31,12 +31,20 @@ class Zahlung {
 				CURDATE(),
 				'".$this->zahlungsdatum."',
 				'".$this->betrag."',
-				'".$this->k_id."',
+				'".$this->getKategorie()->getK_id()."',
 				'".$this->aenderungsdatum."',
-				'".$this->g_id."'
+				'".$this->getGruppe()->getG_id()."'
 				)" ;
 	
 		$result = $db->execute($query);
+		
+		// Ist eine Alternative zu der LadenFunktion beim anlegen!!!
+		if ($result) {
+			// auslesen der neu angelegten Z_Id
+			$dbStmt->executeQuery("SELECT MAX(z_id) AS new_z_id FROM zahlung;");
+			$row= $dbStmt->nextRow();
+			$this->z_id = $row["new_z_id"];
+		}
 	
 		return $result;
 	}
@@ -66,9 +74,16 @@ class Zahlung {
 			$this->erstellungsdatum=$row["erstellungsdatum"];
 			$this->zahlungsdatum=$row["zahlungsdatum"];
 			$this->betrag=$row["betrag"];
-			$this->k_id=$row["k_id"];
+			
 			$this->aenderungsdatum=$row["aenderungsdatum"]; 
-			$this->g_id=$row["g_id"];
+			
+			$kategorie_id=$row["k_id"];
+			$this->kategorie=new Kategorie();
+			$this->kategorie->laden($kategorie_id);
+			
+			$gruppen_id=$row["g_id"];
+			$this->gruppe=new Gruppe();
+			$this->gruppe->laden($gruppen_id);
 			
 			// speichern, dass die Basisinformationen des Teams erfolgreich geladen werden konnten
 			$isLoaded=true;
@@ -91,7 +106,7 @@ class Zahlung {
 				ORDER BY erstellungsdatum ASC
 				";
 	
-		// Wenn die Datenbankabfrage erfolgreich ausgeführt worden ist
+		// Wenn die Datenbankabfrage erfolgreich ausgefï¿½hrt worden ist
 		if ($result = $db->execute($query)) {
 	
 			// Ergebnis Zeile fï¿½r Zeile verarbeiten
@@ -123,7 +138,7 @@ class Zahlung {
 				LEFT JOIN zahlungsteilnehmer ON (zahlung.z_id=zahlungsteilnehmer.z_id)
 				WHERE u_id= '".$user_id."' ";
 	
-		// Wenn die Datenbankabfrage erfolgreich ausgeführt worden ist
+		// Wenn die Datenbankabfrage erfolgreich ausgefï¿½hrt worden ist
 		if ($result = $db->execute($query)) {
 	
 			// Ergebnis Zeile fï¿½r Zeile verarbeiten
@@ -187,12 +202,12 @@ class Zahlung {
 		$this->betrag= $betrag;
 	}
 	
-	public function getK_id () {
-		return $this->k_id;
+	public function getKategorie () {
+		return $this->kategorie;
 	}
 	
-	public function setK_Id($k_id) {
-		$this->k_id= $k_id; 
+	public function setKategorie($kategorie) {
+		$this->k_id= $kategorie; 
 	}
 	
 	public function getAenderungsdatum () {
@@ -203,12 +218,12 @@ class Zahlung {
 		$this->aenderungsdatum= $aenderungsdatum;
 	}
 	
-	public function getG_id () {
-		return $this->g_id;
+	public function getGruppe () {
+		return $this->gruppe;
 	}
 	
-	public function setG_Id($g_id) {
-		$this->g_id= $g_id;
+	public function setGruppe($gruppe) {
+		$this->g_id= $gruppe;
 	}
 	
 }
