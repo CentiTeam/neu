@@ -55,6 +55,8 @@ class Zahlung {
 						kategorie_id ='".$this->getKategorie()->getK_id()."',
 						aenderungsdatum ='".$this->aenderungsdatum."'
 								;" ;
+		
+		$result = $db->execute($query);
 	}
 	
 	
