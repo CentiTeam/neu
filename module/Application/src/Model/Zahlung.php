@@ -54,6 +54,7 @@ class Zahlung {
 						betrag ='".$this->betrag."',
 						k_id ='".$this->getKategorie()->getK_id()."',
 						aenderungsdatum ='".$this->aenderungsdatum."'
+						WHERE z_id ='".$this->getZ_id()."'
 								;" ;
 		
 		$result = $db->execute($query);
