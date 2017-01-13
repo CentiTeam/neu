@@ -144,7 +144,9 @@ class Zahlung {
 	
 				// Model anhand der Nummer aus der Datenbankabfrage laden
 				$model->laden($row["z_id"]);
-	
+				
+				var_dump($model);
+				
 				// neues Model ans Ende des $gruppeListe-Arrays anf�gen
 				$gruppeListe[] = $model;
 			}
