@@ -23,7 +23,7 @@ class Gruppenmitglied {
 		$db = new DB_connection();
 		
 		echo "Versuch 1";
-		var_dump($this->user);
+		echo $this->getUser()->getU_id();
 		
 		echo "Versuch 2";
 		var_dump($this->getUser()->getU_id());
