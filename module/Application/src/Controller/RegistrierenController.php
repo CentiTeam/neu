@@ -90,7 +90,7 @@ class RegistrierenController extends AbstractActionController{
 			
 		return new ViewModel([
 				'user' => array($user),
-				'errors'   => $errors,
+				// 'errors'   => $errors,
 				'msg' => $msg
 		]);
 }
