@@ -125,6 +125,10 @@ class Zahlungsteilnehmer {
 					WHERE z_id = '".$z_id."'
 					;" ;
 		
+		$result = $db->execute($query);
+		
+		return $result;
+		
 	}
 	
 	// Getter und Setter
