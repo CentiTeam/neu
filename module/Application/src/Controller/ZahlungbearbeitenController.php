@@ -60,7 +60,7 @@ class ZahlunganlegenController extends AbstractActionController {
 			$zahlung->laden($z_id);
 
 
-		//	$saved= false;
+			$saved= false;
 			$msg = array();
 
 			if ($_REQUEST['speichern']) {
@@ -132,7 +132,7 @@ class ZahlunganlegenController extends AbstractActionController {
 					$zahlung->setBetrag($betrag);
 					if ($kategorie_id != null)
 						$zahlung->setKategorie($kategorie);
-						$zahlung->setAenderungsdatum($aenderungsdatum);
+					$zahlung->setAenderungsdatum($aenderungsdatum);
 						
 
 								

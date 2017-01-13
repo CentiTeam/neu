@@ -2,21 +2,17 @@
 
 <table>
 <th>Zahlung bearbeiten</th>
-<tr><td>Zahlungsbeschreibung: </td><td><input name="zahlungsbeschreibung" type="text" maxlength="50" size="20" required></td></tr>
-<tr><td>Betrag: </td><td><input name="betrag" type="text" maxlength="50" size="20" required></td></tr>
-<!--  <tr><td>Zahlungsdatum: </td><td><input type="date" name="zahlungsdatum" value="" placeholder="YYYY-MM-DD" required></td></tr>-->
+<tr><td>Zahlungsbeschreibung: </td><td><input name="zahlungsbeschreibung" type="text" maxlength="50" size="20" value="<?=$zahlung[0]->getZahlungsbeschreibung()?>" required></td></tr>
+<tr><td>Betrag: </td><td><input name="betrag" type="text" maxlength="50" size="20" value="<?=$zahlung[0]->getBetrag()?>" required></td></tr>
+<tr><td>Zahlungsdatum: </td><td><input type="date" name="zahlungsdatum" value="<?=$aktuellessdatum?>" placeholder="YYYY-MM-DD" required></td></tr>
 <tr><td>Kategorie: </td><td>
 	<select name="kategorie" size="5">
 	<?php
-	
-	/**
 	
 	//Alle Kategorien in die Auswahlliste schreiben
 	foreach ($kategorieListe as $zaehler => $kategorie) { ?>
 			<option value='<?=$kategorie->getK_id()?>'> <?=$kategorie->getKategoriebeschreibung() ?> </option>
 	<?php } 
-	
-	**/
 	
 	?> 
 	</select>
@@ -25,8 +21,6 @@
 
 	<td><fieldset>
 		<?php 
-		
-		/**
 		
 		//Alle Gruppenmitglieder in die Auswahlliste schreiben
 		foreach ($mitgliederListe as $zaehler => $mitglied) { ?>	
@@ -38,8 +32,6 @@
 		 	 			
 		<?php 
 		}
-		
-		**/
 		
 		?> 
 	</fieldset></td>
