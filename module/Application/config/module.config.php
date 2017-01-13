@@ -393,6 +393,17 @@ return [
         				],
         		],
         		
+        		'zahlungbearbeiten' => [
+        				'type'    => Segment::class,
+        				'options' => [
+        						'route'    => '/zahlungbearbeiten[/:action]',
+        						'defaults' => [
+        								'controller' => Controller\ZahlungbearbeitenController::class,
+        								'action'     => 'zahlungbearbeiten',
+        						],
+        				],
+        		],
+        		
         		
         		
         		
@@ -448,8 +459,8 @@ return [
         	Controller\GroupcsvController::class => InvokableFactory::class,
         	Controller\ZahlunganzeigenController::class => InvokableFactory::class,
         	Controller\GruppenverlaufController::class => InvokableFactory::class,
-        		
-        		
+        	Controller\ZahlungbearbeitenController::class => InvokableFactory::class,
+        	
         		
         		
         		
