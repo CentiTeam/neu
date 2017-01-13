@@ -35,6 +35,7 @@ class RegistrierenController extends AbstractActionController{
 			if ($passwort!=$passwortwdh) {
 				echo "<center><h4>Keine &Uumlbereinstimmung der Passw&oumlrter! Bitte erneut registrieren</h4></center>";
 				$error = true;
+				
 			}
 			
 			
