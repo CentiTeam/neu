@@ -53,7 +53,7 @@ class Zahlungsteilnehmer {
 		// Ergebnis verarbeiten, falls vorhanden
 		if ($row=mysqli_fetch_array($result)) {
 			$zahlung_id=$row["zahlung_id"];
-			$this->zahlung=new Zahlung();
+			$this->zahlung=new Zahlung(); 
 			$this->zahlung->laden($zahlung_id);
 			
 			$user_id=$row["user_id"];

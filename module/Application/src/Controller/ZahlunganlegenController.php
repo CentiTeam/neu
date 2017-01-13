@@ -168,7 +168,7 @@ class ZahlunganlegenController extends AbstractActionController {
 						 	$zahlungsempfaenger=$_SESSION['user']->getU_id();
 	
 						 	// Variablenwerte in Objekt einlesen
-						 	$zahlungsteilnehmer->setU_id($value);
+						 	$zahlungsteilnehmer->setU_id($value); 
 						 	$zahlungsteilnehmer->setZ_id($zahlungs_id);
 					 		$zahlungsteilnehmer->setStatus($status);
 						 	$zahlungsteilnehmer->setAnteil($anteil); 

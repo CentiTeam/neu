@@ -50,7 +50,7 @@ class Zahlung {
 		
 		$query = "UPDATE zahlung
 					SET zahlungsbeschreibung ='".$this->zahlungsbeschreibung."',
-						zahlungsdatum ='".$this->zahlungsdatum."',
+		 				zahlungsdatum ='".$this->zahlungsdatum."',
 						betrag ='".$this->betrag."',
 						kategorie_id ='".$this->getKategorie()->getK_id()."',
 						aenderungsdatum ='".$this->aenderungsdatum."'

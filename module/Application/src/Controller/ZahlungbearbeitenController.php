@@ -188,7 +188,7 @@ class ZahlunganlegenController extends AbstractActionController {
 									$zahlungsteilnehmer->anlegen();
 										
 									$counter++;
-								}
+								} 
 									
 								$view = new ViewModel([
 										'gruppe' => array($gruppe),
