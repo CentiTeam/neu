@@ -40,7 +40,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			$gruppe = new Gruppe();
 			$gruppe->laden($g_id);
 				
-			$mitgliederliste = User::gruppenmitgliederlisteholen($gruppe->getG_id());
+			$mitgliederliste = User::gruppenmitgliederlisteholen($g_id);
 			
 			// HEutigers Datum als akutellesdatum
 			date_default_timezone_set("Europe/Berlin");
@@ -128,13 +128,14 @@ class ZahlungbearbeitenController extends AbstractActionController {
 					$zahlung->setZahlungsbeschreibung($zahlungsbeschreibung);
 					$zahlung->setZahlungsdatum($zahlungsdatum);
 					$zahlung->setBetrag($betrag);
-					if ($kategorie_id != null)
+					if ($kategorie_id != null){
 						$zahlung->setKategorie($kategorie);
+					}
 					$zahlung->setAenderungsdatum($aenderungsdatum);
 						
 
 								
-							// Wenn tempor�res Objekt gef�llt wurde kann mit diesen Werten das Objekt �ber die anlegen-Fkt in die DB geschrieben werden
+							// Wenn tempor�res Objekt gef�llt wurde kann mit diesen Werten das Objekt �ber die Bearbeiten-Fkt in die DB geschrieben werden
 							if ($errorStr == "" && $zahlung->bearbeiten()) {
 
 
