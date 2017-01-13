@@ -60,11 +60,11 @@ class Zahlungsteilnehmer {
 				$model->laden($row["z_id"], $row["u_id"]);
 	
 				// neues Model ans Ende des $gruppeListe-Arrays anf�gen
-				$gruppeListe[] = $model;
+				$zahlungListe[] = $model;
 			}
 	
 			// fertige Liste von Gruppe-Objekten zur�ckgeben
-			return $gruppeListe;
+			return $zahlungListe;
 		}
 	}
 	

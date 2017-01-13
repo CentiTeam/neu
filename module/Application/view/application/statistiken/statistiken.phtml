@@ -20,12 +20,12 @@ use Application\Model\Zahlungsteilnehmer;?>
 	?>
 
 		<tr>
-			<td><?=$zahlungteilnehmer->getZahlung()->getZahlungsbeschreibung()?></td>
-			<td><?=$zahlungteilnehmer->getZahlung()->getZahlungsdatum()?></td>
-			<td><?=$zahlungteilnehmer->getZahlung()->getBetrag()?></td>
-			<td><?=$zahlungteilnehmer->getZahlung()->getKategorie()->getKategoriebeschreibung()?></td> 
-			<td><?=$zahlungteilnehmer->getStatus()?></td>
-			<td><a href='zahlunganzeigen?z_id=<?=$zahlungteilnehmer->getZahlung()->getZ_id()?>'><img src="img/show.jpg" /></a>
+			<td><?=$zahlungteilnehmer[0]->getZahlung()->getZahlungsbeschreibung()?></td>
+			<td><?=$zahlungteilnehmer[0]->getZahlung()->getZahlungsdatum()?></td>
+			<td><?=$zahlungteilnehmer[0]->getZahlung()->getBetrag()?></td>
+			<td><?=$zahlungteilnehmer[0]->getZahlung()->getKategorie()->getKategoriebeschreibung()?></td> 
+			<td><?=$zahlungteilnehmer[0]->getStatus()?></td>
+			<td><a href='zahlunganzeigen?z_id=<?=$zahlungteilnehmer[0]->getZahlung()->getZ_id()?>'><img src="img/show.jpg" /></a>
 		</tr>
 
 	<?php 
