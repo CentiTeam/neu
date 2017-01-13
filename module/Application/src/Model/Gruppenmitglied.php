@@ -3,6 +3,8 @@ namespace Application\Model;
 
 
 use Application\Model\DB_connection;
+use Application\Model\User;
+Application\Model\Gruppe;
 
 class Gruppenmitglied {
 	protected  $user;
