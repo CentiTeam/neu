@@ -8,12 +8,12 @@
 <tr><td>Kategorie: </td><td>
 	<select name="kategorie" size="5">
 	<?php
-	/**
+
 	//Alle Kategorien in die Auswahlliste schreiben
 	foreach ($kategorieListe as $zaehler => $kategorie) { ?>
 			<option value='<?=$kategorie->getK_id()?>'> <?=$kategorie->getKategoriebeschreibung() ?> </option>
 	<?php } 
-	*/
+
 	?> 
 	</select>
 </td></tr>
