@@ -10,7 +10,7 @@ use Application\Model\Zahlungsteilnehmer;?>
 		<th>Zahlungsdatum </th>
 		<th>Betrag </th>
 		<th>Kategorie </th>
-		<th>status 
+		<th>Status </th>
 		<th></th>
 		<th></th>
 		<th></th>
@@ -25,7 +25,7 @@ use Application\Model\Zahlungsteilnehmer;?>
 			<td><?=$zahlung->getZahlungsbeschreibung()?></td>
 			<td><?=$zahlung->getZahlungsdatum()?></td>
 			<td><?=$zahlung->getBetrag()?></td>
-			<td><?=$zahlung->getKategorie()->getKategoriebeschreibung()?></td>
+			<td><?=$zahlung->getKategorie()->getK_id()?></td>
 			<td><a href='zahlunganzeigen?z_id=<?=$zahlung->getZ_id()?>'><img src="img/show.jpg" /></a>
 			
 			
