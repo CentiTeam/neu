@@ -28,7 +28,7 @@ class Zahlung {
 	
 		$db = new DB_connection();
 	
-		$query = "INSERT INTO zahlung (zahlungsbeschreibung, erstellungsdatum, zahlungsdatum, betrag, kategorie_id, aenderungsdatum, gruppen_id) VALUES (
+		$query = "INSERT INTO zahlung (zahlungsbeschreibung, erstellungsdatum, zahlungsdatum, betrag, k_id, aenderungsdatum, g_id) VALUES (
 				'".$this->zahlungsbeschreibung."',
 				CURDATE(),
 				'".$this->zahlungsdatum."',
@@ -85,11 +85,11 @@ class Zahlung {
 			
 			$this->aenderungsdatum=$row["aenderungsdatum"]; 
 			
-			$kategorie_id=$row["kategorie_id"];
+			$kategorie_id=$row["k_id"];
 			$this->kategorie=new Kategorie();
 			$this->kategorie->laden($kategorie_id);
 			
-			$gruppen_id=$row["gruppen_id"];
+			$gruppen_id=$row["g_id"];
 			$this->gruppe=new Gruppe();
 			$this->gruppe->laden($gruppen_id);
 			

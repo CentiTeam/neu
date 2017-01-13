@@ -23,7 +23,7 @@ class Zahlungsteilnehmer {
 	
 		$db = new DB_connection();
 	
-		$query = "INSERT INTO zahlungsteilnehmer (user_id, zahlung_id, status, anteil, zahlungsempfaenger_id) VALUES (
+		$query = "INSERT INTO zahlungsteilnehmer (u_id, z_id, status, anteil, zahlungsempfaenger_id) VALUES (
 				'".$this->getUser()->getU_id()."',
 				'".$this->getZahlung()->getZ_id()."',
 				'".$this->status."',
@@ -44,19 +44,19 @@ class Zahlungsteilnehmer {
 		// DB-Befehl absetzen: alle Basisinformationen des Teams mit der �bergebenen $t_id abfragen
 	
 		$result=$dbStmt->execute("SELECT * FROM zahlungsteilnehmer 
-				WHERE zahlung_id= '".$z_id."'
-				AND user_id='".$u_id."';");
+				WHERE z_id= '".$z_id."'
+				AND u_id='".$u_id."';");
 		
 		// Variable, die speichert, ob das Team geladen werden konnte oder nicht
 		$isLoaded=false;
 	
 		// Ergebnis verarbeiten, falls vorhanden
 		if ($row=mysqli_fetch_array($result)) {
-			$zahlung_id=$row["zahlung_id"];
+			$zahlung_id=$row["z_id"];
 			$this->zahlung=new Zahlung(); 
 			$this->zahlung->laden($zahlung_id);
 			
-			$user_id=$row["user_id"];
+			$user_id=$row["u_id"];
 			$this->user=new User();
 			$this->user->laden($user_id);
 			
