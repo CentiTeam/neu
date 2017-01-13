@@ -20,11 +20,14 @@ class GroupeditController extends AbstractActionController {
 		$user_id=$_SESSION['user']->getU_id();
 		$gruppen_id=$_REQUEST['g_id'];
 		
+		echo "$gruppen_id";
+		echo "$user_id";
+		
 		$gruppenmitglied=new Gruppenmitglied();
 		$gruppenmitglied->laden($gruppen_id, $user_id);
 		
 		// Berechtigungsprüfung: Pr�fen, ob Gruppeadmin
-		if ($gruppenmitglied->getGruppenadmin()==false) {
+		if ($gruppenmitglied->getGruppenadmin()=="0") {
 				
 			$errStr="Nicht berechtigt!";
 			$gruppenliste=Gruppe::eigenelisteholen($user_id);
