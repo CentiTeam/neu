@@ -40,7 +40,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			$gruppe = new Gruppe();
 			$gruppe->laden($g_id);
 				
-			$mitgliederliste = User::gruppenmitgliederlisteholen($g_id);
+			$mitgliederliste = User::gruppenmitgliederlisteholen($gruppe->getG_id());
 			
 			// HEutigers Datum als akutellesdatum
 			date_default_timezone_set("Europe/Berlin");
