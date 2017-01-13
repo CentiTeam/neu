@@ -151,7 +151,7 @@ class Gruppenmitglied {
 	}
 	
 	public function getGruppe () {
-		return $this->grupee;
+		return $this->gruppe;
 	}
 	
 	public function setGruppe($gruppe) {
