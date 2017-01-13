@@ -37,7 +37,7 @@ class Zahlungsteilnehmer {
 	}
 	
 	
-	public static function alleeigenezahlungenholen($user_id) {
+	public static function teilnehmerzahlungenholen($user_id) {
 	
 		// Liste initialisieren
 		$zahlungenListe = array ();
@@ -57,7 +57,7 @@ class Zahlungsteilnehmer {
 				$model = new Zahlungsteilnehmer();
 	
 				// Model anhand der Nummer aus der Datenbankabfrage laden
-				$model->laden($row["z_id"]);
+				$model->laden($row["z_id"], $row["u_id"]);
 	
 				// neues Model ans Ende des $gruppeListe-Arrays anf�gen
 				$gruppeListe[] = $model;
