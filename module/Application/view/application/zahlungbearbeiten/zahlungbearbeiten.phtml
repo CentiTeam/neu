@@ -8,25 +8,40 @@
 <tr><td>Kategorie: </td><td>
 	<select name="kategorie" size="5">
 	<?php
+	
+	/**
+	
 	//Alle Kategorien in die Auswahlliste schreiben
 	foreach ($kategorieListe as $zaehler => $kategorie) { ?>
 			<option value='<?=$kategorie->getK_id()?>'> <?=$kategorie->getKategoriebeschreibung() ?> </option>
-	<?php } ?> 
+	<?php } 
+	
+	**/
+	
+	?> 
 	</select>
 </td></tr>
 <tr><td>Teilnehmer: </td>
 
 	<td><fieldset>
 		<?php 
+		
+		/**
+		
 		//Alle Gruppenmitglieder in die Auswahlliste schreiben
 		foreach ($mitgliederListe as $zaehler => $mitglied) { ?>	
 			<label>
 			<input type="checkbox" name="zahlungsteilnehmer[]" value='<?=$mitglied->getU_id()?>'>
 			<?=$mitglied->getUsername()?>
 			<br>Anteil: <input type="text" name="anteilsbetrag[]" placeholder="Euro.Cent">
-			</label><br></input>	 	 			
+			</label><br></input>	
+		 	 			
 		<?php 
-		} ?> 
+		}
+		
+		**/
+		
+		?> 
 	</fieldset></td>
 
 </tr>
