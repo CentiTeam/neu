@@ -225,5 +225,5 @@ class ZahlunganlegenController extends AbstractActionController {
 	}
 	}
 	}
-
+	}
 }
