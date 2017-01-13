@@ -52,7 +52,7 @@ class Zahlung {
 					SET zahlungsbeschreibung ='".$this->zahlungsbeschreibung."',
 		 				zahlungsdatum ='".$this->zahlungsdatum."',
 						betrag ='".$this->betrag."',
-						kategorie_id ='".$this->getKategorie()->getK_id()."',
+						k_id ='".$this->getKategorie()->getK_id()."',
 						aenderungsdatum ='".$this->aenderungsdatum."'
 								;" ;
 		
