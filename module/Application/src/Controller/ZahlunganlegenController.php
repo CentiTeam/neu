@@ -222,6 +222,8 @@ class ZahlunganlegenController extends AbstractActionController {
 				'erstellungsdatum' => $erstellungsdatum
 		]);
 
-	}}
+	}
+	}
+	}
 
 }
