@@ -58,6 +58,8 @@ class Zahlung {
 								;" ;
 		
 		$result = $db->execute($query);
+		
+		return $result;
 	}
 	
 	
