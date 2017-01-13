@@ -127,7 +127,6 @@ class ZahlunganlegenController extends AbstractActionController {
 					if ($gruppen_id != null)
 						$zahlung->setGruppe($gruppe); 
 
-					var_dump($zahlung->getKategorie());
 					
 					// Wenn tempor�res Objekt gef�llt wurde kann mit diesen Werten das Objekt �ber die anlegen-Fkt in die DB geschrieben werden
 					if ($errorStr == "" && $zahlung->anlegen()) {
