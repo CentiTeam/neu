@@ -109,9 +109,27 @@ class GruppeanlegenController extends AbstractActionController {
 				 $user_id=$_SESSION['user']->getU_id();
 
 				
-				 
+				 // Gruppenmitglied-Objekte erstellen
 				 $gruppenmitglied = new Gruppenmitglied();
-				 	
+				 
+				 // verkn�pfte Models laden
+				 if ($user_id != null) {
+				 	$user = new User();
+				 	if (! $user->laden ($user_id)) {
+				 		$errorStr .= "Keine g&uuml;ltiger Nutzer als Gruppenmitglied angegeben!<br />";
+				 	}
+				 }
+				 
+				 // verkn�pfte Models laden
+				 if ($gruppen_id != null) {
+				 	$gruppe = new Gruppe();
+				 	if (! $gruppe->laden ($gruppen_id)) {
+				 		$errorStr .= "Keine g&uuml;ltige Gruppe angegeben!<br />";
+				 	}
+				 }
+				 
+				 
+				 
 				 $gruppenmitglied->setUser($user_id);
 				 $gruppenmitglied->setGruppe($gruppe->getG_id());
 				 $gruppenmitglied->setGruppenadmin(1);	
