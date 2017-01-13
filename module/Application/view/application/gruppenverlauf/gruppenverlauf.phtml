@@ -9,33 +9,14 @@
 </table>
 </div>
 
-
-
-
+<div class=>
 <table>
-	<tr><th>Gruppenmitglieder:</th></tr>
-	<tr>
-		<th></th>
-		<th>Vorname</th>
-		<th>Nachname</th>
-		<th>Benutzername</th>
-		<th>Gruppenadmin</th>
-		<th></th>
-	</tr>
-	
-	
-	
-	<br>
-	<br>
-	<form action="usersuchen" method="post">
+<tr><td>Zahlungsbeschreibung: <?=$zahlung[0]->getZahlungsbeschreibung()?></td></tr>
+</table>
+</div>
 
-	<table>
-		<th>Neues Mitglied hinzuf&uuml;gen</th>
-		<tr><td>Suche:</td><td><input name="suche" type="text" maxlength="255" size="20" required></td>
-		 <input type="hidden" name="g_id" readonly="readonly" value="<?=$gruppe[0]->getG_id()?>">
-		<td><input type="submit" value="User suchen"></td> </tr>
-	</table>
-	</form>
+
+
 	
 	
 	
