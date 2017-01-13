@@ -89,7 +89,7 @@ class ZahlunganlegenController extends AbstractActionController {
 					//$erstellungsdatum= date('Y-m-d', $timestamp);
 				
 					$aenderungsdatum= date('Y-m-d',$timestamp);
-					$gruppen_id=$_REQUEST["gruppe"];
+					$gruppen_id=$_REQUEST["g_id"];
 					
 					echo "Gruppe";
 					var_dump($gruppen_id);
