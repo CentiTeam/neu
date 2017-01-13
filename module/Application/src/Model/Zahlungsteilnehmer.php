@@ -101,9 +101,9 @@ class Zahlungsteilnehmer {
 			$this->status=$row["status"];
 			$this->anteil=$row["anteil"];
 			
-			$zahlungsempfänger_id=$row["zahlungsempfänger_id"];
-			$this->zahlungsempfänger=new User();
-			$this->zahlungsempfänger->laden($zahlungsempfänger_id);
+			$zahlungsempfaenger_id=$row["zahlungsempfaenger_id"];
+			$this->zahlungsempfaenger=new User();
+			$this->zahlungsempfaenger->laden($zahlungsempfaenger_id);
 				
 				
 			// speichern, dass die Basisinformationen des Teams erfolgreich geladen werden konnten
