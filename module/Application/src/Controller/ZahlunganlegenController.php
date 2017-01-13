@@ -90,7 +90,9 @@ class ZahlunganlegenController extends AbstractActionController {
 				
 					$aenderungsdatum= date('Y-m-d',$timestamp);
 					$gruppen_id=$_REQUEST["gruppe"];
-				
+					
+					echo "Gruppe";
+					var_dump($gruppen_id);
 				
 					// verkn�pfte Models laden
 					if ($kategorie_id != null) {
@@ -127,7 +129,7 @@ class ZahlunganlegenController extends AbstractActionController {
 					if ($gruppen_id != null)
 						$zahlung->setGruppe($gruppe); 
 
-					var_dump($zahlung->getKategorie());
+					var_dump($zahlung->getGruppe());
 					
 					// Wenn tempor�res Objekt gef�llt wurde kann mit diesen Werten das Objekt �ber die anlegen-Fkt in die DB geschrieben werden
 					if ($errorStr == "" && $zahlung->anlegen()) {
