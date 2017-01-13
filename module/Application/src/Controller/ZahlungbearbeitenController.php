@@ -31,7 +31,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			return $view;
 
 		} else {
-			echo "hallo1";
+
 
 			//Liste alle verf�gbaren Kateforien holen
 			$kategorieliste = Kategorie::listeHolen();
@@ -40,7 +40,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			$gruppe = new Gruppe();
 			$gruppe->laden($g_id);
 				
-			$mitgliederliste=Gruppenmitglied::gruppenmitgliederlisteHolen($g_id);
+			$mitgliederliste = User::gruppenmitgliederlisteholen($gruppe->getG_id());
 			
 			// HEutigers Datum als akutellesdatum
 			date_default_timezone_set("Europe/Berlin");
@@ -61,9 +61,6 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			$saved= false;
 			$msg = array();
 			
-			echo "hallo";
-			var_dump ($zahlung);
-
 			if ($_REQUEST['speichern']) {
 
 				// Anteile in Schleife speichern und überprüfen, ob Summe dem Gesamtbetrag entspricht
