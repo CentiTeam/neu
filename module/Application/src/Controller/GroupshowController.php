@@ -15,7 +15,9 @@ class GroupshowController extends AbstractActionController
 	public function GroupshowAction()
 	{
 		
-
+		session_start();
+		
+		$user_id=$_SESSION['user']->getU_id();
 	
 		// Gruppen-Objekt laden
 		$gruppe= new Gruppe();
@@ -74,8 +76,8 @@ class GroupshowController extends AbstractActionController
 			$text = $_REQUEST ['text'];
 			date_default_timezone_set("Europe/Berlin");
 			$timestamp=time();
+			$u_id=$_SESSION['user']->getU_id();
 			$datum = date('Y-m-d', $timestamp);
-			$u_id = $_REQUEST ['u_id'];
 			$g_id = $_REQUEST ['g_id'];
 
 			
