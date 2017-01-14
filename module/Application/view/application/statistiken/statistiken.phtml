@@ -18,14 +18,21 @@ use Application\Model\Zahlungsteilnehmer;?>
 		</table>
 	</form>	
 	
-	<table>
 <h1>Test</h1>
-	<tr>
+
+	<table>
+	
 	<?php
-	foreach ($kategorieliste as $zaehler => $kategorie) { ?>
+	foreach ($kategorieliste as $zaehler => $kategorie) { 
+	
+	?>
 <tr>
 <td><?=$kategorie->getK_id()?>'> <?=$kategorie->getKategoriebeschreibung() ?></td>
 </tr>
+	<?php 
+		
+	}
+	?>
 </table>
 
 
@@ -61,4 +68,5 @@ use Application\Model\Zahlungsteilnehmer;?>
 		
 	}
 	?>
+</table>
 
