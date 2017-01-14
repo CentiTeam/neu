@@ -37,10 +37,10 @@ class StatistikenController extends AbstractActionController
   				$katzahlungen = array ();
   				
   				$varr = "lala";
-  				if($kategorie_id != null){
+  				if($kategorie_id != ){
   					echo $varr;
   				}
-  				
+  				echo $varr;
   				foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
   					if($zahlungsteilnehmer->getZahlung()->getKategorie()->getK_id() == $kategorie_id && $kategorie_id != "NULL"){
   						$katzahlungen[] =  $zahlungsteilnehmer;
