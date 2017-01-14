@@ -23,6 +23,7 @@ class overviewController extends AbstractActionController
 		if ($_SESSION['angemeldet']=='ja')
 		{
 			echo "Hier kommen die Links zu den spezifischen Rollen hin";
+			
 			//Zahlungen von den letzten fünf Tagen anzeigen lassen
 			
 			//U_ID der Session holen
