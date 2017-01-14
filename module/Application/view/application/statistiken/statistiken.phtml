@@ -3,7 +3,7 @@ use Application\Model\Zahlungsteilnehmer;?>
 <?=$msg?>
 <?=$err?>
 <tr><td>Kategorie: </td><td>
-<tr><td>
+<tr><th>
 	<select name="kategorie" size="5">
 	<?php
 	//Alle Kategorien in die Auswahlliste schreiben
@@ -11,7 +11,8 @@ use Application\Model\Zahlungsteilnehmer;?>
 			<option value='<?=$zahlungsteilnehmer->getZahlung()->getKategorie()->getKategoriebeschreibung() ?> </option>
 	<?php } ?> 
 	</select>
-</td></tr>
+</th></tr>
+<p></p>
 <form  method="post">
 		<table>
 		<td><input type="submit" value="Filtern"></td> </tr>
