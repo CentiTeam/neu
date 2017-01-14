@@ -30,20 +30,23 @@ class StatistikenController extends AbstractActionController
   				
   			
   			if ($_REQUEST['filteranwenden']) {
-  				$kategorie_id=$_REQUEST["kategorie"];
+  				
+//   				$kategorie_id=$_REQUEST["kategorie"];
+//   				$katzahlungen = array ();
+//   			if($_REQUEST["kategorie"] != null){
+//   				foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
+//   					if($zahlungsteilnehmer->getZahlung()->getKategorie()->getK_id() == $kategorie_id){
+//   						$katzahlungen[] =  $zahlungsteilnehmer;
+//   					}
+//   				}
+//   				$zahlungenliste = $katzahlungen;
+//   			}
+//^ unmodularisiert, klappt aber.
 
-  				echo $_REQUEST["kategorie"];
-  				$katzahlungen = array ();
-  		
-  			if($_REQUEST["kategorie"] != null){
-  				foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
-  					if($zahlungsteilnehmer->getZahlung()->getKategorie()->getK_id() == $kategorie_id){
-  						$katzahlungen[] =  $zahlungsteilnehmer;
-  					}
-  				}
-  				$zahlungenliste = $katzahlungen;
+  				if($_REQUEST["kategorie"] != null){
+  					$zahlungenliste = katFilter($zahlungenliste, $kategorie_id);
   			
-  			}
+  			
   			}
 //  			foreach ($zahlungenliste as $liste) {
 			
@@ -71,13 +74,13 @@ class StatistikenController extends AbstractActionController
 
 }
 
- 		public static function katFilter($zahlungenliste, $k_id){
+ 		public static function katFilter($zahlungenliste, $kategorie_id){
  	$filteredlist = array();
  	foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
  		if($zahlungsteilnehmer->getZahlung()->getKategorie()->getK_id() == $kategorie_id){
- 			$katzahlungen[] =  $zahlungsteilnehmer;
+ 			$filteredlist[] =  $zahlungsteilnehmer;
  		}
  	}
- 	return $katzahlungen;
+ 	return $filteredlist;
  	}
 }
