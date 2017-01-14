@@ -43,14 +43,15 @@ class StatistikenController extends AbstractActionController
   				if($_REQUEST["kategorie"] == null){
   					echo "es ist null!";
   				}
-  			
+  			if($_REQUEST["kategorie"] != null){
   				foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
-  					if($zahlungsteilnehmer->getZahlung()->getKategorie()->getK_id() == $kategorie_id && $_REQUEST["kategorie"] != "NULL"){
+  					if($zahlungsteilnehmer->getZahlung()->getKategorie()->getK_id() == $kategorie_id){
   						$katzahlungen[] =  $zahlungsteilnehmer;
   					}
   				}
   				$zahlungenliste = $katzahlungen;
   			
+  			}
   			}
 //  			foreach ($zahlungenliste as $liste) {
 			
