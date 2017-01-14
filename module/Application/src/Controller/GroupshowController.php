@@ -75,7 +75,7 @@ class GroupshowController extends AbstractActionController
 			date_default_timezone_set("Europe/Berlin");
 			$timestamp=time();
 			$datum = date('Y-m-d', $timestamp);
-			//$u_id = $_REQUEST ['u_id'];
+			$u_id = $_REQUEST ['u_id'];
 			$g_id = $_REQUEST ['g_id'];
 
 			
@@ -87,7 +87,7 @@ class GroupshowController extends AbstractActionController
 				
 				$nachricht->setDatum($datum);
 				$nachricht->setText ($text);
-				//$nachricht->setU_id ($u_id);
+				$nachricht->setU_id ($u_id);
 				$nachricht->setG_id ($g_id);
 				
 
