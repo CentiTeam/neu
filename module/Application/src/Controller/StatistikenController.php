@@ -32,7 +32,8 @@ class StatistikenController extends AbstractActionController
   			if ($_REQUEST['filteranwenden']) {
   				$kategorie_id=$_REQUEST["kategorie"];
 
-  				echo $kategorie_id;
+  				echo $_REQUEST["kategorie"];
+  				var_dump($_REQUEST["kategorie"]);
   				$katzahlungen = array ();
   				
   				$varr = "lala";
