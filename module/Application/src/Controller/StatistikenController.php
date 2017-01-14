@@ -60,13 +60,13 @@ class StatistikenController extends AbstractActionController
  	}
  	function datFilter($zahlungenliste, $afterdate, $beforedate){
  		$filteredlist = array();
- 		var_dump($beforedate);
  		if($beforedate == ""){
  			date_default_timezone_set("Europe/Berlin");
  			$timestamp=time();
  			var_dump($beforedate);
  			
- 			$beforedate = date('Y-m-d', '2038-01-01');
+ 			$beforedate = date('Y-m-d');
+ 			$beforedate = ('2038-01-01');
  			echo "laalalalal";
  			var_dump($beforedate);
  		}
