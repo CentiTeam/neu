@@ -31,7 +31,9 @@ class loginController extends AbstractActionController{
 							'message' => 'Erfolgreich eingeloggt!',
 							'uname' => $uname,
 							'user' => array($user),
-							'gruppe' => array($gruppe)
+							'gruppe' => array($gruppe),
+							'aktzahlung' => $aktzahlungliste,
+							'aktnachricht' => $aktnachrichtliste
 					));
 					
 					// Meldet man sich als Systemadmin an, wird auf ein anderes Template verwiesen
