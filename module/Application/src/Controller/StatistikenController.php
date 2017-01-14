@@ -33,7 +33,7 @@ class StatistikenController extends AbstractActionController
   				if($_REQUEST["kategorie"] != null){
   					$zahlungenliste = $this->katFilter($zahlungenliste, $_REQUEST["kategorie"]);
   				}
-  				if($_REQUEST["datum"] != null){
+  				if($_REQUEST["afterdate"] != null || $_REQUEST["beforedate"] != null){
   					$zahlungenliste = $this->datFilter($zahlungenliste,$_REQUEST["afterdate"], $_REQUEST["beforedate"]);
   				}
   			}		
