@@ -181,7 +181,7 @@ class Zahlung {
 	
 		$query="SELECT * FROM `zahlung`
 				LEFT JOIN zahlungsteilnehmer ON (zahlung.z_id=zahlungsteilnehmer.z_id)
-				WHERE u_id= '".$user_id."' AND date(erstellungsdatum)=curdate()
+				WHERE u_id= '".$user_id."' AND (date(erstellungsdatum) BETWEEN curdate()-INTERVAL 5 DAY AND curdate())
 				ORDER BY g_id";
 	
 		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
