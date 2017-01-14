@@ -10,7 +10,7 @@ use Application\Model\Zahlungsteilnehmer;?>
 	<?php
 	//Alle Kategorien in die Auswahlliste schreiben
 	foreach ($zahlungenliste as $zaehler => $zahlungsteilnehmer) { ?>
-			<option value='<?=$zahlungsteilnehmer->getZahlung()->getKategorie()->getKategoriebeschreibung() ?>' </option>
+			<option value='<?php $zahlungsteilnehmer->getZahlung()->getKategorie()->getKategoriebeschreibung() ?>' </option>
 	<?php } ?> 
 	</select>
 </tr></td>
