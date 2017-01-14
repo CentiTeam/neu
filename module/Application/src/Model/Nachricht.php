@@ -3,6 +3,8 @@ namespace Application\Model;
 
 
 use Application\Model\DB_connection;
+use Application\Model\Gruppe;
+use Application\Model\User;
 
 class Nachricht {
 	protected  $n_id;
@@ -169,4 +171,21 @@ class Nachricht {
 	public function setU_Id($u_id) {
 		$this->u_id= $u_id;
 	}
+	
+	public function getGruppe () {
+		return $this->gruppe;
+	}
+	
+	public function setGruppe($gruppe) {
+		$this->gruppe= $gruppe;
+	}
+	
+	public function getUser () {
+		return $this->user;
+	}
+	
+	public function setUser($user) {
+		$this->user= $user;
+	}
+	
 }
