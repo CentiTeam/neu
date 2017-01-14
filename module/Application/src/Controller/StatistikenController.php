@@ -14,6 +14,7 @@ use Application\Model\Gruppe;
 use Application\Model\Zahlung;
 use Application\Model\Kategorie;
 use Application\Model\Zahlungsteilnehmer;
+use Application\Model\Gruppenmitglied;
 
 
 class StatistikenController extends AbstractActionController

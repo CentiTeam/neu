@@ -6,8 +6,8 @@ use Application\Model\Zahlungsteilnehmer;?>
 	<select name="kategorie" size="5">
 	<?php
 	//Alle Kategorien in die Auswahlliste schreiben
-	foreach ($kategorieListe as $zaehler => $kategorie) { ?>
-			<option value='<?=$kategorie->getK_id()?>'> <?=$kategorie->getKategoriebeschreibung() ?> </option>
+	foreach ($kategorieliste as $zaehler => $kategorie) { ?>
+			<option value='<?=$kategorie->getKategoriebeschreibung() ?> </option>
 	<?php } ?> 
 	</select>
 </td></tr>
