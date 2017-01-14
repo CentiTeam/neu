@@ -32,8 +32,10 @@ class StatistikenController extends AbstractActionController
   			if ($_REQUEST['filteranwenden']) {
   				if($_REQUEST["kategorie"] != null){
   					$zahlungenliste = $this->katFilter($zahlungenliste, $_REQUEST["kategorie"]);
-  			
-  			}
+  				}
+  				if($_REQUEST["datum"] != null){
+  					$zahlungenliste = $this->datFilter($zahlungenliste, $_REQUEST["datum"]);
+  				}
   			}		
 
   			return new ViewModel([
@@ -55,6 +57,15 @@ class StatistikenController extends AbstractActionController
  		}
  	}
  	return $filteredlist;
+ 	}
+ 	function datFilter($zahlungenliste, $datum){
+ 		$filteredlist = array();
+ 		foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
+ 			if($zahlungsteilnehmer->getZahlung()->getZahlungsdatum() > $datum){
+ 				$filteredlist[] =  $zahlungsteilnehmer;
+ 			}
+ 		}
+ 		return $filteredlist;
  	}
  	
  	
