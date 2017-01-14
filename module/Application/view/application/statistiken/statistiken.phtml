@@ -5,15 +5,15 @@ use Application\Model\Zahlungsteilnehmer;?>
 <tr><td>Kategorie: </td><td>
 <p></p>
 
-<tr><th>
+<tr><td>
 	<select name="kategorie" size="5">
 	<?php
 	//Alle Kategorien in die Auswahlliste schreiben
 	foreach ($zahlungenliste as $zaehler => $zahlungsteilnehmer) { ?>
-			<option value='<?=$zahlungsteilnehmer->getZahlung()->getKategorie()->getKategoriebeschreibung() ?> </option>
+			<option value='<?=$zahlungsteilnehmer->getZahlung()->getKategorie()->getKategoriebeschreibung() ?>' </option>
 	<?php } ?> 
 	</select>
-</th></tr>
+</tr></td>
 <p></p>
 <form  method="post">
 		<table>
