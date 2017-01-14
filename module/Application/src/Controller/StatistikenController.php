@@ -36,7 +36,7 @@ class StatistikenController extends AbstractActionController
   				$katzahlungen = array ();
   		
   			if($_REQUEST["kategorie"] != null){
-  				$zahlungenliste= katFilter($zahlungenliste, $_REQUEST["kategorie"];)
+  				$zahlungenliste = katFilter($zahlungenliste, $_REQUEST["kategorie"];)
   			
   			}
   			}
@@ -67,9 +67,9 @@ class StatistikenController extends AbstractActionController
 }
 
  		public static function katFilter($zahlungenliste, $k_id){
- 	$filteredlist = array();
+ 	$katzahlungen = array();
  	foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
- 		if($zahlungsteilnehmer->getZahlung()->getKategorie()->getK_id() == $kategorie_id){
+ 		if($zahlungsteilnehmer->getZahlung()->getKategorie()->getK_id() == $k_id){
  			$katzahlungen[] =  $zahlungsteilnehmer;
  		}
  	}
