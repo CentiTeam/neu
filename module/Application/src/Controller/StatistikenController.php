@@ -41,7 +41,7 @@ class StatistikenController extends AbstractActionController
   				
   				foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
   					if($zahlungsteilnehmer->getZahlung()->getKategorie()->getK_id == $kategorie_id){
-  						$katzahlungen += $zahlungsteilnehmer;
+  						$katzahlungen[] =  $zahlungsteilnehmer;
   					}
   				}
   			
@@ -60,16 +60,25 @@ class StatistikenController extends AbstractActionController
 			
 //  				}
 //  			}
-
+			
 
   			return new ViewModel([
   					'zahlungenliste' => $zahlungenliste,
   					'u_id' => $user_id,
   					'kategorieliste' => $kategorieliste,
-  					$katzahlungen => $katzahlungen
+  					'katzahlungen' => $katzahlungen
   			]);
   			
 
 
 }
+
+// 		public static function katFilter($zahlungenliste, $k_id){
+// 	$filteredlist = array();
+// 	foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
+// 		if($zahlungsteilnehmer->getZahlung()->getKategorie()->getK_id == $k_id){
+// 		$filteredlist[] = $zahlung;
+// 		}
+// 	}
+// 	}
 }
