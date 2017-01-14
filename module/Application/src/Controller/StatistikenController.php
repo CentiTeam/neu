@@ -30,38 +30,11 @@ class StatistikenController extends AbstractActionController
   				
   			
   			if ($_REQUEST['filteranwenden']) {
-  				
-//   				$kategorie_id=$_REQUEST["kategorie"];
-//   				$katzahlungen = array ();
-//   			if($_REQUEST["kategorie"] != null){
-//   				foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
-//   					if($zahlungsteilnehmer->getZahlung()->getKategorie()->getK_id() == $kategorie_id){
-//   						$katzahlungen[] =  $zahlungsteilnehmer;
-//   					}
-//   				}
-//   				$zahlungenliste = $katzahlungen;
-//   			}
-//^ unmodularisiert, klappt aber.
-
   				if($_REQUEST["kategorie"] != null){
   					$zahlungenliste = $this->katFilter($zahlungenliste, $_REQUEST["kategorie"]);
   			
   			}
-  			}
-//  			foreach ($zahlungenliste as $liste) {
-			
-//  				// Gruppenmitglied instanzieren
-//  				$gruppenmitglied= new Gruppenmitglied();
-//  				$gruppenmitglied->laden ($liste->getG_id(), $user_id);
-			
-//  				// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter bef�llt
-//  				if ($gruppenmitglied->getGruppenadmin() == true) {
-			
-//  					$gruppenadminListe[]=$gruppenmitglied;
-			
-//  				}
-//  			}
-			
+  			}		
 
   			return new ViewModel([
   					'zahlungenliste' => $zahlungenliste,
