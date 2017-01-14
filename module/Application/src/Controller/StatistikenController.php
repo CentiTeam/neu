@@ -64,7 +64,7 @@ class StatistikenController extends AbstractActionController
  		if($beforedate == ""){
  			date_default_timezone_set("Europe/Berlin");
  			$timestamp=time();
- 			$beforedate = new date('Y-m-d', '2038-01-01');
+ 			$beforedate = date('Y-m-d', '2038-01-01');
  			echo "laalalalal";
  		}
  		foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
