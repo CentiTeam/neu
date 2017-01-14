@@ -29,11 +29,13 @@ class StatistikenController extends AbstractActionController
   			$kategorieliste = Kategorie::listeHolen();
   				
   			
-
+  			if ($_REQUEST['filteranwenden']) {
+  					
+  				echo "hiii";
   			
   			
   			
-  			
+  			}
 //  			foreach ($zahlungenliste as $liste) {
 			
 //  				// Gruppenmitglied instanzieren
