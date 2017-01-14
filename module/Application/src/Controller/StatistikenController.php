@@ -38,7 +38,7 @@ class StatistikenController extends AbstractActionController
   				
   				
   				foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
-  					if($zahlungsteilnehmer->getZahlung()->getKategorie()->getK_id() == $kategorie_id){
+  					if($zahlungsteilnehmer->getZahlung()->getKategorie()->getK_id() == $kategorie_id && $kategorie_id != null){
   						$katzahlungen[] =  $zahlungsteilnehmer;
   					}
   				}
