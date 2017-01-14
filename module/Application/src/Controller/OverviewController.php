@@ -23,19 +23,6 @@ class overviewController extends AbstractActionController
 		if ($_SESSION['angemeldet']=='ja')
 		{
 			echo "Hier kommen die Links zu den spezifischen Rollen hin";
-			
-			//Zahlungen von den letzten fünf Tagen anzeigen lassen
-			
-			//U_ID der Session holen
-			$user_id=$_SESSION['user']->getU_id();
-			
-			$aktzahlungliste=Zahlung::aktuellezahlungenholen($user_id);
-			
-			return new ViewModel([
-					'user' => array($user),
-					'gruppe' => array($gruppe),
-					'aktzahlung' => $aktzahlungliste
-			]);
 		}
 		else 
 		{
@@ -52,6 +39,12 @@ class overviewController extends AbstractActionController
 		echo "Nachname des angemeldeten Users: ";
 		echo $user->getNachname();
 		
+		//Zahlungen von den letzten fünf Tagen anzeigen lassen
+		
+			//U_ID der Session holen
+			$user_id=$_SESSION['user']->getU_id();
+		
+			$aktzahlungliste=Zahlung::aktuellezahlungenholen($user_id);
 		
 			return new ViewModel([
 				'user' => array($user),
