@@ -44,7 +44,7 @@ class StatistikenController extends AbstractActionController
 //^ unmodularisiert, klappt aber.
 
   				if($_REQUEST["kategorie"] != null){
-  					$zahlungenliste = this => katFilter($zahlungenliste, $kategorie_id);
+  					$zahlungenliste = katFilter($zahlungenliste, $kategorie_id);
   			
   			}
   			}
@@ -74,7 +74,7 @@ class StatistikenController extends AbstractActionController
 
 }
 
- 		public static function katFilter($zahlungenliste, $kategorie_id){
+ 		public function katFilter($zahlungenliste, $kategorie_id){
  	$filteredlist = array();
  	foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
  		if($zahlungsteilnehmer->getZahlung()->getKategorie()->getK_id() == $kategorie_id){
