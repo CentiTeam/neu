@@ -62,7 +62,7 @@ class StatistikenController extends AbstractActionController
  		$filteredlist = array();
  		var_dump($beforedate);
  		if($beforedate == ""){
- 			$beforedate = new DateTime('1st January 2999');
+ 			$beforedate = new date('1st January 2999');
  			echo "laalalalal";
  		}
  		foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
