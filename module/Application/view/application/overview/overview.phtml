@@ -13,23 +13,23 @@
 
 <table width="80%">
   <tr>
-    <th >Gruppe</th>
-    <th >Zahlungsbeschreibung</th>
-    <th align="center">Zahlungsdatum</th>
-    <th align="center">Betrag</th>
-    <th >Kategorie</th>
-    <th align="center">Erstellungsdatum</th>
+    <th>Gruppe</th>
+    <th>Zahlungsbeschreibung</th>
+    <th>Zahlungsdatum</th>
+    <th>Betrag</th>
+    <th>Kategorie</th>
+    <th>Erstellungsdatum</th>
   </tr>
   
 	<?php foreach ($aktzahlung as $zaehler => $zahlung) {?>
 
   <tr>
-    <td ><?=$zahlung->getGruppe()->getGruppenname()?></td>
-    <td ><?=$zahlung->getZahlungsbeschreibung()?></td>
-    <td align="center"><?=$zahlung->getZahlungsdatum()?></td>
-    <td align="center"><?=$zahlung->getBetrag()?></td>
-    <td ><?=$zahlung->getKategorie()->getKategoriebeschreibung()?></td>
-    <td align="center"><?=$zahlung->getErstellungsdatum()?></td>
+    <td><?=$zahlung->getGruppe()->getGruppenname()?></td>
+    <td><?=$zahlung->getZahlungsbeschreibung()?></td>
+    <td><?=$zahlung->getZahlungsdatum()?></td>
+    <td><?=$zahlung->getBetrag()?></td>
+    <td><?=$zahlung->getKategorie()->getKategoriebeschreibung()?></td>
+    <td><?=$zahlung->getErstellungsdatum()?></td>
   </tr>
   <?php }?>
 </table>
