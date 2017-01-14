@@ -30,9 +30,9 @@ class StatistikenController extends AbstractActionController
   				
   			
   			if ($_REQUEST['filteranwenden']) {
-  				$zahlungsbeschreibung=$_REQUEST["zahlungsbeschreibung"];
-  				echo $zahlungsbeschreibung;
-  				echo "das war die Beschreibung";
+  				$kategorie_id=$_REQUEST["kategorie"];
+  				echo $kategorie;
+  				echo "das war die Kategorie";
   			
   			
   			
