@@ -54,6 +54,80 @@ class Nachricht {
 	}
 	
 	
+	public function laden ($n_id = null) {
+	
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+	
+		// DB-Befehl absetzen: alle Basisinformationen des Teams mit der �bergebenen $t_id abfragen
+	
+	
+		if ($n_id) {
+			$result=$dbStmt->execute("SELECT * FROM nachricht WHERE n_id= '".$n_id."';");
+		}
+		else {
+			$result=$dbStmt->execute("SELECT * FROM nachricht WHERE n_id =(SELECT MAX(n_id) FROM nachricht)");
+		}
+		// Variable, die speichert, ob das Team geladen werden konnte oder nicht
+		$isLoaded=false;
+	
+		// Ergebnis verarbeiten, falls vorhanden
+		if ($row=mysqli_fetch_array($result)) {
+			$this->n_id=$row["n_id"];
+			$this->datum=$row["datum"];
+			$this->text=$row["text"];
+				
+			$user_id=$row["u_id"];
+			$this->user=new User();
+			$this->user->laden($user_id);
+				
+			$gruppen_id=$row["g_id"];
+			$this->gruppe=new Gruppe();
+			$this->gruppe->laden($gruppen_id);
+				
+			// speichern, dass die Basisinformationen des Teams erfolgreich geladen werden konnten
+			$isLoaded=true;
+		}
+	
+		// zur�ckgeben, ob beim Laden ein Fehler aufgetreten ist
+		return $isLoaded;
+	}
+	
+	
+	public static function aktuellenachrichten($user_id) {
+	
+		// Liste initialisieren
+		$nachrichtenListe = array ();
+	
+		$db = new DB_connection();
+	
+		$query="SELECT * FROM `nachricht`
+				NATURAL JOIN gruppe NATURAL JOIN gruppenmitglied
+				WHERE gruppenmitglied.u_id= '".$user_id."' AND (date(datum) BETWEEN curdate()-INTERVAL 5 DAY AND curdate())
+				ORDER BY g_id, datum DESC";
+	
+		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
+		if ($result = $db->execute($query)) {
+	
+			// Ergebnis Zeile f�r Zeile verarbeiten
+			while ($row = mysqli_fetch_array($result)) {
+					
+				// neues Model erzeugen
+				$model = new Nachricht();
+	
+				// Model anhand der Nummer aus der Datenbankabfrage laden
+				$model->laden($row["n_id"]);
+	
+				// neues Model ans Ende des $gruppeListe-Arrays anf�gen
+				$aktuelleListe[] = $model;
+			}
+	
+			// fertige Liste von Gruppe-Objekten zur�ckgeben
+			return $aktuelleListe;
+		}
+	}
+	
+	
 	// Getter und Setter
 	
 	public function getN_id () {

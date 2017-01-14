@@ -33,6 +33,30 @@
   </tr>
   <?php }?>
 </table>
+<br>
+<br>
+<br>
+<h4>In den letzten f&uumlnf Tagen wurden in Ihren Gruppen diese Nachrichten gepostet:</h4>
+<br>
+<<table>
+  <tr>
+    <th>Gruppe</th>
+    <th>Absender</th>
+    <th>Datum</th>
+    <th>Nachricht</th>
+  </tr>
+  
+  <?php foreach ($aktnachricht as $zaehler => $nachricht) {?>
+  
+  <tr>
+    <td><?=$nachricht->getGruppe()->getGruppenname()?></td>
+    <td><?=$nachricht->getUser()->getUsername()?></td>
+    <td><?=$nachricht->getNachricht()?> 
+    <td><?=$nachricht->getText()?></td>
+  </tr>
+  <?php }?>
+</table>
+
 
 	
 <?php }
