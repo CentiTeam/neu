@@ -60,6 +60,7 @@ class StatistikenController extends AbstractActionController
  	}
  	function datFilter($zahlungenliste, $afterdate, $beforedate){
  		$filteredlist = array();
+ 		var_dump($beforedate);
  		if($beforedate == null) $beforedate = date('Y-m-d H:i:s', PHP_INT_MAX);
  		foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
  			if($zahlungsteilnehmer->getZahlung()->getZahlungsdatum() > $afterdate && $zahlungsteilnehmer->getZahlung()->getZahlungsdatum() < $beforedate){
