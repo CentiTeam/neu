@@ -74,7 +74,7 @@ class StatistikenController extends AbstractActionController
 
 }
 
- 		public function katFilter($zahlungenliste, $kategorie_id){
+ 		function katFilter($zahlungenliste, $kategorie_id){
  	$filteredlist = array();
  	foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
  		if($zahlungsteilnehmer->getZahlung()->getKategorie()->getK_id() == $kategorie_id){
@@ -83,4 +83,8 @@ class StatistikenController extends AbstractActionController
  	}
  	return $filteredlist;
  	}
+ 	
+ 	
+ 	
+ 	
 }
