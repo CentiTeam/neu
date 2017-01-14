@@ -38,7 +38,8 @@ class overviewController extends AbstractActionController
 		echo "Nachname des angemeldeten Users: ";
 		echo $user->getNachname();
 		
-
+		//Zahlungen von heutigen Tag anzeigen lassen
+		
 		
 		return new ViewModel([
 				'user' => array($user),
