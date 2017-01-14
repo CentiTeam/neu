@@ -34,15 +34,7 @@ class StatistikenController extends AbstractActionController
 
   				echo $_REQUEST["kategorie"];
   				$katzahlungen = array ();
-  			
-  				echo "laaaaaa";
-  				if($_REQUEST["kategorie"] == "NULL"){
-  					echo "es ist NULL!";
-  				}
-  				
-  				if($_REQUEST["kategorie"] == null){
-  					echo "es ist null!";
-  				}
+  		
   			if($_REQUEST["kategorie"] != null){
   				foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
   					if($zahlungsteilnehmer->getZahlung()->getKategorie()->getK_id() == $kategorie_id){
