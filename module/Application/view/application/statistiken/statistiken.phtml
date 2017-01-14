@@ -3,17 +3,14 @@ use Application\Model\Zahlungsteilnehmer;?>
 <?=$msg?>
 <?=$err?>
 <tr><td>Kategorie: </td><td>
-<p></p>
-
-<tr><td>
 	<select name="kategorie" size="5">
 	<?php
 	//Alle Kategorien in die Auswahlliste schreiben
-	foreach ($zahlungenliste as $zaehler => $zahlungsteilnehmer) { ?>
-			<option value='<?php $zahlungsteilnehmer->getZahlung()->getKategorie()->getKategoriebeschreibung() ?>' </option>
+	foreach ($kategorieListe as $zaehler => $kategorie) { ?>
+			<option value='<?=$kategorie->getK_id()?>'> <?=$kategorie->getKategoriebeschreibung() ?> </option>
 	<?php } ?> 
 	</select>
-</tr></td>
+</td></tr>
 <p></p>
 <form  method="post">
 		<table>
