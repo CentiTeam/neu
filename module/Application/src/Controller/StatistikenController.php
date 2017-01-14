@@ -47,6 +47,7 @@ class StatistikenController extends AbstractActionController
   					katFilter($zahlungenliste, $kategorie_id);
   			
   			}
+  			}
 //  			foreach ($zahlungenliste as $liste) {
 			
 //  				// Gruppenmitglied instanzieren
