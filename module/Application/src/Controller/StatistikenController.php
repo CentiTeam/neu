@@ -44,7 +44,7 @@ class StatistikenController extends AbstractActionController
 //^ unmodularisiert, klappt aber.
 
   				if($_REQUEST["kategorie"] != null){
-  					katFilter($zahlungenliste, $kategorie_id);
+  					$zahlungenliste = katFilter($zahlungenliste, $kategorie_id);
   			
   			}
   			}
