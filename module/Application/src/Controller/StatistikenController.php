@@ -31,8 +31,9 @@ class StatistikenController extends AbstractActionController
   			
   			if ($_REQUEST['filteranwenden']) {
   				$kategorie_id=$_REQUEST["kategorie"];
-  				echo $kategorie_id;
   				var_dump($kategorie_id);
+  				
+  				echo $kategorie_id;
   				echo "das war die Kategorie";
   			
   				$katzahlungen = array ();
@@ -40,7 +41,7 @@ class StatistikenController extends AbstractActionController
   				
   				
   				foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
-  					if($zahlungsteilnehmer->getZahlung()->getKategorie()->getK_id == $kategorie_id){
+  					if($zahlungsteilnehmer->getZahlung()->getKategorie()->getK_id() == $kategorie_id){
   						$katzahlungen[] =  $zahlungsteilnehmer;
   					}
   				}
