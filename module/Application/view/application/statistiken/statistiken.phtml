@@ -12,7 +12,10 @@ use Application\Model\Zahlungsteilnehmer;?>
 			<option value='<?=$kategorie->getK_id()?>'> <?=$kategorie->getKategoriebeschreibung() ?> </option>
 	<?php } ?> 
 	</select>
-</td></tr>
+</td>
+<td>Datum: </td><td><input type="date" name="datum" value="<?=$datum?>" placeholder="YYYY-MM-DD"></td>
+</tr>
+
 <p></p>
 		<table>
 		<td><input type="submit" name="filteranwenden" value="Filtern"></td> </tr>
