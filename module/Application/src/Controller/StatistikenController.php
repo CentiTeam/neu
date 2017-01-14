@@ -34,7 +34,7 @@ class StatistikenController extends AbstractActionController
   					$zahlungenliste = $this->katFilter($zahlungenliste, $_REQUEST["kategorie"]);
   				}
   				if($_REQUEST["datum"] != null){
-  					$zahlungenliste = $this->datFilter($zahlungenliste, $_REQUEST["datum"]);
+  					$zahlungenliste = $this->datFilter($zahlungenliste,$_REQUEST["afterdate"], $_REQUEST["beforedate"]);
   				}
   			}		
 
@@ -58,10 +58,10 @@ class StatistikenController extends AbstractActionController
  	}
  	return $filteredlist;
  	}
- 	function datFilter($zahlungenliste, $datum){
+ 	function datFilter($zahlungenliste, $afterdate, $beforedate){
  		$filteredlist = array();
  		foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
- 			if($zahlungsteilnehmer->getZahlung()->getZahlungsdatum() > $datum){
+ 			if($zahlungsteilnehmer->getZahlung()->getZahlungsdatum() > $afterdate && $zahlungsteilnehmer->getZahlung()->getZahlungsdatum() < $beforedate){
  				$filteredlist[] =  $zahlungsteilnehmer;
  			}
  		}
