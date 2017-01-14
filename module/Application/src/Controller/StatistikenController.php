@@ -34,9 +34,7 @@ class StatistikenController extends AbstractActionController
 
   				echo $kategorie_id;
   				$katzahlungen = array ();
-  				if($kategorie_id == null){
-  					echo "jaaaaaaaaaaaaaaa"
-  				}
+  				
   				
   				
   				foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
