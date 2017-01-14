@@ -31,8 +31,8 @@ class StatistikenController extends AbstractActionController
   			
   			if ($_REQUEST['filteranwenden']) {
   				$kategorie_id=$_REQUEST["kategorie"];
-  				echo $kategorie;
-  				var_dump($kategorie);
+  				echo $kategorie_id;
+  				var_dump($kategorie_id);
   				echo "das war die Kategorie";
   			
   			
