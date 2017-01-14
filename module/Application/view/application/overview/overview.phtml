@@ -11,24 +11,24 @@
 <br>
 <h4>In den letzten f&uumlnf Tagen wurden in Ihren Gruppen folgende Zahlungen erstellt:</h4>
 
-<table>
+<table width="100%">
   <tr>
-    <th width="80">Gruppe</th>
-    <th width="80">Zahlungsbeschreibung</th>
-    <th width="80">Zahlungsdatum</th>
-    <th width="80">Betrag</th>
-    <th width="80">Kategorie</th>
-    <th width="80">Erstellungsdatum</th>
+    <th >Gruppe</th>
+    <th >Zahlungsbeschreibung</th>
+    <th >Zahlungsdatum</th>
+    <th >Betrag</th>
+    <th >Kategorie</th>
+    <th >Erstellungsdatum</th>
   </tr>
   
 	<?php foreach ($aktzahlung as $zaehler => $zahlung) {?>
 
   <tr>
-    <td align="center"><?=$zahlung->getGruppe()->getGruppenname()?></td>
-    <td align="center"><?=$zahlung->getZahlungsbeschreibung()?></td>
+    <td ><?=$zahlung->getGruppe()->getGruppenname()?></td>
+    <td ><?=$zahlung->getZahlungsbeschreibung()?></td>
     <td align="center"><?=$zahlung->getZahlungsdatum()?></td>
     <td align="center"><?=$zahlung->getBetrag()?></td>
-    <td align="center"><?=$zahlung->getKategorie()->getKategoriebeschreibung()?></td>
+    <td ><?=$zahlung->getKategorie()->getKategoriebeschreibung()?></td>
     <td align="center"><?=$zahlung->getErstellungsdatum()?></td>
   </tr>
   <?php }?>
