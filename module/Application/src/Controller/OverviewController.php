@@ -12,6 +12,7 @@ use Zend\View\Model\ViewModel;
 use Application\Model\User;
 use Application\Model\Gruppe;
 use Application\Model\Zahlung;
+use Application\Model\Nachricht;
 
 class overviewController extends AbstractActionController
 {
@@ -45,11 +46,16 @@ class overviewController extends AbstractActionController
 			$user_id=$_SESSION['user']->getU_id();
 		
 			$aktzahlungliste=Zahlung::aktuellezahlungenholen($user_id);
+			
+		//Nachrichten der letzten fünf Tage anzeigen lassen
+		
+			$aktnachrichtliste=Nachricht::aktuellenachrichten($user_id);
 		
 			return new ViewModel([
 				'user' => array($user),
 				'gruppe' => array($gruppe),
-				'aktzahlung' => $aktzahlungliste
+				'aktzahlung' => $aktzahlungliste,
+				'aktnachricht' => $aktnachrichtliste
 		]);
 	}
 		
