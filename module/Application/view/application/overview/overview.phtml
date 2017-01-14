@@ -7,6 +7,33 @@
 	?>
 
 <div class=>Hallo <?=$user[0]->getVorname();?>! Sie wurden erfolgreich eingeloggt.</div>
+<br>
+<br>
+In den letzten f&uumlnf Tagen wurden in Ihren Gruppen folgende Zahlungen erstellt:
+<br>
+<table>
+  <tr>
+    <th>Gruppe</th>
+    <th>Zahlungsbeschreibung</th>
+    <th>Zahlungsdatum</th>
+    <th>Betrag</th>
+    <th>Kategorie</th>
+    <th>Erstellungsdatum</th>
+  </tr>
+  
+	<?php foreach ($aktzahlung as $zaehler => $zahlung) {?>
+
+  <tr>
+    <td><?=$zahlung->getGruppe()->getGruppenname()?></td>
+    <td><?=$zahlung->getZahlungsbeschreibung()?></td>
+    <td><?=$zahlung->getZahlungsdatum()?></td>
+    <td><?=$zahlung->getBetrag()?></td>
+    <td><?=$zahlung->getKategorie()->getKategoriebeschreibung()?></td>
+    <td><?=$zahlung->getErstellungsdatum()?></td>
+  </tr>
+  <?php }?>
+</table>
+
 	
 <?php }
 ?>
