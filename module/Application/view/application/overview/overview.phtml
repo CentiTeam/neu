@@ -24,12 +24,12 @@
 	<?php foreach ($aktzahlung as $zaehler => $zahlung) {?>
 
   <tr>
-    <td textalign: center><?=$zahlung->getGruppe()->getGruppenname()?></td>
-    <td textalign: center><?=$zahlung->getZahlungsbeschreibung()?></td>
-    <td textalign: center><?=$zahlung->getZahlungsdatum()?></td>
-    <td textalign: center><?=$zahlung->getBetrag()?></td>
-    <td textalign: center><?=$zahlung->getKategorie()->getKategoriebeschreibung()?></td>
-    <td textalign: center><?=$zahlung->getErstellungsdatum()?></td>
+    <td align="center"><?=$zahlung->getGruppe()->getGruppenname()?></td>
+    <td align="center"><?=$zahlung->getZahlungsbeschreibung()?></td>
+    <td align="center"><?=$zahlung->getZahlungsdatum()?></td>
+    <td align="center"><?=$zahlung->getBetrag()?></td>
+    <td align="center"><?=$zahlung->getKategorie()->getKategoriebeschreibung()?></td>
+    <td align="center"><?=$zahlung->getErstellungsdatum()?></td>
   </tr>
   <?php }?>
 </table>
