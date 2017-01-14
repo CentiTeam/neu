@@ -38,12 +38,17 @@ class overviewController extends AbstractActionController
 		echo "Nachname des angemeldeten Users: ";
 		echo $user->getNachname();
 		
-		//Zahlungen von heutigen Tag anzeigen lassen
+		//Zahlungen von den letzten fünf Tagen anzeigen lassen
 		
+			//U_ID der Session holen
+			$user_id=$_SESSION['user']->getU_id();
 		
-		return new ViewModel([
+			$aktzahlungliste=Zahlung::aktuellezahlungenholen($user_id);
+		
+			return new ViewModel([
 				'user' => array($user),
-				'gruppe' => array($gruppe)
+				'gruppe' => array($gruppe),
+				'aktzahlung' => $aktzahlungliste
 		]);
 	}
 		
