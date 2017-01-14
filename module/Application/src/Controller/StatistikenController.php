@@ -44,6 +44,7 @@ class StatistikenController extends AbstractActionController
   						$katzahlungen[] =  $zahlungsteilnehmer;
   					}
   				}
+  				vardump($katzahlungen);
   			
   			
   			}
