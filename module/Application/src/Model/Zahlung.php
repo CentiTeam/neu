@@ -182,7 +182,7 @@ class Zahlung {
 		$query="SELECT * FROM `zahlung`
 				NATURAL JOIN zahlungsteilnehmer NATURAL JOIN gruppenmitglied
 				WHERE u_id= '".$user_id."' AND (date(erstellungsdatum) BETWEEN curdate()-INTERVAL 5 DAY AND curdate())
-				ORDER BY g_id";
+				ORDER BY g_id, erstellungsdatum DESC";
 	
 		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
 		if ($result = $db->execute($query)) {
