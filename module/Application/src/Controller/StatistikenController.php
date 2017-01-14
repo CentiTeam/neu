@@ -56,7 +56,8 @@ class StatistikenController extends AbstractActionController
   			return new ViewModel([
   					'zahlungenliste' => $zahlungenliste,
   					'u_id' => $user_id,
-  					'kategorieliste' => $kategorieliste
+  					'kategorieliste' => $kategorieliste,
+  					$kategorie => $kategorie
   			]);
   			
 
