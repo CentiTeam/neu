@@ -2,6 +2,8 @@
 use Application\Model\Zahlungsteilnehmer;?>
 <?=$msg?>
 <?=$err?>
+<form action="statistiken" method="post">
+
 <tr><td>Kategorie: </td><td>
 	<select name="kategorie" size="5">
 	<?php
@@ -12,7 +14,6 @@ use Application\Model\Zahlungsteilnehmer;?>
 	</select>
 </td></tr>
 <p></p>
-<form  method="post">
 		<table>
 		<td><input type="submit" name="filteranwenden" value="Filtern"></td> </tr>
 		</table>
