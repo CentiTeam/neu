@@ -171,6 +171,39 @@ class Zahlung {
 			return $gruppeListe;
 		}
 	}
+
+	public static function aktuellezahlungenholen($user_id) {
+	
+		// Liste initialisieren
+		$zahlungenListe = array ();
+	
+		$db = new DB_connection();
+	
+		$query="SELECT * FROM `zahlung`
+				LEFT JOIN zahlungsteilnehmer ON (zahlung.z_id=zahlungsteilnehmer.z_id)
+				WHERE u_id= '".$user_id."' AND date(erstellungsdatum)=curdate()
+				ORDER BY g_id";
+	
+		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
+		if ($result = $db->execute($query)) {
+	
+			// Ergebnis Zeile f�r Zeile verarbeiten
+			while ($row = mysqli_fetch_array($result)) {
+					
+				// neues Model erzeugen
+				$model = new Zahlung();
+	
+				// Model anhand der Nummer aus der Datenbankabfrage laden
+				$model->laden($row["z_id"]);
+	
+				// neues Model ans Ende des $gruppeListe-Arrays anf�gen
+				$aktuelleListe[] = $model;
+			}
+	
+			// fertige Liste von Gruppe-Objekten zur�ckgeben
+			return $aktuelleListe;
+		}
+	}
 	
 	
 	// Getter und Setter
