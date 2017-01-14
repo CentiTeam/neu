@@ -35,6 +35,15 @@ class StatistikenController extends AbstractActionController
   				var_dump($kategorie_id);
   				echo "das war die Kategorie";
   			
+  				$katzahlungen = array ();
+  				
+  				
+  				
+  				foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
+  					if($zahlungsteilnehmer->getZahlung()->getKategorie()->getK_id == $kategorie_id){
+  						$katzahlungen += $zahlungsteilnehmer;
+  					}
+  				}
   			
   			
   			}
@@ -57,7 +66,7 @@ class StatistikenController extends AbstractActionController
   					'zahlungenliste' => $zahlungenliste,
   					'u_id' => $user_id,
   					'kategorieliste' => $kategorieliste,
-  					$kategorie => $kategorie
+  					$katzahlungen => $katzahlungen
   			]);
   			
 
