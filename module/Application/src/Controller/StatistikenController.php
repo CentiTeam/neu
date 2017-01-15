@@ -38,9 +38,9 @@ class StatistikenController extends AbstractActionController
   				}
   				var_dump($_REQUEST["status[]"]);
   				var_dump($_REQUEST["status"]);
-  				foreach ($_POST['status'] as $key => $value) {
-  					echo "jaaa";
-  				}
+//   				foreach ($_POST['status'] as $key => $value) {
+//   					echo "jaaa";
+//   				}
   				
    				if($_REQUEST["status"] != null){
    					echo " hey";
