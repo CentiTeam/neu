@@ -66,7 +66,10 @@ class loginController extends AbstractActionController{
 
 	
 	return new ViewModel([
-			'user' => array($user)
+			'user' => array($user),
+			'gruppe' => array($gruppe),
+			'aktzahlung' => $aktzahlungliste,
+			'aktnachricht' => $aktnachrichtliste
 	]);
 	}
 	
