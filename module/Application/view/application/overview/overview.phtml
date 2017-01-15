@@ -9,12 +9,8 @@
 <div class=>Hallo <?=$user[0]->getVorname();?>! Sie wurden erfolgreich eingeloggt.</div>
 <br>
 <br>
-<?php if($aktdatum != $_SESSION['gelesenam']) {?>
+<?php if($_SESSION['gelesenam'] != $aktdatum) {?>
 <form method="post" action="overview">
-<!-- <a onclick="text1.style.display='none';an.style.display='block1';zu.style.display='none'" id="zu" style="display: block1" href="#neu1"><img src="img/X.jpg" /></a>
-<a onclick="text1.style.display='block1';an.style.display='none';zu.style.display='block1'" id="an" style="display: none" href="#neu1"></a>
-<a name="neu1"></a>
-<DIV id="text1" style="display: block1"> -->
 <input type="submit" name="hide" value="X">
 <h4>In den letzten f&uumlnf Tagen wurden in Ihren Gruppen folgende Zahlungen erstellt:</h4>
 
@@ -63,7 +59,6 @@
   </tr>
   <?php }?>
 </table>
-<!-- </div> -->
 </form>
 	
 <?php
