@@ -41,16 +41,39 @@ class Nachricht {
 	}
 	
 	
-	public function getMessage($g_id) {
-		
-		$db = new DB_connection;
-		
-		$query = "SELECT datum, text, u_id FROM nachricht
-				WHERE g_id = '".$this->g_id."';";
-		
-		$result = $db->execute($query);
-		
-		return $result;
+	public static function gruppennachrichten($g_id) {
+	
+		// Liste initialisieren
+		$nachrichtenListe = array ();
+	
+		$db = new DB_connection();
+	
+		$query="SELECT * FROM `nachricht`
+				NATURAL JOIN gruppe NATURAL JOIN gruppenmitglied
+				WHERE gruppenmitglied.u_id= '".$user_id."'
+				ORDER BY g_id, datum DESC";
+	
+		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
+		if ($result = $db->execute($query)) {
+	
+			// Ergebnis Zeile f�r Zeile verarbeiten
+			while ($row = mysqli_fetch_array($result)) {
+					
+				// neues Model erzeugen
+				$model = new Nachricht();
+	
+				// Model anhand der Nummer aus der Datenbankabfrage laden
+				$model->laden($row["n_id"]);
+	
+				// neues Model ans Ende des $gruppeListe-Arrays anf�gen
+				$aktuelleListe[] = $model;
+			}
+	
+			// fertige Liste von Gruppe-Objekten zur�ckgeben
+			return $aktuelleListe;
+		}
+	}
+	
 		
 		
 	}

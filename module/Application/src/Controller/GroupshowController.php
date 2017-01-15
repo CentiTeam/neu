@@ -61,9 +61,7 @@ class GroupshowController extends AbstractActionController
 		}
 		
 		
-		// Nachricht abschicken
-		$nachricht = new Nachricht ();
-		$nachricht-> getMessage($g_id);
+		$grpnachrichtliste=Nachricht::gruppennachrichten($g_id);
 		
 		
 		if ($_REQUEST['abschicken']) {
@@ -103,7 +101,7 @@ class GroupshowController extends AbstractActionController
 					'gruppe' => array($gruppe),
 					'mitgliederListe' => $mitgliederliste,
 					'mitgliedschaft' => $mitgliedschaft,
-					'nachricht' => array ($nachricht),
+					'grpnachricht' => $gruppennachrichtliste,
 					
 			
 			
@@ -117,7 +115,7 @@ class GroupshowController extends AbstractActionController
 				'gruppe' => array($gruppe),
 				'mitgliederListe' => $mitgliederliste,
 				'mitgliedschaft' => $mitgliedschaft,
-				'nachricht' => array ($nachricht),
+				'grpnachricht' => $gruppennachrichtliste,
 			
 					
 		]);

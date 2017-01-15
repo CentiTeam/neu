@@ -23,16 +23,23 @@
 
 <br><br>
 
-<table>
-<tr>
-</tr>
-<td>  <?=$nachricht[0]->getU_id()?>:</td> 
-<td>  <?=$nachricht[0]->getText()?> </td>
-
-
-						
-
-
+<table width="80%">
+  <tr>
+    <th width="15%">Gruppe</th>
+    <th width="15%">Absender</th>
+    <th width="15%">Datum</th>
+    <th>Nachricht</th>
+  </tr>
+  
+  <?php foreach ($grpnachricht as $zaehler => $nachricht) {?>
+  
+  <tr>
+    <td><?=$nachricht->getGruppe()->getGruppenname()?></td>
+    <td><?=$nachricht->getUser()->getUsername()?></td>
+    <td><?=$nachricht->getdatum()?> 
+    <td><?=$nachricht->getText()?></td>
+  </tr>
+  <?php }?>
 </table>
 
 <form  method='post'>
