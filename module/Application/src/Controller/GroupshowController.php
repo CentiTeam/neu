@@ -60,7 +60,7 @@ class GroupshowController extends AbstractActionController
 			
 		}
 		
-		$aktnachrichtliste=Nachricht::aktuellenachrichten($user_id);
+		
 		
 		
 		if ($_REQUEST['abschicken']) {
