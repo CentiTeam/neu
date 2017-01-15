@@ -59,6 +59,7 @@ class overviewController extends AbstractActionController
 		//Speichern des aktuellen Datums bei Aktivierung von X
 		if ($_REQUEST['hide'])
 		{		
+			echo "hallo";
 			$_SESSION['gelesenam']='$datum';
 		}
 		
