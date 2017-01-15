@@ -14,24 +14,29 @@ use Application\Model\Zahlungsteilnehmer;?>
 	</select>
 </td>
 <td>nach: </td><td><input type="date" name="afterdate" value="<?=$datum?>" placeholder="YYYY-MM-DD">
-<tr>
 <td>vor: </td><td><input type="date" name="beforedate" value="<?=$datum?>" placeholder="YYYY-MM-DD"><td>
-</tr>
 </td>
 
 
-<td><fieldset>
-		
+<td>status: <fieldset>
 			<label>
-			
 			<input type="checkbox" name="status[]" value='offen'>
-			
 			</input>
 			</label>	 	
-			
-			
 	</fieldset></td>
-
+	<td>offen <fieldset>
+			<label>
+			<input type="checkbox" name="status[]" value='geschlossen'>
+			</input>
+			</label>	 	
+	</fieldset></td>
+	<td>geschlossen <fieldset>
+			<label>
+			<input type="checkbox" name="status[]" value='ersteller'>
+			</input>
+			</label>	 	
+	</fieldset></td>
+<td>ersteller</td>
 
 </tr>
 

@@ -17,7 +17,7 @@ use Application\Model\Zahlungsteilnehmer;
 use Application\Model\Gruppenmitglied;
 
 
-class StatistikenController extends AbstractActionController
+class StatistikenController extends AbstractActionController 
 {
 	public function statistikenAction(){
 
@@ -58,6 +58,19 @@ class StatistikenController extends AbstractActionController
  	}
  	return $filteredlist;
  	}
+ 	
+//  	function statusFilter($zahlungenliste, $kategorie_id){
+//  		$filteredlist = array();
+//  		foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
+//  			if($zahlungsteilnehmer->getZahlung()->getKategorie()->getK_id() == $kategorie_id){
+//  				$filteredlist[] =  $zahlungsteilnehmer;
+//  			}
+//  		}
+//  		return $filteredlist;
+//  		$zahlungsteilnehmer->getStatus()
+//  	}
+ 	
+ 	
  	function datFilter($zahlungenliste, $afterdate, $beforedate){
  		$filteredlist = array();
  		if($beforedate == ""){
