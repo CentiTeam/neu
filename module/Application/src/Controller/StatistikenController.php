@@ -73,6 +73,7 @@ class StatistikenController extends AbstractActionController
  	
  	function statusFilter($zahlungenliste, $status){
  		echo "status Funktion aufgerufen";
+ 		var_dump($status);
  		$filteredlist = array();
  		foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
  			if($zahlungsteilnehmer->getStatus()== 'offen' && $status[0] == 'offen'){
