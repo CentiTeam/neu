@@ -50,12 +50,24 @@ class overviewController extends AbstractActionController
 		//Nachrichten der letzten fünf Tage anzeigen lassen
 		
 			$aktnachrichtliste=Nachricht::aktuellenachrichten($user_id);
+			
+		//Aktuelles Datum speichern
+			date_default_timezone_set("Europe/Berlin");
+			$timestamp=time();
+			$datum= date('Y-m-d', $timestamp);
+			
+		//Speichern des aktuellen Datums bei Aktivierung von X
+		if ($_REQUEST['hide'])
+		{		
+			$_SESSION['gelesenam']='$datum';
+		}
 		
 			return new ViewModel([
 				'user' => array($user),
 				'gruppe' => array($gruppe),
 				'aktzahlung' => $aktzahlungliste,
-				'aktnachricht' => $aktnachrichtliste
+				'aktnachricht' => $aktnachrichtliste,
+				'aktdatum' => $datum
 		]);
 	}
 		
