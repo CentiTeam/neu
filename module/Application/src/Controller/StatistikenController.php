@@ -36,6 +36,10 @@ class StatistikenController extends AbstractActionController
   				if($_REQUEST["afterdate"] != null || $_REQUEST["beforedate"] != null){
   					$zahlungenliste = $this->datFilter($zahlungenliste,$_REQUEST["afterdate"], $_REQUEST["beforedate"]);
   				}
+  				if($_REQUEST["status[]"] != null){
+  					$zahlungenliste = $this->statusFilter($zahlungenliste, $_REQUEST["offen"],$_REQUEST["geschlossen"],$_REQUEST["ersteller"]);
+  				}
+  				
   			}		
 
   			return new ViewModel([
@@ -59,16 +63,23 @@ class StatistikenController extends AbstractActionController
  	return $filteredlist;
  	}
  	
-//  	function statusFilter($zahlungenliste, $kategorie_id){
-//  		$filteredlist = array();
-//  		foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
-//  			if($zahlungsteilnehmer->getZahlung()->getKategorie()->getK_id() == $kategorie_id){
-//  				$filteredlist[] =  $zahlungsteilnehmer;
-//  			}
-//  		}
-//  		return $filteredlist;
-//  		$zahlungsteilnehmer->getStatus()
-//  	}
+ 	function statusFilter($zahlungenliste, $offen, $geschlossen, $ersteller){
+ 		echo "status Funktion aufgerufen";
+ 		$filteredlist = array();
+ 		foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
+ 			if($zahlungsteilnehmer->getStatus()== 'offen' && $offen == true){
+ 				$filteredlist[] =  $zahlungsteilnehmer;
+ 			}
+ 			if($zahlungsteilnehmer->getStatus()== 'geschlossen' && $geschlossen == true){
+ 				$filteredlist[] =  $zahlungsteilnehmer;
+ 			}
+ 			if($zahlungsteilnehmer->getStatus()== 'ersteller' && $ersteller == true){
+ 				$filteredlist[] =  $zahlungsteilnehmer;
+ 			}
+ 		}
+ 		return $filteredlist;
+ 		$zahlungsteilnehmer->getStatus()
+ 	}
  	
  	
  	function datFilter($zahlungenliste, $afterdate, $beforedate){
