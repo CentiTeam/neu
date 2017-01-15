@@ -45,7 +45,7 @@ class StatistikenController extends AbstractActionController
    				if($_REQUEST["status"] != null){
    					echo " hey";
    					var_dump($_REQUEST["status[]"]);
-   					$zahlungenliste = $this->statusFilter($zahlungenliste, $_REQUEST["offen"],$_REQUEST["geschlossen"],$_REQUEST["ersteller"]);
+   					$zahlungenliste = $this->statusFilter($zahlungenliste, $_REQUEST["status[]"]);
    				
    				}
   				
@@ -72,17 +72,17 @@ class StatistikenController extends AbstractActionController
  	return $filteredlist;
  	}
  	
- 	function statusFilter($zahlungenliste, $offen, $geschlossen, $ersteller){
+ 	function statusFilter($zahlungenliste, $status[]){
  		echo "status Funktion aufgerufen";
  		$filteredlist = array();
  		foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
- 			if($zahlungsteilnehmer->getStatus()== 'offen' && $offen == 'offen'){
+ 			if($zahlungsteilnehmer->getStatus()== 'offen' && $status[0] == 'offen'){
  				$filteredlist[] =  $zahlungsteilnehmer;
  			}
- 			if($zahlungsteilnehmer->getStatus()== 'geschlossen' && $geschlossen == 'geschlossen'){
+ 			if($zahlungsteilnehmer->getStatus()== 'geschlossen' && $status[1] == 'geschlossen'){
  				$filteredlist[] =  $zahlungsteilnehmer;
  			}
- 			if($zahlungsteilnehmer->getStatus()== 'ersteller' && $ersteller == 'ersteller'){
+ 			if($zahlungsteilnehmer->getStatus()== 'ersteller' && $status[2] == 'ersteller'){
  				$filteredlist[] =  $zahlungsteilnehmer;
  			}
  		}
