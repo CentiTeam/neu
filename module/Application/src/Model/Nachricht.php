@@ -76,7 +76,7 @@ class Nachricht {
 	
 		
 		
-	}
+	
 	
 	
 	public function laden ($n_id = null) {
