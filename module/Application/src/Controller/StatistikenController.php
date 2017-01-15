@@ -63,23 +63,23 @@ class StatistikenController extends AbstractActionController
  	return $filteredlist;
  	}
  	
- 	function statusFilter($zahlungenliste, $offen, $geschlossen, $ersteller){
- 		echo "status Funktion aufgerufen";
- 		$filteredlist = array();
- 		foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
- 			if($zahlungsteilnehmer->getStatus()== 'offen' && $offen == 'offen'){
- 				$filteredlist[] =  $zahlungsteilnehmer;
- 			}
- 			if($zahlungsteilnehmer->getStatus()== 'geschlossen' && $geschlossen == 'geschlossen'){
- 				$filteredlist[] =  $zahlungsteilnehmer;
- 			}
- 			if($zahlungsteilnehmer->getStatus()== 'ersteller' && $ersteller == 'ersteller'){
- 				$filteredlist[] =  $zahlungsteilnehmer;
- 			}
- 		}
- 		return $filteredlist;
- 		$zahlungsteilnehmer->getStatus()
- 	}
+//  	function statusFilter($zahlungenliste, $offen, $geschlossen, $ersteller){
+//  		echo "status Funktion aufgerufen";
+//  		$filteredlist = array();
+//  		foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
+//  			if($zahlungsteilnehmer->getStatus()== 'offen' && $offen == 'offen'){
+//  				$filteredlist[] =  $zahlungsteilnehmer;
+//  			}
+//  			if($zahlungsteilnehmer->getStatus()== 'geschlossen' && $geschlossen == 'geschlossen'){
+//  				$filteredlist[] =  $zahlungsteilnehmer;
+//  			}
+//  			if($zahlungsteilnehmer->getStatus()== 'ersteller' && $ersteller == 'ersteller'){
+//  				$filteredlist[] =  $zahlungsteilnehmer;
+//  			}
+//  		}
+//  		return $filteredlist;
+//  		$zahlungsteilnehmer->getStatus()
+//  	}
  	
  	
  	function datFilter($zahlungenliste, $afterdate, $beforedate){
