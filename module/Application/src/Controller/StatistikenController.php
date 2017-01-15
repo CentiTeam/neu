@@ -72,8 +72,8 @@ class StatistikenController extends AbstractActionController
  		echo "status Funktion aufgerufen";
  		var_dump($status);
  		$filteredlist = array();
- 		foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
- 			foreach($status as $zaehler => $status){
+ 		foreach($status as $zaehler => $status){
+ 			foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
  				if($zahlungsteilnehmer->getStatus()== 'offen' && $status == 'offen'){
  					$filteredlist[] =  $zahlungsteilnehmer;
  				}
