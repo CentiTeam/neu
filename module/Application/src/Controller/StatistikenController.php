@@ -38,7 +38,7 @@ class StatistikenController extends AbstractActionController
   				}
    				if($_REQUEST["status[]"] != null){
    					$zahlungenliste = $this->statusFilter($zahlungenliste, $_REQUEST["offen"],$_REQUEST["geschlossen"],$_REQUEST["ersteller"]);
-   				var_dump($_REQUEST["offen"]);
+   				var_dump($_REQUEST["status[]"]);
    				}
   				
   			}		
