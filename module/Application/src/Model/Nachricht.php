@@ -41,7 +41,7 @@ class Nachricht {
 	}
 	
 	
-	public static function gruppennachrichten($g_id) {
+	public static function gruppennachrichten($u_id) {
 	
 		// Liste initialisieren
 		$nachrichtenListe = array ();
@@ -49,9 +49,9 @@ class Nachricht {
 		$db = new DB_connection();
 	
 		$query="SELECT * FROM `nachricht`
-				NATURAL JOIN gruppe NATURAL JOIN gruppenmitglied
-				WHERE gruppenmitglied.u_id= '".$user_id."'
-				ORDER BY g_id, datum DESC";
+				NATURAL JOIN user
+				WHERE user.u_id= '".$u_id."'
+				ORDER BY datum DESC";
 	
 		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
 		if ($result = $db->execute($query)) {
