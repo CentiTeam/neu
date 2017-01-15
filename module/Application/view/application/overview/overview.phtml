@@ -9,10 +9,12 @@
 <div class=>Hallo <?=$user[0]->getVorname();?>! Sie wurden erfolgreich eingeloggt.</div>
 <br>
 <br>
-<a onclick="text1.style.display='none';an.style.display='block1';zu.style.display='none'" id="zu" style="display: block1" href="#neu1"><img src="img/X.jpg" /></a>
+<form method="post">
+<!-- <a onclick="text1.style.display='none';an.style.display='block1';zu.style.display='none'" id="zu" style="display: block1" href="#neu1"><img src="img/X.jpg" /></a>
 <a onclick="text1.style.display='block1';an.style.display='none';zu.style.display='block1'" id="an" style="display: none" href="#neu1"></a>
 <a name="neu1"></a>
-<DIV id="text1" style="display: block1">
+<DIV id="text1" style="display: block1"> -->
+<button type="button" name="hide"><img src='img/X.jpg'/></button>
 <h4>In den letzten f&uumlnf Tagen wurden in Ihren Gruppen folgende Zahlungen erstellt:</h4>
 
 <table width="80%">
@@ -60,8 +62,8 @@
   </tr>
   <?php }?>
 </table>
-</div>
-
+<!-- </div> -->
+</form>
 	
 <?php }
 ?>
