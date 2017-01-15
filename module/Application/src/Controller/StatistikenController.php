@@ -42,10 +42,7 @@ class StatistikenController extends AbstractActionController
 //   				}
   				
    				if($_REQUEST["status"] != null){
-   					echo " hey";
-   					var_dump($_REQUEST["status[]"]);
    					$zahlungenliste = $this->statusFilter($zahlungenliste, $_REQUEST["status"]);
-   				
    				}
   				
   			}		
