@@ -60,7 +60,6 @@ class GroupshowController extends AbstractActionController
 			
 		}
 		
-		
 		$aktnachrichtliste=Nachricht::aktuellenachrichten($user_id);
 		
 		
@@ -101,7 +100,7 @@ class GroupshowController extends AbstractActionController
 					'gruppe' => array($gruppe),
 					'mitgliederListe' => $mitgliederliste,
 					'mitgliedschaft' => $mitgliedschaft,
-					'grpnachricht' => $gruppennachrichtliste,
+					'aktnachricht' => $aktuellenachrichtliste,
 					
 			
 			
@@ -115,7 +114,7 @@ class GroupshowController extends AbstractActionController
 				'gruppe' => array($gruppe),
 				'mitgliederListe' => $mitgliederliste,
 				'mitgliedschaft' => $mitgliedschaft,
-				'grpnachricht' => $gruppennachrichtliste,
+				'aktnachricht' => $aktuellenachrichtliste,
 			
 					
 		]);
