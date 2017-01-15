@@ -72,7 +72,7 @@ class StatistikenController extends AbstractActionController
  	return $filteredlist;
  	}
  	
- 	function statusFilter($zahlungenliste, $status[]){
+ 	function statusFilter($zahlungenliste, $status){
  		echo "status Funktion aufgerufen";
  		$filteredlist = array();
  		foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
