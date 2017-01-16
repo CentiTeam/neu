@@ -41,7 +41,9 @@ class UsersuchenController extends AbstractActionController
 			$gruppe->laden($g_id);
 			
 			$liste = User::gruppensuchlisteHolen($suche, $g_id);
-			var_dump( $liste);
+			
+			echo $suche;
+			echo $g_id;
 			echo "hallo";
 			
 			if ($_REQUEST['einladen']) {
