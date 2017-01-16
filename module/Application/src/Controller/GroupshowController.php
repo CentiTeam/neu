@@ -31,23 +31,26 @@ class GroupshowController extends AbstractActionController
 		
 		if ($_REQUEST['gruppenadmin']) {
 			
+			/**
 			$gruppenadmins=array();
 			$i=0;
+			$j=0;
 			
-			foreach ($_POST['gruppenadminwert'] as $zaehler => $admin) {
+			foreach ($_POST['gruppenadminwert'] as $admin) {
 				$gruppenadmins[]=$admin;
+				
 				$i++;
 			}
 			
-			$j=0;
-			foreach ($_POST['u_id'] as $counter => $u_id) {
-				if ($j==$i) { 
+			foreach ($_POST['u_id'] as $u_id) {
+				if ($j==$i) {
 					$admin_U_id=$u_id;
 				}
-				
+			
 				$j++;
 			}
-			
+			*/
+			$admin_U_id=$_GET['u_id'];
 			echo "User_id:";
 			echo $admin_U_id;
 			
