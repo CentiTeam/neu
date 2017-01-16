@@ -83,7 +83,7 @@ class GruppeverlassenController extends AbstractActionController
 			$msg = "";
 				
 			// wenn der Ladevorgang erfolgreich war, wird versucht die Gruppe zu l�schen
-			if ($isOK && $gruppenmitglied->loeschen ($g_id, $user->getU_id())) {
+			if ($isOK && $gruppenmitglied->verlassen ($g_id, $user->getU_id())) {
 
 
 				// ausgeben, dass die Gruppe gel�scht wurde (kein Template n�tig!)

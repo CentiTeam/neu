@@ -47,6 +47,27 @@ class Gruppenmitglied {
 		
 		return $result;
 	}
+	
+	public function verlassen ($gruppe_id, $user_id) {
+	
+		// Datenbankstatement erzeugen
+		$db = new DB_connection();
+	
+		// Abfrage bauen
+		$query = "DELETE FROM gruppenmitglied WHERE g_id= '".$gruppe_id."' AND '".$user_id."' ";
+	
+		// Loeschen des Gruppe-Datensatzes
+		$result = $db->execute($query);
+	
+	
+		// speichert, ob mindestens eine Zeile gel�scht wurde
+		// dies ist gleichbedeutet mit der Information, ob eine Gruppe gel�scht wurde
+		//$deleted = mysqli_affected_rows() > 0;
+		//return $deleted;
+	
+		// R�ckgabe, ob die Gruppenmitgliedschaft gel�scht wurde oder nicht
+		return $result;
+	}
 		
 	public function laden ($g_id, $u_id) {
 	
