@@ -71,7 +71,7 @@ class GroupshowController extends AbstractActionController
 		}
 		$user_id=$_SESSION['user']->getU_id();
 		
-		$aktnachrichtliste=Nachricht::aktuellenachrichten($user_id);
+		$aktnachrichtliste=Nachricht::messageboard($user_id);
 		
 		if ($_REQUEST['abschicken']) {
 			
