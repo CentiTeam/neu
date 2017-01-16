@@ -45,7 +45,7 @@ class GroupshowController extends AbstractActionController
 			}
 			
 			echo "User_id:";
-			echo $u_ids[$i+1];
+			echo $u_ids[$i];
 			
 			if ($u_ids[$i+1]=="1") {
 				$adminaenderung="0";
@@ -57,6 +57,8 @@ class GroupshowController extends AbstractActionController
 			
 			$gruppenmitglied=new Gruppenmitglied();
 			$gruppenmitglied->laden($_REQUEST['g_id'],$u_ids[$i+1]);
+			
+			
 			
 			$gruppenmitglied->bearbeiten($adminaenderung);
 			
