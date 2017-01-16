@@ -39,7 +39,7 @@ class Gruppenmitglied {
 		$db = new DB_connection();
 		
 		$query = "UPDATE gruppenmitglied SET
-				gruppenadmin = '".$admin."',
+				gruppenadmin = '".$admin."'
 				WHERE g_id = '".$this->getGruppe()->getG_id()."' AND u_id='".$this->getUser()->getU_id()."'
 				";
 		
