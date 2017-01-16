@@ -1,7 +1,7 @@
 <?=$msg?>
 <h1>Kategorien</h1>
 <center>
-<table width="60%" border = 0>
+<table width="30%" border="0">
 <tr>
 
 <th> Kategorie-ID	</th>
@@ -12,7 +12,7 @@
 	foreach ($kategorieListe as $zaehler => $kategorie) {
 	?>
 <tr>
-			<td width="17%">	<?=$kategorie->getK_id()?>															</td>
+			<td>	<?=$kategorie->getK_id()?>															</td>
 			<td>	<?=$kategorie->getKategoriebeschreibung()?>											</td>
 			<td> 	<a href='kategorieedit?k_id=<?=$kategorie->getK_id()?>'><img src="img/edit.jpg" /></a> 	</td>
 </tr>
