@@ -131,7 +131,6 @@ class Nachricht {
 		$query="SELECT * FROM `nachricht`
 				NATURAL JOIN User
 				WHERE User.u_id= '".$user_id."' 
-		
 				ORDER BY datum DESC";
 	
 		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
@@ -144,7 +143,7 @@ class Nachricht {
 				$model = new Nachricht();
 	
 				// Model anhand der Nummer aus der Datenbankabfrage laden
-				$model->laden($row["n_id"]);
+				$model->messageboardladen($row["n_id"]);
 	
 				// neues Model ans Ende des $gruppeListe-Arrays anf�gen
 				$aktuelleListe[] = $model;
