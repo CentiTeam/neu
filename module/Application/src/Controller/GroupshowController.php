@@ -38,7 +38,7 @@ class GroupshowController extends AbstractActionController
 		if ($mitglied==false) {
 		
 			$errStr="Nicht berechtigt!";
-			$gruppenliste=Gruppe::eigenelisteholen($user_id);
+			$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
 		
 		
 			$view = new ViewModel([
