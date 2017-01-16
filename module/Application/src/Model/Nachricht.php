@@ -129,8 +129,6 @@ class Nachricht {
 		$db = new DB_connection();
 	
 		$query="SELECT * FROM `nachricht`
-				NATURAL JOIN User
-				WHERE User.u_id= '".$user_id."' 
 				ORDER BY datum DESC";
 	
 		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
