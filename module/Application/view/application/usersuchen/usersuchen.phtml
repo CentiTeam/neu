@@ -2,7 +2,7 @@
 <h3>Die Suche ergab folgende Ergebnisse:</h3>
 <br><br>
 <center>
-<table border="0" width="80%">
+<table border="0" width="90%">
 <tr>
 <th> User-ID 		</th>
 <th> Benutzername 	</th>
@@ -21,7 +21,7 @@
 	foreach ($suchuserListe as $zaehler => $user) {
 	?>
 <tr>
-			<td>	<?=$user->getU_id()?>			</td>
+			<td height="45">	<?=$user->getU_id()?>			</td>
 			<td>	<?=$user->getUsername()?>		</td>
 			<td>	<?=$user->getVorname()?>		</td>
 			<td>	<?=$user->getNachname()?>		</td>
