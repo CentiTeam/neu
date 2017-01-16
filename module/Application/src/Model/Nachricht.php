@@ -48,11 +48,12 @@ class Nachricht {
 		// DB-Befehl absetzen: alle Basisinformationen des Teams mit der �bergebenen $t_id abfragen
 	
 	
-		
-			$result=$dbStmt->execute("SELECT * FROM nachricht WHERE n_id= '".$n_id."'
-										AND g_id = '".$g_id."';");
-		
-		
+		if ($n_id) {
+			$result=$dbStmt->execute("SELECT * FROM nachricht WHERE n_id= '".$n_id."' AND g_id = '".$g_id."';");
+		}
+		else {
+			$result=$dbStmt->execute("SELECT * FROM nachricht WHERE n_id =(SELECT MAX(n_id) FROM nachricht) AND g_id = '".$g_id."'");
+		}
 		// Variable, die speichert, ob das Team geladen werden konnte oder nicht
 		$isLoaded=false;
 	
