@@ -175,7 +175,7 @@ class GruppeanlegenController extends AbstractActionController {
 				 }
 				 */
 				 
-				 $mitgliederliste=Gruppenmitglied::gruppenmitgliederlisteHolen($g_id);
+				 $mitgliederliste=Gruppenmitglied::gruppenmitgliederlisteHolen($gruppen_id);
 				 
 				 
 				 $view = new ViewModel([
