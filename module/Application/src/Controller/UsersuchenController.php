@@ -47,6 +47,7 @@ class UsersuchenController extends AbstractActionController
 				
 				$msg="";
 				
+				// Variablen füllen für E-mail-Text
 				$empfaenger= new User();
 				$empfaenger->laden($_REQUEST['u_id']);
 				$empfaengerMail=$empfaenger->getEmail();
@@ -59,31 +60,14 @@ class UsersuchenController extends AbstractActionController
 				$gruppenName=$gruppe->getGruppenname();
 				$gruppen_id=$gruppe->getG_id();
 				$empfaenger_id=$empfaenger->getU_id();
-				//$link=132.231.36.206/einladungannehmen;
-				//echo "<a href='einladungannehmen?g_id=<?=$gruppe->getG_id()
 				
+				
+				// Variablen für Mail füllen: $empfaenger, $betreff, $text, $header
 				$empfaenger = "$empfaengerMail";
 				$betreff = "Grouppay: Einladung in die Gruppe $gruppenName";
 				
-				//kann weg
-				//$link="http://132.231.36.206/einladungannehmen?g_id=$g_id&u_id=$empfaenger_id";
-				////	$link";
 				
-				$link= "<a href=\"http://132.231.36.206/einladungannehmen?g_id=$g_id&u_id=$empfaenger_id\">Einladung annehmen</a>";
-
-/**
-$text="				
-Hallo $empfaengerVorname!
-
-Du wurdest von $absenderVorname $absenderNachname in die Gruppe $gruppenName eingeladen.
-
-&Uuml;ber diesen Link kannst Du die Einladung annehmen:
-$link
-
-Viele Gr&uuml;&szlig;e
-Dein Grouppay-Team
-";
-*/		
+				$link= "<a href=\"http://132.231.36.206/einladungannehmen?g_id=$g_id&u_id=$empfaenger_id\">Einladung annehmen</a>";		
 
 				$text=
 				"<html>
