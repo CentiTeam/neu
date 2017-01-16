@@ -68,7 +68,7 @@
 	<?php 
 	foreach ($mitgliederListe as $zaehler => $gruppenmitglied) {
 	?>
-		<form action="groupshow?u_id=<? echo $gruppenmitglied->getUser()->getU_id(); ?>" method="post"> 
+		<form method="post"> 
 		<tr>
 			<td><div class="small-circular-image"><img src =<?=$gruppenmitglied->getUser()->getTeilnehmerbildpfad()?> height = "100" width = "100" alt = "Kein Bild vorhanden"></div></td>
 			<td><?=$gruppenmitglied->getUser()->getVorname()?></td>
