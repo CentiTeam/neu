@@ -126,7 +126,7 @@ class Nachricht {
 	
 		$query="SELECT * FROM `nachricht`
 				NATURAL JOIN User
-				WHERE g_id = '".$g_id."'
+			
 				AND User.u_id= '".$user_id."' 	
 				ORDER BY datum DESC LIMIT 10";
 	
