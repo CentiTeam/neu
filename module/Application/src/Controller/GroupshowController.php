@@ -19,6 +19,7 @@ class GroupshowController extends AbstractActionController
 		session_start();
 		
 		$user_id=$_SESSION['user']->getU_id();
+		
 	
 		// Gruppen-Objekt laden
 		$gruppe= new Gruppe();
@@ -70,6 +71,7 @@ class GroupshowController extends AbstractActionController
 			
 		}
 		$user_id=$_SESSION['user']->getU_id();
+		$g_id=$_REQUEST ['g_id'];
 		
 		$aktnachrichtliste=Nachricht::messageboard($user_id);
 		

@@ -117,7 +117,7 @@ class Nachricht {
 	}
 	
 	
-	public static function messageboard($user_id) {
+	public static function messageboard($user_id, $g_id) {
 	
 		// Liste initialisieren
 		$nachrichtenListe = array ();
@@ -126,7 +126,8 @@ class Nachricht {
 	
 		$query="SELECT * FROM `nachricht`
 				NATURAL JOIN User
-				WHERE User.u_id= '".$user_id."' 
+				WHERE User.u_id= '".$user_id."' 								
+				AND g_id ='".$this->g_id."'										 
 				ORDER BY datum DESC LIMIT 10";
 	
 		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
