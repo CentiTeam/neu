@@ -54,7 +54,7 @@ class Gruppenmitglied {
 		$db = new DB_connection();
 	
 		// Abfrage bauen
-		$query = "DELETE FROM gruppenmitglied WHERE g_id= '".$gruppe_id."' AND '".$user_id."' ";
+		$query = "DELETE FROM gruppenmitglied WHERE g_id= '".$gruppe_id."' AND u_id = '".$user_id."' ";
 	
 		// Loeschen des Gruppe-Datensatzes
 		$result = $db->execute($query);
