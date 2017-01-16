@@ -41,7 +41,7 @@ class Nachricht {
 	}
 	
 	
-	public function messageboardladen ($n_id = null) {
+	public function messageboardladen () {
 	
 		// Datenbankstatement erzeugen
 		$dbStmt = new DB_connection();
@@ -49,12 +49,10 @@ class Nachricht {
 		// DB-Befehl absetzen: alle Basisinformationen des Teams mit der �bergebenen $t_id abfragen
 	
 	
-		if ($n_id) {
-			$result=$dbStmt->execute("SELECT * FROM nachricht WHERE n_id= '".$n_id."';");
-		}
-		else {
-			$result=$dbStmt->execute("SELECT * FROM nachricht WHERE n_id =(SELECT MAX(n_id) FROM nachricht)");
-		}
+		
+			$result=$dbStmt->execute("SELECT * FROM nachricht;");
+		
+		
 		// Variable, die speichert, ob das Team geladen werden konnte oder nicht
 		$isLoaded=false;
 	
