@@ -25,7 +25,6 @@
 
 <table width="80%">
   <tr>
-    <th width="15%">Gruppe</th>
     <th width="15%">Absender</th>
     <th width="15%">Datum</th>
     <th>Nachricht</th>
@@ -34,7 +33,6 @@
   <?php foreach ($aktnachricht as $zaehler => $nachricht) {?>
   
   <tr>
-    <td><?=$nachricht->getGruppe()->getGruppenname()?></td>
     <td><?=$nachricht->getUser()->getUsername()?></td>
     <td><?=$nachricht->getdatum()?> 
     <td><?=$nachricht->getText()?></td>
