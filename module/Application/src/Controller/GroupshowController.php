@@ -19,12 +19,39 @@ class GroupshowController extends AbstractActionController
 		session_start();
 		
 		$user_id=$_SESSION['user']->getU_id();
+		$errStr="";
 		
-	
 		// Gruppen-Objekt laden
 		$gruppe= new Gruppe();
 		$g_id=$_REQUEST['g_id'];
 		$gruppe->laden($g_id);
+		
+		$allegruppenliste=Gruppenmitglied::listeholen();
+		
+		$mitglied=false;
+		foreach ($allegruppenliste as $mitgliedschaft) {
+			if ($mitgliedschaft->getUser()->getU_id()==$user_id && $mitgliedschaft->getGruppe()->getG_id()==$g_id) {
+				$mitglied=false;
+			}
+		}
+		
+		if ($mitglied==false) {
+		
+			$errStr="Nicht berechtigt!";
+			$gruppenliste=Gruppe::eigenelisteholen($user_id);
+		
+		
+			$view = new ViewModel([
+					'gruppenListe' => $gruppenliste,
+					'u_id' => $user_id,
+					'err' => $errStr
+			]);
+		
+			$view->setTemplate('application/groupoverview/groupoverview.phtml');
+		
+			return $view;
+		}
+	
 		
 		$mitgliederliste=Gruppenmitglied::gruppenmitgliederlisteHolen($g_id);
 		
@@ -33,27 +60,31 @@ class GroupshowController extends AbstractActionController
 		
 		if ($_REQUEST['gruppenadmin']) {
 			
-			
-			$admin_U_id=$_REQUEST['u_id'];
-			echo "User_id:";
-			echo $admin_U_id;
-			
-
-			$gruppenmitglied=new Gruppenmitglied();
-			$gruppenmitglied->laden($_REQUEST['g_id'],$admin_U_id);
-			
-			
-			if ($gruppenmitglied->getGruppenadmin()=="1") {
-				$adminaenderung="0";
-			} else {
-				$adminaenderung="1";
+			if ($aktgruppenmitglied->getGruppenadmin()=="0") {
+				$errStr="Nicht berechtigt!";
 			}
 			
-			echo "Adminaenderung:";
-			echo $adminaenderung;
+			if ($errStr=="") {
+				$admin_U_id=$_REQUEST['u_id'];
+				echo "User_id:";
+				echo $admin_U_id;
 			
-			$gruppenmitglied->bearbeiten($adminaenderung);
+
+				$gruppenmitglied=new Gruppenmitglied();
+				$gruppenmitglied->laden($_REQUEST['g_id'],$admin_U_id);
 			
+			
+				if ($gruppenmitglied->getGruppenadmin()=="1") {
+					$adminaenderung="0";
+				} else {
+					$adminaenderung="1";
+				}
+			
+				echo "Adminaenderung:";
+				echo $adminaenderung;
+			
+				$gruppenmitglied->bearbeiten($adminaenderung);
+			}
 		}
 		
 		$nachricht = new Nachricht();
