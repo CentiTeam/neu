@@ -49,10 +49,10 @@ class Nachricht {
 	
 	
 		if ($n_id) {
-			$result=$dbStmt->execute("SELECT * FROM nachricht WHERE n_id= '".$n_id."' AND g_id = '".$g_id."';");
+			$result=$dbStmt->execute("SELECT * FROM nachricht WHERE n_id= '".$n_id."' ;");
 		}
 		else {
-			$result=$dbStmt->execute("SELECT * FROM nachricht WHERE n_id =(SELECT MAX(n_id) FROM nachricht) AND g_id = '".$g_id."'");
+			$result=$dbStmt->execute("SELECT * FROM nachricht WHERE n_id =(SELECT MAX(n_id) FROM nachricht)'");
 		}
 		// Variable, die speichert, ob das Team geladen werden konnte oder nicht
 		$isLoaded=false;
