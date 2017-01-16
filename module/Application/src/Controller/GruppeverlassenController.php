@@ -6,6 +6,7 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Model\Gruppe;
 use Application\Model\Gruppenmitglied;
+use Application\Model\User;
 
 #TODO @Tanja Fehler abpr�fen!
 
