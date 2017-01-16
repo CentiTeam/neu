@@ -59,7 +59,7 @@
 			<td><?=$gruppenmitglied->getUser()->getVorname()?></td>
 			<td><?=$gruppenmitglied->getUser()->getNachname()?></td>
 			<td><?=$gruppenmitglied->getUser()->getUsername()?></td>
-			<td><?php
+			<?php
 			if ($gruppenmitglied->getGruppenadmin() == "1") {
 				?>
 					<td>ja</td>
@@ -69,7 +69,7 @@
 			<?php 
 				}		
 			?>
-			 
+			<input type="hidden" name="gruppenadminwert" value="<?=$gruppenmitglied->getGruppenadmin()?>">
 			<td><input type="submit" name="gruppenadmin" value="Gruppenadminrechte &auml;ndern"><img src="img/add.jpg" /></td>
 		</tr>
 

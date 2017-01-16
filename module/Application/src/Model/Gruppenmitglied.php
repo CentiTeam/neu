@@ -33,6 +33,7 @@ class Gruppenmitglied {
 		return $result;
 	}
 	
+	// Gruppenadminrechte vergeben/entziehen
 	public function bearbeiten ($admin) {
 		
 		$db = new DB_connection();
