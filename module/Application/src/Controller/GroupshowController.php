@@ -70,6 +70,7 @@ class GroupshowController extends AbstractActionController
 			$gruppenmitglied->bearbeiten($adminaenderung);
 			
 		}
+		$nachricht = new Nachricht();
 		$user_id=$_SESSION['user']->getU_id();
 		$g_id=$_REQUEST ['g_id'];
 		$nachricht->setG_id ($g_id);
