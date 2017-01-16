@@ -1,10 +1,10 @@
 <?=$msg?>
 <h1>Kategorien</h1>
 <center>
-<table border = 1>
+<table border = 0>
 <tr>
 
-<th> Kategorie-ID	</th>
+<th align="center"> Kategorie-ID	</th>
 <th> Kategoriebeschreibung 	</th>
 
 </tr>
@@ -12,7 +12,7 @@
 	foreach ($kategorieListe as $zaehler => $kategorie) {
 	?>
 <tr>
-			<td>	<?=$kategorie->getK_id()?>															</td>
+			<td align="center">	<?=$kategorie->getK_id()?>															</td>
 			<td>	<?=$kategorie->getKategoriebeschreibung()?>											</td>
 			<td> 	<a href='kategorieedit?k_id=<?=$kategorie->getK_id()?>'><img src="img/edit.jpg" /></a> 	</td>
 </tr>
