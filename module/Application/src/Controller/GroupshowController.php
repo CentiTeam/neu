@@ -61,9 +61,9 @@ class GroupshowController extends AbstractActionController
 				$adminaenderung="1";
 			}
 			
-			//echo $adminaenderung;
-			
 			$gruppenmitglied=new Gruppenmitglied();
+			
+			$gruppenmitglied->laden($_REQUEST['gruppenmitglied"']->getGruppe()->getG_id(),$_REQUEST["gruppenmitglied"]->getUser()->getU_id());
 			
 			$gruppenmitglied->bearbeiten($adminaenderung);
 			
