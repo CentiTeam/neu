@@ -54,7 +54,7 @@ class GroupshowController extends AbstractActionController
 		
 		*/
 		
-		 
+		
 		if ($_REQUEST['gruppenadmin']) {
 			echo $_REQUEST['gruppenadminwert'];
 			if ($_REQUEST['gruppenadminwert']=="1") {
@@ -62,8 +62,6 @@ class GroupshowController extends AbstractActionController
 			} else {
 				$adminaenderung="1";
 			}
-			
-			echo $adminaenderung;
 			
 			$gruppenmitglied=new Gruppenmitglied();
 			
