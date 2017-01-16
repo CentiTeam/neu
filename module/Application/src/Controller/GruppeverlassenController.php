@@ -13,7 +13,7 @@ use Application\Model\User;
 class GruppeverlassenController extends AbstractActionController
 {
 
-	public function groupverlassenAction() {
+	public function gruppeverlassenAction() {
 
 		session_start();
 
