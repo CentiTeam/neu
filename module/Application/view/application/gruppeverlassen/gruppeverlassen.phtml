@@ -1,0 +1,10 @@
+<form method='post'>
+
+<input type='hidden' name='g_id' value='<?=$gruppe->getG_id()?>'>
+
+Willst Du die Gruppe #<?=$gruppenmitglied->getGruppe()->getG_id()?> '<?=$gruppenmitglied->getGruppe()->getGruppenname()?>' wirklich verlassen?
+		
+	<input class='button' type='submit' name='send' value='Ja'>
+	<input class='button' type='submit' name='abbrechen' value='Nein'>
+		
+</form>
