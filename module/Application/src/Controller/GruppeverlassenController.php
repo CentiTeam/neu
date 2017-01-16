@@ -95,7 +95,7 @@ class GruppeverlassenController extends AbstractActionController
 
 				// ausgeben, dass das Team nicht gel�scht werden konnte (kein Template n�tig!)
 				$msg .= "Fehler beim L&ouml;schen der Gruppenmitgliedschaft!<br>";
-				return sprintf ( "<div class='error'>Fehler beim L&ouml;schen der Gruppenmitglieschaft in Gruppe #%s %s!</div>" ,$gruppe->getG_id (), $gruppe->getGruppenname () );
+				return sprintf ( "<div class='error'>Fehler beim L&ouml;schen der Gruppenmitglieschaft in Gruppe #%s %s!</div>" ,$gruppenmitglied->getGruppe()->getG_id (), $gruppenmitglied->getGruppe()->getGruppenname () );
 			}
 		} else {
 
