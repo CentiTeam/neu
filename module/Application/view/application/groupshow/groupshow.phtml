@@ -83,7 +83,7 @@
 					<td>nein</td> 
 			<?php 
 			}	
-			if ($aktgruppenmitglied->getGruppenadmin()=="1") {
+			if ($aktgruppenmitglied->getGruppenadmin()=="1" && $aktgruppenmitglied != $gruppenmitglied) {
 			?>
 			<form action="groupshow" method="post"> 
 			<input type="hidden" name="gruppenadminwert" value="<?=$gruppenmitglied->getGruppenadmin()?>">
