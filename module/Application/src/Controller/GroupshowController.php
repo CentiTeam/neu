@@ -10,6 +10,7 @@ use Application\Model\Gruppenmitglied;
 use Application\Model\Nachricht;
 
 
+
 class GroupshowController extends AbstractActionController
 {
 	public function GroupshowAction()
@@ -69,7 +70,7 @@ class GroupshowController extends AbstractActionController
 			
 		}
 		
-		
+		$user_id=$_SESSION['user']->getU_id();
 		$grpnachrichtliste=Nachricht::messageboard($user_id);
 		
 		if ($_REQUEST['abschicken']) {
@@ -109,7 +110,6 @@ class GroupshowController extends AbstractActionController
 					'gruppe' => array($gruppe),
 					'mitgliederListe' => $mitgliederliste,
 					'mitgliedschaft' => $mitgliedschaft,
-					'aktnachricht' => $aktuellenachrichtliste,
 					
 			
 			
