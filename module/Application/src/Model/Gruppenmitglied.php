@@ -49,7 +49,7 @@ class Gruppenmitglied {
 	}
 	
 	public function verlassen ($gruppe_id, $user_id) {
-	
+		echo "Hallo";
 		// Datenbankstatement erzeugen
 		$db = new DB_connection();
 	
