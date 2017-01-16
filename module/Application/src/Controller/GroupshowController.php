@@ -18,7 +18,7 @@ class GroupshowController extends AbstractActionController
 		
 		session_start();
 		
-		$user_id=$_SESSION['user']->getU_id();
+		$user=$_SESSION['user'];
 		$errStr="";
 		
 		// Gruppen-Objekt laden
@@ -30,7 +30,7 @@ class GroupshowController extends AbstractActionController
 		
 		$mitglied=false;
 		foreach ($allegruppenliste as $mitgliedschaft) {
-			if ($mitgliedschaft->getUser()->getU_id()==$user_id && $mitgliedschaft->getGruppe()->getG_id()==$g_id) {
+			if ($mitgliedschaft->getUser()->getU_id()==$user->getU_id() && $mitgliedschaft->getGruppe()->getG_id()==$g_id) {
 				$mitglied=true;
 			}
 		}
@@ -38,12 +38,12 @@ class GroupshowController extends AbstractActionController
 		if ($mitglied==false) {
 		
 			$errStr="Nicht berechtigt!";
-			$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
+			$gruppenliste=Gruppenmitglied::eigenelisteholen($user->getU_id());
 		
 		
 			$view = new ViewModel([
 					'gruppenListe' => $gruppenliste,
-					'u_id' => $user_id,
+					'u_id' => $user->getU_id(),
 					'err' => $errStr
 			]);
 		
@@ -60,7 +60,7 @@ class GroupshowController extends AbstractActionController
 		
 		if ($_REQUEST['gruppenadmin']) {
 			
-			if ($aktgruppenmitglied->getGruppenadmin()=="0") {
+			if ($aktgruppenmitglied->getGruppenadmin()=="0" || $aktgruppenmitglied->getUser()->getU_id() == $user->getU_id()) {
 				$errStr="Nicht berechtigt!";
 			}
 			
