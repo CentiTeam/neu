@@ -31,7 +31,7 @@ class GroupshowController extends AbstractActionController
 		$mitglied=false;
 		foreach ($allegruppenliste as $mitgliedschaft) {
 			if ($mitgliedschaft->getUser()->getU_id()==$user_id && $mitgliedschaft->getGruppe()->getG_id()==$g_id) {
-				$mitglied=false;
+				$mitglied=true;
 			}
 		}
 		
