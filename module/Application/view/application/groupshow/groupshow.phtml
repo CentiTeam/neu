@@ -84,7 +84,7 @@
 			<?php 
 				}		
 			?>
-			<form method="post"> 
+			<form action="groupshow?u_id=<? echo $gruppenmitglied->getUser()->getU_id() ?>" method="post"> 
 			<input type="hidden" name="gruppenadminwert" value="<?=$gruppenmitglied->getGruppenadmin()?>">
 			<input type="hidden" name="g_id" value="<?=$gruppenmitglied->getGruppe()->getG_id()?>">
 			<input type="hidden" name="u_id" value="<?=$gruppenmitglied->getUser()->getU_id()?>">
