@@ -99,7 +99,8 @@ class UsersuchenController extends AbstractActionController
 			$view = new ViewModel([
 					'suchuserListe' => $liste,
 					'gruppe' => array($gruppe),
-					'msg' => $msg
+					'msg' => $msg,
+					'suche' => $suche
 			]);
 				
 			$view->setTemplate('application/teilnehmersuchetabelle/teilnehmersuchetabelle.phtml');
