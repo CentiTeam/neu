@@ -69,9 +69,9 @@ class GroupshowController extends AbstractActionController
 			$gruppenmitglied->bearbeiten($adminaenderung);
 			
 		}
-		
 		$user_id=$_SESSION['user']->getU_id();
-		$grpnachrichtliste=Nachricht::messageboard($user_id);
+		
+		$aktnachrichtliste=Nachricht::aktuellenachrichten($user_id);
 		
 		if ($_REQUEST['abschicken']) {
 			
