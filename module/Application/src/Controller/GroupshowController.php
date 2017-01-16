@@ -106,14 +106,7 @@ class GroupshowController extends AbstractActionController
 			
 			$nachricht->sendMessage();
 				
-			return new ViewModel([
-					'gruppe' => array($gruppe),
-					'mitgliederListe' => $mitgliederliste,
-					'mitgliedschaft' => $mitgliedschaft,
-					'aktnachricht' => $aktnachrichtliste,
-						
-						
-			]);
+		
 			
 		}
 		
