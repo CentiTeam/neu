@@ -23,6 +23,10 @@
 
 <br><br>
 
+<a onclick="text1.style.display='block';an.style.display='none';zu.style.display='block'" id="an" style="display: none" href="#neu">Message Board anzeigen</a>
+<a onclick="text1.style.display='none';an.style.display='block';zu.style.display='none'" id="zu" style="display: block" href="#neu">Message Board ausblenden</a>
+<a name="neu"></a><DIV id="text1" style="display: block">
+
 <table width="80%">
   <tr>
     <th width="15%">Absender</th>
@@ -40,6 +44,10 @@
   <?php }?>
 </table>
 
+</div>
+
+<br>
+
 <form  method='post'>
     <label>Nachricht:</label><br>
     <textarea name="text" required rows="5" cols="40"></textarea>
@@ -53,7 +61,7 @@
 <br><br><br>
 
 <form>
-<table>
+<table width="70%" border="0">
 	<tr><th>Gruppenmitglieder:</th></tr>
 	<tr>
 		<th></th>
