@@ -49,7 +49,7 @@ class Gruppenmitglied {
 	}
 	
 	public function verlassen ($gruppe_id, $user_id) {
-		echo "Hallo";
+		
 		// Datenbankstatement erzeugen
 		$db = new DB_connection();
 	
@@ -58,12 +58,6 @@ class Gruppenmitglied {
 	
 		// Loeschen des Gruppe-Datensatzes
 		$result = $db->execute($query);
-	
-	
-		// speichert, ob mindestens eine Zeile gel�scht wurde
-		// dies ist gleichbedeutet mit der Information, ob eine Gruppe gel�scht wurde
-		//$deleted = mysqli_affected_rows() > 0;
-		//return $deleted;
 	
 		// R�ckgabe, ob die Gruppenmitgliedschaft gel�scht wurde oder nicht
 		return $result;

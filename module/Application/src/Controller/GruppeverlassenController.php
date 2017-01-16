@@ -64,15 +64,16 @@ class GruppeverlassenController extends AbstractActionController
 			$user_id=$_SESSION['user']->getU_id();
 				
 			// L�sung ist hier mit Objektorientierung
-			$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
+			
+			$mitgliederliste=Gruppenmitglied::gruppenmitgliederlisteHolen($g_id);
 				
 			$view = new ViewModel([
-					'gruppenListe' => $gruppenliste,
+					'mitgliederListe' => $mitgliederliste,
 					'u_id' => $user_id,
 					'msg' => $msg
 			]);
 
-			$view->setTemplate('application/groupoverview/groupoverview.phtml');
+			$view->setTemplate('application/groupshow/groupshow.phtml');
 				
 			return $view;
 		}
@@ -84,10 +85,6 @@ class GruppeverlassenController extends AbstractActionController
 				
 			// wenn der Ladevorgang erfolgreich war, wird versucht die Gruppe zu l�schen
 			if ($gruppenmitglied->verlassen ($g_id, $user->getU_id())) {
-
-
-				// ausgeben, dass die Gruppe gel�scht wurde (kein Template n�tig!)
-				// array_push($msg, "Gruppe erfolgreich gel�scht!");
 
 				$msg .= "Gruppenmitgliedschaft erfolgreich gel&ouml;scht!<br>";
 
