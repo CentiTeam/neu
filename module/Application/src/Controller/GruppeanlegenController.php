@@ -15,10 +15,6 @@ class GruppeanlegenController extends AbstractActionController {
 	function gruppeanlegenAction() {
 		// TODO Berechtigungspr�fung
 		session_start();
-		
-		//var_dump($_SESSION['angemeldet']);
-		//echo "User_id:";
-		//var_dump($user->getU_id());
 
 		$errors = array();
 
@@ -152,28 +148,6 @@ class GruppeanlegenController extends AbstractActionController {
 
 				 }
 				 
-				/**
-				 // Liste der User-Objekte der Gruppenmitglieder holen
-				 $mitgliederliste = User::gruppenmitgliederlisteholen($gruppe->getG_id());
-				 
-				 $mitgliedschaft=array();
-				 
-				 // F�r jedes Gruppenmitglied mit die Gruppenmitgliedschafts-Infos (inkl. Gruppenadmin) laden
-				 // und Mitgliedschaftsinfos in Array speichern, wenn Gruppenmitgliedschaft besteht
-				 foreach ($mitgliederliste as $mitglied) {
-				 		
-				 	// Gruppenmitglied instanzieren
-				 	$gruppenmitglied= new Gruppenmitglied();
-				 	$gruppenmitglied->laden ($gruppe->getG_id(), $mitglied->getU_id());
-				 		
-				 	// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter bef�llt
-				 	if ($gruppenmitglied->getUser() == $mitglied->getU_id()) {
-				 
-				 		$mitgliedschaft[]=$gruppenmitglied;
-				 
-				 	}
-				 }
-				 */
 				 
 				 $mitgliederliste=Gruppenmitglied::gruppenmitgliederlisteHolen($gruppen_id);
 				 
