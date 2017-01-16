@@ -28,6 +28,8 @@ class GroupshowController extends AbstractActionController
 		
 		$mitgliederliste=Gruppenmitglied::gruppenmitgliederlisteHolen($g_id);
 		
+		$aktgruppenmitglied=new Gruppenmitglied();
+		$aktgruppenmitglied->laden($g_id, $user_id);
 		
 		if ($_REQUEST['gruppenadmin']) {
 			
@@ -99,6 +101,7 @@ class GroupshowController extends AbstractActionController
 				'mitgliederListe' => $mitgliederliste,
 				'mitgliedschaft' => $mitgliedschaft,
 				'aktnachricht' => $aktnachrichtliste,
+				'aktgruppenmitglied' => $aktgruppenmitglied,
 				'user_id' => $user_id
 		]);
 			

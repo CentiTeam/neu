@@ -82,7 +82,8 @@
 				?>
 					<td>nein</td> 
 			<?php 
-				}		
+			}	
+			if ($aktgruppenmitglied->getGruppenadmin()=="1") {
 			?>
 			<form action="groupshow" method="post"> 
 			<input type="hidden" name="gruppenadminwert" value="<?=$gruppenmitglied->getGruppenadmin()?>">
@@ -90,6 +91,7 @@
 			<input type="hidden" name="u_id" value="<?=$gruppenmitglied->getUser()->getU_id()?>">
 			<td><input type="submit" name="gruppenadmin" value="Gruppenadminrechte &auml;ndern"></td>
 			</form>
+			<?php }?>
 		</tr>
 
 	<?php 
