@@ -40,9 +40,11 @@ class GroupshowController extends AbstractActionController
 			}
 			
 			$u_ids=array();
-			foreach ($_POST['u_id'] as $zaehler => $u_id) {
+			$j=0;
+			foreach ($_POST['u_id'] as $counter => $u_id) {
 				$u_ids[]=$u_id;
-				//echo $u_ids[];
+				echo $u_ids[$j];
+				$j++;
 			}
 			
 			echo "User_id:";
