@@ -99,20 +99,18 @@ class GroupshowController extends AbstractActionController
 				$nachricht->setU_id ($u_id);
 				$nachricht->setG_id ($g_id);
 				
-
+				return new ViewModel([
+						'gruppe' => array($gruppe),
+						'mitgliederListe' => $mitgliederliste,
+						'mitgliedschaft' => $mitgliedschaft,
+						'aktnachricht' => $aktnachrichtliste,
 		
 			}
 			
 			
 			$nachricht->sendMessage();
 				
-		//	return new ViewModel([
-		//			'mitgliederListe' => $mitgliederliste,
-		//			'mitgliedschaft' => $mitgliedschaft,
-		//			
 			
-			
-		//	]);
 			
 		}
 		
