@@ -285,13 +285,13 @@ return [
        		],	
         
         		
-        	'gruppenmitgliedhinzufuegen' => [
+        	'gruppenverlassen' => [
         			'type'    => Segment::class,
        				'options' => [
-       						'route'    => '/gruppenmitgliedhinzufuegen[/:action]',
+       						'route'    => '/gruppeverlassen[/:action]',
        						'defaults' => [
-       								'controller' => Controller\GruppenmitgliedhinzufuegenController::class,
-       								'action'     => 'gruppenmitgliedhinzufuegen',
+       								'controller' => Controller\GruppeverlassenController::class,
+       								'action'     => 'gruppeverlassen',
        						],
        				],
        		],
@@ -436,7 +436,7 @@ return [
         	Controller\GroupshowController::class => InvokableFactory::class,
         	Controller\GroupeditController::class => InvokableFactory::class,
         	Controller\GroupdeleteController::class => InvokableFactory::class,
-        	Controller\GruppenmitgliedhinzufuegenController::class => InvokableFactory::class,
+        	Controller\GruppeverlassenController::class => InvokableFactory::class,
         	Controller\EinladungannehmenController::class => InvokableFactory::class,
         	Controller\LoginController::class => InvokableFactory::class,
         	Controller\ProfilController::class => InvokableFactory::class,
