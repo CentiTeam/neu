@@ -74,7 +74,7 @@ class GruppeverlassenController extends AbstractActionController
 			
 			$view = new ViewModel([
 					'mitgliederListe' => $mitgliederliste,
-					'gruppe' => $gruppe,
+					'gruppe' => array($gruppe),
 					'u_id' => $user_id,
 					'msg' => $msg
 			]);
