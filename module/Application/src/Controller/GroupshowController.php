@@ -32,7 +32,7 @@ class GroupshowController extends AbstractActionController
 		if ($_REQUEST['gruppenadmin']) {
 			
 			
-			$admin_U_id=$_GET['u_id'];
+			$admin_U_id=$_REQUEST['u_id'];
 			echo "User_id:";
 			echo $admin_U_id;
 			
@@ -49,9 +49,6 @@ class GroupshowController extends AbstractActionController
 			
 			echo "Adminaenderung:";
 			echo $adminaenderung;
-			
-			
-			
 			
 			$gruppenmitglied->bearbeiten($adminaenderung);
 			
@@ -101,7 +98,8 @@ class GroupshowController extends AbstractActionController
 				'gruppe' => array($gruppe),
 				'mitgliederListe' => $mitgliederliste,
 				'mitgliedschaft' => $mitgliedschaft,
-				'aktnachricht' => $aktnachrichtliste,			
+				'aktnachricht' => $aktnachrichtliste,
+				'user_id' => $user_id
 		]);
 			
 		}

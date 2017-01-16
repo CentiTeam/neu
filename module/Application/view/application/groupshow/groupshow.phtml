@@ -84,9 +84,10 @@
 			<?php 
 				}		
 			?>
-			<form action="groupshow?u_id=<?=$gruppenmitglied->getUser()->getU_id() ?>" method="post"> 
+			<form action="groupshow" method="post"> 
 			<input type="hidden" name="gruppenadminwert" value="<?=$gruppenmitglied->getGruppenadmin()?>">
 			<input type="hidden" name="g_id" value="<?=$gruppenmitglied->getGruppe()->getG_id()?>">
+			<input type="hidden" name="u_id" value="<?=$gruppenmitglied->getUser()->getU_id()?>">
 			<td><input type="submit" name="gruppenadmin" value="Gruppenadminrechte &auml;ndern"></td>
 			</form>
 		</tr>
@@ -119,6 +120,17 @@
 		<tr><td>Suche:</td><td><input name="suche" type="text" maxlength="255" size="20" required></td>
 		 <input type="hidden" name="g_id" readonly="readonly" value="<?=$gruppe[0]->getG_id()?>">
 		<td><input type="submit" value="User suchen"></td> </tr>
+	</table>
+	</form>
+	
+	
+	<form action="gruppeverlassen" method="post">
+
+	<table>
+		<th>Gruppe verlassen:</th>
+		 <input type="hidden" name="g_id" readonly="readonly" value="<?=$gruppe[0]->getG_id()?>">
+		 <input type="hidden" name="u_id" readonly="readonly" value="<?=$user_id?>">
+		<td><input type="submit" value="Gruppe verlassen"></td> </tr>
 	</table>
 	</form>
 	
