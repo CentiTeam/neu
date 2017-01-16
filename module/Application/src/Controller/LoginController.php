@@ -29,11 +29,17 @@ class loginController extends AbstractActionController{
 					
 					$_SESSION['user'] = $user;
 					
+					$user_id=$_SESSION['user']->getU_id();
+					
+					$aktzahlungliste=Zahlung::aktuellezahlungenholen($user_id);
+					
+					$aktnachrichtliste=Nachricht::aktuellenachrichten($user_id);
+					
+					
 					$view = new ViewModel(array(
 							'message' => 'Erfolgreich eingeloggt!',
 							'uname' => $uname,
 							'user' => array($user),
-							'gruppe' => array($gruppe),
 							'aktzahlung' => $aktzahlungliste,
 							'aktnachricht' => $aktnachrichtliste
 					));
