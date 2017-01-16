@@ -133,7 +133,7 @@ class GroupshowController extends AbstractActionController
 				'mitgliedschaft' => $mitgliedschaft,
 				'aktnachricht' => $aktnachrichtliste,
 				'aktgruppenmitglied' => $aktgruppenmitglied,
-				'user_id' => $user_id
+				'user_id' => $user->getU_id()
 		]);
 			
 		}
