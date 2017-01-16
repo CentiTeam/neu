@@ -27,7 +27,7 @@
 	<?php foreach ($aktzahlung as $zaehler => $zahlung) {?>
 
   <tr>
-    <td width="45"><?=$zahlung->getGruppe()->getGruppenname()?></td>
+    <td height="45"><?=$zahlung->getGruppe()->getGruppenname()?></td>
     <td><?=$zahlung->getZahlungsbeschreibung()?></td>
     <td><?=$zahlung->getZahlungsdatum()?></td>
     <td align="right"><?=$zahlung->getBetrag()?></td>
@@ -52,7 +52,7 @@
   <?php foreach ($aktnachricht as $zaehler => $nachricht) {?>
   
   <tr>
-    <td width="45"><?=$nachricht->getGruppe()->getGruppenname()?></td>
+    <td height="45"><?=$nachricht->getGruppe()->getGruppenname()?></td>
     <td><?=$nachricht->getUser()->getUsername()?></td>
     <td><?=$nachricht->getdatum()?> 
     <td><?=$nachricht->getText()?></td>
