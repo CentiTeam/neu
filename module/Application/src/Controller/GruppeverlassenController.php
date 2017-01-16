@@ -62,13 +62,19 @@ class GruppeverlassenController extends AbstractActionController
 		if ($_REQUEST['abbrechen']) {
 				
 			$user_id=$_SESSION['user']->getU_id();
+			
+			
 				
 			// L�sung ist hier mit Objektorientierung
 			
 			$mitgliederliste=Gruppenmitglied::gruppenmitgliederlisteHolen($g_id);
-				
+			
+			$gruppe=new Gruppe();
+			$gruppe->laden($g_id);
+			
 			$view = new ViewModel([
 					'mitgliederListe' => $mitgliederliste,
+					'gruppe' => $gruppe,
 					'u_id' => $user_id,
 					'msg' => $msg
 			]);
