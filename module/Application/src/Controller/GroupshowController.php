@@ -70,7 +70,7 @@ class GroupshowController extends AbstractActionController
 		}
 		
 		
-		
+		$grpnachrichtliste=Nachricht::messageboard($user_id);
 		
 		if ($_REQUEST['abschicken']) {
 			
