@@ -40,7 +40,7 @@ class Gruppenmitglied {
 		
 		$query = "UPDATE gruppenmitglied SET
 				gruppenadmin = '".$admin."',
-				WHERE g_id = '".$this->getGruppe->getG_id()."' AND u_id='".$this->getUser->getU_id()."'
+				WHERE g_id = '".$this->getGruppe()->getG_id()."' AND u_id='".$this->getUser()->getU_id()."'
 				";
 		
 		$result = $db->execute($query);
