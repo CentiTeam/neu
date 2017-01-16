@@ -51,6 +51,7 @@ class GroupshowController extends AbstractActionController
 			echo "User_id:";
 			echo $admin_U_id;
 			
+			
 
 			$gruppenmitglied=new Gruppenmitglied();
 			$gruppenmitglied->laden($_REQUEST['g_id'],$admin_U_id);
@@ -62,6 +63,7 @@ class GroupshowController extends AbstractActionController
 				$adminaenderung="1";
 			}
 			
+			echo "Adminaenderung:";
 			echo $adminaenderung;
 			
 			
