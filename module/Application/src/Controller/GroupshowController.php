@@ -61,7 +61,7 @@ class GroupshowController extends AbstractActionController
 		
 		if ($_REQUEST['gruppenadmin']) {
 			
-			if ($aktgruppenmitglied->getGruppenadmin()=="0"  $aktgruppenmitglied->getUser()->getU_id() == $) {
+			if ($aktgruppenmitglied->getGruppenadmin()=="0" || $aktgruppenmitglied->getUser()->getU_id() == $user_id) {
 				$errStr="Nicht berechtigt!";
 			}
 			
