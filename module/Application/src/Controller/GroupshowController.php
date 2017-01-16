@@ -29,35 +29,25 @@ class GroupshowController extends AbstractActionController
 		$mitgliederliste=Gruppenmitglied::gruppenmitgliederlisteHolen($g_id);
 		
 		
-		
-		/** Kann raus, wenn objektorientierung bleibt
-		// Liste der User-Objekte der Gruppenmitglieder holen
-		$mitgliederliste = User::gruppenmitgliederlisteholen($g_id); 
-		
-		$mitgliedschaft=array();
-		
-		// F�r jedes Gruppenmitglied mit die Gruppenmitgliedschafts-Infos (inkl. Gruppenadmin) laden
-		// und Mitgliedschaftsinfos in Array speichern, wenn Gruppenmitgliedschaft besteht
-		foreach ($mitgliederliste as $mitglied) {
-			
-			// Gruppenmitglied instanzieren
-			$gruppenmitglied= new Gruppenmitglied();
-			$gruppenmitglied->laden ($g_id, $mitglied->getU_id());
-			
-			// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter bef�llt
-			if ($gruppenmitglied->getUser()->getU_id() == $mitglied->getU_id()) {
-				
-				$mitgliedschaft[]=$gruppenmitglied;
-				
-			}
-		}
-		
-		*/
-		
-		
 		if ($_REQUEST['gruppenadmin']) {
 			
-			if ($_REQUEST['gruppenadminwert']=="1") {
+			$gruppenadmins=array();
+			$i=0;
+			
+			foreach ($_POST['gruppenadminwert'] as $zaehler => $admin) {
+				$gruppenadmins[]=$admin;
+				$i++;
+			}
+			
+			$u_ids=array();
+			foreach ($_POST['u_id'] as $zaehler => $u_id) {
+				$u_ids[]=$u_id;
+			}
+			
+			echo "User_id:";
+			echo $u_ids[$i+1];
+			
+			if ($u_ids[$i+1]=="1") {
 				$adminaenderung="0";
 			} else {
 				$adminaenderung="1";
@@ -66,12 +56,12 @@ class GroupshowController extends AbstractActionController
 			echo $adminaenderung;
 			
 			$gruppenmitglied=new Gruppenmitglied();
-			
-			$gruppenmitglied->laden($_REQUEST['g_id'],$_REQUEST["u_id"]);
+			$gruppenmitglied->laden($_REQUEST['g_id'],$u_ids[$i+1]);
 			
 			$gruppenmitglied->bearbeiten($adminaenderung);
 			
 		}
+		
 		$nachricht = new Nachricht();
 		$user_id=$_SESSION['user']->getU_id();
 		$g_id=$_REQUEST ['g_id'];
@@ -104,32 +94,20 @@ class GroupshowController extends AbstractActionController
 				$nachricht->setText ($text);
 				$nachricht->setU_id ($u_id);
 				$nachricht->setG_id ($g_id);
-				
-
-		
 			}
 			
 			
 			$nachricht->sendMessage();
 				
-		
-			
 		}
-		
 		
 			
 		return new ViewModel([
 				'gruppe' => array($gruppe),
 				'mitgliederListe' => $mitgliederliste,
 				'mitgliedschaft' => $mitgliedschaft,
-				'aktnachricht' => $aktnachrichtliste,
-			
-					
+				'aktnachricht' => $aktnachrichtliste,			
 		]);
 			
 		}
-		
-	
-	
-	
 }
