@@ -39,18 +39,24 @@ class GroupshowController extends AbstractActionController
 				$i++;
 			}
 			
-			$u_ids=array();
 			$j=0;
 			foreach ($_POST['u_id'] as $counter => $u_id) {
-				$u_ids[]=$u_id;
-				echo $u_ids[$j];
+				if ($j==$i) { 
+					$admin_U_id=$u_id;
+				}
+				
 				$j++;
 			}
 			
 			echo "User_id:";
-			echo $u_ids[$i];
+			echo $admin_U_id;
 			
-			if ($u_ids[$i+1]=="1") {
+
+			$gruppenmitglied=new Gruppenmitglied();
+			$gruppenmitglied->laden($_REQUEST['g_id'],$admin_U_id);
+			
+			
+			if ($gruppenmitglied->getGruppenadmin()=="1") {
 				$adminaenderung="0";
 			} else {
 				$adminaenderung="1";
@@ -58,8 +64,6 @@ class GroupshowController extends AbstractActionController
 			
 			echo $adminaenderung;
 			
-			$gruppenmitglied=new Gruppenmitglied();
-			$gruppenmitglied->laden($_REQUEST['g_id'],$u_ids[$i+1]);
 			
 			
 			
