@@ -53,9 +53,6 @@ class GroupshowController extends AbstractActionController
 		*/
 		
 		
-		
-		
-		
 		if ($_REQUEST['gruppenadmin']) {
 			echo "Hallo";
 			
@@ -67,7 +64,8 @@ class GroupshowController extends AbstractActionController
 			
 			$gruppenmitglied=new Gruppenmitglied();
 			$gruppenmitglied->bearbeiten($adminaenderung);
-			
+			 
+			return new ViewModel();
 		}
 		
 		
