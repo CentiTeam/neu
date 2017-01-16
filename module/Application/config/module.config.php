@@ -285,7 +285,7 @@ return [
        		],	
         
         		
-        	'gruppenverlassen' => [
+        	'gruppeverlassen' => [
         			'type'    => Segment::class,
        				'options' => [
        						'route'    => '/gruppeverlassen[/:action]',
