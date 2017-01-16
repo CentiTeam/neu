@@ -127,7 +127,7 @@ class Nachricht {
 		$query="SELECT * FROM `nachricht`
 				NATURAL JOIN User
 			
-				AND User.u_id= '".$user_id."' 	
+				WHERE User.u_id= '".$user_id."' 	
 				ORDER BY datum DESC LIMIT 10";
 	
 		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
