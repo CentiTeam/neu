@@ -53,7 +53,7 @@ class GroupshowController extends AbstractActionController
 			return $view;
 		}
 	
-		
+		// Gruppenadminrechte ändern
 		$mitgliederliste=Gruppenmitglied::gruppenmitgliederlisteHolen($g_id);
 		
 		$aktgruppenmitglied=new Gruppenmitglied();
@@ -61,9 +61,12 @@ class GroupshowController extends AbstractActionController
 		
 		if ($_REQUEST['gruppenadmin']) {
 			
+			echo "Hallo";
+			//Berechtigungsprüfung, ob aktueller Nutzer Gruppenadmin ist 
 			if ($aktgruppenmitglied->getGruppenadmin()=="0" || $aktgruppenmitglied->getUser()->getU_id() == $user_id) {
 				$errStr="Nicht berechtigt!";
 			}
+			
 			
 			if ($errStr=="") {
 				$admin_U_id=$_REQUEST['u_id'];
