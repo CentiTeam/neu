@@ -42,10 +42,10 @@
 			<td>	<?=$user->getSystemadmin()?>	</td> 
 			
 			<?php if($user->getDeaktiviert() == 0){ ?>
-			<td>	<form><button type="submit"><a href=benutzerdeaktivieren?u_id=<?=$user->getU_id()?>>Benutzer deaktivieren</a></button></form>
+			<td>	<a href=benutzerdeaktivieren?u_id=<?=$user->getU_id()?>>Benutzer deaktivieren</a>
 			<?php } 
 			else{ ?>
-			<td>	<form><button type="submit"><a href=benutzerreaktivieren?u_id=<?=$user->getU_id()?>>Benutzer reaktivieren</a></button></form>
+			<td>	<a href=benutzerreaktivieren?u_id=<?=$user->getU_id()?>>Benutzer reaktivieren</a>
 
 <?php
 			}
