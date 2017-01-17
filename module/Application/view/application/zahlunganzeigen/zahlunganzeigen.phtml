@@ -20,6 +20,28 @@
 <input type="submit" name="zahlungsteilnehmeranzeigen" value="Liste der Zahlungsteilnehmer">
 </form>
 
+<a onclick="text1.style.display='block';an.style.display='none';zu.style.display='block'" id="an" style="display: none" href="#neu">Zahlungsteilnehmer anzeigen</a>
+<a onclick="text1.style.display='none';an.style.display='block';zu.style.display='none'" id="zu" style="display: block" href="#neu">Zahlungsteilnehmer ausblenden</a>
+<a name="neu"></a><DIV id="text1" style="display: block">
+<?php 
+	foreach ($zahlungenliste as $zaehler => $zahlungsteilnehmer) {
+		
+	?>
+
+		<tr>
+			<td><?=$zahlungsteilnehmer->getUser()-getU_id()?></td>
+			<td><?=$zahlungsteilnehmer->getZahlung()->getUsername()?></td>
+					
+		</tr>
+
+	<?php 
+		
+	}
+	?>
+	
+	</DIV>
+
+
 <a href="zahlungbearbeiten?z_id=<?=$zahlung[0]->getZ_id()?>&g_id=<?=$zahlung[0]->getGruppe()->getG_id()?>"><img src="img/edit.jpg" /></a>
 
 <!--  
