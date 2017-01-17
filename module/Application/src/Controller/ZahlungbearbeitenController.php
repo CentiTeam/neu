@@ -32,7 +32,20 @@ class ZahlungbearbeitenController extends AbstractActionController {
 
 		} else {
 
-
+			//Holen der z_id aus Formular
+			$z_id = $_POST['z_id'];
+			
+			//Holen der u_id aus Session
+			$user_id=$_SESSION['user']->getU_id();
+				
+			// Zahlungsteilnehmer-Objekt laden
+			$zahlungsteilnehmer= new Zahlungsteilnehmer();
+			$zahlungsteilnehmer->laden($zahlung->getZ_id(), $user_id);
+			
+			if ($zahlungsteilnehmer->getAnteil()==$zahlungsteilnehmer->getRestbetrag())
+				
+			{
+			
 			//Liste alle verfï¿½gbaren Kateforien holen
 			$kategorieliste = Kategorie::listeHolen();
 
@@ -46,13 +59,8 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			date_default_timezone_set("Europe/Berlin");
 			$timestamp=time();
 			$aktuellesdatum= date('Y-m-d', $timestamp);
-				
-			
-			
-			
-			//Holen der z_id aus Formular
-			$z_id = $_POST['z_id'];
-			
+		
+					
 			//Laden des Objektes der Klasse Zahlung mit der übergebenen z_id in die Variable $zahlung
 			$zahlung = new Zahlung();
 			$zahlung->laden($z_id);
@@ -61,13 +69,9 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			$saved= false;
 			$msg = array();
 			
-			$user_id=$_SESSION['user']->getU_id();
+
 				
-			// Zahlungsteilnehmer-Objekt laden
-			$teilnehmer= new Zahlungsteilnehmer();
-			$teilnehmer->laden($zahlung->getZ_id(), $user_id);
-				
-			var_dump($teilnehmer);
+
 			
 			if ($_REQUEST['speichern']) {
 
@@ -220,6 +224,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 
 							}
 								
+					}
 				}
 			}
 
@@ -228,7 +233,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 
 			return new ViewModel([
 					'gruppe' => array($gruppe),
-					'teilnehmer' => array($teilnehmer),
+					'zahlungsteilnehmer' => array($teilnehmer),
 					'msg' => $msg,
 					'kategorieListe' => $kategorieliste,
 					'mitgliederListe' => $mitgliederliste,
