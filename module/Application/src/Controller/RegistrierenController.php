@@ -50,16 +50,25 @@ class RegistrierenController extends AbstractActionController{
 				
 				
 			$betreff = "Grouppay: Registrierung bestätigen";
-				
-			$link="http://132.231.36.206/confirm";
-				
-			$text =
-			"Hallo!
-			Über diesen Link kannst du deine Registrierung bestätigen:
-			$link
-				
-			Viele Grüße
-			Dein Grouppay-Team";
+			
+			$link= "<a href=\"http://132.231.36.206/confirm\">Registrierung best&auml;tigen</a>";
+			
+			$text=
+			"<html>
+			<body>
+			<div>Hallo!</div>
+			<br>
+			<div>&Uuml;ber diesen Link kannst Du Deine Registrierung bestätigen:</div>
+			<div>$link</div><br>
+			
+			<div>Viele Gr&uuml;&szlig;e</div>
+			<div>Dein Grouppay-Team</div>
+			</body>
+			</html>";
+			
+			$header  = 'MIME-Version: 1.0' . "\r\n";
+			$header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+		
 				
 			mail($empfaenger, $betreff, $text);
 				
