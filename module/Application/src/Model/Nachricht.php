@@ -130,7 +130,7 @@ class Nachricht {
 		$query="SELECT * FROM `nachricht`
 				NATURAL JOIN gruppe NATURAL JOIN gruppenmitglied
 				WHERE gruppenmitglied.u_id= '".$user_id."' AND (date(datum) BETWEEN curdate()-INTERVAL 5 DAY AND curdate())
-				ORDER BY g_id, n_id DESC";
+				ORDER BY g_id, n_id DESC LIMIT 10";
 	
 		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
 		if ($result = $db->execute($query)) {
@@ -163,7 +163,7 @@ class Nachricht {
 	
 		$query="SELECT * FROM `nachricht`
 				WHERE g_id='".$g_id."'	
-				ORDER BY n_id DESC;";
+				ORDER BY n_id DESC LIMIT 10;";
 		
 	
 		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
