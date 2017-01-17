@@ -61,6 +61,15 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			$saved= false;
 			$msg = array();
 			
+			$user_id=$_SESSION['user']->getU_id();
+				
+			// Zahlungsteilnehmer-Objekt laden
+			$teilnehmer= new Zahlungszeilnehmer();
+			$teilnehmer->laden($zahlung->getZ_id(), $user_id);
+				
+			echo $teilnehmer->getStatus;
+			echo "hallo";
+			
 			if ($_REQUEST['speichern']) {
 
 				// Anteile in Schleife speichern und überprüfen, ob Summe dem Gesamtbetrag entspricht
@@ -74,12 +83,8 @@ class ZahlungbearbeitenController extends AbstractActionController {
 					$summe += $anteil;
 				}
 
-				echo "betrag:";
-				var_dump ($_REQUEST["betrag"]);
-				if($summe != $_REQUEST["betrag"]){
-					echo "summe";
-					var_dump ($summe);
 
+				if($summe != $_REQUEST["betrag"]){
 					echo ("Die Anteile m�ssen zusammen der Gesamtsumme entsprechen.");
 				}else {
 
@@ -127,14 +132,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 					}
 					$zahlung->setAenderungsdatum($aenderungsdatum);
 						
-					$user_id=$_SESSION['user']->getU_id();
-									
-					// Zahlungsteilnehmer-Objekt laden
-					$teilnehmer= new Zahlungszeilnehmer();
-					$teilnehmer->laden($zahlung->getZ_id(), $user_id);
-							
-					echo $teilnehmer->getStatus;
-					echo "hallo";
+
 
 							// Wenn tempor�res Objekt gef�llt wurde kann mit diesen Werten das Objekt �ber die Bearbeiten-Fkt in die DB geschrieben werden
 							if ($errorStr == "" && $zahlung->bearbeiten()) {
