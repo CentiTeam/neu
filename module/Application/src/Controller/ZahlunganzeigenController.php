@@ -25,6 +25,8 @@ class ZahlunganzeigenController extends AbstractActionController
 		if ($_REQUEST['zahlungsteilnehmeranzeigen']) {
 				echo "Zahlungsteilnehmertest:";
 				var_dump(Zahlungsteilnehmer::gibzahlungsteilnehmer($z_id));
+				$teilnehmerliste = Zahlungsteilnehmer::gibzahlungsteilnehmer($z_id);
+				echo $teilnehmerliste[0];
 		}
 		
 		return new ViewModel([
