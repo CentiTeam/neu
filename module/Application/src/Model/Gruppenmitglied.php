@@ -34,13 +34,13 @@ class Gruppenmitglied {
 	}
 	
 	// Gruppenadminrechte vergeben/entziehen
-	public function bearbeiten ($admin) {
+	public function bearbeiten ($g_id, $u_id, $admin) {
 		
 		$db = new DB_connection();
 		
 		$query = "UPDATE gruppenmitglied SET
 				gruppenadmin = '".$admin."'
-				WHERE g_id = '".$this->getGruppe()->getG_id()."' AND u_id='".$this->getUser()->getU_id()."'
+				WHERE g_id = '".$g_id."' AND u_id='".$u_id."'
 				";
 		
 		$result = $db->execute($query);

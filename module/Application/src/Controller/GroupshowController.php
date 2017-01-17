@@ -79,7 +79,7 @@ class GroupshowController extends AbstractActionController
 			echo "Adminaenderung:";
 			echo $adminaenderung;
 		
-			$gruppenmitglied->bearbeiten($adminaenderung);
+			$gruppenmitglied->bearbeiten($g_id, $admin_U_id, $adminaenderung);
 		}
 		
 		
