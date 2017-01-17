@@ -66,8 +66,9 @@ class User
 		// Methode für das Zurücksetzen des Passwortes
 		
 		public function passwordreset ($passwort, $u_id, $altespasswort) {
+			
 			$db = new DB_connection;
-			$query = "UPDATE User SET passwort = '".$this->passwort."'
+			$query = "UPDATE User SET passwort = $passwort
 					WHERE u_id = $u_id";
 			
 			$query_pwueberpruefung = "SELECT passwort FROM User WHERE passwort = $passwort";
