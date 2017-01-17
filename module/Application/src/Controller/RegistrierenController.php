@@ -17,7 +17,6 @@ class RegistrierenController extends AbstractActionController{
 		
 		if ($_REQUEST['registrieren']) {
 			
-			
 			// Werte aus Formular einlesen
 			
 			$username = $_REQUEST ["username"];
@@ -27,22 +26,15 @@ class RegistrierenController extends AbstractActionController{
 			$vorname = $_REQUEST ["vorname"];
 			$nachname = $_REQUEST ["nachname"];
 			
-			
-			
+
 			// Überprüfung, ob Passwort zwei mal richtig eingegeben wurde
-			
-			
 			if ($passwort!=$passwortwdh) {
 				echo "<center><h4>Keine &Uumlbereinstimmung der Passw&oumlrter! Bitte erneut registrieren</h4></center>";
-				$error = true;
-				
+				$error = true;	
 			}
-			
-			
-		
+
 			
 			// Keine Errors vorhanden, Funktion kann ausgeführt werden
-			
 			if (!$error) {
 				
 			// User-Objekt mit Daten aus Request-Array füllen
@@ -52,15 +44,8 @@ class RegistrierenController extends AbstractActionController{
 			$user->setEmail ($email);
 			$user->setVorname ($vorname);
 			$user->setNachname ($nachname);
-			
-			
-			
-			if($user->getUsername()==null) die("Benutzername wurde nicht eingelesen.");
 				
-		
-		
 			
-
 			$msg="";
 				
 			$empfaenger= $email;
@@ -84,11 +69,10 @@ class RegistrierenController extends AbstractActionController{
 				
 			}
 			
+			$user->registrieren();
 			
 		}
 		
-		$user->registrieren();
-			
 		return new ViewModel([
 				'user' => array($user),
 				'errors'   => $errors,
