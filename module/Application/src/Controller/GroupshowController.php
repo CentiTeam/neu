@@ -123,10 +123,9 @@ class GroupshowController extends AbstractActionController
 				$nachricht->setG_id ($g_id);
 			}
 			
-			
 			$nachricht->sendMessage();
 			
-			//$nachricht->messageboardladen();
+			// Nachrichtenliste laden je Gruppe (jetzt inkl. neuer Nachricht
 			$aktnachrichtliste=Nachricht::messageboard($user_id, $g_id);
 		}
 		
