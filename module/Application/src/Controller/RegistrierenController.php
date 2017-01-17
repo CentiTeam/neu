@@ -63,7 +63,7 @@ class RegistrierenController extends AbstractActionController{
 				
 			mail($empfaenger, $betreff, $text);
 				
-			$msg= "E-Mail wurde erfolgreich versendet!";
+			$msg= "Bestätigungs-E-Mail wurde erfolgreich versendet!";
 				
 			}
 			
