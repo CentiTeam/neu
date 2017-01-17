@@ -41,6 +41,13 @@ class OverviewController extends AbstractActionController
 		echo "Nachname des angemeldeten Users: ";
 		echo $user->getNachname();
 		
+		//Overview Controller laden nach Login
+		if ($_REQUEST['neues']) {
+			$_SESSION['neuigkeiten']="ja";
+		}
+		
+		
+		
 		//Zahlungen von den letzten fünf Tagen anzeigen lassen
 		
 			//U_ID der Session holen
