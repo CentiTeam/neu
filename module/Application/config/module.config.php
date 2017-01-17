@@ -475,6 +475,8 @@ return [
         	Controller\ZahlunganzeigenController::class => InvokableFactory::class,
         	Controller\GruppenverlaufController::class => InvokableFactory::class,
         	Controller\ZahlungbearbeitenController::class => InvokableFactory::class,
+        	Controller\PasswordresetController::class => InvokableFactory::class,
+        		 
         	
         		
         		
