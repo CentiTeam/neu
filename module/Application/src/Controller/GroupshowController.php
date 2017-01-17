@@ -65,7 +65,7 @@ class GroupshowController extends AbstractActionController
 			//Berechtigungsprüfung, ob aktueller Nutzer Gruppenadmin ist 
 			if ($aktgruppenmitglied->getGruppenadmin()=="0" || $aktgruppenmitglied->getUser()->getU_id() == $user_id) {
 				$errStr="Nicht berechtigt!";
-				
+				echo "Hallo";
 			}
 			
 			
