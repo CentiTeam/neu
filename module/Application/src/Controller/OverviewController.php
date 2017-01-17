@@ -20,11 +20,11 @@ class OverviewController extends AbstractActionController
 	
 		session_start();
 		
-		echo "TEst Nachricht";
+
 		
 		if ($_SESSION['angemeldet']=='ja')
 		{
-			echo "Hier kommen die Links zu den spezifischen Rollen hin";
+			
 		}
 		else 
 		{
@@ -36,10 +36,7 @@ class OverviewController extends AbstractActionController
 			return $view;
 		}
 		
-		// TEST, um die Übergabe der Elemente des angemeldeten Users an eine andere Funktion anzuzeigen
-		$user=$_SESSION['user'];
-		echo "Nachname des angemeldeten Users: ";
-		echo $user->getNachname();
+
 		
 		//Overview Controller laden nach Login
 		if ($_REQUEST['neues']) {
