@@ -42,7 +42,7 @@
 			<td>	<?=$user->getSystemadmin()?>	</td> 
 			
 			<?php if($user->getDeaktiviert() == 0){ ?>
-			<td>	<a href=benutzerdeaktivieren?u_id=<?=$user->getU_id()?>>Benutzer deaktivieren</a>
+			<td>	<a type="button" href=benutzerdeaktivieren?u_id=<?=$user->getU_id()?>>Benutzer deaktivieren</a>
 			<?php } 
 			else{ ?>
 			<td>	<a href=benutzerreaktivieren?u_id=<?=$user->getU_id()?>>Benutzer reaktivieren</a>
