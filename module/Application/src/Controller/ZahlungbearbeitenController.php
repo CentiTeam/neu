@@ -144,8 +144,12 @@ class ZahlungbearbeitenController extends AbstractActionController {
 
 								$user_id=$_SESSION['user']->getU_id();
 									
-
-									
+								// Zahlungsteilnehmer-Objekt laden
+								$teilnehmer= new Zahlungszeilnehmer();
+								$teilnehmer->laden($zahlung->getZ_id(), $user_id);
+								
+								echo $teilnehmer->getStatus;
+								
 								// hier war der Code nach if ($_REQUEST['speichern']) { zuvor
 								
 								//Bisherige Zahlungsteilnehmer löschen
@@ -226,6 +230,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 
 			return new ViewModel([
 					'gruppe' => array($gruppe),
+					'teilnehmer' => array($teilnehmer),
 					'msg' => $msg,
 					'kategorieListe' => $kategorieliste,
 					'mitgliederListe' => $mitgliederliste,
