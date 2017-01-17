@@ -467,6 +467,13 @@ class User
 		return $this->passwort;
 	}
 	
+	public function getAltespasswort() {
+		return $this->altespasswort;
+	}
+	
+	public function setAltespasswort($value) {
+		$this->altespasswort = $value;
+	}
 	public function setEmail($value) {
 		$this->email = $value;
 	}
