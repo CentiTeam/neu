@@ -71,7 +71,7 @@ class User
 			$query = "UPDATE User SET passwort = $passwort
 					WHERE u_id = $u_id";
 			
-			$query_pwueberpruefung = "SELECT passwort FROM User WHERE passwort = $passwort";
+			$query_pwueberpruefung = "SELECT passwort FROM User WHERE passwort = $passwort;";
 			$result_pwueberpruefung = $db->execute($query_pwueberpruefung);
 			
 			if ($altespasswort = $result_pwueberpruefung) {
