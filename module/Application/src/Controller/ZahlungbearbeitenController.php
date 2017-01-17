@@ -149,6 +149,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 								$teilnehmer->laden($zahlung->getZ_id(), $user_id);
 								
 								echo $teilnehmer->getStatus;
+								echo "hallo";
 								
 								// hier war der Code nach if ($_REQUEST['speichern']) { zuvor
 								
