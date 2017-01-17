@@ -16,7 +16,7 @@ use Application\Model\Nachricht;
 
 class OverviewController extends AbstractActionController
 {
-	public function overviewAction(){
+	public function OverviewAction(){
 	
 		session_start();
 		
