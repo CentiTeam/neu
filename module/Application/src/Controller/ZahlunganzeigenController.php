@@ -21,14 +21,14 @@ class ZahlunganzeigenController extends AbstractActionController
 		$zahlung= new Zahlung();
 		$z_id=$_REQUEST['z_id'];
 		$zahlung->laden($z_id);
-		$teilnehmerliste = Zahlungsteilnehmer::gibzahlungsteilnehmer($z_id);
+		$teilnehmerliste = Zahlungsteilnehmer::zahlungsteilnehmerholen($z_id);
 		
 		if ($_REQUEST['zahlungsteilnehmeranzeigen']) {
 		}
 		
 		return new ViewModel([
  				'zahlung' => array($zahlung),
-				'teilnehmerliste' =>$teilnehmerliste
+				'teilnehmerliste' => $teilnehmerliste
 // 				'mitgliederListe' => $mitgliederliste,
 // 				'mitgliedschaft' => $mitgliedschaft,
 

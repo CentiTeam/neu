@@ -77,7 +77,7 @@ class Zahlungsteilnehmer {
 		}
 	}
 	
-	public function gibzahlungsteilnehmer($z_id){
+	public function zahlungsteilnehmerholen($z_id){
 		// Liste initialisieren
 		$teilnehmerListe = array ();
 		
@@ -96,7 +96,7 @@ class Zahlungsteilnehmer {
 				$model = new Zahlungsteilnehmer();
 		
 				// Model anhand der Nummer aus der Datenbankabfrage laden
-				$model->laden($row["z_id"]);
+				$model->laden($row["z_id"], $row["u_id"]);
 		
 				// neues Model ans Ende des $gruppeListe-Arrays anf�gen
 				$teilnehmerListe[] = $model;
@@ -106,6 +106,7 @@ class Zahlungsteilnehmer {
 			return $teilnehmerListe;
 		}
 	}
+	
 	
 	
 	
