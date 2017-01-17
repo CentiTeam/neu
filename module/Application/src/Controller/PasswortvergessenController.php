@@ -23,44 +23,42 @@ class PasswortvergessenController extends AbstractActionController
 			$email = $_REQUEST ["email"];
 			$passwort = $_REQUEST ["passwort"];
 			$passwortwdh = $_REQUEST ["passwortwdh"];
-		}
 		
-		
-
-		// Überprüfung, ob Passwort zwei mal richtig eingegeben wurde
-			
-			
-		if ($passwort!=$passwortwdh) {
-			echo "<center><h4>Keine &Uumlbereinstimmung der Passw&oumlrter! Bitte erneut versuchen</h4></center>";
-			$error = true;
-		}
-		
-		
-
-		// Keine Errors vorhanden, Funktion kann ausgeführt werden
-			
-		if (!$error) {
-		
-			// User-Objekt mit Daten aus Request-Array füllen
-			
-			$user->setEmail ($email);
-			$user->setPasswort ($passwort);
-			$user->setPasswortwdh($passwortwdh);
 	
+			// Überprüfung, ob Passwort zwei mal richtig eingegeben wurde		
+			if ($passwort!=$passwortwdh) {
+				echo "<center><h4>Keine &Uumlbereinstimmung der Passw&oumlrter! Bitte erneut versuchen</h4></center>";
+				$error = true;
+			}
+
+
+			// Keine Errors vorhanden, Funktion kann ausgeführt werden
+			if (!$error) {
+		
+				// User-Objekt mit Daten aus Request-Array füllen
+				$user->setEmail ($email);
+				$user->setPasswort ($passwort);
+				$user->setPasswortwdh($passwortwdh);
+	
+				$user->passwortvergessen();		
+			}
+		
 			
-			$user->passwortvergessen();
-				
+			$view = new ViewModel([
+					'user' => array($user),
+					'errors'   => $errors,
+					'msg' => $msg
+			]);
+			
+			$view->setTemplate('application/login/login.phtml');
+		
+			return $view;
 		}
 		
-			
-		
-
 		return new ViewModel([
-				'user' => array($user),
-				'errors'   => $errors,
-				'msg' => $msg
+				
 		]);
+		
 		}
-
 
 }
