@@ -23,6 +23,13 @@
 <a onclick="text1.style.display='block';an.style.display='none';zu.style.display='block'" id="an" style="display: none" href="#neu">Zahlungsteilnehmer anzeigen</a>
 <a onclick="text1.style.display='none';an.style.display='block';zu.style.display='none'" id="zu" style="display: block" href="#neu">Zahlungsteilnehmer ausblenden</a>
 <a name="neu"></a><DIV id="text1" style="display: block">
+
+<table width="80%">
+<tr>
+		<th>User ID  </th>
+		<th>Username </th>
+</tr>
+
 <?php 
 	foreach ($teilnehmerliste as $zaehler => $zahlungsteilnehmer) {
 		
@@ -40,6 +47,7 @@
 	?>
 	
 	</DIV>
+</table>
 
 
 <a href="zahlungbearbeiten?z_id=<?=$zahlung[0]->getZ_id()?>&g_id=<?=$zahlung[0]->getGruppe()->getG_id()?>"><img src="img/edit.jpg" /></a>

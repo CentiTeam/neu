@@ -27,7 +27,8 @@ class ZahlunganzeigenController extends AbstractActionController
 		}
 		
 		return new ViewModel([
- 				'zahlung' => array($zahlung)
+ 				'zahlung' => array($zahlung),
+				'teilnehmerliste' =>$teilnehmerliste
 // 				'mitgliederListe' => $mitgliederliste,
 // 				'mitgliedschaft' => $mitgliedschaft,
 
