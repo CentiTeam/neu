@@ -64,7 +64,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			$user_id=$_SESSION['user']->getU_id();
 				
 			// Zahlungsteilnehmer-Objekt laden
-			$teilnehmer= new Zahlungszeilnehmer();
+			$teilnehmer= new Zahlungsteilnehmer();
 			$teilnehmer->laden($zahlung->getZ_id(), $user_id);
 				
 			echo $teilnehmer->getStatus;
