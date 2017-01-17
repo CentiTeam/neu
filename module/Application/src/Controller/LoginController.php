@@ -54,6 +54,7 @@ class loginController extends AbstractActionController{
 					else
 					{
 					$view->setTemplate('application/overview/overview.phtml');
+					return $view;
 					}
 					
 					return $view;
