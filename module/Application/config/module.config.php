@@ -108,6 +108,9 @@ return [
         			],
         	],
         		
+        		
+        		
+        		
         	'benutzerreaktivieren' => [
         			'type'    => Segment::class,
         			'options' => [
@@ -119,6 +122,18 @@ return [
         			],
         	],
         		
+        		
+        		
+        		'passwordreset' => [
+        				'type'    => Segment::class,
+        				'options' => [
+        						'route'    => '/passwordreset[/:action]',
+        						'defaults' => [
+        								'controller' => Controller\PasswordresetController::class,
+        								'action'     => 'passwordreset',
+        						],
+        				],
+        		],
         		
         	'benutzertabelle' => [
         			'type'    => Segment::class,
