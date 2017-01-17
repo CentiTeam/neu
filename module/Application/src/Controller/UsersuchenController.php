@@ -23,8 +23,6 @@ class UsersuchenController extends AbstractActionController
 		
 		$suche = $_REQUEST ["suche"];
 		
-		  
-
 		if ($_SESSION['user']->getSystemadmin()==true) {
 			
 			$liste = User::suchlisteHolen($suche);
@@ -41,10 +39,6 @@ class UsersuchenController extends AbstractActionController
 			$gruppe->laden($g_id);
 			
 			$liste = User::gruppensuchlisteHolen($suche, $g_id);
-			
-			echo $suche;
-			echo $g_id;
-			echo "hallo";
 			
 			if ($_REQUEST['einladen']) {
 				
