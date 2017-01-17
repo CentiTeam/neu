@@ -181,6 +181,8 @@ class User
 		}
 	}
 	
+	
+	// Nur die nicht deaktivierten Gruppenmitglieder
 	public static function gruppenmitgliederlisteHolen($gruppen_id) {
 	
 		// Liste initialisieren
@@ -191,6 +193,7 @@ class User
 		$query="SELECT * FROM `User`
 				LEFT JOIN gruppenmitglied ON (User.u_id=gruppenmitglied.u_id)
 				WHERE gruppenmitglied.g_id= '".$gruppen_id."' 
+				AND deaktiviert = 0
 				ORDER BY vorname ASC
 				";
 	
@@ -262,7 +265,8 @@ class User
 		$db = new DB_connection();
 		
 		// Alle User, die nicth Systemadmin sind, die nicht bereits Mitglied in der Gruppe sind und den Kriterien der Suche entsprechen
-		$query ="SELECT * FROM User WHERE systemadmin = 0
+		$query ="SELECT * FROM User WHERE systemadmin = 0 
+					AND deaktiviert = 0
 					AND (username LIKE '%$suche%'
 						OR vorname LIKE '%$suche%'
 						OR nachname LIKE '%$suche%'
