@@ -484,7 +484,7 @@ return [
         'template_map' => [
             'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
             'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
-        	'application/overview/overview' => __DIR__ . '/../view/application/overview/overview.phtml',
+
         	'application/adminoverview/adminoverview' => __DIR__ . '/../view/application/adminoverview/adminoverview.phtml',
         	'application/benutzertabelle/benutzertabelle' => __DIR__ . '/../view/application/benutzertabelle/benutzertabelle.phtml',
         	'application/registrieren/registrieren' => __DIR__ . '/../view/application/registrieren/registrieren.phtml',
