@@ -215,7 +215,8 @@ class ZahlunganlegenController extends AbstractActionController {
 					 	$saved = false;
 
 					}
-					echo Zahlungsteilnehmer::gibzahlungsteilnehmer($zahlungs_id);
+					echo "jetzt kommt mein Test";
+						var_dump(Zahlungsteilnehmer::gibzahlungsteilnehmer($zahlungs_id));
 				}
 			}
 		
