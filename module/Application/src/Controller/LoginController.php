@@ -14,7 +14,7 @@ use Application\Model\Zahlung;
 
 class LoginController extends AbstractActionController{
 	
-	public function loginAction(){
+	 function loginAction(){
 		
 		$user = new User();
 			
