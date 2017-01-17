@@ -47,6 +47,7 @@ class PasswortvergessenController extends AbstractActionController
 			
 			$view = new ViewModel([
 					'user' => array($user),
+					'email' => $email,
 					'errors'   => $errors,
 					'msg' => $msg
 			]);
@@ -57,8 +58,8 @@ class PasswortvergessenController extends AbstractActionController
 		}
 		
 		return new ViewModel([
-			'user' => $user,	
-			'email' => $email
+			'user' => array($user),	
+			
 		]);
 		
 		}
