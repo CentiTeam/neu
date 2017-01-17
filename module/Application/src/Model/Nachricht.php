@@ -91,7 +91,7 @@ class Nachricht {
 			$result=$dbStmt->execute("SELECT * FROM nachricht WHERE n_id= '".$n_id."';");
 		}
 		else {
-			$result=$dbStmt->execute("SELECT * FROM nachricht WHERE n_id =(SELECT MAX(n_id) FROM nachricht)");
+			$result=$dbStmt->execute("SELECT * FROM nachricht WHERE n_id =(SELECT MAX(n_id) FROM nachricht);");
 		}
 		// Variable, die speichert, ob das Team geladen werden konnte oder nicht
 		$isLoaded=false;
@@ -166,6 +166,7 @@ class Nachricht {
 				WHERE User.u_id= '".$user_id."'
 				AND g_id='".$g_id."'	
 				ORDER BY datum DESC LIMIT 10;";
+		
 	
 		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
 		if ($result = $db->execute($query)) {
