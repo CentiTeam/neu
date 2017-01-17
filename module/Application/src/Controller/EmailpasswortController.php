@@ -41,7 +41,7 @@ class EmailpasswortController extends AbstractActionController
 			
 			$betreff = "Grouppay: Passwort zurücksetzen";
 			
-			$link="http://132.231.36.206/passwortvergessen";
+			$link="http://132.231.36.206/passwortvergessen&email=$empfaenger";
 			
 			$text =
 "Hallo!

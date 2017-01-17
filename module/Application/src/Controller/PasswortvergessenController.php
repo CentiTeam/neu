@@ -20,7 +20,7 @@ class PasswortvergessenController extends AbstractActionController
 				
 			// Werte aus Formular einlesen
 				
-			$email = $_REQUEST ["email"];
+			$email = $_GET ["email"];
 			$passwort = $_REQUEST ["passwort"];
 			$passwortwdh = $_REQUEST ["passwortwdh"];
 		
