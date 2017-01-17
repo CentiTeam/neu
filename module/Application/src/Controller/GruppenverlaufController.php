@@ -15,34 +15,13 @@ class GruppenverlaufController extends AbstractActionController
 	public function GruppenverlaufAction()
 	{
 
-
-
 		// Gruppen-Objekt laden
 		$gruppe= new Gruppe();
 		$g_id=$_REQUEST['g_id'];
 		$gruppe->laden($g_id);
 
 		// Liste der User-Objekte der Gruppenmitglieder holen
-		$mitgliederliste = User::gruppenmitgliederlisteholen($g_id);
-
-		$mitgliedschaft=array();
-
-		// F�r jedes Gruppenmitglied mit die Gruppenmitgliedschafts-Infos (inkl. Gruppenadmin) laden
-		// und Mitgliedschaftsinfos in Array speichern, wenn Gruppenmitgliedschaft besteht
-		foreach ($mitgliederliste as $mitglied) {
-				
-			// Gruppenmitglied instanzieren
-			$gruppenmitglied= new Gruppenmitglied();
-			$gruppenmitglied->laden ($g_id, $mitglied->getU_id());
-				
-			// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter bef�llt
-			if ($gruppenmitglied->getUser()->getU_id() == $mitglied->getU_id()) {
-
-				$mitgliedschaft[]=$gruppenmitglied;
-
-			}
-		}
-
+		$mitgliederliste = Gruppenmitglied::gruppenmitgliederlisteholen($g_id);
 
 		return new ViewModel([
 				'gruppe' => array($gruppe),
