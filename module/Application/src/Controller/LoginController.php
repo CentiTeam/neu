@@ -14,7 +14,7 @@ use Application\Model\Zahlung;
 
 class LoginController extends AbstractActionController{
 	
-	 function loginAction(){
+	public function loginAction(){
 		
 		$user = new User();
 			
@@ -36,13 +36,13 @@ class LoginController extends AbstractActionController{
 					$aktnachrichtliste=Nachricht::aktuellenachrichten($user_id);
 					
 					
-					$view = new ViewModel(array(
+					$view = new ViewModel([
 							'message' => 'Erfolgreich eingeloggt!',
 							'uname' => $uname,
 							'user' => array($user),
 							'aktzahlung' => $aktzahlungliste,
 							'aktnachricht' => $aktnachrichtliste
-					));
+					]);
 					
 					// Meldet man sich als Systemadmin an, wird auf ein anderes Template verwiesen
 					
