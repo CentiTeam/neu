@@ -127,6 +127,7 @@ class GroupshowController extends AbstractActionController
 			$nachricht->sendMessage();
 			
 			//$nachricht->messageboardladen();
+			$aktnachrichtliste=Nachricht::messageboard($user_id, $g_id);
 		}
 		
 			
