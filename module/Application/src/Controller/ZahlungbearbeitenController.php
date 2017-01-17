@@ -67,7 +67,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			$teilnehmer= new Zahlungsteilnehmer();
 			$teilnehmer->laden($zahlung->getZ_id(), $user_id);
 				
-			vardump($teilnehmer);
+			var_dump($teilnehmer);
 			
 			if ($_REQUEST['speichern']) {
 
