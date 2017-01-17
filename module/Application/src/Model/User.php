@@ -181,6 +181,8 @@ class User
 		}
 	}
 	
+	
+	// Nur die nicht deaktivierten Gruppenmitglieder
 	public static function gruppenmitgliederlisteHolen($gruppen_id) {
 	
 		// Liste initialisieren
@@ -191,6 +193,7 @@ class User
 		$query="SELECT * FROM `User`
 				LEFT JOIN gruppenmitglied ON (User.u_id=gruppenmitglied.u_id)
 				WHERE gruppenmitglied.g_id= '".$gruppen_id."' 
+				AND deaktiviert = 0
 				ORDER BY vorname ASC
 				";
 	
