@@ -215,7 +215,7 @@ class ZahlunganlegenController extends AbstractActionController {
 					 	$saved = false;
 
 					}
-					
+					echo Zahlungsteilnehmer::gibzahlungsteilnehmer($zahlungs_id);
 				}
 			}
 		

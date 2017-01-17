@@ -38,6 +38,13 @@ class Zahlungsteilnehmer {
 		return $result;
 	}
 	
+// 	public function ausgleichenersteller ($user_id, $z_id) {
+	
+// 		foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
+			
+// 		}
+		
+// 	}
 	
 	public static function teilnehmerzahlungenholen($user_id) {
 	
@@ -70,7 +77,35 @@ class Zahlungsteilnehmer {
 		}
 	}
 	
-	
+	public function gibzahlungsteilnehmer($z_id){
+		// Liste initialisieren
+		$teilnehmerListe = array ();
+		
+		$db = new DB_connection();
+		
+		$query="SELECT * FROM `zahlungsteilnehmer`
+				WHERE z_id= '".$z_id."' ";
+		
+		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
+		if ($result = $db->execute($query)) {
+		
+			// Ergebnis Zeile f�r Zeile verarbeiten
+			while ($row = mysqli_fetch_array($result)) {
+					
+				// neues Model erzeugen
+				$model = new Zahlungsteilnehmer();
+		
+				// Model anhand der Nummer aus der Datenbankabfrage laden
+				$model->laden($row["z_id"]);
+		
+				// neues Model ans Ende des $gruppeListe-Arrays anf�gen
+				$teilnehmerListe[] = $model;
+			}
+		
+			// fertige Liste von Gruppe-Objekten zur�ckgeben
+			return $teilnehmerListe;
+		}
+	}
 	
 	
 	
