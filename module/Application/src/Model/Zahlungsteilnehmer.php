@@ -12,6 +12,7 @@ class Zahlungsteilnehmer {
 	protected  $status;
 	protected  $anteil;
 	protected  $zahlungsempfaenger; 
+	protected  $restbetrag;
 	
 	// HIER Kann evtl. ein Fehler liegen!!! (Objekt muss beachtet werden?)
 	public function __construct($zahlung_id = null, $user_id = null) {
@@ -25,12 +26,13 @@ class Zahlungsteilnehmer {
 	
 		$db = new DB_connection();
 	
-		$query = "INSERT INTO zahlungsteilnehmer (u_id, z_id, status, anteil, zahlungsempfaenger_id) VALUES (
+		$query = "INSERT INTO zahlungsteilnehmer (u_id, z_id, status, anteil, zahlungsempfaenger_id, restbetrag) VALUES (
 				'".$this->getUser()->getU_id()."',
 				'".$this->getZahlung()->getZ_id()."',
 				'".$this->status."',
 				'".$this->anteil."',
-				'".$this->getZahlungsempfaenger()->getU_id()."'
+				'".$this->getZahlungsempfaenger()->getU_id()."',
+				'".$this->anteil."'
 				)" ;
 	
 		$result = $db->execute($query);
@@ -142,6 +144,8 @@ class Zahlungsteilnehmer {
 			$zahlungsempfaenger_id=$row["zahlungsempfaenger_id"];
 			$this->zahlungsempfaenger=new User();
 			$this->zahlungsempfaenger->laden($zahlungsempfaenger_id);
+			
+			$this->restbetrag=$row["restbetrag"];
 				
 				
 			// speichern, dass die Basisinformationen des Teams erfolgreich geladen werden konnten
@@ -207,5 +211,13 @@ class Zahlungsteilnehmer {
 	
 	public function setZahlungsempfaenger($zahlungsempfaenger) {
 		$this->zahlungsempfaenger= $zahlungsempfaenger;
+	}
+	
+	public function getRestbetrag() {
+		return $this->restbetrag;
+	}
+	
+	public function setRestbetrag($restbetrag) {
+		$this->restbetrag= $restbetrag;
 	}
 }
