@@ -33,7 +33,11 @@ class ZahlungbearbeitenController extends AbstractActionController {
 		} else {
 
 			//Holen der z_id aus Formular
-			$z_id = $_POST['z_id'];
+			$z_id = $_POST['z_id'];			
+			
+			//Laden des Objektes der Klasse Zahlung mit der übergebenen z_id in die Variable $zahlung
+			$zahlung = new Zahlung();
+			$zahlung->laden($z_id);
 			
 			//Holen der u_id aus Session
 			$user_id=$_SESSION['user']->getU_id();
@@ -60,11 +64,6 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			$timestamp=time();
 			$aktuellesdatum= date('Y-m-d', $timestamp);
 		
-					
-			//Laden des Objektes der Klasse Zahlung mit der übergebenen z_id in die Variable $zahlung
-			$zahlung = new Zahlung();
-			$zahlung->laden($z_id);
-
 
 			$saved= false;
 			$msg = array();
