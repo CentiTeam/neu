@@ -12,7 +12,7 @@ use Application\Model\Nachricht;
 use Application\Model\Zahlung;
 
 
-class loginController extends AbstractActionController{
+class LoginController extends AbstractActionController{
 	
 	public function loginAction(){
 		

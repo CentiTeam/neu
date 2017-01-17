@@ -14,7 +14,7 @@ use Application\Model\Gruppe;
 use Application\Model\Zahlung;
 use Application\Model\Nachricht;
 
-class overviewController extends AbstractActionController
+class OverviewController extends AbstractActionController
 {
 	public function overviewAction(){
 	
