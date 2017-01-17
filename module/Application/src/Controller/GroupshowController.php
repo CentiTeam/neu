@@ -60,39 +60,30 @@ class GroupshowController extends AbstractActionController
 		$aktgruppenmitglied->laden($g_id, $user_id);
 		
 		if ($_REQUEST['gruppenadmin']) {
-			
-			$errStr="";
-			//Berechtigungsprüfung, ob aktueller Nutzer Gruppenadmin ist 
-			if ($aktgruppenmitglied->getGruppenadmin()=="0" || $aktgruppenmitglied->getUser()->getU_id() == $user_id) {
-				$errStr="Nicht berechtigt!";
-				echo "Hallo";
-			}
-			
-			
-			if ($errStr=="") {
 				
-				$admin_U_id=$_REQUEST['u_id'];
-				echo "User_id:";
-				echo $admin_U_id;
-			
+			$admin_U_id=$_REQUEST['u_id'];
+			echo "User_id:";
+			echo $admin_U_id;
+		
 
-				$gruppenmitglied=new Gruppenmitglied();
-				$gruppenmitglied->laden($_REQUEST['g_id'],$admin_U_id);
+			$gruppenmitglied=new Gruppenmitglied();
+			$gruppenmitglied->laden($_REQUEST['g_id'],$admin_U_id);
 			
 			
-				if ($gruppenmitglied->getGruppenadmin()=="1") {
-					$adminaenderung="0";
-				} else {
-					$adminaenderung="1";
-				}
-			
-				echo "Adminaenderung:";
-				echo $adminaenderung;
-			
-				$gruppenmitglied->bearbeiten($adminaenderung);
+			if ($gruppenmitglied->getGruppenadmin()=="1") {
+				$adminaenderung="0";
+			} else {
+				$adminaenderung="1";
 			}
+			
+			echo "Adminaenderung:";
+			echo $adminaenderung;
+		
+			$gruppenmitglied->bearbeiten($adminaenderung);
 		}
 		
+		
+		// Messageboard
 		$nachricht = new Nachricht();
 		$user_id=$_SESSION['user']->getU_id();
 		$g_id=$_REQUEST ['g_id'];
