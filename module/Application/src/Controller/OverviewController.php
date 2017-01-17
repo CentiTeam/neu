@@ -20,6 +20,7 @@ class overviewController extends AbstractActionController
 	
 		session_start();
 		
+		echo "TEst Nachricht"
 		
 		if ($_SESSION['angemeldet']=='ja')
 		{
