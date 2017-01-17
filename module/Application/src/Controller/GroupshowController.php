@@ -125,7 +125,7 @@ class GroupshowController extends AbstractActionController
 			
 			$nachricht->sendMessage();
 			
-			$nachricht->messageboardladen();
+			//$nachricht->messageboardladen();
 		}
 		
 			
