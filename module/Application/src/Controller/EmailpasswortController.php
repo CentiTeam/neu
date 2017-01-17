@@ -23,9 +23,20 @@ class EmailpasswortController extends AbstractActionController
 			
 			$empfaenger= $_REQUEST ['email'];
 			
-			// $empfaengerVorname=$empfaenger->getVorname();
-			// $empfaengerUsername=$empfaenger->getUsername();
+			$userListe=User::listeHolen();
+			$emailvorhanden=false;
+			
+			foreach ($userListe as $liste) {
+				if ($liste->getEmail()==$empfaenger) {
+					$emailvorhanden=true;
+				}
+			}
 
+			if ($emailvorhanden==false) {
+				
+				$msg="E-Mail nicht vorhanden! Bitte erneut eingeben!";
+				
+			} else {
 			
 			$betreff = "Grouppay: Passwort zurücksetzen";
 			
@@ -44,9 +55,13 @@ Dein Grouppay-Team";
 			$msg= "E-Mail wurde erfolgreich versendet!";
 			
 			}
+			
+		}
 				
 		
-			return new ViewModel();
+			return new ViewModel([
+					'msg' => $msg
+			]);
 			
 
 	}
