@@ -26,9 +26,6 @@ class GruppenverlaufController extends AbstractActionController
 		return new ViewModel([
 				'gruppe' => array($gruppe),
 				'mitgliederListe' => $mitgliederliste,
-				'mitgliedschaft' => $mitgliedschaft,
-
-
 		]);
 		return new ViewModel([
 
