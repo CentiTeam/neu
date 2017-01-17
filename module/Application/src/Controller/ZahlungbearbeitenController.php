@@ -46,9 +46,17 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			$zahlungsteilnehmer= new Zahlungsteilnehmer();
 			$zahlungsteilnehmer->laden($zahlung->getZ_id(), $user_id);
 			
-			if ($zahlungsteilnehmer->getAnteil()==$zahlungsteilnehmer->getRestbetrag())
-				
-			{
+			$beglichen=0;
+			
+			foreach ($zahlungsteilnehmer as $zaehler => $zahlungsteilnehmer) {
+				//In dem Fall, dass der Restbetrag nicht dem Anteil entspricht, ist die Zahlung teils oder ganz beglichen und kann nicht mehr bearbeitet werden
+				if ($zahlungsteilnehmer->getAnteil()==$zahlungsteilnehmer->getRestbetrag())	
+				{
+					$beglichen++;				
+				}
+			}
+			
+			
 			
 			//Liste alle verfï¿½gbaren Kateforien holen
 			$kategorieliste = Kategorie::listeHolen();
@@ -68,7 +76,9 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			$saved= false;
 			$msg = array();
 			
-
+			//Wenn die Variable beglichen auf Null steht, kann die Zahlung bearbeitet werden
+			if ($beglichen==0)
+			{
 				
 
 			
@@ -229,7 +239,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			else {
 				echo "Diese Zahlung wurde bereits teilweise oder vollständig beglichen und kann daher nicht mehr bearbeitet werden";
 			}
-
+				
 
 
 
