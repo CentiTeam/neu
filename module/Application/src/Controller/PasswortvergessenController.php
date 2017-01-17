@@ -40,7 +40,8 @@ class PasswortvergessenController extends AbstractActionController
 				$user->setPasswort ($passwort);
 				$user->setPasswortwdh($passwortwdh);
 	
-				$user->passwortvergessen();		
+				$user->passwortvergessen();	
+		
 			}
 		
 			
@@ -56,7 +57,8 @@ class PasswortvergessenController extends AbstractActionController
 		}
 		
 		return new ViewModel([
-				
+			'user' => $user,	
+			'email' => $email
 		]);
 		
 		}
