@@ -165,7 +165,7 @@ class Nachricht {
 				NATURAL JOIN User
 				WHERE User.u_id= '".$user_id."'
 				AND g_id='".$g_id."'	
-				ORDER BY datum DESC LIMIT 10";
+				ORDER BY datum DESC LIMIT 10;";
 	
 		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
 		if ($result = $db->execute($query)) {
