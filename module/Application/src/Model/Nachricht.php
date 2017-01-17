@@ -162,9 +162,7 @@ class Nachricht {
 		$db = new DB_connection();
 	
 		$query="SELECT * FROM `nachricht`
-				NATURAL JOIN User
-				WHERE User.u_id= '".$user_id."'
-				AND g_id='".$g_id."'	
+				WHERE g_id='".$g_id."'	
 				ORDER BY datum DESC;";
 		
 	

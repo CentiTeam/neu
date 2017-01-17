@@ -93,6 +93,7 @@ class GroupshowController extends AbstractActionController
 		$g_id=$_REQUEST ['g_id'];
 		$nachricht->setG_id ($g_id);
 		
+		// Nachrichtenliste laden je Gruppe
 		$aktnachrichtliste=Nachricht::messageboard($user_id, $g_id);
 		
 		if ($_REQUEST['abschicken']) {
