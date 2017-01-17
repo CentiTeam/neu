@@ -69,6 +69,8 @@ class GroupshowController extends AbstractActionController
 			$gruppenmitglied=new Gruppenmitglied();
 			$gruppenmitglied->laden($_REQUEST['g_id'],$admin_U_id);
 			
+			echo "DB-Gruppenadmin davor:";
+			echo $gruppenmitglied->getGruppenadmin();
 			
 			if ($gruppenmitglied->getGruppenadmin()=="1") {
 				$adminaenderung="0";
@@ -76,7 +78,7 @@ class GroupshowController extends AbstractActionController
 				$adminaenderung="1";
 			}
 			
-			echo "Adminaenderung:";
+			echo "Adminaenderung danach:";
 			echo $adminaenderung;
 		
 			$gruppenmitglied->bearbeiten($g_id, $admin_U_id, $adminaenderung);
