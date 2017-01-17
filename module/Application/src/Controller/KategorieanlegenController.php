@@ -38,7 +38,7 @@ class KategorieanlegenController extends AbstractActionController {
 
 					
 				// Schritt 1:  Werte aus Formular einlesen
-				$k_id=$_REQUEST["k_id"];
+				//$k_id=$_REQUEST["k_id"];
 				$kategoriebeschreibung=$_REQUEST["kategoriebeschreibung"];
 				
 
