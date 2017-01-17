@@ -49,7 +49,7 @@ class UsersuchenController extends AbstractActionController
 			
 			if ($_REQUEST['einladen']) {
 				
-				if ($aktgruppenmitglied->getGruppenadmin()=="0" || $aktgruppenmitglied->getUser()->getU_id() == $user_id) {
+				if ($aktgruppenmitglied->getGruppenadmin()=="0") {
 					$errStr="Nicht berechtigt!";
 				}
 				
