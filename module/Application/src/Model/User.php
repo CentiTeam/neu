@@ -68,8 +68,8 @@ class User
 		public function passwordreset ($passwort, $u_id, $altespasswort) {
 			
 			$db = new DB_connection;
-			$query = "UPDATE User SET passwort = $passwort
-					WHERE u_id = $u_id";
+			$query = "UPDATE User SET passwort = '".$this->passwort."'
+					WHERE u_id = $u_id;";
 			
 			$query_pwueberpruefung = "SELECT passwort FROM User WHERE passwort = $passwort;";
 			$result_pwueberpruefung = $db->execute($query_pwueberpruefung);
