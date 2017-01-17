@@ -34,6 +34,11 @@ class UsersuchenController extends AbstractActionController
 		
 		else {
 			
+			$user_id=$_SESSION['user']->getU_id();
+			
+			$aktgruppenmitglied=new Gruppenmitglied();
+			$aktgruppenmitglied->laden($g_id, $user_id);
+			
 			$gruppe = new Gruppe();
 			$g_id= $_REQUEST["g_id"];
 			$gruppe->laden($g_id);
@@ -41,6 +46,10 @@ class UsersuchenController extends AbstractActionController
 			$liste = User::gruppensuchlisteHolen($suche, $g_id);
 			
 			if ($_REQUEST['einladen']) {
+				
+				if ($aktgruppenmitglied->getGruppenadmin()=="0" || $aktgruppenmitglied->getUser()->getU_id() == $user_id) {
+					$errStr="Nicht berechtigt!";
+				}
 				
 				$msg="";
 				
