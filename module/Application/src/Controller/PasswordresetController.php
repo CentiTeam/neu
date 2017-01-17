@@ -11,7 +11,7 @@ class PasswordresetController extends AbstractActionController
 {
 	public function passwordresetAction()
 	{
-
+		session_start();
 		$user = new User ();
 		$error = false;
 		$msg = array ();
@@ -24,6 +24,7 @@ class PasswordresetController extends AbstractActionController
 			$altespasswort = $_REQUEST ["altespasswort"];
 			$passwort = $_REQUEST ["passwort"];
 			$passwortwdh = $_REQUEST ["passwortwdh"];
+			$u_id = $_SESSION ['u_id'];
 		
 		
 			// Überprüfung, ob Passwort zwei mal richtig eingegeben wurde
@@ -37,7 +38,7 @@ class PasswordresetController extends AbstractActionController
 			if (!$error) {
 		
 				// User-Objekt mit Daten aus Request-Array füllen
-				
+				$user->setU_id($u_id);
 				$user->setPasswort ($passwort);
 				$user->setPasswortwdh($passwortwdh);
 		
