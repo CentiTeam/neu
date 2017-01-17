@@ -13,7 +13,7 @@ class RegistrierenController extends AbstractActionController{
 		
 		$user = new User ();
 		$error = false;
-		$msg = array ();
+		$msg="";
 		
 		if ($_REQUEST['registrieren']) {
 			
@@ -46,8 +46,6 @@ class RegistrierenController extends AbstractActionController{
 			$user->setNachname ($nachname);
 				
 			
-			$msg="";
-				
 			$empfaenger= $email;
 				
 				
