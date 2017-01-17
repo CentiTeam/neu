@@ -127,7 +127,14 @@ class ZahlungbearbeitenController extends AbstractActionController {
 					}
 					$zahlung->setAenderungsdatum($aenderungsdatum);
 						
-
+					$user_id=$_SESSION['user']->getU_id();
+									
+					// Zahlungsteilnehmer-Objekt laden
+					$teilnehmer= new Zahlungszeilnehmer();
+					$teilnehmer->laden($zahlung->getZ_id(), $user_id);
+							
+					echo $teilnehmer->getStatus;
+					echo "hallo";
 
 							// Wenn tempor�res Objekt gef�llt wurde kann mit diesen Werten das Objekt �ber die Bearbeiten-Fkt in die DB geschrieben werden
 							if ($errorStr == "" && $zahlung->bearbeiten()) {
@@ -142,14 +149,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 								$zahlung->laden();
 
 
-								$user_id=$_SESSION['user']->getU_id();
-									
-								// Zahlungsteilnehmer-Objekt laden
-								$teilnehmer= new Zahlungszeilnehmer();
-								$teilnehmer->laden($zahlung->getZ_id(), $user_id);
-								
-								echo $teilnehmer->getStatus;
-								echo "hallo";
+
 								
 								// hier war der Code nach if ($_REQUEST['speichern']) { zuvor
 								
