@@ -62,26 +62,22 @@ class GroupshowController extends AbstractActionController
 		if ($_REQUEST['gruppenadmin']) {
 				
 			$admin_U_id=$_REQUEST['u_id'];
-			echo "User_id:";
-			echo $admin_U_id;
-		
 
 			$gruppenmitglied=new Gruppenmitglied();
 			$gruppenmitglied->laden($_REQUEST['g_id'],$admin_U_id);
 			
-			echo "DB-Gruppenadmin davor:";
-			echo $gruppenmitglied->getGruppenadmin();
 			
 			if ($gruppenmitglied->getGruppenadmin()=="1") {
 				$adminaenderung="0";
 			} else {
 				$adminaenderung="1";
 			}
-			
-			echo "Adminaenderung danach:";
-			echo $adminaenderung;
+		
 		
 			$gruppenmitglied->bearbeiten($g_id, $admin_U_id, $adminaenderung);
+			
+			// Aktualisierte Mitgliederliste
+			$mitgliederliste=Gruppenmitglied::gruppenmitgliederlisteHolen($g_id);
 		}
 		
 		
