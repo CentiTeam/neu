@@ -14,3 +14,5 @@ class PasswordresetController extends AbstractActionController
 		return new ViewModel();
 
 	}
+	
+}
