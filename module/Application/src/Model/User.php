@@ -262,7 +262,8 @@ class User
 		$db = new DB_connection();
 		
 		// Alle User, die nicth Systemadmin sind, die nicht bereits Mitglied in der Gruppe sind und den Kriterien der Suche entsprechen
-		$query ="SELECT * FROM User WHERE systemadmin = 0
+		$query ="SELECT * FROM User WHERE systemadmin = 0 
+					AND deaktiviert = 0
 					AND (username LIKE '%$suche%'
 						OR vorname LIKE '%$suche%'
 						OR nachname LIKE '%$suche%'
