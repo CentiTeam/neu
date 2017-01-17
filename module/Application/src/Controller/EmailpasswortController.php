@@ -67,8 +67,11 @@ $text=
 <div>Dein Grouppay-Team</div>
 </body>
 </html>";
+
+$header  = 'MIME-Version: 1.0' . "\r\n";
+$header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 			
-			mail($empfaenger, $betreff, $text);
+			mail($empfaenger, $betreff, $text, $header);
 			
 			$msg= "E-Mail wurde erfolgreich versendet!";
 			
