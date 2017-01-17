@@ -227,7 +227,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 				}
 			}
 			else {
-				echo "Diese Zahlung wurde bereits teilweise oder vollständig beglichen und kann daher nicht mehr bearbeitet werden"
+				echo "Diese Zahlung wurde bereits teilweise oder vollständig beglichen und kann daher nicht mehr bearbeitet werden";
 			}
 
 
