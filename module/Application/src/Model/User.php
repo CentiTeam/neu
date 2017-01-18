@@ -73,7 +73,7 @@ class User
 			
 		//	$query_pwueberpruefung = "SELECT passwort FROM User WHERE passwort = $passwort;";
 		//	$result_pwueberpruefung = $db->execute($query_pwueberpruefung);
-			$db->execute($query);
+			$result = $db->execute($query);
 			
 			// if ($altespasswort = $result_pwueberpruefung) {
 				
@@ -83,7 +83,7 @@ class User
 			 
 					
 					
-					
+			return $result;
 				
 		}
 		
