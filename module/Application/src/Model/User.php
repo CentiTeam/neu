@@ -71,15 +71,16 @@ class User
 			$query = "UPDATE User SET passwort = '".$this->passwort."'
 					WHERE u_id = '".$this->u_id."';";
 			
-		//	$query_pwueberpruefung = "SELECT passwort FROM User WHERE passwort = $passwort;";
-		//	$result_pwueberpruefung = $db->execute($query_pwueberpruefung);
-			$result = $db->execute($query);
+			$query_pwueberpruefung = "SELECT passwort FROM User WHERE passwort = $passwort;";
+			$result_pwueberpruefung = $db->execute($query_pwueberpruefung);
 			
-			// if ($altespasswort = $result_pwueberpruefung) {
+			
+			 if ($altespasswort = $result_pwueberpruefung) {
 				
-			//	$db->execute($query);
-			//}
-			// 	echo "<center><h4>Keine &Uumlbereinstimmung des alten Passworts";
+				$result = $db->execute($query);
+			}
+		
+			echo "<center><h4>Keine &Uumlbereinstimmung des alten Passworts";
 			 
 					
 					
