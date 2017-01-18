@@ -70,21 +70,9 @@ class User
 			$db = new DB_connection;
 			$query = "UPDATE User SET passwort = '".$this->passwort."'
 					WHERE u_id = '".$this->u_id."';";
-			
-			$query_pwueberpruefung = "SELECT passwort FROM User WHERE u_id = '".$this->u_id."';";
-			$result_pwueberpruefung = $db->execute($query_pwueberpruefung);
-			
-			
-			 if ($altespasswort == $result_pwueberpruefung) {
-				
-				$result = $db->execute($query);
-			}
-		else {
-			
-			echo "<center><h4>Keine &Uumlbereinstimmung des alten Passworts";
-			 
-		}		
-					
+	
+			$result = $db->execute($query);
+	
 			return $result;
 				
 		}
