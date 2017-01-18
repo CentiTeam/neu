@@ -69,15 +69,14 @@ class Zahlungsteilnehmer {
 			
 		
 		$teilnehmerListe = $this->zahlungsteilnehmerholen($this->getZahlung()->getZ_id());
-		
-		echo "jetzt kommt mein erster test:";
-		var_dump($teilnehmerListe);
 		$teilnehmerListe=$this->removefromteilnehmerListe($teilnehmerListe);
-		echo "jetzt kommt mein zweiter test:";
-		var_dump($teilnehmerListe);
+
 		foreach($teilnehmerListe as $zaehler => $andererzahlungsteilnehmer){
 			$test = $andererzahlungsteilnehmer -> getUser() ->getUsername();
-			echo "dritter Test: ";
+			$test2 = $this -> getUser() ->getUsername();
+			echo "Hier sollte der sozusagen main Username stehen: ";
+			var_dump($test2);
+			echo "hier sollten die 2 anderen Usernamen stehen: ";
 			var_dump($test);
 		}
 		
@@ -126,14 +125,12 @@ class Zahlungsteilnehmer {
 	}
 	
 	public function removefromteilnehmerListe($teilnehmerListe){
-		echo " is zwischen hier ";
 		foreach($teilnehmerListe as $zaehler => $andererzahlungsteilnehmer){
 			if($andererzahlungsteilnehmer -> getUser() ->getU_id() ==$this->getUser() ->getU_id() ){
 				unset($array[$andererzahlungsteilnehmer]);
 				array_values();
 			}
 		}
-		echo " und hier irgendwas?";
 		return $teilnehmerListe;
 	}
 	
