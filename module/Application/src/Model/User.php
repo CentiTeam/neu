@@ -79,10 +79,11 @@ class User
 				
 				$result = $db->execute($query);
 			}
-		
+		else {
+			
 			echo "<center><h4>Keine &Uumlbereinstimmung des alten Passworts";
 			 
-					
+		}		
 					
 			return $result;
 				
