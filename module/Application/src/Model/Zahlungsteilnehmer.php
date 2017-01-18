@@ -126,13 +126,14 @@ class Zahlungsteilnehmer {
 	}
 	
 	public function removefromteilnehmerListe($teilnehmerListe){
-		
+		echo " is zwischen hier ";
 		foreach($teilnehmerListe as $zaehler => $andererzahlungsteilnehmer){
 			if($andererzahlungsteilnehmer -> getUser() ->getU_id() ==$this->getUser() ->getU_id() ){
 				unset($array[$andererzahlungsteilnehmer]);
 				array_values();
 			}
 		}
+		echo " und hier irgendwas?";
 		return $teilnehmerListe;
 	}
 	
