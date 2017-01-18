@@ -43,12 +43,12 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			$user_id=$_SESSION['user']->getU_id();
 				
 			// Zahlungsteilnehmer-Objekt laden
-
-			$teilnehmer =Zahlungsteilnehmer::laden($zahlung->getZ_id(), $user_id);
+			$teilnehmer= new Zahlungsteilnehmer();
+			$teilnehmer->laden($zahlung->getZ_id(), $user_id);
 			
 			$beglichen=0;
 			
-			foreach ($teilnehmer as $zaehler => $zahlungsteilnehmer) {
+			foreach ($teilnehmer as $key => $zahlungsteilnehmer) {
 				//In dem Fall, dass der Restbetrag nicht dem Anteil entspricht, ist die Zahlung teils oder ganz beglichen und kann nicht mehr bearbeitet werden
 				if ($zahlungsteilnehmer->getAnteil()==$zahlungsteilnehmer->getRestbetrag())	
 				{
