@@ -27,7 +27,7 @@ class PasswordresetController extends AbstractActionController
 			$passwortwdh = $_REQUEST ["passwortwdh"];
 			$u_id = $_SESSION['user']->getU_id();
 		
-	
+			$user->laden($u_id);
 			// Überprüfung, ob Passwort zwei mal richtig eingegeben wurde
 			if ($passwort!=$passwortwdh) {
 				echo "<center><h4>Keine &Uumlbereinstimmung der neuen Passw&oumlrter! Bitte erneut versuchen</h4></center>";
@@ -43,7 +43,7 @@ class PasswordresetController extends AbstractActionController
 				$user->setPasswort ($passwort);
 				$user->setPasswortwdh($passwortwdh);
 				$user->setAltespasswort ($altespasswort);
-		
+				$user->laden($u_id);
 				$user->passwordreset();
 				$msg = 'Passwort erfolgreich ge&aumlndert!';
 			}
