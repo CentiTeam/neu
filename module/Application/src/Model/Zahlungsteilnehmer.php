@@ -75,6 +75,16 @@ class Zahlungsteilnehmer {
 		$teilnehmerListe=$this->removefromteilnehmerListe($teilnehmerListe);
 		echo "jetzt kommt mein zweiter test:";
 		var_dump($teilnehmerListe);
+		foreach($teilnehmerListe as $zaehler => $andererzahlungsteilnehmer){
+			$test = $andererzahlungsteilnehmer -> getUser() ->getUsername();
+			echo "dritter Test: ";
+			var_dump($test);
+		}
+		
+		
+		
+		
+		
 // 		foreach($teilnehmerListe as $zaehler => $andererzahlungsteilnehmer){
 // 				if($andererzahlungsteilnehmer -> getUser() ->getU_id() ==$this->getUser() ->getU_id() )
 	
