@@ -51,6 +51,16 @@ class PasswordresetController extends AbstractActionController
 				echo "<center><h4> Keine &Uumlbereinstimmung mit dem alten Passwort! Bitte erneut versuchen </h4></center>";
 				$error = true;
 				
+				$user->laden($u_id);
+				$view = new ViewModel([
+						'user' => array($user),
+						'errors'   => $errors,
+						'msg' => $msg
+				]);
+				
+				$view->setTemplate('application/profil/profil.phtml');
+				
+				return $view;
 		
 			}
 		
