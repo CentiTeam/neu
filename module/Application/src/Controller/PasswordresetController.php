@@ -61,7 +61,13 @@ class PasswordresetController extends AbstractActionController
 		
 		
 
-	return new ViewModel();
+	return new ViewModel([
+			'user' => array($user),
+			'errors'   => $errors,
+			'msg' => $msg
+	]);
+	
+	
 
 	}
 	
