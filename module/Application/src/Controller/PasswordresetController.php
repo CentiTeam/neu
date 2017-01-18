@@ -26,7 +26,7 @@ class PasswordresetController extends AbstractActionController
 			$passwortwdh = $_REQUEST ["passwortwdh"];
 			$u_id = $_SESSION['user']->getU_id();
 			$nochpasswort = $_SESSION['user']->getPasswort();
-			$nochpw = $user->getPasswort();
+			$nochpw->$user->getPasswort();
 			echo $nochpw;
 			
 			
