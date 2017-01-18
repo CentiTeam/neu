@@ -47,8 +47,8 @@ class PasswordresetController extends AbstractActionController
 				
 			}
 			
-			if ($altespasswort != $nochpasswort) {
-				echo "<center><h4> Keine &Uumlbereinstimmung mit dem alten Passw&oumlrt! Bitte erneut versuchen </h4></center>";
+			else if ($altespasswort != $nochpasswort) {
+				echo "<center><h4> Keine &Uumlbereinstimmung mit dem alten Passwort! Bitte erneut versuchen </h4></center>";
 				$error = true;
 				
 				$user->laden($u_id);
@@ -65,13 +65,13 @@ class PasswordresetController extends AbstractActionController
 		
 		
 			// Keine Errors vorhanden, Funktion kann ausgeführt werden
-			if (!$error) {
+			else if (!$error) {
 		
 				// User-Objekt mit Daten aus Request-Array füllen
 				$user->setU_id($u_id);
 				$user->setPasswort ($passwort);
 				$user->setPasswortwdh($passwortwdh);
-				$user->setAltespasswort ($altespasswort);
+			
 				$user->laden($u_id);
 				$user->passwordreset();
 				$msg = 'Passwort erfolgreich ge&aumlndert!';
