@@ -23,7 +23,7 @@ class GruppenverlaufController extends AbstractActionController
 
 		// Liste der User-Objekte der Gruppenmitglieder holen
 		$mitgliederliste = Gruppenmitglied::gruppenmitgliederlisteholen($g_id);
-		$
+		
 		$ereignisliste = Gruppenereignis::listeHolen($gruppe);
 
 		return new ViewModel([
