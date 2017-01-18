@@ -14,8 +14,7 @@ class PasswordresetController extends AbstractActionController
 		session_start();
 		$user = new User ();
 		$error = false;
-		$msg = array ();
-		
+	
 		
 		if ($_REQUEST['passwordreset']) {
 		
@@ -32,6 +31,19 @@ class PasswordresetController extends AbstractActionController
 			if ($passwort!=$passwortwdh) {
 				echo "<center><h4>Keine &Uumlbereinstimmung der neuen Passw&oumlrter! Bitte erneut versuchen</h4></center>";
 				$error = true;
+				
+				$user->laden($u_id);
+				$view = new ViewModel([
+						'user' => array($user),
+						'errors'   => $errors,
+						'msg' => $msg
+				]);
+				
+				$view->setTemplate('application/profil/profil.phtml');
+				
+				return $view;
+				
+				
 			}
 		
 		
