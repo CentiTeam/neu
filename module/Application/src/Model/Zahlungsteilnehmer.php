@@ -62,7 +62,12 @@ class Zahlungsteilnehmer {
 		}
 	
 	}
-	
+	public function alleausgleichen($z_id){
+		$teilnehmerListe = $this->zahlungsteilnehmerholen($this->getZahlung()->getZ_id());
+		foreach($teilnehmerListe as $zaehler => $zahlungsteilnehmer){
+			$zahlungsteilnehmer -> ausgleichen();
+		}
+	}
 	
 	
 	public function ausgleichen($user_id, $z_id) {
