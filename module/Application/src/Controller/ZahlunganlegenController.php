@@ -183,9 +183,13 @@ class ZahlunganlegenController extends AbstractActionController {
 							$zahlungsteilnehmer->setZahlungsempfaenger($zahlungsempfaenger);
 					 		
 							$zahlungsteilnehmer->anlegen();
+							$zahlungsteilnehmer->ausgleichen();
+							
 					
 							$counter++;
 						 }
+						 
+						 echo " nach diesem Text wird die Funktion aufgerufen";
 						 
 						 $view = new ViewModel([
 						 		'gruppe' => array($gruppe),

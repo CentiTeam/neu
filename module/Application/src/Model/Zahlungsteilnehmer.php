@@ -47,6 +47,80 @@ class Zahlungsteilnehmer {
 // 		}
 		
 // 	}
+
+	public function zahlungbegleichen($betrag){
+		if($zahlungsempfaenger == 1){
+			echo "Fehler, ein Zahlungsempfaenger kann nichts begleichen";
+		}
+		if($betrag >= $restbetrag){
+			$temp = $restbetrag;
+			$this->setRestbetrag(0);
+			return ($betrag - $temp);
+		}else{
+			$this->setRestbetrag($this->getRestbetrag()-$betrag);
+			return 0;
+		}
+	
+	}
+	
+	
+	
+	public function ausgleichen($user_id, $z_id) {
+			
+		
+		$teilnehmerListe = zahlungsteilnehmerholen($z_id);
+		$teilnehmerListe=$this->removefromteilnehmerListe($teilnehmerListe);
+		var_dump($teilnehmerListe);
+// 		foreach($teilnehmerListe as $zaehler => $andererzahlungsteilnehmer){
+// 				if($andererzahlungsteilnehmer -> getUser() ->getU_id() ==$this->getUser() ->getU_id() )
+	
+// 			//Funktion wird von einem Zahlungsteilnehmer aufgerufen. Jeder andere User der in dieser Zahlung
+// 			//teilnimmt wird durchlaufen. In jedem Durchlauf werden alle gemeinsamen offenen Zahlungen geholt. 
+// 			// Danach wird der Schuldstand errechnet. Erstes Ziel!
+	
+// 			//was mir geschuldet wird
+// 			$schuldstand = 0;
+// 			//gib mir alle Zahlungen die offen mit diesem User sind.
+// 			$zahlungListe = $this->teilnehmerzahlungenholen($this->getUser() ->getU_id());
+// 			foreach($zahlungListe as $zaehler => $zahlungsteilnehmer){
+				
+// 				//Rechne Schuldstand
+// 				//falls user selber Ersteller/Empfänger ist
+// 				if($this->getZahlungsempfaenger()== $this->getUser() ->getU_id()){
+// 					$schuldstand += $andererzahlungsteilnehmer ->getRestbetrag();
+// 				}else{
+// 					$schuldstand -= $this ->getRestbetrag();
+	
+// 				}
+	
+// 				//wenn ich ihm etwas schulde
+// 				if($schuldstand<0){
+// 					while($schuldstand<0){
+// 						$schuldstand + zahlungenbegleichen($schuldstand);
+							
+// 					}
+// 				}
+// 				else{ //wenn er mir etwas schuldet
+// 					while($schuldstand > 0){
+// 						$schuldstand - zahlungenbegleichen($schuldstand);
+// 					}
+// 				}
+// 			}
+	
+// 		}
+	
+	}
+	
+	public function removefromteilnehmerListe($teilnehmerListe){
+		
+		foreach($teilnehmerListe as $zaehler => $andererzahlungsteilnehmer){
+			if($andererzahlungsteilnehmer -> getUser() ->getU_id() ==$this->getUser() ->getU_id() ){
+				unset($array[$andererzahlungsteilnehmer]);
+				array_values();
+			}
+		}
+		return $teilnehmerListe;
+	}
 	
 	public static function teilnehmerzahlungenholen($user_id) {
 	
