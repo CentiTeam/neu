@@ -151,6 +151,7 @@ class ZahlunganlegenController extends AbstractActionController {
  				 		
 				 
 						 $counter=0;
+						 $temp;
 						 // Legt die zugeh�rigen Zahlungsteilnehmer Datens�tze an, au�er f�r sich selbst (info wird aber f�r Anteil ben�tigt!)
 						 foreach ($_POST['zahlungsteilnehmer'] as $key => $value) {
 						 	
@@ -183,11 +184,11 @@ class ZahlunganlegenController extends AbstractActionController {
 							$zahlungsteilnehmer->setZahlungsempfaenger($zahlungsempfaenger);
 					 		
 							$zahlungsteilnehmer->anlegen();
-							
+							$temp = $zahlungsteilnehmer;
 					
 							$counter++;
 						 }
-						 Zahlungsteilnehmer::alleausgleichen($zahlungs_id);
+						 Zahlungsteilnehmer::alleausgleichen($temp -> getZahlung()->getZ_id());
 						 
 						 
 						 $view = new ViewModel([
