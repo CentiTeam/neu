@@ -75,7 +75,7 @@ class User
 			$result_pwueberpruefung = $db->execute($query_pwueberpruefung);
 			
 			
-			 if ($altespasswort = $result_pwueberpruefung) {
+			 if ($altespasswort == $result_pwueberpruefung) {
 				
 				$result = $db->execute($query);
 			}
