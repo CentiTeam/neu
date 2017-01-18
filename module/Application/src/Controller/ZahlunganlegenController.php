@@ -188,7 +188,7 @@ class ZahlunganlegenController extends AbstractActionController {
 					
 							$counter++;
 						 }
-						 Zahlungsteilnehmer::alleausgleichen($temp -> getZahlung()->getZ_id());
+						 $temp ->alleausgleichen();
 						 
 						 
 						 $view = new ViewModel([
