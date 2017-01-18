@@ -63,8 +63,10 @@ class PasswordresetController extends AbstractActionController
 				$user->setPasswort ($passwort);
 				$user->setPasswortwdh($passwortwdh);
 			
-				$user->laden($u_id);
+				
 				$user->passwordreset();
+				
+				$user->laden($u_id);
 				$msg = 'Passwort erfolgreich ge&aumlndert!';
 			}
 		
