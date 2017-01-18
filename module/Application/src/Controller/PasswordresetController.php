@@ -15,6 +15,7 @@ class PasswordresetController extends AbstractActionController
 		$user = new User ();
 		$error = false;
 		$msg = array ();
+		$user->laden($u_id);
 		
 		if ($_REQUEST['passwordreset']) {
 		
