@@ -47,10 +47,9 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			$teilnehmer->laden($zahlung->getZ_id(), $user_id);
 			
 			$beglichen=0;
+			var_dump($teilnehmer);
 			
 			foreach ($teilnehmer as $zaehler => $zahlungsteilnehmer) {
-				
-				var_dump($zahlungsteilnehmer);
 				
 				$zanteil = $zahlungsteilnehmer[3]->getAnteil();
 				$restbetrag = $zahlungsteilnehmer[5]->getRestbetrag();
