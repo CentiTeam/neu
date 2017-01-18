@@ -86,6 +86,130 @@ class Gruppenereignis{
 		return $isLoaded;
 	}
 	
+	public function gruppenmitgliedhinzufuegenEreignis($user, $gruppe){
+		
+		$ereignisbeschreibung = "Der Benutzer ".$user->getUsername()." wurde zur Gruppe hinzugefügt";
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+		
+		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
+		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe->getG_id()."', '".$ereignisbeschreibung."', NOW());");
+		
+	}
+	
+	public function gruppenmitgliedentfernenEreignis($user, $gruppe){
+	
+		$ereignisbeschreibung = "Der Benutzer ".$user->getUsername()." wurde aus der Gruppe von Admin entfernt";
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+	
+		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
+		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe->getG_id()."', '".$ereignisbeschreibung."', NOW());");
+	
+	}
+	
+	public function gruppenmitgliedaustretenEreignis($user, $gruppe){
+	
+		$ereignisbeschreibung = "Der Benutzer ".$user->getUsername()." ist aus der Gruppe ausgetreten";
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+	
+		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
+		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe->getG_id()."', '".$ereignisbeschreibung."', NOW());");
+	
+	}
+	
+	public function gruppenmitgliedloeschenEreignis($user, $gruppe){
+	
+		$ereignisbeschreibung = "Der Benutzer ".$user->getUsername()." wurde aus dem System geloescht";
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+	
+		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
+		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe->getG_id()."', '".$ereignisbeschreibung."', NOW());");
+	
+	}
+	
+	public function zahlunganlegenEreignis($zahlung, $gruppe, $user){
+	
+		$ereignisbeschreibung = "Die Zahlung '".$zahlung->getZahlungsbeschreibung()."' mit der ID ".$zahlung->getId()." in Hoehe von ".$zahlung->getBetrag()." wurde in der Kategorie".$zahlung->getKategorie()->getKategoriebeschreibung()." von ".$user->getUsername()."angelegt";
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+	
+		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
+		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe->getG_id()."', '".$ereignisbeschreibung."', NOW());");
+	
+	}
+	
+	
+	public function zahlungbegleichenEreignis($zahlung, $gruppe, $user){
+	
+		$ereignisbeschreibung = "Die Zahlung '".$zahlung->getZahlungsbeschreibung()."' mit der ID ".$zahlung->getId()." in Hoehe von ".$zahlung->getBetrag()." wurde von ".$user->getUsername()." beglichen";
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+	
+		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
+		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe->getG_id()."', '".$ereignisbeschreibung."', NOW());");
+	
+	}
+	
+	
+	public function zahlungeditierenEreignis($zahlung, $gruppe, $user){
+	
+		$ereignisbeschreibung = "Die Zahlung '".$zahlung->getZahlungsbeschreibung()."' mit der ID ".$zahlung->getId()." in Hoehe von ".$zahlung->getBetrag()." wurde von ".$user->getUsername()." editiert";
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+	
+		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
+		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe->getG_id()."', '".$ereignisbeschreibung."', NOW());");
+	
+	}
+	
+	public function zahlungstatusaenderungEreignis($zahlung, $gruppe, $user){
+	
+		$ereignisbeschreibung = "Der Status der Zahlung '".$zahlung->getZahlungsbeschreibung()."' mit der ID ".$zahlung->getId()." in Hoehe von ".$zahlung->getBetrag()." wurde von ".$user->getUsername()." zu ".$zahlung->getStatus()."geaendert";
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+	
+		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
+		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe->getG_id()."', '".$ereignisbeschreibung."', NOW());");
+	
+	}
+	
+	
+	public function zahlungloeschenEreignis($zahlung, $gruppe, $user){
+	
+		$ereignisbeschreibung = "Die Zahlung '".$zahlung->getZahlungsbeschreibung()."' mit der ID ".$zahlung->getId()." in Hoehe von ".$zahlung->getBetrag()." wurde von ".$user->getUsername()." geloescht";
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+	
+		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
+		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe->getG_id()."', '".$ereignisbeschreibung."', NOW());");
+	
+	}
+	
+	
+	public function gruppenadminrechteweitergebenEreignis($geber, $nehmer, $gruppe){
+	
+		$ereignisbeschreibung = $geber->getUsername()."hat Gruppenadminrechte an ".$nehmer->getUsername()."weitergegeben";
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+	
+		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
+		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe->getG_id()."', '".$ereignisbeschreibung."', NOW());");
+	
+	}
+	
+	public function gruppenerstellungEreignis($gruppe){
+	
+		$ereignisbeschreibung = "Die Gruppe wurde erstellt";
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+	
+		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
+		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe->getG_id()."', '".$ereignisbeschreibung."', NOW());");
+	
+	}
 	
 	
 	
