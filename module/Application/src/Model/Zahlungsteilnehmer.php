@@ -142,11 +142,13 @@ class Zahlungsteilnehmer {
 	}
 	
 	public function removefromteilnehmerListe($teilnehmerListe){
-		foreach($teilnehmerListe as $zaehler => $andererzahlungsteilnehmer){
-			if($andererzahlungsteilnehmer -> getUser() ->getU_id() ==$this->getUser() ->getU_id() ){
-				unset($array[$andererzahlungsteilnehmer]);
+		$ind = 0;
+		foreach($teilnehmerListe as $zaehler => $zahlungsteilnehmer){
+			if($zahlungsteilnehmer -> getUser() ->getU_id() ==$this->getUser() ->getU_id() ){
+				unset($teilnehmerListe[$ind]);
 				array_values();
 			}
+			$ind ++;
 		}
 		return $teilnehmerListe;
 	}
