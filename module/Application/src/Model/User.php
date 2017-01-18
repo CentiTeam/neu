@@ -80,7 +80,7 @@ class User
 			//	$db->execute($query);
 			//}
 			// 	echo "<center><h4>Keine &Uumlbereinstimmung des alten Passworts";
-			 }
+			 
 					
 					
 					
