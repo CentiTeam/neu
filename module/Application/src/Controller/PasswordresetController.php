@@ -25,8 +25,8 @@ class PasswordresetController extends AbstractActionController
 			$passwort = $_REQUEST ["passwort"];
 			$passwortwdh = $_REQUEST ["passwortwdh"];
 			$u_id = $_SESSION['user']->getU_id();
-			$nochpasswort->getUser()->getPasswort();
-			echo $nochpasswort;
+			$nochpasswort = $_SESSION ['user']->getPasswort;
+			
 			
 			
 			// Überprüfung, ob Passwort zwei mal richtig eingegeben wurde
