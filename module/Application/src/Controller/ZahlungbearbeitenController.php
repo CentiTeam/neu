@@ -33,7 +33,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 		} else {
 
 			//Holen der z_id aus Formular
-			$z_id = $_POST['z_id'];			
+			$z_id = $_REQUEST['z_id'];			
 			
 			//Laden des Objektes der Klasse Zahlung mit der übergebenen z_id in die Variable $zahlung
 			$zahlung = new Zahlung();
