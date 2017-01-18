@@ -8,11 +8,27 @@
 <tr><td>Beschreibung: <?=$gruppe[0]->getGruppenbeschreibung()?></td></tr>
 </table>
 </div>
-
 <div class=>
 <table>
 </table>
 </div>
+
+<br><br>
+
+
+<table><th>Zeitpunkt</th><th>Beschreibung</th>
+<?php
+foreach($ereignisListe as $zaehler => $ereignis){
+	
+
+?>
+
+<tr><td><?=$ereignis->getZeitpunkt()?></td><td><?=$ereignis->getBeschreibung()?></td></tr>
+
+<?php 
+}
+?>
+</table>
 
 
 
