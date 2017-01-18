@@ -70,12 +70,14 @@ class Zahlungsteilnehmer {
 		
 		$teilnehmerListe = $this->zahlungsteilnehmerholen($this->getZahlung()->getZ_id());
 		$teilnehmerListe=$this->removefromteilnehmerListe($teilnehmerListe);
+		
+		$test2 = $this -> getUser() ->getUsername();
+		echo "Hier sollte der sozusagen main Username stehen: ";
+		var_dump($test2);
 
 		foreach($teilnehmerListe as $zaehler => $andererzahlungsteilnehmer){
 			$test = $andererzahlungsteilnehmer -> getUser() ->getUsername();
-			$test2 = $this -> getUser() ->getUsername();
-			echo "Hier sollte der sozusagen main Username stehen: ";
-			var_dump($test2);
+		
 			echo "hier sollten die 2 anderen Usernamen stehen: ";
 			var_dump($test);
 		}
