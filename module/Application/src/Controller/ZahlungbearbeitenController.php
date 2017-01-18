@@ -50,8 +50,8 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			
 			foreach ($teilnehmer as $zaehler => $zahlungsteilnehmer) {
 				
-				$zanteil = $zahlungsteilnehmer[0]->getAnteil();
-				$restbetrag = $zahlungsteilnehmer[0]->getRestbetrag();
+				$zanteil = $zahlungsteilnehmer['anteil']->getAnteil();
+				$restbetrag = $zahlungsteilnehmer['restbetrag']->getRestbetrag();
 				//In dem Fall, dass der Restbetrag nicht dem Anteil entspricht, ist die Zahlung teils oder ganz beglichen und kann nicht mehr bearbeitet werden
 				if ($zanteil!=$restbetrag)	
 				{
