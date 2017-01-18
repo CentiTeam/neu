@@ -8,6 +8,7 @@ use Application\Model\Gruppe;
 use Application\Model\User;
 use Application\Model\Gruppenmitglied;
 use Application\Model\Nachricht;
+use Application\Model\Gruppenereignis;
 
 
 class GruppenverlaufController extends AbstractActionController
@@ -22,10 +23,13 @@ class GruppenverlaufController extends AbstractActionController
 
 		// Liste der User-Objekte der Gruppenmitglieder holen
 		$mitgliederliste = Gruppenmitglied::gruppenmitgliederlisteholen($g_id);
+		$
+		$ereignisliste = Gruppenereignis::listeHolen($gruppe);
 
 		return new ViewModel([
 				'gruppe' => array($gruppe),
 				'mitgliederListe' => $mitgliederliste,
+				'ereignisListe' => $ereignisliste,
 		]);
 		return new ViewModel([
 
