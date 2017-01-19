@@ -51,13 +51,15 @@ class EinladungannehmenController extends AbstractActionController
 			$gruppenmitglied->setUser($isOKuser);
 			$gruppenmitglied->setGruppe($isOKgruppe);
 			$gruppenmitglied->setGruppenadmin(0);
+			var_dump ($gruppenmitglied);
 			
 			$gruppenmitglied->laden($g_id, $u_id);
 			
-			var_dump ($gruppenmitglied);
+			
 			
 			$gruppenmitgliedListe=Gruppenmitglied::listeholen();
-			
+			echo "UND DIE LISTE:";
+			var_dump($gruppenmitgliedListe);
 			foreach ($gruppenmitgliedListe as $liste) {
 				if ($gruppenmitglied->getUser()->getU_id()==$liste->getUser()->getU_id() && $gruppenmitglied->getGruppe()->getG_id()==$liste->getGruppe()->getG_id()) {
 					
