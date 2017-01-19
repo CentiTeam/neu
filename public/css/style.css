@@ -92,9 +92,9 @@ display:block;
 
 .button {
   font-size: 2.0rem;
-  padding: 0.625rem 1.25rem;
+  padding: 0.625rem 2.5rem;
   display: block;
-  background-color: greenyellow;
+  background-color: yellowgreen;
   border: 1px solid transparent;
   color: #ffffff;
   font-weight: 300;
@@ -107,6 +107,6 @@ display:block;
 
 .button:hover {
   background-color: #ffffff;
-  color: greenyellow;
-  border-color: greenyellow;
+  color: yellowgreen;
+  border-color: yellowgreen;
 }
