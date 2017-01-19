@@ -91,10 +91,10 @@ display:block;
 }
 
 .button {
-  font-size: 2.0rem;
-  padding: 0.625rem 2.5rem;
+  font-size: 1.75rem;
+  padding: 0.5rem 2.0rem;
   display: block;
-  background-color: yellowgreen;
+  background-color: lightgreen;
   border: 1px solid transparent;
   color: #ffffff;
   font-weight: 300;
@@ -107,6 +107,6 @@ display:block;
 
 .button:hover {
   background-color: #ffffff;
-  color: yellowgreen;
-  border-color: yellowgreen;
+  color: lightgreen;
+  border-color: lightgreen;
 }
