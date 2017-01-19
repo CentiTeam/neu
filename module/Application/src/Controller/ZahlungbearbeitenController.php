@@ -87,11 +87,23 @@ class ZahlungbearbeitenController extends AbstractActionController {
 					if ($anteile[$counter]=="")
 					{
 						echo "Jeder ausgew&aumllte Teilnehmer muss einen Anteil zugewiesen bekommen";
+						
+						$view = new ViewModel([
+							'gruppe' => array($gruppe),
+							'zahlungsteilnehmer' => array($teilnehmer),
+							'msg' => $msg,
+							'kategorieListe' => $kategorieliste,
+							'mitgliederListe' => $mitgliederliste,
+							'erstellungsdatum' => $erstellungsdatum,
+							'zahlung' => array($zahlung)
+						]);
+						
+						return $view;
 					}
 					$counter++;
 				}
 				
-				return;
+				
 					
 				// Anteile in Schleife speichern und überprüfen, ob Summe dem Gesamtbetrag entspricht
 				$anteile=array();
