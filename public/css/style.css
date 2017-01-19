@@ -92,7 +92,7 @@ display:block;
 
 .button {
   font-size: 2.0rem;
-  padding: 1.25rem 2.5rem;
+  padding: 0.625rem 1.25rem;
   display: block;
   background-color: greenyellow;
   border: 1px solid transparent;
