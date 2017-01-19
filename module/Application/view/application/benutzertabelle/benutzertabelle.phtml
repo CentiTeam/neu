@@ -5,12 +5,8 @@
 <center>
 
 <form action="usersuchen" method="post">
-
-
-<table>
-	<tr><td>Suche:</td><td><input name="suche" type="text" maxlength="255" size="20" required></td>
-	<td><input class="button" type="submit" value="User suchen"></td> </tr> 
-</table>
+	<div>Suche: <input name="suche" type="text" maxlength="255" size="20" required></div>
+	<div><input class="button" type="submit" value="User suchen"></div>
 </form>
 <br>
 
@@ -26,8 +22,7 @@
 <th> E-Mail			</th>
 <th> Deaktiviert 	</th>
 <th> Systemadmin 	</th>
-<th> 				</th>
-<th> 				</th>
+<th></th>
 </tr>
 </thead>
 
@@ -36,7 +31,7 @@
 	foreach ($userListe as $zaehler => $user) {
 	?>
 <tr>
-			<td height="45">	<?=$user->getU_id()?>			</td>
+			<td height="45">	<?=$user->getU_id()?></td>
 			<td>	<?=$user->getUsername()?>		</td>
 			<td>	<?=$user->getVorname()?>		</td>
 			<td>	<?=$user->getNachname()?>		</td>
