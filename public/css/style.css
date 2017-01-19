@@ -92,9 +92,9 @@ display:block;
 
 .button {
   font-size: 1.75rem;
-  padding: 0.3rem 1.75rem;
+  padding: 0.0rem 1.75rem;
   display: block;
-  background-color: #AFFFAF;
+  background-color: #7BFE7B;
   border: 1px solid transparent;
   color: #ffffff;
   font-weight: 300;
@@ -107,6 +107,6 @@ display:block;
 
 .button:hover {
   background-color: #ffffff;
-  color: #AFFFAF;
-  border-color: #AFFFAF;
+  color: #7BFE7B;
+  border-color: #7BFE7B;
 }
