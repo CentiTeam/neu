@@ -29,7 +29,8 @@ class EinladungannehmenController extends AbstractActionController
 		$user=new User();
 		$isOKuser = $user->laden ($u_id);
 		
-
+		echo "Gruppeninfos";
+		var_dump($isOKgruppe); 
 
 		// wenn die Aktion abgebrochen werden soll
 		if ($_REQUEST['abbrechen']) {
@@ -56,10 +57,8 @@ class EinladungannehmenController extends AbstractActionController
 			$gruppenmitglied->laden($g_id, $u_id);
 			
 			
-			
 			$gruppenmitgliedListe=Gruppenmitglied::listeholen();
-			echo "UND DIE LISTE:";
-			var_dump($gruppenmitgliedListe);
+			
 			foreach ($gruppenmitgliedListe as $liste) {
 				if ($gruppenmitglied->getUser()->getU_id()==$liste->getUser()->getU_id() && $gruppenmitglied->getGruppe()->getG_id()==$liste->getGruppe()->getG_id()) {
 					
