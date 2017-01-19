@@ -153,7 +153,6 @@ th {
 th:after {
 	background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));
 	content: '';
-	display: block;
 	height: 25%;
 	left: 0;
 	margin: 1px 0 0 0;
