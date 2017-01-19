@@ -88,7 +88,7 @@ display:block;
 body { font-family: "Nunito", sans-serif; font-size: 24px; }
 a    { text-decoration: none; }
 p    { text-align: center; }
-sup  { font-size: 36px; font-weight: 100; line-height: 55px; }
+sup  { font-size: 20px; font-weight: 100; line-height: 55px; }
 
 .button
 {
@@ -138,11 +138,8 @@ sup  { font-size: 36px; font-weight: 100; line-height: 55px; }
 
   background: rgba(0, 0, 0, 0);
   border: 3px solid #FFF;
-  border-top: none;
-  border-right: none;
 
   transition: opacity 0.5s, top 0.5s, right 0.5s;
-  transform: rotate(-45deg);
 }
 
 .button:hover span, .button:active span 
