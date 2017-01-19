@@ -54,6 +54,8 @@ class EinladungannehmenController extends AbstractActionController
 			
 			$gruppenmitglied->laden($g_id, $u_id);
 			
+			var_dump ($gruppenmitglied);
+			
 			$gruppenmitgliedListe=Gruppenmitglied::listeholen();
 			
 			foreach ($gruppenmitgliedListe as $liste) {
