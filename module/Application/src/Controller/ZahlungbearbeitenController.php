@@ -239,7 +239,8 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						'gruppe' => array($gruppe),
 						'errors' => $errors,
 						'msg' => $msg,
-						'zahlung' => array($zahlung)
+						'zahlung' => array($zahlung),
+						'teilnehmerliste' => $teilnehmerliste
 				]);
 				
 				$view->setTemplate('application/zahlunganzeigen/zahlunganzeigen.phtml');
