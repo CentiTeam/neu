@@ -45,7 +45,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			//Zahlungsteilnehmer der Zahlung holen
 			$teilnehmerliste = Zahlungsteilnehmer::zahlungsteilnehmerholen($z_id);
 			
-			foreach ($teilnehmerliste as $zaehler => $zahlungsteilnehmer)
+			foreach ($teilnehmerliste as $zahlungsteilnehmer)
 			{
 				//In dem Fall, dass der Restbetrag nicht dem Anteil entspricht, ist die Zahlung teils oder ganz beglichen
 				if ($zahlungsteilnehmer->getAnteil()!=$zahlungsteilnehmer->getRestbetrag())
