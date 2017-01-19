@@ -54,8 +54,8 @@ class EinladungannehmenController extends AbstractActionController
 			$msg = "";
 			$errorStr = "";
 			
-			$gruppenmitglied->setU_id($u_id);
-			$gruppenmitglied->setG_id($g_id);
+			$gruppenmitglied->setUser($isOKuser);
+			$gruppenmitglied->setGruppe($isOKgruppe);
 			$gruppenmitglied->setGruppenadmin(0);
 				
 			
