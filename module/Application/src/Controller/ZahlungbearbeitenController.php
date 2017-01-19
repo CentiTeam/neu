@@ -42,6 +42,20 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			//Holen der u_id aus Session
 			$user_id=$_SESSION['user']->getU_id();
 				
+			//Zahlungsteilnehmer der Zahlung holen
+			$teilnehmerliste = Zahlungsteilnehmer::zahlungsteilnehmerholen($z_id);
+			
+			foreach ($teilnehmerliste as $zaehler => $zahlungsteilnehmer)
+			{
+				//In dem Fall, dass der Restbetrag nicht dem Anteil entspricht, ist die Zahlung teils oder ganz beglichen
+				if ($zahlungsteilnehmer->getAnteil()!=$zahlungsteilnehmer->getRestbetrag())
+				{
+					$beglichen++;
+				}
+			}
+			
+			
+			/**
 			// Zahlungsteilnehmer-Objekt laden
 			$teilnehmer= new Zahlungsteilnehmer();
 			$teilnehmer->laden($zahlung->getZ_id(), $user_id);
@@ -56,7 +70,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 					$beglichen++;				
 				}
 			}
-			
+			*/
 			
 			
 			//Liste alle verf�gbaren Kateforien holen
