@@ -95,21 +95,14 @@ class EinladungannehmenController extends AbstractActionController
 		}
 		
 		
-		session_start();
-		$_SESSION['user']=$user;
-		$_SESSION['angemeldet']="ja";
-		
-		$mitgliederListe=Gruppenmitglied::gruppenmitgliederlisteHolen($gruppe->getG_id());
-		
+		$email=$user->getEmail();
 		
 		$view = new ViewModel([
 				'msg' => $msg,
-				'gruppe' => array($gruppe),
-				'user' => array($user),
-				'mitgliederListe' => $mitgliederListe,				
+				'email' => $email
 		]);
 
-		$view->setTemplate('application/groupshow/groupshow.phtml');
+		$view->setTemplate('application/login/login.phtml');
 			
 		return $view;
 
