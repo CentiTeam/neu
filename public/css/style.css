@@ -94,7 +94,7 @@ display:block;
   font-size: 1.75rem;
   padding: 0.0rem 1.75rem;
   display: block;
-  background-color: #7BFE7B;
+  background-color: #66FF66;
   border: 1px solid transparent;
   color: #ffffff;
   font-weight: 300;
@@ -107,6 +107,6 @@ display:block;
 
 .button:hover {
   background-color: #ffffff;
-  color: #7BFE7B;
-  border-color: #7BFE7B;
+  color: #66FF66;
+  border-color: #66FF66;
 }
