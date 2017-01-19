@@ -145,7 +145,7 @@ th {
 	box-shadow: inset 0 1px 0 #999;
 	color: #fff;
   font-weight: bold;
-	padding: 10px 15px;
+
 	position: relative;
 	text-shadow: 0 1px 0 #000;	
 }
@@ -153,6 +153,7 @@ th {
 th:after {
 	background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));
 	content: '';
+	display: block;
 	height: 25%;
 	left: 0;
 	margin: 1px 0 0 0;
@@ -175,7 +176,7 @@ td {
 	border-left: 1px solid #e8e8e8;
 	border-top: 1px solid #fff;
 	border-bottom: 1px solid #e8e8e8;
-	padding: 10px 15px;
+
 	position: relative;
 	transition: all 300ms;
 }
