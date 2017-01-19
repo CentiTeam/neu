@@ -88,11 +88,12 @@ display:block;
 .button
 {
   font-family: "Nunito", sans-serif; 
-  font-size: 25px;
+  font-size: 20px;
   text-transform: uppercase;
   text-align: center;
   color: #0C5;
-  
+  border-radius: 3px 0 0 3px;
+  padding: 10px 0;
   width: 150px;
   height:30px;
 
@@ -137,6 +138,7 @@ display:block;
 
 .button:hover span, .button:active span 
 {
+  padding-right: 30px;
 }
 
 .button:hover span:after, .button:active span:after 
