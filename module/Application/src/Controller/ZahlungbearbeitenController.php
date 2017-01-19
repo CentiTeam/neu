@@ -45,7 +45,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			//Zahlungsteilnehmer der Zahlung holen
 			$teilnehmerliste = Zahlungsteilnehmer::zahlungsteilnehmerholen($z_id);
 			
-			foreach ($teilnehmerliste as $zaehler => $zahlungsteilnehmer)
+			foreach ($teilnehmerliste as $zahlungsteilnehmer)
 			{
 				//In dem Fall, dass der Restbetrag nicht dem Anteil entspricht, ist die Zahlung teils oder ganz beglichen
 				if ($zahlungsteilnehmer->getAnteil()!=$zahlungsteilnehmer->getRestbetrag())
@@ -53,24 +53,6 @@ class ZahlungbearbeitenController extends AbstractActionController {
 					$beglichen++;
 				}
 			}
-			
-			
-			/**
-			// Zahlungsteilnehmer-Objekt laden
-			$teilnehmer= new Zahlungsteilnehmer();
-			$teilnehmer->laden($zahlung->getZ_id(), $user_id);
-			
-			$beglichen=0;
-			
-			foreach ($teilnehmer as $zaehler => $zahlungsteilnehmer) {
-				
-				//In dem Fall, dass der Restbetrag nicht dem Anteil entspricht, ist die Zahlung teils oder ganz beglichen
-				if ($zahlungsteilnehmer->getAnteil()!=$zahlungsteilnehmer->getRestbetrag())	
-				{
-					$beglichen++;				
-				}
-			}
-			*/
 			
 			
 			//Liste alle verfï¿½gbaren Kateforien holen
@@ -252,7 +234,17 @@ class ZahlungbearbeitenController extends AbstractActionController {
 				}
 			}
 			else {
-				echo "Diese Zahlung wurde bereits teilweise oder vollständig beglichen und kann daher nicht mehr bearbeitet werden";
+				echo "Diese Zahlung wurde bereits teilweise oder vollst&aumlndig beglichen und kann daher nicht mehr bearbeitet werden";
+				$view = new ViewModel([
+						'gruppe' => array($gruppe),
+						'errors' => $errors,
+						'msg' => $msg,
+						'zahlung' => array($zahlung),
+						'teilnehmerliste' => $teilnehmerliste
+				]);
+				
+				$view->setTemplate('application/zahlunganzeigen/zahlunganzeigen.phtml');
+				return $view;
 			}
 				
 
