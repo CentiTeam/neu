@@ -95,11 +95,12 @@ display:block;
   margin: 0.2rem;
   padding: 0.0rem 1.75rem;
   display: block;
-  background-color: #00f700 ;
-  border: 1px solid #00f700;
+  background-color: #8fb8f0 ;
+  border: 1px solid #8fb8f0;
   color: #ffffff;
   font-weight: 300;
-  
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -107,6 +108,6 @@ display:block;
 
 .button:hover {
   background-color: #ffffff;
-  color: #00f700 ;
-  border-color: #00f700;
+  color: #8fb8f0 ;
+  border-color: #8fb8f0;
 }
