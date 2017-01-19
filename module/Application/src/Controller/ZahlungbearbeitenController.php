@@ -81,6 +81,18 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			
 			if ($_REQUEST['speichern']) {
 
+				//Feststellen, ob für das gesetzte Häkchen auch ein Anteil angegeben wurde
+				$counter=0;
+				foreach ($_POST['zahlungsteilnehmer'] as $zaehler) {
+					if ($anteile[$counter]=="")
+					{
+						echo "Jeder ausgew&aumllte Teilnehmer muss einen Anteil zugewiesen bekommen";
+					}
+					$counter++;
+				}
+				
+				return;
+					
 				// Anteile in Schleife speichern und Ã¼berprÃ¼fen, ob Summe dem Gesamtbetrag entspricht
 				$anteile=array();
 				$i=0;
@@ -154,9 +166,6 @@ class ZahlungbearbeitenController extends AbstractActionController {
 
 								// Neue Z_id durch Laden der neu erstellten Gruppe ins Objekt laden
 								$zahlung->laden();
-
-
-
 								
 								// hier war der Code nach if ($_REQUEST['speichern']) { zuvor
 								
