@@ -24,13 +24,13 @@ class EinladungannehmenController extends AbstractActionController
 		
 		
 		$gruppe=new Gruppe();
-		$isOKgruppe = $gruppe->laden ($g_id);
+		$gruppe->laden ($g_id);
 		
 		$user=new User();
-		$isOKuser = $user->laden ($u_id);
+		$user->laden ($u_id);
 		
 		echo "Gruppeninfos";
-		var_dump($isOKgruppe); 
+		var_dump($gruppe); 
 
 		// wenn die Aktion abgebrochen werden soll
 		if ($_REQUEST['abbrechen']) {
