@@ -95,8 +95,8 @@ display:block;
   margin: 0.2rem;
   padding: 0.0rem 1.75rem;
   display: block;
-  background-color: #8fb8f0 ;
-  border: 1px solid #8fb8f0;
+  background-color: #75ef74 ;
+  border: 1px solid #75ef74;
   color: #ffffff;
   font-weight: 300;
   -webkit-border-radius: 3px;
@@ -108,6 +108,6 @@ display:block;
 
 .button:hover {
   background-color: #ffffff;
-  color: #8fb8f0 ;
-  border-color: #8fb8f0;
+  color: #75ef74 ;
+  border-color: #75ef74;
 }
