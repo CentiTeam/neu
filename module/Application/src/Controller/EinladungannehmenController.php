@@ -99,33 +99,14 @@ class EinladungannehmenController extends AbstractActionController
 		$_SESSION['user']=$user;
 		$_SESSION['angemeldet']="ja";
 		
-		$mitgliederListe=User::gruppenmitgliederlisteHolen($gruppe->getG_id());
+		$mitgliederListe=Gruppenmitglied::gruppenmitgliederlisteHolen($gruppe->getG_id());
 		
-		$mitgliedschaft=array();
-		
-		// F�r jedes Gruppenmitglied mit die Gruppenmitgliedschafts-Infos (inkl. Gruppenadmin) laden
-		// und Mitgliedschaftsinfos in Array speichern, wenn Gruppenmitgliedschaft besteht
-		foreach ($mitgliederListe as $mitglied) {
-				
-			// Gruppenmitglied instanzieren
-			$gruppenmitglied= new Gruppenmitglied();
-			$gruppenmitglied->laden ($gruppe->getG_id(), $mitglied->getUser()->getU_id());
-				
-			// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter bef�llt
-			if ($gruppenmitglied->getUser() == $mitglied->getUser()) {
-		
-				$mitgliedschaft[]=$gruppenmitglied;
-		
-			}
-		}
 		
 		$view = new ViewModel([
 				'msg' => $msg,
 				'gruppe' => array($gruppe),
 				'user' => array($user),
-				'mitgliederListe' => $mitgliederListe,
-				'mitgliedschaft' => $mitgliedschaft,
-				
+				'mitgliederListe' => $mitgliederListe,				
 		]);
 
 		$view->setTemplate('application/groupshow/groupshow.phtml');
