@@ -2,7 +2,7 @@ body {
     padding-top: 60px;
     padding-bottom: 40px;
     background-color: honeydew;
-    color: #3a3a3b;
+    color: #404041;
       
   min-height: 100%;
 }
@@ -92,7 +92,7 @@ display:block;
 }
 
 .button {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   margin: 0.5rem 0.2rem 0.5rem 0.2rem;
   padding: 0.0rem 1.75rem;
   background-color: #75ef74 ;
