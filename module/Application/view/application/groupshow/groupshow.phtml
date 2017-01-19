@@ -16,7 +16,7 @@
 <form action="gruppenverlauf?g_id=<?=$_REQUEST['g_id']?>" method="post">
 		<table>
 		<td><input type="hidden" name='g_id' value=<?=$_REQUEST['g_id']?></td> </tr>
-		<td><input type="submit" value="Gruppenverlauf"></td> </tr>
+		<td><input class="button" type="submit" value="Gruppenverlauf"></td> </tr>
 		</table>
 	</form>	
 
@@ -52,7 +52,7 @@
     <label>Nachricht:</label><br>
     <textarea name="text" required rows="5" cols="40"></textarea>
     <br>
-    <input type="submit"  name = "abschicken" value="Abschicken">
+    <input class="button" type="submit"  name = "abschicken" value="Abschicken">
 </form>
 
 
@@ -97,7 +97,7 @@
 			<input type="hidden" name="gruppenadminwert" value="<?=$gruppenmitglied->getGruppenadmin()?>">
 			<input type="hidden" name="g_id" value="<?=$gruppenmitglied->getGruppe()->getG_id()?>">
 			<input type="hidden" name="u_id" value="<?=$gruppenmitglied->getUser()->getU_id()?>">
-			<td><input type="submit" name="gruppenadmin" value="Gruppenadminrechte &auml;ndern"></td>
+			<td><input class="button" type="submit" name="gruppenadmin" value="Gruppenadminrechte &auml;ndern"></td>
 			</form>
 			<?php }
 			if ($gruppenmitglied->getUser()->getDeaktiviert()=="1") {?>
@@ -117,7 +117,7 @@
 		<table>
 		<th>Download aller Zahlungen dieser Gruppe als CSV</th></tr>
 		<td><input type="hidden" name='g_id' value=<?=$_REQUEST['g_id']?></td> </tr>
-		<td><input type="submit" value="CSV Download"></td> </tr>
+		<td><input class="button" type="submit" value="CSV Download"></td> </tr>
 		
 	</table>
 	</form>	
@@ -132,7 +132,7 @@
 		<th>Neues Mitglied hinzuf&uuml;gen</th>
 		<tr><td>Suche:</td><td><input name="suche" type="text" maxlength="255" size="20" required></td>
 		 <input type="hidden" name="g_id" readonly="readonly" value="<?=$gruppe[0]->getG_id()?>">
-		<td><input type="submit" value="User suchen"></td> </tr>
+		<td><input class="button" type="submit" value="User suchen"></td> </tr>
 	</table>
 	</form>
 	<br><br>
@@ -141,14 +141,6 @@
 	<form action="gruppeverlassen" method="post">
 	 <input type="hidden" name="g_id" readonly="readonly" value="<?=$gruppe[0]->getG_id()?>">
 	 <input type="hidden" name="u_id" readonly="readonly" value="<?=$user_id?>">
-	<input type="submit" value="Gruppe verlassen">
+	<input class="button" type="submit" value="Gruppe verlassen">
 	</form>
-	
-	
-	
-	
-
-
-
-
 										

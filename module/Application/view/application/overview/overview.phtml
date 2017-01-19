@@ -11,12 +11,12 @@
 <br>
 <?php if($_SESSION['neuigkeiten']!="ja") {?>
 <form method="post" action="overview">
-<input type="submit" name="neues" value="Was gibt es Neues?">
+<input class="button" type="submit" name="neues" value="Was gibt es Neues?">
 </form>
 <?php }?>
 <?php if($_SESSION['gelesenam'] != $aktdatum) {?>
 <form method="post" action="overview">
-<input type="submit" name="hide" value="X">
+<input class="button" type="submit" name="hide" value="X">
 <h4>In den letzten f&uumlnf Tagen wurden in Ihren Gruppen folgende Zahlungen erstellt:</h4>
 
 <table width="80%">
