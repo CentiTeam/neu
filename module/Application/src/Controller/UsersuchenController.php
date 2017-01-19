@@ -23,6 +23,17 @@ class UsersuchenController extends AbstractActionController
 	{
 		session_start(); 
 		
+		if ($_SESSION['angemeldet']="nein") {
+			$msg="Nicht berechtigt!";
+			$view = new ViewModel([
+					'msg' => $msg,
+			]);
+			
+			$view->setTemplate('application/index/index.phtml');
+				
+			return $view;
+		}
+		
 		$suche = $_REQUEST ["suche"];
 		
 		if ($_SESSION['user']->getSystemadmin()==true) {
