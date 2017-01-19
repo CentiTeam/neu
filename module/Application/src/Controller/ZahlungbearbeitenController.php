@@ -80,10 +80,24 @@ class ZahlungbearbeitenController extends AbstractActionController {
 
 			
 			if ($_REQUEST['speichern']) {
+				
+				
+				// Anteile in Schleife speichern und überprüfen, ob Summe dem Gesamtbetrag entspricht
+				$anteile=array();
+				$i=0;
+				$summe=0;
 
+				foreach ($_POST['anteilsbetrag'] as $zaehler => $anteil) {
+					$anteile[]=$anteil;
+					$i++;
+					$summe += $anteil;
+				}
+				
+				
 				//Feststellen, ob f�r das gesetzte H�kchen auch ein Anteil angegeben wurde
 				$counter=0;
-				foreach ($_POST['zahlungsteilnehmer'] as $key) {
+				foreach ($_POST['zahlungsteilnehmer'] as $key => $value) {
+					
 					
 					if ($anteile[$counter]=="")
 					{
@@ -102,19 +116,6 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						return $view;
 					}
 					$counter++;
-				}
-				
-				
-					
-				// Anteile in Schleife speichern und überprüfen, ob Summe dem Gesamtbetrag entspricht
-				$anteile=array();
-				$i=0;
-				$summe=0;
-
-				foreach ($_POST['anteilsbetrag'] as $zaehler => $anteil) {
-					$anteile[]=$anteil;
-					$i++;
-					$summe += $anteil;
 				}
 
 
