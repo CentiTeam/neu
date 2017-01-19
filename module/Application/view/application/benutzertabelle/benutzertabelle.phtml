@@ -43,10 +43,10 @@
 			<td>	<?=$user->getSystemadmin()?>	</td> 
 			
 			<?php if($user->getDeaktiviert() == 0){ ?>
-			<td>	<a href="benutzerdeaktivieren?u_id=<?=$user->getU_id()?>"><img src="img/deaktivieren.png" height="100" width="100" /></a></td>
+			<td>	<a href="benutzerdeaktivieren?u_id=<?=$user->getU_id()?>"><img src="img/deaktivieren.png" height="50" width="50" title="Benutzer deaktivieren" /></a></td>
 			<?php } 
 			else{ ?>
-			<td>	<a href="benutzerreaktivieren?u_id=<?=$user->getU_id()?>"><img src="img/reaktivieren.png" height="100" width="100" /></td>
+			<td>	<a href="benutzerreaktivieren?u_id=<?=$user->getU_id()?>"><img src="img/reaktivieren.png" height="50" width="50" title="Benutzer reaktivieren" /></td>
 
 <?php
 			}
