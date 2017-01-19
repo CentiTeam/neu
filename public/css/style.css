@@ -36,6 +36,7 @@ div.container a.navbar-brand > img {
     margin-top: -2px;
 }
 
+/* Runde Bilder */
 .small-circular-image img {
 	width: 60px;
 	height: 60px;
@@ -71,6 +72,7 @@ div.container a.navbar-brand > img {
 	border-radius: 200px;   
 }
 
+/* An mobile Version angepasste Größe der Bilder */
 .amensic-image-wrapper{
 max-width:90%;
 height:auto;
@@ -91,6 +93,7 @@ display:block;
   box-sizing: border-box;
 }
 
+/* Buttons */
 .button {
   font-size: 1.75rem;
   margin: 0.5rem 0.2rem 0.5rem 0.2rem;
