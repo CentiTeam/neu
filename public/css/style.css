@@ -92,10 +92,8 @@ display:block;
 }
 
 .button {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  margin-left: 0.2rem;
-  margin-right: 0.2rem;
+  font-size: 1.5rem;
+  margin: 0.5rem 0.2rem 0.5rem 0.2rem;
   padding: 0.0rem 1.75rem;
   background-color: #75ef74 ;
   border: 1px solid #75ef74;
