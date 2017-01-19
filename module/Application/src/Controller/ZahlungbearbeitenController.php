@@ -83,8 +83,9 @@ class ZahlungbearbeitenController extends AbstractActionController {
 
 				//Feststellen, ob für das gesetzte Häkchen auch ein Anteil angegeben wurde
 				$counter=0;
-				foreach ($_POST['zahlungsteilnehmer'] as $zaehler) {
-					if (isset($zaehler) AND $anteile[$counter]=="")
+				foreach ($_POST['zahlungsteilnehmer'] as $key => $value) {
+					
+					if ($anteile[$counter]=="")
 					{
 						echo "Jeder ausgew&aumlhlte Teilnehmer muss einen Anteil zugewiesen bekommen";
 						
