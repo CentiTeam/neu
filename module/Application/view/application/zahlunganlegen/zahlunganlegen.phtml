@@ -7,10 +7,11 @@
 <tr><td>Zahlungsdatum: </td><td><input type="date" name="zahlungsdatum" value="<?=$erstellungsdatum?>" placeholder="YYYY-MM-DD" required></td></tr>
 <tr><td>Kategorie: </td><td>
 	<select name="kategorie" size="5">
+			<option value=''> Keine Kategorie </option>
 	<?php
 	//Alle Kategorien in die Auswahlliste schreiben
 	foreach ($kategorieListe as $zaehler => $kategorie) { ?>
-			<option value='<?=$kategorie->getK_id()?>'> <?=$kategorie->getKategoriebeschreibung() ?> </option>
+			<option selected value='<?=$kategorie->getK_id()?>'> <?=$kategorie->getKategoriebeschreibung() ?> </option>
 	<?php } ?> 
 	</select>
 </td></tr>
