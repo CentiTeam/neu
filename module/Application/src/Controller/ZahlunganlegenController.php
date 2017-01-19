@@ -67,6 +67,31 @@ class ZahlunganlegenController extends AbstractActionController {
 					$summe += $anteil;
 				}
 				
+				//Feststellen, ob für das gesetzte Häkchen auch ein Anteil angegeben wurde
+				$counter=0;
+				foreach ($_POST['zahlungsteilnehmer'] as $key => $value) {
+						
+						
+					if ($anteile[$counter]=="")
+					{
+						echo "Jeder ausgew&aumlhlte Teilnehmer muss einen Anteil zugewiesen bekommen";
+				
+						$view = new ViewModel([
+								'gruppe' => array($gruppe),
+								'zahlungsteilnehmer' => array($teilnehmer),
+								'msg' => $msg,
+								'kategorieListe' => $kategorieliste,
+								'mitgliederListe' => $mitgliederliste,
+								'erstellungsdatum' => $erstellungsdatum,
+								'zahlung' => array($zahlung)
+						]);
+				
+						return $view;
+					}
+					$counter++;
+				}
+				
+				
 				echo "betrag:";
 				var_dump ($_REQUEST["betrag"]);
 				if($summe != $_REQUEST["betrag"]){
