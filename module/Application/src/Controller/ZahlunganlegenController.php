@@ -144,7 +144,7 @@ class ZahlunganlegenController extends AbstractActionController {
 					$zahlung->setZahlungsbeschreibung($zahlungsbeschreibung);
 					$zahlung->setZahlungsdatum($zahlungsdatum);
 					$zahlung->setBetrag($betrag);
-					if ($kategorie_id != null)
+					//if ($kategorie_id != null)
 						$zahlung->setKategorie($kategorie);
 					$zahlung->setAenderungsdatum($aenderungsdatum);
 					if ($gruppen_id != null)
