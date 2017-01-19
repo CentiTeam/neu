@@ -28,9 +28,6 @@ class EinladungannehmenController extends AbstractActionController
 		
 		$user=new User();
 		$user->laden ($u_id);
-		
-		echo "Gruppeninfos";
-		var_dump($gruppe); 
 
 		// wenn die Aktion abgebrochen werden soll
 		if ($_REQUEST['abbrechen']) {
@@ -49,8 +46,8 @@ class EinladungannehmenController extends AbstractActionController
 			$msg = "";
 			$errorStr = "";
 			
-			$gruppenmitglied->setUser($isOKuser);
-			$gruppenmitglied->setGruppe($isOKgruppe);
+			$gruppenmitglied->setUser($user);
+			$gruppenmitglied->setGruppe($gruppe);
 			$gruppenmitglied->setGruppenadmin(0);
 			var_dump ($gruppenmitglied);
 			
