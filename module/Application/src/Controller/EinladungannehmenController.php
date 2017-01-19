@@ -14,12 +14,6 @@ class EinladungannehmenController extends AbstractActionController
 {
 
 	public function einladungannehmenAction() {
-
-		/** Pr�fen, ob Gruppenmitglied
-		 if (User::getInstance ()->getTeam()->getBezeichnung() != "Personal") {
-			return "<div class='error'>Nicht berechtigt!</div>";
-			}
-			*/
 	
 		// neues Model anlegen
 		$gruppenmitglied = new Gruppenmitglied ();
@@ -57,14 +51,15 @@ class EinladungannehmenController extends AbstractActionController
 			$gruppenmitglied->setUser($isOKuser);
 			$gruppenmitglied->setGruppe($isOKgruppe);
 			$gruppenmitglied->setGruppenadmin(0);
-				
+			
+			$gruppenmitglied->laden($g_id, $u_id);
 			
 			$gruppenmitgliedListe=Gruppenmitglied::listeholen();
 			
 			foreach ($gruppenmitgliedListe as $liste) {
 				if ($gruppenmitglied->getUser()->getU_id()==$liste->getUser()->getU_id() && $gruppenmitglied->getGruppe()->getG_id()==$liste->getGruppe()->getG_id()) {
 					
-					$errorStr .= "Du bist bereits Mitglied der Gruppe!";
+					$errorStr .= "Du bist bereits Mitglied der Gruppe!<br>";
 					
 				}
 			}
