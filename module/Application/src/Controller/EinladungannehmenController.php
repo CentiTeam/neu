@@ -67,7 +67,7 @@ class EinladungannehmenController extends AbstractActionController
 				// ausgeben, dass die Gruppe gel�scht wurde (kein Template n�tig!)
 				// array_push($msg, "Gruppe erfolgreich gel�scht!");
 
-				$msg .= "Du wurdest erfolgreich zu der Gruppe $gruppenname hinzugefügt, $vorname!<br>";
+				$msg .= "Du wurdest erfolgreich zu der Gruppe '$gruppenname' hinzugef&uuml;gt, $vorname!<br>";
 
 			} else {
 				// ausgeben, dass das Team nicht gel�scht werden konnte (kein Template n�tig!)
