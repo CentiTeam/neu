@@ -2,11 +2,8 @@ body {
     padding-top: 60px;
     padding-bottom: 40px;
     background-color: honeydew;
-    color: #999;
-    
-    
+      
   min-height: 100%;
-  font: 400 1.4rem 'Lato', Verdana, Helvetica, sans-serif;
 }
 
 .zf-green {
