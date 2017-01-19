@@ -1,3 +1,11 @@
+<head>
+<style>
+.button{
+    font-size: 1.5rem;
+}
+</style>
+</head>
+
 <form method='post'>
 
 <input type='hidden' name='u_id' value='<?=$user->getU_id()?>'>
@@ -6,5 +14,5 @@ Soll der Benutzer #<?=$user->getU_id()?> '<?=$user->getUsername()?>' wirklich de
 		
 	<input class='button' style="font-size:"1.5rem !important;" type='submit' name='ja' value='Ja'>
 	<input class='button' type='submit' name='nein' value='Nein'>
-	<input <span class="button"><span style="font-size:"1.5rem" type='submit' name='nein' value='Nein'>Nein</span> </span>	>
+	<input class="button"><span style="font-size:"1.5rem" type='submit' name='nein' value='Nein'></span>
 </form>
