@@ -67,3 +67,17 @@ div.container a.navbar-brand > img {
 	-o-border-radius: 200px; 
 	border-radius: 200px;   
 }
+
+
+.amensic-image-wrapper{
+max-width:90%;
+height:auto;
+position: relative;
+display:block;
+margin:0 auto;
+}
+.amensic-image-wrapper img{
+width:100% !important;
+height:auto !important;
+display:block;
+}
