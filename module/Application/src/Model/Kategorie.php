@@ -72,8 +72,29 @@ class Kategorie {
 		$kategorieListe = array ();
 	
 		$db = new DB_connection();
+		
+		$query1="SELECT k_id FROM kategorie WHERE kategoriebeschreibung = 'Keine Kategorie'";
+		
+		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
+		if ($result = $db->execute($query1)) {
+		
+			// Ergebnis Zeile f�r Zeile verarbeiten
+			while ($row = mysqli_fetch_array($result)) {
+					
+				// neues Model erzeugen
+				$model = new Kategorie();
+		
+				// Model anhand der Nummer aus der Datenbankabfrage laden
+				$model->laden($row["k_id"]);
+		
+				// neues Model ans Ende des $userListe-Arrays anf�gen
+				$kategorieListe[] = $model;
+			}
+		
+		
+		
 	
-		$query="SELECT k_id FROM kategorie ORDER BY kategoriebeschreibung ASC";
+		$query="SELECT k_id FROM kategorie WHERE kategoriebeschreibung != 'Keine Kategorie' ORDER BY kategoriebeschreibung ASC";
 	
 		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
 		if ($result = $db->execute($query)) {
