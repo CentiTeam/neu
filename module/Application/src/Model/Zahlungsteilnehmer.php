@@ -129,8 +129,8 @@ class Zahlungsteilnehmer {
 	
 	}
 	public function gibgemeinsamezahlungen($user_id1, $user_id2){
-		$liste1 = teilnehmerzahlungenholen($user_id1);
-		$liste2 = teilnehmerzahlungenholen($user_id2);
+		$liste1 = $this -> teilnehmerzahlungenholen($user_id1);
+		$liste2 = $this -> teilnehmerzahlungenholen($user_id2);
 		$gemeinsamezahlungen = array();
 		foreach($liste1 as $zaehler1 => $zahlungsteilnehmer1){
 			foreach($liste2 as $zaehler2 => $zahlungsteilnehmer2){
