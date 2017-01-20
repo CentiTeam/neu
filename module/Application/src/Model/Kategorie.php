@@ -90,6 +90,7 @@ class Kategorie {
 				// neues Model ans Ende des $userListe-Arrays anf�gen
 				$kategorieListe[] = $model;
 			}
+		}
 		
 		
 		
