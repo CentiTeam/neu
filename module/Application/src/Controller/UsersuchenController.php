@@ -38,8 +38,9 @@ class UsersuchenController extends AbstractActionController
 		
 		if ($_SESSION['user']->getSystemadmin()==true) {
 			
-			var_dump($suche);
 			$userListe = User::suchlisteHolen($suche);
+			
+			var_dump($userListe);
 			
 			$view = new ViewModel([
 					'suchuserListe' => $userListe,
