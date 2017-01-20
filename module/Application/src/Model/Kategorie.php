@@ -73,6 +73,7 @@ class Kategorie {
 	
 		$db = new DB_connection();
 		
+		// Als erstes das OBjekt "Keine Kategorie" holen
 		$query1="SELECT k_id FROM kategorie WHERE kategoriebeschreibung = 'Keine Kategorie'";
 		
 		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
@@ -93,8 +94,6 @@ class Kategorie {
 		}
 		
 		
-		
-	
 		$query="SELECT k_id FROM kategorie WHERE kategoriebeschreibung != 'Keine Kategorie' ORDER BY kategoriebeschreibung ASC";
 	
 		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
