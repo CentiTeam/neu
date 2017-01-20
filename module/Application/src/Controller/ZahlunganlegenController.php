@@ -90,8 +90,8 @@ class ZahlunganlegenController extends AbstractActionController {
 				}
 				
 				
-				echo "betrag:";
-				var_dump ($_REQUEST["betrag"]);
+// 				echo "betrag:";
+// 				var_dump ($_REQUEST["betrag"]);
 				if($summe != $_REQUEST["betrag"]){
 					echo "summe";
 					var_dump ($summe);

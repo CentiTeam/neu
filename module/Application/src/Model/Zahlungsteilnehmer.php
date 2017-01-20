@@ -84,7 +84,6 @@ class Zahlungsteilnehmer {
 		var_dump($einzahlungsteilnehmer ->getUser() -> getUsername());
 		
  		foreach($teilnehmerListe as $zaehler => $andererzahlungsteilnehmer){
- 			var_dump($andererzahlungsteilnehmer ->getUser() -> getUsername());
  			//Funktion wird von einem Zahlungsteilnehmer aufgerufen. Jeder andere User der in dieser Zahlung
  			//teilnimmt wird durchlaufen. In jedem Durchlauf werden alle gemeinsamen offenen Zahlungen geholt. 
 // 			// Danach wird der Schuldstand errechnet. Erstes Ziel!
