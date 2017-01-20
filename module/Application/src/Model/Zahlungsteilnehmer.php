@@ -98,7 +98,7 @@ class Zahlungsteilnehmer {
  					$einzahlungsteilnehmer->getUser() ->getU_id(), $andererzahlungsteilnehmer->getUser() ->getU_id() );
  			foreach($gemeinsamezahlungen as $zaehler => $zahlungsteilnehmer){
  				echo " jetzt sollten die gemeinsame Zahlungsbeschreibungen kommen:";
- 				var_dump($zahlungsteilnehmer -> gibZahlung() -> getZahlungsbeschreibung());
+ 				var_dump($zahlungsteilnehmer -> getZahlung() -> getZahlungsbeschreibung());
  				//Rechne Schuldstand. 
  				//Schuldstand verändert sich nur 
  				//falls user selber Ersteller/Empfänger ist
