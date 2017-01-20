@@ -96,8 +96,9 @@ class Zahlungsteilnehmer {
 // 			//gib mir alle Zahlungen die offen mit diesem User sind.
  			$gemeinsamezahlungen = $einzahlungsteilnehmer->gibgemeinsamezahlungen(
  					$einzahlungsteilnehmer->getUser() ->getU_id(), $andererzahlungsteilnehmer->getUser() ->getU_id() );
+ 			echo " jetzt sollten die gemeinsame Zahlungsbeschreibungen kommen:";
+ 			
  			foreach($gemeinsamezahlungen as $zaehler => $zahlungsteilnehmer){
- 				echo " jetzt sollten die gemeinsame Zahlungsbeschreibungen kommen:";
  				var_dump($zahlungsteilnehmer -> getZahlung() -> getZahlungsbeschreibung());
  				//Rechne Schuldstand. 
  				//Schuldstand verändert sich nur 
