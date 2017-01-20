@@ -465,6 +465,7 @@ return [
         	Controller\EinladungannehmenController::class => InvokableFactory::class,
         	Controller\LoginController::class => InvokableFactory::class,
         	Controller\ProfilController::class => InvokableFactory::class,
+        	Controller\FremdesprofilController::class => InvokableFactory::class,
            	Controller\HelpController::class => InvokableFactory::class,
         	Controller\RegistrierenController::class => InvokableFactory::class,
         	Controller\AdminoverviewController::class => InvokableFactory::class,
