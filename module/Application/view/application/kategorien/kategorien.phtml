@@ -1,20 +1,20 @@
 <?=$msg?>
 <h1>Kategorien</h1>
 <center>
-<table width="30%" border="0">
-<tr>
+<table class="datentabelle" width="30%" border="0">
+<tr class="datentabelle" >
 
-<th> Kategorie-ID	</th>
-<th> Kategoriebeschreibung 	</th>
+<th class="datentabelle" > Kategorie-ID	</th>
+<th class="datentabelle" > Kategoriebeschreibung 	</th>
 
 </tr>
 <?php 
 	foreach ($kategorieListe as $zaehler => $kategorie) {
 	?>
-<tr>
-			<td>	<?=$kategorie->getK_id()?>															</td>
-			<td>	<?=$kategorie->getKategoriebeschreibung()?>											</td>
-			<td> 	<a href='kategorieedit?k_id=<?=$kategorie->getK_id()?>'><img src="img/edit.jpg" /></a> 	</td>
+<tr class="datentabelle" >
+			<td class="datentabelle" ><?=$kategorie->getK_id()?></td>
+			<td class="datentabelle" ><?=$kategorie->getKategoriebeschreibung()?></td>
+			<td class="datentabelle" ><a href='kategorieedit?k_id=<?=$kategorie->getK_id()?>'><img src="img/edit.jpg" /></a></td>
 </tr>
 
 
