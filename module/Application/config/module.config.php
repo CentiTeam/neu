@@ -418,7 +418,17 @@ return [
         						],
         				],
         		],
-        		
+        	
+        		'fremdesprofil' => [
+        			'type'    => Segment::class,
+       				'options' => [
+       						'route'    => '/fremdesprofil[/:action]',
+       						'defaults' => [
+       								'controller' => Controller\FremdesprofilController::class,
+       								'action'     => 'fremdesprofil',
+       						],
+        				],
+       		],
         		
         		
         		

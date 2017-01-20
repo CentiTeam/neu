@@ -7,9 +7,9 @@ use Zend\View\Model\ViewModel;
 use Application\Model\User;
 use Application\Model\Bildupload;
 
-class ProfilController extends AbstractActionController {
+class FremdesprofilController extends AbstractActionController {
 
-	function profilAction() {
+	function fremdesprofilAction() {
 		// TODO Berechtigungspr�fung
 		session_start();
 
