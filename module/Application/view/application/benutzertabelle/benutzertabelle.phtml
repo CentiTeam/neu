@@ -9,35 +9,35 @@
 </form>
 <br>
 
-<table border="0" width="100%">
-<thead>
+<table class="datentabelle" border="0" width="100%">
+<thead class="datentabelle">
 <tr>
 
-<th> User-ID 		</th>
-<th> Benutzername 	</th>
-<th> Vorname 		</th>
-<th> Nachname 		</th>
-<th> Passwort		</th>
-<th> E-Mail			</th>
-<th> Deaktiviert 	</th>
-<th> Systemadmin 	</th>
+<th class="datentabelle"> User-ID 		</th>
+<th class="datentabelle"> Benutzername 	</th>
+<th class="datentabelle"> Vorname 		</th>
+<th class="datentabelle"> Nachname 		</th>
+<th class="datentabelle"> Passwort		</th>
+<th class="datentabelle"> E-Mail			</th>
+<th class="datentabelle"> Deaktiviert 	</th>
+<th class="datentabelle"> Systemadmin 	</th>
 <th></th>
 </tr>
 </thead>
 
-<tbody>
+<tbody class="datentabelle">
 <?php 
 	foreach ($userListe as $zaehler => $user) {
 	?>
 <tr>
-			<td height="45">	<?=$user->getU_id()?></td>
-			<td>	<?=$user->getUsername()?>		</td>
-			<td>	<?=$user->getVorname()?>		</td>
-			<td>	<?=$user->getNachname()?>		</td>
-			<td>	<?=$user->getPasswort()?>		</td>
-			<td>	<?=$user->getEmail()?>			</td>
-			<td>	<?=$user->getDeaktiviert()?>	</td>
-			<td>	<?=$user->getSystemadmin()?>	</td> 
+			<td class="datentabelle" height="45">	<?=$user->getU_id()?></td>
+			<td class="datentabelle">	<?=$user->getUsername()?>		</td>
+			<td class="datentabelle">	<?=$user->getVorname()?>		</td>
+			<td class="datentabelle">	<?=$user->getNachname()?>		</td>
+			<td class="datentabelle">	<?=$user->getPasswort()?>		</td>
+			<td class="datentabelle">	<?=$user->getEmail()?>			</td>
+			<td class="datentabelle">	<?=$user->getDeaktiviert()?>	</td>
+			<td class="datentabelle">	<?=$user->getSystemadmin()?>	</td> 
 			
 			<?php if($user->getDeaktiviert() == 0){ ?>
 			<td>	<a href="benutzerdeaktivieren?u_id=<?=$user->getU_id()?>"><img src="img/deaktivieren.png" height="50" width="50" title="Benutzer deaktivieren" /></a></td>
