@@ -73,53 +73,40 @@ class Zahlungsteilnehmer {
 	public function ausgleichen($einzahlungsteilnehmer) {
 			
 		
-		$teilnehmerListe = $this->zahlungsteilnehmerholen($this->getZahlung()->getZ_id());
+		// teilnehmerliste ^= alle Teilnehmer der neuen/bearbeiteten/beglichenen Zahlung
 		
-		echo "das ist die unbearbeitete Zahlungsteilnehmer Liste. Hier sollte 3 mal alle 3 Namen stehen";
-		
-		foreach($teilnehmerListe as $zaehler => $andererzahlungsteilnehmer){
-			$test1 = $andererzahlungsteilnehmer -> getUser() ->getUsername();
-		
-			var_dump($test1);
-		}
-		$teilnehmerListe= $einzahlungsteilnehmer->removefromteilnehmerListe($teilnehmerListe);
-		
-		
-		
-		$test2 = $this -> getUser() ->getUsername();
-		echo "Hier sollte der sozusagen main Username stehen: ";
-		var_dump($test2);
 
-		foreach($teilnehmerListe as $zaehler => $andererzahlungsteilnehmer){
-			$test = $andererzahlungsteilnehmer -> getUser() ->getUsername();
-		
-			echo "hier sollten die 2 anderen Usernamen stehen: ";
-			var_dump($test);
-		}
-		
-		
-		
-		
-		
-// 		foreach($teilnehmerListe as $zaehler => $andererzahlungsteilnehmer){
-// 				if($andererzahlungsteilnehmer -> getUser() ->getU_id() ==$this->getUser() ->getU_id() )
+		$teilnehmerListe= $einzahlungsteilnehmer->removefromteilnehmerListe($this->zahlungsteilnehmerholen($this->getZahlung()->getZ_id()));
+		// jetzt wird der eigentliche User (das this Objekt in dieser Klasse) aus der Liste entfernt.
+		//Daraufhin wird jeder andere User mit dem entfernten User verglichen
+
+		echo "hier sollte der Hauptusername stehen: ";
+		var_dump($einzahlungsteilnehmer ->getUser() -> getUsername());
+ 		foreach($teilnehmerListe as $zaehler => $andererzahlungsteilnehmer){
+ 			echo " hier jetzt die anderen beiden: ";
+ 			var_dump($andererzahlungsteilnehmer ->getUser() -> getUsername());
+ 			
 	
-// 			//Funktion wird von einem Zahlungsteilnehmer aufgerufen. Jeder andere User der in dieser Zahlung
-// 			//teilnimmt wird durchlaufen. In jedem Durchlauf werden alle gemeinsamen offenen Zahlungen geholt. 
+ 			//Funktion wird von einem Zahlungsteilnehmer aufgerufen. Jeder andere User der in dieser Zahlung
+ 			//teilnimmt wird durchlaufen. In jedem Durchlauf werden alle gemeinsamen offenen Zahlungen geholt. 
 // 			// Danach wird der Schuldstand errechnet. Erstes Ziel!
 	
-// 			//was mir geschuldet wird
-// 			$schuldstand = 0;
+// 			//was entferntem User geschuldet wird
+ 			$schuldstand = 0;
 // 			//gib mir alle Zahlungen die offen mit diesem User sind.
-// 			$zahlungListe = $this->teilnehmerzahlungenholen($this->getUser() ->getU_id());
-// 			foreach($zahlungListe as $zaehler => $zahlungsteilnehmer){
-				
-// 				//Rechne Schuldstand
-// 				//falls user selber Ersteller/Empfänger ist
-// 				if($this->getZahlungsempfaenger()== $this->getUser() ->getU_id()){
-// 					$schuldstand += $andererzahlungsteilnehmer ->getRestbetrag();
-// 				}else{
-// 					$schuldstand -= $this ->getRestbetrag();
+ 			$gemeinsamezahlungen = $einzahlungsteilnehmer->gibgemeinsamezahlungen(
+ 					$einzahlungsteilnehmer->getUser() ->getU_id(), $andererzahlungsteilnehmer->getUser() ->getU_id() );
+ 			foreach($gemeinsamezahlungen as $zaehler => $zahlungsteilnehmer){
+ 				echo " jetzt sollten die gemeinsame Zahlungsbeschreibungen kommen:";
+ 				var_dump($zahlungsteilnehmer -> gibZahlung() -> getZahlungsbeschreibung());
+ 				//Rechne Schuldstand. 
+ 				//Schuldstand verändert sich nur 
+ 				//falls user selber Ersteller/Empfänger ist
+ 				
+ 				if($this->getZahlungsempfaenger()== $this->getUser() ->getU_id()){
+ 					$schuldstand += $andererzahlungsteilnehmer ->getRestbetrag();
+ 				}else{
+ 					$schuldstand -= $this ->getRestbetrag();
 	
 // 				}
 	
@@ -134,11 +121,26 @@ class Zahlungsteilnehmer {
 // 					while($schuldstand > 0){
 // 						$schuldstand - zahlungenbegleichen($schuldstand);
 // 					}
-// 				}
-// 			}
+ 				}
+ 			}
 	
-// 		}
+ 		}
+
 	
+	}
+	public function gibgemeinsamezahlungen($user_id1, $user_id2){
+		$liste1 = teilnehmerzahlungenholen($user_id1);
+		$liste2 = teilnehmerzahlungenholen($user_id2);
+		$gemeinsamezahlungen = array();
+		foreach($liste1 as $zaehler1 => $zahlungsteilnehmer1){
+			foreach($liste2 as $zaehler2 => $zahlungsteilnehmer2){
+				if($zahlungsteilnehmer1 ->getZahlung() ->getZ_id() == $zahlungsteilnehmer2 ->getZahlung() ->getZ_id()
+						&& $zahlungsteilnehmer1 ->getZahlung() -> getStatus() == 'offen'){
+					$gemeinsamezahlungen[] = $zahlungsteilnehmer1;
+				}
+			}
+				
+		}
 	}
 	
 	public function removefromteilnehmerListe($teilnehmerListe){
