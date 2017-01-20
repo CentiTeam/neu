@@ -22,7 +22,7 @@ class UsersuchenController extends AbstractActionController
 	public function usersuchenAction()
 	{
 		session_start(); 
-		var_dump($_SESSION['user']);
+
 		if ($_SESSION['user']==NULL) {
 			$msg="Nicht berechtigt!";
 			$view = new ViewModel([
