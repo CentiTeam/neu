@@ -98,8 +98,8 @@ display:block;
   font-size: 1.75rem;
   margin: 0.5rem 0.2rem 0.5rem 0.2rem;
   padding: 0.0rem 1.75rem;
-  background-color: #75ef74 ;
-  border: 1px solid #75ef74;
+  background-color: #96b296 ;
+  border: 1px solid #96b296 ;
   color: #ffffff;
   font-weight: 300;
   -webkit-border-radius: 2px;
@@ -111,13 +111,13 @@ display:block;
 
 .button:hover {
   background-color: #ffffff;
-  color: #75ef74 ;
-  border-color: #75ef74;
+  color: #96b296 ;
+  border-color: #96b296 ;
 }
 
 
 
-/* Tabelle */
+/* Daten-Tabelle */
 
 strong {
 	font-weight: bold; 
