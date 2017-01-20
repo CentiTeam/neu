@@ -40,9 +40,13 @@ class UsersuchenController extends AbstractActionController
 			
 			$liste = User::suchlisteHolen($suche);
 			
-			return new ViewModel([
+			$view = new ViewModel([
 					'suchuserListe' => $liste,
 			]);
+			
+			$view->setTemplate('application/benutzertabelle/benutzertabelle.phtml');
+				
+			return $view;
 		}
 		
 		else {
