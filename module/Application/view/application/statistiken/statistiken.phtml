@@ -1,3 +1,6 @@
+<!-- Falls wir sortierung mit javascript machen wollen (+ class="sortierbar" bei jedem Tabellenelement)
+<!DOCTYPE html">
+<html>
  <head>
   <meta charset="UTF-8" /">
 
@@ -5,7 +8,7 @@
 
   <script type="text/javascript" src="js/TableSort.js"></script>
  </head>
-
+-->
 
  <?php session_start();
 use Application\Model\Zahlungsteilnehmer;?>
@@ -48,20 +51,18 @@ use Application\Model\Zahlungsteilnehmer;?>
 	</form>	
 
 
-<table class="sortierbar" width="80%">
+<table class="datentabelle" width="80%">
 
-	<thead class="sortierbar">
-	<tr class="sortierbar">
-		<th class="sortierbar">Zahlungsbeschreibung  </th>
-		<th class="sortierbar">Zahlungsdatum </th>
-		<th class="sortierbar">Betrag </th>
-		<th class="sortierbar">Kategorie </th>
-		<th class="sortierbar">Status </th>
-		<th class="sortierbar">Gruppenname</th>
-		<th class="sortierbar"></th>
+	<tr class="datentabelle">
+		<th class="datentabelle">Zahlungsbeschreibung  </th>
+		<th class="datentabelle">Zahlungsdatum </th>
+		<th class="datentabelle">Betrag </th>
+		<th class="datentabelle">Kategorie </th>
+		<th class="datentabelle">Status </th>
+		<th class="datentabelle">Gruppenname</th>
+		<th class="datentabelle"></th>
 	</tr>
-	</thead>
-	<tbody class="sortierbar">
+
 <?php 
 	foreach ($zahlungenliste as $zaehler => $zahlungsteilnehmer) {
 		
@@ -81,6 +82,5 @@ use Application\Model\Zahlungsteilnehmer;?>
 		
 	}
 	?>
-	</tbody>
 </table>
 
