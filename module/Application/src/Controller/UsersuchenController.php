@@ -23,7 +23,7 @@ class UsersuchenController extends AbstractActionController
 	{
 		session_start(); 
 		
-		if ($_SESSION['angemeldet']=="nein") {
+		if ($_SESSION['angemeldet']==false) {
 			$msg="Nicht berechtigt!";
 			$view = new ViewModel([
 					'msg' => $msg,
