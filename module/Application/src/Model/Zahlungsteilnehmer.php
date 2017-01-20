@@ -135,7 +135,7 @@ class Zahlungsteilnehmer {
 		foreach($liste1 as $zaehler1 => $zahlungsteilnehmer1){
 			foreach($liste2 as $zaehler2 => $zahlungsteilnehmer2){
 				if($zahlungsteilnehmer1 ->getZahlung() ->getZ_id() == $zahlungsteilnehmer2 ->getZahlung() ->getZ_id()
-						&& $zahlungsteilnehmer1 ->getZahlung() -> getStatus() == 'offen'){
+						&& $zahlungsteilnehmer1 ->getStatus() != 'beglichen'){
 					$gemeinsamezahlungen[] = $zahlungsteilnehmer1;
 				}
 			}
