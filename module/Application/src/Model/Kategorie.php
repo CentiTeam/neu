@@ -73,7 +73,7 @@ class Kategorie {
 	
 		$db = new DB_connection();
 	
-		$query="SELECT k_id FROM kategorie";
+		$query="SELECT k_id FROM kategorie ORDER BY kategoriebeschreibung ASC";
 	
 		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
 		if ($result = $db->execute($query)) {
