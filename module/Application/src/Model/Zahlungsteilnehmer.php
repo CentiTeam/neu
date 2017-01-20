@@ -129,11 +129,11 @@ class Zahlungsteilnehmer {
  			}
 	
  		}
- 		public function gibsaldo(){
+ 		public function gibsaldo($user_id){
  			$saldo = 0;
- 			foreach($this -> teilnehmerzahlungenholen($this ->getUser() ->getU_id()) as $zaehler => $zahlungsteilnehmer){
+ 			foreach(Zahlungsteilnehmer::teilnehmerzahlungenholen($user_id) as $zaehler => $zahlungsteilnehmer){
  				if($zahlungsteilnehmer-> getStatus() == 'offen'){
- 					$saldo -= $this ->getRestbetrag();
+ 					$saldo -= $zahlungsteilnehmer ->getRestbetrag();
  				}
  				if($zahlungsteilnehmer-> getStatus() == 'ersteller'){
  					$teilnehmerliste = removefromteilnehmerListe(zahlungsteilnehmerholen($zahlungsteilnehmer -> getZahlung()->getZ_id()));
