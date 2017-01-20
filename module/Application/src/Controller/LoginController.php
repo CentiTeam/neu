@@ -28,7 +28,6 @@ class LoginController extends AbstractActionController{
 					if ($user->login($email, $pwd)){
 					
 					$_SESSION['user'] = $user;
-					$_SESSION['angemeldet']=true;
 					
 					$user_id=$_SESSION['user']->getU_id();
 					
