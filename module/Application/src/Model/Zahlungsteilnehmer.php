@@ -131,7 +131,7 @@ class Zahlungsteilnehmer {
  		}
  		public function gibsaldo(){
  			$saldo = 0;
- 			foreach(teilnehmerzahlungenholen($this ->getUser() ->getU_id()) as $zaehler => $zahlungsteilnehmer){
+ 			foreach($this -> teilnehmerzahlungenholen($this ->getUser() ->getU_id()) as $zaehler => $zahlungsteilnehmer){
  				if($zahlungsteilnehmer-> getStatus() == 'offen'){
  					$saldo -= $this ->getRestbetrag();
  				}
