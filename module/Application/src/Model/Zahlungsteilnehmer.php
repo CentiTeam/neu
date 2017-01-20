@@ -111,9 +111,7 @@ class Zahlungsteilnehmer {
 	
  				}
  				
- 				var_dump($andererzahlungsteilnehmer ->getUser() -> getUsername());
- 				var_dump($einzahlungsteilnehmer ->getUser() -> getUsername());
- 					var_dump($schuldstand);
+ 			}
 // 				//wenn ich ihm etwas schulde
 // 				if($schuldstand<0){
 // 					while($schuldstand<0){
@@ -125,7 +123,9 @@ class Zahlungsteilnehmer {
 // 					while($schuldstand > 0){
 // 						$schuldstand - zahlungenbegleichen($schuldstand);
 // 					}
- 				}
+ 			var_dump($andererzahlungsteilnehmer ->getUser() -> getUsername());
+ 			var_dump($einzahlungsteilnehmer ->getUser() -> getUsername());
+ 			var_dump($schuldstand);
  			}
 	
  		}
