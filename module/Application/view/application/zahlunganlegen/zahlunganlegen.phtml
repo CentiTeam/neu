@@ -11,18 +11,22 @@
 			<select name='kategorie'>
 				<?php 
 				foreach ($kategorieListe as $counter => $kategorie) {
+					if ($kategorie->getKategoriebeschreibung()=="Keine Kategorie") {
+						?>
+						<option selected value='<?=$kategorie->getK_id()?>'>
+						<?=$kategorie->getKategoriebeschreibung()?>
+						</option>						
+			<?php	} else {
 				?>
 					<option value='<?=$kategorie->getK_id()?>'>
 						<?=$kategorie->getKategoriebeschreibung()?>
 					</option>
 				<?php 
+					}
 				}
 				?>
 			</select>
 			</td>
-
-
-
 
 
 
