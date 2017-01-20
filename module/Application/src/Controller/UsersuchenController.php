@@ -43,7 +43,7 @@ class UsersuchenController extends AbstractActionController
 			var_dump($userListe);
 			
 			$view = new ViewModel([
-					'suchuserListe' => $userListe,
+					'userListe' => $userListe,
 			]);
 			
 			$view->setTemplate('application/benutzertabelle/benutzertabelle.phtml');
