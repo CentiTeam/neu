@@ -136,7 +136,7 @@ class Zahlungsteilnehmer {
  					$saldo -= $zahlungsteilnehmer ->getRestbetrag();
  				}
  				if($zahlungsteilnehmer-> getStatus() == 'ersteller'){
- 					$teilnehmerliste = removefromteilnehmerListe(zahlungsteilnehmerholen($zahlungsteilnehmer -> getZahlung()->getZ_id()));
+ 					$teilnehmerliste = $zahlungsteilnehmer-> removefromteilnehmerListe($zahlungsteilnehmer -> zahlungsteilnehmerholen($zahlungsteilnehmer -> getZahlung()->getZ_id()));
  					
  					foreach($teilnehmerliste as $zaehler => $zahlungsteilnehmer){
  						$saldo += $zahlungsteilnehmer ->getRestbetrag();
