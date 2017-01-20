@@ -108,10 +108,10 @@ class Zahlungsteilnehmer {
  					$schuldstand += $andererzahlungsteilnehmer ->getRestbetrag();
  				}else{
  					$schuldstand -= $this ->getRestbetrag();
-	
  				}
  				
  			}
+ 			
 // 				//wenn ich ihm etwas schulde
 // 				if($schuldstand<0){
 // 					while($schuldstand<0){
@@ -123,6 +123,7 @@ class Zahlungsteilnehmer {
 // 					while($schuldstand > 0){
 // 						$schuldstand - zahlungenbegleichen($schuldstand);
 // 					}
+echo "schuldstand :";
  			var_dump($andererzahlungsteilnehmer ->getUser() -> getUsername());
  			var_dump($einzahlungsteilnehmer ->getUser() -> getUsername());
  			var_dump($schuldstand);
