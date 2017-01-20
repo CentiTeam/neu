@@ -38,10 +38,10 @@ class UsersuchenController extends AbstractActionController
 		
 		if ($_SESSION['user']->getSystemadmin()==true) {
 			
-			$liste = User::suchlisteHolen($suche);
+			$userListe = User::suchlisteHolen($suche);
 			
 			$view = new ViewModel([
-					'suchuserListe' => $liste,
+					'suchuserListe' => $userListe,
 			]);
 			
 			$view->setTemplate('application/benutzertabelle/benutzertabelle.phtml');
