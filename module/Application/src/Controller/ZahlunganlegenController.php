@@ -151,8 +151,8 @@ class ZahlunganlegenController extends AbstractActionController {
 						$zahlung->setGruppe($gruppe); 
 					
 					
-						echo "gruppe derr Zhalung";
-						var_dump($zahlung->getGruppe());
+// 						echo "gruppe derr Zhalung";
+// 						var_dump($zahlung->getGruppe());
 						
 					
 					// Wenn tempor�res Objekt gef�llt wurde kann mit diesen Werten das Objekt �ber die anlegen-Fkt in die DB geschrieben werden
