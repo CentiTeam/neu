@@ -99,7 +99,7 @@ class Zahlungsteilnehmer {
  			echo " jetzt sollten die gemeinsame Zahlungsbeschreibungen kommen:";
  			
  			foreach($gemeinsamezahlungen as $zaehler => $zahlungsteilnehmer){
- 				var_dump($zahlungsteilnehmer -> getZahlung() -> getZahlungsbeschreibung());
+ 				
  				//Rechne Schuldstand. 
  				//Schuldstand verändert sich nur 
  				//falls user selber Ersteller/Empfänger ist
@@ -109,8 +109,11 @@ class Zahlungsteilnehmer {
  				}else{
  					$schuldstand -= $this ->getRestbetrag();
 	
-// 				}
-	
+ 				}
+ 				
+ 				var_dump($andererzahlungsteilnehmer ->getUser() -> getUsername());
+ 				var_dump($einzahlungsteilnehmer ->getUser() -> getUsername());
+ 					var_dump($schuldstand);
 // 				//wenn ich ihm etwas schulde
 // 				if($schuldstand<0){
 // 					while($schuldstand<0){
@@ -128,7 +131,7 @@ class Zahlungsteilnehmer {
  		}
 
 	
-	}
+	
 	public function gibgemeinsamezahlungen($user_id1, $user_id2){
 		$liste1 = $this -> teilnehmerzahlungenholen($user_id1);
 		$liste2 = $this -> teilnehmerzahlungenholen($user_id2);
