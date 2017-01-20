@@ -90,8 +90,8 @@ class ZahlunganlegenController extends AbstractActionController {
 				}
 				
 				
-				echo "betrag:";
-				var_dump ($_REQUEST["betrag"]);
+// 				echo "betrag:";
+// 				var_dump ($_REQUEST["betrag"]);
 				if($summe != $_REQUEST["betrag"]){
 					echo "summe";
 					var_dump ($summe);
@@ -151,8 +151,8 @@ class ZahlunganlegenController extends AbstractActionController {
 						$zahlung->setGruppe($gruppe); 
 					
 					
-						echo "gruppe derr Zhalung";
-						var_dump($zahlung->getGruppe());
+// 						echo "gruppe derr Zhalung";
+// 						var_dump($zahlung->getGruppe());
 						
 					
 					// Wenn tempor�res Objekt gef�llt wurde kann mit diesen Werten das Objekt �ber die anlegen-Fkt in die DB geschrieben werden

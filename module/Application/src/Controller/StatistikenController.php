@@ -27,6 +27,8 @@ class StatistikenController extends AbstractActionController
  			$user_id=$_SESSION['user']->getU_id();
   			$zahlungenliste = Zahlungsteilnehmer::teilnehmerzahlungenholen($user_id);
   			$kategorieliste = Kategorie::listeHolen();
+  			
+  			$saldo = Zahlungsteilnehmer::gibsaldo($user_id);
   				
   			
   			if ($_REQUEST['filteranwenden']) {
@@ -51,7 +53,8 @@ class StatistikenController extends AbstractActionController
   					'zahlungenliste' => $zahlungenliste,
   					'u_id' => $user_id,
   					'kategorieliste' => $kategorieliste,
-  					'katzahlungen' => $katzahlungen
+  					'katzahlungen' => $katzahlungen,
+  					'saldo' => $saldo
   			]);
   			
 
