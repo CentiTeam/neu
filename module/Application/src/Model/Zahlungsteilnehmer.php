@@ -82,11 +82,9 @@ class Zahlungsteilnehmer {
 
 		echo "hier sollte der Hauptusername stehen: ";
 		var_dump($einzahlungsteilnehmer ->getUser() -> getUsername());
+		
  		foreach($teilnehmerListe as $zaehler => $andererzahlungsteilnehmer){
- 			echo " hier jetzt die anderen beiden: ";
  			var_dump($andererzahlungsteilnehmer ->getUser() -> getUsername());
- 			
-	
  			//Funktion wird von einem Zahlungsteilnehmer aufgerufen. Jeder andere User der in dieser Zahlung
  			//teilnimmt wird durchlaufen. In jedem Durchlauf werden alle gemeinsamen offenen Zahlungen geholt. 
 // 			// Danach wird der Schuldstand errechnet. Erstes Ziel!
@@ -96,7 +94,6 @@ class Zahlungsteilnehmer {
 // 			//gib mir alle Zahlungen die offen mit diesem User sind.
  			$gemeinsamezahlungen = $einzahlungsteilnehmer->gibgemeinsamezahlungen(
  					$einzahlungsteilnehmer->getUser() ->getU_id(), $andererzahlungsteilnehmer->getUser() ->getU_id() );
- 			echo " jetzt sollten die gemeinsame Zahlungsbeschreibungen kommen:";
  			
  			foreach($gemeinsamezahlungen as $zaehler => $zahlungsteilnehmer){
  				
@@ -104,10 +101,10 @@ class Zahlungsteilnehmer {
  				//Schuldstand verändert sich nur 
  				//falls user selber Ersteller/Empfänger ist
  				
- 				if($this->getZahlungsempfaenger()== $this->getUser() ->getU_id()){
+ 				if($einzahlungsteilnehmer->getZahlungsempfaenger()== $einzahlungsteilnehmer->getUser() ->getU_id()){
  					$schuldstand += $andererzahlungsteilnehmer ->getRestbetrag();
  				}else{
- 					$schuldstand -= $this ->getRestbetrag();
+ 					$schuldstand -= $einzahlungsteilnehmer ->getRestbetrag();
  				}
  				
  			}
@@ -123,7 +120,7 @@ class Zahlungsteilnehmer {
 // 					while($schuldstand > 0){
 // 						$schuldstand - zahlungenbegleichen($schuldstand);
 // 					}
-echo "schuldstand :";
+		echo "schuldstand :";
  			var_dump($andererzahlungsteilnehmer ->getUser() -> getUsername());
  			var_dump($einzahlungsteilnehmer ->getUser() -> getUsername());
  			var_dump($schuldstand);
