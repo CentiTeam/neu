@@ -141,6 +141,7 @@ class Zahlungsteilnehmer {
 			}
 				
 		}
+		return $gemeinsamezahlungen;
 	}
 	
 	public function removefromteilnehmerListe($teilnehmerListe){
