@@ -18,7 +18,7 @@
 <th class="datentabelle"> Vorname 		</th>
 <th class="datentabelle"> Nachname 		</th>
 <th class="datentabelle"> Passwort		</th>
-<th class="datentabelle"> E-Mail			</th>
+<th class="datentabelle"> E-Mail		</th>
 <th class="datentabelle"> Deaktiviert 	</th>
 <th class="datentabelle"> Systemadmin 	</th>
 <th></th>
@@ -40,10 +40,10 @@
 			<td class="datentabelle">	<?=$user->getSystemadmin()?>	</td> 
 			
 			<?php if($user->getDeaktiviert() == 0){ ?>
-			<td>	<a href="benutzerdeaktivieren?u_id=<?=$user->getU_id()?>"><img src="img/deaktivieren.png" height="50" width="50" title="Benutzer deaktivieren" /></a></td>
+			<td class="datentabelle">	<a href="benutzerdeaktivieren?u_id=<?=$user->getU_id()?>"><img src="img/deaktivieren.png" height="50" width="50" title="Benutzer deaktivieren" /></a></td>
 			<?php } 
 			else{ ?>
-			<td>	<a href="benutzerreaktivieren?u_id=<?=$user->getU_id()?>"><img src="img/reaktivieren.png" height="50" width="50" title="Benutzer reaktivieren" /></td>
+			<td class="datentabelle">	<a href="benutzerreaktivieren?u_id=<?=$user->getU_id()?>"><img src="img/reaktivieren.png" height="50" width="50" title="Benutzer reaktivieren" /></td>
 
 <?php
 			}

@@ -195,28 +195,28 @@ tr.datentabelle  {
 	background: url(http://jackrugile.com/images/misc/noise-diagonal.png);	
 }
 
-tr.datentabelle :nth-child(odd) td {
+tr.datentabelle :nth-child(odd) td.datentabelle {
 	background: #f1f1f1 url(http://jackrugile.com/images/misc/noise-diagonal.png);	
 }
 
-tr.datentabelle :last-of-type td {
+tr.datentabelle :last-of-type td.datentabelle {
 	box-shadow: inset 0 -1px 0 #fff; 
 }
 
-tr.datentabelle :last-of-type td:first-child {
+tr.datentabelle :last-of-type td.datentabelle:first-child {
 	box-shadow: inset 1px -1px 0 #fff;
 }	
 
-tr.datentabelle :last-of-type td:last-child {
+tr.datentabelle :last-of-type td.datentabelle:last-child {
 	box-shadow: inset -1px -1px 0 #fff;
 }	
 
-tbody.datentabelle :hover td {
+tbody.datentabelle :hover td.datentabelle {
 	color: transparent;
 	text-shadow: 0 0 3px #aaa;
 }
 
-tbody.datentabelle :hover tr:hover td {
+tbody.datentabelle :hover tr.datentabelle:hover td.datentabelle {
 	color: #444;
 	text-shadow: 0 1px 0 #fff;
 }
