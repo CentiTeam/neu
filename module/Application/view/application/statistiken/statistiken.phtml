@@ -39,16 +39,16 @@ use Application\Model\Zahlungsteilnehmer;?>
 	</form>	
 
 
-<table width="80%">
+<table class="datentabelle" width="80%">
 
-	<tr>
-		<th>Zahlungsbeschreibung  </th>
-		<th>Zahlungsdatum </th>
-		<th>Betrag </th>
-		<th>Kategorie </th>
-		<th>Status </th>
-		<th>Gruppenname</th>
-		<th></th>
+	<tr class="datentabelle">
+		<th class="datentabelle">Zahlungsbeschreibung  </th>
+		<th class="datentabelle">Zahlungsdatum </th>
+		<th class="datentabelle">Betrag </th>
+		<th class="datentabelle">Kategorie </th>
+		<th class="datentabelle">Status </th>
+		<th class="datentabelle">Gruppenname</th>
+		<th class="datentabelle"></th>
 	</tr>
 
 <?php 
@@ -56,14 +56,14 @@ use Application\Model\Zahlungsteilnehmer;?>
 		
 	?>
 
-		<tr>
-			<td><?=$zahlungsteilnehmer->getZahlung()->getZahlungsbeschreibung()?></td>
-			<td><?=$zahlungsteilnehmer->getZahlung()->getZahlungsdatum()?></td>
-			<td><?=$zahlungsteilnehmer->getZahlung()->getBetrag()?></td>
-			<td><?=$zahlungsteilnehmer->getZahlung()->getKategorie()->getKategoriebeschreibung()?></td> 
-			<td><?=$zahlungsteilnehmer->getStatus()?></td>
-			<td><?=$zahlungsteilnehmer->getZahlung()->getGruppe()->getGruppenbeschreibung()?></td>
-			<td><a href='zahlunganzeigen?z_id=<?=$zahlungsteilnehmer->getZahlung()->getZ_id()?>'><img src="img/show.jpg" /></a>
+		<tr class="datentabelle">
+			<td class="datentabelle"><?=$zahlungsteilnehmer->getZahlung()->getZahlungsbeschreibung()?></td>
+			<td class="datentabelle"><?=$zahlungsteilnehmer->getZahlung()->getZahlungsdatum()?></td>
+			<td class="datentabelle"><?=$zahlungsteilnehmer->getZahlung()->getBetrag()?></td>
+			<td class="datentabelle"><?=$zahlungsteilnehmer->getZahlung()->getKategorie()->getKategoriebeschreibung()?></td> 
+			<td class="datentabelle"><?=$zahlungsteilnehmer->getStatus()?></td>
+			<td class="datentabelle"><?=$zahlungsteilnehmer->getZahlung()->getGruppe()->getGruppenbeschreibung()?></td>
+			<td class="datentabelle"><a href='zahlunganzeigen?z_id=<?=$zahlungsteilnehmer->getZahlung()->getZ_id()?>'><img src="img/show.jpg" /></a>
 		</tr>
 
 	<?php 
