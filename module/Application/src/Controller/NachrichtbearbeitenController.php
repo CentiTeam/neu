@@ -4,7 +4,7 @@ namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use Zend\View\Model\Nachricht;
+use Application\Model\Nachricht;
 
 class NachrichtbearbeitenController extends AbstractActionController {
 
