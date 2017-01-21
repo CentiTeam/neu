@@ -134,7 +134,7 @@ class Gruppenereignis{
 	
 		$ereignisbeschreibung = "Die Zahlung ".$zahlung->getZahlungsbeschreibung()." mit der ID ".$zahlung->getZ_id()." in Hoehe von ".$zahlung->getBetrag()." wurde in der Kategorie ".$zahlung->getKategorie()->getKategoriebeschreibung()." von ".$user->getUsername()." angelegt";
 		// Datenbankstatement erzeugen
-		$dbStmt = new DB_connection(); 
+		$dbStmt = new DB_connection();  
 	
 		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
 		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe->getG_id()."', '".$ereignisbeschreibung."', NOW());");
