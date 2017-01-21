@@ -144,7 +144,7 @@ class Gruppenereignis{
 	
 	public function zahlungbegleichenEreignis($zahlung, $gruppe, $user){
 	
-		$ereignisbeschreibung = "Die Zahlung '".$zahlung->getZahlungsbeschreibung()."' mit der ID ".$zahlung->getId()." in Hoehe von ".$zahlung->getBetrag()." wurde von ".$user->getUsername()." beglichen";
+		$ereignisbeschreibung = "Die Zahlung ".$zahlung->getZahlungsbeschreibung()." mit der ID ".$zahlung->getZ_id()." in Hoehe von ".$zahlung->getBetrag()." wurde von ".$user->getUsername()." beglichen";
 		// Datenbankstatement erzeugen
 		$dbStmt = new DB_connection();
 	
@@ -156,7 +156,7 @@ class Gruppenereignis{
 	
 	public function zahlungeditierenEreignis($zahlung, $gruppe, $user){
 	
-		$ereignisbeschreibung = "Die Zahlung '".$zahlung->getZahlungsbeschreibung()."' mit der ID ".$zahlung->getId()." in Hoehe von ".$zahlung->getBetrag()." wurde von ".$user->getUsername()." editiert";
+		$ereignisbeschreibung = "Die Zahlung ".$zahlung->getZahlungsbeschreibung()." mit der ID ".$zahlung->getZ_id()." in Hoehe von ".$zahlung->getBetrag()." wurde von ".$user->getUsername()." editiert";
 		// Datenbankstatement erzeugen
 		$dbStmt = new DB_connection();
 	
@@ -167,7 +167,7 @@ class Gruppenereignis{
 	
 	public function zahlungstatusaenderungEreignis($zahlung, $gruppe, $user){
 	
-		$ereignisbeschreibung = "Der Status der Zahlung '".$zahlung->getZahlungsbeschreibung()."' mit der ID ".$zahlung->getId()." in Hoehe von ".$zahlung->getBetrag()." wurde von ".$user->getUsername()." zu ".$zahlung->getStatus()."geaendert";
+		$ereignisbeschreibung = "Der Status der Zahlung ".$zahlung->getZahlungsbeschreibung()." mit der ID ".$zahlung->getZ_id()." in Hoehe von ".$zahlung->getBetrag()." wurde von ".$user->getUsername()." zu ".$zahlung->getStatus()."geaendert";
 		// Datenbankstatement erzeugen
 		$dbStmt = new DB_connection();
 	
@@ -179,7 +179,7 @@ class Gruppenereignis{
 	
 	public function zahlungloeschenEreignis($zahlung, $gruppe, $user){
 	
-		$ereignisbeschreibung = "Die Zahlung '".$zahlung->getZahlungsbeschreibung()."' mit der ID ".$zahlung->getId()." in Hoehe von ".$zahlung->getBetrag()." wurde von ".$user->getUsername()." geloescht";
+		$ereignisbeschreibung = "Die Zahlung ".$zahlung->getZahlungsbeschreibung()." mit der ID ".$zahlung->getZ_id()." in Hoehe von ".$zahlung->getBetrag()." wurde von ".$user->getUsername()." geloescht";
 		// Datenbankstatement erzeugen
 		$dbStmt = new DB_connection();
 	
