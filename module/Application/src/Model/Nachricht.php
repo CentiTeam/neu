@@ -118,6 +118,16 @@ class Nachricht {
 		return $isLoaded;
 	}
 	
+	public static function bearbeiten($n_id, $text) {
+		
+		$db = new DB_connection();
+		
+		$query="UPDATE nachricht SET text='".$text."'
+				WHERE n_id='".$n_id."';";
+		
+		$result = $db->execute($query);
+		return $result;
+	}
 	
 	
 	public static function aktuellenachrichten($user_id) {
