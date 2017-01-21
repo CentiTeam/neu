@@ -143,11 +143,11 @@ class Zahlungsteilnehmer {
 							
  					}
  				}
- 				if($schuldstand>0){ //wenn er mir etwas schuldet
- 					while($schuldstand > 0){
- 						$schuldstand - zahlungenbegleichen($schuldstand);
- 					}
- 				}
+//  				if($schuldstand>0){ //wenn er mir etwas schuldet
+//  					while($schuldstand > 0){
+//  						$schuldstand - zahlungenbegleichen($schuldstand);
+//  					}
+//  				}
  		}
 		
  			echo "schuldstand :";
