@@ -10,6 +10,7 @@ use Application\Model\Gruppenmitglied;
 use Application\Model\Kategorie;
 use Application\Model\Zahlung;
 use Application\Model\Zahlungsteilnehmer;
+use Application\Model\Gruppenereignis;
 
 
 class ZahlunganlegenController extends AbstractActionController {
@@ -212,6 +213,10 @@ class ZahlunganlegenController extends AbstractActionController {
 							$counter++;
 						 }
 						 $temp ->alleausgleichen();
+						 
+						//Erstellen des Ereignisses für Gruppenverlauf und Speicher in DB
+						$zahlungsersteller = $_SESSION['user']; 						 
+						Gruppenereignis::zahlunganlegenEreignis($zahlung, $gruppe, $zahlungsersteller);
 						 
 						 
 						 $view = new ViewModel([

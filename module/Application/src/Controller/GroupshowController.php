@@ -8,6 +8,7 @@ use Application\Model\Gruppe;
 use Application\Model\User;
 use Application\Model\Gruppenmitglied;
 use Application\Model\Nachricht;
+use Application\Model\Gruppenereignis;
 
 
 
@@ -21,6 +22,8 @@ class GroupshowController extends AbstractActionController
 		$user_id=$_SESSION['user']->getU_id();
 		$user=$_SESSION['user'];
 		$errStr="";
+		
+
 		
 		// Gruppen-Objekt laden
 		$gruppe= new Gruppe();
@@ -69,8 +72,23 @@ class GroupshowController extends AbstractActionController
 			
 			if ($gruppenmitglied->getGruppenadmin()=="1") {
 				$adminaenderung="0";
+				
+				$nehmer = $_SESSION['user'];
+				
+				
+				$genommener = $gruppenmitglied->getUser();
+				
+				Gruppenereignis::gruppenadminrechtenehmenEreignis($nehmer, $genommener, $gruppe);
+				
 			} else {
 				$adminaenderung="1";
+				
+				$geber = $_SESSION['user'];
+				
+				
+				$nehmer = $gruppenmitglied->getUser();
+				
+				Gruppenereignis::gruppenadminrechteweitergebenEreignis($geber, $nehmer, $gruppe);
 			}
 		
 		

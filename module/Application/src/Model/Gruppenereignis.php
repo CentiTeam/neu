@@ -130,7 +130,7 @@ class Gruppenereignis{
 	
 	}
 	
-	public function zahlunganlegenEreignis($zahlung, $gruppe, $user){
+	public static function zahlunganlegenEreignis($zahlung, $gruppe, $user){
 	
 		$ereignisbeschreibung = "Die Zahlung '".$zahlung->getZahlungsbeschreibung()."' mit der ID ".$zahlung->getId()." in Hoehe von ".$zahlung->getBetrag()." wurde in der Kategorie".$zahlung->getKategorie()->getKategoriebeschreibung()." von ".$user->getUsername()."angelegt";
 		// Datenbankstatement erzeugen
@@ -189,9 +189,9 @@ class Gruppenereignis{
 	}
 	
 	
-	public function gruppenadminrechteweitergebenEreignis($geber, $nehmer, $gruppe){
+	public static function gruppenadminrechteweitergebenEreignis($geber, $nehmer, $gruppe){
 	
-		$ereignisbeschreibung = $geber->getUsername()."hat Gruppenadminrechte an ".$nehmer->getUsername()."weitergegeben";
+		$ereignisbeschreibung = $geber->getUsername()." hat Gruppenadminrechte an ".$nehmer->getUsername()." weitergegeben";
 		// Datenbankstatement erzeugen
 		$dbStmt = new DB_connection();
 	
@@ -200,7 +200,18 @@ class Gruppenereignis{
 	
 	}
 	
-	public function gruppenerstellungEreignis($gruppe){
+	public static function gruppenadminrechtenehmenEreignis($nehmer, $genommener, $gruppe){
+	
+		$ereignisbeschreibung = $nehmer->getUsername()." hat Gruppenadminrechte von ".$genommener->getUsername()." wieder genommen";
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+	
+		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
+		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe->getG_id()."', '".$ereignisbeschreibung."', NOW());");
+	
+	}
+	
+	public static function gruppeanlegenEreignis($gruppe){
 	
 		$ereignisbeschreibung = "Die Gruppe wurde erstellt";
 		// Datenbankstatement erzeugen

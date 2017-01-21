@@ -80,8 +80,6 @@ class Zahlungsteilnehmer {
 		// jetzt wird der eigentliche User (das this Objekt in dieser Klasse) aus der Liste entfernt.
 		//Daraufhin wird jeder andere User mit dem entfernten User verglichen
 
-		echo "hier sollte der Hauptusername stehen: ";
-		var_dump($einzahlungsteilnehmer ->getUser() -> getUsername());
 		
  		foreach($teilnehmerListe as $zaehler => $andererzahlungsteilnehmer){
  			//Funktion wird von einem Zahlungsteilnehmer aufgerufen. Jeder andere User der in dieser Zahlung
@@ -100,10 +98,24 @@ class Zahlungsteilnehmer {
  				//Schuldstand verändert sich nur 
  				//falls user selber Ersteller/Empfänger ist
  				
- 				if($einzahlungsteilnehmer->getZahlungsempfaenger()== $einzahlungsteilnehmer->getUser() ->getU_id()){
- 					$schuldstand += $andererzahlungsteilnehmer ->getRestbetrag();
- 				}else{
- 					$schuldstand -= $einzahlungsteilnehmer ->getRestbetrag();
+//  				$alleteilnehmerausgeminsamerzahlung = zahlungsteilnehmerholen($zahlungsteilnehmer -> getZahlung() -> getZ_id());
+//  				foreach($alleteilnehmerausgeminsamerzahlung as $zaehler => $zufilternderteilnehmer)
+ 				
+ 					
+ 					$ersterzahlungsteilnehmer = $zahlungsteilnehmer-> einenzahlungsteilnehmerholen($zahlungsteilnehmer -> getZahlung() -> getZ_id(), 
+ 							$einzahlungsteilnehmer->getUser() ->getU_id());
+ 					
+ 					$zweiterzahlungsteilnehmer = $zahlungsteilnehmer-> einenzahlungsteilnehmerholen($zahlungsteilnehmer -> getZahlung() -> getZ_id(),
+ 							$andererzahlungsteilnehmer->getUser() ->getU_id());
+ 					
+ 				
+ 				if($ersterzahlungsteilnehmer->getZahlungsempfaenger()->getU_id()== $ersterzahlungsteilnehmer->getUser() ->getU_id()){
+ 					$schuldstand += $zweiterzahlungsteilnehmer ->getRestbetrag();
+ 				}
+ 				
+ 				if($zweiterzahlungsteilnehmer->getZahlungsempfaenger()->getU_id()== $zweiterzahlungsteilnehmer->getUser() ->getU_id()){
+ 					$schuldstand -= $ersterzahlungsteilnehmer ->getRestbetrag();
+ 					
  				}
  				
  			}
@@ -119,11 +131,14 @@ class Zahlungsteilnehmer {
 // 					while($schuldstand > 0){
 // 						$schuldstand - zahlungenbegleichen($schuldstand);
 // 					}
-		echo "schuldstand :";
- 			var_dump($andererzahlungsteilnehmer ->getUser() -> getUsername());
+		
+ 			echo "schuldstand :";
  			var_dump($einzahlungsteilnehmer ->getUser() -> getUsername());
+ 			var_dump($andererzahlungsteilnehmer ->getUser() -> getUsername());
  			var_dump($schuldstand);
  			}
+ 			
+ 			
 	
  		}
  		public function gibsaldo($user_id){
@@ -232,6 +247,38 @@ class Zahlungsteilnehmer {
 		
 			// fertige Liste von Gruppe-Objekten zurï¿½ckgeben
 			return $teilnehmerListe;
+		}
+	}
+	
+	
+	public function einenzahlungsteilnehmerholen($z_id, $u_id){
+		// Liste initialisieren
+		$zteilnehmer;
+	
+		$db = new DB_connection();
+	
+		$query="SELECT * FROM `zahlungsteilnehmer`
+				WHERE z_id= '".$z_id."' 
+				AND u_id= '".$u_id."'; ";
+	
+		// Wenn die Datenbankabfrage erfolgreich ausgefï¿½hrt worden ist
+		if ($result = $db->execute($query)) {
+	
+			// Ergebnis Zeile fï¿½r Zeile verarbeiten
+			while ($row = mysqli_fetch_array($result)) {
+					
+				// neues Model erzeugen
+				$model = new Zahlungsteilnehmer();
+	
+				// Model anhand der Nummer aus der Datenbankabfrage laden
+				$model->laden($row["z_id"], $row["u_id"]);
+	
+				// neues Model ans Ende des $gruppeListe-Arrays anfï¿½gen
+				$zteilnehmer = $model;
+			}
+	
+			// fertige Liste von Gruppe-Objekten zurï¿½ckgeben
+			return $zteilnehmer;
 		}
 	}
 	
