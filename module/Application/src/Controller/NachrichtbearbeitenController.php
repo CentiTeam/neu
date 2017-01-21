@@ -60,16 +60,45 @@ class NachrichtbearbeitenController extends AbstractActionController {
 				$text = $_POST['text'];
 				
 				$nachricht=Nachricht::bearbeiten($n_id, $text);
+				
+				echo "Ihre Nachricht wurde bearbeitet";
+				
+				$view = new ViewModel ([
+						'nachricht' => array($nachricht),
+				]);
+				
+				return $view;
 			}
 			
 			if($_REQUEST['loeschen']) {
 			
 				$loeschen=Nachricht::loeschen($n_id);
 				
+				if ($loeschen);
+				
+				echo "Ihre Nachricht wurde entfernt";
+				
+				$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
+				
+				
+				$view = new ViewModel([
+						'gruppenListe' => $gruppenliste,
+						'u_id' => $user_id,
+						'err' => $errStr
+				]);
+				
+				$view->setTemplate('application/groupoverview/groupoverview.phtml');
+				
+				return $view;
+				
 			}
 			
+			
+			
 			return new ViewModel([
+
 					'nachricht' => array($nachricht),
+
 			]);
 			
 		}
