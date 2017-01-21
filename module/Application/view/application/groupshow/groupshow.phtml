@@ -1,3 +1,4 @@
+<?php session_start()?>
 <?=$msg?>
 
 <h1>Gruppen&uumlbersicht</h1>
@@ -32,6 +33,7 @@
     <th width="15%">Absender</th>
     <th width="15%">Datum</th>
     <th>Nachricht</th>
+    <th width="5%"></th>
   </tr>
   
   <?php foreach ($aktnachricht as $zaehler => $nachricht) {?>
@@ -40,6 +42,11 @@
     <td><?=$nachricht->getUser()->getUsername()?></td>
     <td><?=$nachricht->getdatum()?> 
     <td><?=$nachricht->getText()?></td>
+    <td><?php if($_SESSION['user']->getU_id() == $nachricht->getUser()->getU_id)
+    			{?>
+    				<a href='nachrichtbearbeiten?n_id=<?=$nachricht->getN_id()?>'><img src="img/edit.jpg" title="Nachricht bearbeiten"/></a>
+		<?php 	}?>
+	</td>
   </tr>
   <?php }?>
 </table>
