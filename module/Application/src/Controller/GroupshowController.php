@@ -78,7 +78,7 @@ class GroupshowController extends AbstractActionController
 				
 				$genommener = $gruppenmitglied->getUser();
 				
-				Gruppenereignis::gruppenadminrechteweitergebenEreignis($nehmer, $genommener, $gruppe);
+				Gruppenereignis::gruppenadminrechtenehmenEreignis($nehmer, $genommener, $gruppe);
 				
 			} else {
 				$adminaenderung="1";
