@@ -70,7 +70,7 @@ class GroupshowController extends AbstractActionController
 			
 			if ($gruppenmitglied->getGruppenadmin()=="1") {
 				$adminaenderung="0";
-				Gruppenereignis::gruppenadminrechteweitergeben($_SESSION['user']->getUsername(), $gruppenmitglied->getUser->getUsername(), $gruppe);
+				Gruppenereignis::gruppenadminrechteweitergebenEreignis($_SESSION['user']->getUsername(), $gruppenmitglied->getUser->getUsername(), $gruppe);
 			} else {
 				$adminaenderung="1";
 			}
