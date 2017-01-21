@@ -119,11 +119,13 @@ class Zahlungsteilnehmer {
 // 					while($schuldstand > 0){
 // 						$schuldstand - zahlungenbegleichen($schuldstand);
 // 					}
-		echo "schuldstand :";
+		
+ 			}
+ 			
+ 			echo "schuldstand :";
  			var_dump($andererzahlungsteilnehmer ->getUser() -> getUsername());
  			var_dump($einzahlungsteilnehmer ->getUser() -> getUsername());
  			var_dump($schuldstand);
- 			}
 	
  		}
  		public function gibsaldo($user_id){
