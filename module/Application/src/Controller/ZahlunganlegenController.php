@@ -10,6 +10,7 @@ use Application\Model\Gruppenmitglied;
 use Application\Model\Kategorie;
 use Application\Model\Zahlung;
 use Application\Model\Zahlungsteilnehmer;
+use Application\Model\Gruppenereignis;
 
 
 class ZahlunganlegenController extends AbstractActionController {
