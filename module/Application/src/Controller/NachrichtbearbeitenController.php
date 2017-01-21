@@ -55,7 +55,7 @@ class NachrichtbearbeitenController extends AbstractActionController {
 			}
 			
 			return new ViewModel([
-					'nachricht' => $nachricht,
+					'nachricht' => array($nachricht),
 			]);
 			
 		}
