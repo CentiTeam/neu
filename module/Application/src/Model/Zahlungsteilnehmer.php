@@ -52,9 +52,9 @@ class Zahlungsteilnehmer {
 // 		if($zahlungsempfaenger == 1){
 // 			echo "Fehler, ein Zahlungsempfaenger kann nichts begleichen";
 // 		}
-		echo" in zahlungbegleichen angekommen";
 		if($betrag >= $zahlungsteilnehmer->getRestbetrag()){
 			$temp = $zahlungsteilnehmer->getRestbetrag();
+			echo " im richtigen zahlungbegleichen Zweig angekommen";
 			$zahlungsteilnehmer->setRestbetrag(0);
 			return ($betrag - $temp);
 		}else{
