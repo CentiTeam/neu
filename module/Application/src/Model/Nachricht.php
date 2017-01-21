@@ -127,23 +127,15 @@ class Nachricht {
 		
 		// Wenn die Datenbankabfrage erfolgreich ausgefï¿½hrt worden ist
 		if ($result = $db->execute($query)) {
-		
-			// Ergebnis Zeile fï¿½r Zeile verarbeiten
-			while ($row = mysqli_fetch_array($result)) {
 					
-				// neues Model erzeugen
-				$model = new Nachricht();
-		
-				// Model anhand der Nummer aus der Datenbankabfrage laden
-				$model->laden($n_id);
-		
-				// neues Model ans Ende des $gruppeListe-Arrays anfï¿½gen
-				$aktuelleNachricht[] = $model;
+				// neues objekt erzeugen
+				$aktuelleNachricht = new Nachricht();
+				$aktuelleNachricht->laden($n_id);
+
 			}
 		
-			// fertige Liste von Gruppe-Objekten zurï¿½ckgeben
+			// Aktuelle Nachricht zurückgeben
 			return $aktuelleNachricht;
-		}
 	}
 	
 	public static function loeschen($n_id) {
