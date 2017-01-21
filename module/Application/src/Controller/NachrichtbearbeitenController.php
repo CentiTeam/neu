@@ -95,22 +95,11 @@ class NachrichtbearbeitenController extends AbstractActionController {
 						$mitglied=true;
 					}
 				}
-								
-				$mitgliederliste=Gruppenmitglied::gruppenmitgliederlisteHolen($g_id);
-				
-				$aktgruppenmitglied=new Gruppenmitglied();
-				$aktgruppenmitglied->laden($g_id, $user_id);
-
-				$aktnachrichtliste=Nachricht::messageboard($user_id, $g_id);
-				
+												
 				
 				$view = new ViewModel([
 						'gruppe' => array($gruppe),
-						'nachricht' => $nachricht,
-						'mitgliederListe' => $mitgliederliste,
-						'mitgliedschaft' => $mitgliedschaft,
-						'aktnachricht' => $aktnachrichtliste,
-						'aktgruppenmitglied' => $aktgruppenmitglied,
+						'mitgliedschaft' => $mitgliedschaft;
 						'user_id' => $user_id,
 				]);
 				
