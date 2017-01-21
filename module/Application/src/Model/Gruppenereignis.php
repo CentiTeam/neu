@@ -130,7 +130,7 @@ class Gruppenereignis{
 	
 	}
 	
-	public function zahlunganlegenEreignis($zahlung, $gruppe, $user){
+	public static function zahlunganlegenEreignis($zahlung, $gruppe, $user){
 	
 		$ereignisbeschreibung = "Die Zahlung '".$zahlung->getZahlungsbeschreibung()."' mit der ID ".$zahlung->getId()." in Hoehe von ".$zahlung->getBetrag()." wurde in der Kategorie".$zahlung->getKategorie()->getKategoriebeschreibung()." von ".$user->getUsername()."angelegt";
 		// Datenbankstatement erzeugen
