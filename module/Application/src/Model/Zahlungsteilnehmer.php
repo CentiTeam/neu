@@ -102,10 +102,10 @@ class Zahlungsteilnehmer {
 //  				foreach($alleteilnehmerausgeminsamerzahlung as $zaehler => $zufilternderteilnehmer)
  				
  					
- 					$ersterzahlungsteilnehmer = einenzahlungsteilnehmerholen($zahlungsteilnehmer -> getZahlung() -> getZ_id(), 
+ 					$ersterzahlungsteilnehmer = $zahlungsteilnehmer-> einenzahlungsteilnehmerholen($zahlungsteilnehmer -> getZahlung() -> getZ_id(), 
  							$einzahlungsteilnehmer->getUser() ->getU_id());
  					
- 					$zweiterzahlungsteilnehmer = einenzahlungsteilnehmerholen($zahlungsteilnehmer -> getZahlung() -> getZ_id(),
+ 					$zweiterzahlungsteilnehmer = $zahlungsteilnehmer-> einenzahlungsteilnehmerholen($zahlungsteilnehmer -> getZahlung() -> getZ_id(),
  							$andererzahlungsteilnehmer->getUser() ->getU_id());
  					
  				if($ersterzahlungsteilnehmer->getZahlungsempfaenger()== $ersterzahlungsteilnehmer->getUser() ->getU_id()){
