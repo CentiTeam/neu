@@ -119,8 +119,6 @@ class Zahlungsteilnehmer {
  				}
  				else{
  					$schuldstand -= $ersterzahlungsteilnehmer ->getRestbetrag();
- 					var_dump($ersterzahlungsteilnehmer ->getUser() ->getUsername());
- 					var_dump($zweiterzahlungsteilnehmer ->getUser() ->getUsername());
  				}
  				
  			}
