@@ -230,7 +230,7 @@ class Gruppenereignis{
 				  NATURAL JOIN gruppe
 				  NATURAL JOIN gruppenmitglied
 				  WHERE gruppenmitglied.u_id='".$user_id."'
-				  AND (datetime(zeitpunkt) BETWEEN curdatetime()-INTERVAL 5 DAY AND curdatetime())
+				  AND (date(zeitpunkt) BETWEEN curdate()-INTERVAL 5 DAY AND curdate())
 				  ORDER BY g_id, zeitpunkt DESC;";
 		
 		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
