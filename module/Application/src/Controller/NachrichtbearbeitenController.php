@@ -36,7 +36,7 @@ class NachrichtbearbeitenController extends AbstractActionController {
 			$user_id = $_SESSION['user']->getU_id();
 			
 			//Überprüfen, ob User = Absender
-			if($user_id == $nachricht->getUser()->getU_id()) {
+			if($user_id != $nachricht->getUser()->getU_id()) {
 				
 				echo "Sie sind nicht der Verfasser dieser Nachricht";
 				
