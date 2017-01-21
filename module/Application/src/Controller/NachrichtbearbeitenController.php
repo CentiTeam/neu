@@ -6,9 +6,8 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Model\Nachricht;
 use Application\Model\Gruppenmitglied;
-use Application\Model\Gruppe;
 use Application\Model\User;
-use Application\Model\Nachricht;
+
 
 
 class NachrichtbearbeitenController extends AbstractActionController {
@@ -82,8 +81,7 @@ class NachrichtbearbeitenController extends AbstractActionController {
 				
 				echo "Ihre Nachricht wurde entfernt";
 				
-				$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
-				
+				$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);				
 				
 				$view = new ViewModel([
 						'gruppenListe' => $gruppenliste,
