@@ -49,9 +49,10 @@ class Zahlungsteilnehmer {
 // 	}
 
 	public function zahlungbegleichen($betrag, $zahlungsteilnehmer){
-		if($zahlungsempfaenger == 1){
-			echo "Fehler, ein Zahlungsempfaenger kann nichts begleichen";
-		}
+// 		if($zahlungsempfaenger == 1){
+// 			echo "Fehler, ein Zahlungsempfaenger kann nichts begleichen";
+// 		}
+		echo" in zahlungbegleichen angekommen";
 		if($betrag >= $zahlungsteilnehmer->getRestbetrag()){
 			$temp = $zahlungsteilnehmer->getRestbetrag();
 			$zahlungsteilnehmer->setRestbetrag(0);
@@ -60,7 +61,7 @@ class Zahlungsteilnehmer {
 			$zahlungsteilnehmer->setRestbetrag($this->getRestbetrag()-$betrag);
 			return 0;
 		}
-	
+		
 	}
 	public function alleausgleichen($z_id){
 		$teilnehmerListe = $this->zahlungsteilnehmerholen($this->getZahlung()->getZ_id());
@@ -72,14 +73,11 @@ class Zahlungsteilnehmer {
 	
 	public function ausgleichen($einzahlungsteilnehmer) {
 			
-		
 		// teilnehmerliste ^= alle Teilnehmer der neuen/bearbeiteten/beglichenen Zahlung
 		
-
 		$teilnehmerListe= $einzahlungsteilnehmer->removefromteilnehmerListe($this->zahlungsteilnehmerholen($this->getZahlung()->getZ_id()));
 		// jetzt wird der eigentliche User (das this Objekt in dieser Klasse) aus der Liste entfernt.
 		//Daraufhin wird jeder andere User mit dem entfernten User verglichen
-
 		
  		foreach($teilnehmerListe as $zaehler => $andererzahlungsteilnehmer){
  			//Funktion wird von einem Zahlungsteilnehmer aufgerufen. Jeder andere User der in dieser Zahlung
@@ -101,25 +99,19 @@ class Zahlungsteilnehmer {
 //  				$alleteilnehmerausgeminsamerzahlung = zahlungsteilnehmerholen($zahlungsteilnehmer -> getZahlung() -> getZ_id());
 //  				foreach($alleteilnehmerausgeminsamerzahlung as $zaehler => $zufilternderteilnehmer)
  				
- 					
  					$ersterzahlungsteilnehmer = $zahlungsteilnehmer-> einenzahlungsteilnehmerholen($zahlungsteilnehmer -> getZahlung() -> getZ_id(), 
  							$einzahlungsteilnehmer->getUser() ->getU_id());
  					
  					$zweiterzahlungsteilnehmer = $zahlungsteilnehmer-> einenzahlungsteilnehmerholen($zahlungsteilnehmer -> getZahlung() -> getZ_id(),
  							$andererzahlungsteilnehmer->getUser() ->getU_id());
  					
- 				
  				if($ersterzahlungsteilnehmer->getZahlungsempfaenger()->getU_id()== $ersterzahlungsteilnehmer->getUser() ->getU_id()){
  					$schuldstand += $zweiterzahlungsteilnehmer ->getRestbetrag();
  				}
- 				
  				if($zweiterzahlungsteilnehmer->getZahlungsempfaenger()->getU_id()== $zweiterzahlungsteilnehmer->getUser() ->getU_id()){
  					$schuldstand -= $ersterzahlungsteilnehmer ->getRestbetrag();
- 					
  				}
- 				
  			}
- 			
  				//wenn ich ihm etwas schulde
 				if($schuldstand<0){
  			//		while($schuldstand<0){
@@ -142,19 +134,8 @@ class Zahlungsteilnehmer {
  									$schuldstand = $zahlungsteilnehmer -> zahlungbegleichen($schuldstand,
  											$einzahlungsteilnehmer);
  									}
- 								
- 									
- 									
  						}
-//  						$schuldstand + zahlungenbegleichen($schuldstand);
-							
  					}
- 				
-//  				if($schuldstand>0){ //wenn er mir etwas schuldet
-//  					while($schuldstand > 0){
-//  						$schuldstand - zahlungenbegleichen($schuldstand);
-//  					}
-//  				}
  		}
 		
  			echo "schuldstand :";
