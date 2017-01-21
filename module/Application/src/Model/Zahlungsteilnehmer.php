@@ -120,17 +120,35 @@ class Zahlungsteilnehmer {
  				
  			}
  			
-// 				//wenn ich ihm etwas schulde
-// 				if($schuldstand<0){
-// 					while($schuldstand<0){
-// 						$schuldstand + zahlungenbegleichen($schuldstand);
+ 				//wenn ich ihm etwas schulde
+				if($schuldstand<0){
+ 					while($schuldstand<0){
+ 						
+ 						foreach($gemeinsamezahlungen as $zaehler => $zahlungsteilnehmer){
+ 							//$einzahlungsteilnehmer schuldet $andererzahlungsteilnehmer etwas
+ 							//falls es nun Zahlungen gibt, in denen $einzahlungsteilnehmer Ersteller ist
+ 							// und $andererzahlungsteilnehmer einen offenen Restbetrag hat sollten diese Zahlungen
+ 							// beglichen werden. Und zwar bis es entweder keine entsprechenden Zahlungen mehr gibt
+ 							//oder bis der Schuldstand von beiden == 0 ist
+ 							$ersterzahlungsteilnehmer = $zahlungsteilnehmer-> einenzahlungsteilnehmerholen($zahlungsteilnehmer -> getZahlung() -> getZ_id(),
+ 									$einzahlungsteilnehmer->getUser() ->getU_id());
+ 							
+ 							$zweiterzahlungsteilnehmer = $zahlungsteilnehmer-> einenzahlungsteilnehmerholen($zahlungsteilnehmer -> getZahlung() -> getZ_id(),
+ 									$andererzahlungsteilnehmer->getUser() ->getU_id());
+ 							if($einzahlungsteilnehmer ->getUser() ->getU_id()== $ersterzahlungsteilnehmer->getZahlungsempfaenger()->getU_id()
+ 									&& $zweiterzahlungsteilnehmer ->getRestbetrag() >0){
+ 								echo "im if Zweig angekommen";
+ 						}
+ 						$schuldstand + zahlungenbegleichen($schuldstand);
 							
-// 					}
-// 				}
-// 				else{ //wenn er mir etwas schuldet
-// 					while($schuldstand > 0){
-// 						$schuldstand - zahlungenbegleichen($schuldstand);
-// 					}
+ 					}
+ 				}
+ 				if($schuldstand>0){ //wenn er mir etwas schuldet
+ 					while($schuldstand > 0){
+ 						$schuldstand - zahlungenbegleichen($schuldstand);
+ 					}
+ 				}
+ 		}
 		
  			echo "schuldstand :";
  			var_dump($einzahlungsteilnehmer ->getUser() -> getUsername());
