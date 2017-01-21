@@ -226,7 +226,7 @@ class Gruppenereignis{
 		
 		$dbStmt = new DB_connection();
 		
-		$query = "SELECT * FROM gruppenereignis
+		$query = "SELECT * FROM ereignis
 				  NATURAL JOIN gruppe
 				  NATURAL JOIN gruppenmitglied
 				  WHERE gruppenmitglied.u_id='".$user_id."'
