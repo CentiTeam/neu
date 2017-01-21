@@ -152,6 +152,7 @@ class GruppeanlegenController extends AbstractActionController {
 				 }
 				 
 				 $aktgruppenmitglied=$gruppenmitglied;
+				 var_dump($aktgruppenmitglied);
 				 $mitgliederliste=Gruppenmitglied::gruppenmitgliederlisteHolen($gruppen_id);
 				 
 				 
