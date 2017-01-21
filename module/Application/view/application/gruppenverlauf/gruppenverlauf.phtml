@@ -19,7 +19,9 @@
 <table><tr><th>Zeitpunkt</th><th>Beschreibung</th></tr>
 <?php
 foreach($ereignisListe as $zaehler => $ereignis){
-	
+
+$session_start();
+echo $_SESSION['user']->getUsername();
 
 ?>
 
