@@ -79,7 +79,7 @@ class GroupshowController extends AbstractActionController
 				$geber = $_SESSION['user'];
 				
 				
-				$nehmer = $gruppenmitglied;
+				$nehmer = $gruppenmitglied->getUser();
 				
 				Gruppenereignis::gruppenadminrechteweitergebenEreignis($geber, $nehmer, $gruppe);
 			}
