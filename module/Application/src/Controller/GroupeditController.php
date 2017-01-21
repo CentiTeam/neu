@@ -144,7 +144,7 @@ class GroupeditController extends AbstractActionController {
 				 
 				 
 				 // Gruppenmitgliedsdaten des aktuellen Nutzer laden wg. Adminprüfung
-				 $aktgruppenmitglied=$gruppenmitglied;
+				 $aktgruppenmitglied=$gruppenmitglied->laden($g_id, $user_id);
 				 
 				 // Gruppenmitgliederliste anzeigen
 				 $mitgliederliste=Gruppenmitglied::gruppenmitgliederlisteHolen($g_id);
