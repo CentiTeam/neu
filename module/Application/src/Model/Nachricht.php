@@ -118,16 +118,25 @@ class Nachricht {
 		return $isLoaded;
 	}
 	
-	public function bearbeiten($n_id, $text) {
+	public static function bearbeiten($n_id, $text) {
 		
 		$db = new DB_connection();
 		
 		$query="UPDATE nachricht SET text='".$text."'
 				WHERE n_id='".$n_id."';";
 		
-			$result = $db->execute($query);
-			return $result;
-			
+		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
+		if ($result = $db->execute($query)) {
+		
+				// neues objekt erzeugen
+				$aktuelleNachricht = new Nachricht();
+				$aktuelleNachricht->laden($n_id);
+
+			}
+		
+			// fertige Liste von Gruppe-Objekten zur�ckgeben
+			return $aktuelleNachricht;
+		
 	}
 	
 	public static function loeschen($n_id) {

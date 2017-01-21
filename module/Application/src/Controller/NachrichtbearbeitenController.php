@@ -59,7 +59,13 @@ class NachrichtbearbeitenController extends AbstractActionController {
 				
 				$text = $_POST['text'];
 				
-				$nachricht->bearbeiten($n_id, $text);
+				$nachricht=Nachricht::bearbeiten($n_id, $text);
+			}
+			
+			if($_REQUEST['loeschen']) {
+			
+				$loeschen=Nachricht::loeschen($n_id);
+				
 			}
 			
 			return new ViewModel([
