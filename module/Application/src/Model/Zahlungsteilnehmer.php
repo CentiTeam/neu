@@ -102,8 +102,10 @@ class Zahlungsteilnehmer {
  				
  				if($einzahlungsteilnehmer->getZahlungsempfaenger()== $einzahlungsteilnehmer->getUser() ->getU_id()){
  					$schuldstand += $andererzahlungsteilnehmer ->getRestbetrag();
+ 					echo "im if Zweig User ist Empfaenger angekommen";
  				}else{
  					$schuldstand -= $einzahlungsteilnehmer ->getRestbetrag();
+ 					echo "im if Zweig User schuldet jmd etwas angekommen";
  				}
  				
  			}
@@ -120,12 +122,13 @@ class Zahlungsteilnehmer {
 // 						$schuldstand - zahlungenbegleichen($schuldstand);
 // 					}
 		
- 			}
- 			
  			echo "schuldstand :";
  			var_dump($andererzahlungsteilnehmer ->getUser() -> getUsername());
  			var_dump($einzahlungsteilnehmer ->getUser() -> getUsername());
  			var_dump($schuldstand);
+ 			}
+ 			
+ 			
 	
  		}
  		public function gibsaldo($user_id){
