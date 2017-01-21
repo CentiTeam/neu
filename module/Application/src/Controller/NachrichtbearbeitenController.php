@@ -82,7 +82,9 @@ class NachrichtbearbeitenController extends AbstractActionController {
 				
 				echo "Ihre Nachricht wurde entfernt";
 				
-				//Relevante Daten laden
+				$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
+				
+				
 				$view = new ViewModel([
 						'gruppenListe' => $gruppenliste,
 						'u_id' => $user_id,
