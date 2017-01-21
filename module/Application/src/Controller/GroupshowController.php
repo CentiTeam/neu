@@ -23,8 +23,7 @@ class GroupshowController extends AbstractActionController
 		$user=$_SESSION['user'];
 		$errStr="";
 		
-		$user = $_SESSION['user'];
-		echo $user->getUsername();
+
 		
 		// Gruppen-Objekt laden
 		$gruppe= new Gruppe();
@@ -73,8 +72,12 @@ class GroupshowController extends AbstractActionController
 			
 			if ($gruppenmitglied->getGruppenadmin()=="1") {
 				$adminaenderung="0";
+				$geber = $_SESSION['user'];
 
-				//Gruppenereignis::gruppenadminrechteweitergebenEreignis($_SESSION['user']->getUsername(), $gruppenmitglied->getUser->getUsername(), $gruppe);
+				
+				$nehmer = $gruppenmitglied;
+
+				Gruppenereignis::gruppenadminrechteweitergebenEreignis($geber, $nehmer, $gruppe);
 			} else {
 				$adminaenderung="1";
 			}
