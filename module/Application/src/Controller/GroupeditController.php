@@ -142,32 +142,12 @@ class GroupeditController extends AbstractActionController {
 
 				 }
 				 
+				 
+				 // Gruppenmitgliedsdaten des aktuellen Nutzer laden wg. Adminprüfung
+				 $aktgruppenmitglied=$gruppenmitglied;
+				 
 				 // Gruppenmitgliederliste anzeigen
 				 $mitgliederliste=Gruppenmitglied::gruppenmitgliederlisteHolen($g_id);
-				 
-				 /** Kann raus, wenn objektorietierung bleibt
-				 // Liste der User-Objekte der Gruppenmitglieder holen
-				 $mitgliederliste = User::gruppenmitgliederlisteholen($g_id);
-				 
-				 
-				 $mitgliedschaft=array();
-				 
-				 // F�r jedes Gruppenmitglied mit die Gruppenmitgliedschafts-Infos (inkl. Gruppenadmin) laden
-				 // und Mitgliedschaftsinfos in Array speichern, wenn Gruppenmitgliedschaft besteht
-				 foreach ($mitgliederliste as $mitglied) {
-				 		
-				 	// Gruppenmitglied instanzieren
-				 	$gruppenmitglied= new Gruppenmitglied();
-				 	$gruppenmitglied->laden ($g_id, $mitglied->getU_id());
-				 		
-				 	// Wenn Gruppenmitgliedschaft dem User-Objekt entspricht wird das Array weiter bef�llt
-				 	if ($gruppenmitglied->getUser()->getU_id() == $mitglied->getU_id()) {
-				 
-				 		$mitgliedschaft[]=$gruppenmitglied;
-				 
-				 	}
-				 }*/
-				
 				 
 				 
 				 $view = new ViewModel([
@@ -175,7 +155,7 @@ class GroupeditController extends AbstractActionController {
 				 		'errors'   => $errors,
 				 		'msg' => $msg,
 				 		'mitgliederListe' => $mitgliederliste,
-				 		'mitgliedschaft' => $mitgliedschaft
+				 		'aktgruppenmitglied' => $aktgruppenmitglied
 				 ]);
 				 
 				 $view->setTemplate('application/groupshow/groupshow.phtml');
