@@ -10,7 +10,7 @@
 
     <form enctype="multipart/form-data" action="groupedit" method="POST">
 	<table>
-		<tr><td>Gruppenname</td><td><input type="text" name="gruppenname" required value="<?=$gruppe[0]->getGruppenname()?>" ></td></tr>
+		<tr><td>Gruppenname</td><td><input type="text" name="gruppenname" required value="<?=$gruppe[0]->getGruppenname()?>" readonly></td></tr>
 		<tr><td>Beschreibung</td><td><input type="text" name="gruppenbeschreibung" value="<?=$gruppe[0]->getGruppenbeschreibung()  ?>" ></td></tr>
 		
 	</table>
