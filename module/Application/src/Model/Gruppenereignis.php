@@ -234,7 +234,7 @@ class Gruppenereignis{
 				  ORDER BY g_id, zeitpunkt DESC;";
 		
 		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
-		if ($result = $db->execute($query)) {
+		if ($result = $dbStmt->execute($query)) {
 		
 			// Ergebnis Zeile f�r Zeile verarbeiten
 			while ($row = mysqli_fetch_array($result)) {
