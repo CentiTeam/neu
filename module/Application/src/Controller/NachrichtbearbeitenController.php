@@ -100,8 +100,7 @@ class NachrichtbearbeitenController extends AbstractActionController {
 				
 				$aktgruppenmitglied=new Gruppenmitglied();
 				$aktgruppenmitglied->laden($g_id, $user_id);
-				
-				
+
 				$aktnachrichtliste=Nachricht::messageboard($user_id, $g_id);
 				
 				
@@ -113,7 +112,6 @@ class NachrichtbearbeitenController extends AbstractActionController {
 						'aktnachricht' => $aktnachrichtliste,
 						'aktgruppenmitglied' => $aktgruppenmitglied,
 						'user_id' => $user_id,
-						'suche' => $suche
 				]);
 				
 				$view->setTemplate('application/groupshow/groupshow.phtml');
