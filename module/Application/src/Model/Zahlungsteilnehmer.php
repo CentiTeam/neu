@@ -80,8 +80,6 @@ class Zahlungsteilnehmer {
 		// jetzt wird der eigentliche User (das this Objekt in dieser Klasse) aus der Liste entfernt.
 		//Daraufhin wird jeder andere User mit dem entfernten User verglichen
 
-		echo "hier sollte der Hauptusername stehen: ";
-		var_dump($einzahlungsteilnehmer ->getUser() -> getUsername());
 		
  		foreach($teilnehmerListe as $zaehler => $andererzahlungsteilnehmer){
  			//Funktion wird von einem Zahlungsteilnehmer aufgerufen. Jeder andere User der in dieser Zahlung
@@ -102,10 +100,8 @@ class Zahlungsteilnehmer {
  				
  				if($einzahlungsteilnehmer->getZahlungsempfaenger()== $einzahlungsteilnehmer->getUser() ->getU_id()){
  					$schuldstand += $andererzahlungsteilnehmer ->getRestbetrag();
- 					echo "im if Zweig User ist Empfaenger angekommen";
  				}else{
  					$schuldstand -= $einzahlungsteilnehmer ->getRestbetrag();
- 					echo "im if Zweig User schuldet jmd etwas angekommen";
  				}
  				
  			}
@@ -123,8 +119,8 @@ class Zahlungsteilnehmer {
 // 					}
 		
  			echo "schuldstand :";
- 			var_dump($andererzahlungsteilnehmer ->getUser() -> getUsername());
  			var_dump($einzahlungsteilnehmer ->getUser() -> getUsername());
+ 			var_dump($andererzahlungsteilnehmer ->getUser() -> getUsername());
  			var_dump($schuldstand);
  			}
  			
