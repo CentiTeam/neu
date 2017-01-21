@@ -125,17 +125,9 @@ class Nachricht {
 		$query="UPDATE nachricht SET text='".$text."'
 				WHERE n_id='".$n_id."';";
 		
-		// Wenn die Datenbankabfrage erfolgreich ausgefï¿½hrt worden ist
-		if ($result = $db->execute($query)) {
-					
-				// neues objekt erzeugen
-				$aktuelleNachricht = new Nachricht();
-				$aktuelleNachricht->laden($n_id);
-
-			}
-		
-			// Aktuelle Nachricht zurückgeben
-			return $aktuelleNachricht;
+			$result = $db->execute($query);
+			return $result;
+			
 	}
 	
 	public static function loeschen($n_id) {
