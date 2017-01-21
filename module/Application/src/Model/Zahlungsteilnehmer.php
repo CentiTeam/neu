@@ -134,7 +134,7 @@ class Zahlungsteilnehmer {
  							
  							$zweiterzahlungsteilnehmer = $zahlungsteilnehmer-> einenzahlungsteilnehmerholen($zahlungsteilnehmer -> getZahlung() -> getZ_id(),
  									$andererzahlungsteilnehmer->getUser() ->getU_id());
- 							if($einzahlungsteilnehmer ->getUser() ->getU_id()== $zweiterzahlungsteilnehmer->getZahlungsempfaenger()->getU_id()
+ 							if($ersterzahlungsteilnehmer ->getUser() ->getU_id()== $ersterzahlungsteilnehmer->getZahlungsempfaenger()->getU_id()
  									&&($zweiterzahlungsteilnehmer ->getRestbetrag()) >0){
  								//
  								// 
