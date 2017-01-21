@@ -419,6 +419,17 @@ return [
         				],
         		],
         	
+        		'nachrichtbearbeiten' => [
+        				'type'    => Segment::class,
+        				'options' => [
+        						'route'    => '/nachrichtbearbeiten[/:action]',
+        						'defaults' => [
+        								'controller' => Controller\NachrichtbearbeitenController::class,
+        								'action'     => 'Nachrichtbearbeiten',
+        						],
+        				],
+        		],
+        		
         		'fremdesprofil' => [
         			'type'    => Segment::class,
        				'options' => [
@@ -486,6 +497,7 @@ return [
         	Controller\ZahlunganzeigenController::class => InvokableFactory::class,
         	Controller\GruppenverlaufController::class => InvokableFactory::class,
         	Controller\ZahlungbearbeitenController::class => InvokableFactory::class,
+        	Controller\NachrichtbearbeitenController::class => InvokableFactory::class,
         	Controller\PasswordresetController::class => InvokableFactory::class,
         		 
         	
