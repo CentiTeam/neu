@@ -82,28 +82,14 @@ class NachrichtbearbeitenController extends AbstractActionController {
 				
 				echo "Ihre Nachricht wurde entfernt";
 				
-				//Relevante Daten für Groupshow laden
-				$gruppe= new Gruppe();
-				$g_id=$_REQUEST['g_id'];
-				$gruppe->laden($g_id);
-				
-				$allegruppenliste=Gruppenmitglied::listeholen();
-				
-				$mitglied=false;
-				foreach ($allegruppenliste as $mitgliedschaft) {
-					if ($mitgliedschaft->getUser()->getU_id()==$user_id && $mitgliedschaft->getGruppe()->getG_id()==$g_id) {
-						$mitglied=true;
-					}
-				}
-												
-				
+				//Relevante Daten laden
 				$view = new ViewModel([
-						'gruppe' => array($gruppe),
-						'mitgliedschaft' => $mitgliedschaft;
-						'user_id' => $user_id,
+						'gruppenListe' => $gruppenliste,
+						'u_id' => $user_id,
+						'err' => $errStr
 				]);
 				
-				$view->setTemplate('application/groupshow/groupshow.phtml');
+				$view->setTemplate('application/groupoverview/groupoverview.phtml');
 				
 				return $view;
 				
