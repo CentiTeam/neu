@@ -8,6 +8,7 @@ use Application\Model\Gruppe;
 use Application\Model\User;
 use Application\Model\Gruppenmitglied;
 use Application\Model\Bildupload;
+use Application\Model\Gruppenereignis;
 
 
 class GruppeanlegenController extends AbstractActionController {
