@@ -118,7 +118,7 @@ class Nachricht {
 		return $isLoaded;
 	}
 	
-	public static function bearbeiten($n_id, $text) {
+	public function bearbeiten($n_id, $text) {
 		
 		$db = new DB_connection();
 		
