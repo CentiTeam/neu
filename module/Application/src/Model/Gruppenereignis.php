@@ -222,7 +222,37 @@ class Gruppenereignis{
 	
 	}
 	
-	
+	public static function akutelleereignisse($user_id) {
+		
+		$dbStmt = new DB_connection();
+		
+		$query = "SELECT * FROM gruppenereignis
+				  NATURAL JOIN gruppe
+				  NATURAL JOIN gruppenmitglied
+				  WHERE gruppenmitglied.u_id='".$user_id."'
+				  AND (datetime(zeitpunkt) BETWEEN curdatetime()-INTERVAL 5 DAY AND curdatetime())
+				  ORDER BY g_id, zeitpunkt DESC;";
+		
+		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
+		if ($result = $db->execute($query)) {
+		
+			// Ergebnis Zeile f�r Zeile verarbeiten
+			while ($row = mysqli_fetch_array($result)) {
+					
+				// neues Model erzeugen
+				$model = new Gruppenereignis();
+		
+				// Model anhand der Nummer aus der Datenbankabfrage laden
+				$model->laden($row["e_id"]);
+		
+				// neues Model ans Ende des Arrays anf�gen
+				$aktuelleListe[] = $model;
+			}
+		
+			// fertige Liste von Ereignis-Objekten zur�ckgeben
+			return $aktuelleListe;
+		}
+	}
 	
 	// Getter und Setter
 	

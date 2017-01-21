@@ -56,6 +56,10 @@ class OverviewController extends AbstractActionController
 		
 			$aktnachrichtliste=Nachricht::aktuellenachrichten($user_id);
 			
+		//Gruppenereignisse der letzten fünf Tage anzeigen lassen
+		
+			$aktereignisliste=Gruppenereignis::akutelleereignisse($user_id);
+			
 		//Aktuelles Datum speichern
 			date_default_timezone_set("Europe/Berlin");
 			$timestamp=time();
@@ -72,6 +76,7 @@ class OverviewController extends AbstractActionController
 				'gruppe' => array($gruppe),
 				'aktzahlung' => $aktzahlungliste,
 				'aktnachricht' => $aktnachrichtliste,
+				'aktereignis' => $aktereignisliste,
 				'aktdatum' => $datum
 		]);
 	}
