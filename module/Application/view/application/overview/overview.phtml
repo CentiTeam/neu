@@ -71,14 +71,14 @@
 
 <table width="80%">
   <tr>
-  	<th height="45">Gruppe</th>
+  	<th>Gruppe</th>
   	<th>Ereignis</th>
   	<th>Datum</th>
   </tr>
   
   <?php foreach ($aktereignis as $zaehler => $ereignis) {?>
   <tr>
-  	<td><?=$ereignis->getGruppe()->getGruppenname()?></td>
+  	<td height="45"><?=$ereignis->getGruppe()->getGruppenname()?></td>
   	<td><?=$ereignis->getBeschreibung()?></td>
   	<td><?=$ereignis->getZeitpunkt()?></td>
   </tr>
