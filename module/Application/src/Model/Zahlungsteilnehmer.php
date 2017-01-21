@@ -111,12 +111,10 @@ class Zahlungsteilnehmer {
  				
  				if($ersterzahlungsteilnehmer->getZahlungsempfaenger()->getU_id()== $ersterzahlungsteilnehmer->getUser() ->getU_id()){
  					$schuldstand += $zweiterzahlungsteilnehmer ->getRestbetrag();
- 					echo"test1";
  				}
  				
  				if($zweiterzahlungsteilnehmer->getZahlungsempfaenger()->getU_id()== $zweiterzahlungsteilnehmer->getUser() ->getU_id()){
- 					$schuldstand += $ersterzahlungsteilnehmer ->getRestbetrag();
- 					echo"test2";
+ 					$schuldstand -= $ersterzahlungsteilnehmer ->getRestbetrag();
  					
  				}
  				
