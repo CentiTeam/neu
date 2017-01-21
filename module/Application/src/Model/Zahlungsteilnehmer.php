@@ -139,7 +139,7 @@ class Zahlungsteilnehmer {
  									&& $zweiterzahlungsteilnehmer ->getRestbetrag() >0){
  								echo "im if Zweig angekommen";
  						}
- 						$schuldstand + zahlungenbegleichen($schuldstand);
+//  						$schuldstand + zahlungenbegleichen($schuldstand);
 							
  					}
  				}
