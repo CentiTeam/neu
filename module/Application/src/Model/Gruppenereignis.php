@@ -191,7 +191,7 @@ class Gruppenereignis{
 	
 	public static function gruppenadminrechteweitergebenEreignis($geber, $nehmer, $gruppe){
 	
-		$ereignisbeschreibung = $geber->getUsername()."hat Gruppenadminrechte an ".$nehmer->getUsername()."weitergegeben";
+		$ereignisbeschreibung = $geber->getUsername()." hat Gruppenadminrechte an ".$nehmer->getUsername()." weitergegeben";
 		// Datenbankstatement erzeugen
 		$dbStmt = new DB_connection();
 	
