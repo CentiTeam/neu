@@ -200,6 +200,17 @@ class Gruppenereignis{
 	
 	}
 	
+	public static function gruppenadminrechtenehmenEreignis($nehmer, $genommener, $gruppe){
+	
+		$ereignisbeschreibung = $nehmer->getUsername()." hat Gruppenadminrechte von ".$genommener->getUsername()." wieder genommen";
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+	
+		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
+		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe->getG_id()."', '".$ereignisbeschreibung."', NOW());");
+	
+	}
+	
 	public function gruppenerstellungEreignis($gruppe){
 	
 		$ereignisbeschreibung = "Die Gruppe wurde erstellt";
