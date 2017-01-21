@@ -6,6 +6,10 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Model\Nachricht;
 use Application\Model\Gruppenmitglied;
+use Application\Model\Gruppe;
+use Application\Model\User;
+use Application\Model\Nachricht;
+
 
 class NachrichtbearbeitenController extends AbstractActionController {
 
@@ -78,16 +82,41 @@ class NachrichtbearbeitenController extends AbstractActionController {
 				
 				echo "Ihre Nachricht wurde entfernt";
 				
-				$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
+				//Relevante Daten für Groupshow laden
+				$gruppe= new Gruppe();
+				$g_id=$_REQUEST['g_id'];
+				$gruppe->laden($g_id);
+				
+				$allegruppenliste=Gruppenmitglied::listeholen();
+				
+				$mitglied=false;
+				foreach ($allegruppenliste as $mitgliedschaft) {
+					if ($mitgliedschaft->getUser()->getU_id()==$user_id && $mitgliedschaft->getGruppe()->getG_id()==$g_id) {
+						$mitglied=true;
+					}
+				}
+								
+				$mitgliederliste=Gruppenmitglied::gruppenmitgliederlisteHolen($g_id);
+				
+				$aktgruppenmitglied=new Gruppenmitglied();
+				$aktgruppenmitglied->laden($g_id, $user_id);
+				
+				
+				$aktnachrichtliste=Nachricht::messageboard($user_id, $g_id);
 				
 				
 				$view = new ViewModel([
-						'gruppenListe' => $gruppenliste,
-						'u_id' => $user_id,
-						'err' => $errStr
+						'gruppe' => array($gruppe),
+						'nachricht' => $nachricht,
+						'mitgliederListe' => $mitgliederliste,
+						'mitgliedschaft' => $mitgliedschaft,
+						'aktnachricht' => $aktnachrichtliste,
+						'aktgruppenmitglied' => $aktgruppenmitglied,
+						'user_id' => $user_id,
+						'suche' => $suche
 				]);
 				
-				$view->setTemplate('application/groupoverview/groupoverview.phtml');
+				$view->setTemplate('application/groupshow/groupshow.phtml');
 				
 				return $view;
 				
