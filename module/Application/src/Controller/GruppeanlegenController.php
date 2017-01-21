@@ -37,6 +37,7 @@ class GruppeanlegenController extends AbstractActionController {
 			$msg = array();
 
 			if ($_REQUEST['speichern']) {
+				
 
 					
 				// Schritt 1:  Werte aus Formular einlesen
@@ -97,6 +98,7 @@ class GruppeanlegenController extends AbstractActionController {
 				 // array_push($msg, "Gruppe erfolgreich gespeichert!");
 				 //  $msg .= "Gruppe erfolgreich gespeichert!";
 				 $saved = true;
+				 Gruppenereignis::gruppeanlegenEreignis($gruppe);
 				 
 				 // Neue G_id durch Laden der neu erstellten Gruppe ins Objekt laden
 				 $gruppe->laden();

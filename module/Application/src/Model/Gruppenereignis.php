@@ -211,7 +211,7 @@ class Gruppenereignis{
 	
 	}
 	
-	public function gruppenerstellungEreignis($gruppe){
+	public static function gruppeanlegenEreignis($gruppe){
 	
 		$ereignisbeschreibung = "Die Gruppe wurde erstellt";
 		// Datenbankstatement erzeugen
