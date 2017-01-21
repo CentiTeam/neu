@@ -255,7 +255,7 @@ class Zahlungsteilnehmer {
 	
 		$query="SELECT * FROM `zahlungsteilnehmer`
 				WHERE z_id= '".$z_id."' 
-				AND WHERE u_id= '".$u_id."'; ";
+				AND u_id= '".$u_id."'; ";
 	
 		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
 		if ($result = $db->execute($query)) {
