@@ -1,0 +1,8 @@
+<h1>Nachricht bearbeiten</h1>
+
+<form  method='post'>
+    <label>Nachricht:</label><br>
+    <textarea name="text" required rows="5" cols="40" value=<?=$nachricht->getText()?>></textarea>
+    <br>
+    <input class="button" type="submit"  name = "bearbeiten" value="Bearbeiten"><input class="button" type="submit"  name = "loeschen" value="L&oumlschen">
+</form>
