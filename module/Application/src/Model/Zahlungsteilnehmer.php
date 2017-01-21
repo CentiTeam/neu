@@ -48,16 +48,16 @@ class Zahlungsteilnehmer {
 		
 // 	}
 
-	public function zahlungbegleichen($betrag){
+	public function zahlungbegleichen($betrag, $zahlungsteilnehmer){
 		if($zahlungsempfaenger == 1){
 			echo "Fehler, ein Zahlungsempfaenger kann nichts begleichen";
 		}
-		if($betrag >= $restbetrag){
-			$temp = $restbetrag;
-			$this->setRestbetrag(0);
+		if($betrag >= $zahlungsteilnehmer->getRestbetrag()){
+			$temp = $zahlungsteilnehmer->getRestbetrag();
+			$zahlungsteilnehmer->setRestbetrag(0);
 			return ($betrag - $temp);
 		}else{
-			$this->setRestbetrag($this->getRestbetrag()-$betrag);
+			$zahlungsteilnehmer->setRestbetrag($this->getRestbetrag()-$betrag);
 			return 0;
 		}
 	
@@ -137,7 +137,14 @@ class Zahlungsteilnehmer {
  							if($ersterzahlungsteilnehmer ->getUser() ->getU_id()== $ersterzahlungsteilnehmer->getZahlungsempfaenger()->getU_id()
  								&&($zweiterzahlungsteilnehmer ->getRestbetrag()) >0){
  								// 
- 								echo "im if Zweig angekommen";
+ 									if($schuldstand<0){
+ 									
+ 									$schuldstand = $zahlungsteilnehmer -> zahlungbegleichen($schuldstand,
+ 											$einzahlungsteilnehmer);
+ 									}
+ 								
+ 									
+ 									
  						}
 //  						$schuldstand + zahlungenbegleichen($schuldstand);
 							
