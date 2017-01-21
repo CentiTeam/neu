@@ -125,10 +125,37 @@ class Nachricht {
 		$query="UPDATE nachricht SET text='".$text."'
 				WHERE n_id='".$n_id."';";
 		
-		$result = $db->execute($query);
-		return $result;
+		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
+		if ($result = $db->execute($query)) {
+		
+			// Ergebnis Zeile f�r Zeile verarbeiten
+			while ($row = mysqli_fetch_array($result)) {
+					
+				// neues Model erzeugen
+				$model = new Nachricht();
+		
+				// Model anhand der Nummer aus der Datenbankabfrage laden
+				$model->laden($row["n_id"]);
+		
+				// neues Model ans Ende des $gruppeListe-Arrays anf�gen
+				$aktuelleNachricht[] = $model;
+			}
+		
+			// fertige Liste von Gruppe-Objekten zur�ckgeben
+			return $aktuelleNachricht;
+		}
 	}
 	
+	public static function loeschen($n_id) {
+		
+		$db = new DB_connection();
+		
+		$query="DELETE FROM nachricht WHERE n_id='".$n_id."';";
+		
+		$result = $db->execute($query);
+		return  $result;
+		
+	}
 	
 	public static function aktuellenachrichten($user_id) {
 	
