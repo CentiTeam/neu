@@ -13,6 +13,7 @@ use Application\Model\User;
 use Application\Model\Gruppe;
 use Application\Model\Zahlung;
 use Application\Model\Nachricht;
+use Application\Model\Gruppenereignis;
 
 class OverviewController extends AbstractActionController
 {
