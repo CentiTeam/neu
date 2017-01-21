@@ -216,7 +216,7 @@ class ZahlunganlegenController extends AbstractActionController {
 						 
 						//Erstellen des Ereignisses für Gruppenverlauf und Speicher in DB
 						$zahlungsersteller = $_SESSION['user']; 						 
-						Gruppenereignis::zahlungalegenEreignis($zahlung, $gruppe, $zahlungsersteller);
+						Gruppenereignis::zahlunganlegenEreignis($zahlung, $gruppe, $zahlungsersteller);
 						 
 						 
 						 $view = new ViewModel([
