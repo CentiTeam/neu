@@ -123,7 +123,6 @@ class Zahlungsteilnehmer {
  				//wenn ich ihm etwas schulde
 				if($schuldstand<0){
  			//		while($schuldstand<0){
- 						echo " test123";
  						foreach($gemeinsamezahlungen as $zaehler => $zahlungsteilnehmer){
  							//$einzahlungsteilnehmer schuldet $andererzahlungsteilnehmer etwas
  							//falls es nun Zahlungen gibt, in denen $einzahlungsteilnehmer Ersteller ist
@@ -135,9 +134,8 @@ class Zahlungsteilnehmer {
  							
  							$zweiterzahlungsteilnehmer = $zahlungsteilnehmer-> einenzahlungsteilnehmerholen($zahlungsteilnehmer -> getZahlung() -> getZ_id(),
  									$andererzahlungsteilnehmer->getUser() ->getU_id());
- 							echo " test4";
- 							if($einzahlungsteilnehmer ->getUser() ->getU_id()== $ersterzahlungsteilnehmer->getZahlungsempfaenger()->getU_id()
- 									&& ($zweiterzahlungsteilnehmer ->getRestbetrag()) >0){
+ 							if(($zweiterzahlungsteilnehmer ->getRestbetrag()) >0){
+ 								//$einzahlungsteilnehmer ->getUser() ->getU_id()== $ersterzahlungsteilnehmer->getZahlungsempfaenger()->getU_id()
  								echo "im if Zweig angekommen";
  						}
 //  						$schuldstand + zahlungenbegleichen($schuldstand);
