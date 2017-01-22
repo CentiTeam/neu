@@ -129,9 +129,11 @@ class GruppeanlegenController extends AbstractActionController {
 				 	if (! $gruppe->laden ($gruppen_id)) {
 				 		$errorStr .= "Keine g&uuml;ltige Gruppe angegeben!<br />";
 				 		
-				 	//Speichern des Ereignis, dass eine Gruppe erstellt wurde.	
-				 		Gruppenereignis::gruppeanlegenEreignis($gruppe);
+				 	
+				 		
 				 	}
+				 	//Speichern des Ereignis, dass eine Gruppe erstellt wurde.
+				 	Gruppenereignis::gruppeanlegenEreignis($gruppe);
 				 }
 				 
 				 $gruppenmitglied->setUser($user);
