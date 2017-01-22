@@ -18,7 +18,6 @@ class BenutzerdeaktivierenController extends AbstractActionController{
 		$u_id=$_REQUEST['u_id'];
 		
 		$isOK = $user->laden($u_id);
-		$user = $user->laden($u_id);
 		
 		// wenn die Aktion abgebrochen werden soll
 		if ($_REQUEST['nein']) {
@@ -43,7 +42,7 @@ class BenutzerdeaktivierenController extends AbstractActionController{
 			$msg = "";
 			
 			//Überprüfen, ob ein Admin zur Deaktivierung gesendet wird
-			if ($user['systemadmin']=='ja') {
+			if ($user->getSystemadmin=='ja') {
 				
 				$msg .= "Systemadministratoren k&oumlnnen nicht deaktiviert werden!<br>";
 				
