@@ -77,15 +77,19 @@ class ZahlungloeschenController extends AbstractActionController {
 					
 					// Relevante Daten Laden
 					$kategorieliste = Kategorie::listeHolen();
+					$saldo = Zahlungsteilnehmer::gibsaldo($user_id);
+					$zahlungenliste = Zahlungsteilnehmer::teilnehmerzahlungenholen($user_id);
 					
 					$view = new ViewModel([
 							'gruppe' => array($gruppe),
 							'errors' => $errors,
 							'msg' => $msg,
 							'zahlung' => array($zahlung),
+							'zahlungenliste' => $zahlungenliste,
+							'kategorieliste' => $kategorieliste,
 							'u_id' => $user_id,
-							'teilnehmerliste' => $teilnehmerliste
-							
+							'teilnehmerliste' => $teilnehmerliste,
+							'saldo' => $saldo
 					]);
 					
 					$view->setTemplate('application/statistiken/statistiken.phtml');
