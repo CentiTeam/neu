@@ -41,6 +41,12 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			
 			//Holen der u_id aus Session
 			$user_id=$_SESSION['user']->getU_id();
+			
+			//Überprüfen, ob User = ersteller
+			$ersteller = new Zahlungsteilnehmer()
+			$ersteller->laden($user_id);
+			
+			if ($ersteller) {
 				
 			//Zahlungsteilnehmer der Zahlung holen
 			$teilnehmerliste = Zahlungsteilnehmer::zahlungsteilnehmerholen($z_id);
@@ -272,7 +278,10 @@ class ZahlungbearbeitenController extends AbstractActionController {
 				$view->setTemplate('application/zahlunganzeigen/zahlunganzeigen.phtml');
 				return $view;
 			}
-				
+			}
+			else {
+				echo "Sie k&oumlnnen diese Zahlung nicht bearbeiten, da Sie sie nicht erstellt haben";
+			}
 
 
 
