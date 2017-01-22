@@ -68,6 +68,8 @@ class Zahlungsteilnehmer {
 		foreach($teilnehmerListe as $zaehler => $zahlungsteilnehmer){
 			$zahlungsteilnehmer -> ausgleichen($zahlungsteilnehmer);
 		}
+		//die Funktion ausgleichen() wird für jeden User, der mit der erstellten(oder bearbeiteten)
+		//Zahlung etwas zu tuen hat von dieser Funktion aus aufgerufen
 	}
 	
 	
