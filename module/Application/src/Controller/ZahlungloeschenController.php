@@ -63,12 +63,18 @@ class ZahlungloeschenController extends AbstractActionController {
 				//Für jeden Teilnehmer wird die Löschfunktion aufgerufen
 				foreach ($teilnehmerliste as $zahlungsteilnehmer)
 				{
-					$teilnehmerloeschen = Zahlungsteilnehmer::teilnehmerloeschen($z_id, $zahlungsteilnehmer->getU_id());
+					$teilnehmerloeschen = Zahlungsteilnehmer::teilnehmerloeschen($z_id, $zahlungsteilnehmer->getUser()->getU_id());
 				}
 			
 				//Löschen der Zahlung
 					$zahlungloeschen = Zahlung::loeschen($z_id);
 				
+					if ($zahlungloeschen) {
+						echo "Die Zahlung wurde erfolgreich gel&oumlscht!";
+					}
+					else {
+						echo "Die Zahlung konnte nicht gel&oumlscht werden!";
+					}
 			}
 			else {
 				echo "Sie k&oumlnnen diese Zahlung nicht l&oumlschen, da Sie sie nicht erstellt haben";
