@@ -49,7 +49,7 @@ class ZahlungloeschenController extends AbstractActionController {
 			//Zahlungsteilnehmer der Zahlung holen
 			$teilnehmerliste = Zahlungsteilnehmer::zahlungsteilnehmerholen($z_id);
 			
-			echo $ersteller->getZahlungsempfaenger()->getUser()->getU_id();
+			echo $ersteller->getZahlungsempfaenger()->getU_id();
 			exit;
 			
 			if ($ersteller->getZahlungsempfaenger()->getUser()->getU_id()==$user_id) {
