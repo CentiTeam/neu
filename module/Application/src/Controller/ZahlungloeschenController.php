@@ -6,8 +6,6 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Model\Gruppe;
 use Application\Model\User;
-use Application\Model\Gruppenmitglied;
-use Application\Model\Kategorie;
 use Application\Model\Zahlung;
 use Application\Model\Zahlungsteilnehmer;
 
@@ -116,12 +114,6 @@ class ZahlungloeschenController extends AbstractActionController {
 		}
 		
 		return new ViewModel([
-				'gruppe' => array($gruppe),
-				'zahlungsteilnehmer' => array($teilnehmer),
-				'msg' => $msg,
-				'kategorieListe' => $kategorieliste,
-				'mitgliederListe' => $mitgliederliste,
-				'erstellungsdatum' => $erstellungsdatum,
 				'zahlung' => array($zahlung)
 		]);
 		
