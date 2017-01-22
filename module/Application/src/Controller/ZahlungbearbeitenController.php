@@ -49,8 +49,6 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			//Zahlungsteilnehmer der Zahlung holen
 			$teilnehmerliste = Zahlungsteilnehmer::zahlungsteilnehmerholen($z_id);
 			
-			echo $ersteller->getZahlungsempfaenger();
-			
 			if ($ersteller->getZahlungsempfaenger()==$user_id) {
 			
 				foreach ($teilnehmerliste as $zahlungsteilnehmer)
