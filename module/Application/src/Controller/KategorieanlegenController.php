@@ -63,20 +63,18 @@ class KategorieanlegenController extends AbstractActionController {
 			
 			
 	
-			//	} elseif ($errorStr == "") {
+				elseif ($errorStr == "") {
 
-			//	 // array_push($msg, "Datenpr�fung in Ordnung, Fehler beim Speichern der Gruppe!");
-			//		$msg .= "Datenpr�fung in Ordnung, Fehler beim Speichern der Kategorie!";
-			//	 $saved = false;
+					$msg .= "Datenpr�fung in Ordnung, Fehler beim Speichern der Kategorie!";
+			   		$saved = false;
 
-			//	} else {
+				} else {
 
-			//	 // array_push($msg, "Fehler bei der Datenpr�fung. Gruppe nicht gespeichert!");
-			//		$msg .= "Fehler bei der Datenpr�fung. Kategorie nicht gespeichert!";
-			//	 $saved = false;
+					$msg .= "Fehler bei der Datenpr�fung. Kategorie nicht gespeichert!";
+			    	$saved = false;
 
-			//	}
-			//		
+				}
+					
 				
 				$kategorieListe = Kategorie::listeholen();
 				
