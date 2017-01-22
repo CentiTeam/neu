@@ -8,7 +8,7 @@ use Application\Model\Gruppe;
 use Application\Model\User;
 use Application\Model\Zahlung;
 use Application\Model\Zahlungsteilnehmer;
-
+use Application\Model\Kategorie;
 
 class ZahlungloeschenController extends AbstractActionController {
 
@@ -73,6 +73,10 @@ class ZahlungloeschenController extends AbstractActionController {
 					else {
 						echo "Die Zahlung konnte nicht gel&oumlscht werden!";
 					}
+					
+					
+					// Relevante Daten Laden
+					$kategorieliste = Kategorie::listeHolen();
 					
 					$view = new ViewModel([
 							'gruppe' => array($gruppe),
