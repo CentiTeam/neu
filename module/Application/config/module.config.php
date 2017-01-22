@@ -419,6 +419,17 @@ return [
         				],
         		],
         	
+        		'zahlungloeschen' => [
+        				'type'    => Segment::class,
+        				'options' => [
+        						'route'    => '/zahlungloeschen[/:action]',
+        						'defaults' => [
+        								'controller' => Controller\ZahlungloeschenController::class,
+        								'action'     => 'zahlungloeschen',
+        						],
+        				],
+        		],
+        		
         		'nachrichtbearbeiten' => [
         				'type'    => Segment::class,
         				'options' => [
@@ -497,6 +508,7 @@ return [
         	Controller\ZahlunganzeigenController::class => InvokableFactory::class,
         	Controller\GruppenverlaufController::class => InvokableFactory::class,
         	Controller\ZahlungbearbeitenController::class => InvokableFactory::class,
+        	Controller\ZahlungloeschenController::class => InvokableFactory::class,
         	Controller\NachrichtbearbeitenController::class => InvokableFactory::class,
         	Controller\PasswordresetController::class => InvokableFactory::class,
         		 
