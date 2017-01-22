@@ -52,7 +52,7 @@ class ZahlungloeschenController extends AbstractActionController {
 				foreach ($teilnehmerliste as $zahlungsteilnehmer)
 				{
 					//In dem Fall, dass der Restbetrag nicht dem Anteil entspricht, ist die Zahlung teils oder ganz beglichen
-					if ($zahlungsteilnehmer->getAnteil()!=$zahlungsteilnehmer->getRestbetrag())
+					if ($zahlungsteilnehmer->getAnteil()!=$zahlungsteilnehmer->getRestbetrag() AND $zahlungsteilnehmer->getUser()->getU_id()!=$user_id)
 					{
 						$beglichen++;
 					}
