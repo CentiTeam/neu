@@ -44,137 +44,134 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			
 			//Überprüfen, ob User = ersteller
 			$ersteller = new Zahlungsteilnehmer();
-			$ersteller->laden($z_id, $user_id);
+			$ersteller->laden($z_id, $user_id);		
 			
-			if ($ersteller->getZahlungsempfaenger()==$user_id) {
-				
 			//Zahlungsteilnehmer der Zahlung holen
 			$teilnehmerliste = Zahlungsteilnehmer::zahlungsteilnehmerholen($z_id);
 			
-			foreach ($teilnehmerliste as $zahlungsteilnehmer)
-			{
-				//In dem Fall, dass der Restbetrag nicht dem Anteil entspricht, ist die Zahlung teils oder ganz beglichen
-				if ($zahlungsteilnehmer->getAnteil()!=$zahlungsteilnehmer->getRestbetrag())
+			if ($ersteller->getZahlungsempfaenger()==$user_id) {
+			
+				foreach ($teilnehmerliste as $zahlungsteilnehmer)
 				{
-					$beglichen++;
+					//In dem Fall, dass der Restbetrag nicht dem Anteil entspricht, ist die Zahlung teils oder ganz beglichen
+					if ($zahlungsteilnehmer->getAnteil()!=$zahlungsteilnehmer->getRestbetrag())
+					{
+						$beglichen++;
+					}
 				}
-			}
 			
 			
-			//Liste alle verfï¿½gbaren Kateforien holen
-			$kategorieliste = Kategorie::listeHolen();
+				//Liste alle verfï¿½gbaren Kateforien holen
+				$kategorieliste = Kategorie::listeHolen();
 
-			$g_id = $_REQUEST['g_id'];	
-			$gruppe = new Gruppe();
-			$gruppe->laden($g_id);
+				$g_id = $_REQUEST['g_id'];	
+				$gruppe = new Gruppe();
+				$gruppe->laden($g_id);
 				
-			$mitgliederliste = User::gruppenmitgliederlisteholen($g_id);
+				$mitgliederliste = User::gruppenmitgliederlisteholen($g_id);
 			
-			// HEutigers Datum als akutellesdatum
-			date_default_timezone_set("Europe/Berlin");
-			$timestamp=time();
-			$aktuellesdatum= date('Y-m-d', $timestamp);
+				// HEutigers Datum als akutellesdatum
+				date_default_timezone_set("Europe/Berlin");
+				$timestamp=time();
+				$aktuellesdatum= date('Y-m-d', $timestamp);
 		
 
-			$saved= false;
-			$msg = array();
+				$saved= false;
+				$msg = array();
 			
-			//Wenn die Variable beglichen auf Null steht, kann die Zahlung bearbeitet werden
-			if ($beglichen==0)
-			{
-				
-
+				//Wenn die Variable beglichen auf Null steht, kann die Zahlung bearbeitet werden
+				if ($beglichen==0)
+				{
 			
-			if ($_REQUEST['speichern']) {
+					if ($_REQUEST['speichern']) {
 				
 				
-				// Anteile in Schleife speichern und Ã¼berprÃ¼fen, ob Summe dem Gesamtbetrag entspricht
-				$anteile=array();
-				$i=0;
-				$summe=0;
+					// Anteile in Schleife speichern und Ã¼berprÃ¼fen, ob Summe dem Gesamtbetrag entspricht
+					$anteile=array();
+					$i=0;
+					$summe=0;
 
-				foreach ($_POST['anteilsbetrag'] as $zaehler => $anteil) {
-					$anteile[]=$anteil;
-					$i++;
-					$summe += $anteil;
-				}
+					foreach ($_POST['anteilsbetrag'] as $zaehler => $anteil) {
+						$anteile[]=$anteil;
+						$i++;
+						$summe += $anteil;
+					}
 				
-				/** TODO Problem: Im Array Zahlungsteilnehmer stehen nur die Werte, die ein Häkchen bekommen
-				 				  Im Array Anteile werden jedoch alle Anteile eingespeichert, gleich ob da ein Häkchen war oder nicht
-				 				  Das führt dazu, dass in dem Fall, dass ein Teilnehmer ausgelassen wird, der falsche Anteil ausgelesen wird
+					/** TODO Problem: Im Array Zahlungsteilnehmer stehen nur die Werte, die ein Häkchen bekommen
+					 				  Im Array Anteile werden jedoch alle Anteile eingespeichert, gleich ob da ein Häkchen war oder nicht
+					 				  Das führt dazu, dass in dem Fall, dass ein Teilnehmer ausgelassen wird, der falsche Anteil ausgelesen wird
 				 				  
-				//Feststellen, ob für das gesetzte Häkchen auch ein Anteil angegeben wurde
-				$counter=0;
-				foreach ($_POST['zahlungsteilnehmer'] as $key => $value) {
+					//Feststellen, ob für das gesetzte Häkchen auch ein Anteil angegeben wurde
+					$counter=0;
+					foreach ($_POST['zahlungsteilnehmer'] as $key => $value) {
 					
 					
-					if ($anteile[$counter]=="")
-					{
-						echo "Jeder ausgew&aumlhlte Teilnehmer muss einen Anteil zugewiesen bekommen";
+						if ($anteile[$counter]=="")
+						{
+							echo "Jeder ausgew&aumlhlte Teilnehmer muss einen Anteil zugewiesen bekommen";
 						
-						$view = new ViewModel([
-							'gruppe' => array($gruppe),
-							'zahlungsteilnehmer' => array($teilnehmer),
-							'msg' => $msg,
-							'kategorieListe' => $kategorieliste,
-							'mitgliederListe' => $mitgliederliste,
-							'erstellungsdatum' => $erstellungsdatum,
-							'zahlung' => array($zahlung)
-						]);
+							$view = new ViewModel([
+								'gruppe' => array($gruppe),
+								'zahlungsteilnehmer' => array($teilnehmer),
+								'msg' => $msg,
+								'kategorieListe' => $kategorieliste,
+								'mitgliederListe' => $mitgliederliste,
+								'erstellungsdatum' => $erstellungsdatum,
+								'zahlung' => array($zahlung)
+							]);
 						
-						return $view;
-					}
-					$counter++;
-				}
-				*/
-
-				if($summe != $_REQUEST["betrag"]){
-					echo ("Die Anteile mï¿½ssen zusammen der Gesamtsumme entsprechen.");
-				}else {
-
-						
-					// Schritt 1:  Werte aus Formular einlesen
-					$zahlungsbeschreibung=$_REQUEST["zahlungsbeschreibung"];
-					$zahlungsdatum=$_REQUEST["zahlungsdatum"];
-					$betrag=$_REQUEST["betrag"];
-					$kategorie_id=$_REQUEST["kategorie"];
-					$aenderungsdatum= date('Y-m-d',$timestamp);
-					$gruppen_id=$zahlung->getGruppe()->getG_id();
-						
-
-					// verknï¿½pfte Models laden
-					if ($kategorie_id != null) {
-						$kategorie = new Kategorie();
-						if (! $kategorie->laden ($kategorie_id)) {
-							$errorStr .= "Keine g&uuml;ltige Kategorie angegeben!<br />";
+							return $view;
 						}
+						$counter++;
 					}
+					*/
+
+					if($summe != $_REQUEST["betrag"]){
+						echo ("Die Anteile mï¿½ssen zusammen der Gesamtsumme entsprechen.");
+					}else {
+				
+						// Schritt 1:  Werte aus Formular einlesen
+						$zahlungsbeschreibung=$_REQUEST["zahlungsbeschreibung"];
+						$zahlungsdatum=$_REQUEST["zahlungsdatum"];
+						$betrag=$_REQUEST["betrag"];
+						$kategorie_id=$_REQUEST["kategorie"];
+						$aenderungsdatum= date('Y-m-d',$timestamp);
+						$gruppen_id=$zahlung->getGruppe()->getG_id();
 						
-					// verknï¿½pfte Models laden
-					if ($gruppen_id != null) {
-						$gruppe = new Gruppe();
-						if (! $gruppe->laden ($gruppen_id)) {
-							$errorStr .= "Keine g&uuml;ltige Gruppe angegeben!<br />";
+
+						// verknï¿½pfte Models laden
+						if ($kategorie_id != null) {
+							$kategorie = new Kategorie();
+							if (! $kategorie->laden ($kategorie_id)) {
+								$errorStr .= "Keine g&uuml;ltige Kategorie angegeben!<br />";
+							}
 						}
-					}
+						
+						// verknï¿½pfte Models laden
+						if ($gruppen_id != null) {
+							$gruppe = new Gruppe();
+							if (! $gruppe->laden ($gruppen_id)) {
+								$errorStr .= "Keine g&uuml;ltige Gruppe angegeben!<br />";
+							}
+						}
 
 
-					// Schritt 2: Daten prï¿½fen und Fehler in Array fÃ¼llen
-					$errorStr ="";
-					$msg="";
+						// Schritt 2: Daten prï¿½fen und Fehler in Array fÃ¼llen
+						$errorStr ="";
+						$msg="";
 
-					// #TODO FehlerÃ¼berprÃ¼fung fehlt!
+						// #TODO FehlerÃ¼berprÃ¼fung fehlt!
 
 
-					// Zahlung-Objekt mit Daten aus Request-Array fï¿½llen
+						// Zahlung-Objekt mit Daten aus Request-Array fï¿½llen
 
-					$zahlung->setZahlungsbeschreibung($zahlungsbeschreibung);
-					$zahlung->setZahlungsdatum($zahlungsdatum);
-					$zahlung->setBetrag($betrag);
-					if ($kategorie_id != null){
-						$zahlung->setKategorie($kategorie);
-					}
-					$zahlung->setAenderungsdatum($aenderungsdatum);
+						$zahlung->setZahlungsbeschreibung($zahlungsbeschreibung);
+						$zahlung->setZahlungsdatum($zahlungsdatum);
+						$zahlung->setBetrag($betrag);
+						if ($kategorie_id != null){
+							$zahlung->setKategorie($kategorie);
+						}
+						$zahlung->setAenderungsdatum($aenderungsdatum);
 						
 
 
@@ -262,11 +259,25 @@ class ZahlungbearbeitenController extends AbstractActionController {
 
 							}
 								
+						}
 					}
+				}
+				else {
+					echo "Diese Zahlung wurde bereits teilweise oder vollst&aumlndig beglichen und kann daher nicht mehr bearbeitet werden";
+					$view = new ViewModel([
+							'gruppe' => array($gruppe),
+							'errors' => $errors,
+							'msg' => $msg,
+							'zahlung' => array($zahlung),
+							'teilnehmerliste' => $teilnehmerliste
+					]);
+				
+					$view->setTemplate('application/zahlunganzeigen/zahlunganzeigen.phtml');
+					return $view;
 				}
 			}
 			else {
-				echo "Diese Zahlung wurde bereits teilweise oder vollst&aumlndig beglichen und kann daher nicht mehr bearbeitet werden";
+				echo "Sie k&oumlnnen diese Zahlung nicht bearbeiten, da Sie sie nicht erstellt haben";
 				$view = new ViewModel([
 						'gruppe' => array($gruppe),
 						'errors' => $errors,
@@ -277,10 +288,6 @@ class ZahlungbearbeitenController extends AbstractActionController {
 				
 				$view->setTemplate('application/zahlunganzeigen/zahlunganzeigen.phtml');
 				return $view;
-			}
-			}
-			else {
-				echo "Sie k&oumlnnen diese Zahlung nicht bearbeiten, da Sie sie nicht erstellt haben";
 			}
 
 
