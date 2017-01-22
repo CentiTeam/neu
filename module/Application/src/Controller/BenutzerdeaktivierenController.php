@@ -50,6 +50,7 @@ class BenutzerdeaktivierenController extends AbstractActionController{
 				$userliste=User::listeholen();
 				
 				$view = new ViewModel([
+						'user' => $user,
 						'userListe' => $userliste,
 						'msg' => $msg
 				]);
