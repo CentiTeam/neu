@@ -32,7 +32,7 @@ class Zahlungsteilnehmer {
 				'".$this->status."',
 				'".$this->anteil."',
 				'".$this->getZahlungsempfaenger()->getU_id()."',
-				'".$this->anteil."'
+				'".$this->restbetrag."'
 				)" ;
 	
 		$result = $db->execute($query);
