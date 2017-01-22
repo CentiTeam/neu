@@ -42,7 +42,7 @@ class BenutzerdeaktivierenController extends AbstractActionController{
 			$msg = "";
 			
 			//Überprüfen, ob ein Admin zur Deaktivierung gesendet wird
-			if ($isOK->getSystemadmin()=='ja') {
+			if ($isOK->getSystemadmin()==1) {
 				
 				$msg .= "Systemadministratoren k&oumlnnen nicht deaktiviert werden!<br>";
 				
