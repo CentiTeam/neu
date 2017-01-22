@@ -115,6 +115,16 @@ class ZahlungloeschenController extends AbstractActionController {
 			
 		}
 		
+		return new ViewModel([
+				'gruppe' => array($gruppe),
+				'zahlungsteilnehmer' => array($teilnehmer),
+				'msg' => $msg,
+				'kategorieListe' => $kategorieliste,
+				'mitgliederListe' => $mitgliederliste,
+				'erstellungsdatum' => $erstellungsdatum,
+				'zahlung' => array($zahlung)
+		]);
+		
 	}
 	
 }
