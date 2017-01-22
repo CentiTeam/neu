@@ -350,6 +350,18 @@ class Zahlungsteilnehmer {
 		
 	}
 	
+	//Separate Löschfunktion, da nicht bekannt, ob obige verwendet wird
+	public static function teilnehmerloeschen ($z_id, $u_id) {
+		$db = new DB_connection();
+		
+		$query = "DELETE FROM zahlungsteilnehmer
+				  WHERE z_id='".$z_id."' AND u_id='".$u_id."';" ;
+		
+		$result = $db->execute($query);
+		
+		return $result;
+	}
+	
 	// Getter und Setter
 	
 	public function getUser () {

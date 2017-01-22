@@ -205,6 +205,15 @@ class Zahlung {
 		}
 	}
 	
+	public static function loeschen ($z_id) {
+		$db = new DB_connection();
+		
+		$query = "DELETE FROM zahlung WHERE z_id = '".$z_id."';";
+		
+		$result = $db->execute($query);
+		
+		return $result;
+	}
 	
 	// Getter und Setter
 	
