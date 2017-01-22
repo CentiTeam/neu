@@ -100,6 +100,7 @@ class GruppeanlegenController extends AbstractActionController {
 				 //  $msg .= "Gruppe erfolgreich gespeichert!";
 				 $saved = true;
 				 Gruppenereignis::gruppeanlegenEreignis($gruppe);
+				 echo "test";
 				 
 				 // Neue G_id durch Laden der neu erstellten Gruppe ins Objekt laden
 				 $gruppe->laden();
