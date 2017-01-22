@@ -79,7 +79,9 @@ class ZahlungloeschenController extends AbstractActionController {
 							'errors' => $errors,
 							'msg' => $msg,
 							'zahlung' => array($zahlung),
+							'u_id' => $user_id,
 							'teilnehmerliste' => $teilnehmerliste
+							
 					]);
 					
 					$view->setTemplate('application/statistiken/statistiken.phtml');
