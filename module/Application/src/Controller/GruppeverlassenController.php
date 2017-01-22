@@ -93,6 +93,9 @@ class GruppeverlassenController extends AbstractActionController
 			if ($gruppenmitglied->verlassen ($g_id, $user->getU_id())) {
 
 				$msg .= "Gruppenmitgliedschaft erfolgreich gel&ouml;scht!<br>";
+				
+				//Schreiben des Gruppenaustritts in die Ereignistabelle der Datenbank
+				Gruppenereignis::gruppenmitgliedaustretenEreignis($user, $gruppe);
 
 			} else {
 

@@ -86,9 +86,9 @@ class Gruppenereignis{
 		return $isLoaded;
 	}
 	
-	public function gruppenmitgliedhinzufuegenEreignis($user, $gruppe){
+	public function gruppenmitgliedbeitretenEreignis($user, $gruppe){
 		
-		$ereignisbeschreibung = "Der Benutzer ".$user->getUsername()." wurde zur Gruppe hinzugefügt";
+		$ereignisbeschreibung = "Der Benutzer ".$user->getUsername()." ist der Gruppe beigetreten";
 		// Datenbankstatement erzeugen
 		$dbStmt = new DB_connection();
 		
@@ -214,6 +214,17 @@ class Gruppenereignis{
 	public static function gruppeanlegenEreignis($gruppe){
 	
 		$ereignisbeschreibung = "Die Gruppe wurde erstellt";
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+	
+		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
+		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe->getG_id()."', '".$ereignisbeschreibung."', NOW());");
+	
+	}
+	
+	public static function gruppeloeschenEreignis($gruppe){
+	
+		$ereignisbeschreibung = "Die Gruppe wurde gelöscht";
 		// Datenbankstatement erzeugen
 		$dbStmt = new DB_connection();
 	
