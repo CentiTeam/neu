@@ -43,7 +43,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			$user_id=$_SESSION['user']->getU_id();
 			
 			//Überprüfen, ob User = ersteller
-			$ersteller = new Zahlungsteilnehmer()
+			$ersteller = new Zahlungsteilnehmer();
 			$ersteller->laden($user_id);
 			
 			if ($ersteller) {
