@@ -83,7 +83,7 @@ class GruppeverlassenController extends AbstractActionController
 			$view->setTemplate('application/groupshow/groupshow.phtml');
 				
 			return $view;
-		}
+		} 
 
 		// wenn das Formular zur Best�tigung des L�schens schon abgesendet wurde, soll dies hier ausgewertet werden
 		if ($_REQUEST['send']) {
