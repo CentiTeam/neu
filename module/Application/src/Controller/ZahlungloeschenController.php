@@ -50,8 +50,6 @@ class ZahlungloeschenController extends AbstractActionController {
 			$teilnehmerliste = Zahlungsteilnehmer::zahlungsteilnehmerholen($z_id);
 			
 			if ($ersteller->getZahlungsempfaenger()->getU_id()==$user_id) {
-			
-				if ($_REQUEST['send']){
 					
 				foreach ($teilnehmerliste as $zahlungsteilnehmer)
 				{
@@ -103,7 +101,7 @@ class ZahlungloeschenController extends AbstractActionController {
 				$view->setTemplate('application/zahlunganzeigen/zahlunganzeigen.phtml');
 				return $view;
 			}
-			}
+			
 			$view = new ViewModel([
 					'gruppe' => array($gruppe),
 					'errors' => $errors,
