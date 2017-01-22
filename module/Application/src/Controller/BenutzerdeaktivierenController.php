@@ -41,6 +41,22 @@ class BenutzerdeaktivierenController extends AbstractActionController{
 
 		
 			$msg = "";
+			
+			//Überprüfen, ob ein Admin zur Deaktivierung gesendet wird
+			if ($isOK['systemadmin']=='ja') {
+				$msg.= "Systemadministratoren k&oumlnnen nicht deaktiviert werden!<br>";
+				
+				$userliste=User::listeholen();
+				
+				$view = new ViewModel([
+						'userListe' => $userliste,
+						'msg' => $msg
+				]);
+				
+				$view->setTemplate('application/benutzertabelle/benutzertabelle.phtml');
+					
+				return $view;
+			}
 		
 			// wenn der Ladevorgang erfolgreich war, wird versucht den Benutzer zu deaktivieren
 			if ($isOK && $user->deaktivieren()) {
