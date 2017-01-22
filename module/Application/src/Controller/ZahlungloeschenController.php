@@ -12,9 +12,9 @@ use Application\Model\Zahlung;
 use Application\Model\Zahlungsteilnehmer;
 
 
-class ZahlungbearbeitenController extends AbstractActionController {
+class ZahlungloeschenController extends AbstractActionController {
 
-	function zahlungbearbeitenAction() {
+	function zahlungloeschenAction() {
 		// TODO Berechtigungspr�fung
 		session_start();
 
