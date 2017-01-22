@@ -86,9 +86,9 @@ class Gruppenereignis{
 		return $isLoaded;
 	}
 	
-	public function gruppenmitgliedhinzufuegenEreignis($user, $gruppe){
+	public function gruppenmitgliedbeitretenEreignis($user, $gruppe){
 		
-		$ereignisbeschreibung = "Der Benutzer ".$user->getUsername()." wurde zur Gruppe hinzugefügt";
+		$ereignisbeschreibung = "Der Benutzer ".$user->getUsername()." ist der Gruppe beigetreten";
 		// Datenbankstatement erzeugen
 		$dbStmt = new DB_connection();
 		

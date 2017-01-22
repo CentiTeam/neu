@@ -68,6 +68,8 @@ class EinladungannehmenController extends AbstractActionController
 				// array_push($msg, "Gruppe erfolgreich gel�scht!");
 
 				$msg .= "Du wurdest erfolgreich zu der Gruppe '$gruppenname' hinzugef&uuml;gt, $vorname!<br>";
+				
+				Gruppenereignis::gruppenmitgliedbeitretenEreignis($gruppe);
 
 			} else {
 				// ausgeben, dass das Team nicht gel�scht werden konnte (kein Template n�tig!)
