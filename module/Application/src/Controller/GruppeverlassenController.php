@@ -7,6 +7,7 @@ use Zend\View\Model\ViewModel;
 use Application\Model\Gruppe;
 use Application\Model\Gruppenmitglied;
 use Application\Model\User;
+use Application\Model\Gruppenereignis;
 
 #TODO @Tanja Fehler abpr�fen!
 
