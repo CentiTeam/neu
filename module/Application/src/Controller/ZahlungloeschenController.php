@@ -51,6 +51,8 @@ class ZahlungloeschenController extends AbstractActionController {
 			
 			if ($ersteller->getZahlungsempfaenger()->getU_id()==$user_id) {
 			
+				if ($_REQUEST['send']){
+					
 				foreach ($teilnehmerliste as $zahlungsteilnehmer)
 				{
 					//In dem Fall, dass der Restbetrag nicht dem Anteil entspricht, ist die Zahlung teils oder ganz beglichen
@@ -84,7 +86,7 @@ class ZahlungloeschenController extends AbstractActionController {
 							'teilnehmerliste' => $teilnehmerliste
 					]);
 					
-					$view->setTemplate('application/zahlunganzeigen/zahlunganzeigen.phtml');
+					$view->setTemplate('application/statistiken/statistiken.phtml');
 					return $view;
 					
 			}
@@ -101,7 +103,7 @@ class ZahlungloeschenController extends AbstractActionController {
 				$view->setTemplate('application/zahlunganzeigen/zahlunganzeigen.phtml');
 				return $view;
 			}
-			
+			}
 			$view = new ViewModel([
 					'gruppe' => array($gruppe),
 					'errors' => $errors,
