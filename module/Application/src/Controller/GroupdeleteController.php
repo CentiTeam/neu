@@ -6,6 +6,7 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Model\Gruppe;
 use Application\Model\Gruppenmitglied;
+use Application\Model\Gruppenereignis;
 
 #TODO @Tanja Fehler abprï¿½fen!
 
@@ -94,6 +95,9 @@ class GroupdeleteController extends AbstractActionController
 				// array_push($msg, "Gruppe erfolgreich gelï¿½scht!");
 				
 				$msg .= "Gruppe erfolgreich gel&ouml;scht!<br>";
+				
+				//Schreiben des Ereignisses das die Gruppe gelöscht wurde in die Ereignistabelle der Datenbank
+				Gruppenereignis::gruppeloeschenEreignis($gruppe);
 				
 			} else {
 		

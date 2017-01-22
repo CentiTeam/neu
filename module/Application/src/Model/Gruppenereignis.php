@@ -222,6 +222,17 @@ class Gruppenereignis{
 	
 	}
 	
+	public static function gruppeloeschenEreignis($gruppe){
+	
+		$ereignisbeschreibung = "Die Gruppe wurde gelöscht";
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+	
+		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
+		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe->getG_id()."', '".$ereignisbeschreibung."', NOW());");
+	
+	}
+	
 	public static function akutelleereignisse($user_id) {
 		
 		$dbStmt = new DB_connection();
