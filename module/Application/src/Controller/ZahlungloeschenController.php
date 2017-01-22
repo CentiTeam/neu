@@ -75,6 +75,18 @@ class ZahlungloeschenController extends AbstractActionController {
 					else {
 						echo "Die Zahlung konnte nicht gel&oumlscht werden!";
 					}
+					
+					$view = new ViewModel([
+							'gruppe' => array($gruppe),
+							'errors' => $errors,
+							'msg' => $msg,
+							'zahlung' => array($zahlung),
+							'teilnehmerliste' => $teilnehmerliste
+					]);
+					
+					$view->setTemplate('application/zahlunganzeigen/zahlunganzeigen.phtml');
+					return $view;
+					
 			}
 			else {
 				echo "Sie k&oumlnnen diese Zahlung nicht l&oumlschen, da Sie sie nicht erstellt haben";
