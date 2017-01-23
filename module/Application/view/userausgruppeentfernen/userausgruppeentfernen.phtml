@@ -1,0 +1,19 @@
+<head>
+<style>
+.button{
+	font-size: 1.5rem;
+}
+</style>
+</head>
+
+<form method='post'>
+
+<input type='hidden' name='g_id' value='<?=$gruppenmitglied->getGruppe()->getG_id()?>'>
+<input type='hidden' name='u_id' value='<?=$gruppenmitglied->getU_id()?>'>
+
+Willst Du <?=$gruppenmitglied->getVorname()?> <?=$gruppenmitglied->getNachname()?> wirklich aus der Gruppe '<?=$gruppenmitglied->getGruppe()->getGruppenname()?>' entfernen?
+		
+	<input class='button' type='submit' name='send' value='Ja'>
+	<input class='button' type='submit' name='abbrechen' value='Nein'>
+		
+</form>
