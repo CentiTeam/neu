@@ -11,7 +11,7 @@ class Zahlungsteilnehmer {
 	protected  $zahlung;
 	protected  $status;
 	protected  $anteil;
-	protected  $zahlungsempfaenger; 
+	protected  $zahlungsempfaenger;
 	protected  $restbetrag;
 	
 	// HIER Kann evtl. ein Fehler liegen!!! (Objekt muss beachtet werden?)
@@ -52,6 +52,8 @@ class Zahlungsteilnehmer {
 // 		if($zahlungsempfaenger == 1){
 // 			echo "Fehler, ein Zahlungsempfaenger kann nichts begleichen";
 // 		}
+		echo " im zahlungbegleichen Zweig angekommen 123";
+		
 		if($betrag >= $this->getRestbetrag()){
 			$temp = $this->getRestbetrag();
 			echo " im richtigen zahlungbegleichen Zweig angekommen";
@@ -93,6 +95,8 @@ class Zahlungsteilnehmer {
  			$gemeinsamezahlungen = $einzahlungsteilnehmer->gibgemeinsamezahlungen(
  					$einzahlungsteilnehmer->getUser() ->getU_id(), $andererzahlungsteilnehmer->getUser() ->getU_id() );
  			
+ 			echo"gemeinsame Zahlungen:";
+ 			var_dump($gemeinsamezahlungen);
  			foreach($gemeinsamezahlungen as $zaehler => $zahlungsteilnehmer){
  				
  				//Rechne Schuldstand. 
