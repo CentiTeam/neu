@@ -211,9 +211,11 @@ class ZahlungbearbeitenController extends AbstractActionController {
 										//Der Status bei dem, der die Zahlung erstellt hat ist "ersteller", dies erleichtert die nachträgliche Bearbeitung von
 										//Zahlungen, da Zahlungen nur bearbeitet werden dürfen, wenn sie nicht den Status "beglichen" Aufweisen.
 							 		$status="ersteller";
+							 		$restbetrag="0";
 									} else {
 										//Der Status für alle anderen Zahlungsteilnehmer ist offen.
 							 		$status="offen";
+							 		$restbetrag=$anteil;
 									}
 									$anteil=$anteile[$counter];
 
@@ -225,6 +227,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 									$zahlungsteilnehmer->setStatus($status);
 									$zahlungsteilnehmer->setAnteil($anteil);
 									$zahlungsteilnehmer->setZahlungsempfaenger($zahlungsempfaenger);
+									$zahlungsteilnehmer->setRestbetrag($restbetrag);
 
 									$zahlungsteilnehmer->anlegen();
 										
