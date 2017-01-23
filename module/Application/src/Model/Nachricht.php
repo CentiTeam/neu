@@ -220,9 +220,13 @@ class Nachricht {
 	
 	// Blätterfunktion
 	 
-	public function blaettern() {
+	public function blaettern($user_id, $g_id) {
 		
 		$db = new DB_connection();
+		
+		// Liste initialisieren
+		
+		$nachrichtenListe = array ();
 		
 		// Ermittlung, wie viele Nachrichteneinträge es in der DB gibt
 		
@@ -255,7 +259,21 @@ class Nachricht {
 		$result = mysql_query('SELECT * FROM `nachricht` LIMIT '.$limit.', '.$ergebnisse_pro_seite);
 		while ($row = mysql_fetch_assoc($result)) {
 			
+			
+			// neues Model erzeugen
+			$model = new Nachricht();
+			
+			// Model anhand der Nummer aus der Datenbankabfrage laden
+			$model->messageboardladen($row["n_id"]);
+			
+			// neues Model ans Ende des $gruppeListe-Arrays anfï¿½gen
+			$aktuelleListe[] = $model;
+			
 		}
+		
+		// fertige Liste von Nachrichten-Objekten zurï¿½ckgeben
+		
+		return $aktuelleListe;
 		
 		// Ausgabe der Seitenzahlen
 		for ($i=1; $i<=$gesamt_seiten; ++$i) {
