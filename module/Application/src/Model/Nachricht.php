@@ -231,7 +231,7 @@ class Nachricht {
 		// Ermittlung, wie viele Nachrichteneinträge es in der DB gibt
 		
 		$result_total = mysqli_query('SELECT COUNT(*) as `total` FROM `Nachricht`');
-		$row_total = mysqli_fetch_rows($result_total);
+		$row_total = mysqli_fetch_row($result_total);
 		$gesamte_anzahl = $row_total['total'];
 		echo $gesamt_seiten;
 		echo $gesamte_anzahl;
