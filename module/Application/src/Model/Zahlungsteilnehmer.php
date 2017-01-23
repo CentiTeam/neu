@@ -134,7 +134,7 @@ class Zahlungsteilnehmer {
  								&&($zweiterzahlungsteilnehmer ->getRestbetrag()) >0){
  								// 
  									
- 									$schuldstand = $zahlungsteilnehmer2 -> zahlungbegleichen($schuldstand);
+ 									$schuldstand = $ersterzahlungsteilnehmer -> zahlungbegleichen($schuldstand);
  									}
  						}
  					}
