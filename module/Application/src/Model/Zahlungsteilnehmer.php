@@ -293,7 +293,7 @@ class Zahlungsteilnehmer {
 	
 	public function einenzahlungsteilnehmerholen($z_id, $u_id){
 		// Liste initialisieren
-		$zteilnehmer;
+		$zteilnehmer = 'null';
 	
 		$db = new DB_connection();
 	
