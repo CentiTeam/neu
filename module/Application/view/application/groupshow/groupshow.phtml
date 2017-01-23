@@ -111,6 +111,13 @@
 			<input type="hidden" name="u_id" value="<?=$gruppenmitglied->getUser()->getU_id()?>">
 			<td><input class="button" type="submit" name="gruppenadmin" value="Gruppenadminrechte &auml;ndern"></td>
 			</form>
+			
+			<form action="userausgruppeentfernen" method="post"> 
+			<input type="hidden" name="g_id" value="<?=$gruppenmitglied->getGruppe()->getG_id()?>">
+			<input type="hidden" name="u_id" value="<?=$gruppenmitglied->getUser()->getU_id()?>">
+			<td><input class="button" type="submit" name="entfernen" value="Aus Gruppe entfernen"></td>
+			</form>
+			
 			<?php }
 			if ($gruppenmitglied->getUser()->getDeaktiviert()=="1") {?>
 			<td>User ist deaktiviert!</td>
