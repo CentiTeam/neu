@@ -156,7 +156,7 @@ class Gruppenereignis{
 	
 	public static function zahlungbearbeitenEreignis($zahlung, $gruppe){
 	
-		$ereignisbeschreibung = "Die Zahlung ".$zahlung->getZahlungsbeschreibung()." mit der ID ".$zahlung->getZ_id()." in Hoehe von ".$zahlung->getBetrag()." wurde von ihrem Ersteller bearbeitet.";
+		$ereignisbeschreibung = "Die Zahlung ".$zahlung->getZahlungsbeschreibung()." mit der ID ".$zahlung->getZ_id()." wurde von ihrem Ersteller bearbeitet.";
 		// Datenbankstatement erzeugen
 		$dbStmt = new DB_connection();
 	
