@@ -95,8 +95,6 @@ class Zahlungsteilnehmer {
  			$gemeinsamezahlungen = $einzahlungsteilnehmer->gibgemeinsamezahlungen(
  					$einzahlungsteilnehmer->getUser() ->getU_id(), $andererzahlungsteilnehmer->getUser() ->getU_id() );
  			
- 			echo"gemeinsame Zahlungen:";
- 			var_dump($gemeinsamezahlungen);
  			foreach($gemeinsamezahlungen as $zaehler => $zahlungsteilnehmer){
  				
  				//Rechne Schuldstand. 
@@ -119,6 +117,8 @@ class Zahlungsteilnehmer {
  					$schuldstand -= $ersterzahlungsteilnehmer ->getRestbetrag();
  				}
  			}
+ 			echo "Erster Schuldstand:";
+ 			var_dump($schuldstand);
  				//wenn ich ihm etwas schulde
 				if($schuldstand<0){
  			//		while($schuldstand<0){
