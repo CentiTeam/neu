@@ -107,6 +107,7 @@ class GroupshowController extends AbstractActionController
 		
 		// Nachrichtenliste laden je Gruppe
 		$aktnachrichtliste=Nachricht::blaettern($user_id, $g_id);
+		$nachricht->blaettern($user_id, $g_id);
 
 		// Aktion nach dem Absenden der Nachricht
 		if ($_REQUEST['abschicken']) {
@@ -137,6 +138,7 @@ class GroupshowController extends AbstractActionController
 			}
 			
 			$nachricht->sendMessage();
+			$nachricht->blaettern($user_id, $g_id);
 			
 			// Nachrichtenliste laden je Gruppe (inkl. neuer Nachricht)
 			$aktnachrichtliste=Nachricht::blaettern($user_id, $g_id);
