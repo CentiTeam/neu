@@ -122,6 +122,7 @@ class Zahlungsteilnehmer {
  				//wenn ich ihm etwas schulde
 				if($schuldstand<0){
  			//		while($schuldstand<0){
+ 			$schuldstand = $schuldstand * (-1);
  						foreach($gemeinsamezahlungen as $zaehler => $zahlungsteilnehmer){
  							if($schuldstand<0){
  							//$einzahlungsteilnehmer schuldet $andererzahlungsteilnehmer etwas
