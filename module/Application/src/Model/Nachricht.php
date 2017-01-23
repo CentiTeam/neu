@@ -230,8 +230,8 @@ class Nachricht {
 		
 		// Ermittlung, wie viele Nachrichteneinträge es in der DB gibt
 		
-		$result_total = mysql_query('SELECT COUNT(*) as `total` FROM `Nachricht`');
-		$row_total = mysql_fetch_assoc($result_total);
+		$result_total = mysqli_query('SELECT COUNT(*) as `total` FROM `Nachricht`');
+		$row_total = mysqli_fetch_assoc($result_total);
 		$gesamte_anzahl = $row_total['total'];
 		
 		// Ermittlung, wie viele Einträge pro Seite und Festlegung wie viele Seiten es geben muss
@@ -256,8 +256,8 @@ class Nachricht {
 		
 		// Holen der Daten aus der DB
 		
-		$result = mysql_query('SELECT * FROM `nachricht` LIMIT '.$limit.', '.$ergebnisse_pro_seite);
-		while ($row = mysql_fetch_assoc($result)) {
+		$result = mysqli_query('SELECT * FROM `nachricht` LIMIT '.$limit.', '.$ergebnisse_pro_seite);
+		while ($row = mysqli_fetch_assoc($result)) {
 			
 			
 			// neues Model erzeugen
