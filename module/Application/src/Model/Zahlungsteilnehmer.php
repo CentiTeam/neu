@@ -176,7 +176,7 @@ class Zahlungsteilnehmer {
 		$gemeinsamezahlungen = array();
 		foreach($liste1 as $zaehler1 => $zahlungsteilnehmer1){
 	//		foreach($liste2 as $zaehler2 => $zahlungsteilnehmer2){
-			$zahlungsteilnehmer2 = einenzahlungsteilnehmerholen($zahlungsteilnehmer1 ->getZahlung() ->getZ_id(), $user_id2);
+			$zahlungsteilnehmer2 = $this -> einenzahlungsteilnehmerholen($zahlungsteilnehmer1 ->getZahlung() ->getZ_id(), $user_id2);
 				if($zahlungsteilnehmer1 ->getZahlung() ->getZ_id() == $zahlungsteilnehmer2 ->getZahlung() ->getZ_id()
 						&& $zahlungsteilnehmer1 ->getStatus() == 'ersteller' 
 						&& $zahlungsteilnehmer2.getRestbetrag() > 0){
