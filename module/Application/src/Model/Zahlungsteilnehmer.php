@@ -148,7 +148,7 @@ class Zahlungsteilnehmer {
  		if($schuldstand>0){
  			//		while($schuldstand<0){
  			foreach($gemeinsamezahlungen as $zaehler => $zahlungsteilnehmer){
- 				if($schuldstand>0){
+ 				if($schuldstand<0){
  					//$einzahlungsteilnehmer schuldet $andererzahlungsteilnehmer etwas
  					//falls es nun Zahlungen gibt, in denen $einzahlungsteilnehmer Ersteller ist
  					// und $andererzahlungsteilnehmer einen offenen Restbetrag hat sollten diese Zahlungen
