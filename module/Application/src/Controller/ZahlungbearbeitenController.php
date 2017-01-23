@@ -10,6 +10,7 @@ use Application\Model\Gruppenmitglied;
 use Application\Model\Kategorie;
 use Application\Model\Zahlung;
 use Application\Model\Zahlungsteilnehmer;
+use Application\Model\Gruppenereignis;
 
 
 class ZahlungbearbeitenController extends AbstractActionController {
@@ -228,7 +229,10 @@ class ZahlungbearbeitenController extends AbstractActionController {
 									$zahlungsteilnehmer->anlegen();
 										
 									$counter++;
-								} 
+								}
+								
+								//Schreiben des Ereignisses das die Zahlung bearbeitet wurde in die Ereignistabelle der Datenbank
+								Gruppenereignis::zahlungbearbeitenEreignis($zahlung, $gruppe);
 									
 								$view = new ViewModel([
 										'gruppe' => array($gruppe),
