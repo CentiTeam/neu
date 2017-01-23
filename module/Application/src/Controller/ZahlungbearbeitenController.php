@@ -105,7 +105,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 					foreach ($_POST['zahlungsteilnehmer'] as $teilnehmer) {
 					
 					
-						if ((isset($teilnehmer)) AND $anteile[$counter]=="")
+						if (($teilnehmer) AND $anteile[$counter]=="")
 						{
 							echo "Jeder ausgew&aumlhlte Teilnehmer muss einen Anteil zugewiesen bekommen";
 						
