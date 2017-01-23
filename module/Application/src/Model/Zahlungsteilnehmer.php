@@ -55,14 +55,24 @@ class Zahlungsteilnehmer {
 		
 		if($betrag >= $this->getRestbetrag()){
 			$temp = $this->getRestbetrag();
-			$this->setRestbetrag(0);
-			return ($betrag - $temp);
+			$restbetrag=0;
+			$uebrig=($betrag - $temp);
 		}else{
-			$this->setRestbetrag($this->getRestbetrag()-$betrag);
-			return 0;
+			$restbetrag=($this->getRestbetrag()-$betrag);
+			$uebrig=0;
 		}
-		
+	$db = new DB_connection();	
+	
+	$query =	"UPDATE SET zahlungsteilnehmer restbetrag = '".$restbetrag."'
+				WHERE z_id='".$this->getZahlung()->getZ_id()."' 
+				AND u_id='".$this-getUser()->getU_id()."';";
+	
+	$result = $db->execute($query);
+	
+	return $uebrig;
+	
 	}
+	
 	public function alleausgleichen($z_id){
 		$teilnehmerListe = $this->zahlungsteilnehmerholen($this->getZahlung()->getZ_id());
 		foreach($teilnehmerListe as $zaehler => $zahlungsteilnehmer){
