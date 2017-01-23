@@ -221,7 +221,7 @@ class ZahlunganlegenController extends AbstractActionController {
 					
 							$counter++;
 						 }
-						 $temp ->alleausgleichen();
+						 $temp ->ausgleichen();
 						 
 						//Erstellen des Ereignisses für Gruppenverlauf und Speicher in DB
 						$zahlungsersteller = $_SESSION['user']; 						 
