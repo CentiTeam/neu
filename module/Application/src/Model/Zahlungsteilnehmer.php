@@ -200,19 +200,18 @@ class Zahlungsteilnehmer {
 		foreach($liste1 as $zaehler1 => $zahlungsteilnehmer1){
 	//		foreach($liste2 as $zaehler2 => $zahlungsteilnehmer2){
 			$zahlungsteilnehmer2 = $this -> einenzahlungsteilnehmerholen($zahlungsteilnehmer1 ->getZahlung() ->getZ_id(), $user_id2);
-				if($zahlungsteilnehmer2 != 'null'
-						&& $zahlungsteilnehmer1 -> getZahlung() ->getZ_id() == $zahlungsteilnehmer2 ->getZahlung() ->getZ_id()
+			if($zahlungsteilnehmer2 != 'null'){
+				if($zahlungsteilnehmer1 -> getZahlung() ->getZ_id() == $zahlungsteilnehmer2 ->getZahlung() ->getZ_id()
 						&& $zahlungsteilnehmer1 ->getStatus() == 'ersteller' 
 						&& $zahlungsteilnehmer2 -> getRestbetrag() > 0){
 					$gemeinsamezahlungen[] = $zahlungsteilnehmer1;
 				}
-				if($zahlungsteilnehmer2 != 'null'
-						&& $zahlungsteilnehmer1 ->getZahlung() ->getZ_id() == $zahlungsteilnehmer2 ->getZahlung() ->getZ_id()
+				if($zahlungsteilnehmer1 ->getZahlung() ->getZ_id() == $zahlungsteilnehmer2 ->getZahlung() ->getZ_id()
 						&& $zahlungsteilnehmer2 ->getStatus() == 'ersteller'
 						&& $zahlungsteilnehmer1 -> getRestbetrag() > 0){
 							$gemeinsamezahlungen[] = $zahlungsteilnehmer1;
 				}
-			
+			}
 				
 		}
 		return $gemeinsamezahlungen;
