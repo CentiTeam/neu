@@ -68,6 +68,7 @@ class Zahlungsteilnehmer {
 		foreach($teilnehmerListe as $zaehler => $zahlungsteilnehmer){
 			$zahlungsteilnehmer -> ausgleichen($zahlungsteilnehmer);
 		}
+		//eigentlich muss nur jeder einzelne User mit dem Ersteller verglichen werden
 		//die Funktion ausgleichen() wird für jeden User, der mit der erstellten(oder bearbeiteten)
 		//Zahlung etwas zu tuen hat von dieser Funktion aus aufgerufen
 	}
@@ -171,15 +172,22 @@ class Zahlungsteilnehmer {
 	
 	public function gibgemeinsamezahlungen($user_id1, $user_id2){
 		$liste1 = $this -> teilnehmerzahlungenholen($user_id1);
-		$liste2 = $this -> teilnehmerzahlungenholen($user_id2);
+		//$liste2 = $this -> teilnehmerzahlungenholen($user_id2);
 		$gemeinsamezahlungen = array();
 		foreach($liste1 as $zaehler1 => $zahlungsteilnehmer1){
-			foreach($liste2 as $zaehler2 => $zahlungsteilnehmer2){
+	//		foreach($liste2 as $zaehler2 => $zahlungsteilnehmer2){
+			$zahlungsteilnehmer2 = einenzahlungsteilnehmerholen($zahlungsteilnehmer1 ->getZahlung() ->getZ_id(), $user_id2);
 				if($zahlungsteilnehmer1 ->getZahlung() ->getZ_id() == $zahlungsteilnehmer2 ->getZahlung() ->getZ_id()
-						&& $zahlungsteilnehmer1 ->getStatus() != 'beglichen'){
+						&& $zahlungsteilnehmer1 ->getStatus() == 'ersteller' 
+						&& $zahlungsteilnehmer2.getRestbetrag() > 0){
 					$gemeinsamezahlungen[] = $zahlungsteilnehmer1;
 				}
-			}
+				if($zahlungsteilnehmer1 ->getZahlung() ->getZ_id() == $zahlungsteilnehmer2 ->getZahlung() ->getZ_id()
+						&& $zahlungsteilnehmer2 ->getStatus() == 'ersteller'
+						&& $zahlungsteilnehmer1.getRestbetrag() > 0){
+							$gemeinsamezahlungen[] = $zahlungsteilnehmer1;
+				}
+			
 				
 		}
 		return $gemeinsamezahlungen;
