@@ -96,7 +96,7 @@ class GroupdeleteController extends AbstractActionController
 				
 				$msg .= "Gruppe erfolgreich gel&ouml;scht!<br>";
 				
-				//Schreiben des Ereignisses das die Gruppe gelöscht wurde in die Ereignistabelle der Datenbank
+				//Schreiben des Ereignisses das die Gruppe gelï¿½scht wurde in die Ereignistabelle der Datenbank
 				Gruppenereignis::gruppeloeschenEreignis($gruppe);
 				
 			} else {
