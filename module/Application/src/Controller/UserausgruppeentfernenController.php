@@ -87,8 +87,9 @@ class UserausgruppeentfernenController extends AbstractActionController
 			if ($gruppenmitglied->loeschen ($g_id, $user_id)) {
 
 
-				// ausgeben, dass die Gruppe gel�scht wurde (kein Template n�tig!)
-				// array_push($msg, "Gruppe erfolgreich gel�scht!");
+				$vorname=$gruppenmitglied->getVorname();
+				$nachname=$gruppenmitglied->getNachname();
+				$gruppenname=$gruppenmitglied->getGruppe()->getGruppenname();
 
 				$msg .= "$vorname $nachname wurde erfolgreich aus der Gruppe $gruppenname entfernt!<br>";
 				
