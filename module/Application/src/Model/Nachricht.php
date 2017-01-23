@@ -218,7 +218,7 @@ class Nachricht {
 	}
 	
 	
-	// Blätterfunktion
+	// Blätterfunktion, funktioniert aber leider nicht
 	 
 	public function blaettern($user_id, $g_id) {
 		
