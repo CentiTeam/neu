@@ -49,7 +49,7 @@ class UserausgruppeentfernenController extends AbstractActionController
 		$g_id=$_REQUEST['g_id'];
 		$user_id=$_REQUEST['u_id'];
 
-		$gruppenmitglied->laden ($user_id);
+		$gruppenmitglied->laden ($g_id, $user_id);
 
 		
 		$errStr="";
