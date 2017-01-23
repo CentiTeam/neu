@@ -76,7 +76,7 @@ use Application\Model\Zahlungsteilnehmer;?>
 			<td class="datentabelle"><?=$zahlungsteilnehmer->getZahlung()->getBetrag()?></td>
 			<td class="datentabelle"><?=$zahlungsteilnehmer->getZahlung()->getKategorie()->getKategoriebeschreibung()?></td> 
 			<td class="datentabelle"><?=$zahlungsteilnehmer->getStatus()?></td>
-			<td class="datentabelle"><?=$zahlungsteilnehmer->getZahlung()->getGruppe()->getGruppenbeschreibung()?></td>
+			<td class="datentabelle"><?=$zahlungsteilnehmer->getZahlung()->getGruppe()->getGruppenname()?></td>
 			<td class="datentabelle"><a href='zahlunganzeigen?z_id=<?=$zahlungsteilnehmer->getZahlung()->getZ_id()?>'><img src="img/show.jpg" /></a>
 		</tr>
 
