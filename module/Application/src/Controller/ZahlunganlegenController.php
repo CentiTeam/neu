@@ -199,6 +199,7 @@ class ZahlunganlegenController extends AbstractActionController {
 						 		//Zahlungen, da Zahlungen nur bearbeitet werden dürfen, wenn sie nicht den Status "beglichen" Aufweisen.
 							 		$status="ersteller"; 
 							 		$restbetrag="0";
+							 		$temp = $zahlungsteilnehmer;
 						 	} else {
 						 		//Der Status für alle anderen Zahlungsteilnehmer ist offen.
 							 		$status="offen";
@@ -216,7 +217,7 @@ class ZahlunganlegenController extends AbstractActionController {
 							$zahlungsteilnehmer->setRestbetrag($restbetrag);
 					 		
 							$zahlungsteilnehmer->anlegen();
-							$temp = $zahlungsteilnehmer;
+							
 					
 							$counter++;
 						 }
