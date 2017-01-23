@@ -270,10 +270,7 @@ class Nachricht {
 			$aktuelleListe[] = $model;
 			
 		}
-		
-		// fertige Liste von Nachrichten-Objekten zur�ckgeben
-		
-		return $aktuelleListe;
+			
 		
 		// Ausgabe der Seitenzahlen
 		for ($i=1; $i<=$gesamt_seiten; ++$i) {
@@ -283,6 +280,10 @@ class Nachricht {
 				echo '<a href="http://132.231.36.206/groupshow?seite_nr='.$i.'">'.$i.'</a>';
 			}
 		}
+		
+		// fertige Liste von Nachrichten-Objekten zur�ckgeben
+		
+		return $aktuelleListe;
 	}
 	
 
