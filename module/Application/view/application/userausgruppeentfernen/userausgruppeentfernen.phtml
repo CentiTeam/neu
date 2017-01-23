@@ -9,7 +9,7 @@
 <form method='post'>
 
 <input type='hidden' name='g_id' value='<?=$gruppenmitglied->getGruppe()->getG_id()?>'>
-<input type='hidden' name='u_id' value='<?=$gruppenmitglied->getU_id()?>'>
+<input type='hidden' name='u_id' value='<?=$gruppenmitglied->getUser()->getU_id()?>'>
 
 Willst Du <?=$gruppenmitglied->getVorname()?> <?=$gruppenmitglied->getNachname()?> wirklich aus der Gruppe '<?=$gruppenmitglied->getGruppe()->getGruppenname()?>' entfernen?
 		
