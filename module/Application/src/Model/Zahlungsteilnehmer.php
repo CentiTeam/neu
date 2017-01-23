@@ -141,6 +141,7 @@ class Zahlungsteilnehmer {
  									}
  						}
  					}
+ 					$schuldstand = $schuldstand * (-1);
  		}
  		
  		if($schuldstand>0){
