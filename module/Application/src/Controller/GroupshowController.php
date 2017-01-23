@@ -99,7 +99,7 @@ class GroupshowController extends AbstractActionController
 		}
 		
 		
-		// Messageboard
+		// Messageboard inkl. Blätterfunktion
 		$nachricht = new Nachricht();
 		$user_id=$_SESSION['user']->getU_id();
 		$g_id=$_REQUEST ['g_id'];
@@ -107,7 +107,8 @@ class GroupshowController extends AbstractActionController
 		
 		// Nachrichtenliste laden je Gruppe
 		$aktnachrichtliste=Nachricht::messageboard($user_id, $g_id);
-		
+
+		// Aktion nach dem Absenden der Nachricht
 		if ($_REQUEST['abschicken']) {
 			
 				$nachricht = new Nachricht();
@@ -127,7 +128,7 @@ class GroupshowController extends AbstractActionController
 				
 			if (!$error) {
 		
-				// Nachrichten-Objekt mit Daten aus Request-Array fï¿½llen
+			// Nachrichten-Objekt mit Daten aus Request-Array fï¿½llen
 				
 				$nachricht->setDatum($datum);
 				$nachricht->setText ($text);
@@ -137,7 +138,7 @@ class GroupshowController extends AbstractActionController
 			
 			$nachricht->sendMessage();
 			
-			// Nachrichtenliste laden je Gruppe (jetzt inkl. neuer Nachricht
+			// Nachrichtenliste laden je Gruppe (inkl. neuer Nachricht)
 			$aktnachrichtliste=Nachricht::messageboard($user_id, $g_id);
 		}
 		
