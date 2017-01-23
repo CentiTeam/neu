@@ -218,6 +218,56 @@ class Nachricht {
 	}
 	
 	
+	// Blätterfunktion
+	 
+	public function blaettern() {
+		
+		$db = new DB_connection();
+		
+		// Ermittlung, wie viele Nachrichteneinträge es in der DB gibt
+		
+		$result_total = mysql_query('SELECT COUNT(*) as `total` FROM `Nachricht`');
+		$row_total = mysql_fetch_assoc($result_total);
+		$gesamte_anzahl = $row_total['total'];
+		
+		// Ermittlung, wie viele Einträge pro Seite und Festlegung wie viele Seiten es geben muss
+		
+		$ergebnisse_pro_seite = 10;
+		$gesamt_seiten = ceil($gesamte_anzahl/$ergebnisse_pro_seite);
+		
+		// Was ist die aktuelle Seite? wird durch die URL übergeben
+		
+		if (empty($_GET['seite_nr'])) {
+			$seite = 1;
+		} else {
+			$seite = $_GET['seite_nr'];
+			if ($seite > $gesamt_seiten) {
+				$seite = 1;
+			}
+		}
+	
+		// Errechnung, wo in der DB angefangen wird die Daten zu holen
+		
+		$limit = ($seite*$ergebnisse_pro_seite)-$ergebnisse_pro_seite;
+		
+		// Holen der Daten aus der DB
+		
+		$result = mysql_query('SELECT * FROM `nachricht` LIMIT '.$limit.', '.$ergebnisse_pro_seite);
+		while ($row = mysql_fetch_assoc($result)) {
+			
+		}
+		
+		// Ausgabe der Seitenzahlen
+		for ($i=1; $i<=$gesamt_seiten; ++$i) {
+			if ($seite == $i) {
+				echo '<a href="http://132.231.36.206/groupshow?seite_nr='.$i.'" style="font-weight: bold;">'.$i.'</a>';
+			} else {
+				echo '<a href="http://132.231.36.206/groupshow?seite_nr='.$i.'">'.$i.'</a>';
+			}
+		}
+	}
+	
+
 	// Getter und Setter
 	
 	public function getN_id () {
