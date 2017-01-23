@@ -101,13 +101,13 @@ class ZahlungbearbeitenController extends AbstractActionController {
 					/** TODO Problem: Im Array Zahlungsteilnehmer stehen nur die Werte, die ein Häkchen bekommen
 					 				  Im Array Anteile werden jedoch alle Anteile eingespeichert, gleich ob da ein Häkchen war oder nicht
 					 				  Das führt dazu, dass in dem Fall, dass ein Teilnehmer ausgelassen wird, der falsche Anteil ausgelesen wird
-				 				  
+				 	*/			  
 					//Feststellen, ob für das gesetzte Häkchen auch ein Anteil angegeben wurde
 					$counter=0;
 					foreach ($_POST['zahlungsteilnehmer'] as $key => $value) {
 					
 					
-						if ($anteile[$counter]=="")
+						if (isset($_POST['zahlungsteilnehmer']) AND $anteile[$counter]=="")
 						{
 							echo "Jeder ausgew&aumlhlte Teilnehmer muss einen Anteil zugewiesen bekommen";
 						
@@ -125,7 +125,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						}
 						$counter++;
 					}
-					*/
+					
 
 					if($summe != $_REQUEST["betrag"]){
 						echo ("Die Anteile mï¿½ssen zusammen der Gesamtsumme entsprechen.");
