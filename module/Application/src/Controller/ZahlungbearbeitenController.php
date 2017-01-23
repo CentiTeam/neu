@@ -98,14 +98,14 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						$summe += $anteil;
 					}
 				
-					/** TODO Problem*/
+					/** TODO Problem */
 				 			  
 					//Feststellen, ob für das gesetzte Häkchen auch ein Anteil angegeben wurde
 					$counter=0;
-					foreach ($_POST['zahlungsteilnehmer']) {
+					foreach ($_POST['zahlungsteilnehmer'] as $teilnehmer) {
 					
 					
-						if (isset($_POST['zahlungsteilnehmer']) AND $anteile[$counter]=="")
+						if ((isset($teilnehmer)) AND $anteile[$counter]=="")
 						{
 							echo "Jeder ausgew&aumlhlte Teilnehmer muss einen Anteil zugewiesen bekommen";
 						
