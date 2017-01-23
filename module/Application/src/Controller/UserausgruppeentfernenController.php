@@ -84,7 +84,7 @@ class UserausgruppeentfernenController extends AbstractActionController
 			$msg = "";
 			
 			// wenn der Ladevorgang erfolgreich war, wird versucht die Gruppe zu l�schen
-			if ($gruppenmitglied->entfernen ($g_id, $user_id)) {
+			if ($gruppenmitglied->loeschen ($g_id, $user_id)) {
 
 
 				// ausgeben, dass die Gruppe gel�scht wurde (kein Template n�tig!)

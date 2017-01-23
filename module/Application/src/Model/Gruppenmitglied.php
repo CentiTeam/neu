@@ -48,7 +48,7 @@ class Gruppenmitglied {
 		return $result;
 	}
 	
-	public function verlassen ($gruppe_id, $user_id) {
+	public function loeschen ($gruppe_id, $user_id) {
 		
 		// Datenbankstatement erzeugen
 		$db = new DB_connection();

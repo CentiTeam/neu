@@ -91,7 +91,7 @@ class GruppeverlassenController extends AbstractActionController
 			$msg = "";
 				
 			// wenn der Ladevorgang erfolgreich war, wird versucht die Gruppe zu l�schen
-			if ($gruppenmitglied->verlassen ($g_id, $user->getU_id())) {
+			if ($gruppenmitglied->loeschen ($g_id, $user->getU_id())) {
 
 				$msg .= "Gruppenmitgliedschaft erfolgreich gel&ouml;scht!<br>";
 				
