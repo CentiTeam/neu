@@ -275,9 +275,9 @@ class Nachricht {
 		// Ausgabe der Seitenzahlen
 		for ($i=1; $i<=$gesamt_seiten; ++$i) {
 			if ($seite == $i) {
-				echo '<a href="http://132.231.36.206/groupshow?seite_nr='.$i.'" style="font-weight: bold;">'.$i.'</a>';
+				echo '<a href="http://132.231.36.206/groupshow?g_id=174?seite_nr='.$i.'" style="font-weight: bold;">'.$i.'</a>';
 			} else {
-				echo '<a href="http://132.231.36.206/groupshow?seite_nr='.$i.'">'.$i.'</a>';
+				echo '<a href="http://132.231.36.206/groupshow?g_id=174?seite_nr='.$i.'">'.$i.'</a>';
 			}
 		}
 		
