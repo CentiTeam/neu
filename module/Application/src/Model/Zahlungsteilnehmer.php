@@ -74,8 +74,8 @@ class Zahlungsteilnehmer {
 	}
 	
 	
-	public function ausgleichen($einzahlungsteilnehmer) {
-			
+	public function ausgleichen() {
+		$einzahlungsteilnehmer = $this;
 		// teilnehmerliste ^= alle Teilnehmer der neuen/bearbeiteten/beglichenen Zahlung
 		
 		$teilnehmerListe= $einzahlungsteilnehmer->removefromteilnehmerListe($this->zahlungsteilnehmerholen($this->getZahlung()->getZ_id()));
