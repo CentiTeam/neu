@@ -311,6 +311,17 @@ return [
        				],
        		],
         		
+        		'userausgruppeentfernen' => [
+        				'type'    => Segment::class,
+        				'options' => [
+        						'route'    => '/userausgruppeentfernen[/:action]',
+        						'defaults' => [
+        								'controller' => Controller\UserausgruppeentfernenController::class,
+        								'action'     => 'userausgruppeentfernen',
+        						],
+        				],
+        		],
+        		
         		
         		'einladungannehmen' => [
         				'type'    => Segment::class,
@@ -498,6 +509,7 @@ return [
         	Controller\KategorieanlegenController::class => InvokableFactory::class,
         	Controller\KategorieeditController::class => InvokableFactory::class,
         	Controller\UsersuchenController::class => InvokableFactory::class,
+        	Controller\UserausgruppeentfernenController::class => InvokableFactory::class,
         	Controller\PasswortvergessenController::class => InvokableFactory::class,
         	Controller\EmailpasswortController::class => InvokableFactory::class,
 			Controller\ZahlunganlegenController::class => InvokableFactory::class,
