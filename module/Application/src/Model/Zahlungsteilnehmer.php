@@ -179,12 +179,12 @@ class Zahlungsteilnehmer {
 			$zahlungsteilnehmer2 = $this -> einenzahlungsteilnehmerholen($zahlungsteilnehmer1 ->getZahlung() ->getZ_id(), $user_id2);
 				if($zahlungsteilnehmer1 ->getZahlung() ->getZ_id() == $zahlungsteilnehmer2 ->getZahlung() ->getZ_id()
 						&& $zahlungsteilnehmer1 ->getStatus() == 'ersteller' 
-						&& $zahlungsteilnehmer2.getRestbetrag() > 0){
+						&& $zahlungsteilnehmer2 -> getRestbetrag() > 0){
 					$gemeinsamezahlungen[] = $zahlungsteilnehmer1;
 				}
 				if($zahlungsteilnehmer1 ->getZahlung() ->getZ_id() == $zahlungsteilnehmer2 ->getZahlung() ->getZ_id()
 						&& $zahlungsteilnehmer2 ->getStatus() == 'ersteller'
-						&& $zahlungsteilnehmer1.getRestbetrag() > 0){
+						&& $zahlungsteilnehmer1 -> getRestbetrag() > 0){
 							$gemeinsamezahlungen[] = $zahlungsteilnehmer1;
 				}
 			
