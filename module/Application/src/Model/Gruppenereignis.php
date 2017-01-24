@@ -100,7 +100,7 @@ class Gruppenereignis{
 	// Ein User wurde von einem Admin aus der Gruppe entfernt
 	public function userausgruppeentfernenEreignis($gruppenmitglied){
 	
-		$ereignisbeschreibung = "Der Benutzer ".$gruppenmitglied->getUser()->getUsername()." wurde aus der Gruppe vom Admin entfernt";
+		$ereignisbeschreibung = "Der Benutzer ".$gruppenmitglied->getUser()->getUsername()." wurde aus der Gruppe ".$gruppenmitglied->getGruppe()->getGruppenname()." vom Admin entfernt";
 		// Datenbankstatement erzeugen
 		$dbStmt = new DB_connection();
 	
