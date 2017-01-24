@@ -91,7 +91,7 @@ class UserausgruppeentfernenController extends AbstractActionController
 				$nachname=$gruppenmitglied->getUser()->getNachname();
 				$gruppenname=$gruppenmitglied->getGruppe()->getGruppenname();
 
-				$msg .= "$vorname $nachname wurde erfolgreich aus der Gruppe $gruppenname entfernt!<br>";
+				$msg .= "$vorname $nachname wurde erfolgreich aus der Gruppe '$gruppenname' entfernt!<br>";
 				
 				
 				//Schreiben des Ereignisses das die Gruppe gel�scht wurde in die Ereignistabelle der Datenbank
