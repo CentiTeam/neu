@@ -38,7 +38,7 @@ class FremdesprofilController extends AbstractActionController {
 					'user' => array($user)
 			]);
 						
-			$view->setTemplate('application/profil/profil.phtml');
+			$view->setTemplate('application/fremdesprofil/fremdesprofil.phtml');
 	
 			return $view;
 		}
