@@ -17,9 +17,9 @@ use Application\Model\Gruppe;
 use Application\Model\Gruppenmitglied;
 
 
-class UsersuchenController extends AbstractActionController
+class NeuesmitgliedeinladenController extends AbstractActionController
 {
-	public function usersuchenAction()
+	public function neuesmitgliedeinladenAction()
 	{
 		session_start();
 
