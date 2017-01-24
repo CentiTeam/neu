@@ -86,7 +86,7 @@ class Gruppenereignis{
 		return $isLoaded;
 	}
 	
-	public function gruppenmitgliedbeitretenEreignis($user, $gruppe){
+	public function gruppenmitgliedbeitretenEreignis($gruppe, $user){
 		
 		$ereignisbeschreibung = "Der Benutzer ".$user->getUsername()." ist der Gruppe beigetreten";
 		// Datenbankstatement erzeugen
@@ -224,7 +224,7 @@ class Gruppenereignis{
 	
 	public static function gruppeloeschenEreignis($gruppe){
 	
-		$ereignisbeschreibung = "Die Gruppe wurde gelöscht";
+		$ereignisbeschreibung = "Die Gruppe wurde gelï¿½scht";
 		// Datenbankstatement erzeugen
 		$dbStmt = new DB_connection();
 	
