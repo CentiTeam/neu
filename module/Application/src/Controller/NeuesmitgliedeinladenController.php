@@ -74,7 +74,7 @@ class NeuesmitgliedeinladenController extends AbstractActionController
 					// Mail verschicken
 					mail($empfaenger, $betreff, $text, $header);
 
-					$msg= "An die E-Mailadresse '$empfaengerMail' wurde erfolgreich eine Einladung zu Grouppay verschickt!";
+					$msg= "An die E-Mail-Adresse '$empfaengerMail' wurde erfolgreich eine Einladung zu Grouppay verschickt!";
 
 				}
 			
