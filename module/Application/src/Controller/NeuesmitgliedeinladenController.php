@@ -48,7 +48,7 @@ class NeuesmitgliedeinladenController extends AbstractActionController
 
 				// Variablen für Mail füllen: $empfaenger, $betreff, $text, $header
 				$empfaenger = "$empfaengerMail";
-				$betreff = "Einladung zum Zahlungsverwaltungstool Grouppay! :)";
+				$betreff = "Einladung zum Zahlungsverwaltungstool Grouppay!";
 
 
 				$link= "<a href=\"http://132.231.36.206\">Schau Dir Grouppay an!</a>";
