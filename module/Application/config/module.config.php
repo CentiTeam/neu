@@ -159,6 +159,17 @@ return [
         				],
         		],
         		
+        		'neuesmitgliedeinladen' => [
+        				'type'    => Segment::class,
+        				'options' => [
+        						'route'    => '/neuesmitgliedeinladen[/:action]',
+        						'defaults' => [
+        								'controller' => Controller\NeuesmitgliedeinladenController::class,
+        								'action'     => 'neuesmitgliedeinladen',
+        						],
+        				],
+        		],
+        		
         		'passwortvergessen' => [
         				'type'    => Segment::class,
         				'options' => [
@@ -509,6 +520,7 @@ return [
         	Controller\KategorieanlegenController::class => InvokableFactory::class,
         	Controller\KategorieeditController::class => InvokableFactory::class,
         	Controller\UsersuchenController::class => InvokableFactory::class,
+        	Controller\NeuesmitgliedeinladenController::class => InvokableFactory::class,
         	Controller\UserausgruppeentfernenController::class => InvokableFactory::class,
         	Controller\PasswortvergessenController::class => InvokableFactory::class,
         	Controller\EmailpasswortController::class => InvokableFactory::class,
