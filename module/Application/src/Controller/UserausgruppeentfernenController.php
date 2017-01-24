@@ -98,7 +98,7 @@ class UserausgruppeentfernenController extends AbstractActionController
 				//Gruppenereignis::gruppeloeschenEreignis($gruppe);
 				
 				// Muss geändert werden zu:
-				//Gruppenereignis::userausgruppeentfernenEreignis($gruppenmitglied)
+				Gruppenereignis::userausgruppeentfernenEreignis($gruppenmitglied);
 
 			} else {
 

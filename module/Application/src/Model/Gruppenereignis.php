@@ -97,14 +97,15 @@ class Gruppenereignis{
 		
 	}
 	
-	public function gruppenmitgliedentfernenEreignis($user, $gruppe){
+	// Ein User wurde von einem Admin aus der Gruppe entfernt
+	public function userausgruppeentfernenEreignis($gruppenmitglied){
 	
-		$ereignisbeschreibung = "Der Benutzer ".$user->getUsername()." wurde aus der Gruppe von Admin entfernt";
+		$ereignisbeschreibung = "Der Benutzer ".$gruppenmitglied->getUser()->getUsername()." wurde aus der Gruppe vom Admin entfernt";
 		// Datenbankstatement erzeugen
 		$dbStmt = new DB_connection();
 	
 		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
-		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe->getG_id()."', '".$ereignisbeschreibung."', NOW());");
+		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppenmitglied->getGruppe()->getG_id()."', '".$ereignisbeschreibung."', NOW());");
 	
 	}
 	
