@@ -41,7 +41,27 @@ class NeuesmitgliedeinladenController extends AbstractActionController
 
 				// Variablen füllen für E-mail-Text
 				$empfaengerMail=$_REQUEST['email'];
-
+				
+				
+				$userListe=User::listeHolen();
+				
+				foreach ($userListe as $liste) {
+					if ($liste->getEmail()==$empfaengerMail) {
+						
+						$empfaenger_id=$liste->getU_id();
+						$link= "<a href=\"http://132.231.36.206/fremdesprofil?u_id=$empfaenger_id\"></a>";
+						
+						$msg="Unter dieser E-Mail-Adresse ist bereits ein User registriert! <br>
+								Hier geht es zum Profil: $link ";
+						
+						
+						return new ViewModel([
+								'msg' => $msg
+						]);
+					}
+				}
+				
+				
 				$absenderVorname=$_SESSION['user']->getVorname();
 				$absenderNachname=$_SESSION['user']->getNachname();
 
