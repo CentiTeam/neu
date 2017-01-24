@@ -42,9 +42,8 @@
                     	<?php if ($_SESSION['angemeldet']=='ja'){?> 
 								<li class="active"><a href="<?= $this->url('overview') ?>">Overview</a></li>
 								<li class="active"><a href="<?= $this->url('statistiken') ?>">Statistiken</a></li>
-								<li class="active"><a href="<?= $this->url('neuesmitgliedeinladen') ?>">Neues Mitglied einladen</a></li>
-								
 								<li class="active"><a href="<?= $this->url('groupoverview') ?>">Meine Gruppen</a></li>
+								<li class="active"><a href="<?= $this->url('neuesmitgliedeinladen') ?>">Neues Mitglied einladen</a></li>
 								<?php if(ISSET($_REQUEST['g_id'])){?>	
 								<li class="active"><a href='zahlunganlegen?g_id=<?=$_REQUEST['g_id']?>'>Zahlung anlegen</a></li>
 								<?php } ?>
