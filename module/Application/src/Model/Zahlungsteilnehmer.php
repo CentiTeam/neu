@@ -56,14 +56,16 @@ class Zahlungsteilnehmer {
 		if($betrag >= $this->getRestbetrag()){
 			$temp = $this->getRestbetrag();
 			$restbetrag=0;
+			$status="beglichen";
 			$uebrig=($betrag - $temp);
 		}else{
 			$restbetrag=($this->getRestbetrag()-$betrag);
+			$status=$this->getStatus;
 			$uebrig=0;
 		}
 	$db = new DB_connection();	
 	
-	$query =	"UPDATE SET zahlungsteilnehmer restbetrag = '".$restbetrag."'
+	$query =	"UPDATE SET zahlungsteilnehmer restbetrag = '".$restbetrag."', status = '".$status."'
 				WHERE z_id='".$this->getZahlung()->getZ_id()."' 
 				AND u_id='".$this-getUser()->getU_id()."';";
 	
