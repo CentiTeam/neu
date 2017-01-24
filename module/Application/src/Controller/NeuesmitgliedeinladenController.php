@@ -34,7 +34,6 @@ class NeuesmitgliedeinladenController extends AbstractActionController
 			return $view;
 		
 		} else {
-			echo "Angekommen";
 			
 			if ($_REQUEST['einladen']) {
 
