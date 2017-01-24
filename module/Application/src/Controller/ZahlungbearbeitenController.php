@@ -98,7 +98,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						$summe += $anteil;
 					}
 				
-					/** TODO Problem */
+					/** TODO Problem 
 				 			  
 					//Feststellen, ob für das gesetzte Häkchen auch ein Anteil angegeben wurde
 					$counter=0;
@@ -123,7 +123,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						}
 						$counter++;
 					}
-						
+					*/	
 
 					if($summe != $_REQUEST["betrag"]){
 						echo ("Die Anteile mï¿½ssen zusammen der Gesamtsumme entsprechen.");
