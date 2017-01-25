@@ -38,8 +38,10 @@ class GroupoverviewController extends AbstractActionController
 		$aktgruppenmitglied=new Gruppenmitglied();
 		$isOK=$aktgruppenmitglied->laden($g_id, $user_id);
 		
-		if ($isOK==false) {
+		var_dump($aktgruppenmitglied);
 		
+		if ($isOK==false) {
+			
 			$msg="Nicht berechtigt!";
 		
 			$view = new ViewModel([
