@@ -16,7 +16,7 @@ class GroupoverviewController extends AbstractActionController
 	public function groupoverviewAction()
 	{
 		session_start();
-		
+
 		// Berechtigungsprüfung
 		if ($_SESSION['angemeldet']==NULL) {
 		
@@ -31,32 +31,8 @@ class GroupoverviewController extends AbstractActionController
 			return $view;
 		
 		}
-
-		$g_id=$_GET['g_id'];
+		
 		$user_id=$_SESSION['user']->getU_id();
-		
-		var_dump($g_id);
-		var_dump($user_id);
-		
-		$aktgruppenmitglied=new Gruppenmitglied();
-		$isOK=$aktgruppenmitglied->laden($g_id, $user_id);
-		
-		var_dump($aktgruppenmitglied);
-		
-		if ($isOK==false) {
-			
-			$msg="Nicht berechtigt!";
-		
-			$view = new ViewModel([
-					'msg' => $msg,
-			]);
-		
-			$view->setTemplate('application/index/index.phtml');
-		
-			return $view;
-		}
-		
-		
 		
 		$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
 		
