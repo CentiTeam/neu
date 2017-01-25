@@ -34,7 +34,9 @@ class GroupcsvController extends AbstractActionController
 				
 			return $view;
 		
-		} elseif ($isOK) {
+		}
+		// Dieser Teil stimmt nur eventuell
+		elseif ($isOK) {
 		
 			$msg="Nicht berechtigt!";
 		

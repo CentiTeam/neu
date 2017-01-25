@@ -15,33 +15,44 @@ class GroupeditController extends AbstractActionController {
 		// TODO Berechtigungspr�fung
 		session_start();
 		
-		// Pr�fen, ob Gruppeadmin
+		// Berechtigungsprüfung: Pr�fen, ob Angemeldet und danach ob Gruppeadmin
+		if ($_SESSION['angemeldet']==NULL) {
 		
-		$user_id=$_SESSION['user']->getU_id();
-		$gruppen_id=$_GET['g_id'];
-		
-		$gruppenmitglied=new Gruppenmitglied();
-		$gruppenmitglied->laden($gruppen_id, $user_id);
-		
-		// Berechtigungsprüfung: Pr�fen, ob Gruppeadmin
-		if ($gruppenmitglied->getGruppenadmin()=="0") {
-				
-			$errStr="Nicht berechtigt!";
-			$gruppenliste=Gruppe::eigenelisteholen($user_id);
-	
+			$msg="Nicht berechtigt!";
 		
 			$view = new ViewModel([
+					'msg' => $msg,
+			]);
+		
+			$view->setTemplate('application/index/index.phtml');
+		
+			return $view;
+		
+		}
+		
+		
+		// Pr�fen, ob Gruppeadmin
+		$user_id=$_SESSION['user']->getU_id();
+		$gruppen_id=$_REQUEST['g_id'];
+		
+		$gruppenmitglied=new Gruppenmitglied();
+		$isOK=$gruppenmitglied->laden($gruppen_id, $user_id);
+		
+		if ($isOK==false || $gruppenmitglied->getGruppenadmin()=="0") {
+				
+			$errStr="Nicht berechtigt!";
+			$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
+				
+			$view = new ViewModel([
 					'gruppenListe' => $gruppenliste,
-					'u_id' => $user_id,
-					'err' => $errStr
+					'err' => $errStr,
+					'u_id' => $user_id
 			]);
 		
 			$view->setTemplate('application/groupoverview/groupoverview.phtml');
 				
 			return $view;
 		}
-		
-		
 		
 		
 		$errors = array();
