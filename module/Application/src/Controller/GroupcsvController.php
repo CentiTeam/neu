@@ -15,11 +15,6 @@ class GroupcsvController extends AbstractActionController
 {
 	public function GroupcsvAction()
 	{
-		$g_id=$_REQUEST['g_id'];
-		$user_id=$_SESSION['user']->getU_id();
-		
-		$aktgruppenmitglied=new Gruppenmitglied();
-		$isOK=$aktgruppenmitglied->laden($g_id, $user_id);
 		
 		// Berechtigungsprüfung
 		if ($_SESSION['angemeldet']==NULL) {
@@ -35,8 +30,14 @@ class GroupcsvController extends AbstractActionController
 			return $view;
 		
 		}
-		// Dieser Teil stimmt nur eventuell
-		elseif ($isOK) {
+		// Überprüfen, ob Gruppenmitglied
+		$g_id=$_REQUEST['g_id'];
+		$user_id=$_SESSION['user']->getU_id();
+		
+		$aktgruppenmitglied=new Gruppenmitglied();
+		$isOK=$aktgruppenmitglied->laden($g_id, $user_id);
+		
+		if ($isOK) {
 		
 			$msg="Nicht berechtigt!";
 		

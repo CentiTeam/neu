@@ -19,6 +19,44 @@ class GroupshowController extends AbstractActionController
 		
 		session_start();
 		
+
+		// BerechtigungsprÃ¼fung
+		if ($_SESSION['angemeldet']==NULL) {
+		
+			$msg="Nicht berechtigt!";
+		
+			$view = new ViewModel([
+					'msg' => $msg,
+			]);
+		
+			$view->setTemplate('application/index/index.phtml');
+		
+			return $view;
+		
+		}
+		
+		$g_id=$_REQUEST['g_id'];
+		$user_id=$_SESSION['user']->getU_id();
+		
+		$aktgruppenmitglied=new Gruppenmitglied();
+		$isOK=$aktgruppenmitglied->laden($g_id, $user_id);
+		
+		if ($isOK) {
+		
+			$msg="Nicht berechtigt!";
+		
+			$view = new ViewModel([
+					'msg' => $msg,
+			]);
+		
+			$view->setTemplate('application/index/index.phtml');
+		
+			return $view;
+		}
+		
+		
+		
+		
 		$user_id=$_SESSION['user']->getU_id();
 		$user=$_SESSION['user'];
 		$errStr="";
@@ -56,7 +94,7 @@ class GroupshowController extends AbstractActionController
 			return $view;
 		}
 	
-		// Gruppenadminrechte ändern
+		// Gruppenadminrechte ï¿½ndern
 		$mitgliederliste=Gruppenmitglied::gruppenmitgliederlisteHolen($g_id);
 		
 		$aktgruppenmitglied=new Gruppenmitglied();
@@ -99,7 +137,7 @@ class GroupshowController extends AbstractActionController
 		}
 		
 		
-		// Messageboard inkl. Blätterfunktion
+		// Messageboard inkl. Blï¿½tterfunktion
 		$nachricht = new Nachricht();
 		$user_id=$_SESSION['user']->getU_id();
 		$g_id=$_REQUEST ['g_id'];
