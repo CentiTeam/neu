@@ -36,7 +36,7 @@ class GroupoverviewController extends AbstractActionController
 		$user_id=$_SESSION['user']->getU_id();
 		
 		$aktgruppenmitglied=new Gruppenmitglied();
-		$isOK=$aktgruppenmitglied->laden($g_id, $user_id);
+		$aktgruppenmitglied->laden($g_id, $user_id);
 		
 		var_dump($aktgruppenmitglied);
 		
