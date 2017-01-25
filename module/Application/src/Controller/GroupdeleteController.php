@@ -42,7 +42,7 @@ class GroupdeleteController extends AbstractActionController
 		
 		var_dump($gruppenmitglied);
 		
-		if ($isOK && $gruppenmitglied->getGruppenadmin()=="0") {
+		if ($isOK==false || $gruppenmitglied->getGruppenadmin()=="0") {
 			
 			$errStr="Nicht berechtigt!";
 			$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
