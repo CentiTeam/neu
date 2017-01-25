@@ -17,16 +17,6 @@ class GroupdeleteController extends AbstractActionController
 		
 		session_start();
 		
-		// Pr�fen, ob Gruppeadmin
-		
-		$user_id=$_SESSION['user']->getU_id();
-		$gruppen_id=$_REQUEST['g_id'];
-		
-		$gruppenmitglied=new Gruppenmitglied();
-		$gruppenmitglied->laden($gruppen_id, $user_id);
-		
-		
-		
 		// Berechtigungsprüfung: Pr�fen, ob Angemeldet und danach ob Gruppeadmin
 		if ($_SESSION['angemeldet']==NULL) {
 		
@@ -40,7 +30,17 @@ class GroupdeleteController extends AbstractActionController
 		
 			return $view;
 		
-		} elseif ($gruppenmitglied->getGruppenadmin()=="0") {
+		} 
+		
+
+		// Pr�fen, ob Gruppeadmin
+		$user_id=$_SESSION['user']->getU_id();
+		$gruppen_id=$_REQUEST['g_id'];
+		
+		$gruppenmitglied=new Gruppenmitglied();
+		$gruppenmitglied->laden($gruppen_id, $user_id);
+		
+		if ($gruppenmitglied->getGruppenadmin()=="0") {
 			
 			$errStr="Nicht berechtigt!";
 			$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
