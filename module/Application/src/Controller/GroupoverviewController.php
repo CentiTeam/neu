@@ -17,12 +17,6 @@ class GroupoverviewController extends AbstractActionController
 	{
 		session_start();
 		
-		$g_id=$_REQUEST['g_id'];
-		$user_id=$_SESSION['user']->getU_id();
-		
-		$aktgruppenmitglied=new Gruppenmitglied();
-		$isOK=$aktgruppenmitglied->laden($g_id, $user_id);
-		
 		// Berechtigungsprüfung
 		if ($_SESSION['angemeldet']==NULL) {
 		
@@ -37,8 +31,14 @@ class GroupoverviewController extends AbstractActionController
 			return $view;
 		
 		}
-		// Dieser Teil stimmt nur eventuell
-		elseif ($isOK) {
+
+		$g_id=$_REQUEST['g_id'];
+		$user_id=$_SESSION['user']->getU_id();
+		
+		$aktgruppenmitglied=new Gruppenmitglied();
+		$isOK=$aktgruppenmitglied->laden($g_id, $user_id);
+		
+		if ($isOK) {
 		
 			$msg="Nicht berechtigt!";
 		
