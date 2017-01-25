@@ -17,7 +17,41 @@ class GroupoverviewController extends AbstractActionController
 	{
 		session_start();
 		
+		$g_id=$_REQUEST['g_id'];
 		$user_id=$_SESSION['user']->getU_id();
+		
+		$aktgruppenmitglied=new Gruppenmitglied();
+		$isOK=$aktgruppenmitglied->laden($g_id, $user_id);
+		
+		// Berechtigungsprüfung
+		if ($_SESSION['angemeldet']==NULL) {
+		
+			$msg="Nicht berechtigt!";
+		
+			$view = new ViewModel([
+					'msg' => $msg,
+			]);
+		
+			$view->setTemplate('application/index/index.phtml');
+		
+			return $view;
+		
+		}
+		// Dieser Teil stimmt nur eventuell
+		elseif ($isOK) {
+		
+			$msg="Nicht berechtigt!";
+		
+			$view = new ViewModel([
+					'msg' => $msg,
+			]);
+		
+			$view->setTemplate('application/index/index.phtml');
+		
+			return $view;
+		}
+		
+		
 		
 		$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
 		
