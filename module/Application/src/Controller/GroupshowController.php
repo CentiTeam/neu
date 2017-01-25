@@ -44,12 +44,15 @@ class GroupshowController extends AbstractActionController
 		if ($isOK==false) {
 		
 			$msg="Nicht berechtigt!";
-		
+			
+			$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
+			
 			$view = new ViewModel([
+					'gruppenListe' => $gruppenliste,
 					'msg' => $msg,
 			]);
 		
-			$view->setTemplate('application/index/index.phtml');
+			$view->setTemplate('application/groupoverview/groupoverview.phtml');
 		
 			return $view;
 		}
