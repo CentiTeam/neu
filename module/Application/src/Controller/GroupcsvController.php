@@ -15,8 +15,37 @@ class GroupcsvController extends AbstractActionController
 {
 	public function GroupcsvAction()
 	{
+		$g_id=$_REQUEST['g_id'];
+		$user_id=$_SESSION['user']->getU_id();
 		
-
+		$aktgruppenmitglied=new Gruppenmitglied();
+		$isOK=$aktgruppenmitglied->laden($g_id, $user_id);
+		
+		// Berechtigungsprüfung
+		if ($_SESSION['angemeldet']==NULL) {
+				
+			$msg="Nicht berechtigt!";
+				
+			$view = new ViewModel([
+					'msg' => $msg,
+			]);
+				
+			$view->setTemplate('application/index/index.phtml');
+				
+			return $view;
+		
+		} elseif ($isOK) {
+		
+			$msg="Nicht berechtigt!";
+		
+			$view = new ViewModel([
+					'msg' => $msg,
+			]);
+		
+			$view->setTemplate('application/index/index.phtml');
+		
+			return $view;
+		}
 		 
 		// Gruppen-Objekt laden
 		$gruppe= new Gruppe();
