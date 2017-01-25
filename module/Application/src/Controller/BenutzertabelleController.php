@@ -14,7 +14,7 @@ class BenutzertabelleController extends AbstractActionController
 {
 	public function benutzertabelleAction()
 	{
-		if ($_SESSION['angemeldet']=="0") {
+		if ($_SESSION['angemeldet']==NULL) {
 				
 			$msg="Nicht berechtigt!";
 				

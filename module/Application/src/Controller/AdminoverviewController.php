@@ -15,7 +15,7 @@ class AdminoverviewController extends AbstractActionController
 	public function adminoverviewAction()
 	{
 		
-		if ($_SESSION['angemeldet']=="0") {
+		if ($_SESSION['angemeldet']==NULL) {
 			
 			$msg="Nicht berechtigt!";
 			

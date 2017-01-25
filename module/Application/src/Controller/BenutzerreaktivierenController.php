@@ -11,7 +11,7 @@ class BenutzerreaktivierenController extends AbstractActionController{
 
 	public function benutzerreaktivierenAction(){
 		
-		if ($_SESSION['angemeldet']=="0") {
+		if ($_SESSION['angemeldet']==NULL) {
 				
 			$msg="Nicht berechtigt!";
 				

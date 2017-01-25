@@ -14,7 +14,7 @@ class FremdesprofilController extends AbstractActionController {
 
 		$errors = array();
 
-		if($_SESSION['angemeldet'] != 'ja') {
+		if($_SESSION['angemeldet'] ==NULL) {
 		
 			$msg="Nicht berechtigt!";
 			
