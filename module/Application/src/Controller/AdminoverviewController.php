@@ -14,8 +14,20 @@ class AdminoverviewController extends AbstractActionController
 {
 	public function adminoverviewAction()
 	{
+		
+		if ($_SESSION['angemeldet']=="0") {
+			
+			$msg="Nicht berechtigt!";
+			
+			$view = new ViewModel([
+					'msg' => $msg,
+			]);
+			
+			$view->setTemplate('application/index/index.phtml');
+			
+			return $view;
 
-		if ($_SESSION['user']->getAdmin()=="0") {
+		} elseif ($_SESSION['user']->getAdmin()=="nein") {
 		
 			$msg="Nicht berechtigt!";
 		
@@ -27,6 +39,8 @@ class AdminoverviewController extends AbstractActionController
 		
 			return $view;
 		}
+		
+		
 		
 		return new ViewModel();
 
