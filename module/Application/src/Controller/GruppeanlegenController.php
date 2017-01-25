@@ -21,11 +21,11 @@ class GruppeanlegenController extends AbstractActionController {
 
 		if($_SESSION['angemeldet'] == NULL) {
 				
-			array_push($errors, "Sie müssen angemeldet sein um eine Gruppe zu erstellen!");
+			$msg= "Sie müssen angemeldet sein um eine Gruppe zu erstellen!";
 				
-			$view = new ViewModel(array(
-					$errors
-			));
+			$view = new ViewModel([
+					'msg' => $msg
+			]);
 			$view->setTemplate('application/index/index.phtml');
 			return $view;
 				
