@@ -15,6 +15,9 @@ class EmailpasswortController extends AbstractActionController
 {
 	public function emailpasswortAction()
 	{
+		
+		//Hier sollte keine BerechtigungsprÃ¼fung notwendig sein
+		
 		session_start();
 		
 		if ($_REQUEST['emailpasswort']) {
@@ -39,7 +42,7 @@ class EmailpasswortController extends AbstractActionController
 				
 			} else {
 			
-			$betreff = "Grouppay: Passwort zurücksetzen";		
+			$betreff = "Grouppay: Passwort zurï¿½cksetzen";		
 
 
 $link= "<a href=\"http://132.231.36.206/passwortvergessen?email=$empfaenger\">Passwort zur&uuml;cksetzen</a>";
@@ -49,7 +52,7 @@ $text=
 <body>
 <div>Hallo!</div>
 <br>
-<div>&Uuml;ber diesen Link kannst Du Dein Passwort zurücksetzen:</div>
+<div>&Uuml;ber diesen Link kannst Du Dein Passwort zurï¿½cksetzen:</div>
 <div>$link</div><br>
 
 <div>Viele Gr&uuml;&szlig;e</div>

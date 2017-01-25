@@ -10,11 +10,24 @@ use Application\Model\User;
 class BenutzerreaktivierenController extends AbstractActionController{
 
 	public function benutzerreaktivierenAction(){
-
+		
+		if ($_SESSION['user']->getAdmin()=="0") {
+		
+			$msg="Nicht berechtigt!";
+		
+			$view = new ViewModel([
+					'msg' => $msg,
+			]);
+		
+			$view->setTemplate('application/index/index.phtml');
+		
+			return $view;
+		}
+		
 		//neues Model anlegen
 		$user = new User();
 
-		// Model anhand der übergebenen $u_id laden lassen und speichern, ob dies funktioniert hat
+		// Model anhand der ï¿½bergebenen $u_id laden lassen und speichern, ob dies funktioniert hat
 		$u_id=$_REQUEST['u_id'];
 
 		$isOK = $user->laden($u_id);
@@ -36,7 +49,7 @@ class BenutzerreaktivierenController extends AbstractActionController{
 
 
 
-		// wenn das Formular zur Bestätigung des Reaktivierens schon abgesendet wurde, soll dies hier ausgewertet werden
+		// wenn das Formular zur Bestï¿½tigung des Reaktivierens schon abgesendet wurde, soll dies hier ausgewertet werden
 		if ($_REQUEST['ja']) {
 
 
@@ -48,7 +61,7 @@ class BenutzerreaktivierenController extends AbstractActionController{
 
 
 
-				// ausgeben, dass der Benutzer reaktiviert wurde (kein Template nötig!)
+				// ausgeben, dass der Benutzer reaktiviert wurde (kein Template nï¿½tig!)
 				// array_push($msg, "Benutzer erfolgreich reaktiviert!");
 
 				$msg .= "Benutzer erfolgreich reaktiviert!<br>";
@@ -56,14 +69,14 @@ class BenutzerreaktivierenController extends AbstractActionController{
 			} else {
 
 
-				// ausgeben, dass der Benutzer nicht reaktiviert werden konnte (kein Template nötig!)
+				// ausgeben, dass der Benutzer nicht reaktiviert werden konnte (kein Template nï¿½tig!)
 				$msg .= "Fehler beim Reaktivieren des Benutzers!<br>";
 				return sprintf ( "<div class='error'>Fehler beim Reaktiveren des Benutzers #%s %s!</div>" ,$user->getU_id (), $user->getUsername () );
 			}
 		} else {
 
-			// da das Formular zum Bestätigen des Reaktivierens des Benutzers noch nicht angezeigt wurde, wird es hier generiert und an den ViewModelController
-			// zur Ausgabe übergeben
+			// da das Formular zum Bestï¿½tigen des Reaktivierens des Benutzers noch nicht angezeigt wurde, wird es hier generiert und an den ViewModelController
+			// zur Ausgabe ï¿½bergeben
 
 			return new ViewModel([
 					'user' => $user,

@@ -11,10 +11,23 @@ class BenutzerdeaktivierenController extends AbstractActionController{
 	
 	public function benutzerdeaktivierenAction(){
 		
+		if ($_SESSION['user']->getAdmin()=="0") {
+		
+			$msg="Nicht berechtigt!";
+		
+			$view = new ViewModel([
+					'msg' => $msg,
+			]);
+		
+			$view->setTemplate('application/index/index.phtml');
+		
+			return $view;
+		}
+		
 		//neues Model anlegen
 		$user = new User();
 		
-		// Model anhand der übergebenen $u_id laden lassen und speichern, ob dies funktioniert hat
+		// Model anhand der ï¿½bergebenen $u_id laden lassen und speichern, ob dies funktioniert hat
 		$u_id=$_REQUEST['u_id'];
 		
 		$isOK = $user->laden($u_id);
@@ -35,13 +48,13 @@ class BenutzerdeaktivierenController extends AbstractActionController{
 		
 		
 		
-		// wenn das Formular zur Bestätigung des Deaktivierens schon abgesendet wurde, soll dies hier ausgewertet werden
+		// wenn das Formular zur Bestï¿½tigung des Deaktivierens schon abgesendet wurde, soll dies hier ausgewertet werden
 		if ($_REQUEST['ja']) {
 
 		
 			$msg = "";
 			
-			//Überprüfen, ob ein Admin zur Deaktivierung gesendet wird
+			//ï¿½berprï¿½fen, ob ein Admin zur Deaktivierung gesendet wird
 			if ($user->getSystemadmin()=='1') {
 				
 				$msg .= "Systemadministratoren k&oumlnnen nicht deaktiviert werden!<br>";
@@ -64,7 +77,7 @@ class BenutzerdeaktivierenController extends AbstractActionController{
 				
 		
 		
-				// ausgeben, dass der Benutzer deaktiviert wurde (kein Template nötig!)
+				// ausgeben, dass der Benutzer deaktiviert wurde (kein Template nï¿½tig!)
 				// array_push($msg, "Benutzer erfolgreich deaktiviert!");
 		
 				$msg .= "Benutzer erfolgreich deaktiviert!<br>";
@@ -72,14 +85,14 @@ class BenutzerdeaktivierenController extends AbstractActionController{
 			} else {
 				
 		
-				// ausgeben, dass der Benutzer nicht deaktiviert werden konnte (kein Template nötig!)
+				// ausgeben, dass der Benutzer nicht deaktiviert werden konnte (kein Template nï¿½tig!)
 				$msg .= "Fehler beim Deaktivieren des Benutzers!<br>";
 				return sprintf ( "<div class='error'>Fehler beim Deaktiveren des Benutzers #%s %s!</div>" ,$user->getU_id (), $user->getUsername () );
 			}
 		} else {
 		
-			// da das Formular zum Bestätigen des Deaktivierens des Benutzers noch nicht angezeigt wurde, wird es hier generiert und an den ViewModelController
-			// zur Ausgabe übergeben
+			// da das Formular zum Bestï¿½tigen des Deaktivierens des Benutzers noch nicht angezeigt wurde, wird es hier generiert und an den ViewModelController
+			// zur Ausgabe ï¿½bergeben
 		
 			return new ViewModel([
 					'user' => $user,

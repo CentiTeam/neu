@@ -14,7 +14,18 @@ class BenutzertabelleController extends AbstractActionController
 {
 	public function benutzertabelleAction()
 	{
-	
+		if ($_SESSION['user']->getAdmin()=="0") {
+		
+			$msg="Nicht berechtigt!";
+		
+			$view = new ViewModel([
+					'msg' => $msg,
+			]);
+		
+			$view->setTemplate('application/index/index.phtml');
+		
+			return $view;
+		}
 
 		$liste = User::listeHolen();
 	

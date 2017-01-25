@@ -16,6 +16,8 @@ class EinladungannehmenController extends AbstractActionController
 
 	public function einladungannehmenAction() {
 	
+		// Überprüfung des Links mithilfe von Sicherheitscode wäre gut - Ansonsten keine Berechtigungspruefung notwendig
+		
 		// neues Model anlegen
 		$gruppenmitglied = new Gruppenmitglied ();
 
