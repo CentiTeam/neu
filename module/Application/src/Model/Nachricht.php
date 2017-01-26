@@ -249,7 +249,7 @@ class Nachricht {
 		
 		// Holen der Daten aus der DB
 		
-		$query ="SELECT * FROM `nachricht` LIMIT '.$limit.', '.$ergebnisse_pro_seite');";
+		$query ="SELECT * FROM `nachricht` LIMIT '.$limit.', '.$ergebnisse_pro_seite.');";
 		$result2 = $db->execute($query);
 		while ($row = mysqli_fetch_array($result)) {
 			
