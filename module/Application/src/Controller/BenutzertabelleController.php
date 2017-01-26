@@ -28,16 +28,19 @@ class BenutzertabelleController extends AbstractActionController
 				
 			return $view;
 		
-		} elseif ($_SESSION['user']->getAdmin()=="nein") {
+		}
 		
-			$msg="Nicht berechtigt!";
+		$user=$_SESSION['user'];
+		
+		if($_SESSION['systemadmin'] != 'ja') {
+		
+			$msg= "Sie müssen ein Administrator sein, um eine Kategorie zu bearbeiten!";
 		
 			$view = new ViewModel([
 					'msg' => $msg,
+					'user' => array($user),
 			]);
-		
-			$view->setTemplate('application/index/index.phtml');
-		
+			$view->setTemplate('application/overview/overview.phtml');
 			return $view;
 		}
 		
