@@ -227,48 +227,12 @@ class Nachricht {
 		// Liste initialisieren
 		
 		$nachrichtenListe = array ();
-		
-		// Ermittlung, wie viele Nachrichteneinträge es in der DB gibt
-		
-		$result_total = mysqli_query('SELECT COUNT(*) as `total` FROM `Nachricht`');
-		$row_total = mysqli_fetch_row($result_total);
-		$gesamte_anzahl = $row_total['total'];
-		echo $gesamte_anzahl;
-		
-		// Ermittlung, wie viele Einträge pro Seite und Festlegung wie viele Seiten es geben muss
-		
-		$ergebnisse_pro_seite = 10;
-		$gesamt_seiten = ceil($gesamte_anzahl/$ergebnisse_pro_seite);
-		
-		// Was ist die aktuelle Seite? wird durch die URL übergeben
-		
 	
-		// Errechnung, wo in der DB angefangen wird die Daten zu holen
+		// Wie viele Einträge gibt es in der Datenbank?
 		
-		$limit = ($seite*$ergebnisse_pro_seite)-$ergebnisse_pro_seite;
-		
-		// Holen der Daten aus der DB
-		
-		$query ="SELECT * FROM `nachricht` LIMIT '.$limit.', '.$ergebnisse_pro_seite.');";
-		$result2 = $db->execute($query);
-		while ($row = mysqli_fetch_array($result)) {
-			
-			
-			// neues Model erzeugen
-			$model = new Nachricht();
-			
-			// Model anhand der Nummer aus der Datenbankabfrage laden
-			$model->messageboardladen($row["n_id"]);
-			
-			// neues Model ans Ende des $gruppeListe-Arrays anfï¿½gen
-			$aktuelleListe[] = $model;
-			
-		}
-			
-		
-		// fertige Liste von Nachrichten-Objekten zurï¿½ckgeben
-		
-		return $aktuelleListe;
+		$anzahleintraege = "SELECT COUNT (*) FROM nachricht;";
+		$resultanzahleintraege = $db->execute($anzahleintraege);
+		echo $resultanzahleintraege;
 	}
 	
 
