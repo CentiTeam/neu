@@ -157,7 +157,7 @@ class Nachricht {
 	
 		$db = new DB_connection();
 	
-		$query="SELECT * FROM `nachricht`
+		$query="SELECT n_id, DATE_FORMAT(datum,'%d.%m.%Y') as datum, text, u_id, g_id FROM `nachricht`
 				NATURAL JOIN gruppe NATURAL JOIN gruppenmitglied
 				WHERE gruppenmitglied.u_id= '".$user_id."' AND (date(datum) BETWEEN curdate()-INTERVAL 5 DAY AND curdate())
 				ORDER BY g_id, n_id DESC LIMIT 10";

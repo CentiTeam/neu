@@ -72,10 +72,10 @@ class Zahlung {
 	
 	
 		if ($z_id) {
-			$result=$dbStmt->execute("SELECT * FROM zahlung WHERE z_id= '".$z_id."';");
+			$result=$dbStmt->execute("SELECT z_id, zahlungsbeschreibung, DATE_FORMAT(erstellungsdatum,'%d.%m.%Y') as erstellungsdatum, DATE_FORMAT(zahlungsdatum,'%d.%m.%Y') as zahlungsdatum, betrag, k_id, DATE_FORMAT(aenderungsdatum,'%d.%m.%Y') as aenderungsdatum, g_id FROM zahlung WHERE z_id= '".$z_id."';");
 		}
 		else {
-			$result=$dbStmt->execute("SELECT * FROM zahlung WHERE z_id =(SELECT MAX(z_id) FROM zahlung)");
+			$result=$dbStmt->execute("SELECT z_id, zahlungsbeschreibung, DATE_FORMAT(erstellungsdatum,'%d.%m.%Y') as erstellungsdatum, DATE_FORMAT(zahlungsdatum,'%d.%m.%Y') as zahlungsdatum, betrag, k_id, DATE_FORMAT(aenderungsdatum,'%d.%m.%Y') as aenderungsdatum, g_id FROM zahlung WHERE z_id =(SELECT MAX(z_id) FROM zahlung)");
 		}
 		// Variable, die speichert, ob das Team geladen werden konnte oder nicht
 		$isLoaded=false;
@@ -114,7 +114,7 @@ class Zahlung {
 	
 		$db = new DB_connection();
 	
-		$query="SELECT * FROM `zahlung`
+		$query="SELECT z_id, zahlungsbeschreibung, DATE_FORMAT(erstellungsdatum,'%d.%m.%Y') as erstellungsdatum, DATE_FORMAT(zahlungsdatum,'%d.%m.%Y') as zahlungsdatum, betrag, k_id, DATE_FORMAT(aenderungsdatum,'%d.%m.%Y') as aenderungsdatum, g_id FROM `zahlung`
 				WHERE g_id= '".$gruppen_id."'  
 				ORDER BY erstellungsdatum ASC
 				";
@@ -147,7 +147,7 @@ class Zahlung {
 	
 		$db = new DB_connection();
 	
-		$query="SELECT * FROM `zahlung`
+		$query="SELECT z_id, zahlungsbeschreibung, DATE_FORMAT(erstellungsdatum,'%d.%m.%Y') as erstellungsdatum, DATE_FORMAT(zahlungsdatum,'%d.%m.%Y') as zahlungsdatum, betrag, k_id, DATE_FORMAT(aenderungsdatum,'%d.%m.%Y') as aenderungsdatum, g_id FROM `zahlung`
 				LEFT JOIN zahlungsteilnehmer ON (zahlung.z_id=zahlungsteilnehmer.z_id)
 				WHERE u_id= '".$user_id."' ";
 	
@@ -179,7 +179,7 @@ class Zahlung {
 	
 		$db = new DB_connection();
 	
-		$query="SELECT * FROM `zahlung`
+		$query="SELECT z_id, zahlungsbeschreibung, DATE_FORMAT(erstellungsdatum,'%d.%m.%Y') as erstellungsdatum, DATE_FORMAT(zahlungsdatum,'%d.%m.%Y') as zahlungsdatum, betrag, k_id, DATE_FORMAT(aenderungsdatum,'%d.%m.%Y') as aenderungsdatum, g_id FROM `zahlung`
 				NATURAL JOIN zahlungsteilnehmer NATURAL JOIN gruppenmitglied
 				WHERE u_id= '".$user_id."' AND (date(erstellungsdatum) BETWEEN curdate()-INTERVAL 5 DAY AND curdate())
 				ORDER BY g_id, erstellungsdatum DESC";
