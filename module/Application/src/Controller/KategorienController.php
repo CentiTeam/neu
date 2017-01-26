@@ -15,7 +15,36 @@ class KategorienController extends AbstractActionController
 	public function kategorienAction()
 	{
 
-
+		// Berechtigungsprüfung
+		if ($_SESSION['angemeldet']==NULL) {
+		
+			$msg="Nicht berechtigt!";
+		
+			$view = new ViewModel([
+					'msg' => $msg,
+			]);
+		
+			$view->setTemplate('application/index/index.phtml');
+		
+			return $view;
+		
+		}
+		
+		$user=$_SESSION['user'];
+		
+		if($_SESSION['systemadmin'] != 'ja') {
+		
+			$msg= "Sie müssen ein Administrator sein, um eine Kategorie zu bearbeiten!";
+		
+			$view = new ViewModel([
+					'msg' => $msg,
+					'user' => array($user),
+			]);
+			$view->setTemplate('application/overview/overview.phtml');
+			return $view;
+		
+		}
+		
 		$liste = Kategorie::listeHolen();
 
 		return new ViewModel([
