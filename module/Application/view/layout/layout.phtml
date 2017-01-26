@@ -44,15 +44,9 @@
 								<li class="active"><a href="<?= $this->url('statistiken') ?>">Statistiken</a></li>
 								<li class="active"><a href="<?= $this->url('groupoverview') ?>">Meine Gruppen</a></li>
 								<li class="active"><a href="<?= $this->url('neuesmitgliedeinladen') ?>">Neues Mitglied einladen</a></li>
-								
-								<?php if($this->url('zahlunganzeigen') ){?>	
-								<li class="active"><a href='groupshow?g_id=<?=$_REQUEST['g_id']?>'>Gruppe anzeigen</a></li>
-								<?php } ?>
-								
 								<?php if(ISSET($_REQUEST['g_id'])){?>	
 								<li class="active"><a href='zahlunganlegen?g_id=<?=$_REQUEST['g_id']?>'>Zahlung anlegen</a></li>
 								<?php } ?>
-								
 								
 								<?php } else if($_SESSION['systemadmin']=="ja") {?>
 								<li class="active"><a href="<?= $this->url('adminoverview') ?>">Adminstartseite</a></li>	
