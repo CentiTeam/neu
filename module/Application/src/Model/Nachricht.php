@@ -233,7 +233,8 @@ class Nachricht {
 		$anzahleintraege = "SELECT * FROM `nachricht`;";
 		$resultanzahleintraege = $db->execute($anzahleintraege);
 		$r = mysqli_fetch_row($result);
-		echo $r;
+		$numrows = $r[0];
+		echo $numrows;
 	}
 	
 
