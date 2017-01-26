@@ -33,22 +33,22 @@
     <th class="datentabelle" >Absender</th>
     <th class="datentabelle">Datum</th>
     <th class="datentabelle"> Nachricht</th>
-    
+    <th class="datentabelle"width="5%"></th>
   </tr class="datentabelle">
   
   <?php foreach ($aktnachricht as $zaehler => $nachricht) {?>
   
-  <tr>
-    <td><?=$nachricht->getUser()->getUsername()?></td>
-    <td><?=$nachricht->getdatum()?> 
-    <td><?=$nachricht->getText()?></td>
-    <td><?php 
+  <tr class="datentabelle">
+    <td class="datentabelle"><?=$nachricht->getUser()->getUsername()?></td>
+    <td class="datentabelle"><?=$nachricht->getdatum()?> 
+    <td class="datentabelle"><?=$nachricht->getText()?></td>
+    <td class="datentabelle"><?php 
     		if($_SESSION['user']->getU_id() == $nachricht->getUser()->getU_id())
     			{?>
     				<a href='nachrichtbearbeiten?n_id=<?=$nachricht->getN_id()?>&g_id=<?=$_REQUEST['g_id']?>'><img src="img/edit.jpg" title="Nachricht bearbeiten"/></a>
 		<?php 	;}?>
 	</td>
-  </tr>
+  </tr class="datentabelle">
   <?php }?>
 </table>
 
