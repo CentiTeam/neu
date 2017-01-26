@@ -9,6 +9,7 @@
 <tr><td>Zahlungsdatum: <?=$zahlung[0]->getZahlungsdatum()?></td></tr>
 <tr><td>Kategorie: <?=$zahlung[0]->getKategorie()->getKategoriebeschreibung()?></td></tr>
 <tr><td>Gruppe: <a href="groupshow?g_id=<?=$zahlung[0]->getGruppe()->getG_id()?>"><?=$zahlung[0]->getGruppe()->getGruppenname()?></a></td></tr>
+<tr><td></td></tr>
 <tr><td>Zahlungsteilnehmer:</td></tr>
 </table>
 </div>
@@ -49,7 +50,7 @@
 	
 	</DIV>
 </table>
-
+<br>
 
 <a href="zahlungbearbeiten?z_id=<?=$zahlung[0]->getZ_id()?>&g_id=<?=$zahlung[0]->getGruppe()->getG_id()?>"><img src="img/edit.jpg" /></a>
 <a href="zahlungloeschen?z_id=<?=$zahlung[0]->getZ_id()?>"><img src="img/delete.png" /></a>
