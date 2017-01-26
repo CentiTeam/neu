@@ -181,7 +181,7 @@ class GroupshowController extends AbstractActionController
 			$nachricht->sendMessage();
 			
 			
-			$sql = 'SELECT * FROM table_name ';
+			$sql = 'SELECT * FROM nachricht ';
 			$result = $db->fetchAll($sql);
 			$page=$this->_getParam('page',1);
 			$paginator = Zend_Paginator::factory($result);
