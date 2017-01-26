@@ -82,6 +82,7 @@ class GruppeverlassenController extends AbstractActionController
 				
 			$user_id=$_SESSION['user']->getU_id();
 			
+			$user=$_SESSION['user'];
 			
 				
 			// L�sung ist hier mit Objektorientierung
@@ -95,6 +96,7 @@ class GruppeverlassenController extends AbstractActionController
 					'mitgliederListe' => $mitgliederliste,
 					'gruppe' => array($gruppe),
 					'u_id' => $user_id,
+					'user' => $user,
 					'msg' => $msg
 			]);
 
