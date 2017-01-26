@@ -242,14 +242,6 @@ class Nachricht {
 		
 		// Was ist die aktuelle Seite? wird durch die URL übergeben
 		
-		if (empty($_GET['seite_nr'])) {
-			$seite = 1;
-		} else {
-			$seite = $_GET['seite_nr'];
-			if ($seite > $gesamt_seiten) {
-				$seite = 1;
-			}
-		}
 	
 		// Errechnung, wo in der DB angefangen wird die Daten zu holen
 		
@@ -257,8 +249,9 @@ class Nachricht {
 		
 		// Holen der Daten aus der DB
 		
-		$result = mysqli_query('SELECT * FROM `nachricht` LIMIT '.$limit.', '.$ergebnisse_pro_seite);
-		while ($row = mysqli_fetch_assoc($result)) {
+		$query ="SELECT * FROM `nachricht` LIMIT '.$limit.', '.$ergebnisse_pro_seite);";
+		$result2 = $db->execute($query);
+		while ($row = mysqli_fetch_array($result)) {
 			
 			
 			// neues Model erzeugen
@@ -272,15 +265,6 @@ class Nachricht {
 			
 		}
 			
-		
-		// Ausgabe der Seitenzahlen
-		for ($i=1; $i<=$gesamt_seiten; ++$i) {
-			if ($seite == $i) {
-				echo '<a href="http://132.231.36.206/groupshow?g_id=174?seite_nr='.$i.'" style="font-weight: bold;">'.$i.'</a>';
-			} else {
-				echo '<a href="http://132.231.36.206/groupshow?g_id=174?seite_nr='.$i.'">'.$i.'</a>';
-			}
-		}
 		
 		// fertige Liste von Nachrichten-Objekten zurï¿½ckgeben
 		

@@ -179,7 +179,7 @@ class GroupshowController extends AbstractActionController
 			}
 			
 			$nachricht->sendMessage();
-			$nachricht->blaettern();
+	
 			
 			
 			// Nachrichtenliste laden je Gruppe (inkl. neuer Nachricht)
