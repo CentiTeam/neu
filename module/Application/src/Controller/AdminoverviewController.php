@@ -39,10 +39,10 @@ class AdminoverviewController extends AbstractActionController
 		
 			return $view;
 		}
-		
+		else {
 		
 		
 		return new ViewModel();
-
+		}
 	}
 }
