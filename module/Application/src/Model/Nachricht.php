@@ -191,7 +191,7 @@ class Nachricht {
 	
 		$db = new DB_connection();
 	
-		$query="SELECT * FROM `nachricht`
+		$query="SELECT n_id, UNIX_TIMESTAMP(datum) AS datum, text, u_id, g_id FROM `nachricht`
 				WHERE g_id='".$g_id."'	
 				ORDER BY n_id DESC LIMIT 10;";
 		
@@ -216,6 +216,11 @@ class Nachricht {
 			return $aktuelleListe;
 		}
 	}
+	
+	
+	
+	
+	
 	
 	
 	
