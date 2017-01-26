@@ -14,7 +14,8 @@ class KategorienController extends AbstractActionController
 {
 	public function kategorienAction()
 	{
-
+		session_start();
+		
 		// Berechtigungsprüfung
 		if ($_SESSION['angemeldet']==NULL) {
 		
