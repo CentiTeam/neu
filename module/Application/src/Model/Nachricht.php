@@ -230,7 +230,7 @@ class Nachricht {
 	
 		// Wie viele Einträge gibt es in der Datenbank?
 		
-		$anzahleintraege = "SELECT * FROM 'nachricht';";
+		$anzahleintraege = "SELECT * FROM `nachricht`;";
 		$resultanzahleintraege = $db->execute($anzahleintraege);
 		$r = mysqli_fetch_row($result);
 		echo $r;
