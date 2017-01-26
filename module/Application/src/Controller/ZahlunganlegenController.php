@@ -68,11 +68,11 @@ class ZahlunganlegenController extends AbstractActionController {
 					$summe += $anteil;
 				}
 				
-				/**		TODO Problem: Im Array Zahlungsteilnehmer stehen nur die Werte, die ein Häkchen bekommen
-				 					  Im Array Anteile werden jedoch alle Anteile eingespeichert, gleich ob da ein Häkchen war oder nicht
-				 					  Das führt dazu, dass in dem Fall, dass ein Teilnehmer ausgelassen wird, der falsche Anteil ausgelesen wird
+				/**		TODO Problem: Im Array Zahlungsteilnehmer stehen nur die Werte, die ein Hï¿½kchen bekommen
+				 					  Im Array Anteile werden jedoch alle Anteile eingespeichert, gleich ob da ein Hï¿½kchen war oder nicht
+				 					  Das fï¿½hrt dazu, dass in dem Fall, dass ein Teilnehmer ausgelassen wird, der falsche Anteil ausgelesen wird
 				
-				//Feststellen, ob für das gesetzte Häkchen auch ein Anteil angegeben wurde
+				//Feststellen, ob fï¿½r das gesetzte Hï¿½kchen auch ein Anteil angegeben wurde
 				$counter=0;
 				foreach ($_POST['zahlungsteilnehmer'] as $key => $value) {
 						
@@ -183,7 +183,7 @@ class ZahlunganlegenController extends AbstractActionController {
 						 // Legt die zugehï¿½rigen Zahlungsteilnehmer Datensï¿½tze an, auï¿½er fï¿½r sich selbst (info wird aber fï¿½r Anteil benï¿½tigt!)
 						 foreach ($_POST['zahlungsteilnehmer'] as $key => $value) {
 						 	
-						 	//Aus der ID des Übergebenen Arrays User-Objekt erstellen
+						 	//Aus der ID des ï¿½bergebenen Arrays User-Objekt erstellen
 						 	$akt_benutzer = new User();
 						 	$akt_benutzer->laden($value);
 				 	
@@ -195,13 +195,13 @@ class ZahlunganlegenController extends AbstractActionController {
 					 		$anteil=$anteile[$counter];
 					 		
 						 	if($value == $user_id) {
-						 		//Der Status bei dem, der die Zahlung erstellt hat ist "ersteller", dies erleichtert die nachträgliche Bearbeitung von
-						 		//Zahlungen, da Zahlungen nur bearbeitet werden dürfen, wenn sie nicht den Status "beglichen" Aufweisen.
+						 		//Der Status bei dem, der die Zahlung erstellt hat ist "ersteller", dies erleichtert die nachtrï¿½gliche Bearbeitung von
+						 		//Zahlungen, da Zahlungen nur bearbeitet werden dï¿½rfen, wenn sie nicht den Status "beglichen" Aufweisen.
 							 		$status="ersteller"; 
 							 		$restbetrag="0";
 							 		$temp = $zahlungsteilnehmer;
 						 	} else {
-						 		//Der Status für alle anderen Zahlungsteilnehmer ist offen.
+						 		//Der Status fï¿½r alle anderen Zahlungsteilnehmer ist offen.
 							 		$status="offen";
 							 		$restbetrag=$anteil;
 					 		}
@@ -223,16 +223,19 @@ class ZahlunganlegenController extends AbstractActionController {
 						 }
 						 $temp ->ausgleichen();
 						 
-						//Erstellen des Ereignisses für Gruppenverlauf und Speicher in DB
+						//Erstellen des Ereignisses fï¿½r Gruppenverlauf und Speicher in DB
 						$zahlungsersteller = $_SESSION['user']; 						 
 						Gruppenereignis::zahlunganlegenEreignis($zahlung, $gruppe, $zahlungsersteller);
-						 
+						
+						//PArt von Tanja: Zahlungsteilnehmerliste laden beim Anlegen
+						$teilnehmerliste=Zahlungsteilnehmer::zahlungsteilnehmerholen($zahlungs_id);
 						 
 						 $view = new ViewModel([
 						 		'gruppe' => array($gruppe),
 						 		'errors'   => $errors,
 						 		'msg' => $msg,
 						 		'zahlung' => array($zahlung),
+						 		'teilnehmerliste' => $teilnehmerliste
 						 
 						 ]);
 						 	
