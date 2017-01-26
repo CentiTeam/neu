@@ -162,7 +162,7 @@ class GroupshowController extends AbstractActionController
 			date_default_timezone_set("Europe/Berlin");
 			$timestamp=time();
 			$u_id=$_SESSION['user']->getU_id();
-			$datum = date_create_from_format("d.m.Y - H:i", $timestamp);
+			$datum = date('Y-m-d', $timestamp);
 			$g_id = $_REQUEST ['g_id'];
 
 			
