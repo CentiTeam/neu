@@ -218,24 +218,6 @@ class Nachricht {
 	}
 	
 	
-	// Blätterfunktion, funktioniert aber leider nicht
-	 
-	public function blaettern($user_id, $g_id) {
-		
-		$db = new DB_connection();
-		
-		// Liste initialisieren
-		
-		$nachrichtenListe = array ();
-	
-		// Wie viele Einträge gibt es in der Datenbank?
-		
-		$anzahleintraege = "SELECT * FROM `nachricht`;";
-		$resultanzahleintraege = $db->execute($anzahleintraege);
-		$r = mysqli_fetch_row($result);
-		$numrows = $r[0];
-		echo $numrows;
-	}
 	
 
 	// Getter und Setter
