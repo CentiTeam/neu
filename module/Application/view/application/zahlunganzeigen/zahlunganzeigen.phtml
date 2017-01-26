@@ -9,7 +9,6 @@
 <tr><td>Zahlungsdatum: <?=$zahlung[0]->getZahlungsdatum()?></td></tr>
 <tr><td>Kategorie: <?=$zahlung[0]->getKategorie()->getKategoriebeschreibung()?></td></tr>
 <tr><td>Gruppe: <a href="groupshow?g_id=<?=$zahlung[0]->getGruppe()->getG_id()?>"><?=$zahlung[0]->getGruppe()->getGruppenname()?></a></td></tr>
-<tr><td>Zahlungsteilnehmer:</td></tr>
 </table>
 </div>
 <br>
@@ -24,6 +23,7 @@
 <a onclick="text1.style.display='none';an.style.display='block';zu.style.display='none'" id="zu" style="display: block" href="#neu">Zahlungsteilnehmer ausblenden</a>
 <a name="neu"></a><DIV id="text1" style="display: block">
 -->
+<h1>Zahlungsteilnehmer:</h1>
 
 <table class="datentabelle">
 <tr class="datentabelle">
