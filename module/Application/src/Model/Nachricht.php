@@ -237,7 +237,7 @@ class Nachricht {
 		
 		// Ermittlung, wie viele Einträge pro Seite und Festlegung wie viele Seiten es geben muss
 		
-		$ergebnisse_pro_seite = 5;
+		$ergebnisse_pro_seite = 10;
 		$gesamt_seiten = ceil($gesamte_anzahl/$ergebnisse_pro_seite);
 		
 		// Was ist die aktuelle Seite? wird durch die URL übergeben
@@ -249,7 +249,7 @@ class Nachricht {
 		
 		// Holen der Daten aus der DB
 		
-		$query ="SELECT * FROM `nachricht` LIMIT '.$limit.', '.$ergebnisse_pro_seite);";
+		$query ="SELECT * FROM `nachricht` LIMIT '.$limit.', '.$ergebnisse_pro_seite');";
 		$result2 = $db->execute($query);
 		while ($row = mysqli_fetch_array($result)) {
 			
