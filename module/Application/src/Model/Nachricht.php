@@ -219,6 +219,7 @@ class Nachricht {
 	
 	
 	
+	
 
 	// Getter und Setter
 	
