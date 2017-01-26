@@ -49,10 +49,10 @@ class Nachricht {
 	
 	
 		if ($n_id) {
-			$result=$dbStmt->execute("SELECT * FROM nachricht WHERE n_id= '".$n_id."' ;");
+			$result=$dbStmt->execute("SELECT n_id, DATE_FORMAT(datum,'%d.%m.%Y') as datum, text, u_id, g_id FROM nachricht WHERE n_id= '".$n_id."' ;");
 		}
 		else {
-			$result=$dbStmt->execute("SELECT * FROM nachricht WHERE n_id =(SELECT MAX(n_id) FROM nachricht)'");
+			$result=$dbStmt->execute("SELECT n_id, DATE_FORMAT(datum,'%d.%m.%Y') as datum, text, u_id, g_id FROM nachricht WHERE n_id =(SELECT MAX(n_id) FROM nachricht)'");
 		}
 		// Variable, die speichert, ob das Team geladen werden konnte oder nicht
 		$isLoaded=false;
@@ -191,7 +191,7 @@ class Nachricht {
 	
 		$db = new DB_connection();
 	
-		$query="SELECT n_id, DATE_FORMAT(datum,'%d-%m-%Y') as datum, text, u_id, g_id FROM `nachricht`
+		$query="SELECT * FROM `nachricht`
 				WHERE g_id='".$g_id."'	
 				ORDER BY n_id DESC LIMIT 10;";
 		
