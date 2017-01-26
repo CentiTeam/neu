@@ -233,11 +233,11 @@ class Nachricht {
 		$result_total = mysqli_query('SELECT COUNT(*) as `total` FROM `Nachricht`');
 		$row_total = mysqli_fetch_row($result_total);
 		$gesamte_anzahl = $row_total['total'];
-	
+		echo $gesamte_anzahl;
 		
 		// Ermittlung, wie viele Einträge pro Seite und Festlegung wie viele Seiten es geben muss
 		
-		$ergebnisse_pro_seite = 10;
+		$ergebnisse_pro_seite = 5;
 		$gesamt_seiten = ceil($gesamte_anzahl/$ergebnisse_pro_seite);
 		
 		// Was ist die aktuelle Seite? wird durch die URL übergeben
