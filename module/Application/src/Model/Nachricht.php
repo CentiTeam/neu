@@ -230,7 +230,7 @@ class Nachricht {
 	
 		// Wie viele Einträge gibt es in der Datenbank?
 		
-		$anzahleintraege = "SELECT COUNT (*) FROM 'nachricht';";
+		$anzahleintraege = "SELECT COUNT (*) FROM 'nachricht'";
 		$resultanzahleintraege = $db->execute($anzahleintraege);
 		echo $resultanzahleintraege;
 	}
