@@ -15,7 +15,7 @@ class IndexController extends AbstractActionController
 	public function indexAction()
 	{
 		
-		
+		// Keine Berechtigungsprüfung notwendig
 		return new ViewModel();
 		
 	}	
