@@ -16,6 +16,8 @@ class LoginController extends AbstractActionController{
 	
 	public function loginAction(){
 		
+		// Keine Berechtigungsprüfung notwendig
+		
 		$user = new User();
 			
 		session_start();

@@ -8,7 +8,7 @@ use Application\Model\Gruppe;
 
 /**
  * FILE-Controller wird nur noch als Vorlage verwendet!!!! 
- * Die Funktionalität wurde in GroupeditController und GruppeanlegenController übernommen
+ * Die Funktionalitï¿½t wurde in GroupeditController und GruppeanlegenController ï¿½bernommen
  * @author Tanja
  *
  */
@@ -17,7 +17,10 @@ use Application\Model\Gruppe;
 class FileController extends AbstractActionController {
 
 	function einladenAction() {
+		
+		
 		// TODO Berechtigungsprï¿½fung
+		// AUf welche Seite fÃ¼hrt dieser Controller denn? :D Hier sollte keine BerechtigungsprÃ¼fung notwendig sein
 		session_start();
 	
 		
