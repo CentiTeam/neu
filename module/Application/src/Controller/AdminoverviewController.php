@@ -15,35 +15,34 @@ class AdminoverviewController extends AbstractActionController
 	public function adminoverviewAction()
 	{
 		
-		if ($_SESSION['angemeldet']==NULL) {
+	//	if ($_SESSION['angemeldet']==NULL) {
 			
-			$msg="Nicht berechtigt!";
+		//		$msg="Nicht berechtigt!";
+		//
+		//	$view = new ViewModel([
+					//			'msg' => $msg,
+			//	]);
 			
-			$view = new ViewModel([
-					'msg' => $msg,
-			]);
+					//	$view->setTemplate('application/index/index.phtml');
 			
-			$view->setTemplate('application/index/index.phtml');
-			
-			return $view;
+					//	return $view;
 
-		} elseif ($_SESSION['angemeldet']==ja && $_SESSION['user']->getAdmin()=="nein") {
+					//	} elseif ($_SESSION['user']->getAdmin()=="nein") {
 		
-			$msg="Nicht berechtigt!";
+					//		$msg="Nicht berechtigt!";
 		
-			$view = new ViewModel([
-					'msg' => $msg,
-			]);
+					//		$view = new ViewModel([
+					//	'msg' => $msg,
+			//	]);
+			//
+					//	$view->setTemplate('application/index/index.phtml');
 		
-			$view->setTemplate('application/index/index.phtml');
-		
-			return $view;
-		}
-		elseif ($_SESSION['angemeldet']==ja && $_SESSION['user']->getAdmin()=="ja") {
+					//	return $view;
+					//}
 		
 		
 		
 		return new ViewModel();
-		}
+
 	}
 }
