@@ -18,25 +18,42 @@ class GruppeverlassenController extends AbstractActionController
 
 		session_start();
 
-		// Pr�fen, ob Gruppeadmin
 
-		$user=$_SESSION['user'];
-		$gruppen_id=$_REQUEST['g_id'];
-
-		// Berechtigungsprüfung: Pr�fen, ob Gruppeadmin
-		if ($_SESSION['angemeldet']=="0") {
-				
-			$errStr="Nicht berechtigt!";
+		// Berechtigungsprüfung
+		if ($_SESSION['angemeldet']==NULL) {
+		
+			$msg="Nicht berechtigt!";
+		
+			$view = new ViewModel([
+					'msg' => $msg,
+			]);
+		
+			$view->setTemplate('application/index/index.phtml');
+		
+			return $view;
+		
+		}
+		
+		$g_id=$_REQUEST['g_id'];
+		$user_id=$_SESSION['user']->getU_id();
+		
+		$aktgruppenmitglied=new Gruppenmitglied();
+		$isOK=$aktgruppenmitglied->laden($g_id, $user_id);
+		
+		
+		if ($isOK==false) {
+		
+			$msg="Nicht berechtigt!";
+		
 			$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
-				
+		
 			$view = new ViewModel([
 					'gruppenListe' => $gruppenliste,
-					'err' => $errStr,
-					'u_id' => $user_id
+					'msg' => $msg,
 			]);
-
+		
 			$view->setTemplate('application/groupoverview/groupoverview.phtml');
-				
+		
 			return $view;
 		}
 		
