@@ -12,7 +12,7 @@
 	//Alle Kategorien in die Auswahlliste schreiben
 	foreach ($kategorieListe as $zaehler => $kategorie) { ?>
 			<option value='<?=$kategorie->getK_id()?>' <?php 
-									if ($action == "edit" && $teams->getT_id() == $user->getTeam()->getT_id() )
+									if ($kategorie->getK_id() == $zahlung[0]->getKategorie()->getK_id() )
 										echo "selected='selected'";
 								?>
 			> <?=$kategorie->getKategoriebeschreibung() ?> </option>
