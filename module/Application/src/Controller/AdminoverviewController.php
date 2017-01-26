@@ -27,7 +27,7 @@ class AdminoverviewController extends AbstractActionController
 			
 			return $view;
 
-		} elseif ($_SESSION['user']->getAdmin()=="nein") {
+		} elseif ($_SESSION['angemeldet']==ja && $_SESSION['user']->getAdmin()=="nein") {
 		
 			$msg="Nicht berechtigt!";
 		
@@ -39,7 +39,7 @@ class AdminoverviewController extends AbstractActionController
 		
 			return $view;
 		}
-		elseif ($_SESSION['user']->getAdmin()=="ja") {
+		elseif ($_SESSION['angemeldet']==ja && $_SESSION['user']->getAdmin()=="ja") {
 		
 		
 		
