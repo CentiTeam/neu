@@ -13,6 +13,21 @@ class KategorieeditController extends AbstractActionController {
 		// TODO Berechtigungsprï¿½fung
 		session_start();
 
+		// BerechtigungsprÃ¼fung
+		if ($_SESSION['angemeldet']==NULL) {
+		
+			$msg="Nicht berechtigt!";
+		
+			$view = new ViewModel([
+					'msg' => $msg,
+			]);
+		
+			$view->setTemplate('application/index/index.phtml');
+		
+			return $view;
+		
+		}
+		
 		$errors = array();
 
 		if($_SESSION['systemadmin'] != 'ja') {
@@ -65,13 +80,13 @@ class KategorieeditController extends AbstractActionController {
 				} elseif ($errorStr == "") {
 
 				 // array_push($msg, "Datenprï¿½fung in Ordnung, Fehler beim Speichern der Gruppe!");
-					$msg .= "Datenprüfung in Ordnung, Fehler beim Speichern der Kategorie!";
+					$msg .= "Datenprï¿½fung in Ordnung, Fehler beim Speichern der Kategorie!";
 				 $saved = false;
 
 				} else {
 
 				 // array_push($msg, "Fehler bei der Datenprï¿½fung. Gruppe nicht gespeichert!");
-					$msg .= "Fehler bei der Datenprüfung. Kategorie nicht gespeichert!";
+					$msg .= "Fehler bei der Datenprï¿½fung. Kategorie nicht gespeichert!";
 				 $saved = false;
 
 				}

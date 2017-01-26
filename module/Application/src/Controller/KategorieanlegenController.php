@@ -16,10 +16,25 @@ class KategorieanlegenController extends AbstractActionController {
 		session_start();
 
 		$errors = array();
-
+		
+		// BerechtigungsprÃ¼fung
+		if ($_SESSION['angemeldet']==NULL) {
+		
+			$msg="Nicht berechtigt!";
+		
+			$view = new ViewModel([
+					'msg' => $msg,
+			]);
+		
+			$view->setTemplate('application/index/index.phtml');
+		
+			return $view;
+		
+		}
+		
 		if($_SESSION['systemadmin'] != 'ja') {
 
-			array_push($errors, "Sie mÃ¼ssen ein Administrator sein, um eine Kategorie hinzufügen zu können!");
+			array_push($errors, "Sie mÃ¼ssen ein Administrator sein, um eine Kategorie hinzufï¿½gen zu kï¿½nnen!");
 
 			$view = new ViewModel(array(
 					$errors
