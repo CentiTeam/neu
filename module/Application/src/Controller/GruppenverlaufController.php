@@ -15,7 +15,45 @@ class GruppenverlaufController extends AbstractActionController
 {
 	public function GruppenverlaufAction()
 	{
-
+		
+		// Berechtigungsprüfung
+		if ($_SESSION['angemeldet']==NULL) {
+		
+			$msg="Nicht berechtigt!";
+		
+			$view = new ViewModel([
+					'msg' => $msg,
+			]);
+		
+			$view->setTemplate('application/index/index.phtml');
+		
+			return $view;
+		
+		}
+		
+		$g_id=$_REQUEST['g_id'];
+		$user_id=$_SESSION['user']->getU_id();
+		
+		$aktgruppenmitglied=new Gruppenmitglied();
+		$isOK=$aktgruppenmitglied->laden($g_id, $user_id);
+		
+		if ($isOK==false) {
+		
+			$msg="Nicht berechtigt!";
+				
+			$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
+				
+			$view = new ViewModel([
+					'gruppenListe' => $gruppenliste,
+					'msg' => $msg,
+			]);
+		
+			$view->setTemplate('application/groupoverview/groupoverview.phtml');
+		
+			return $view;
+		}
+		
+		
 		// Gruppen-Objekt laden
 		$gruppe= new Gruppe();
 		$g_id=$_REQUEST['g_id'];
