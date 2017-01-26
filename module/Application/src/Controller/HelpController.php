@@ -14,7 +14,7 @@ class HelpController extends AbstractActionController
 {
 	public function helpAction()
 	{
-
+		// Keine Berechtigungsprüfung notwendig
 		return new ViewModel();
 	}
 }
