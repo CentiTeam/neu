@@ -37,6 +37,10 @@ class GruppenverlaufController extends AbstractActionController
 		$aktgruppenmitglied=new Gruppenmitglied();
 		$isOK=$aktgruppenmitglied->laden($g_id, $user_id);
 		
+		var_dump($g_id);
+		var_dump($user_id);
+		var_dump($aktgruppenmitglied);
+		
 		if ($isOK==false) {
 		
 			$msg="Nicht berechtigt!";
