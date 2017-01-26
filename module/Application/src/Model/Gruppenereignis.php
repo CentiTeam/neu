@@ -61,7 +61,7 @@ class Gruppenereignis{
 		$dbStmt = new DB_connection();
 	
 		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
-		$result=$dbStmt->execute("SELECT e_id, g_id, beschreibung, DATE_FORMAT(zeitpunkt,'%d.%m.%Y') as zeitpunkt FROM ereignis WHERE e_id= '".$e_id."';");
+		$result=$dbStmt->execute("SELECT e_id, g_id, beschreibung, DATE_FORMAT(zeitpunkt,'%d.%m.%Y - %H-%i-%s') as zeitpunkt FROM ereignis WHERE e_id= '".$e_id."';");
 	
 		// Variable, die speichert, ob das Ereignis geladen werden konnte oder nicht
 		$isLoaded=false;
