@@ -232,7 +232,7 @@ class Nachricht {
 		
 		$anzahleintraege = "SELECT COUNT (*) FROM 'nachricht'";
 		$resultanzahleintraege = $db->execute($anzahleintraege);
-		$r = mysql_fetch_row($result);
+		$r = mysqli_fetch_row($result);
 		echo $r;
 	}
 	
