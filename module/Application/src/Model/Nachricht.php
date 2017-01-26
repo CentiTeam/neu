@@ -191,7 +191,7 @@ class Nachricht {
 	
 		$db = new DB_connection();
 	
-		$query="SELECT * FROM `nachricht`
+		$query="SELECT n_id, DATE_FORMAT(datum,'%m-%d-%Y'), text, u_id, g_idFROM `nachricht`
 				WHERE g_id='".$g_id."'	
 				ORDER BY n_id DESC LIMIT 10;";
 		
