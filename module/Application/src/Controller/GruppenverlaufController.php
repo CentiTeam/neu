@@ -15,7 +15,8 @@ class GruppenverlaufController extends AbstractActionController
 {
 	public function GruppenverlaufAction()
 	{
-		var_dump($_SESSION['angemeldet']);
+		session_start();
+		
 		// Berechtigungsprüfung
 		if ($_SESSION['angemeldet']==NULL) {
 		
@@ -37,9 +38,6 @@ class GruppenverlaufController extends AbstractActionController
 		$aktgruppenmitglied=new Gruppenmitglied();
 		$isOK=$aktgruppenmitglied->laden($g_id, $user_id);
 		
-		var_dump($g_id);
-		var_dump($user_id);
-		var_dump($aktgruppenmitglied);
 		
 		if ($isOK==false) {
 		
