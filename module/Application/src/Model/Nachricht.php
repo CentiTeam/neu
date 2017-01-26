@@ -42,78 +42,6 @@ class Nachricht {
 	
 
 	
-	public function messaeboardladenxy ($n_id = null, $g_id) {
-	
-		// Datenbankstatement erzeugen
-		$dbStmt = new DB_connection();
-	
-		// Wie viele Nachrichten sind vorhanden?
-		
-		$query = "SELECT COUNT (*) as total FROM nachricht WHERE g_id = '".$g_id."';";
-		$query = $db->execute ($query);
-		$row_total = mysqli_fetch_assoc($query);
-		$gesamte_anzahl = $row_total['total'];
-		
-		// Ergebnisse pro Seite
-		
-		$ergebnisse_pro_seite = 10;
-		$gesamt_seiten = ceil($gesamte_anzahl/$ergebnisse_pro_seite);
-		
-		// Seite
-		if (empty($_GET['seite_nr'])) {
-			$seite = 1;
-		} else {
-			$seite = $_GET['seite_nr'];
-			if ($seite > $gesamt_seiten) {
-				$seite = 1;
-			}
-		}
-		// Beginn der Abfrage pro Seite aus der Datenbank
-		
-		$limit = ($seite*$ergebnisse_pro_seite)-$ergebnisse_pro_seite;
-		
-		
-		// DB-Befehl absetzen: alle Basisinformationen des Teams mit der �bergebenen $t_id abfragen
-		if ($n_id) {
-			$result=$dbStmt->execute("SELECT n_id, DATE_FORMAT(datum,'%d.%m.%Y') as datum, text, u_id, g_id FROM nachricht WHERE n_id= '".$n_id."' LIMIT '.$limit.', '.$ergebnisse_pro_seite ;");
-		}
-		else {
-			$result=$dbStmt->execute("SELECT n_id, DATE_FORMAT(datum,'%d.%m.%Y') as datum, text, u_id, g_id FROM nachricht WHERE n_id =(SELECT MAX(n_id) FROM nachricht) LIMIT '.$limit.', '.$ergebnisse_pro_seite");
-		}
-		
-		
-		for ($i=1; $i<=$gesamt_seiten; ++$i) {
-			if ($seite == $i) {
-				echo '<a href="http://132.231.36.206/groupshow?g_id=174?seite_nr='.$i.'" style="font-weight: bold;">'.$i.'</a>';
-			} else {
-				echo '<a href="http://132.231.36.206/groupshow?g_id=174?seite_nr='.$i.'">'.$i.'</a>';
-			}
-		}
-		// Variable, die speichert, ob das Team geladen werden konnte oder nicht
-		$isLoaded=false;
-	
-		// Ergebnis verarbeiten, falls vorhanden
-		if ($row=mysqli_fetch_array($result)) {
-			$this->n_id=$row["n_id"];
-			$this->datum=$row["datum"];
-			$this->text=$row["text"];
-	
-			$user_id=$row["u_id"];
-			$this->user=new User();
-			$this->user->laden($user_id);
-	
-			$gruppen_id=$row["g_id"];
-			$this->gruppe=new Gruppe();
-			$this->gruppe->laden($gruppen_id);
-	
-			// speichern, dass die Basisinformationen des Teams erfolgreich geladen werden konnten
-			$isLoaded=true;
-		}
-	
-		// zur�ckgeben, ob beim Laden ein Fehler aufgetreten ist
-		return $isLoaded;
-	}
-	
 	public function messageboardladen ($n_id = null, $g_id) {
 	
 		// Datenbankstatement erzeugen
@@ -280,7 +208,7 @@ class Nachricht {
 				$model = new Nachricht();
 	
 				// Model anhand der Nummer aus der Datenbankabfrage laden
-				$model->messageboardladenxy($row["n_id"]);
+				$model->messageboardladen($row["n_id"]);
 	
 				// neues Model ans Ende des $gruppeListe-Arrays anf�gen
 				$aktuelleListe[] = $model;
