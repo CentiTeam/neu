@@ -229,7 +229,8 @@ class ZahlunganlegenController extends AbstractActionController {
 						
 						//PArt von Tanja: Zahlungsteilnehmerliste laden beim Anlegen
 						$teilnehmerliste=Zahlungsteilnehmer::zahlungsteilnehmerholen($zahlungs_id);
-						 
+						// Part Tanja zu Ende
+						
 						 $view = new ViewModel([
 						 		'gruppe' => array($gruppe),
 						 		'errors'   => $errors,
