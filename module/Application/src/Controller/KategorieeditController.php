@@ -29,15 +29,17 @@ class KategorieeditController extends AbstractActionController {
 		}
 		
 		$errors = array();
+		$user=$_SESSION['user'];
 
 		if($_SESSION['systemadmin'] != 'ja') {
 
-			array_push($errors, "Sie müssen ein Administrator sein, um eine Kategorie zu bearbeiten!");
+			$msg= "Sie müssen ein Administrator sein, um eine Kategorie zu bearbeiten!";
 
-			$view = new ViewModel(array(
-					$errors
-			));
-			$view->setTemplate('application/index/index.phtml');
+			$view = new ViewModel([
+					'msg' => $msg,
+					'user' => array($user),
+			]);
+			$view->setTemplate('application/overview/overview.phtml');
 			return $view;
 
 		} else {

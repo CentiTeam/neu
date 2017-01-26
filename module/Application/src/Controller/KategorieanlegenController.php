@@ -32,14 +32,17 @@ class KategorieanlegenController extends AbstractActionController {
 		
 		}
 		
+		$user=$_SESSION['user'];
+		
 		if($_SESSION['systemadmin'] != 'ja') {
-
-			array_push($errors, "Sie müssen ein Administrator sein, um eine Kategorie hinzuf�gen zu k�nnen!");
-
-			$view = new ViewModel(array(
-					$errors
-			));
-			$view->setTemplate('application/index/index.phtml');
+		
+			$msg= "Sie müssen ein Administrator sein, um eine Kategorie zu bearbeiten!";
+		
+			$view = new ViewModel([
+					'msg' => $msg,
+					'user' => array($user),
+			]);
+			$view->setTemplate('application/overview/overview.phtml');
 			return $view;
 
 		} else {
