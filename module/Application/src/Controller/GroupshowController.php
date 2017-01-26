@@ -181,14 +181,6 @@ class GroupshowController extends AbstractActionController
 			$nachricht->sendMessage();
 			
 			
-			$sql = 'SELECT * FROM nachricht ';
-			$result = $db->fetchAll($sql);
-			$page=$this->_getParam('page',1);
-			$paginator = Zend_Paginator::factory($result);
-			$paginator->setItemCountPerPage(10);
-			$paginator->setCurrentPageNumber($page);
-			
-			$this->view->paginator=$paginator;
 			
 			// Nachrichtenliste laden je Gruppe (inkl. neuer Nachricht)
 			$aktnachrichtliste=Nachricht::messageboard($user_id, $g_id);
