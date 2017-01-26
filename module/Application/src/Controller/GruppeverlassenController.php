@@ -63,7 +63,8 @@ class GruppeverlassenController extends AbstractActionController
 		
 		// Model anhand der �bergebenen $g_id laden lassen und speichern, ob dies funktioniert hat
 		$g_id=$_REQUEST['g_id'];
-
+		$user=$_SESSION['user'];
+		
 		$gruppenmitglied->laden($g_id, $user->getU_id());
 
 		
