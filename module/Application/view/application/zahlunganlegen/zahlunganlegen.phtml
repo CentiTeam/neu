@@ -1,3 +1,6 @@
+<?php session_start();?>
+
+
 <form action="zahlunganlegen" method="post">
 
 <table>
@@ -50,7 +53,12 @@
 			<label>
 			<input type="hidden" name="zahlungsteilnehmer[]" value='<?=$mitglied->getU_id()?>'>
 			<?=$mitglied->getUsername()?>
-			<br>Anteil: <input type="text" name="anteilsbetrag[]" placeholder="Euro.Cent">
+			
+			<?php if ($mitglied->getU_id()==$_SESSION['user']->getU_id()) { ?>
+				<br>Anteil: <input type="text" name="anteilsbetrag[]" placeholder="Euro.Cent" required>
+			<?php } else { ?>				
+				<br>Anteil: <input type="text" name="anteilsbetrag[]" placeholder="Euro.Cent">
+			<?php }?>
 			</label><br></input>	 	 			
 		<?php 
 		} ?> 
