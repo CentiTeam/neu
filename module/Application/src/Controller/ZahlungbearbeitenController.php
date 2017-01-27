@@ -98,32 +98,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						$summe += $anteil;
 					}
 				
-					/** TODO Problem 
-				 			  
-					//Feststellen, ob für das gesetzte Häkchen auch ein Anteil angegeben wurde
-					$counter=0;
-					foreach ($_POST['zahlungsteilnehmer'] as $teilnehmer) {
-					
-					
-						if (($teilnehmer) AND $anteile[$counter]=="")
-						{
-							echo "Jeder ausgew&aumlhlte Teilnehmer muss einen Anteil zugewiesen bekommen";
-						
-							$view = new ViewModel([
-								'gruppe' => array($gruppe),
-								'zahlungsteilnehmer' => array($teilnehmer),
-								'msg' => $msg,
-								'kategorieListe' => $kategorieliste,
-								'mitgliederListe' => $mitgliederliste,
-								'erstellungsdatum' => $erstellungsdatum,
-								'zahlung' => array($zahlung)
-							]);
-						
-							return $view;
-						}
-						$counter++;
-					}
-					*/	
+	
 
 					if($summe != $_REQUEST["betrag"]){
 						echo ("Die Anteile mï¿½ssen zusammen der Gesamtsumme entsprechen.");
@@ -330,7 +305,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 				return $view;
 			}
 
-
+			$zahlungsteilnehmerliste=Zahlungsteilnehmer::zahlungsteilnehmerholen($z_id);
 
 			return new ViewModel([
 					'gruppe' => array($gruppe),
@@ -339,7 +314,8 @@ class ZahlungbearbeitenController extends AbstractActionController {
 					'kategorieListe' => $kategorieliste,
 					'mitgliederListe' => $mitgliederliste,
 					'erstellungsdatum' => $erstellungsdatum,
-					'zahlung' => array($zahlung)
+					'zahlung' => array($zahlung),
+					'zahlungsteilnehmerliste' => $zahlungsteilnehmerliste
 			]);
 		}
 	}
