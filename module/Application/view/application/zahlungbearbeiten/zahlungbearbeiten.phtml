@@ -45,7 +45,7 @@
 			<?php } else { ?>				
 				<br>Anteil: <input type="text" name="anteilsbetrag[]" 
 				<?php foreach ($zahlungsteilnehmerliste as $counter => $teilnehmer) { 
-					if ($teilnehmer->getUser()->getU_id()==$mitglied->getUser()->getU_id()) {?>
+					if ($teilnehmer->getUser()->getU_id()==$mitglied->getU_id()) {?>
 						value="<?=$teilnehmer->getAnteil()?>"
 					<?php }
 					}
