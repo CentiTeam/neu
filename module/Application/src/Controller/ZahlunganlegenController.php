@@ -70,30 +70,6 @@ class ZahlunganlegenController extends AbstractActionController {
 				
 				
 				
-				$anzahlteilnehmer=0;
-				for($anzahl=0; $anzahl<$i; $anzahl++) {
-					if ($anteile[$anzahl] != "") {
-						$anzahlteilnehmer++;
-					}
-				}
-				
-				$zahlungsbeschreibung=$_POST['zahlungsbeschreibung'];
-				
-				if ($anzahlteilnehmer <= 1){
-					$msg="Du bist momentan der einzige Zahlungsteilnehmer. Wähl noch ein weiteres Gruppenmitglied aus!";
-					
-					return new ViewModel([
-						'gruppe' => array($gruppe),
-						'msg' => $msg,
-						'kategorieListe' => $kategorieliste,
-						'mitgliederListe' => $mitgliederliste,
-						'erstellungsdatum' => $erstellungsdatum,
-						'zahlungsbeschreibung' => $zahlungsbeschreibung
-						
-					]);
-				}
-				
-				
 				echo "Hier sind die Anteile";
 				var_dump($anteile);
 				echo "Hier ist Anteil-Ende";
@@ -186,6 +162,32 @@ class ZahlunganlegenController extends AbstractActionController {
 						$zahlung->setGruppe($gruppe); 
 					
 					
+						
+						
+					// Fehlerabfrage, ob mehrere Teilnehmer ausgewählt wurden	
+					$anzahlteilnehmer=0;
+					
+					for($anzahl=0; $anzahl<$i; $anzahl++) {
+						if ($anteile[$anzahl] != "") {
+							$anzahlteilnehmer++;
+						}
+					}
+						
+					$zahlungsbeschreibung=$_POST['zahlungsbeschreibung'];
+						
+					if ($anzahlteilnehmer <= 1){
+						$msg="Du bist momentan der einzige Zahlungsteilnehmer. Wähl noch ein weiteres Gruppenmitglied aus!";
+								
+						return new ViewModel([
+								'gruppe' => array($gruppe),
+								'msg' => $msg,
+								'kategorieListe' => $kategorieliste,
+								'mitgliederListe' => $mitgliederliste,
+								'erstellungsdatum' => $erstellungsdatum,
+								'zahlung' => array($zahlung)
+					
+						]);
+					}
 // 						echo "gruppe derr Zhalung";
 // 						var_dump($zahlung->getGruppe());
 						
