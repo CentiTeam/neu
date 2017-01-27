@@ -19,19 +19,45 @@ class NachrichtbearbeitenController extends AbstractActionController {
 
 		$errors = array();
 
-		if($_SESSION['angemeldet'] != 'ja') {
-
-			array_push($errors, "Sie mÃ¼ssen angemeldet sein um eine Nachricht bearbeiten zu k&oumlnnen!");
-
-			$view = new ViewModel(array(
-					$errors
-			));
+		// BerechtigungsprÃ¼fung
+		if ($_SESSION['angemeldet']==NULL) {
+		
+			$msg="Nicht berechtigt!";
+		
+			$view = new ViewModel([
+					'msg' => $msg,
+			]);
+		
 			$view->setTemplate('application/index/index.phtml');
+		
+			return $view;
+		
+		}
+		
+		$n_id=$_REQUEST['n_id'];
+		$user_id=$_SESSION['user']->getU_id();
+		
+		$aktnachricht=new Nachricht();
+		$aktnachricht->laden($n_id);
+		
+		if ($aktnachricht->getU_id() != $user_id) {
+		
+			$msg="Nicht berechtigt!";
+				
+			$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
+				
+			$view = new ViewModel([
+					'gruppenListe' => $gruppenliste,
+					'msg' => $msg,
+			]);
+		
+			$view->setTemplate('application/groupoverview/groupoverview.phtml');
+		
 			return $view;
 
 		} else {
 			
-			//Ausgewählte Nachricht laden
+			//Ausgewï¿½hlte Nachricht laden
 			$nachricht = new Nachricht();
 			$n_id = $_REQUEST['n_id'];
 			$nachricht->laden($n_id);
@@ -39,7 +65,7 @@ class NachrichtbearbeitenController extends AbstractActionController {
 			//User ID aus der Session holen
 			$user_id = $_SESSION['user']->getU_id();
 			
-			//Überprüfen, ob User = Absender
+			//ï¿½berprï¿½fen, ob User = Absender
 			if($user_id != $nachricht->getUser()->getU_id()) {
 				
 				echo "Sie sind nicht der Verfasser dieser Nachricht";
@@ -82,7 +108,7 @@ class NachrichtbearbeitenController extends AbstractActionController {
 				
 				echo "Ihre Nachricht wurde entfernt";
 				
-				//Relevante Daten für Groupshow laden
+				//Relevante Daten fï¿½r Groupshow laden
 				$gruppe= new Gruppe();
 				$g_id=$_REQUEST['g_id'];
 				$gruppe->laden($g_id);
