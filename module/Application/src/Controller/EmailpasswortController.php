@@ -52,7 +52,7 @@ $text=
 <body>
 <div>Hallo!</div>
 <br>
-<div>&Uuml;ber diesen Link kannst Du Dein Passwort zur�cksetzen:</div>
+<div>&Uuml;ber diesen Link kannst Du Dein Passwort zur&uuml;ksetzen:</div>
 <div>$link</div><br>
 
 <div>Viele Gr&uuml;&szlig;e</div>
