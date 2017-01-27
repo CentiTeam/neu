@@ -29,6 +29,8 @@
 <tr class="datentabelle">
 		<th class="datentabelle">User ID  </th>
 		<th class="datentabelle">Username </th>
+		<th class="datentabelle">Anteil </th>
+		<th class="datentabelle">Restbetrag </th>
 </tr>
 
 <?php 
@@ -39,6 +41,8 @@
 		<tr class="datentabelle">
 			<td class="datentabelle"><?=$zahlungsteilnehmer->getUser()->getU_id()?></td>
 			<td class="datentabelle"><?=$zahlungsteilnehmer->getUser()->getUsername()?></td>
+			<td class="datentabelle"><?=$zahlungsteilnehmer->getAnteil()?></td>
+			<td class="datentabelle"><?=$zahlungsteilnehmer->getRestbetrag()?></td>
 					
 		</tr>
 
