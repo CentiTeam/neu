@@ -33,10 +33,23 @@
 			<?=$mitglied->getUsername()?>
 			
 			<?php if ($mitglied->getU_id()==$_SESSION['user']->getU_id()) { ?>
-				<br>Anteil: <input type="text" name="anteilsbetrag[]" value="<?=$mitglied->getAnteil()?>" placeholder="Euro.Cent" required>
+				
+				<br>Anteil: <input type="text" name="anteilsbetrag[]" 
+				<?php foreach ($zahlungsteilnehmerliste as $counter => $teilnehmer) { 
+					if ($teilnehmer->getUser()->getU_id()==$mitglied->getUser()->getU_id()) {?>
+						value="<?=$teilnehmer->getAnteil()?>"
+					<?php }
+				}?> 				
+				placeholder="Euro.Cent" required>
+							
 			<?php } else { ?>				
-				<br>Anteil: <input type="text" name="anteilsbetrag[]" value="<?=$mitglied->getAnteil()?>" placeholder="Euro.Cent">
-			<?php }?>
+				<br>Anteil: <input type="text" name="anteilsbetrag[]" 
+				<?php foreach ($zahlungsteilnehmerliste as $counter => $teilnehmer) { 
+					if ($teilnehmer->getUser()->getU_id()==$mitglied->getUser()->getU_id()) {?>
+						value="<?=$teilnehmer->getAnteil()?>"
+					<?php }
+					}
+				}?> 
 			</label><br></input>	
 			 			
 		<?php 
