@@ -77,6 +77,8 @@ class ZahlunganlegenController extends AbstractActionController {
 					}
 				}
 				
+				$zahlungsbeschreibung=$_POST['zahlungsbeschreibung'];
+				
 				if ($anzahlteilnehmer <= 1){
 					$msg="Du bist momentan der einzige Zahlungsteilnehmer. Wähl noch ein weiteres Gruppenmitglied aus!";
 					
@@ -85,7 +87,9 @@ class ZahlunganlegenController extends AbstractActionController {
 						'msg' => $msg,
 						'kategorieListe' => $kategorieliste,
 						'mitgliederListe' => $mitgliederliste,
-						'erstellungsdatum' => $erstellungsdatum
+						'erstellungsdatum' => $erstellungsdatum,
+						'zahlungsbeschreibung' => $zahlungsbeschreibung
+						
 					]);
 				}
 				
