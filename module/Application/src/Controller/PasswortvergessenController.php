@@ -15,7 +15,7 @@ class PasswortvergessenController extends AbstractActionController
 		
 		$user = new User ();
 		$error = false;
-		$msg = array ();
+
 		
 		if ($_REQUEST['passwortvergessen']) {
 				
