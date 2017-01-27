@@ -13,8 +13,6 @@ class ProfilController extends AbstractActionController {
 		// TODO Berechtigungspr�fung
 		session_start();
 		
-		$user=$_SESSION['user'];
-		
 		if ($_SESSION['user']==NULL && $_SESSION['systemadmin']==NULL) {
 			$msg="Nicht berechtigt!";
 			$view = new ViewModel([
@@ -27,7 +25,7 @@ class ProfilController extends AbstractActionController {
 		
 		}
 		
-		
+		$user=$_SESSION['user'];
 
 			if ($_REQUEST['profilbild']) {
 				

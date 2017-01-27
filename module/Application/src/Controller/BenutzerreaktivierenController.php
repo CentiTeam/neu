@@ -23,7 +23,7 @@ class BenutzerreaktivierenController extends AbstractActionController{
 				
 			return $view;
 		
-		} elseif ($_SESSION['user']->getAdmin()=="nein") {
+		} elseif ($_SESSION['user']->getSystemadmin()=="0") {
 		
 			$msg="Nicht berechtigt!";
 		
