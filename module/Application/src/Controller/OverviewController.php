@@ -21,21 +21,19 @@ class OverviewController extends AbstractActionController
 	
 		session_start();
 		
-		if ($_SESSION['angemeldet']=='ja')
-		{
-			
-		}
-		else 
-		{
-			echo "Sie haben keine Berechtigung, auf diese Seite zuzugreifen!";
-			$view = new ViewModel(array(
-					'message' => 'Sie haben keine Berechtigung, auf diese Seite zuzugreifen!',
-			));
+		if ($_SESSION['user']==NULL) {
+			$msg="Nicht berechtigt!";
+			$view = new ViewModel([
+					'msg' => $msg,
+			]);
+		
 			$view->setTemplate('application/index/index.phtml');
+		
 			return $view;
+		
 		}
 		
-		// TEST, um die Übergabe der Elemente des angemeldeten Users an eine andere Funktion anzuzeigen
+		// TEST, um die ï¿½bergabe der Elemente des angemeldeten Users an eine andere Funktion anzuzeigen
 		$user=$_SESSION['user'];
 
 		
@@ -46,18 +44,18 @@ class OverviewController extends AbstractActionController
 		
 		
 		
-		//Zahlungen von den letzten fünf Tagen anzeigen lassen
+		//Zahlungen von den letzten fï¿½nf Tagen anzeigen lassen
 		
 			//U_ID der Session holen
 			$user_id=$_SESSION['user']->getU_id();
 		
 			$aktzahlungliste=Zahlung::aktuellezahlungenholen($user_id);
 			
-		//Nachrichten der letzten fünf Tage anzeigen lassen
+		//Nachrichten der letzten fï¿½nf Tage anzeigen lassen
 		
 			$aktnachrichtliste=Nachricht::aktuellenachrichten($user_id);
 			
-		//Gruppenereignisse der letzten fünf Tage anzeigen lassen
+		//Gruppenereignisse der letzten fï¿½nf Tage anzeigen lassen
 		
 			$aktereignisliste=Gruppenereignis::akutelleereignisse($user_id);
 			
