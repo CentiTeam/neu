@@ -11,6 +11,8 @@ class BenutzerdeaktivierenController extends AbstractActionController{
 	
 	public function benutzerdeaktivierenAction(){
 		
+		var_dump($_SESSION['user']->getAdmin());
+		
 		if ($_SESSION['angemeldet']==NULL) {
 				
 			$msg="Nicht berechtigt!";
@@ -23,7 +25,7 @@ class BenutzerdeaktivierenController extends AbstractActionController{
 				
 			return $view;
 		
-		} elseif ($_SESSION['user']->getAdmin()=="nein") {
+		} elseif ($_SESSION['user']->getAdmin()=="0") {
 		
 			$msg="Nicht berechtigt!";
 		
