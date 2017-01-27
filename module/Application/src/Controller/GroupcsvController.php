@@ -37,18 +37,18 @@ class GroupcsvController extends AbstractActionController
 		$aktgruppenmitglied=new Gruppenmitglied();
 		$isOK=$aktgruppenmitglied->laden($g_id, $user_id);
 		
-	//	if (!$isOK) {
+		if ($isOK) {
 		
-	//		$msg="Nicht berechtigt!";
+			$msg="Nicht berechtigt!";
 		
-	//		$view = new ViewModel([
-	//				'msg' => $msg,
-	//		]);
+			$view = new ViewModel([
+					'msg' => $msg,
+			]);
 		
-	//		$view->setTemplate('application/index/index.phtml');
+			$view->setTemplate('application/index/index.phtml');
 		
-	//		return $view;
-	//	}
+			return $view;
+		}
 		 
 		// Gruppen-Objekt laden
 		$gruppe= new Gruppe();
