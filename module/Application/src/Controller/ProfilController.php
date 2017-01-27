@@ -31,7 +31,7 @@ class ProfilController extends AbstractActionController {
 					// Schritt 1:  Werte aus Formular einlesen
 					$uploadedfile=$_REQUEST["uploadedfile"];
 				
-					//Bilddatei an die Funktion Bildupload übergeben, Rückgabe des Bildpfades
+					//Bilddatei an die Funktion Bildupload ï¿½bergeben, Rï¿½ckgabe des Bildpfades
 					$path = $bildupload->bildupload($uploadedfile);
 				
 					$u_id=$_REQUEST["u_id"]; 
