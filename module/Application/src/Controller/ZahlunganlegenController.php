@@ -68,7 +68,16 @@ class ZahlunganlegenController extends AbstractActionController {
 					$summe += $anteil;
 				}
 				
-				if ($i <= 1){
+				
+				
+				$anzahlteilnehmer=0;
+				for($anzahl=0; $anzahl<$i; $anzahl++) {
+					if ($anteile[$anzahl] != "") {
+						$anzahlteilnehmer++;
+					}
+				}
+				
+				if ($anzahlteilnehmer <= 1){
 					$msg="Du bist momentan der einzige Zahlungsteilnehmer. Wähl noch ein weiteres Gruppenmitglied aus!";
 					
 					return new ViewModel([
