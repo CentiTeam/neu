@@ -21,19 +21,19 @@ class NachrichtbearbeitenController extends AbstractActionController {
 		
 
 		// Berechtigungsprüfung
-		//if ($_SESSION['angemeldet']==NULL) {
+		if ($_SESSION['angemeldet']==NULL) {
 		
-		//	$msg="Nicht berechtigt!";
+			$msg="Nicht berechtigt!";
 		
-		//	$view = new ViewModel([
-		//			'msg' => $msg,
-		//	]);
+			$view = new ViewModel([
+					'msg' => $msg,
+			]);
 		
-		//	$view->setTemplate('application/index/index.phtml');
+			$view->setTemplate('application/index/index.phtml');
 		
-		//	return $view;
+			return $view;
 		
-	//	}
+		}
 		
 		$n_id=$_REQUEST['n_id'];
 		$user_id=$_SESSION['user']->getU_id();

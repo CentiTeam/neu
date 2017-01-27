@@ -21,19 +21,18 @@ class GroupshowController extends AbstractActionController
 		
 
 		// Berechtigungsprüfung
-		if ($_SESSION['angemeldet']==NULL) {
+	//	if ($_SESSION['angemeldet']==NULL) {
 		
-			$msg="Nicht berechtigt!";
+	//		$msg="Nicht berechtigt!";
 		
-			$view = new ViewModel([
-					'msg' => $msg,
-			]);
+		//	$view = new ViewModel([
+			//		'msg' => $msg,
+		//	]);
+		//	$view->setTemplate('application/index/index.phtml');
+		//
+		//	return $view;
 		
-			$view->setTemplate('application/index/index.phtml');
-		
-			return $view;
-		
-		}
+	//	}
 		
 		$g_id=$_REQUEST['g_id'];
 		$user_id=$_SESSION['user']->getU_id();
