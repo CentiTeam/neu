@@ -187,44 +187,53 @@ class ZahlunganlegenController extends AbstractActionController {
 						 // Legt die zugeh�rigen Zahlungsteilnehmer Datens�tze an, au�er f�r sich selbst (info wird aber f�r Anteil ben�tigt!)
 						 foreach ($_POST['zahlungsteilnehmer'] as $key => $value) {
 						 	
-						 	//Aus der ID des �bergebenen Arrays User-Objekt erstellen
-						 	$akt_benutzer = new User();
-						 	$akt_benutzer->laden($value);
-				 	
-						 	// Variablen befuellen
-			 				$zahlungsteilnehmer=new Zahlungsteilnehmer();
-			 		
-					 		$zahlungs_id=$zahlung->getZ_id();
-					 		
-					 		$anteil=$anteile[$counter];
-					 		
-						 	if($value == $user_id) {
-						 		//Der Status bei dem, der die Zahlung erstellt hat ist "ersteller", dies erleichtert die nachtr�gliche Bearbeitung von
-						 		//Zahlungen, da Zahlungen nur bearbeitet werden d�rfen, wenn sie nicht den Status "beglichen" Aufweisen.
-							 		$status="ersteller"; 
-							 		$restbetrag="0";
-							 		$temp = $zahlungsteilnehmer;
+						 	
+						 	if($anteile[$counter]=="") {
+						 		
+						 		$counter++;
+						 		
 						 	} else {
-						 		//Der Status f�r alle anderen Zahlungsteilnehmer ist offen.
-							 		$status="offen";
-							 		$restbetrag=$anteil;
-					 		}
+						 	
+							 	//Aus der ID des �bergebenen Arrays User-Objekt erstellen
+							 	$akt_benutzer = new User();
+							 	$akt_benutzer->laden($value);
 				 	
-						 	$zahlungsempfaenger=$_SESSION['user'];
-	
-						 	// Variablenwerte in Objekt einlesen
-						 	$zahlungsteilnehmer->setUser($akt_benutzer); 
-						 	$zahlungsteilnehmer->setZahlung($zahlung);
-					 		$zahlungsteilnehmer->setStatus($status);
-						 	$zahlungsteilnehmer->setAnteil($anteil); 
-							$zahlungsteilnehmer->setZahlungsempfaenger($zahlungsempfaenger);
-							$zahlungsteilnehmer->setRestbetrag($restbetrag);
+							 	// Variablen befuellen
+			 					$zahlungsteilnehmer=new Zahlungsteilnehmer();
+			 		
+						 		$zahlungs_id=$zahlung->getZ_id();
 					 		
-							$zahlungsteilnehmer->anlegen();
+						 		$anteil=$anteile[$counter];
+					 		
+						 		if($value == $user_id) {
+							 		//Der Status bei dem, der die Zahlung erstellt hat ist "ersteller", dies erleichtert die nachtr�gliche Bearbeitung von
+							 		//Zahlungen, da Zahlungen nur bearbeitet werden d�rfen, wenn sie nicht den Status "beglichen" Aufweisen.
+								 		$status="ersteller"; 
+								 		$restbetrag="0";
+								 		$temp = $zahlungsteilnehmer;
+							 	} else {
+							 		//Der Status f�r alle anderen Zahlungsteilnehmer ist offen.
+								 		$status="offen";
+								 		$restbetrag=$anteil;
+						 		}
+				 	
+							 	$zahlungsempfaenger=$_SESSION['user'];
+	
+							 	// Variablenwerte in Objekt einlesen
+							 	$zahlungsteilnehmer->setUser($akt_benutzer); 
+						 		$zahlungsteilnehmer->setZahlung($zahlung);
+					 			$zahlungsteilnehmer->setStatus($status);
+							 	$zahlungsteilnehmer->setAnteil($anteil); 
+								$zahlungsteilnehmer->setZahlungsempfaenger($zahlungsempfaenger);
+								$zahlungsteilnehmer->setRestbetrag($restbetrag);
+						 		
+								$zahlungsteilnehmer->anlegen();
 							
-							var_dump($zahlungsteilnehmer->getUser()->getVorname());
-							
-							$counter++;
+								var_dump($zahlungsteilnehmer->getUser()->getVorname());
+								
+								$counter++;
+						 	}
+						 	
 						 }
 						 $temp ->ausgleichen();
 						 
