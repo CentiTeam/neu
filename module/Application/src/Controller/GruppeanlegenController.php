@@ -168,7 +168,7 @@ class GruppeanlegenController extends AbstractActionController {
 				 		'msg' => $msg,
 				 		'aktgruppenmitglied' => $aktgruppenmitglied,
 				 		'mitgliederListe' => $mitgliederliste,
-				 		'mitgliedschaft' => $mitgliedschaft
+				 		'mitgliedschaft' => $mitgliedschaft,
 				 		'gruppenListe' => $gruppenliste,
 				 ]);
 				 
