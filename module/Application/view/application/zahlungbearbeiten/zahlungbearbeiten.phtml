@@ -33,9 +33,9 @@
 			<?=$mitglied->getUsername()?>
 			
 			<?php if ($mitglied->getU_id()==$_SESSION['user']->getU_id()) { ?>
-				<br>Anteil: <input type="text" name="anteilsbetrag[]" value="<?=$zahlungmitglied->getAnteil()?>" placeholder="Euro.Cent" required>
+				<br>Anteil: <input type="text" name="anteilsbetrag[]" value="<?=$mitglied->getAnteil()?>" placeholder="Euro.Cent" required>
 			<?php } else { ?>				
-				<br>Anteil: <input type="text" name="anteilsbetrag[]" value="<?=$zahlungmitglied->getAnteil()?>" placeholder="Euro.Cent">
+				<br>Anteil: <input type="text" name="anteilsbetrag[]" value="<?=$mitglied->getAnteil()?>" placeholder="Euro.Cent">
 			<?php }?>
 			</label><br></input>	
 			 			
