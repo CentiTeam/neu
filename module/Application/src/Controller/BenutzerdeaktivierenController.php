@@ -11,6 +11,7 @@ class BenutzerdeaktivierenController extends AbstractActionController{
 	
 	public function benutzerdeaktivierenAction(){
 		
+		session_start();
 		var_dump($_SESSION['user']->getAdmin());
 		
 		if ($_SESSION['angemeldet']==NULL) {
