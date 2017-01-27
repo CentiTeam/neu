@@ -40,7 +40,6 @@ class NachrichtbearbeitenController extends AbstractActionController {
 		$aktnachricht=new Nachricht();
 		$aktnachricht->laden($n_id);
 		
-		var_dump($aktnachricht);
 		
 		if ($aktnachricht->getUser()->getU_id() != $user_id) {
 		
