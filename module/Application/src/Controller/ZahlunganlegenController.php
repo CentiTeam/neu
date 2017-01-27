@@ -69,38 +69,6 @@ class ZahlunganlegenController extends AbstractActionController {
 				}
 				
 				
-				
-				echo "Hier sind die Anteile";
-				var_dump($anteile);
-				echo "Hier ist Anteil-Ende";
-				
-				/**		TODO Problem: Im Array Zahlungsteilnehmer stehen nur die Werte, die ein Hï¿½kchen bekommen
-				 					  Im Array Anteile werden jedoch alle Anteile eingespeichert, gleich ob da ein Hï¿½kchen war oder nicht
-				 					  Das fï¿½hrt dazu, dass in dem Fall, dass ein Teilnehmer ausgelassen wird, der falsche Anteil ausgelesen wird
-				
-				//Feststellen, ob fï¿½r das gesetzte Hï¿½kchen auch ein Anteil angegeben wurde
-				$counter=0;
-				foreach ($_POST['zahlungsteilnehmer'] as $key => $value) {
-						
-						
-					if ($anteile[$counter]=="")
-					{
-						echo "Jeder ausgew&aumlhlte Teilnehmer muss einen Anteil zugewiesen bekommen";
-				
-						$view = new ViewModel([
-								'gruppe' => array($gruppe),
-								'msg' => $msg,
-								'kategorieListe' => $kategorieliste,
-								'mitgliederListe' => $mitgliederliste,
-								'erstellungsdatum' => $erstellungsdatum
-						]);
-				
-						return $view;
-					}
-					$counter++;
-				}
-				*/
-				
 // 				echo "betrag:";
 // 				var_dump ($_REQUEST["betrag"]);
 				if($summe != $_REQUEST["betrag"]){
@@ -176,7 +144,7 @@ class ZahlunganlegenController extends AbstractActionController {
 					$zahlungsbeschreibung=$_POST['zahlungsbeschreibung'];
 						
 					if ($anzahlteilnehmer <= 1){
-						$msg="Du bist momentan der einzige Zahlungsteilnehmer. Wähl noch ein weiteres Gruppenmitglied aus!";
+						$msg="Du bist momentan der einzige Zahlungsteilnehmer. W&auml;hl noch ein weiteres Gruppenmitglied aus!";
 								
 						return new ViewModel([
 								'gruppe' => array($gruppe),
@@ -187,9 +155,7 @@ class ZahlunganlegenController extends AbstractActionController {
 								'zahlung' => array($zahlung)
 					
 						]);
-					}
-// 						echo "gruppe derr Zhalung";
-// 						var_dump($zahlung->getGruppe());
+					}				
 						
 					
 					// Wenn temporï¿½res Objekt gefï¿½llt wurde kann mit diesen Werten das Objekt ï¿½ber die anlegen-Fkt in die DB geschrieben werden
@@ -214,7 +180,6 @@ class ZahlunganlegenController extends AbstractActionController {
 						 $temp;
 						 // Legt die zugehï¿½rigen Zahlungsteilnehmer Datensï¿½tze an, auï¿½er fï¿½r sich selbst (info wird aber fï¿½r Anteil benï¿½tigt!)
 						 foreach ($_POST['zahlungsteilnehmer'] as $key => $value) {
-						 	
 						 	
 						 	if($anteile[$counter]=="") {
 						 		

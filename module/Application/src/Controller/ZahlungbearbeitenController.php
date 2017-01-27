@@ -172,12 +172,40 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						}
 						$zahlung->setAenderungsdatum($aenderungsdatum);
 						
-
+						
+						
+						// Fehlerabfrage, ob mehrere Teilnehmer ausgewählt wurden
+						$anzahlteilnehmer=0;
+							
+						for($anzahl=0; $anzahl<$i; $anzahl++) {
+							if ($anteile[$anzahl] != "") {
+								$anzahlteilnehmer++;
+							}
+						}
+						
+						
+						
+						$zahlungsbeschreibung=$_POST['zahlungsbeschreibung'];
+						
+						if ($anzahlteilnehmer <= 1){
+							$msg="Du bist momentan der einzige Zahlungsteilnehmer. W&auml;hl noch ein weiteres Gruppenmitglied aus!";
+						
+							return new ViewModel([
+									'gruppe' => array($gruppe),
+									'msg' => $msg,
+									'kategorieListe' => $kategorieliste,
+									'mitgliederListe' => $mitgliederliste,
+									'erstellungsdatum' => $erstellungsdatum,
+									'zahlung' => array($zahlung)
+										
+							]);
+						}
+						
 
 							// Wenn temporï¿½res Objekt gefï¿½llt wurde kann mit diesen Werten das Objekt ï¿½ber die Bearbeiten-Fkt in die DB geschrieben werden
 							if ($errorStr == "" && $zahlung->bearbeiten()) {
 
-
+								
 
 								// array_push($msg, "Gruppe erfolgreich gespeichert!");
 								//  $msg .= "Gruppe erfolgreich gespeichert!";
@@ -196,40 +224,47 @@ class ZahlungbearbeitenController extends AbstractActionController {
 								// Legt die zugehï¿½rigen Zahlungsteilnehmer Datensï¿½tze an, auï¿½er fï¿½r sich selbst (info wird aber fï¿½r Anteil benï¿½tigt!)
 								foreach ($_POST['zahlungsteilnehmer'] as $key => $value) {
 
-									//Aus der ID des Übergebenen Arrays User-Objekt erstellen
-									$akt_benutzer = new User();
-									$akt_benutzer->laden($value);
+									if($anteile[$counter]=="") {
+											
+										$counter++;
 									
-									// Variablen befuellen
-									$zahlungsteilnehmer=new Zahlungsteilnehmer();
-
-									$zahlungs_id=$zahlung->getZ_id();
-										
-									if($value == $user_id) {
-										//Der Status bei dem, der die Zahlung erstellt hat ist "ersteller", dies erleichtert die nachträgliche Bearbeitung von
-										//Zahlungen, da Zahlungen nur bearbeitet werden dürfen, wenn sie nicht den Status "beglichen" Aufweisen.
-							 		$status="ersteller";
-							 		$restbetrag="0";
 									} else {
-										//Der Status für alle anderen Zahlungsteilnehmer ist offen.
-							 		$status="offen";
-							 		$restbetrag=$anteil;
-									}
-									$anteil=$anteile[$counter];
+									
+										//Aus der ID des Übergebenen Arrays User-Objekt erstellen
+										$akt_benutzer = new User();
+										$akt_benutzer->laden($value);
+									
+										// Variablen befuellen
+										$zahlungsteilnehmer=new Zahlungsteilnehmer();
 
-									$zahlungsempfaenger=$_SESSION['user'];
-
-									// Variablenwerte in Objekt einlesen
-									$zahlungsteilnehmer->setUser($akt_benutzer);
-									$zahlungsteilnehmer->setZahlung($zahlung);
-									$zahlungsteilnehmer->setStatus($status);
-									$zahlungsteilnehmer->setAnteil($anteil);
-									$zahlungsteilnehmer->setZahlungsempfaenger($zahlungsempfaenger);
-									$zahlungsteilnehmer->setRestbetrag($restbetrag);
-
-									$zahlungsteilnehmer->anlegen();
+										$zahlungs_id=$zahlung->getZ_id();
 										
-									$counter++;
+										if($value == $user_id) {
+											//Der Status bei dem, der die Zahlung erstellt hat ist "ersteller", dies erleichtert die nachträgliche Bearbeitung von
+											//Zahlungen, da Zahlungen nur bearbeitet werden dürfen, wenn sie nicht den Status "beglichen" Aufweisen.
+								 		$status="ersteller";
+								 		$restbetrag="0";
+										} else {
+											//Der Status für alle anderen Zahlungsteilnehmer ist offen.
+								 		$status="offen";
+								 		$restbetrag=$anteil;
+										}
+										$anteil=$anteile[$counter];
+
+										$zahlungsempfaenger=$_SESSION['user'];
+
+										// Variablenwerte in Objekt einlesen
+										$zahlungsteilnehmer->setUser($akt_benutzer);
+										$zahlungsteilnehmer->setZahlung($zahlung);
+										$zahlungsteilnehmer->setStatus($status);
+										$zahlungsteilnehmer->setAnteil($anteil);
+										$zahlungsteilnehmer->setZahlungsempfaenger($zahlungsempfaenger);
+										$zahlungsteilnehmer->setRestbetrag($restbetrag);
+	
+										$zahlungsteilnehmer->anlegen();
+										
+										$counter++;
+									}
 								}
 								
 								//Schreiben des Ereignisses das die Zahlung bearbeitet wurde in die Ereignistabelle der Datenbank
