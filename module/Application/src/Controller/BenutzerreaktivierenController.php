@@ -10,6 +10,7 @@ use Application\Model\User;
 class BenutzerreaktivierenController extends AbstractActionController{
 
 	public function benutzerreaktivierenAction(){
+		session_start();
 		
 		if ($_SESSION['angemeldet']==NULL) {
 				

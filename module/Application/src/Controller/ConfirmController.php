@@ -18,6 +18,7 @@ class ConfirmController extends AbstractActionController
 	{
 		// Hier ist keine Berechtigungsprüfung notwendig
 		
+		
 		$user = new User ();
 		$error = false;
 		$msg = array ();

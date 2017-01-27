@@ -11,6 +11,7 @@ class PasswordresetController extends AbstractActionController
 {
 	public function passwordresetAction()
 	{
+		session_start();
 		
 		if ($_SESSION['user']==NULL) {
 			$msg="Nicht berechtigt!";
@@ -24,7 +25,7 @@ class PasswordresetController extends AbstractActionController
 		
 		}
 		
-		session_start();
+		
 		$user = new User ();
 		$error = false;
 	
