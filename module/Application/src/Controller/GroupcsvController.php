@@ -15,7 +15,7 @@ class GroupcsvController extends AbstractActionController
 {
 	public function GroupcsvAction()
 	{
-		
+		session_start();
 		// Berechtigungsprüfung
 		if ($_SESSION['angemeldet']==NULL) {
 				
