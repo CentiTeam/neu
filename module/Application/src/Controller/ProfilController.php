@@ -13,16 +13,19 @@ class ProfilController extends AbstractActionController {
 		// TODO Berechtigungspr�fung
 		session_start();
 	
-		$errors = array();
-
-		if($_SESSION['angemeldet'] == 'ja' || $_SESSION['systemadmin'] == 'ja') {
-			
-			$u_id=$_SESSION['user']->getU_id();
-			$user = new User();
-			$user->laden($u_id);
-						
-				$saved= false;
-				$msg = array();				
+		if ($_SESSION['user']==NULL && $_SESSION['systemadmin']==NULL) {
+			$msg="Nicht berechtigt!";
+			$view = new ViewModel([
+					'msg' => $msg,
+			]);
+		
+			$view->setTemplate('application/index/index.phtml');
+		
+			return $view;
+		
+		}
+		
+		
 
 			if ($_REQUEST['profilbild']) {
 				
@@ -73,17 +76,6 @@ class ProfilController extends AbstractActionController {
 				]);	
 
 				
-		} else {
-			
-			array_push($errors, "Sie müssen angemeldet sein um Ihr Profil zu sehen!");
-				
-			$view = new ViewModel(array(
-					$errors
-			));
-			$view->setTemplate('application/index/index.phtml');
-			return $view;		
-				 
 		}
-	}
 
 }
