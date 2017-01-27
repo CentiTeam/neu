@@ -18,6 +18,9 @@ class NachrichtbearbeitenController extends AbstractActionController {
 		session_start();
 
 		$errors = array();
+		$aktgruppenmitglied=new Gruppenmitglied();
+		$isOK=$aktgruppenmitglied->laden($g_id, $user_id);
+		$allegruppenliste=Gruppenmitglied::listeholen();
 
 		// Berechtigungsprüfung
 		if ($_SESSION['angemeldet']==NULL) {
