@@ -41,7 +41,7 @@ class NachrichtbearbeitenController extends AbstractActionController {
 		$isOK=$aktnachricht->laden($n_id);
 		
 		
-		if ($isOK && $aktnachricht->getUser()->getU_id() != $user_id) {
+		if ($isOK == false || $aktnachricht->getUser()->getU_id() != $user_id) {
 		
 			$msg="Nicht berechtigt!";
 				
