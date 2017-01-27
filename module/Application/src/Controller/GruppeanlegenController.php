@@ -171,7 +171,7 @@ class GruppeanlegenController extends AbstractActionController {
 				 		'mitgliedschaft' => $mitgliedschaft
 				 ]);
 				 
-				 $view->setTemplate('application/groupshow/groupshow.phtml');
+				 $view->setTemplate('application/groupoverview/groupoverview.phtml');
 				 	
 				 return $view;
 			}
