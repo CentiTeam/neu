@@ -11,6 +11,19 @@ class PasswordresetController extends AbstractActionController
 {
 	public function passwordresetAction()
 	{
+		
+		if ($_SESSION['user']==NULL) {
+			$msg="Nicht berechtigt!";
+			$view = new ViewModel([
+					'msg' => $msg,
+			]);
+		
+			$view->setTemplate('application/index/index.phtml');
+		
+			return $view;
+		
+		}
+		
 		session_start();
 		$user = new User ();
 		$error = false;
@@ -29,7 +42,7 @@ class PasswordresetController extends AbstractActionController
 			
 			
 			
-			// Überprüfung, ob Passwort zwei mal richtig eingegeben wurde
+			// ï¿½berprï¿½fung, ob Passwort zwei mal richtig eingegeben wurde
 			if ($passwort!=$passwortwdh) {
 				echo "<center><h4>Keine &Uumlbereinstimmung der neuen Passw&oumlrter! Bitte erneut versuchen</h4></center>";
 				$error = true;
@@ -66,10 +79,10 @@ class PasswordresetController extends AbstractActionController
 			}
 		
 		
-			// Keine Errors vorhanden, Funktion kann ausgeführt werden
+			// Keine Errors vorhanden, Funktion kann ausgefï¿½hrt werden
 			else if (!$error) {
 		
-				// User-Objekt mit Daten aus Request-Array füllen
+				// User-Objekt mit Daten aus Request-Array fï¿½llen
 				$user->setU_id($u_id);
 				$user->setPasswort ($passwort);
 				$user->setPasswortwdh($passwortwdh);

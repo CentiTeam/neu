@@ -11,6 +11,8 @@ class PasswortvergessenController extends AbstractActionController
 {
 	public function passwortvergessenAction()
 	{
+		// Hier brÃ¤uchten wir einen Sicherheitscode fÃ¼r die BerechtigungsprÃ¼fung
+		
 		$user = new User ();
 		$error = false;
 		$msg = array ();
@@ -25,17 +27,17 @@ class PasswortvergessenController extends AbstractActionController
 			$passwortwdh = $_REQUEST ["passwortwdh"];
 		
 	
-			// Überprüfung, ob Passwort zwei mal richtig eingegeben wurde		
+			// ï¿½berprï¿½fung, ob Passwort zwei mal richtig eingegeben wurde		
 			if ($passwort!=$passwortwdh) {
 				echo "<center><h4>Keine &Uumlbereinstimmung der Passw&oumlrter! Bitte erneut versuchen</h4></center>";
 				$error = true;
 			}
 
 
-			// Keine Errors vorhanden, Funktion kann ausgeführt werden
+			// Keine Errors vorhanden, Funktion kann ausgefï¿½hrt werden
 			if (!$error) {
 		
-				// User-Objekt mit Daten aus Request-Array füllen
+				// User-Objekt mit Daten aus Request-Array fï¿½llen
 				$user->setEmail ($email);
 				$user->setPasswort ($passwort);
 				$user->setPasswortwdh($passwortwdh);
