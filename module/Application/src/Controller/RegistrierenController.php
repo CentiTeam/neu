@@ -70,7 +70,7 @@ class RegistrierenController extends AbstractActionController{
 			$header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 		
 				
-			mail($empfaenger, $betreff, $text);
+			mail($empfaenger, $betreff, $text, $header);
 				
 			$msg= "Best&aumltigungs-E-Mail wurde erfolgreich versendet!";
 				
