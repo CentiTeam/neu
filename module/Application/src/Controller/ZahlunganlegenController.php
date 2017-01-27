@@ -68,6 +68,8 @@ class ZahlunganlegenController extends AbstractActionController {
 					$summe += $anteil;
 				}
 				
+				var_dump($anteile);
+				
 				/**		TODO Problem: Im Array Zahlungsteilnehmer stehen nur die Werte, die ein H�kchen bekommen
 				 					  Im Array Anteile werden jedoch alle Anteile eingespeichert, gleich ob da ein H�kchen war oder nicht
 				 					  Das f�hrt dazu, dass in dem Fall, dass ein Teilnehmer ausgelassen wird, der falsche Anteil ausgelesen wird
@@ -218,7 +220,8 @@ class ZahlunganlegenController extends AbstractActionController {
 					 		
 							$zahlungsteilnehmer->anlegen();
 							
-					
+							var_dump($zahlungsteilnehmer);
+							
 							$counter++;
 						 }
 						 $temp ->ausgleichen();
