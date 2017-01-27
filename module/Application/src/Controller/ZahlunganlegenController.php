@@ -68,7 +68,9 @@ class ZahlunganlegenController extends AbstractActionController {
 					$summe += $anteil;
 				}
 				
+				echo "Hier sind die Anteile";
 				var_dump($anteile);
+				echo "Hier ist Anteil-Ende";
 				
 				/**		TODO Problem: Im Array Zahlungsteilnehmer stehen nur die Werte, die ein H�kchen bekommen
 				 					  Im Array Anteile werden jedoch alle Anteile eingespeichert, gleich ob da ein H�kchen war oder nicht
@@ -220,7 +222,7 @@ class ZahlunganlegenController extends AbstractActionController {
 					 		
 							$zahlungsteilnehmer->anlegen();
 							
-							var_dump($zahlungsteilnehmer);
+							var_dump($zahlungsteilnehmer->getUser()->getVorname());
 							
 							$counter++;
 						 }
