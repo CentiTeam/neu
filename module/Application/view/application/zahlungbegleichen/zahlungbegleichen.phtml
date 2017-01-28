@@ -42,7 +42,7 @@
 				}?> 				
 				placeholder="Euro.Cent" required readonly>
 				
-				<br><label>Beglichen: </label>
+				<br><label>Beglichen: </label> <input type="text" readonly required value="<?=$teilnehmer->getRestbetrag()?>">
 							
 			<?php } else { ?>				
 				<br>Anteil: <input type="text" readonly name="anteilsbetrag[]" 
