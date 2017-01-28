@@ -38,6 +38,9 @@
 				<?php foreach ($zahlungsteilnehmerliste as $counter => $teilnehmer) { 
 					if ($teilnehmer->getUser()->getU_id()==$mitglied->getU_id()) {?>
 						value="<?=$teilnehmer->getAnteil()?>"
+						
+						
+						<br><label>Restbetrag: </label> <input type="text" readonly required value="<?=$teilnehmer->getRestbetrag()?>">
 					<?php } ?>
 					
 					
