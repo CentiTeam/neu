@@ -27,6 +27,7 @@ class StatistikenController extends AbstractActionController
  			$user_id=$_SESSION['user']->getU_id();
   			$zahlungenliste = Zahlungsteilnehmer::teilnehmerzahlungenholen($user_id);
   			$kategorieliste = Kategorie::listeHolen();
+  			$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
   			
   			$saldo = Zahlungsteilnehmer::gibsaldo($user_id);
   				
@@ -46,6 +47,9 @@ class StatistikenController extends AbstractActionController
    				if($_REQUEST["status"] != null){
    					$zahlungenliste = $this->statusFilter($zahlungenliste, $_REQUEST["status"]);
    				}
+   				if($_REQUEST["gruppe"] != null){
+   					echo "heyy";
+   				}
   				
   			}		
 
@@ -54,7 +58,8 @@ class StatistikenController extends AbstractActionController
   					'u_id' => $user_id,
   					'kategorieliste' => $kategorieliste,
   					'katzahlungen' => $katzahlungen,
-  					'saldo' => $saldo
+  					'saldo' => $saldo,
+  					'gruppenliste' => $gruppenliste
   			]);
   			
 
