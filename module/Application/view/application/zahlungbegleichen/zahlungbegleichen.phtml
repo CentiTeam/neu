@@ -40,10 +40,10 @@
 						value="<?=$teilnehmer->getAnteil()?>"
 					<?php }
 				}?> 				
-				placeholder="Euro.Cent" required>
+				placeholder="Euro.Cent" required readonly>
 							
 			<?php } else { ?>				
-				<br>Anteil: <input type="text" name="anteilsbetrag[]" 
+				<br>Anteil: <input type="text" readonly name="anteilsbetrag[]" 
 				<?php foreach ($zahlungsteilnehmerliste as $counter => $teilnehmer) { 
 					if ($teilnehmer->getUser()->getU_id()==$mitglied->getU_id()) {?>
 						value="<?=$teilnehmer->getAnteil()?>"
