@@ -64,7 +64,7 @@ class ZahlungbegleichenController extends AbstractActionController {
 				}
 			}
 				
-			if ($bool_teilnehmer) {
+			if ($bool_teilnehmer == true) {
 					
 				foreach ($teilnehmerliste as $zahlungsteilnehmer)
 				{
