@@ -37,11 +37,11 @@ class StatistikenController extends AbstractActionController
   				}
   				if($_REQUEST["afterdate"] != null || $_REQUEST["beforedate"] != null){
   					$zahlungenliste = $this->datFilter($zahlungenliste,$_REQUEST["afterdate"], $_REQUEST["beforedate"]);
+  					echo"afterdate:";
+  					var_dump($_REQUEST["afterdate"]);
+  					echo"beforedate:";
+  					var_dump($_REQUEST["beforedate"]);
   				}
-  				var_dump($_REQUEST["status"]);
-//   				foreach ($_POST['status'] as $key => $value) {
-//   					echo "jaaa";
-//   				}
   				
    				if($_REQUEST["status"] != null){
    					$zahlungenliste = $this->statusFilter($zahlungenliste, $_REQUEST["status"]);
