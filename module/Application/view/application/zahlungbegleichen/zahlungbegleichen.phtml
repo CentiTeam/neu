@@ -53,9 +53,11 @@
 			</label><br></input>
 			
 			
-			if($_SESSION['user'] == $mitglied){
-			<label>Beglichen: </label>	
+			<?php if($_SESSION['user'] == $mitglied){
+			echo "<label>Beglichen: </label>";	
 			}
+			
+			?>
 		<?php 
 		}
 		
