@@ -108,12 +108,12 @@ class StatistikenController extends AbstractActionController
  	
  	
  	function datFilter($zahlungenliste, $afterdate, $beforedate){
+ 		echo "im datFilter angekommen";
  		$filteredlist = array();
  		if($beforedate == ""){
- 			date_default_timezone_set("Europe/Berlin");
- 			$timestamp=time(); 			
- 		//	$beforedate = date('Y-m-d');
  			$beforedate = ('2038-01-01');
+ 			echo "im datFilter if Zweig angekommen";
+ 			
  		}
  		foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
  			if($zahlungsteilnehmer->getZahlung()->getZahlungsdatum() > $afterdate && $zahlungsteilnehmer->getZahlung()->getZahlungsdatum() < $beforedate){
