@@ -41,6 +41,8 @@
 					<?php }
 				}?> 				
 				placeholder="Euro.Cent" required readonly>
+				
+				<label>Beglichen: </label>
 							
 			<?php } else { ?>				
 				<br>Anteil: <input type="text" readonly name="anteilsbetrag[]" 
@@ -53,9 +55,7 @@
 			</label><br></input>
 			
 			
-			<?php if($_SESSION['user']->getU_id() == $mitglied->getU_id()){
-			echo "<label>Beglichen: </label>";	
-			}
+
 			
 			?>
 		<?php 
