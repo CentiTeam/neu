@@ -29,7 +29,6 @@ class StatistikenController extends AbstractActionController
   			$kategorieliste = Kategorie::listeHolen();
   			$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
   			
-  			$saldo = Zahlungsteilnehmer::gibsaldo($user_id);
   				
   			
   			if ($_REQUEST['filteranwenden']) {
@@ -51,7 +50,9 @@ class StatistikenController extends AbstractActionController
    					$zahlungenliste = $this->gruppeFilter($zahlungenliste, $_REQUEST["gruppe"]);
    						}
   			}		
-
+  			
+  			$saldo = Zahlungsteilnehmer::gibsaldo($user_id, $zahlungenliste);
+  				
   			return new ViewModel([
   					'zahlungenliste' => $zahlungenliste,
   					'u_id' => $user_id,

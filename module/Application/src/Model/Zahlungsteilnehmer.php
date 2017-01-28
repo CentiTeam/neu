@@ -189,9 +189,9 @@ class Zahlungsteilnehmer {
  			
 	
  		}
- 		public function gibsaldo($user_id){
+ 		public function gibsaldo($user_id, $zahlungenliste){
  			$saldo = 0;
- 			foreach(Zahlungsteilnehmer::teilnehmerzahlungenholen($user_id) as $zaehler => $zahlungsteilnehmer){
+ 			foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
  				if($zahlungsteilnehmer-> getStatus() == 'offen'){
  					$saldo -= $zahlungsteilnehmer ->getRestbetrag();
  				}
