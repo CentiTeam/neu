@@ -38,12 +38,14 @@
 				<?php foreach ($zahlungsteilnehmerliste as $counter => $teilnehmer) { 
 					if ($teilnehmer->getUser()->getU_id()==$mitglied->getU_id()) {?>
 						value="<?=$teilnehmer->getAnteil()?>"
-					<?php }
-				}?> 				
+					<?php } ?>
+					
+					<br><label>Restbetrag: </label> <input type="text" readonly required value="<?=$teilnehmer->getRestbetrag()?>">
+						
+				<?php }?> 				
 				placeholder="Euro.Cent" required readonly>
 				
-				<br><label>Beglichen: </label> <input type="text" readonly required value="<?=$teilnehmer->getRestbetrag()?>">
-							
+				
 			<?php } else { ?>				
 				<br>Anteil: <input type="text" readonly name="anteilsbetrag[]" 
 				<?php foreach ($zahlungsteilnehmerliste as $counter => $teilnehmer) { 
