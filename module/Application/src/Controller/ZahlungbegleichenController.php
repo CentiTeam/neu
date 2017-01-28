@@ -15,7 +15,7 @@ use Application\Model\Gruppenereignis;
 
 class ZahlungbegleichenController extends AbstractActionController {
 
-	function zahlungbearbeitenAction() {
+	function zahlungbegleichenAction() {
 		// TODO Berechtigungspr�fung
 		session_start();
 
