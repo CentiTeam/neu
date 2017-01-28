@@ -51,7 +51,7 @@ use Application\Model\Zahlungsteilnehmer;?>
 	//Alle Kategorien in die Auswahlliste schreiben
 	foreach ($gruppenliste as $zaehler => $gruppenmitglied) { ?>
 		
-			<option value='<?=$gruppenmitglied->getGruppe()->getGruppenname()?>'></option>
+			<option value='<?=$gruppenmitglied->getG_id()?>'><?=$gruppenmitglied->getGruppe()->getGruppenname()?></option>
 	<?php } ?> 
 	</select>
 </td>
