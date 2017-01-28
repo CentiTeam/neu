@@ -39,14 +39,14 @@
 					if ($teilnehmer->getUser()->getU_id()==$mitglied->getU_id()) {?>
 						value="<?=$teilnehmer->getAnteil()?>"
 						
-						
+						placeholder="Euro.Cent" required readonly>
 						<br><label>Restbetrag: </label> <input type="text" readonly required value="<?=$teilnehmer->getRestbetrag()?>">
 					<?php } ?>
 					
 					
 						
 				<?php }?> 				
-				placeholder="Euro.Cent" required readonly>
+				
 				
 				
 			<?php } else { ?>				
