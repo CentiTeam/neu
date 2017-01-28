@@ -463,6 +463,17 @@ return [
         				],
         		],
         		
+        		'zahlungbegleichen' => [
+        				'type'    => Segment::class,
+        				'options' => [
+        						'route'    => '/zahlungbeleichen[/:action]',
+        						'defaults' => [
+        								'controller' => Controller\ZahlungbegleichenController::class,
+        								'action'     => 'zahlungbegleichen',
+        						],
+        				],
+        		],
+        		
         		'fremdesprofil' => [
         			'type'    => Segment::class,
        				'options' => [
