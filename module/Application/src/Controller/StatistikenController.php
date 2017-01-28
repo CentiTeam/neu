@@ -48,9 +48,8 @@ class StatistikenController extends AbstractActionController
    					$zahlungenliste = $this->statusFilter($zahlungenliste, $_REQUEST["status"]);
    				}
    				if($_REQUEST["gruppe"] != null){
-   					echo "heyy";
-   				}
-  				
+   					$zahlungenliste = $this->gruppeFilter($zahlungenliste, $_REQUEST["gruppe"]);
+   						}
   			}		
 
   			return new ViewModel([
@@ -74,6 +73,16 @@ class StatistikenController extends AbstractActionController
  		}
  	}
  	return $filteredlist;
+ 	}
+ 	
+ 	function gruppeFilter($zahlungenliste, $g_id){
+ 		$filteredlist = array();
+ 		foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
+ 			if($zahlungsteilnehmer->getZahlung()->getGruppe()->getG_id() == $g_id){
+ 				$filteredlist[] =  $zahlungsteilnehmer;
+ 			}
+ 		}
+ 		return $filteredlist;
  	}
  	
  	function statusFilter($zahlungenliste, $status){
