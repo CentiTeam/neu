@@ -42,6 +42,9 @@ class ZahlungbegleichenController extends AbstractActionController {
 				
 			//Holen der u_id aus Session
 			$user_id=$_SESSION['user']->getU_id();
+			
+			
+			
 				
 			//Überprüfen, ob User = ersteller
 			$ersteller = new Zahlungsteilnehmer();
@@ -49,8 +52,19 @@ class ZahlungbegleichenController extends AbstractActionController {
 				
 			//Zahlungsteilnehmer der Zahlung holen
 			$teilnehmerliste = Zahlungsteilnehmer::zahlungsteilnehmerholen($z_id);
+			
+			//Überprüfen, ob User ein Teilnehmer der Zahlung ist
+			$bool_teilnehmer = false;
+			foreach($teilnehmerliste as $counter => $teilpruef){
+				if($teilpruef->getUser()->getU_id() == $user_id){
+					$bool_teilnehmer = true;
+				}
+				else{
+					$bool_teilnehmer = false;
+				}
+			}
 				
-			if ($ersteller->getZahlungsempfaenger()->getU_id()==$user_id) {
+			if ($bool_teilnehmer) {
 					
 				foreach ($teilnehmerliste as $zahlungsteilnehmer)
 				{
