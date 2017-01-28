@@ -54,17 +54,17 @@ class ZahlungbegleichenController extends AbstractActionController {
 			$teilnehmerliste = Zahlungsteilnehmer::zahlungsteilnehmerholen($z_id);
 			
 			//Überprüfen, ob User ein Teilnehmer der Zahlung ist
-			$bool_teilnehmer = false;
+			$bool_teilnehmer = 0;
 			foreach($teilnehmerliste as $counter => $teilpruef){
 				if($teilpruef->getUser()->getU_id() == $user_id){
-					$bool_teilnehmer = true;
+					$bool_teilnehmer = 1;
 				}
 				else{
-					$bool_teilnehmer = false;
+					$bool_teilnehmer = 1;
 				}
 			}
 				
-			if ($bool_teilnehmer == true) {
+			if ($bool_teilnehmer == 1) {
 					
 				foreach ($teilnehmerliste as $zahlungsteilnehmer)
 				{
