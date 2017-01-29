@@ -16,34 +16,68 @@ use Application\Model\Gruppenereignis;
 class ZahlungbearbeitenController extends AbstractActionController {
 
 	function zahlungbearbeitenAction() {
-		// TODO Berechtigungsprï¿½fung
+		
+		// Berechtigungsprï¿½fung
 		session_start();
-
-		$errors = array();
-
-		if($_SESSION['angemeldet'] != 'ja') {
-
-			array_push($errors, "Sie mÃ¼ssen angemeldet sein um eine Zahlung zu bearbeiten!");
-
-			$view = new ViewModel(array(
-					$errors
-			));
+		
+		if($_SESSION['angemeldet'] == NULL || $_SESSION['systemadmin']) {
+		
+			$msg="Nicht berechtigt!";
+		
+			$view = new ViewModel([
+					'msg' => $msg
+			]);
 			$view->setTemplate('application/index/index.phtml');
 			return $view;
-
+		
+		}
+		
+		// BerechtigungaprÃ¼fung, ob Zahlungateilnehmer
+		$zahlung= new Zahlung();
+		$z_id=$_REQUEST['z_id'];
+		$zahlung->laden($z_id);
+		$teilnehmerliste = Zahlungsteilnehmer::zahlungsteilnehmerholen($z_id);
+		
+		$aktuser_id=$_SESSION['user']->getU_id();
+		$istTeilnehmer=false;
+		
+		foreach ($teilnehmerliste as $teilnehmer) {
+			if ($aktuser_id==$teilnehmer->getUser()->getU_id()) {
+				$istTeilnehmer=true;
+			}
+		}
+		
+		// Wenn kein Zahlungsteilnehmer, dann wird die Overview des jew. Users geladen
+		if ($istTeilnehmer==false) {
+		
+			$msg="Nicht berechtigt!";
+		
+			$user=$_SESSION['user'];
+			$uname=$user->getVorname();
+		
+			$view = new ViewModel([
+					'uname' => $uname,
+					'user' => array($user),
+					'msg' => $msg,
+			]);
+		
+			$view->setTemplate('application/overview/overview.phtml');
+		
+			return $view;
+		
 		} else {
 
 			//Holen der z_id aus Formular
 			$z_id = $_REQUEST['z_id'];			
 			
-			//Laden des Objektes der Klasse Zahlung mit der übergebenen z_id in die Variable $zahlung
+			//Laden des Objektes der Klasse Zahlung mit der ï¿½bergebenen z_id in die Variable $zahlung
 			$zahlung = new Zahlung();
 			$zahlung->laden($z_id);
 			
 			//Holen der u_id aus Session
 			$user_id=$_SESSION['user']->getU_id();
 			
-			//Überprüfen, ob User = ersteller
+			//ï¿½berprï¿½fen, ob User = ersteller
 			$ersteller = new Zahlungsteilnehmer();
 			$ersteller->laden($z_id, $user_id);		
 			
@@ -149,7 +183,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						
 						
 						
-						// Fehlerabfrage, ob mehrere Teilnehmer ausgewählt wurden
+						// Fehlerabfrage, ob mehrere Teilnehmer ausgewï¿½hlt wurden
 						$anzahlteilnehmer=0;
 							
 						for($anzahl=0; $anzahl<$i; $anzahl++) {
@@ -191,7 +225,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 								
 								// hier war der Code nach if ($_REQUEST['speichern']) { zuvor
 								
-								//Bisherige Zahlungsteilnehmer löschen
+								//Bisherige Zahlungsteilnehmer lï¿½schen
 								Zahlungsteilnehmer::loeschen($zahlung->getZ_id());
 
 									
@@ -205,7 +239,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 									
 									} else {
 									
-										//Aus der ID des Übergebenen Arrays User-Objekt erstellen
+										//Aus der ID des ï¿½bergebenen Arrays User-Objekt erstellen
 										$akt_benutzer = new User();
 										$akt_benutzer->laden($value);
 									
@@ -215,12 +249,12 @@ class ZahlungbearbeitenController extends AbstractActionController {
 										$zahlungs_id=$zahlung->getZ_id();
 										
 										if($value == $user_id) {
-											//Der Status bei dem, der die Zahlung erstellt hat ist "ersteller", dies erleichtert die nachträgliche Bearbeitung von
-											//Zahlungen, da Zahlungen nur bearbeitet werden dürfen, wenn sie nicht den Status "beglichen" Aufweisen.
+											//Der Status bei dem, der die Zahlung erstellt hat ist "ersteller", dies erleichtert die nachtrï¿½gliche Bearbeitung von
+											//Zahlungen, da Zahlungen nur bearbeitet werden dï¿½rfen, wenn sie nicht den Status "beglichen" Aufweisen.
 								 		$status="ersteller";
 								 		$restbetrag="0";
 										} else {
-											//Der Status für alle anderen Zahlungsteilnehmer ist offen.
+											//Der Status fï¿½r alle anderen Zahlungsteilnehmer ist offen.
 								 		$status="offen";
 								 		$restbetrag=$anteil;
 										}
