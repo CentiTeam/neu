@@ -38,6 +38,7 @@ class ZahlungbegleichenController extends AbstractActionController {
 			$teilnehmerliste = Zahlungsteilnehmer::zahlungsteilnehmerholen($z_id);
 			
 			$aktuser_id=$_SESSION['user']->getU_id();
+			$gruppen_id=$_REQUEST['g_id'];
 			$istTeilnehmer=false;
 			
 			foreach ($teilnehmerliste as $teilnehmer) {
