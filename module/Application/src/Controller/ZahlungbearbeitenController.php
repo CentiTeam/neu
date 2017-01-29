@@ -30,41 +30,6 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			$view->setTemplate('application/index/index.phtml');
 			return $view;
 		
-		}
-		
-		// Berechtigungaprüfung, ob Zahlungateilnehmer
-		$zahlung= new Zahlung();
-		$z_id=$_REQUEST['z_id'];
-		$zahlung->laden($z_id);
-		$teilnehmerliste = Zahlungsteilnehmer::zahlungsteilnehmerholen($z_id);
-		
-		$aktuser_id=$_SESSION['user']->getU_id();
-		$istTeilnehmer=false;
-		
-		foreach ($teilnehmerliste as $teilnehmer) {
-			if ($aktuser_id==$teilnehmer->getUser()->getU_id()) {
-				$istTeilnehmer=true;
-			}
-		}
-		
-		// Wenn kein Zahlungsteilnehmer, dann wird die Overview des jew. Users geladen
-		if ($istTeilnehmer==false) {
-		
-			$msg="Nicht berechtigt!";
-		
-			$user=$_SESSION['user'];
-			$uname=$user->getVorname();
-		
-			$view = new ViewModel([
-					'uname' => $uname,
-					'user' => array($user),
-					'msg' => $msg,
-			]);
-		
-			$view->setTemplate('application/overview/overview.phtml');
-		
-			return $view;
-		
 		} else {
 
 			//Holen der z_id aus Formular
@@ -83,6 +48,41 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			
 			//Zahlungsteilnehmer der Zahlung holen
 			$teilnehmerliste = Zahlungsteilnehmer::zahlungsteilnehmerholen($z_id);
+			
+			
+			$aktuser_id=$_SESSION['user']->getU_id();
+			$istTeilnehmer=false;
+			
+			foreach ($teilnehmerliste as $teilnehmer) {
+				if ($aktuser_id==$teilnehmer->getUser()->getU_id()) {
+					$istTeilnehmer=true;
+				}
+			}
+			
+			// Wenn kein Zahlungsteilnehmer, dann wird die Groupoverview des jew. Users geladen
+			if ($istTeilnehmer==false) {
+			
+				$msg="Nicht berechtigt!";
+			
+				$user=$_SESSION['user'];
+				$uname=$user->getVorname();
+			
+				$view = new ViewModel([
+						'uname' => $uname,
+						'user' => array($user),
+						'msg' => $msg,
+				]);
+			
+				$view->setTemplate('application/overview/overview.phtml');
+			
+				return $view;
+			
+			}
+			
+			
+			
+			
+			
 			
 			if ($ersteller->getZahlungsempfaenger()->getU_id()==$user_id) {
 			
