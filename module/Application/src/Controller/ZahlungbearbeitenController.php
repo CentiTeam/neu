@@ -39,17 +39,18 @@ class ZahlungbearbeitenController extends AbstractActionController {
 		$teilnehmerliste = Zahlungsteilnehmer::zahlungsteilnehmerholen($z_id);
 		
 		$aktuser_id=$_SESSION['user']->getU_id();
+		$gruppen_id=$_REQUEST['g_id'];
 		$istTeilnehmer=false;
 		
 		foreach ($teilnehmerliste as $teilnehmer) {
-			if ($aktuser_id==$teilnehmer->getUser()->getU_id()) {
+			if ($aktuser_id==$teilnehmer->getUser()->getU_id() && $gruppen_id==$teilnehmer->getZahlung()->getGruppe()->getG_id()) {
 				$istTeilnehmer=true;
 			}
 		}
 		
 		// Wenn kein Zahlungsteilnehmer, dann wird die Overview des jew. Users geladen
 		if ($istTeilnehmer==false) {
-		
+			
 			$msg="Nicht berechtigt!";
 		
 			$user=$_SESSION['user'];
