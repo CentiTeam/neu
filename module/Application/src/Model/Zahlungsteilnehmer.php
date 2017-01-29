@@ -139,6 +139,8 @@ class Zahlungsteilnehmer {
  			$schuldstand = $schuldstand * (-1);
  						foreach($gemeinsamezahlungen as $zaehler => $zahlungsteilnehmer){
  							if($schuldstand>0){
+ 								echo"for Loop Zahlung: ";
+ 								var_dump($zahlungsteilnehmer->getZahlung()->getZahlungsbeschreibung());
  							//$einzahlungsteilnehmer schuldet $andererzahlungsteilnehmer etwas
  							//falls es nun Zahlungen gibt, in denen $einzahlungsteilnehmer Ersteller ist
  							// und $andererzahlungsteilnehmer einen offenen Restbetrag hat sollten diese Zahlungen
@@ -153,7 +155,7 @@ class Zahlungsteilnehmer {
  								&&($zweiterzahlungsteilnehmer ->getRestbetrag()) >0){
  								// 
  									
- 									$schuldstand = $ersterzahlungsteilnehmer -> zahlungbegleichen($schuldstand, $ersterzahlungsteilnehmer);
+ 									$schuldstand = $zweiterzahlungsteilnehmer -> zahlungbegleichen($schuldstand, $zweiterzahlungsteilnehmer);
  									}
  						}
  					}
@@ -178,7 +180,7 @@ class Zahlungsteilnehmer {
  							&&($eigersterzahlungsteilnehmer ->getRestbetrag()) >0){
  								//
  		
- 								$schuldstand = $ersterzahlungsteilnehmer -> zahlungbegleichen($schuldstand, $ersterzahlungsteilnehmer);
+ 								$schuldstand = $eigersterzahlungsteilnehmer -> zahlungbegleichen($schuldstand, $eigersterzahlungsteilnehmer);
  					}
  				}
  			}
