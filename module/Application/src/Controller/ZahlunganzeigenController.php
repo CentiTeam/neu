@@ -13,6 +13,7 @@ use Application\Model\Zahlung;
 use Application\Model\User;
 use Application\Model\Zahlungsteilnehmer;
 use Application\Model\Gruppe;
+use Application\Model\Gruppenmitglied;
 
 class ZahlunganzeigenController extends AbstractActionController
 {
