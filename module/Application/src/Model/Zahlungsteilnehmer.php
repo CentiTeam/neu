@@ -83,7 +83,7 @@ class Zahlungsteilnehmer {
 			$zahlungsteilnehmer -> ausgleichen($zahlungsteilnehmer);
 		}
 		//eigentlich muss nur jeder einzelne User mit dem Ersteller verglichen werden
-		//die Funktion ausgleichen() wird für jeden User, der mit der erstellten(oder bearbeiteten)
+		//die Funktion ausgleichen() wird fï¿½r jeden User, der mit der erstellten(oder bearbeiteten)
 		//Zahlung etwas zu tuen hat von dieser Funktion aus aufgerufen
 	}
 	
@@ -110,8 +110,8 @@ class Zahlungsteilnehmer {
  			foreach($gemeinsamezahlungen as $zaehler => $zahlungsteilnehmer){
  				
  				//Rechne Schuldstand. 
- 				//Schuldstand verändert sich nur 
- 				//falls user selber Ersteller/Empfänger ist
+ 				//Schuldstand verï¿½ndert sich nur 
+ 				//falls user selber Ersteller/Empfï¿½nger ist
  				
 //  				$alleteilnehmerausgeminsamerzahlung = zahlungsteilnehmerholen($zahlungsteilnehmer -> getZahlung() -> getZ_id());
 //  				foreach($alleteilnehmerausgeminsamerzahlung as $zaehler => $zufilternderteilnehmer)
@@ -250,6 +250,7 @@ class Zahlungsteilnehmer {
 		return $teilnehmerListe;
 	}
 	
+	// Alle Zahlungen, an denen ein User teilnimmt
 	public static function teilnehmerzahlungenholen($user_id) {
 	
 		// Liste initialisieren
@@ -281,6 +282,46 @@ class Zahlungsteilnehmer {
 		}
 	}
 	
+	
+	// Alle Zahlungen aus einer Gruppe mit gruppe_id, an denen ein User user_id teilnimmt
+	public static function teilnehmerzahlungennachgruppeholen($user_id, $gruppen_id) {
+	
+		// Liste initialisieren
+		$zahlungenListe = array ();
+	
+		$db = new DB_connection();
+	
+		$query="SELECT * FROM `zahlungsteilnehmer`
+				LEFT JOIN 'zahlung' USING (z_id)
+				WHERE u_id= '".$user_id."' 
+				AND g_id= '".$gruppen_id."' 		
+				";
+	
+		// Wenn die Datenbankabfrage erfolgreich ausgefï¿½hrt worden ist
+		if ($result = $db->execute($query)) {
+	
+			// Ergebnis Zeile fï¿½r Zeile verarbeiten
+			while ($row = mysqli_fetch_array($result)) {
+					
+				// neues Model erzeugen
+				$model = new Zahlungsteilnehmer();
+	
+				// Model anhand der Nummer aus der Datenbankabfrage laden
+				$model->laden($row["z_id"], $row["u_id"]);
+	
+				// neues Model ans Ende des $gruppeListe-Arrays anfï¿½gen
+				$zahlungListe[] = $model;
+			}
+	
+			// fertige Liste von Gruppe-Objekten zurï¿½ckgeben
+			return $zahlungListe;
+		}
+	}
+	
+	
+	
+	
+	// Alle Teilnehmer an einer Zahlung, die mit z_id Ã¼bergeben wird
 	public function zahlungsteilnehmerholen($z_id){
 		// Liste initialisieren
 		$teilnehmerListe = array ();
@@ -310,6 +351,8 @@ class Zahlungsteilnehmer {
 			return $teilnehmerListe;
 		}
 	}
+	
+	
 	
 	
 	public function einenzahlungsteilnehmerholen($z_id, $u_id){
@@ -405,7 +448,7 @@ class Zahlungsteilnehmer {
 		
 	}
 	
-	//Separate Löschfunktion, da nicht bekannt, ob obige verwendet wird
+	//Separate Lï¿½schfunktion, da nicht bekannt, ob obige verwendet wird
 	public static function teilnehmerloeschen ($z_id, $u_id) {
 		$db = new DB_connection();
 		
