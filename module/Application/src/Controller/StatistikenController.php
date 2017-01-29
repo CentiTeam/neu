@@ -24,15 +24,33 @@ class StatistikenController extends AbstractActionController
 		session_start();
 
 		if ($_SESSION['user']==NULL || $_SESSION['systemadmin']) {
+			
 			$msg="Nicht berechtigt!";
-			$view = new ViewModel([
-					'msg' => $msg,
-			]);
-		
-			$view->setTemplate('application/index/index.phtml');
-		
-			return $view;
-		
+			
+			if ($_SESSION['systemadmin']) {
+				
+				$view = new ViewModel([
+						'msg' => $msg,
+						'user' => array($user),
+				]);
+				
+				$view->setTemplate('application/adminoverview/adminoverview.phtml');
+				
+				return $view;
+			
+			} else {
+				
+				$view = new ViewModel([
+						'msg' => $msg,
+				]);
+				
+				$view->setTemplate('application/index/index.phtml');
+				
+				return $view;
+			}
+			
+			
+			
 		}
 		
 		
