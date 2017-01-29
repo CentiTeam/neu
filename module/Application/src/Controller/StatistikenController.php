@@ -23,7 +23,7 @@ class StatistikenController extends AbstractActionController
 
 		session_start();
 
-		if ($_SESSION['user']==NULL) {
+		if ($_SESSION['user']==NULL || $_SESSION['systemadmin']) {
 			$msg="Nicht berechtigt!";
 			$view = new ViewModel([
 					'msg' => $msg,
