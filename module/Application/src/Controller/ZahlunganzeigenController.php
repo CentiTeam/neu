@@ -18,23 +18,58 @@ class ZahlunganzeigenController extends AbstractActionController
 {
 	public function zahlunganzeigenAction()
 	{
+		// Berechtigungspr�fung
+		session_start();
+		
+		if($_SESSION['angemeldet'] == NULL || $_SESSION['systemadmin']) {
+		
+			$msg="Nicht berechtigt!";
+		
+			$view = new ViewModel([
+					'msg' => $msg
+			]);
+			$view->setTemplate('application/index/index.phtml');
+			return $view;
+		
+		}
+		
+		// Berechtigungsprüfung, ob Gruppenmitglied
+		$g_id=$_REQUEST['g_id'];
+		$user_id=$_SESSION['user']->getU_id();
+				
+		$aktgruppenmitglied=new Gruppenmitglied();
+		$isOK=$aktgruppenmitglied->laden($g_id, $user_id);
+				
+		// Wenn kein Gruppenmitglied, dann wird die Groupoverview des jew. Users geladen
+		if ($isOK==false) {
+					
+			$msg="Nicht berechtigt!";
+					
+			$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
+					
+			$view = new ViewModel([
+					'gruppenListe' => $gruppenliste,
+					'msg' => $msg,
+			]);
+					
+			$view->setTemplate('application/groupoverview/groupoverview.phtml');
+					
+			return $view;
+		}
+		
+				
 		$zahlung= new Zahlung();
 		$z_id=$_REQUEST['z_id'];
 		$zahlung->laden($z_id);
 		$teilnehmerliste = Zahlungsteilnehmer::zahlungsteilnehmerholen($z_id);
 		
+		// Was ist das???
 		if ($_REQUEST['zahlungsteilnehmeranzeigen']) {
 		}
 		
 		return new ViewModel([
  				'zahlung' => array($zahlung),
-				'teilnehmerliste' => $teilnehmerliste
-// 				'mitgliederListe' => $mitgliederliste,
-// 				'mitgliedschaft' => $mitgliedschaft,
-
-				
-				
-		
+				'teilnehmerliste' => $teilnehmerliste		
 		]);
 	}
 }

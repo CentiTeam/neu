@@ -16,10 +16,9 @@ use Application\Model\Gruppenereignis;
 class ZahlunganlegenController extends AbstractActionController {
 
 	function zahlunganlegenAction() {
-		// TODO Berechtigungspr�fung
+		
+		// Berechtigungspr�fung
 		session_start();
-		  
-		$errors = array();
 
 		if($_SESSION['angemeldet'] == NULL || $_SESSION['systemadmin']) {
 
