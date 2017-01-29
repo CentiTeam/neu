@@ -10,6 +10,7 @@ class RegistrierenController extends AbstractActionController{
 
 	public function registrierenAction(){
 		
+		// Keine BerechtigungsprÃ¼fung notwendig
 		
 		$user = new User ();
 		$error = false;
@@ -27,17 +28,17 @@ class RegistrierenController extends AbstractActionController{
 			$nachname = $_REQUEST ["nachname"];
 			
 
-			// Überprüfung, ob Passwort zwei mal richtig eingegeben wurde
+			// ï¿½berprï¿½fung, ob Passwort zwei mal richtig eingegeben wurde
 			if ($passwort!=$passwortwdh) {
 				echo "<center><h4>Keine &Uumlbereinstimmung der Passw&oumlrter! Bitte erneut registrieren</h4></center>";
 				$error = true;	
 			}
 
 			
-			// Keine Errors vorhanden, Funktion kann ausgeführt werden
+			// Keine Errors vorhanden, Funktion kann ausgefï¿½hrt werden
 			if (!$error) {
 				
-			// User-Objekt mit Daten aus Request-Array füllen
+			// User-Objekt mit Daten aus Request-Array fï¿½llen
 			$user->setUsername ($username);
 			$user->setPasswortwdh($passwortwdh);
 			$user->setPasswort ($passwort);
@@ -49,7 +50,7 @@ class RegistrierenController extends AbstractActionController{
 			$empfaenger= $email;
 				
 				
-			$betreff = "Grouppay: Registrierung bestätigen";
+			$betreff = "Grouppay: Registrierung bestï¿½tigen";
 			
 			$link= "<a href=\"http://132.231.36.206/confirm\">Registrierung best&auml;tigen</a>";
 			
@@ -58,7 +59,7 @@ class RegistrierenController extends AbstractActionController{
 			<body>
 			<div>Hallo!</div>
 			<br>
-			<div>&Uuml;ber diesen Link kannst Du Deine Registrierung bestätigen:</div>
+			<div>&Uuml;ber diesen Link kannst Du Deine Registrierung bestï¿½tigen:</div>
 			<div>$link</div><br>
 			
 			<div>Viele Gr&uuml;&szlig;e</div>
