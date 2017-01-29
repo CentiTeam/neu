@@ -201,7 +201,7 @@ class ZahlunganlegenController extends AbstractActionController {
 						 // Legt die zugeh�rigen Zahlungsteilnehmer Datens�tze an, au�er f�r sich selbst (info wird aber f�r Anteil ben�tigt!)
 						 foreach ($_POST['zahlungsteilnehmer'] as $key => $value) {
 						 	
-						 	if($anteile[$counter]=="" && $zahlungsteilnehmer[$counter]->getUser()->getU_id() !=$aktgruppenmitglied->getUser()->getU_id()) {
+						 	if($anteile[$counter]=="" && $value !=$user_id) {
 						 		
 						 		$counter++;
 						 		
