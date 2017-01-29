@@ -113,14 +113,17 @@ class StatistikenController extends AbstractActionController
  		if($beforedate == ""){
  			$beforedate = ('2038-01-01');
  			echo "im datFilter if Zweig angekommen";
- 			
  		}
  		foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
  			if($zahlungsteilnehmer->getZahlung()->getZahlungsdatum() > $afterdate && $zahlungsteilnehmer->getZahlung()->getZahlungsdatum() < $beforedate){
  				$filteredlist[] =  $zahlungsteilnehmer;
  			}
  		}
+ 		echo "Zahlungsdatum:";
+ 		var_dump($zahlungsteilnehmer->getZahlung()->getZahlungsdatum());
+ 			
  		return $filteredlist;
+ 		
  	}
  	
  	
