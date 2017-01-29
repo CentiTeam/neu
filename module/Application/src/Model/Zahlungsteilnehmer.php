@@ -74,7 +74,7 @@ class Zahlungsteilnehmer {
 				AND u_id='".$zahlungsteilnehmer-getUser()->getU_id()."';";
 	
 	$result = $db->execute($query);
-	
+	echo"begleichen Test";
 	return $uebrig;
 	
 	}
