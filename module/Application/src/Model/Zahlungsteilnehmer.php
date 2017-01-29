@@ -69,7 +69,7 @@ class Zahlungsteilnehmer {
 		}
 	$db = new DB_connection();	
 	
-	$query =	"UPDATE SET zahlungsteilnehmer restbetrag = '".$restbetrag."', status = '".$status."'
+	$query =	"UPDATE zahlungsteilnehmer SET restbetrag = '".$restbetrag."', status = '".$status."'
 				WHERE z_id='".$zahlungsteilnehmer->getZahlung()->getZ_id()."' 
 				AND u_id='".$zahlungsteilnehmer->getUser()->getU_id()."';";
 	$result = $db->execute($query);
