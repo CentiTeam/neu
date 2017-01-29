@@ -44,7 +44,7 @@ class ZahlunganzeigenController extends AbstractActionController
 		$istTeilnehmer=false;
 		
 		foreach ($teilnehmerliste as $teilnehmer) {
-			if ($aktuser_id==$teilnehmer->getUser()->getU_id()) {
+			if ($aktuser_id==$teilnehmer->getUser()->getU_id() && $gruppen_id==$teilnehmer->getZahlung()->getGruppe()->getG_id()) {
 				$istTeilnehmer=true;
 			}
 		}
