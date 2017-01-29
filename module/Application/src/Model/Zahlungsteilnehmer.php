@@ -48,20 +48,20 @@ class Zahlungsteilnehmer {
 		
 // 	}
 
-	public function zahlungbegleichen($betrag){
+	public function zahlungbegleichen($betrag, $zahlungsteilnehmer){
 // 		if($zahlungsempfaenger == 1){
 // 			echo "Fehler, ein Zahlungsempfaenger kann nichts begleichen";
 // 		}
 		
-		if($betrag >= $this->getRestbetrag()){
+		if($betrag >= $zahlungsteilnehmer->getRestbetrag()){
 			echo "in if Zweig angekommen, der den Restbetrag auf 0 setzt. Betrag:";
 			var_dump($betrag);
-			$temp = $this->getRestbetrag();
+			$temp = $zahlungsteilnehmer->getRestbetrag();
 			$restbetrag=0;
 			$status="beglichen";
 			$uebrig=($betrag - $temp);
 		}else{
-			$restbetrag=($this->getRestbetrag()-$betrag);
+			$restbetrag=($zahlungsteilnehmer->getRestbetrag()-$betrag);
 			//$status=$this->getStatus;
 			$status = "offen";
 			$uebrig=0;
@@ -70,8 +70,8 @@ class Zahlungsteilnehmer {
 	echo"hier nach kommt die query";
 	
 	$query =	"UPDATE SET zahlungsteilnehmer restbetrag = '".$restbetrag."', status = '".$status."'
-				WHERE z_id='".$this->getZahlung()->getZ_id()."' 
-				AND u_id='".$this-getUser()->getU_id()."';";
+				WHERE z_id='".$zahlungsteilnehmer->getZahlung()->getZ_id()."' 
+				AND u_id='".$zahlungsteilnehmer-getUser()->getU_id()."';";
 	
 	$result = $db->execute($query);
 	
@@ -153,7 +153,7 @@ class Zahlungsteilnehmer {
  								&&($zweiterzahlungsteilnehmer ->getRestbetrag()) >0){
  								// 
  									
- 									$schuldstand = $ersterzahlungsteilnehmer -> zahlungbegleichen($schuldstand);
+ 									$schuldstand = $ersterzahlungsteilnehmer -> zahlungbegleichen($schuldstand, $ersterzahlungsteilnehmer);
  									}
  						}
  					}
@@ -178,7 +178,7 @@ class Zahlungsteilnehmer {
  							&&($eigersterzahlungsteilnehmer ->getRestbetrag()) >0){
  								//
  		
- 								$schuldstand = $eigersterzahlungsteilnehmer -> zahlungbegleichen($schuldstand);
+ 								$schuldstand = $ersterzahlungsteilnehmer -> zahlungbegleichen($schuldstand, $ersterzahlungsteilnehmer);
  					}
  				}
  			}
