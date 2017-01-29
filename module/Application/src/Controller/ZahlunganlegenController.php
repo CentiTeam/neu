@@ -91,14 +91,11 @@ class ZahlunganlegenController extends AbstractActionController {
 					$summe += $anteil;
 				}
 				
-				
-// 				echo "betrag:";
-// 				var_dump ($_REQUEST["betrag"]);
+			
 				if($summe != $_REQUEST["betrag"]){
-					echo "summe";
-					var_dump ($summe);
 				
 					echo ("Die Anteile m�ssen zusammen der Gesamtsumme entsprechen.");
+					
 				}else {
 				
 					
@@ -204,7 +201,7 @@ class ZahlunganlegenController extends AbstractActionController {
 						 // Legt die zugeh�rigen Zahlungsteilnehmer Datens�tze an, au�er f�r sich selbst (info wird aber f�r Anteil ben�tigt!)
 						 foreach ($_POST['zahlungsteilnehmer'] as $key => $value) {
 						 	
-						 	if($anteile[$counter]=="") {
+						 	if($anteile[$counter]=="" && $zahlungsteilnehmer[$counter]->getUser()->getU_id() !=$aktgruppenmitglied->getUser()->getU_id()) {
 						 		
 						 		$counter++;
 						 		
@@ -219,7 +216,13 @@ class ZahlunganlegenController extends AbstractActionController {
 			 		
 						 		$zahlungs_id=$zahlung->getZ_id();
 					 		
-						 		$anteil=$anteile[$counter];
+						 		// Wenn der Ersteller nicht mitzahlt
+						 		if($zahlungsteilnehmer[$counter]->getUser()->getU_id() !=$aktgruppenmitglied->getUser()->getU_id()) {
+						 			$anteil="0";
+						 		} else {
+						 			$anteil=$anteile[$counter];
+						 		}
+						 		
 					 		
 						 		if($value == $user_id) {
 							 		//Der Status bei dem, der die Zahlung erstellt hat ist "ersteller", dies erleichtert die nachtr�gliche Bearbeitung von
