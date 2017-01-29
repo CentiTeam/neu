@@ -20,6 +20,8 @@ use Application\Model\Zahlungsteilnehmer;?>
 
 <tr><td>Kategorie: </td><td>
 	<select name="kategorie">
+		<option value=''>alle Kategorien</option>
+	
 	<?php
 	//Alle Kategorien in die Auswahlliste schreiben
 	foreach ($kategorieliste as $zaehler => $kategorie) { ?>
@@ -47,7 +49,7 @@ use Application\Model\Zahlungsteilnehmer;?>
 	<td>Gruppe: </td> <td>
 	
 	<select name="gruppe">
-	<option value=''>keine Gruppe </option>
+	<option value=''>alle Gruppen </option>
 	<?php
 	//Alle Kategorien in die Auswahlliste schreiben
 	
