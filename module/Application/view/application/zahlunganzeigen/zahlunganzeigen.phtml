@@ -31,6 +31,7 @@
 		<th class="datentabelle">Username </th>
 		<th class="datentabelle">Anteil </th>
 		<th class="datentabelle">Restbetrag </th>
+		<th class="datentabelle">Status </th>
 </tr>
 
 <?php 
@@ -43,6 +44,7 @@
 			<td class="datentabelle"><?=$zahlungsteilnehmer->getUser()->getUsername()?></td>
 			<td class="datentabelle"><?=$zahlungsteilnehmer->getAnteil()?></td>
 			<td class="datentabelle"><?=$zahlungsteilnehmer->getRestbetrag()?></td>
+			<td class="datentabelle"><?=$zahlungsteilnehmer->getStatus()?></td>
 					
 		</tr>
 
