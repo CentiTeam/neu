@@ -44,7 +44,7 @@ class ZahlunganzeigenController extends AbstractActionController
 		$istTeilnehmer=false;
 		
 		foreach ($teilnehmerliste as $teilnehmer) {
-			if ($aktuserid==$teilnehmer->getUser()->getU_id()) {
+			if ($aktuser_id==$teilnehmer->getUser()->getU_id()) {
 				$istTeilnehmer=true;
 			}
 		}
@@ -54,7 +54,8 @@ class ZahlunganzeigenController extends AbstractActionController
 				
 			$msg="Nicht berechtigt!";
 				
-			$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
+			$user=$_SESSION['user'];
+			$uname=$user->getVorname();
 				
 			$view = new ViewModel([
 					'uname' => $uname,
