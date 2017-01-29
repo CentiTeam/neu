@@ -82,6 +82,9 @@ class StatistikenController extends AbstractActionController
   			}		
   			
   			$saldo = Zahlungsteilnehmer::gibsaldo($user_id, $zahlungenliste);
+  			
+  			// Die ausgewählte Gruppen_id wird wieder mitgeladen 
+  			$g_id=$_REQUEST["gruppe"];
   				
   			return new ViewModel([
   					'zahlungenliste' => $zahlungenliste,
@@ -89,7 +92,8 @@ class StatistikenController extends AbstractActionController
   					'kategorieliste' => $kategorieliste,
   					'katzahlungen' => $katzahlungen,
   					'saldo' => $saldo,
-  					'gruppenliste' => $gruppenliste
+  					'gruppenliste' => $gruppenliste,
+  					'gruppe' => $g_id
   			]);
   			
 

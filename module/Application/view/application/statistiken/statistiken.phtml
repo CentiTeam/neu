@@ -55,7 +55,11 @@ use Application\Model\Zahlungsteilnehmer;?>
 	
 	foreach ($gruppenliste as $zaehler => $gruppenmitglied) { ?>
 		
-			<option value='<?=$gruppenmitglied->getGruppe()->getG_id()?>' selected="selected"><?=$gruppenmitglied->getGruppe()->getGruppenname()?></option>
+			<option value='<?=$gruppenmitglied->getGruppe()->getG_id()?>' <?php 
+									if ($gruppenmitglied->getGruppe()->getG_id() == $gruppe)
+										echo "selected='selected'";
+								?>
+			><?=$gruppenmitglied->getGruppe()->getGruppenname()?></option>
 	<?php } ?> 
 	</select>
 </td>
