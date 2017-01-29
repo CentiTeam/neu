@@ -52,7 +52,8 @@ class Zahlungsteilnehmer {
 // 		if($zahlungsempfaenger == 1){
 // 			echo "Fehler, ein Zahlungsempfaenger kann nichts begleichen";
 // 		}
-		
+		$restbetrag =0;
+		$status = "beglichen";
 		if($betrag >= $zahlungsteilnehmer->getRestbetrag()){
 			echo "in if Zweig angekommen, der den Restbetrag auf 0 setzt. Betrag:";
 			var_dump($betrag);
@@ -66,6 +67,10 @@ class Zahlungsteilnehmer {
 			$status = "offen";
 			$uebrig=0;
 		}
+		echo"z_id:";
+		var_dump($zahlungsteilnehmer->getZahlung()->getZ_id());
+		echo"u_id:";
+		var_dump($zahlungsteilnehmer-getUser()->getU_id());
 	$db = new DB_connection();	
 	echo"hier nach kommt die query";
 	
