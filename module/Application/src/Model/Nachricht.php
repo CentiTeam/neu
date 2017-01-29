@@ -243,8 +243,6 @@ class Nachricht {
 		$abfrage = "SELECT * FROM `nachricht` WHERE g_id ='".$g_id."' LIMIT $start, $nachrichtenproseite;";
 		$anzahl_seiten = ceil($anzahl / floatval($nachrichtenproseite));
 		
-		while ($row = mysql_fetch_assoc($abfrage)) {
-		
 		
 	}
 	
