@@ -60,7 +60,7 @@ class StatistikenController extends AbstractActionController
   			$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
   			
   				
-  			
+  			// Bei Klicken auf "Filtern" in 'statistiken'-View oder bei Klicken auf "Deine Zahlungen in dieser Gruppe" in 'groupshow'-View
   			if ($_REQUEST['filteranwenden'] || $_REQUEST['sofortauslesen']) {
   				if($_REQUEST["kategorie"] != null){
   					$zahlungenliste = $this->katFilter($zahlungenliste, $_REQUEST["kategorie"]);

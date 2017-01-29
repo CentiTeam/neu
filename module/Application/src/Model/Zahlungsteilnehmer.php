@@ -283,7 +283,7 @@ class Zahlungsteilnehmer {
 	}
 	
 	
-	// Alle Zahlungen aus einer Gruppe mit gruppe_id, an denen ein User user_id teilnimmt
+	// Alle Zahlungen aus einer Gruppe mit gruppe_id, an denen ein User user_id teilnimmt (wurde noch nciht verwendet)
 	public static function teilnehmerzahlungennachgruppeholen($user_id, $gruppen_id) {
 	
 		// Liste initialisieren
