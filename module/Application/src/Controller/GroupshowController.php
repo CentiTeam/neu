@@ -140,6 +140,11 @@ class GroupshowController extends AbstractActionController
 		}
 		
 		
+		
+		// TESt
+		
+		$anzahl=Nachricht::blaetterfunktion($g_id);
+		
 		// Messageboard inkl. Bl�tterfunktion
 		$nachricht = new Nachricht();
 		$user_id=$_SESSION['user']->getU_id();
@@ -185,6 +190,7 @@ class GroupshowController extends AbstractActionController
 			// Nachrichtenliste laden je Gruppe (inkl. neuer Nachricht)
 			$aktnachrichtliste=Nachricht::messageboard($user_id, $g_id);
 		}
+	
 		
 			
 		return new ViewModel([
