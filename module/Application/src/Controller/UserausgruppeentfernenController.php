@@ -8,7 +8,6 @@ use Application\Model\Gruppe;
 use Application\Model\Gruppenmitglied;
 use Application\Model\Gruppenereignis;
 
-#TODO @Tanja Fehler abpr�fen!
 
 class UserausgruppeentfernenController extends AbstractActionController
 {
@@ -39,9 +38,7 @@ class UserausgruppeentfernenController extends AbstractActionController
 		
 		$aktgruppenmitglied=new Gruppenmitglied();
 		
-		if ($aktuser_id && $gruppen_id) {
-			$isOK=$gruppenmitglied->laden($gruppen_id, $aktuser_id);
-		}
+		$isOK=$aktgruppenmitglied->laden($gruppen_id, $aktuser_id);
 			
 		if ($isOK==false || $aktgruppenmitglied->getGruppenadmin()=="0") {
 		
