@@ -33,7 +33,31 @@ class ZahlunganlegenController extends AbstractActionController {
 
 		} else {
 			
-		
+			// BerechtigungsprÃ¼fung, ob Gruppenmitglied
+			$g_id=$_REQUEST['g_id'];
+			$user_id=$_SESSION['user']->getU_id();
+			
+			$aktgruppenmitglied=new Gruppenmitglied();
+			$isOK=$aktgruppenmitglied->laden($g_id, $user_id);
+			
+			// Wenn kein Gruppenmitglied, dann wird die Groupoverview des jew. Users geladen
+			if ($isOK==false) {
+			
+				$msg="Nicht berechtigt!";
+					
+				$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
+					
+				$view = new ViewModel([
+						'gruppenListe' => $gruppenliste,
+						'msg' => $msg,
+				]);
+			
+				$view->setTemplate('application/groupoverview/groupoverview.phtml');
+			
+				return $view;
+			}
+			
+			
 			//Liste alle verfï¿½gbaren Kateforien holen
 			$kategorieliste = Kategorie::listeHolen();
 
@@ -132,7 +156,7 @@ class ZahlunganlegenController extends AbstractActionController {
 					
 						
 						
-					// Fehlerabfrage, ob mehrere Teilnehmer ausgewählt wurden	
+					// Fehlerabfrage, ob mehrere Teilnehmer ausgewï¿½hlt wurden	
 					$anzahlteilnehmer=0;
 					
 					for($anzahl=0; $anzahl<$i; $anzahl++) {
