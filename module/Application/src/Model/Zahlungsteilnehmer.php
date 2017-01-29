@@ -70,13 +70,13 @@ class Zahlungsteilnehmer {
 		echo"z_id:";
 		var_dump($zahlungsteilnehmer->getZahlung()->getZ_id());
 		echo"u_id:";
-		var_dump($zahlungsteilnehmer-getUser()->getU_id());
+		var_dump($zahlungsteilnehmer->getUser()->getU_id());
 	$db = new DB_connection();	
 	echo"hier nach kommt die query";
 	
 	$query =	"UPDATE SET zahlungsteilnehmer restbetrag = '".$restbetrag."', status = '".$status."'
 				WHERE z_id='".$zahlungsteilnehmer->getZahlung()->getZ_id()."' 
-				AND u_id='".$zahlungsteilnehmer-getUser()->getU_id()."';";
+				AND u_id='".$zahlungsteilnehmer->getUser()->getU_id()."';";
 	
 	echo"Zweiter:";
 	var_dump($query);
