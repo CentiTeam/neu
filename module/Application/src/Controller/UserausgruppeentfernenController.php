@@ -18,7 +18,7 @@ class UserausgruppeentfernenController extends AbstractActionController
 		session_start();
 		
 		// Berechtigungsprüfung: Pr�fen, ob Angemeldet und danach ob Gruppeadmin
-		if ($_SESSION['angemeldet']==NULL) {
+		if ($_SESSION['angemeldet']==NULL || $_SESSION['systemadmin']) {
 		
 			$msg="Nicht berechtigt!";
 		
