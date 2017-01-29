@@ -38,8 +38,11 @@ class UserausgruppeentfernenController extends AbstractActionController
 		$gruppen_id=$_REQUEST['g_id'];
 		
 		$aktgruppenmitglied=new Gruppenmitglied();
-		$isOK=$gruppenmitglied->laden($gruppen_id, $aktuser_id);
 		
+		if ($aktuser_id && $gruppen_id) {
+			$isOK=$gruppenmitglied->laden($gruppen_id, $aktuser_id);
+		}
+			
 		if ($isOK==false || $aktgruppenmitglied->getGruppenadmin()=="0") {
 		
 			$errStr="Nicht berechtigt!";
