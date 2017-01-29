@@ -16,28 +16,43 @@ class UserausgruppeentfernenController extends AbstractActionController
 	public function userausgruppeentfernenAction() {
 
 		session_start();
-
-		// Pr�fen, ob Gruppeadmin
-
-		$aktuser_id=$_SESSION['user']->getU_id();
-		$gruppen_id=$_REQUEST['g_id'];
-
-		$aktgruppenmitglied=new Gruppenmitglied();
-		$aktgruppenmitglied->laden($gruppen_id, $aktuser_id);
-
-
-
-		// Berechtigungsprüfung: Pr�fen, ob Gruppeadmin
-		if ($aktgruppenmitglied->getGruppenadmin()=="0") {
-				
+		
+		// Berechtigungsprüfung: Pr�fen, ob Angemeldet und danach ob Gruppeadmin
+		if ($_SESSION['angemeldet']==NULL) {
+		
 			$msg="Nicht berechtigt!";
-				
+		
 			$view = new ViewModel([
 					'msg' => $msg,
 			]);
-
+		
 			$view->setTemplate('application/index/index.phtml');
-				
+		
+			return $view;
+		
+		}
+		
+		
+		// Pr�fen, ob Gruppeadmin
+		$aktuser_id=$_SESSION['user']->getU_id();
+		$gruppen_id=$_REQUEST['g_id'];
+		
+		$aktgruppenmitglied=new Gruppenmitglied();
+		$isOK=$gruppenmitglied->laden($gruppen_id, $aktuser_id);
+		
+		if ($isOK==false || $aktgruppenmitglied->getGruppenadmin()=="0") {
+		
+			$errStr="Nicht berechtigt!";
+			$gruppenliste=Gruppenmitglied::eigenelisteholen($aktuser_id);
+		
+			$view = new ViewModel([
+					'gruppenListe' => $gruppenliste,
+					'err' => $errStr,
+					'u_id' => $aktuser_id
+			]);
+		
+			$view->setTemplate('application/groupoverview/groupoverview.phtml');
+		
 			return $view;
 		}
 
