@@ -61,7 +61,7 @@ class StatistikenController extends AbstractActionController
   			
   				
   			
-  			if ($_REQUEST['filteranwenden']) {
+  			if ($_REQUEST['filteranwenden'] || $_REQUEST['sofortauslesen']) {
   				if($_REQUEST["kategorie"] != null){
   					$zahlungenliste = $this->katFilter($zahlungenliste, $_REQUEST["kategorie"]);
   				}

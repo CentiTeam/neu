@@ -22,10 +22,9 @@
 </form>	
 
 
-<form action="statistiken" method="post">
+<form action="statistiken?gruppe=<?=$gruppe[0]->getG_id()?>&sofortauslesen=sofortauslesen" method="post">
 		<table>
-		<tr><td><input type="hidden" name='g_id' value='<?=$gruppe[0]->getG_id()?>'></td> </tr>
-		<tr><td><input type="hidden" name='u_id' value='<?//=$aktgruppenmitglied->getUser()->getU_id()?>'></td> </tr>
+		<tr><td><input type="hidden" name='sofortauslesen'></td> </tr>
 		<tr><td><input class="button" type="submit" value="Deine Zahlungen in dieser Gruppe"></td> </tr>
 		</table>
 </form>	
