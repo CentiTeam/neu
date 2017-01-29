@@ -181,6 +181,7 @@ class Zahlungsteilnehmer {
  								//
  		
  								$schuldstand = $eigersterzahlungsteilnehmer -> zahlungbegleichen($schuldstand, $eigersterzahlungsteilnehmer);
+ 								var_dump($schuldstand);
  					}
  				}
  			}
