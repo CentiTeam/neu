@@ -23,7 +23,19 @@ class StatistikenController extends AbstractActionController
 
 		session_start();
 
-			
+		if ($_SESSION['user']==NULL) {
+			$msg="Nicht berechtigt!";
+			$view = new ViewModel([
+					'msg' => $msg,
+			]);
+		
+			$view->setTemplate('application/index/index.phtml');
+		
+			return $view;
+		
+		}
+		
+		
  			$user_id=$_SESSION['user']->getU_id();
   			$zahlungenliste = Zahlungsteilnehmer::teilnehmerzahlungenholen($user_id);
   			$kategorieliste = Kategorie::listeHolen();
