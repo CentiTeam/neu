@@ -21,13 +21,13 @@ class ZahlunganlegenController extends AbstractActionController {
 		  
 		$errors = array();
 
-		if($_SESSION['angemeldet'] != 'ja') {
+		if($_SESSION['angemeldet'] == NULL || $_SESSION['systemadmin']) {
 
-			array_push($errors, "Sie müssen angemeldet sein um eine Zahlung zu erstellen!");
+			$msg="Nicht berechtigt!";
 
-			$view = new ViewModel(array(
-					$errors
-			));
+			$view = new ViewModel([
+					'msg' => $msg
+		]);
 			$view->setTemplate('application/index/index.phtml');
 			return $view;
 
