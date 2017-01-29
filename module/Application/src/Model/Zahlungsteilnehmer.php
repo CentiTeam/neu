@@ -133,7 +133,11 @@ class Zahlungsteilnehmer {
  			}
  			echo "Erster Schuldstand:";
  			var_dump($schuldstand);
- 				//wenn ich ihm etwas schulde
+ 			echo"gemeinsame Zahlungen:";
+ 			foreach($gemeinsamezahlungen as $zaehler => $zahlungsteilnehmer){
+ 				var_dump($zahlungsteilnehmer->getZahlung()->getZahlungsbeschreibung());
+ 			}
+ 					//wenn ich ihm etwas schulde
 				if($schuldstand<0){
  			//		while($schuldstand<0){
  			$schuldstand = $schuldstand * (-1);
