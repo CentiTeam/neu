@@ -16,36 +16,74 @@ class ZahlungloeschenController extends AbstractActionController {
 		// TODO Berechtigungsprï¿½fung
 		session_start();
 
-		$errors = array();
-
-		if($_SESSION['angemeldet'] != 'ja') {
-
-			array_push($errors, "Sie mÃ¼ssen angemeldet sein um eine Zahlung zu bearbeiten!");
-
-			$view = new ViewModel(array(
-					$errors
-			));
+		if($_SESSION['angemeldet'] == NULL || $_SESSION['systemadmin']) {
+		
+			$msg="Nicht berechtigt!";
+		
+			$view = new ViewModel([
+					'msg' => $msg
+			]);
 			$view->setTemplate('application/index/index.phtml');
 			return $view;
 
 		} else {
-
+			
+			
+			
+			
+			
+			
 			//Holen der z_id aus Formular
 			$z_id = $_REQUEST['z_id'];			
 			
-			//Laden des Objektes der Klasse Zahlung mit der übergebenen z_id in die Variable $zahlung
+			//Laden des Objektes der Klasse Zahlung mit der ï¿½bergebenen z_id in die Variable $zahlung
 			$zahlung = new Zahlung();
 			$zahlung->laden($z_id);
 			
 			//Holen der u_id aus Session
 			$user_id=$_SESSION['user']->getU_id();
 			
-			//Überprüfen, ob User = ersteller
+			//ï¿½berprï¿½fen, ob User = ersteller
 			$ersteller = new Zahlungsteilnehmer();
 			$ersteller->laden($z_id, $user_id);		
 			
 			//Zahlungsteilnehmer der Zahlung holen
 			$teilnehmerliste = Zahlungsteilnehmer::zahlungsteilnehmerholen($z_id);
+			
+			
+			// BerechtigungsprÃ¼fung, ob User Zahlungsteilnehmer ist und ob die Gruppe stimmt
+			$aktuser_id=$_SESSION['user']->getU_id();
+			$gruppen_id=$_REQUEST['g_id'];
+			$istTeilnehmer=false;
+			
+			foreach ($teilnehmerliste as $teilnehmer) {
+				if ($aktuser_id==$teilnehmer->getUser()->getU_id() && $gruppen_id==$teilnehmer->getZahlung()->getGruppe()->getG_id()) {
+					$istTeilnehmer=true;
+				}
+			}
+			
+			// Wenn kein Zahlungsteilnehmer, dann wird die Overview des jew. Users geladen
+			if ($istTeilnehmer==false) {
+					
+				$msg="Nicht berechtigt!";
+			
+				$user=$_SESSION['user'];
+				$uname=$user->getVorname();
+			
+				$view = new ViewModel([
+						'uname' => $uname,
+						'user' => array($user),
+						'msg' => $msg,
+				]);
+			
+				$view->setTemplate('application/overview/overview.phtml');
+			
+				return $view;
+			
+			}
+			// BerechtigungsprÃ¼fung Ende
+			
+			
 			
 			if ($ersteller->getZahlungsempfaenger()->getU_id()==$user_id) {
 					
@@ -58,13 +96,13 @@ class ZahlungloeschenController extends AbstractActionController {
 					}
 				}
 				
-				//Für jeden Teilnehmer wird die Löschfunktion aufgerufen
+				//Fï¿½r jeden Teilnehmer wird die Lï¿½schfunktion aufgerufen
 				foreach ($teilnehmerliste as $zahlungsteilnehmer)
 				{
 					$teilnehmerloeschen = Zahlungsteilnehmer::teilnehmerloeschen($z_id, $zahlungsteilnehmer->getUser()->getU_id());
 				}
 			
-				//Löschen der Zahlung
+				//Lï¿½schen der Zahlung
 					$zahlungloeschen = Zahlung::loeschen($z_id);
 				
 					if ($zahlungloeschen) {
