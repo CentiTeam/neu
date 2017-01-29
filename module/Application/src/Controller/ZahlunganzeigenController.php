@@ -49,7 +49,7 @@ class ZahlunganzeigenController extends AbstractActionController
 			}
 		}
 		
-		// Wenn kein Gruppenmitglied, dann wird die Groupoverview des jew. Users geladen
+		// Wenn kein Zahlungsteilnehmer, dann wird die Overview des jew. Users geladen
 		if ($istTeilnehmer==false) {
 				
 			$msg="Nicht berechtigt!";
