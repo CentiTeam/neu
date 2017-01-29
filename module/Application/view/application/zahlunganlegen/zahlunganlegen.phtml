@@ -52,13 +52,8 @@
 		foreach ($mitgliederListe as $zaehler => $mitglied) { ?>	
 			<label>
 			<input type="hidden" name="zahlungsteilnehmer[]" value='<?=$mitglied->getU_id()?>'>
-			<?=$mitglied->getUsername()?>
-			
-			<?php if ($mitglied->getU_id()==$_SESSION['user']->getU_id()) { ?>
-				<br>Anteil: <input type="text" name="anteilsbetrag[]" placeholder="Euro.Cent">
-			<?php } else { ?>				
-				<br>Anteil: <input type="text" name="anteilsbetrag[]" placeholder="Euro.Cent">
-			<?php }?>
+			<?=$mitglied->getUsername()?>	
+			<br>Anteil: <input type="text" name="anteilsbetrag[]" placeholder="Euro.Cent">
 			</label><br></input>	 	 			
 		<?php 
 		} ?> 
