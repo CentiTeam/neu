@@ -16,8 +16,8 @@
 
 <form action="gruppenverlauf?g_id=<?=$_REQUEST['g_id']?>" method="post">
 		<table>
-		<td><input type="hidden" name='g_id' value=<?=$_REQUEST['g_id']?></td> </tr>
-		<td><input class="button" type="submit" value="Gruppenverlauf"></td> </tr>
+		<tr><td><input type="hidden" name='g_id' value='<?=$_REQUEST['g_id']?>'></td> </tr>
+		<tr><td><input class="button" type="submit" value="Gruppenverlauf"></td> </tr>
 		</table>
 	</form>	
 
@@ -135,7 +135,7 @@
 		<form action="groupcsv" method="post">
 		<table>
 		<th>Download aller Zahlungen dieser Gruppe als CSV</th></tr>
-		<td><input type="hidden" name='g_id' value=<?=$_REQUEST['g_id']?></td> </tr>
+		<td><input type="hidden" name='g_id' value='<?=$_REQUEST['g_id']?>'></td> </tr>
 		<td><input class="button" type="submit" value="CSV Download"></td> </tr>
 		
 	</table>

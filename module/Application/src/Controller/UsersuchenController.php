@@ -55,6 +55,30 @@ class UsersuchenController extends AbstractActionController
 		
 		else {
 			
+			// Pr�fen, ob Gruppeadmin
+			$aktuser_id=$_SESSION['user']->getU_id();
+			$gruppen_id=$_REQUEST['g_id'];
+			
+			$aktgruppenmitglied=new Gruppenmitglied();
+			
+			$isOK=$aktgruppenmitglied->laden($gruppen_id, $aktuser_id);
+				
+			if ($isOK==false || $aktgruppenmitglied->getGruppenadmin()=="0") {
+			
+				$errStr="Nicht berechtigt!";
+				$gruppenliste=Gruppenmitglied::eigenelisteholen($aktuser_id);
+			
+				$view = new ViewModel([
+						'gruppenListe' => $gruppenliste,
+						'err' => $errStr,
+						'u_id' => $aktuser_id
+				]);
+			
+				$view->setTemplate('application/groupoverview/groupoverview.phtml');
+			
+				return $view;
+			}
+			
 			$user_id=$_SESSION['user']->getU_id();
 			
 			$aktgruppenmitglied=new Gruppenmitglied();
