@@ -269,7 +269,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 								// Legt die zugeh�rigen Zahlungsteilnehmer Datens�tze an, au�er f�r sich selbst (info wird aber f�r Anteil ben�tigt!)
 								foreach ($_POST['zahlungsteilnehmer'] as $key => $value) {
 
-									if($anteile[$counter]=="") {
+									if($anteile[$counter]=="" && $value !=$user_id) {
 											
 										$counter++;
 									
@@ -294,7 +294,13 @@ class ZahlungbearbeitenController extends AbstractActionController {
 								 		$status="offen";
 								 		$restbetrag=$anteil;
 										}
-										$anteil=$anteile[$counter];
+										
+										// Wenn der Ersteller nicht mitzahlt
+										if($anteile[$counter]) {
+											$anteil=$anteile[$counter];
+										} else {
+											$anteil="0";
+										}
 
 										$zahlungsempfaenger=$_SESSION['user'];
 
