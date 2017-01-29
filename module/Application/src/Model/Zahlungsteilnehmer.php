@@ -72,7 +72,10 @@ class Zahlungsteilnehmer {
 	$query =	"UPDATE SET zahlungsteilnehmer restbetrag = '".$restbetrag."', status = '".$status."'
 				WHERE z_id='".$zahlungsteilnehmer->getZahlung()->getZ_id()."' 
 				AND u_id='".$zahlungsteilnehmer-getUser()->getU_id()."';";
-	
+	echo"Query Tests:";
+	echo $query;
+	echo"Zweiter:";
+	var_dump($query);
 	$result = $db->execute($query);
 	echo"begleichen Test";
 	return $uebrig;
