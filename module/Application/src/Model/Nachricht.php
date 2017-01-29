@@ -226,10 +226,10 @@ class Nachricht {
 		
 		$nachrichtenproseite = 10;
 		
-		$query = "SELECT COUNT (*) as anzahlnachrichten FROM nachricht WHERE g_id='".$g_id."';";
+		$query = "SELECT COUNT (*) AS anzahlnachrichten FROM nachricht WHERE g_id='".$g_id."';";
 		$anzahlnachrichten = $db->execute ($query);
-		$anzahl = mysqli_num_rows ($anzahlnachrichten);
-		echo $anzahl;
+		// $anzahl = mysqli_num_rows ($anzahlnachrichten);
+		echo $anzahlnachrichten;
 		
 		
 	}
