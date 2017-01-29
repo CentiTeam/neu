@@ -133,15 +133,13 @@ class Zahlungsteilnehmer {
  			}
  			echo "Erster Schuldstand:";
  			var_dump($schuldstand);
- 			echo"gemeinsame Zahlungen:";
- 			foreach($gemeinsamezahlungen as $zaehler => $zahlungsteilnehmer){
- 				var_dump($zahlungsteilnehmer->getZahlung()->getZahlungsbeschreibung());
- 			}
  					//wenn ich ihm etwas schulde
 				if($schuldstand<0){
  			//		while($schuldstand<0){
  			$schuldstand = $schuldstand * (-1);
  						foreach($gemeinsamezahlungen as $zaehler => $zahlungsteilnehmer){
+ 							echo"Schuldstand12";
+ 							var_dump($schuldstand);
  							if($schuldstand>0){
  								echo"for Loop Zahlung: ";
  								var_dump($zahlungsteilnehmer->getZahlung()->getZahlungsbeschreibung());
@@ -161,8 +159,14 @@ class Zahlungsteilnehmer {
  									
  									$schuldstand = $zweiterzahlungsteilnehmer -> zahlungbegleichen($schuldstand, $zweiterzahlungsteilnehmer);
  									}
+ 									echo"Schuldstand1";
+ 									var_dump($schuldstand);
  						}
+ 						echo"Schuldstand2";
+ 						var_dump($schuldstand);
  					}
+ 					echo"Schuldstand3";
+ 					var_dump($schuldstand);
  					$schuldstand = $schuldstand * (-1);
  		}
  		
