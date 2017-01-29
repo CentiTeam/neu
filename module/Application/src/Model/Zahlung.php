@@ -72,10 +72,10 @@ class Zahlung {
 	
 	
 		if ($z_id) {
-			$result=$dbStmt->execute("SELECT z_id, zahlungsbeschreibung, DATE_FORMAT(erstellungsdatum,'%d.%m.%Y') as erstellungsdatum, DATE_FORMAT(zahlungsdatum,'%d.%m.%Y') as zahlungsdatum, betrag, k_id, DATE_FORMAT(aenderungsdatum,'%d.%m.%Y') as aenderungsdatum, g_id FROM zahlung WHERE z_id= '".$z_id."';");
+			$result=$dbStmt->execute("SELECT z_id, zahlungsbeschreibung, DATE_FORMAT(erstellungsdatum,'%d.%m.%Y') as erstellungsdatum, zahlungsdatum, betrag, k_id, DATE_FORMAT(aenderungsdatum,'%d.%m.%Y') as aenderungsdatum, g_id FROM zahlung WHERE z_id= '".$z_id."';");
 		}
 		else {
-			$result=$dbStmt->execute("SELECT z_id, zahlungsbeschreibung, DATE_FORMAT(erstellungsdatum,'%d.%m.%Y') as erstellungsdatum, DATE_FORMAT(zahlungsdatum,'%d.%m.%Y') as zahlungsdatum, betrag, k_id, DATE_FORMAT(aenderungsdatum,'%d.%m.%Y') as aenderungsdatum, g_id FROM zahlung WHERE z_id =(SELECT MAX(z_id) FROM zahlung)");
+			$result=$dbStmt->execute("SELECT z_id, zahlungsbeschreibung, DATE_FORMAT(erstellungsdatum,'%d.%m.%Y') as erstellungsdatum, zahlungsdatum, betrag, k_id, DATE_FORMAT(aenderungsdatum,'%d.%m.%Y') as aenderungsdatum, g_id FROM zahlung WHERE z_id =(SELECT MAX(z_id) FROM zahlung)");
 		}
 		// Variable, die speichert, ob das Team geladen werden konnte oder nicht
 		$isLoaded=false;
