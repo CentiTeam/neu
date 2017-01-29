@@ -217,7 +217,7 @@ class ZahlunganlegenController extends AbstractActionController {
 						 		$zahlungs_id=$zahlung->getZ_id();
 					 		
 						 		// Wenn der Ersteller nicht mitzahlt
-						 		if($zahlungsteilnehmer[$counter]->getUser()->getU_id() !=$aktgruppenmitglied->getUser()->getU_id()) {
+						 		if($value->getUser()->getU_id() !=$aktgruppenmitglied->getUser()->getU_id()) {
 						 			$anteil="0";
 						 		} else {
 						 			$anteil=$anteile[$counter];
