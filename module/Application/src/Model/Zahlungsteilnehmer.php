@@ -67,21 +67,12 @@ class Zahlungsteilnehmer {
 			$status = "offen";
 			$uebrig=0;
 		}
-		echo"z_id:";
-		var_dump($zahlungsteilnehmer->getZahlung()->getZ_id());
-		echo"u_id:";
-		var_dump($zahlungsteilnehmer->getUser()->getU_id());
 	$db = new DB_connection();	
-	echo"hier nach kommt die query";
 	
 	$query =	"UPDATE SET zahlungsteilnehmer restbetrag = '".$restbetrag."', status = '".$status."'
 				WHERE z_id='".$zahlungsteilnehmer->getZahlung()->getZ_id()."' 
 				AND u_id='".$zahlungsteilnehmer->getUser()->getU_id()."';";
-	
-	echo"Zweiter:";
-	var_dump($query);
 	$result = $db->execute($query);
-	echo"begleichen Test";
 	return $uebrig;
 	
 	}
@@ -145,11 +136,7 @@ class Zahlungsteilnehmer {
  			//		while($schuldstand<0){
  			$schuldstand = $schuldstand * (-1);
  						foreach($gemeinsamezahlungen as $zaehler => $zahlungsteilnehmer){
- 							echo"Schuldstand12";
- 							var_dump($schuldstand);
  							if($schuldstand>0){
- 								echo"for Loop Zahlung: ";
- 								var_dump($zahlungsteilnehmer->getZahlung()->getZahlungsbeschreibung());
  							//$einzahlungsteilnehmer schuldet $andererzahlungsteilnehmer etwas
  							//falls es nun Zahlungen gibt, in denen $einzahlungsteilnehmer Ersteller ist
  							// und $andererzahlungsteilnehmer einen offenen Restbetrag hat sollten diese Zahlungen
@@ -166,13 +153,9 @@ class Zahlungsteilnehmer {
  									
  									$schuldstand = $zweiterzahlungsteilnehmer -> zahlungbegleichen($schuldstand, $zweiterzahlungsteilnehmer);
  									}
- 									echo"Schuldstand1";
- 									var_dump($schuldstand);
  						}
- 						echo"Schuldstand2";
- 						var_dump($schuldstand);
  					}
- 					echo"Schuldstand3";
+ 					echo "schuldstand tesst:";
  					var_dump($schuldstand);
  					$schuldstand = $schuldstand * (-1);
  		}
