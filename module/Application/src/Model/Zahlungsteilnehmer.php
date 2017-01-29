@@ -54,7 +54,10 @@ class Zahlungsteilnehmer {
 // 		}
 		
 		if($betrag >= $this->getRestbetrag()){
-			echo "in if Zweig angekommen, der den Restbetrag auf 0 setzt";
+			echo "in if Zweig angekommen, der den Restbetrag auf 0 setzt. Betrag:";
+			var_dump($betrag);
+			echo "this:";
+			var_dump($this);
 			$temp = $this->getRestbetrag();
 			$restbetrag=0;
 			$status="beglichen";
