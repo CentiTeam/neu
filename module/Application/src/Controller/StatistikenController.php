@@ -76,7 +76,7 @@ class StatistikenController extends AbstractActionController
    				if($_REQUEST["status"] != null){
    					$zahlungenliste = $this->statusFilter($zahlungenliste, $_REQUEST["status"]);
    				}
-   				if($_GET["gruppe"] != null){
+   				if($_REQUEST["gruppe"] != null){
    					$zahlungenliste = $this->gruppeFilter($zahlungenliste, $_REQUEST["gruppe"]);
    						}
   			}		
