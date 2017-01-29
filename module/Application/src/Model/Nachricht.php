@@ -229,7 +229,21 @@ class Nachricht {
 		$query = "SELECT * FROM `nachricht` WHERE g_id='".$g_id."';";
 		$anzahlnachrichten = $db->execute ($query);
 		$anzahl = mysqli_num_rows ($anzahlnachrichten);
-		echo $anzahl;
+		
+		if (empty($_GET['seite_nr'])) {
+			$seite = 1;
+		} else {
+			$seite = $_GET['seite_nr'];
+			if ($seite > $gesamt_seiten) {
+				$seite = 1;
+			}
+		}
+		
+		$start = ($seite-1)*$nachrichtenproseite;
+		$abfrage = "SELECT * FROM `nachricht` WHERE g_id ='".$g_id."' LIMIT $start, $nachrichtenproseite;";
+		$anzahl_seiten = ceil($anzahl / floatval($nachrichtenproseite));
+		
+		while ($row = mysql_fetch_assoc($abfrage)) {
 		
 		
 	}

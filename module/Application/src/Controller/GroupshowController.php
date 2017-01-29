@@ -141,9 +141,7 @@ class GroupshowController extends AbstractActionController
 		
 		
 		
-		// TESt
-		
-		$anzahl=Nachricht::blaetterfunktion($g_id);
+	
 		
 		// Messageboard inkl. Bl�tterfunktion
 		$nachricht = new Nachricht();
