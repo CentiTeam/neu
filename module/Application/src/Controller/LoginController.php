@@ -34,6 +34,8 @@ class LoginController extends AbstractActionController{
 					$user_id=$_SESSION['user']->getU_id();
 					$user=$_SESSION['user'];
 					
+					var_dump($user);
+					
 					$aktzahlungliste=Zahlung::aktuellezahlungenholen($user_id); 
 					
 					$aktnachrichtliste=Nachricht::aktuellenachrichten($user_id);
