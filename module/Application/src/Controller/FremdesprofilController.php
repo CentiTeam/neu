@@ -39,8 +39,7 @@ class FremdesprofilController extends AbstractActionController {
 			
 			$user_angemeldet = $_SESSION['user'];
 			
-			echo "kk".$user_angemeldet;
-			echo "kk".$user_aufgerufen;
+
 			
 			
 			//Aufbauen des aktuellen Schuldenbetrages, den der angemeldete Benutzer dem aufgerufenen Benutzer schuldet
