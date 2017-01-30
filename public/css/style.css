@@ -217,7 +217,7 @@ tbody.datentabelle:hover td.datentabelle  {
 	text-shadow: 0 0 3px #aaa;
 }
 
-tbody.datentabelle:hover tr.datentabelle :hover td.datentabelle  {
+tbody.datentabelle:hover tr.datentabelle:hover td.datentabelle  {
 	color: #444;
 	text-shadow: 0 1px 0 #fff;
 }
