@@ -4,28 +4,30 @@ use Application\Model\Gruppenmitglied;?>
 <?=$err?>
 
 
-<table>
-
-	<tr>
-		<th>Gruppenbild</th>
-		<th>GruppenNr</th>
-		<th>Gruppenname</th>
-		<th>Beschreibung</th>
-		<th></th>
-		<th></th>
-		<th></th>
+<table class="datentabelle">
+<thead class="datentabelle">
+	<tr class="datentabelle">
+		<th class="datentabelle">Gruppenbild</th>
+		<th class="datentabelle">GruppenNr</th>
+		<th class="datentabelle">Gruppenname</th>
+		<th class="datentabelle">Beschreibung</th>
+		<th class="datentabelle"></th>
+		<th class="datentabelle"></th>
+		<th class="datentabelle"></th>
 	</tr>
-	
+</thead>
+
+<tbody class="datentabelle">
 	<?php 
 	foreach ($gruppenListe as $zaehler => $gruppenmitglied) {
 		
 	?>
 
-		<tr>
-			<td><div class="small-circular-image"><img src ="<?=$gruppenmitglied->getGruppe()->getGruppenbildpfad()?>" height = "50" width = "50" alt = "Kein Bild vorhanden"></div></td>
-			<td><?=$gruppenmitglied->getGruppe()->getG_id()?></td>
-			<td><?=$gruppenmitglied->getGruppe()->getGruppenname()?></td>
-			<td><?=$gruppenmitglied->getGruppe()->getGruppenbeschreibung()?></td>
+		<tr class="datentabelle">
+			<td class="datentabelle"><div class="small-circular-image"><img src ="<?=$gruppenmitglied->getGruppe()->getGruppenbildpfad()?>" height = "50" width = "50" alt = "Kein Bild vorhanden"></div></td>
+			<td class="datentabelle"><?=$gruppenmitglied->getGruppe()->getG_id()?></td>
+			<td class="datentabelle"><?=$gruppenmitglied->getGruppe()->getGruppenname()?></td>
+			<td class="datentabelle"><?=$gruppenmitglied->getGruppe()->getGruppenbeschreibung()?></td>
 			
 			<td><a href='groupshow?g_id=<?=$gruppenmitglied->getGruppe()->getG_id()?>'><img src="img/show.jpg" title="Gruppendetails anzeigen"/></a></td>
 			<?php //Nicht schön programmiert
@@ -44,7 +46,7 @@ use Application\Model\Gruppenmitglied;?>
 	?>
 		<tr><td> </td></tr>
 		<tr>
-		<th><a href='gruppeanlegen'>Neue Gruppe anlegen</a></th>
+		<td class="datentabelle"><a href='gruppeanlegen'>Neue Gruppe anlegen</a></td>
 		</tr>
-
+</tbody>
 </table>	
