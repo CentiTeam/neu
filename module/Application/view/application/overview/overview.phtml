@@ -25,27 +25,32 @@
 <a class="button" onclick="text1.style.display='block';an.style.display='none';zu.style.display='block'" id="an" style="display: block; text-align:center" href="#neu">Anzeigen</a>
 <a class="button" onclick="text1.style.display='none';an.style.display='block';zu.style.display='none'" id="zu" style="display: none; text-align:center" href="#neu">Ausblenden</a>
 <a name="neu"></a><DIV id="text1" style="display: none">
-<table width="80%">
-  <tr>
-    <th width="12%">Gruppe</th>
-    <th>Zahlungsbeschreibung</th>
-    <th>Zahlungsdatum</th>
-    <th width="7%">Betrag</th>
-    <th width="12%">Kategorie</th>
-    <th>Erstellungsdatum</th>
+
+<table class="datentabelle" width="80%">
+<thead class="datentabelle">
+  <tr class="datentabelle">
+    <th class="datentabelle" width="12%">Gruppe</th>
+    <th class="datentabelle">Zahlungsbeschreibung</th>
+    <th class="datentabelle">Zahlungsdatum</th>
+    <th class="datentabelle" width="7%">Betrag</th>
+    <th class="datentabelle" width="12%">Kategorie</th>
+    <th class="datentabelle">Erstellungsdatum</th>
   </tr>
-  
+</thead>  
+
+<tbody class="datentabelle">
 	<?php foreach ($aktzahlung as $zaehler => $zahlung) {?>
 
-  <tr>
-    <td height="45"><?=$zahlung->getGruppe()->getGruppenname()?></td>
-    <td><?=$zahlung->getZahlungsbeschreibung()?></td>
-    <td><?=$zahlung->getZahlungsdatum()?></td>
-    <td align="center"><?=$zahlung->getBetrag()?></td>
-    <td align="center"><?=$zahlung->getKategorie()->getKategoriebeschreibung()?></td>
-    <td><?=$zahlung->getErstellungsdatum()?></td>
+  <tr class="datentabelle">
+    <td class="datentabelle" height="45"><?=$zahlung->getGruppe()->getGruppenname()?></td>
+    <td class="datentabelle"><?=$zahlung->getZahlungsbeschreibung()?></td>
+    <td class="datentabelle"><?=$zahlung->getZahlungsdatum()?></td>
+    <td class="datentabelle" align="center"><?=$zahlung->getBetrag()?></td>
+    <td class="datentabelle" align="center"><?=$zahlung->getKategorie()->getKategoriebeschreibung()?></td>
+    <td class="datentabelle"><?=$zahlung->getErstellungsdatum()?></td>
   </tr>
   <?php }?>
+</tbody>
 </table>
 </DIV>
 <br>
@@ -58,23 +63,28 @@
 <a class="button" onclick="text2.style.display='block';an2.style.display='none';zu2.style.display='block'" id="an2" style="display: block; text-align:center" href="#neu2">Anzeigen</a>
 <a class="button" onclick="text2.style.display='none';an2.style.display='block';zu2.style.display='none'" id="zu2" style="display: none; text-align:center" href="#neu2">Ausblenden</a>
 <a name="neu2"></a><DIV id="text2" style="display: none">
-<table width="80%">
-  <tr>
-    <th width="15%">Gruppe</th>
-    <th width="15%">Absender</th>
-    <th width="15%">Datum</th>
-    <th>Nachricht</th>
+
+<table class="datentabelle" width="80%">
+<thead class="datentabelle">
+  <tr class="datentabelle">
+    <th class="datentabelle" width="15%">Gruppe</th>
+    <th class="datentabelle" width="15%">Absender</th>
+    <th class="datentabelle" width="15%">Datum</th>
+    <th class="datentabelle">Nachricht</th>
   </tr>
+ </thead>
   
+ <tbody>
   <?php foreach ($aktnachricht as $zaehler => $nachricht) {?>
   
-  <tr>
-    <td height="45"><?=$nachricht->getGruppe()->getGruppenname()?></td>
-    <td><?=$nachricht->getUser()->getUsername()?></td>
-    <td><?=$nachricht->getdatum()?> 
-    <td><?=$nachricht->getText()?></td>
+  <tr class="datentabelle">
+    <td class="datentabelle" height="45"><?=$nachricht->getGruppe()->getGruppenname()?></td>
+    <td class="datentabelle"><?=$nachricht->getUser()->getUsername()?></td>
+    <td class="datentabelle"><?=$nachricht->getdatum()?> 
+    <td class="datentabelle"><?=$nachricht->getText()?></td>
   </tr>
   <?php }?>
+ </tbody>
 </table>
 </DIV>
 
@@ -87,20 +97,24 @@
 <a class="button" onclick="text3.style.display='block';an3.style.display='none';zu3.style.display='block'" id="an3" style="display: block; text-align:center" href="#neu3" >Anzeigen</a>
 <a class="button" onclick="text3.style.display='none';an3.style.display='block';zu3.style.display='none'" id="zu3" style="display: none; text-align:center" href="#neu3">Ausblenden</a>
 <a name="neu3"></a><DIV id="text3" style="display: none">
-<table width="80%">
-  <tr>
-  	<th>Gruppe</th>
-  	<th>Ereignis</th>
-  	<th>Datum</th>
+<table class="datentabelle" width="80%">
+<thead class="datentabelle">
+  <tr class="datentabelle">
+  	<th class="datentabelle">Gruppe</th>
+  	<th class="datentabelle">Ereignis</th>
+  	<th class="datentabelle">Datum</th>
   </tr>
-  
+ </thead>
+ 
+ <tbody class="datentabelle">
   <?php foreach ($aktereignis as $zaehler => $ereignis) {?>
-  <tr>
-  	<td height="45"><?=$ereignis->getGruppe()->getGruppenname()?></td>
-  	<td><?=$ereignis->getBeschreibung()?></td>
-  	<td><?=$ereignis->getZeitpunkt()?></td>
+  <tr class="datentabelle">
+  	<td class="datentabelle" height="45"><?=$ereignis->getGruppe()->getGruppenname()?></td>
+  	<td class="datentabelle"><?=$ereignis->getBeschreibung()?></td>
+  	<td class="datentabelle"><?=$ereignis->getZeitpunkt()?></td>
   </tr>
   <?php }?>
+ </tbody>
 </table>
 </DIV>
 
