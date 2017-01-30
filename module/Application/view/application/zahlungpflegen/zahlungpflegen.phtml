@@ -1,0 +1,71 @@
+<?=$msg?>
+
+
+<h1>Zahlung: <?=$zahlung[0]->getZahlungsbeschreibung()?></h1>
+
+<div class=>
+<table>
+<tr><td>Betrag: <?=$zahlung[0]->getBetrag()?></td>
+<tr><td>Zahlungsdatum: <?=$zahlung[0]->getZahlungsdatum()?></td></tr>
+<tr><td>Kategorie: <?=$zahlung[0]->getKategorie()->getKategoriebeschreibung()?></td></tr>
+<tr><td>Gruppe: <a href="groupshow?g_id=<?=$zahlung[0]->getGruppe()->getG_id()?>"><?=$zahlung[0]->getGruppe()->getGruppenname()?></a></td></tr>
+</table>
+</div>
+<br>
+
+<!--  Rausgenommen, da die Teilnehmer jetzt über die Liste geladen werden
+<br>
+<form method="post">
+<input type="submit" name="zahlungsteilnehmeranzeigen" value="Liste der Zahlungsteilnehmer">
+</form>
+
+<a onclick="text1.style.display='block';an.style.display='none';zu.style.display='block'" id="an" style="display: none" href="#neu">Zahlungsteilnehmer anzeigen</a>
+<a onclick="text1.style.display='none';an.style.display='block';zu.style.display='none'" id="zu" style="display: block" href="#neu">Zahlungsteilnehmer ausblenden</a>
+<a name="neu"></a><DIV id="text1" style="display: block">
+-->
+<h3>Zahlungsteilnehmer:</h3>
+
+<table class="datentabelle"> 
+<tr class="datentabelle">
+		<th class="datentabelle">User ID  </th>
+		<th class="datentabelle">Username </th>
+		<th class="datentabelle">Anteil </th>
+		<th class="datentabelle">Restbetrag </th>
+		<th class="datentabelle">Status </th>
+</tr>
+
+<?php 
+	foreach ($teilnehmerliste as $zaehler => $zahlungsteilnehmer) {
+		
+	?>
+
+		<tr class="datentabelle">
+			<td class="datentabelle"><?=$zahlungsteilnehmer->getUser()->getU_id()?></td>
+			<td class="datentabelle"><?=$zahlungsteilnehmer->getUser()->getUsername()?></td>
+			<td class="datentabelle"><?=$zahlungsteilnehmer->getAnteil()?></td>
+			<td class="datentabelle"><?=$zahlungsteilnehmer->getRestbetrag()?></td>
+			<td class="datentabelle"><?=$zahlungsteilnehmer->getStatus()?></td>
+					
+		</tr>
+
+	<?php 
+		
+	}
+	?>
+	
+	</DIV>
+</table>
+<br>
+<h3>Aktionen:</h3>
+<a href="zahlungbearbeiten?z_id=<?=$zahlung[0]->getZ_id()?>&g_id=<?=$zahlung[0]->getGruppe()->getG_id()?>"><img src="img/edit.jpg" /></a>
+<a href="zahlungloeschen?z_id=<?=$zahlung[0]->getZ_id()?>&g_id=<?=$zahlung[0]->getGruppe()->getG_id()?>"><img src="img/delete.png" /></a>
+<a href="zahlungbegleichen?z_id=<?=$zahlung[0]->getZ_id()?>&g_id=<?=$zahlung[0]->getGruppe()->getG_id()?>">Zahlung begleichen</a>
+
+<!--  
+<form action="zahlungbearbeiten" method="post">
+<table>
+<th>Bearbeiten dieser Zahlung</th></tr>
+<td><input type="hidden" name='g_id' value=<?php //$_REQUEST['g_id'] ?></td> </tr>
+</table>
+</form>	
+-->
