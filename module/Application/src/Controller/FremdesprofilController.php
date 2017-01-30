@@ -34,7 +34,7 @@ class FremdesprofilController extends AbstractActionController {
 			$saved= false;
 			$msg = array();
 			
-			//Schreiben des aufgerufenen Benutzers und des angemeldeten Benutzers in Variablen
+			/** Schreiben des aufgerufenen Benutzers und des angemeldeten Benutzers in Variablen
 			$user_aufgerufen = new User();
 			$u_id_aufgerufen = $_REQUEST['u_id'];
 			$user_aufgerufen->laden($u_id_aufgerufen);
@@ -45,6 +45,7 @@ class FremdesprofilController extends AbstractActionController {
 			
 			echo $user_angemeldet;
 			echo $user_aufgerufen;
+			*/
 			
 			//Aufbauen des aktuellen Schuldenbetrages, den der angemeldete Benutzer dem aufgerufenen Benutzer schuldet
 			
