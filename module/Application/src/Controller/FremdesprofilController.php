@@ -36,8 +36,8 @@ class FremdesprofilController extends AbstractActionController {
 			
 			//Schreiben des aufgerufenen Benutzers und des angemeldeten Benutzers in Variablen
 			$user_aufgerufen = new User();
-			$u_id_aufgerufen = $_REQUEST['u_id'];
-			$user_aufgerufen->laden($u_id_aufgerufen);
+			$user_id_aufgerugen=$_REQUEST['u_id'];
+			$user_aufgerufen->laden($user_id_aufgerufen);
 			
 			$user_angemeldet = $_SESSION['user'];
 			
