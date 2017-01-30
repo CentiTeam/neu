@@ -32,6 +32,7 @@ class LoginController extends AbstractActionController{
 					$_SESSION['user'] = $user;
 					
 					$user_id=$_SESSION['user']->getU_id();
+					$user=$_SESSION['user'];
 					
 					$aktzahlungliste=Zahlung::aktuellezahlungenholen($user_id); 
 					
