@@ -559,6 +559,7 @@ return [
         	Controller\NachrichtbearbeitenController::class => InvokableFactory::class,
         	Controller\PasswordresetController::class => InvokableFactory::class,
         	Controller\ZahlungbegleichenController::class => InvokableFactory::class,
+        	Controller\ZahlungpflegenController::class => InvokableFactory::class,
         		 
         	
         		
