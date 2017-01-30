@@ -485,6 +485,18 @@ return [
         				],
        		],
         		
+        	'zahlungpflegen' => [
+        			'type'    => Segment::class,
+       				'options' => [
+       						'route'    => '/zahlungpflegen[/:action]',
+       						'defaults' => [
+       								'controller' => Controller\ZahlungpflegenController::class,
+       								'action'     => 'zahlungpflegen',
+       						],
+       				],
+       		],
+        		
+        		
         		
         		
         		
