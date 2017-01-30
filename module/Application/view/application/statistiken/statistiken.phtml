@@ -76,7 +76,7 @@ use Application\Model\Zahlungsteilnehmer;?>
 
 
 <table class="datentabelle" width="80%">
-
+<thead class="datentabelle"> 
 	<tr class="datentabelle">
 		<th class="datentabelle">Zahlungsbeschreibung  </th>
 		<th class="datentabelle">Zahlungsdatum </th>
@@ -86,7 +86,9 @@ use Application\Model\Zahlungsteilnehmer;?>
 		<th class="datentabelle">Gruppenname</th>
 		<th class="datentabelle"></th>
 	</tr>
+</thead>
 
+<tbody>
 <?php 
 	foreach ($zahlungenliste as $zaehler => $zahlungsteilnehmer) {
 		
@@ -107,4 +109,4 @@ use Application\Model\Zahlungsteilnehmer;?>
 	}
 	?>
 </table>
-
+</tbody>
