@@ -59,10 +59,7 @@
 <h3>Aktionen:</h3>
 <a href="zahlungbearbeiten?z_id=<?=$zahlung[0]->getZ_id()?>&g_id=<?=$zahlung[0]->getGruppe()->getG_id()?>"><img src="img/edit.jpg" /></a>
 <a href="zahlungloeschen?z_id=<?=$zahlung[0]->getZ_id()?>&g_id=<?=$zahlung[0]->getGruppe()->getG_id()?>"><img src="img/delete.png" /></a>
-<?php 
-//Auskommentierter link zu nicht implementierter Funktion
-//<a href="zahlungbegleichen?z_id=<?=$zahlung[0]->getZ_id()?>&g_id=<?=$zahlung[0]->getGruppe()->getG_id()?>">Zahlung begleichen</a>
-?>
+
 <!--  
 <form action="zahlungbearbeiten" method="post">
 <table>
