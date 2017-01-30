@@ -16,6 +16,14 @@ use Application\Model\Gruppenereignis;
 class ZahlungpflegenController extends AbstractActionController {
 
 	function zahlungpflegenAction() {
+		
+		
+		
+		return new ViewModel([
+				
+				'msg' => $msg,
+				
+		]);
 	}
 	
 }
