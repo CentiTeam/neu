@@ -39,8 +39,7 @@ class GruppenverlaufController extends AbstractActionController
 		$isOK=$aktgruppenmitglied->laden($g_id, $user_id);
 		
 		
-		var_dump($g_id);
-		var_dump($user_id);
+	
 		
 		if ($isOK==false) {
 		
