@@ -181,7 +181,7 @@ class Gruppenereignis{
 		$dbStmt = new DB_connection();
 	
 		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
-		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe->getG_id()."', '".$ereignisbeschreibung.$ereignisbeschreibung2."', NOW());");
+		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe->getG_id()."', '".$ereignisbeschreibung.$ereignisbeschreibung_2."', NOW());");
 	
 	}
 	
