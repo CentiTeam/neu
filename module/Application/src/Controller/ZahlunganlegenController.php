@@ -247,8 +247,6 @@ class ZahlunganlegenController extends AbstractActionController {
 								$zahlungsteilnehmer->setRestbetrag($restbetrag);
 						 		
 								$zahlungsteilnehmer->anlegen();
-							
-								var_dump($zahlungsteilnehmer->getUser()->getVorname());
 								
 								$counter++;
 						 	}
