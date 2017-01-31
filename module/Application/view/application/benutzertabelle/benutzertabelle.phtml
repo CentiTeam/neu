@@ -68,38 +68,13 @@
 <script type="text/javascript">
 
 // Nur ein Versuch
-/**
-alert $('#search_field');
 
-$('#search_field').on('keyup', function() {
-	  var value = $(this).val();
-	  var patt = new RegExp(value, "i");
+myFunction() {
+var elem1=document.getElementById("myBody");
+elem1.style.visibility == "visible";
 
-
-	if ( $('#search_field') === "undefined") {
-		$(this).not('#myHead').hide();
-	}
-});
-*/
-//Versuch 2
-/**
-$('#search_field').off('keyup', function() {
-	  var value = $(this).val();
-	  var patt = new RegExp(value, "i");
-
-	  $('#myTable').find('tr').each(function() {
-	    if (!($(this).find('td').text().search(patt) >= 0)) {
-	      $(this).not('#myHead').hide();
-	    }
-	    if (($(this).find('td').text().search(patt) >= 0)) {
-	      $(this).show();
-	    }
-	  });
-
-	});
-*/	
-//Versuch 3
-
+alert elem1;
+}
 // Versuch Ende
 
 
@@ -107,10 +82,7 @@ $('#search_field').on('keyup', function() {
 	  var value = $(this).val();
 	  var patt = new RegExp(value, "i");
 
-	  myFunction() {
-		  var elem1=document.getElementById("myBody");
-		  elem1.style.visibility == "visible";
-		  }
+	
 
 	  $('#myTable').find('tr').each(function() {
 
