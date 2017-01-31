@@ -4,8 +4,16 @@
 <h1>Benutzerliste</h1>
 <center>
 
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="html-table-search.js"></script>
+	
+<script type="text/javascript">
+$(document).ready(function(){
 
+  $('table').tableSearch();
 
+});
+</script>
 
 <form action="usersuchen" method="post">
 	<div>Suche: <input name="suche" type="text" maxlength="255" size="20" value="<?=$suche?>" required> <input class="button" type="submit" value="User suchen"></div>
@@ -56,29 +64,6 @@
 </tbody>
 </table>
 
-
-<script type="text/javascript">
-$("#search").on("keyup", function() {
-    var value = $(this).val();
-
-    $("table tr").each(function(index) {
-        if (index != 0) {
-
-            $row = $(this);
-
-            var id = $row.find("td:first").text();
-
-            if (id.indexOf(value) != 0) {
-                $(this).hide();
-            }
-            else {
-                $(this).show();
-            }
-        }
-    });
-});​
-?>
-</script>
 
 
 </center>
