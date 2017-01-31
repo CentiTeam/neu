@@ -40,6 +40,7 @@ class GroupcsvController extends AbstractActionController
 		if (!$isOK) { 
 		
 			$msg="Nicht berechtigt!";
+			echo "nb";
 		
 			$view = new ViewModel([
 					'msg' => $msg,
