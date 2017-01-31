@@ -5,6 +5,7 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Model\User;
+use Application\Model\\Gruppenereignis; 
 
 
 class BenutzerreaktivierenController extends AbstractActionController{
@@ -78,6 +79,8 @@ class BenutzerreaktivierenController extends AbstractActionController{
 				// array_push($msg, "Benutzer erfolgreich reaktiviert!");
 
 				$msg .= "Benutzer erfolgreich reaktiviert!<br>";
+				
+				Gruppenereignis::benutzerreaktivierenEreignis($user);
 
 			} else {
 
