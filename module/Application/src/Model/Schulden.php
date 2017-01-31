@@ -45,8 +45,12 @@ class Schulden{
 		while ($row_schuldner = mysqli_fetch_array($result_schuldner)) {
 			echo "schleifenedoft<br>";
 			
+			
+			//Schreiben von $result_glaeubiger in $arbeitsresult_glaeubiger, da sonst nach einem durchlauf das array leer wäre
+			$arbeitsresult_schuldner = $result_schuldner;
+			
 			//Ueberpruefen, ob Schuldner dem ausgewaehlten Glaeubiger etwas schuldet
-			while ($row_glaeubiger = mysqli_fetch_array($result_glaeubiger)) {
+			while ($row_glaeubiger = mysqli_fetch_array($arbeitsresult_glaeubiger)) {
 				echo "chleifeoft<br>";
 				
 				//Wenn beide Teilnehmer an einer Zahlung sind
