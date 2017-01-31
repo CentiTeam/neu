@@ -15,7 +15,7 @@
 <thead class="datentabelle">
 <tr class="datentabelle" id="myHead">
 
-<div id="myBody" style="visibility:collapse">Suche: <input type="text" placeholder="Search..." id="search_field"></div>
+<div>Suche: <input type="text" placeholder="Search..." id="search_field"></div>
 <br>
 
 <th class="datentabelle"> User-ID 		</th>
@@ -30,7 +30,7 @@
 </tr>
 </thead>
 
-<tbody class="datentabelle">
+<tbody id="myBody" style="visibility:collapse" class="datentabelle">
 <?php 
 	foreach ($userListe as $zaehler => $user) {
 	?>
