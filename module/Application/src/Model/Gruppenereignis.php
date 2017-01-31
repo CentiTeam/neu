@@ -187,7 +187,7 @@ class Gruppenereignis{
 	}
 	
 	
-	public function zahlungloeschenEreignis($zahlung, $gruppe, $user){
+	public static function zahlungloeschenEreignis($zahlung, $gruppe, $user){
 	
 		$ereignisbeschreibung = "Die Zahlung ".$zahlung->getZahlungsbeschreibung()." mit der ID ".$zahlung->getZ_id()." in Hoehe von ".$zahlung->getBetrag()." wurde von ".$user->getUsername()." geloescht";
 		// Datenbankstatement erzeugen

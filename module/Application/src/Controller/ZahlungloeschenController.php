@@ -9,6 +9,7 @@ use Application\Model\User;
 use Application\Model\Zahlung;
 use Application\Model\Zahlungsteilnehmer;
 use Application\Model\Kategorie;
+use Application\Model\Gruppenereignis;
 
 class ZahlungloeschenController extends AbstractActionController {
 
@@ -103,10 +104,17 @@ class ZahlungloeschenController extends AbstractActionController {
 				}
 			
 				//L�schen der Zahlung
+				
+					//Erstellen einer Instanz der zu loeschenden Zahlung, um die Ereignisbehandlung nachher durchfuehren zu koennen
+					$zahlung_fuer_ereignis = new Zahlung();
+					$zahlung_fuer_ereignis->laden($z_id);
+				
+				
 					$zahlungloeschen = Zahlung::loeschen($z_id);
 				
 					if ($zahlungloeschen) {
 						echo "Die Zahlung wurde erfolgreich gel&oumlscht!";
+						Gruppenereignis::zahlungloeschenEreignis($zahlung_fuer_ereignis, $zahlung_fuer_ereignis->getGruppe(), $user);
 					}
 					else {
 						echo "Die Zahlung konnte nicht gel&oumlscht werden!";
