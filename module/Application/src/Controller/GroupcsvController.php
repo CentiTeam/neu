@@ -22,7 +22,7 @@ class GroupcsvController extends AbstractActionController
 			$msg="Nicht berechtigt!";
 				
 			$view = new ViewModel([
-					'msg' => $msg,
+					'msg' => $msg, 
 			]);
 				
 			$view->setTemplate('application/index/index.phtml');
