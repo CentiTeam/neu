@@ -59,6 +59,7 @@ class Schulden{
 						echo "berechnung";
 						//Berechnen der Schulden des Schuldners an den Glaeubiger
 						$betragvonschuldneranglaeubiger = $betragvonschuldneranglaeubiger + $row_schuldner['restbetrag'];
+						echo $betragvonschuldneranglaeubiger;
 					}
 					
 				}
