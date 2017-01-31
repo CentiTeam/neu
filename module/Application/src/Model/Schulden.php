@@ -72,6 +72,8 @@ class Schulden{
 	
 	
 	public function getBetragVonSchuldnerAnGlaeubiger(){
+		
+		echo "test";
 		return $betragvonschuldneranglaeubiger;
 		
 	}
