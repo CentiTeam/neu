@@ -71,7 +71,7 @@ class FremdesprofilController extends AbstractActionController {
 				
 				return $view;
 				
-				
+				 
 			
 			}
 			
