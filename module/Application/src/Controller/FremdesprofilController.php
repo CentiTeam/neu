@@ -39,6 +39,13 @@ class FremdesprofilController extends AbstractActionController {
 			
 			$user_angemeldet = $_SESSION['user'];
 			
+			
+			
+			//Test
+			$Schulden = new Schulden();
+			$Schulden->laden($user_angemeldet, $user_aufgerufen);
+			echo $Schulden;
+			
 
 			
 			
