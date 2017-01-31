@@ -199,12 +199,17 @@ class Schulden{
 				$dbStmt->execute($query_speichern);
 
 				
+				//Abhandlung des Gruppenereignisses zur Statusaenderung von offen nach beglichen
+				//Erstellen des Zahlungsobjektes
+				$zahlung = new Zahlung();
+				$zahlung->laden($row['z_id']);
 				
+					
+				//Erstellen des Gruppenobjektes
+				$gruppe = new Gruppe();
+				$gruppe->laden($row['g_id']);
+				Gruppenereignis::zahlungstatusaenderungzubeglichenEreignis($zahlung, $gruppe, $this->schuldner);				
 				
-				
-				
-				
-
 				
 				
 	
