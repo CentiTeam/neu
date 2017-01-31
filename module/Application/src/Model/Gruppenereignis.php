@@ -168,7 +168,7 @@ class Gruppenereignis{
 	
 	public static function zahlungstatusaenderungEreignis($zahlung, $gruppe, $user){
 	
-		$ereignisbeschreibung = "Der Status der Zahlung ".$zahlung->getZahlungsbeschreibung()." mit der ID ".$zahlung->getZ_id()." in Hoehe von ".$zahlung->getBetrag()." wurde von ".$user->getUsername()." zu ".$zahlung->getStatus()."geaendert";
+		$ereignisbeschreibung = "Der Status der Zahlung ".$zahlung->getZahlungsbeschreibung()." mit der ID ".$zahlung->getZ_id()." in Hoehe von ".$zahlung->getBetrag()." wurde von ".$user->getUsername()." zu geaendert";
 		// Datenbankstatement erzeugen
 		$dbStmt = new DB_connection();
 	
