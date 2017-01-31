@@ -131,11 +131,24 @@ class Schulden{
 		//Schleife, um die Zahlungen zu begleichen (Zahlungen mit aeltestem Zahlungsdatum werden zuerst beglichen)
 		$restwert = $wert;
 		while($row = mysqli_fetch_array($result)){
-			if($row['restbetrag']>$restwert){
+			
+			//Es wird mehr zurückgezahlt, als die Restschulden der aktuellen Zahlung betragen
+			if($row['restbetrag']<$restwert){
+				$restwert = $restwert - $row['restbetrag'];
+				$query_speichern = "UPDATE zahlungsteilnehmer SET restbetrag = '0', status = 'beglichen' WHERE u_id = '".$row['u_id']."' AND z_id ='".$row['z_id']."';";
+				$dbStmt->execute($query_speichern);
+				
+			}
+			
+			
+			//Es wird weniger zurückgezahlt, als die Restschulden der aktuellen Zahlung betragen
+			else if($row['restbetrag']>$restwert){
 				//Schreiben des neuen Restbetrages in die Datenbank
 				$neuerwert = $row['restbetrag'] - $restwert;
 				$query_speichern = "UPDATE zahlungsteilnehmer SET restbetrag = '".$neuerwert."' WHERE u_id = '".$row['u_id']."' AND z_id ='".$row['z_id']."';";
 				$dbStmt->execute($query_speichern); 
+				
+				//Wenn der Restbetrag in der DB kleiner ist, als der gezahlte Restwert, dann wird nach Schreiben in die DB, die Schleife abgebrochen
 				break;
 			 
 			}
