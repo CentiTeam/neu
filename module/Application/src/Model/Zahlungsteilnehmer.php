@@ -55,8 +55,6 @@ class Zahlungsteilnehmer {
 		$restbetrag =0;
 		$status = "beglichen";
 		if($betrag >= $zahlungsteilnehmer->getRestbetrag()){
-			echo "in if Zweig angekommen, der den Restbetrag auf 0 setzt. Betrag:";
-			var_dump($betrag);
 			$temp = $zahlungsteilnehmer->getRestbetrag();
 			$restbetrag=0;
 			$status="beglichen";
@@ -134,8 +132,6 @@ class Zahlungsteilnehmer {
  					$schuldstand -= $ersterzahlungsteilnehmer ->getRestbetrag();
  				}
  			}
- 			echo "Erster Schuldstand:";
- 			var_dump($schuldstand);
  					//wenn ich ihm etwas schulde
  					
 				if($schuldstand<0){
