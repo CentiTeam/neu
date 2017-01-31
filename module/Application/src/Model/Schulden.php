@@ -30,6 +30,9 @@ class Schulden{
 		//Schuldenbetrag vor Berechnung initialisieren
 		$this->betragvonschuldneranglaeubiger = 0;
 		
+		//Schuldenbetrag vor Berechnung initialisieren
+		$this->betragvonglaeubigeranschuldner = 0;
+		
 		
 //Berechnen der Schulden des Schuldners an den Glaeubiger
 		
