@@ -166,10 +166,10 @@ class Gruppenereignis{
 	
 	}
 	
-	public static function zahlungstatusaenderungEreignis($zahlung, $gruppe, $user){
+	public static function zahlungstatusaenderungzubeglichenEreignis($zahlung, $gruppe, $user){
 		
 	
-		$ereignisbeschreibung = "Der Status der Zahlung ".$zahlung->getZahlungsbeschreibung()." mit der ID ".$zahlung->getZ_id()." in Hoehe von ".$zahlung->getBetrag()." wurde von ".$user->getUsername()." zu geaendert";
+		$ereignisbeschreibung = "Der Status der Zahlung ".$zahlung->getZahlungsbeschreibung()." mit der ID ".$zahlung->getZ_id()." in Hoehe von ".$zahlung->getBetrag()." wurde von ".$user->getUsername()." zu beglichen geaendert";
 		// Datenbankstatement erzeugen
 		$dbStmt = new DB_connection();
 	
