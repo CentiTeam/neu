@@ -14,12 +14,12 @@
 
 <form enctype="multipart/form-data" action="gruppeanlegen" method="POST">	
 	<div class="form-group">
-		<label class="form-group">Gruppenname: </label>
-		<input type="text" name="gruppenname" required value="<?=$gruppe[0]->getGruppenname()?>" >
+		<label>Gruppenname: </label>
+		<input class="form-control" type="text" name="gruppenname" required value="<?=$gruppe[0]->getGruppenname()?>" >
 	</div>
 	<div class="form-group">
-		<label class="form-group">Beschreibung: </label>
-		<input id="email" type="text" name="gruppenbeschreibung" value="<?=$gruppe[0]->getGruppenbeschreibung()  ?>" >
+		<label>Beschreibung: </label>
+		<input class="form-control" type="text" name="gruppenbeschreibung" value="<?=$gruppe[0]->getGruppenbeschreibung()  ?>" >
 
 	<input type="hidden" name="g_id" readonly="readonly" value="<?=!is_null ($gruppe[0]->getG_id()) ? $gruppe[0]->getG_id():"<automatisch>"?>">
 	</div>
