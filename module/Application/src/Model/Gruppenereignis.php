@@ -143,14 +143,15 @@ class Gruppenereignis{
 	}
 	
 	
-	public function zahlungbegleichenEreignis($zahlung, $gruppe, $user){
+	public static function zahlungbegleichenEreignis($zahlung, $gruppe, $bearbeiter, $schuldner, $glaeubiger, $betrag){
 	
-		$ereignisbeschreibung = "Die Zahlung ".$zahlung->getZahlungsbeschreibung()." mit der ID ".$zahlung->getZ_id()." in Hoehe von ".$zahlung->getBetrag()." wurde von ".$user->getUsername()." beglichen";
+		$ereignisbeschreibung = "Die Zahlung ".$zahlung->getZahlungsbeschreibung()." mit der ID ".$zahlung->getZ_id()." in Hoehe von ".$zahlung->getBetrag()." wurde von ".$bearbeiter->getUsername()." als (teilweise) beglichen angegeben.";
+		$ereignisbeschreibung_2 = " ".$schuldner."hat dabei ".$betrag." Euro an ".$glaeubiger." zur&uumlckgezahlt";
 		// Datenbankstatement erzeugen
 		$dbStmt = new DB_connection();
 	
 		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
-		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe->getG_id()."', '".$ereignisbeschreibung."', NOW());");
+		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe->getG_id()."', '".$ereignisbeschreibung.$ereignisbeschreibung_2."', NOW());");
 	
 	}
 	
