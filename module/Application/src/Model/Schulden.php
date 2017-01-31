@@ -181,9 +181,11 @@ class Schulden{
 				
 			//Es wird mehr zurückgezahlt, als die Restschulden der aktuellen Zahlung betragen
 			if($row['restbetrag'] <= $restwert){
+				echo "2222";
 				$restwert = $restwert - $row['restbetrag'];
 				$query_speichern = "UPDATE zahlungsteilnehmer SET restbetrag = '0', status = 'beglichen' WHERE u_id = '".$row['u_id']."' AND z_id ='".$row['z_id']."';";
 				$dbStmt->execute($query_speichern);
+				echo "5";
 				
 				
 				
