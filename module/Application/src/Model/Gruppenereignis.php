@@ -279,7 +279,7 @@ class Gruppenereignis{
 		
 			// Datenbankstatement erzeugen
 			$dbStmt = new DB_connection();
-		
+		 
 		
 			//Schreiben des Ereignisses in die Tabelle für jede Gruppe
 		
