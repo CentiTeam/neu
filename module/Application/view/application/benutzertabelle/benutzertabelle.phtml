@@ -1,22 +1,6 @@
 <?= $this->doctype() ?>
 <?=$msg?>
 
-<script type="text/javascript">
-
-//Nur ein Versuch
-/**
-function myFunction(myBody) {
-	var elem1=document.getElementById(myBody);
-	elem1.style.visibility = 'visible';
-}
-*/
-// Versuch Ende
-</script>
-
-<!--
-
-//-->
-</script>
 
 <h1>Benutzerliste</h1>
 <center>
@@ -28,7 +12,7 @@ function myFunction(myBody) {
 <br>
  -->
  
-<div>Suche: <input type="text" placeholder="Search..." id="search_field" oninput="myTable.style.visibility=(search_field.value.length<1)?'hidden':'visible';" ></div>
+<div>Suche: <input type="text" placeholder="Search..." id="search_field" oninput="myHead.style.visibility=(search_field.value.length<1)?'hidden':'visible';" ></div>
 <br> 
  
 <table id="myTable" class="datentabelle" border="0" width="100%">
@@ -75,8 +59,6 @@ function myFunction(myBody) {
 </tr>
 </tbody>
 </table>
-
-
 
 </center>
 
