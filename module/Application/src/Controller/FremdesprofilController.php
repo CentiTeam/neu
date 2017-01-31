@@ -19,7 +19,7 @@ class FremdesprofilController extends AbstractActionController {
 			
 			
 			
-		
+		 
 			$msg="Nicht berechtigt!";
 			
 			$view = new ViewModel([
