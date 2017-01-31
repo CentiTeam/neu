@@ -14,8 +14,8 @@
 
 <form enctype="multipart/form-data" action="gruppeanlegen" method="POST">	
 	<table class="form-group">
-		<tr class="form-group"><td>Gruppenname</td><td><input class="form-group" type="text" name="gruppenname" required value="<?=$gruppe[0]->getGruppenname()?>" ></td></tr>
-		<tr class="form-group"><td>Beschreibung</td><td><input class="form-group" type="text" name="gruppenbeschreibung" value="<?=$gruppe[0]->getGruppenbeschreibung()  ?>" ></td></tr>
+		<tr class="form-group"><td class="form-group">Gruppenname</td><td><input class="form-group" type="text" name="gruppenname" required value="<?=$gruppe[0]->getGruppenname()?>" ></td></tr>
+		<tr class="form-group"><td class="form-group">Beschreibung</td><td><input class="form-group" type="text" name="gruppenbeschreibung" value="<?=$gruppe[0]->getGruppenbeschreibung()  ?>" ></td></tr>
 	</table>
 
 	<input type="hidden" name="g_id" readonly="readonly" value="<?=!is_null ($gruppe[0]->getG_id()) ? $gruppe[0]->getG_id():"<automatisch>"?>">
