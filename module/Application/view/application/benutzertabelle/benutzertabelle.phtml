@@ -15,7 +15,7 @@
 <thead class="datentabelle">
 <tr class="datentabelle" id="myHead">
 
-<div>Suche: <input type="text" placeholder="Search..." id="search_field"></div>
+<div id="myBody" style="visibility:collapse">Suche: <input type="text" placeholder="Search..." id="search_field"></div>
 <br>
 
 <th class="datentabelle"> User-ID 		</th>
@@ -68,6 +68,7 @@
 <script type="text/javascript">
 
 // Nur ein Versuch
+/**
 alert $('#search_field');
 
 $('#search_field').on('keyup', function() {
@@ -79,7 +80,7 @@ $('#search_field').on('keyup', function() {
 		$(this).not('#myHead').hide();
 	}
 });
-
+*/
 //Versuch 2
 /**
 $('#search_field').off('keyup', function() {
@@ -97,13 +98,21 @@ $('#search_field').off('keyup', function() {
 
 	});
 */	
-// Versuch Ende
+
+
 
 $('#search_field').on('keyup', function() {
 	  var value = $(this).val();
 	  var patt = new RegExp(value, "i");
+	  
 
 	  $('#myTable').find('tr').each(function() {
+
+		//Versuch 3
+		  var elem1=document.getElementById("myBody");
+		  elem1.style.visibility == "visible"
+		  // Versuch Ende
+		  
 	    if (!($(this).find('td').text().search(patt) >= 0)) {
 	      $(this).not('#myHead').hide();
 	    }
