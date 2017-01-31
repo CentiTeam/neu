@@ -5,6 +5,7 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Model\User;
+use Application\Model\Gruppenereignis;
 
 
 class BenutzerdeaktivierenController extends AbstractActionController{
@@ -95,6 +96,8 @@ class BenutzerdeaktivierenController extends AbstractActionController{
 				// array_push($msg, "Benutzer erfolgreich deaktiviert!");
 		
 				$msg .= "Benutzer erfolgreich deaktiviert!<br>";
+				
+				Gruppenereignis::benutzerdeaktivierenEreignis($user);
 		
 			} else {
 				

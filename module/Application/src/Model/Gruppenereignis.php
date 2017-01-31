@@ -86,17 +86,7 @@ class Gruppenereignis{
 		return $isLoaded;
 	}
 	
-	public function gruppenmitgliedbeitretenEreignis($gruppe, $user){
-		
-		$ereignisbeschreibung = "Der Benutzer ".$user->getUsername()." ist der Gruppe beigetreten";
-		// Datenbankstatement erzeugen
-		$dbStmt = new DB_connection();
-		
-		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
-		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe->getG_id()."', '".$ereignisbeschreibung."', NOW());");
-		
-	}
-	
+
 	// Ein User wurde von einem Admin aus der Gruppe entfernt
 	public static function userausgruppeentfernenEreignis($gruppenmitglied){
 	
@@ -109,27 +99,9 @@ class Gruppenereignis{
 	
 	}
 	
-	public function gruppenmitgliedaustretenEreignis($user, $gruppe){
 	
-		$ereignisbeschreibung = "Der Benutzer ".$user->getUsername()." ist aus der Gruppe ausgetreten";
-		// Datenbankstatement erzeugen
-		$dbStmt = new DB_connection();
 	
-		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
-		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe->getG_id()."', '".$ereignisbeschreibung."', NOW());");
-	
-	}
-	
-	public function gruppenmitgliedloeschenEreignis($user, $gruppe){
-	
-		$ereignisbeschreibung = "Der Benutzer ".$user->getUsername()." wurde aus dem System geloescht";
-		// Datenbankstatement erzeugen
-		$dbStmt = new DB_connection();
-	
-		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
-		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe->getG_id()."', '".$ereignisbeschreibung."', NOW());");
-	
-	}
+
 	
 	public static function zahlunganlegenEreignis($zahlung, $gruppe, $user){
 	
@@ -274,6 +246,73 @@ class Gruppenereignis{
 			return $aktuelleListe;
 		}
 	}
+	
+	public static function benutzerdeaktivierenEreignis($user){
+		
+		$ereignisbeschreibung = "Der Benutzer ".$user->getUsername()." wurde deaktiviert!";
+		
+		//Erzeugen einer Liste mit allen Gruppen, in denen der Benutzer Mitglied ist
+		$gruppenmitgliederliste = Gruppenmitglied::eigenelisteHolen($user->getU_id());
+		
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+		
+		
+		//Schreiben des Ereignisses in die Tabelle für jede Gruppe
+		
+		foreach($gruppenmitgliederliste as $zaehler => $gruppenmitglied_aktuell){
+			$gruppe_aktuell = $gruppenmitglied_aktuell->getGruppe();
+			
+			// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
+			$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe_aktuell->getG_id()."', '".$ereignisbeschreibung."', NOW());");
+			
+			
+		}
+		
+		
+		
+		
+		
+	}
+	
+	
+	/**
+	public function gruppenmitgliedbeitretenEreignis($gruppe, $user){
+	
+		$ereignisbeschreibung = "Der Benutzer ".$user->getUsername()." ist der Gruppe beigetreten";
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+	
+		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
+		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe->getG_id()."', '".$ereignisbeschreibung."', NOW());");
+	
+	}
+	
+	public function gruppenmitgliedaustretenEreignis($user, $gruppe){
+	
+		$ereignisbeschreibung = "Der Benutzer ".$user->getUsername()." ist aus der Gruppe ausgetreten";
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+	
+		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
+		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe->getG_id()."', '".$ereignisbeschreibung."', NOW());");
+	
+	}
+	
+	public function gruppenmitgliedloeschenEreignis($user, $gruppe){
+	
+		$ereignisbeschreibung = "Der Benutzer ".$user->getUsername()." wurde aus dem System geloescht";
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+	
+		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
+		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe->getG_id()."', '".$ereignisbeschreibung."', NOW());");
+	
+	
+	}
+	
+	*/
+	
 	
 	// Getter und Setter
 	
