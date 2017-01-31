@@ -270,6 +270,29 @@ class Gruppenereignis{
 		}
 		
 		
+		public static function benutzerreaktivierenEreignis($user){
+		
+			$ereignisbeschreibung = "Der Benutzer ".$user->getUsername()." wurde reaktiviert!";
+		
+			//Erzeugen einer Liste mit allen Gruppen, in denen der Benutzer Mitglied ist
+			$gruppenmitgliederliste = Gruppenmitglied::eigenelisteHolen($user->getU_id());
+		
+			// Datenbankstatement erzeugen
+			$dbStmt = new DB_connection();
+		
+		
+			//Schreiben des Ereignisses in die Tabelle für jede Gruppe
+		
+			foreach($gruppenmitgliederliste as $zaehler => $gruppenmitglied_aktuell){
+				$gruppe_aktuell = $gruppenmitglied_aktuell->getGruppe();
+					
+				// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
+				$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe_aktuell->getG_id()."', '".$ereignisbeschreibung."', NOW());");
+					
+					
+			}
+		
+		
 		
 		
 		
