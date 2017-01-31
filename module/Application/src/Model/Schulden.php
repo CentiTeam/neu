@@ -243,6 +243,7 @@ class Schulden{
 			//Es wird weniger zurückgezahlt, als die Restschulden der aktuellen Zahlung betragen
 			else if($row['restbetrag']>$restwert){
 				//Schreiben des neuen Restbetrages in die Datenbank
+				$betrag = $restwert;
 				$neuerwert = $row['restbetrag'] - $restwert;
 				$query_speichern = "UPDATE zahlungsteilnehmer SET restbetrag = '".$neuerwert."' WHERE u_id = '".$row['u_id']."' AND z_id ='".$row['z_id']."';";
 				$dbStmt->execute($query_speichern);
