@@ -67,12 +67,13 @@
 
 <script type="text/javascript">
 
+// Nur ein Versuch
 $('#myTable').find('tr').each(function() {
 	if (!($('#search_field').on('keyup'))) {
 		$(this).not('#myHead').hide();
 	}
  });
-
+// Versuch Ende
 
 $('#search_field').on('keyup', function() {
 	  var value = $(this).val();
