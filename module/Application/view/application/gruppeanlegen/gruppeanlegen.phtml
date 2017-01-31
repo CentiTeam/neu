@@ -15,7 +15,9 @@
 <form enctype="multipart/form-data" action="gruppeanlegen" method="POST">	
 	<div class="form-group">
 		<label class="form-group">Gruppenname: </label>
-		<input type="text" name="gruppenname" required value="<?=$gruppe[0]->getGruppenname()?>" ><br>
+		<input type="text" name="gruppenname" required value="<?=$gruppe[0]->getGruppenname()?>" >
+	</div>
+	<div class="form-group">
 		<label class="form-group">Beschreibung: </label>
 		<input type="text" name="gruppenbeschreibung" value="<?=$gruppe[0]->getGruppenbeschreibung()  ?>" >
 
