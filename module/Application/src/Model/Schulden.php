@@ -113,4 +113,35 @@ class Schulden{
 		return $this->betragvonglaeubigeranschuldner;
 	}
 	
+	public function schuldenVonGlaeubigerAnSchuldnerBegleichen($wert){
+		
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+		
+		//Query, um die Zahlungen, sortiert nach Zahlungsdatum, aus der Datenbank auszulesen
+		$glaeubiger_u_id = $this->glaeubiger->getU_id();
+		$schuldner_u_id = $this->schuldner->getU_id();
+		$query = "SELECT zahlungsteilnehmer.u_id, zahlungsteilnehmer.z_id, zahlungsteilnehmer.status, zahlungsteilnehmer.restbetrag, zahlung.zahlungsdatum FROM zahlungsteilnehmer JOIN zahlung USING (z_id) WHERE u_id = '".$glaeubiger_u_id."' AND zahlungsempfaenger_id ='".$schuldner_u_id."' AND status='offen' ORDER BY zahlungsdatum ASC;";
+		$result = $dbStmt->execute($query);
+		
+		
+		//Schleife, um die Zahlungen zu begleichen (Zahlungen mit aeltestem Zahlungsdatum werden zuerst beglichen)
+		$restwert = $wert;
+		while($row = mysqli_fetch_array($result)){
+			if($row['restbetrag']>$restwert){
+				//Schreiben des neuen Restbetrages in die Datenbank
+				$neuerwert = $row['restbetrag'] - $restwert;
+				$query_speichern = "UPDATE zahlungsteilnehmer SET 'restbetrag' = '".$neuerwert."' WHERE u_id = '".row['u_id']."' AND z_id ='".$row['z_id']."';";
+				$dbStmt->execute($query_speichern);
+			
+			}
+		}
+		
+		
+		//Holen der neuen Werte aus der Datenbank
+		$this->laden();
+		
+	}
+	
+	
 }
