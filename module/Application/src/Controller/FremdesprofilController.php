@@ -45,8 +45,12 @@ class FremdesprofilController extends AbstractActionController {
 			//Test
 			$Schulden = new Schulden();
 			$Schulden->laden($user_angemeldet, $user_aufgerufen);
-			$betrag = $Schulden->getBetragVonSchuldnerAnGlaeubiger();
-			echo $betrag;
+			$betrag1 = $Schulden->getBetragVonSchuldnerAnGlaeubiger();
+			echo $betrag1;
+			
+			$betrag2 = $Schulden->getBetragVonGlaeubigerAnSchuldner();
+			echo $betrag2;
+			
 			
 
 			

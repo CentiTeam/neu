@@ -31,12 +31,11 @@ class Schulden{
 		$this->betragvonschuldneranglaeubiger = 0;
 		
 		
-
+//Berechnen der Schulden des Schuldners an den Glaeubiger
 		
 		//Holen aller Datensätze aus Tabelle zahlungsteilnehmer, in denen der Schuldner mit Status 'offen' eingetragen ist
 		$query_schuldner = "SELECT * FROM zahlungsteilnehmer WHERE status = 'offen' AND u_id = '".$this->schuldner->getU_id()."';";
-		$result_schuldner = $dbStmt->execute($query_schuldner);
-		
+		$result_schuldner = $dbStmt->execute($query_schuldner);		
 
 		
 		// Ergebnis der Schuldnerliste Zeile fï¿½r Zeile verarbeiten
@@ -66,7 +65,48 @@ class Schulden{
 			
 			}
 		
-		} 
+		}
+		
+		
+		
+		
+		
+		
+//Berechnen der Schulden des Glaeubigers an den Schuldner
+
+		//Holen aller Datensätze aus Tabelle zahlungsteilnehmer, in denen der Glaeubiger mit Status 'offen' eingetragen ist
+		$query_glaeubiger = "SELECT * FROM zahlungsteilnehmer WHERE status = 'offen' AND u_id = '".$this->glaeubiger->getU_id()."';";
+		$result_glaeubiger = $dbStmt->execute($query_glaeubiger);
+		
+		
+		// Ergebnis der Glaeubigerliste Zeile fï¿½r Zeile verarbeiten
+		while ($row_glaeubiger = mysqli_fetch_array($result_glaeubiger)) {
+			echo "schleifenedoft<br>";
+				
+				
+			//Holen aller Datensätze aus Tabelle zahlungsteilnehmer, in denen der Schuldner mit Status 'ersteller' eingegtragen ist
+			$query_schuldner = "SELECT * FROM zahlungsteilnehmer WHERE status = 'ersteller' AND u_id = '".$this->schuldner->getU_id()."';";
+			$result_schuldner = $dbStmt->execute($query_schuldner);
+				
+			//Ueberpruefen, ob Schuldner dem ausgewaehlten Glaeubiger etwas schuldet
+			while ($row_schuldner = mysqli_fetch_array($result_schuldner)) {
+				echo "chleifeoft<br>";
+		
+				//Wenn beide Teilnehmer an einer Zahlung sind
+				if($row_glaeubiger['z_id'] == $row_schuldner['z_id']){
+						
+					//Wenn der Schuldner den Status offen hat
+					if($row_glaeubiger['status'] == 'offen'){
+						//Berechnen der Schulden des Schuldners an den Glaeubiger
+						$this->betragvonglaeubigeranschuldner = $this->betragvonglaeubigeranschuldner + $row_glaeubiger['restbetrag'];
+					}
+						
+				}
+					
+					
+			}
+		
+		}
 	}
 	
 	
