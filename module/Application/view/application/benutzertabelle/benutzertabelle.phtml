@@ -30,7 +30,7 @@
 </tr>
 </thead>
 
-<tbody id="myBody"  class="datentabelle">
+<tbody id="myBody" style="visibility:hidden" class="datentabelle">
 <?php 
 	foreach ($userListe as $zaehler => $user) {
 	?>
@@ -68,13 +68,12 @@
 <script type="text/javascript">
 
 // Nur ein Versuch
-/**
-function myFunction() {
-//var elem1=document.getElementById("#myBody");
-//elem1.style.visibility = "visible";
-$('#myBody').style.visibility = "visible";
+
+function myFunction(myBody) {
+	var elem1=document.getElementById(myBody);
+	elem1.style.visibility = 'visible';
 }
-*/
+
 // Versuch Ende
 
 
