@@ -4,12 +4,12 @@
 <script type="text/javascript">
 
 //Nur ein Versuch
-
+/**
 function myFunction(myBody) {
 	var elem1=document.getElementById(myBody);
 	elem1.style.visibility = 'visible';
 }
-
+*/
 // Versuch Ende
 </script>
 
@@ -32,7 +32,7 @@ function myFunction(myBody) {
 <thead class="datentabelle">
 <tr class="datentabelle" id="myHead">
 
-<div>Suche: <input type="text" placeholder="Search..." id="search_field" oninput="myFunction("myBody")" ></div>
+<div>Suche: <input type="text" placeholder="Search..." id="search_field" oninput="document.getElementById('myBody').style.visibility=this.checked?'visible':'hidden';" ></div>
 <br>
 
 <th class="datentabelle"> User-ID 		</th>
