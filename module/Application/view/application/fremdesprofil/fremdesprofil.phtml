@@ -11,24 +11,30 @@
 	
 <br><br>
 <h4>Schulden von mir an <?=$user[0]->getUsername()?> (gruppenunabh&aumlngig):</h4>
-<?=$schulden_an_aufgerufenen[0]?>
-<br><br> 
-<h4>Schulden von <?=$user[0]->getUsername()?> an mich (gruppenunabh&aumlngig):</h4>
-<?=$schulden_an_angemeldeten[0]?>
-<br>
-
-
-
 <form action="pflegen" method="post">
-
 <table>
 <th>Schulden pflegen</th>
-<tr><td>Offene Schulden: </td><td><input name="betrag" type="text" maxlength="50" size="20" value="<?=$schulden_an_angemeldeten[0]?>" required readonly> </td></tr>
-<tr><td>Betrag: </td><td><input name="betrag" type="text" maxlength="50" size="20" placeholder="Euro.Cent" required></td></tr>
-
-
-
-										
+<tr><td>Offene Schulden: </td><td><input name="offen_an_aufgerufenen" type="text" maxlength="50" size="20" value="<?=$schulden_an_aufgerufenen[0]?>" required readonly> </td></tr>
+<tr><td>Begleichen: </td><td><input name="begleichen_an_aufgerugenen" type="text" maxlength="50" size="20" placeholder="Euro.Cent" required></td></tr>										
 <tr><td><input class="button" type="submit" name="speichern" value="Betrag als bezahlt speichern"></td> </tr>
-	</table>
-	</form>
+</table>
+</form>
+
+
+<br><br> 
+
+
+
+<h4>Schulden von <?=$user[0]->getUsername()?> an mich (gruppenunabh&aumlngig):</h4>
+<form action="pflegen" method="post">
+<table>
+<th>Schulden pflegen</th>
+<tr><td>Offene Schulden: </td><td><input name="offen_an_angemeldeten" type="text" maxlength="50" size="20" value="<?=$schulden_an_angemeldeten[0]?>" required readonly> </td></tr>
+<tr><td>Begleichen: </td><td><input name="begleichen_an_angemeldeten" type="text" maxlength="50" size="20" placeholder="Euro.Cent" required></td></tr>										
+<tr><td><input class="button" type="submit" name="speichern" value="Betrag als bezahlt speichern"></td> </tr>
+</table>
+</form>
+
+
+
+
