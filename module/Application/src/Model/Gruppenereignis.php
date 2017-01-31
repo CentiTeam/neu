@@ -267,7 +267,7 @@ class Gruppenereignis{
 			$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe_aktuell->getG_id()."', '".$ereignisbeschreibung."', NOW());");
 			
 			
-		}
+		} 
 		
 		
 		public static function benutzerreaktivierenEreignis($user){

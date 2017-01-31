@@ -40,7 +40,7 @@ class BenutzerdeaktivierenController extends AbstractActionController{
 		}
 		
 		//neues Model anlegen
-		$user = new User();
+		$user = new User(); 
 		
 		// Model anhand der �bergebenen $u_id laden lassen und speichern, ob dies funktioniert hat
 		$u_id=$_REQUEST['u_id'];
