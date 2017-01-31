@@ -40,17 +40,19 @@ class FremdesprofilController extends AbstractActionController {
 			
 			$user_angemeldet = $_SESSION['user'];
 			
+			//Berechnen der Schulden
+			$schulden = new Schulden();
+			$schulden -> laden($user_aufgerufen, $user_angemeldet);
+			
+			//Berechnen der Schulden, bei denen der aufgerufene Benutzer der Gläubiger ist
+			$schulden_an_aufgerufenen = $schulden->getBetragVonSchuldnerAnGlaeubiger();
+			
+			//Berechnen der Schulden, bei denen der angemeldete Benutzer der Gläubiger ist
+			$schulden_an_angemeldeten = $schulden->getBetragVonGlaeubigerAnSchuldner();
 			
 			
-			//Test
-			$Schulden = new Schulden();
-			$Schulden->laden($user_angemeldet, $user_aufgerufen);
-			$betrag1 = $Schulden->getBetragVonSchuldnerAnGlaeubiger();
-			echo $betrag1;
-			echo "<br>";
 			
-			$betrag2 = $Schulden->getBetragVonGlaeubigerAnSchuldner();
-			echo $betrag2;
+
 			
 			
 
@@ -64,7 +66,9 @@ class FremdesprofilController extends AbstractActionController {
 			
 						
 			$view = new ViewModel([
-					'user' => array($user)
+					'user' => array($user),
+					'schulden_an_aufgerufenen' => array($schulden_an_aufgerufenen),
+					'schulden_an_angemeldeten' => array($schulden_an_angemeldeten)
 			]);
 						
 			$view->setTemplate('application/fremdesprofil/fremdesprofil.phtml');
