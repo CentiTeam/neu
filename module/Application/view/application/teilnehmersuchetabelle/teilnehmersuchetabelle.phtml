@@ -4,21 +4,25 @@
 <legend><h1>Neue Mitglieder zu der Gruppe <?=$gruppe[0]->getGruppenname()?> hinzuf&uuml;gen:</h1></legend>
 <center>
 
+<!-- alte Suche kann aufgrund intelligenter Suche weg
 <form action="usersuchen" method="post">
 
-
-<table>
+<table >
 	<tr><td>Suche:</td><td><input name="suche" type="text" value="<?=$suche?>" maxlength="255" size="20" required></td>
 	<input type="hidden" name="g_id" readonly="readonly" value="<?=$gruppe[0]->getG_id()?>">
 	<td><input class="button" type="submit" value="User suchen"></td> </tr> 
 </table>
 </form>
 <br>
+ -->
 
 
+<table id="myTable" border=0 width="80%">
 
-<table border=0 width="80%">
-<tr>
+<div>Suche: <input type="text" placeholder="Search..." id="search_field"></div>
+<br>
+
+<tr id="myHead">
 
 <th> Benutzername 	</th>
 <th> Vorname 		</th>
@@ -45,3 +49,24 @@
 </table>
 
 </center>
+
+<script src="https://code.jquery.com/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+$('#search_field').on('keyup', function() {
+	  var value = $(this).val();
+	  var patt = new RegExp(value, "i");
+
+	  $('#myTable').find('tr').each(function() {
+	    if (!($(this).find('td').text().search(patt) >= 0)) {
+	      $(this).not('#myHead').hide();
+	    }
+	    if (($(this).find('td').text().search(patt) >= 0)) {
+	      $(this).show();
+	    }
+	  });
+
+	});
+
+</script>
