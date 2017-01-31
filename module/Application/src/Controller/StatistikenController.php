@@ -67,10 +67,6 @@ class StatistikenController extends AbstractActionController
   				}
   				if($_REQUEST["afterdate"] != null || $_REQUEST["beforedate"] != null){
   					$zahlungenliste = $this->datFilter($zahlungenliste,$_REQUEST["afterdate"], $_REQUEST["beforedate"]);
-  					echo"afterdate:";
-  					var_dump($_REQUEST["afterdate"]);
-  					echo"beforedate:";
-  					var_dump($_REQUEST["beforedate"]);
   				}
   				
    				if($_REQUEST["status"] != null){
@@ -121,8 +117,6 @@ class StatistikenController extends AbstractActionController
  	}
  	
  	function statusFilter($zahlungenliste, $status){
- 		echo "status Funktion aufgerufen";
- 		var_dump($status);
  		$filteredlist = array();
  		foreach($status as $zaehler => $status){
  			foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
@@ -153,8 +147,6 @@ class StatistikenController extends AbstractActionController
  				$filteredlist[] =  $zahlungsteilnehmer;
  			}
  		}
- 		echo "Zahlungsdatum:";
- 		var_dump($zahlungsteilnehmer->getZahlung()->getZahlungsdatum());
  			
  		return $filteredlist;
  		
