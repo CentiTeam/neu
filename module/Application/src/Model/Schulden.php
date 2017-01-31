@@ -192,12 +192,15 @@ class Schulden{
 					//Erstellen des Zahlungsobjektes
 					$zahlung = new Zahlung();
 					$zahlung->laden($row['z_id']);
+					echo "1";
 					
 					//Erstellen des Gruppenobjektes
 					$gruppe = new Gruppe();
-					$gruppe->laden($row['g_id']);				
+					$gruppe->laden($row['g_id']);	
+					echo "2";
 				Gruppenereignis::zahlungstatusaenderungEreignis($zahlung, $gruppe, $this->schuldner);
 				
+				echo "3";
 				
 				
 	
