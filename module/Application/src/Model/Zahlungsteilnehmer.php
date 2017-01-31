@@ -18,8 +18,8 @@ class Zahlungsteilnehmer {
 	public function __construct($zahlung_id = null, $user_id = null) {
 		$this->zahlung= $zahlung_id;
 		$this->user=$user_id;
-		echo "$this->zahlung";
-		echo "$this->user";
+		//echo "$this->zahlung";
+		//echo "$this->user";
 	}
 	
 	public function anlegen () {
