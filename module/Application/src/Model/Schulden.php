@@ -163,9 +163,24 @@ class Schulden{
 			//Es wird weniger zurückgezahlt, als die Restschulden der aktuellen Zahlung betragen
 			else if($row['restbetrag']>$restwert){
 				//Schreiben des neuen Restbetrages in die Datenbank
+				$betrag = $restwert;
 				$neuerwert = $row['restbetrag'] - $restwert;
 				$query_speichern = "UPDATE zahlungsteilnehmer SET restbetrag = '".$neuerwert."' WHERE u_id = '".$row['u_id']."' AND z_id ='".$row['z_id']."';";
 				$dbStmt->execute($query_speichern); 
+				
+				//Abhandlung des Gruppenereignisses zum Begleichen
+				//Erstellen des Zahlungsobjektes
+				$zahlung = new Zahlung();
+				$zahlung->laden($row['z_id']);
+				
+					
+				//Erstellen des Gruppenobjektes
+				$gruppe = new Gruppe();
+				$gruppe->laden($row['g_id']);
+				
+				Gruppenereignis::zahlungbegleichenEreignis($zahlung, $gruppe, $this->schuldner, $this->glaeubiger, $this->schuldner, $betrag);
+				
+				
 				
 				//Wenn der Restbetrag in der DB kleiner ist, als der gezahlte Restwert, dann wird nach Schreiben in die DB, die Schleife abgebrochen
 				break;
