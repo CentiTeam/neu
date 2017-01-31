@@ -31,9 +31,7 @@ class Schulden{
 		$this->betragvonschuldneranglaeubiger = 0;
 		
 		
-		//Holen aller Datensätze aus Tabelle zahlungsteilnehmer, in denen der Glaeubiger mit Status 'ersteller' eingegtragen ist
-		$query_glaeubiger = "SELECT * FROM zahlungsteilnehmer WHERE status = 'ersteller' AND u_id = '".$this->glaeubiger->getU_id()."';";
-		$result_glaeubiger = $dbStmt->execute($query_glaeubiger);
+
 		
 		//Holen aller Datensätze aus Tabelle zahlungsteilnehmer, in denen der Schuldner mit Status 'offen' eingetragen ist
 		$query_schuldner = "SELECT * FROM zahlungsteilnehmer WHERE status = 'offen' AND u_id = '".$this->schuldner->getU_id()."';";
@@ -46,11 +44,12 @@ class Schulden{
 			echo "schleifenedoft<br>";
 			
 			
-			//Schreiben von $result_glaeubiger in $arbeitsresult_glaeubiger, da sonst nach einem durchlauf das array leer wäre
-			$arbeitsresult_glaeubiger = $result_glaeubiger;
+			//Holen aller Datensätze aus Tabelle zahlungsteilnehmer, in denen der Glaeubiger mit Status 'ersteller' eingegtragen ist
+			$query_glaeubiger = "SELECT * FROM zahlungsteilnehmer WHERE status = 'ersteller' AND u_id = '".$this->glaeubiger->getU_id()."';";
+			$result_glaeubiger = $dbStmt->execute($query_glaeubiger);
 			
 			//Ueberpruefen, ob Schuldner dem ausgewaehlten Glaeubiger etwas schuldet
-			while ($row_glaeubiger = mysqli_fetch_array($arbeitsresult_glaeubiger)) {
+			while ($row_glaeubiger = mysqli_fetch_array($result_glaeubiger)) {
 				echo "chleifeoft<br>";
 				
 				//Wenn beide Teilnehmer an einer Zahlung sind
