@@ -150,7 +150,7 @@ class Schulden{
 				//Erstellen des Gruppenobjektes
 				$gruppe = new Gruppe();
 				$gruppe->laden($row['g_id']);				
-				Gruppenereignis::zahlungstatusaenderungzubeglichenEreignis($zahlung, $gruppe, $this->schuldner, $this->schuldner, $this->glaeubiger);
+				Gruppenereignis::zahlungstatusaenderungzubeglichenEreignis($zahlung, $gruppe, $this->schuldner, $this->glaeubiger, $this->schuldner);
 				
 			}
 			
