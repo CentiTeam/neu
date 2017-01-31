@@ -116,7 +116,7 @@ class Schulden{
 	public function schuldenVonGlaeubigerAnSchuldnerBegleichen($wert){
 		
 		// Datenbankstatement erzeugen
-		$dbStmt = new DB_connection();
+		$dbStmt = new DB_connection(); 
 		
 		//Query, um die Zahlungen, sortiert nach Zahlungsdatum, aus der Datenbank auszulesen
 		$glaeubiger_u_id = $this->glaeubiger->getU_id();
