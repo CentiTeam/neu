@@ -137,68 +137,80 @@ class Zahlungsteilnehmer {
  			echo "Erster Schuldstand:";
  			var_dump($schuldstand);
  					//wenn ich ihm etwas schulde
+ 					
 				if($schuldstand<0){
- 			//		while($schuldstand<0){
- 			$schuldstand = $schuldstand * (-1);
- 						foreach($gemeinsamezahlungen as $zaehler => $zahlungsteilnehmer){
- 							if($schuldstand>0){
+					
+					$this->autAusgleichen($gemeinsamezahlungen, $andererzahlungsteilnehmer);
+					
+				}
+//  			$schuldstand = $schuldstand * (-1);
+//  						foreach($gemeinsamezahlungen as $zaehler => $zahlungsteilnehmer){
+//  							if($schuldstand>0){
  							//$einzahlungsteilnehmer schuldet $andererzahlungsteilnehmer etwas
  							//falls es nun Zahlungen gibt, in denen $einzahlungsteilnehmer Ersteller ist
  							// und $andererzahlungsteilnehmer einen offenen Restbetrag hat sollten diese Zahlungen
  							// beglichen werden. Und zwar bis es entweder keine entsprechenden Zahlungen mehr gibt
  							//oder bis der Schuldstand von beiden == 0 ist
- 							$ersterzahlungsteilnehmer = $zahlungsteilnehmer-> einenzahlungsteilnehmerholen($zahlungsteilnehmer -> getZahlung() -> getZ_id(),
- 									$einzahlungsteilnehmer->getUser() ->getU_id());
+//  							$ersterzahlungsteilnehmer = $zahlungsteilnehmer-> einenzahlungsteilnehmerholen($zahlungsteilnehmer -> getZahlung() -> getZ_id(),
+//  									$einzahlungsteilnehmer->getUser() ->getU_id());
  							
- 							$zweiterzahlungsteilnehmer = $zahlungsteilnehmer-> einenzahlungsteilnehmerholen($zahlungsteilnehmer -> getZahlung() -> getZ_id(),
- 									$andererzahlungsteilnehmer->getUser() ->getU_id());
- 							if($ersterzahlungsteilnehmer ->getUser() ->getU_id()== $ersterzahlungsteilnehmer->getZahlungsempfaenger()->getU_id()
- 								&&($zweiterzahlungsteilnehmer ->getRestbetrag()) >0){
- 								// 
+//  							$zweiterzahlungsteilnehmer = $zahlungsteilnehmer-> einenzahlungsteilnehmerholen($zahlungsteilnehmer -> getZahlung() -> getZ_id(),
+//  									$andererzahlungsteilnehmer->getUser() ->getU_id());
+//  							if($ersterzahlungsteilnehmer ->getUser() ->getU_id()== $ersterzahlungsteilnehmer->getZahlungsempfaenger()->getU_id()
+//  								&&($zweiterzahlungsteilnehmer ->getRestbetrag()) >0){
+//  									$schuldstand = $zweiterzahlungsteilnehmer -> zahlungbegleichen($schuldstand, $zweiterzahlungsteilnehmer);
  									
- 									$schuldstand = $zweiterzahlungsteilnehmer -> zahlungbegleichen($schuldstand, $zweiterzahlungsteilnehmer);
- 									
- 									}
- 						}
- 					}
- 					echo "schuldstand tesst:";
- 					var_dump($schuldstand);
- 					$schuldstand = $schuldstand * (-1);
+//  									}
+//  						}
+//  					}
+//  					$schuldstand = $schuldstand * (-1);
+//  		}
+ 		
+//  		if($schuldstand>0){
+//  			foreach($gemeinsamezahlungen as $zaehler => $zahlungsteilnehmer){
+//  				if($schuldstand>0){
+//  					$ersterzahlungsteilnehmer = $zahlungsteilnehmer-> einenzahlungsteilnehmerholen($zahlungsteilnehmer -> getZahlung() -> getZ_id(),
+//  							$andererzahlungsteilnehmer->getUser() ->getU_id());
+//  					$eigersterzahlungsteilnehmer = $zahlungsteilnehmer-> einenzahlungsteilnehmerholen($zahlungsteilnehmer -> getZahlung() -> getZ_id(),
+//  							$ersterzahlungsteilnehmer->getUser() ->getU_id());
+//  					if($ersterzahlungsteilnehmer ->getUser() ->getU_id()== $ersterzahlungsteilnehmer->getZahlungsempfaenger()->getU_id()
+//  							&&($eigersterzahlungsteilnehmer ->getRestbetrag()) >0){
+//  								$schuldstand = $eigersterzahlungsteilnehmer -> zahlungbegleichen($schuldstand, $eigersterzahlungsteilnehmer);
+//  								var_dump($schuldstand);
+//  					}
+//  				}
+//  			}
+//  		}
+ 			}
+ 			
  		}
- 		
- 		if($schuldstand>0){
- 			//		while($schuldstand<0){
- 			foreach($gemeinsamezahlungen as $zaehler => $zahlungsteilnehmer){
- 				if($schuldstand>0){
- 					//$einzahlungsteilnehmer schuldet $andererzahlungsteilnehmer etwas
- 					//falls es nun Zahlungen gibt, in denen $einzahlungsteilnehmer Ersteller ist
- 					// und $andererzahlungsteilnehmer einen offenen Restbetrag hat sollten diese Zahlungen
- 					// beglichen werden. Und zwar bis es entweder keine entsprechenden Zahlungen mehr gibt
- 					//oder bis der Schuldstand von beiden == 0 ist
- 					$ersterzahlungsteilnehmer = $zahlungsteilnehmer-> einenzahlungsteilnehmerholen($zahlungsteilnehmer -> getZahlung() -> getZ_id(),
- 							$andererzahlungsteilnehmer->getUser() ->getU_id());
- 		
- 					$eigersterzahlungsteilnehmer = $zahlungsteilnehmer-> einenzahlungsteilnehmerholen($zahlungsteilnehmer -> getZahlung() -> getZ_id(),
- 							$ersterzahlungsteilnehmer->getUser() ->getU_id());
- 					if($ersterzahlungsteilnehmer ->getUser() ->getU_id()== $ersterzahlungsteilnehmer->getZahlungsempfaenger()->getU_id()
- 							&&($eigersterzahlungsteilnehmer ->getRestbetrag()) >0){
- 								//
- 		
- 								$schuldstand = $eigersterzahlungsteilnehmer -> zahlungbegleichen($schuldstand, $eigersterzahlungsteilnehmer);
- 								var_dump($schuldstand);
- 					}
+ 		public function autAusgleichen($gemeinsameoffenezahlungen, $neueZahlung){
+ 			//User A hat gerade eine Zahlung erstellt, in welcher B einen offenen Restbetrag hat. 
+ 			//A schuldet B basierend auf alten Zahlungen etwas.
+ 			//Neue Zahlung ist Zahlungsteilnehmer B in der neuen Zahlung
+ 			
+ 			foreach($gemeinsameoffenezahlungen as $zaehler => $gemeinsamezahlung){
+ 				//offener Restbetrag v B der zuerst ältesten Zahlung wird benötigt
+ 				$zTeilnehmerA = $gemeinsamezahlung-> einenzahlungsteilnehmerholen($gemeinsamezahlung -> getZahlung() -> getZ_id(), 
+ 						$this->getUser()->getU_id());
+ 				$restbetragA = $zTeilnehmerA->getRestbetrag();
+ 				if($restbetragA>0){
+ 				if($restbetragA>= $neueZahlung->getRestbetrag()){
+ 					//$this->restbetragQuery($restbetrag, $status, $zTeilnehmerB);
+ 					$this->zahlungbegleichen($neueZahlung->getRestbetrag(), $zTeilnehmerA);
+ 					$restbetragA = $restbetragA - $neueZahlung->getRestbetrag();
+ 					$this->restbetragQuery(0, "beglichen", $neueZahlung);
+ 					$neueZahlung ->setRestbetrag(0);
+ 					//jetzt sollte im foreach loop nichts mehr aufgerufen werden.
+ 				}
+ 				
+ 				if($restbetragA< $neueZahlung->getRestbetrag()){
+ 					$this->zahlungbegleichen($zTeilnehmerA->getRestbetrag(), $neueZahlung);
+ 					$neueZahlung ->setRestbetrag($neueZahlung->getRestbetrag()-$zTeilnehmerA->getRestbetrag());
+ 					$this->restbetragQuery(0, "beglichen", $zTeilnehmerA);
+ 				}
  				}
  			}
- 		}
-		
- 			echo "schuldstand :";
- 			var_dump($einzahlungsteilnehmer ->getUser() -> getUsername());
- 			var_dump($andererzahlungsteilnehmer ->getUser() -> getUsername());
- 			var_dump($schuldstand);
- 			}
- 			
- 			
-	
  		}
  		public function gibsaldo($user_id, $zahlungenliste){
  			$saldo = 0;
@@ -217,7 +229,6 @@ class Zahlungsteilnehmer {
  			}
  			return $saldo;
  		}
-
 	
 	
 	public function gibgemeinsamezahlungen($user_id1, $user_id2){
