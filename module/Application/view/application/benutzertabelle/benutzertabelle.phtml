@@ -30,7 +30,7 @@
 </tr>
 </thead>
 
-<tbody class="datentabelle" style="display:none">
+<tbody class="datentabelle">
 <?php 
 	foreach ($userListe as $zaehler => $user) {
 	?>
@@ -66,6 +66,14 @@
 <script src="https://code.jquery.com/jquery.min.js"></script>
 
 <script type="text/javascript">
+
+$('#myTable').find('tr').each(function() {
+	if (!($('#search_field').on('keyup'))) {
+		$(this).not('#myHead').hide();
+	}
+ });
+
+
 $('#search_field').on('keyup', function() {
 	  var value = $(this).val();
 	  var patt = new RegExp(value, "i");
