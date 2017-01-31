@@ -37,7 +37,7 @@ class Schulden{
 		
 		//Holen aller Datensätze aus Tabelle zahlungsteilnehmer, in denen der Schuldner mit Status 'offen' eingetragen ist
 		$query_schuldner = "SELECT * FROM zahlungsteilnehmer WHERE status = 'offen' AND u_id = '".$this->schuldner->getU_id()."';";
-		$result_schuldner = $dbStmt->execute($query_schuldner);;
+		$result_schuldner = $dbStmt->execute($query_schuldner);
 		
 
 		
