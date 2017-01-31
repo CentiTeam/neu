@@ -47,6 +47,7 @@ class FremdesprofilController extends AbstractActionController {
 			$Schulden->laden($user_angemeldet, $user_aufgerufen);
 			$betrag1 = $Schulden->getBetragVonSchuldnerAnGlaeubiger();
 			echo $betrag1;
+			echo "<br>";
 			
 			$betrag2 = $Schulden->getBetragVonGlaeubigerAnSchuldner();
 			echo $betrag2;
