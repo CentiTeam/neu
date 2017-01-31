@@ -126,7 +126,7 @@ class Schulden{
 		//Query, um die Zahlungen, sortiert nach Zahlungsdatum, aus der Datenbank auszulesen
 		$glaeubiger_u_id = $this->glaeubiger->getU_id();
 		$schuldner_u_id = $this->schuldner->getU_id();
-		$query = "SELECT zahlungsteilnehmer.u_id, zahlungsteilnehmer.z_id, zahlungsteilnehmer.status, zahlungsteilnehmer.restbetrag, zahlung.zahlungsdatum FROM zahlungsteilnehmer JOIN zahlung USING (z_id) WHERE u_id = '".$glaeubiger_u_id."' AND zahlungsempfaenger_id ='".$schuldner_u_id."' AND status='offen' ORDER BY zahlungsdatum ASC;";
+		$query = "SELECT zahlungsteilnehmer.u_id, zahlungsteilnehmer.z_id, zahlungsteilnehmer.status, zahlungsteilnehmer.restbetrag, zahlung.zahlungsdatum, zahlung.g_id FROM zahlungsteilnehmer JOIN zahlung USING (z_id) WHERE u_id = '".$glaeubiger_u_id."' AND zahlungsempfaenger_id ='".$schuldner_u_id."' AND status='offen' ORDER BY zahlungsdatum ASC;";
 		$result = $dbStmt->execute($query);
 		
 		
@@ -149,11 +149,8 @@ class Schulden{
 					
 				//Erstellen des Gruppenobjektes
 				$gruppe = new Gruppe();
-				$g_id = $row['g_id'];
-				echo "g_id = ".$g_id;
-				$gruppe->laden($row['g_id']);
-				
-				//Gruppenereignis::zahlungstatusaenderungEreignis($zahlung, $gruppe, $this->schuldner);
+				$gruppe->laden($row['g_id']);				
+				Gruppenereignis::zahlungstatusaenderungEreignis($zahlung, $gruppe, $this->schuldner);
 				
 			}
 			
