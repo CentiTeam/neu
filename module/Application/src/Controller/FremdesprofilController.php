@@ -61,6 +61,15 @@ class FremdesprofilController extends AbstractActionController {
 			//Wenn das Formular zum Speichern des Begleichungsbetrags bezüglich der Schulden des angemeldeten an den aufgerufenen abgesendet wurde
 			if ($_REQUEST['speichern_an_aufgerufenen']) {
 				
+				$schulden->schuldenVonSchuldnerAnGlaeubigerBegleichen($_POST['begleichen_an_aufgerufenen']);
+				
+				
+				//Neuberechnen der Schulden, bei denen der aufgerufene Benutzer der Gläubiger ist
+				$schulden_an_aufgerufenen = $schulden->getBetragVonSchuldnerAnGlaeubiger();
+				
+				//Neuberechnen der Schulden, bei denen der angemeldete Benutzer der Gläubiger ist
+				$schulden_an_angemeldeten = $schulden->getBetragVonGlaeubigerAnSchuldner();
+				
 				$view = new ViewModel([
 						'user' => array($user),
 						'schulden_an_aufgerufenen' => array($schulden_an_aufgerufenen),
@@ -70,6 +79,7 @@ class FremdesprofilController extends AbstractActionController {
 				$view->setTemplate('application/fremdesprofil/fremdesprofil.phtml');
 				
 				return $view;
+				
 				
 				 
 			
