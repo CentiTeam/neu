@@ -21,8 +21,8 @@ class Schulden{
 	
 	public function laden ($glaeubiger = null, $schuldner = null) {
 		
-		$this->glaeubiger = $glaeubiger;
-		$this->schuldner = $schuldner;
+		if($glaeubiger)		$this->glaeubiger = $glaeubiger;
+		if($schuldner) $this->schuldner = $schuldner;
 	
 		// Datenbankstatement erzeugen
 		$dbStmt = new DB_connection();
