@@ -131,7 +131,7 @@ class Schulden{
 			if($row['restbetrag']>$restwert){
 				//Schreiben des neuen Restbetrages in die Datenbank
 				$neuerwert = $row['restbetrag'] - $restwert;
-				$query_speichern = "UPDATE zahlungsteilnehmer SET restbetrag = '".$neuerwert."' WHERE u_id = '".row['u_id']."' AND z_id ='".$row['z_id']."';";
+				$query_speichern = "UPDATE zahlungsteilnehmer SET restbetrag = '".$neuerwert."' WHERE u_id = '".$row['u_id']."' AND z_id ='".$row['z_id']."';";
 				$dbStmt->execute($query_speichern); 
 			
 			}
