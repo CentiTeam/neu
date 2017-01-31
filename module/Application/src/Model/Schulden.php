@@ -4,6 +4,7 @@ namespace Application\Model;
 
 
 use Application\Model\DB_connection;
+use Application\Model\User;
 
 
 class Schulden{

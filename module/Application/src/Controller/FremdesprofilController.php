@@ -5,6 +5,7 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Model\User;
+use Application\Model\Schulden;
 
 class FremdesprofilController extends AbstractActionController {
 
