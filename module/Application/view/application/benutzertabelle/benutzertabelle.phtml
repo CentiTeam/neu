@@ -4,6 +4,16 @@
 <h1>Benutzerliste</h1>
 <center>
 
+
+
+<form>
+    <input type="text" id="search">
+</form>
+
+
+
+
+
 <form action="usersuchen" method="post">
 	<div>Suche: <input name="suche" type="text" maxlength="255" size="20" value="<?=$suche?>" required> <input class="button" type="submit" value="User suchen"></div>
 </form>
@@ -52,5 +62,15 @@
 </tr>
 </tbody>
 </table>
+
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jquery.quicksearch.js"></script>
+<script type="text/javascript">
+    $('input#search').quicksearch('table tbody tr');
+</script>
+
+
+
 
 </center>
