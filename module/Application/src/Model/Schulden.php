@@ -43,6 +43,7 @@ class Schulden{
 		
 		// Ergebnis der Schuldnerliste Zeile f�r Zeile verarbeiten
 		while ($row_schuldner = mysqli_fetch_array($result_schuldner)) {
+			echo "schleifenedoft<br>"
 			
 			//Ueberpruefen, ob Schuldner dem ausgewaehlten Glaeubiger etwas schuldet
 			while ($row_glaeubiger = mysqli_fetch_array($result_glaeubiger)) {
