@@ -73,7 +73,7 @@ $('#search_field').on('keyup', function() {
 	  var patt = new RegExp(value, "i");
 
 
-	if (! $('#search_field')) {
+	if ( $('#search_field') == NULL || $('#search_field') == "") {
 		$(this).not('#myHead').hide();
 	}
 });
