@@ -28,10 +28,10 @@ function myFunction(myBody) {
 <br>
  -->
  
-<div>Suche: <input type="text" placeholder="Search..." id="search_field" oninput="document.getElementById('myTable').style.visibility=this.checked?'visible':'hidden';" ></div>
+<div>Suche: <input type="text" placeholder="Search..." id="search_field" oninput="myBody.style.visibility='visible';" ></div>
 <br> 
  
-<table id="myTable" class="datentabelle"  style="visibility:hidden" border="0" width="100%">
+<table id="myTable" class="datentabelle" border="0" width="100%">
 <thead class="datentabelle">
 <tr class="datentabelle" id="myHead">
 
@@ -48,7 +48,7 @@ function myFunction(myBody) {
 </tr>
 </thead>
 
-<tbody id="myBody"  class="datentabelle">
+<tbody id="myBody" style="visibility: hidden" class="datentabelle">
 <?php 
 	foreach ($userListe as $zaehler => $user) {
 	?>
