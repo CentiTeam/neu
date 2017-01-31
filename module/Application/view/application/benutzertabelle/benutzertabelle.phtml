@@ -12,10 +12,10 @@
 <br>
  -->
  
-<div>Suche: <input type="text" placeholder="Search..." id="search_field" oninput="myHead.style.visibility=(search_field.value.length<1)?'hidden':'visible';" ></div>
+<div>Suche: <input type="text" placeholder="Search..." id="search_field" oninput="myTable.style.visibility=(search_field.value.length<1)?'hidden':'visible';" ></div>
 <br> 
  
-<table id="myTable" class="datentabelle" border="0" width="100%">
+<table id="myTable" style="visibility: hidden" class="datentabelle" border="0" width="100%">
 <thead class="datentabelle">
 <tr class="datentabelle" id="myHead">
 
@@ -32,7 +32,7 @@
 </tr>
 </thead>
 
-<tbody id="myBody" style="visibility: hidden" class="datentabelle">
+<tbody id="myBody" class="datentabelle">
 <?php 
 	foreach ($userListe as $zaehler => $user) {
 	?>
