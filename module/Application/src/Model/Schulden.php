@@ -47,7 +47,7 @@ class Schulden{
 			
 			
 			//Schreiben von $result_glaeubiger in $arbeitsresult_glaeubiger, da sonst nach einem durchlauf das array leer wäre
-			$arbeitsresult_schuldner = $result_schuldner;
+			$arbeitsresult_glaeubiger = $result_glaeubiger;
 			
 			//Ueberpruefen, ob Schuldner dem ausgewaehlten Glaeubiger etwas schuldet
 			while ($row_glaeubiger = mysqli_fetch_array($arbeitsresult_glaeubiger)) {
