@@ -149,9 +149,11 @@ class Schulden{
 					
 				//Erstellen des Gruppenobjektes
 				$gruppe = new Gruppe();
+				$g_id = $row['g_id'];
+				echo "g_id = ".$g_id;
 				$gruppe->laden($row['g_id']);
 				
-				Gruppenereignis::zahlungstatusaenderungEreignis($zahlung, $gruppe, $this->schuldner);
+				//Gruppenereignis::zahlungstatusaenderungEreignis($zahlung, $gruppe, $this->schuldner);
 				
 			}
 			

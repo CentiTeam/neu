@@ -168,12 +168,10 @@ class Gruppenereignis{
 	
 	public static function zahlungstatusaenderungEreignis($zahlung, $gruppe, $user){
 		
-		echo "kldsjgkjasdhgkjshfldkldgkl";
 	
 		$ereignisbeschreibung = "Der Status der Zahlung ".$zahlung->getZahlungsbeschreibung()." mit der ID ".$zahlung->getZ_id()." in Hoehe von ".$zahlung->getBetrag()." wurde von ".$user->getUsername()." zu geaendert";
 		// Datenbankstatement erzeugen
 		$dbStmt = new DB_connection();
-		$ereignisbeschreibung = "Der Hermann war da!";
 	
 		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
 		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe->getG_id()."', '".$ereignisbeschreibung."', NOW());");
