@@ -157,7 +157,7 @@ class Zahlungsteilnehmer {
  								// 
  									
  									$schuldstand = $zweiterzahlungsteilnehmer -> zahlungbegleichen($schuldstand, $zweiterzahlungsteilnehmer);
- 									$this->
+ 									
  									}
  						}
  					}
