@@ -27,11 +27,11 @@ class Schulden{
 		
 		//Holen aller Datensätze aus Tabelle zahlungsteilnehmer, in denen der Glaeubiger mit Status 'ersteller' eingegtragen ist
 		$query_glaeubiger = "SELECT * FROM zahlungsteilnehmer WHERE status = 'ersteller' AND u_id = '".$glaeubiger->getU_id()."';";
-		$result_glaeubiger = $dbStmt->exectue($query_glaeubiger);
+		$result_glaeubiger = $dbStmt->execute($query_glaeubiger);
 		
 		//Holen aller Datensätze aus Tabelle zahlungsteilnehmer, in denen der Schuldner mit Status 'offen' eingetragen ist
 		$query_schuldner = "SELECT * FROM zahlungsteilnehmer WHERE status = 'offen' AND u_id = '".$schuldner->getU_id()."';";
-		$result_schuldner = $dbStmt->exectue($query_schuldner);
+		$result_schuldner = $dbStmt->execute($query_schuldner);
 		
 		//Schuldenbetrag vor Berechnung initialisieren
 		$betragvonschuldneranglaeubiger = 0;
