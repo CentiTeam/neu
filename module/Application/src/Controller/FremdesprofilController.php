@@ -87,7 +87,9 @@ class FremdesprofilController extends AbstractActionController {
 				$schulden_an_aufgerufenen = $schulden->getBetragVonSchuldnerAnGlaeubiger();
 				
 				//Neuberechnen der Schulden, bei denen der angemeldete Benutzer der Gläubiger ist
+				echo "vorher: ".$schulden_an_angemeldeten;
 				$schulden_an_angemeldeten = $schulden->getBetragVonGlaeubigerAnSchuldner();
+				echo "<br>nachher: ".$schulden_an_angemeldeten;
 				
 				$view = new ViewModel([
 						'user' => array($user),
