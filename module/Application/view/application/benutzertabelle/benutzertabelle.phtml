@@ -104,14 +104,15 @@ $('#search_field').off('keyup', function() {
 $('#search_field').on('keyup', function() {
 	  var value = $(this).val();
 	  var patt = new RegExp(value, "i");
-	  
+
+	//Versuch 3
+	  var elem1=document.getElementById("myBody");
+	  elem1.style.visibility == "visible"
+	  // Versuch Ende
 
 	  $('#myTable').find('tr').each(function() {
 
-		//Versuch 3
-		  var elem1=document.getElementById("myBody");
-		  elem1.style.visibility == "visible"
-		  // Versuch Ende
+		
 		  
 	    if (!($(this).find('td').text().search(patt) >= 0)) {
 	      $(this).not('#myHead').hide();
