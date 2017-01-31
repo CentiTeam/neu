@@ -16,7 +16,7 @@
 <table>
 <th>Schulden pflegen</th>
 <tr><td>Offene Schulden: </td><td><input name="offen_an_aufgerufenen" type="text" maxlength="50" size="20" value="<?=$schulden_an_aufgerufenen[0]?>" required readonly> </td></tr>
-<tr><td>Begleichen: </td><td><input name="begleichen_an_aufgerufenen" type="number" step=".01" maxlength="50" size="35" placeholder="Euro.Cent" required min="0" max="<?=$schulden_an_aufgerufenen[0]?>"></td></tr>										
+<tr><td>Begleichen: </td><td><input name="begleichen_an_aufgerufenen" type="number" step=".01" maxlength="50" style="width: 2em;" placeholder="Euro.Cent" required min="0" max="<?=$schulden_an_aufgerufenen[0]?>"></td></tr>										
 <tr><td><input class="button" type="submit" name="speichern_an_aufgerufenen" value="Betrag als bezahlt speichern"></td> </tr>
 </table> 
 </form> 
@@ -31,7 +31,7 @@
 <table>
 <th>Schulden pflegen</th>
 <tr><td>Offene Schulden: </td><td><input name="offen_an_angemeldeten" type="text" maxlength="50" size="20" value="<?=$schulden_an_angemeldeten[0]?>" required readonly> </td></tr>
-<tr><td>Begleichen: </td><td><input name="begleichen_an_angemeldeten" type="number" step=".01" maxlength="50" size="35" placeholder="Euro.Cent" min="0" max="<?=$schulden_an_angemeldeten[0]?>" required></td></tr>										
+<tr><td>Begleichen: </td><td><input name="begleichen_an_angemeldeten" type="number" step=".01" maxlength="50" style="width: 20em;" placeholder="Euro.Cent" min="0" max="<?=$schulden_an_angemeldeten[0]?>" required></td></tr>										
 <tr><td><input class="button" type="submit" name="speichern_an_angemeldeten" value="Betrag als bezahlt speichern"></td> </tr>
 </table> 
 </form>
