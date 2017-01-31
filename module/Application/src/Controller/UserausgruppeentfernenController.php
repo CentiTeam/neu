@@ -109,9 +109,7 @@ class UserausgruppeentfernenController extends AbstractActionController
 				$msg .= "$vorname $nachname wurde erfolgreich aus der Gruppe '$gruppenname' entfernt!<br>";
 				
 				
-				//Schreiben des Ereignisses das die Gruppe gel�scht wurde in die Ereignistabelle der Datenbank
-				//Gruppenereignis::gruppeloeschenEreignis($gruppe);
-				
+	
 				// Muss geändert werden zu:
 				Gruppenereignis::userausgruppeentfernenEreignis($gruppenmitglied);
 
