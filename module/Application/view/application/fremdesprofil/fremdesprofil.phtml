@@ -11,7 +11,7 @@
 	
 <br><br>
 <h4>Schulden von mir an <?=$user[0]->getUsername()?> (gruppenunabh&aumlngig):</h4>
-<form action="pflegen" method="post">
+<form action="fremdesprofil" method="post">
 <table>
 <th>Schulden pflegen</th>
 <tr><td>Offene Schulden: </td><td><input name="offen_an_aufgerufenen" type="text" maxlength="50" size="20" value="<?=$schulden_an_aufgerufenen[0]?>" required readonly> </td></tr>
@@ -26,7 +26,7 @@
 
 
 <h4>Schulden von <?=$user[0]->getUsername()?> an mich (gruppenunabh&aumlngig):</h4>
-<form action="pflegen" method="post">
+<form action="fremdesprofil" method="post">
 <table>
 <th>Schulden pflegen</th>
 <tr><td>Offene Schulden: </td><td><input name="offen_an_angemeldeten" type="text" maxlength="50" size="20" value="<?=$schulden_an_angemeldeten[0]?>" required readonly> </td></tr>
