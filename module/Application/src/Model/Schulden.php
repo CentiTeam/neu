@@ -130,7 +130,7 @@ class Schulden{
 		
 		//Schleife, um die Zahlungen zu begleichen (Zahlungen mit aeltestem Zahlungsdatum werden zuerst beglichen)
 		$restwert = $wert;
-		while($row = mysqli_fetch_array($result) && $restwert>0){
+		while($row = mysqli_fetch_array($result)){
 			
 			//Es wird mehr zurückgezahlt, als die Restschulden der aktuellen Zahlung betragen
 			if($row['restbetrag'] < $restwert){
