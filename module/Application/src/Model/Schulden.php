@@ -40,7 +40,6 @@ class Schulden{
 		
 		// Ergebnis der Schuldnerliste Zeile fï¿½r Zeile verarbeiten
 		while ($row_schuldner = mysqli_fetch_array($result_schuldner)) {
-			echo "schleifenedoft<br>";
 			
 			
 			//Holen aller Datensätze aus Tabelle zahlungsteilnehmer, in denen der Glaeubiger mit Status 'ersteller' eingegtragen ist
@@ -49,7 +48,6 @@ class Schulden{
 			
 			//Ueberpruefen, ob Schuldner dem ausgewaehlten Glaeubiger etwas schuldet
 			while ($row_glaeubiger = mysqli_fetch_array($result_glaeubiger)) {
-				echo "chleifeoft<br>";
 				
 				//Wenn beide Teilnehmer an einer Zahlung sind
 				if($row_schuldner['z_id'] == $row_glaeubiger['z_id']){
@@ -81,7 +79,6 @@ class Schulden{
 		
 		// Ergebnis der Glaeubigerliste Zeile fï¿½r Zeile verarbeiten
 		while ($row_glaeubiger = mysqli_fetch_array($result_glaeubiger)) {
-			echo "schleifenedoft<br>";
 				
 				
 			//Holen aller Datensätze aus Tabelle zahlungsteilnehmer, in denen der Schuldner mit Status 'ersteller' eingegtragen ist
@@ -90,7 +87,6 @@ class Schulden{
 				
 			//Ueberpruefen, ob Schuldner dem ausgewaehlten Glaeubiger etwas schuldet
 			while ($row_schuldner = mysqli_fetch_array($result_schuldner)) {
-				echo "chleifeoft<br>";
 		
 				//Wenn beide Teilnehmer an einer Zahlung sind
 				if($row_glaeubiger['z_id'] == $row_schuldner['z_id']){
