@@ -68,10 +68,15 @@
 <script type="text/javascript">
 
 // Nur ein Versuch
+$('#search_field').on('keyup', function() {
+	  var value = $(this).val();
+	  var patt = new RegExp(value, "i");
+
 
 	if (! $('#search_field')) {
 		$(this).not('#myHead').hide();
 	}
+});
 
 //Versuch 2
 /**
