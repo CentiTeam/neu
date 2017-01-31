@@ -68,12 +68,14 @@
 <script type="text/javascript">
 
 // Nur ein Versuch
+alert ('$('#search_field')');
+
 $('#search_field').on('keyup', function() {
 	  var value = $(this).val();
 	  var patt = new RegExp(value, "i");
 
 
-	if ( $('#search_field') == NULL || $('#search_field') == "") {
+	if ( $('#search_field') === "undefined") {
 		$(this).not('#myHead').hide();
 	}
 });
