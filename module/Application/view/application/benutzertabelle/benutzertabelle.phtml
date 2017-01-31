@@ -4,18 +4,6 @@
 <h1>Benutzerliste</h1>
 <center>
 
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>">
-<fieldset>
-     <label for="filter">Filtern nach: </label>
-     <input type="text" name="search" id="search" />
-     <div>Um alle Mitarbeiter anzuzeigen, geben Sie das Zeichen * ein.</div>
-     </fieldset>
-</form>
-<div id="results"></div>
-
-
-
-
 <form action="usersuchen" method="post">
 	<div>Suche: <input name="suche" type="text" maxlength="255" size="20" value="<?=$suche?>" required> <input class="button" type="submit" value="User suchen"></div>
 </form>
@@ -64,17 +52,5 @@
 </tr>
 </tbody>
 </table>
-
-<script type="text/javascript">
-$(function() {    
-     $('#search').keyup(function() {
-          if($(this).val().length > 0) {
-               $.get("search.php", {search: $(this).val()}, function(data) {
-                    $("#results").html(data);
-               });
-          }
-     });
-});
-</script>
 
 </center>

@@ -38,6 +38,7 @@ class UsersuchenController extends AbstractActionController
 		
 		if ($_SESSION['user']->getSystemadmin()==true) {
 			
+			
 			$userListe = User::suchlisteHolen($suche);
 			
 			$msg="Die Suche nach '$suche' ergab folgende Ergebnisse: ";
