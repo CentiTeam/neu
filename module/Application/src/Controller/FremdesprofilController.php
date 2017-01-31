@@ -80,8 +80,7 @@ class FremdesprofilController extends AbstractActionController {
 			//Wenn das Formular zum Speichern des Begleichungsbetrags bezüglich der Schulden des aufgerufenen an den angemeldeten abgesendet wurde
 			if ($_REQUEST['speichern_an_angemeldeten']) {
 				
-				$schulden->schuldenVonGlaeubigerAnSchuldnerBegleichen($_POST['offen_an_angemeldeten']);
-				
+				$schulden->schuldenVonGlaeubigerAnSchuldnerBegleichen($_POST['begleichen_an_angemeldeten']);
 				
 				$view = new ViewModel([
 						'user' => array($user),
