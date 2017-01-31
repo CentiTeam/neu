@@ -16,6 +16,18 @@
 <h4>Schulden von <?=$user[0]->getUsername()?> an mich (gruppenunabh&aumlngig):</h4>
 <?=$schulden_an_angemeldeten[0]?>
 <br>
-<form>
-<input type='number' required name='begleichen' value='0'>
-</form>
+
+
+
+<form action="pflegen" method="post">
+
+<table>
+<th>Schulden pflegen</th>
+<tr><td>Betrag: </td><td><input name="betrag" type="text" maxlength="50" size="20" placeholder="Euro.Cent" required></td></tr>
+
+
+
+										
+<tr><td><input class="button" type="submit" name="speichern" value="Betrag als bezahlt speichern"></td> </tr>
+	</table>
+	</form>
