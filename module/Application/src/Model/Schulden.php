@@ -140,6 +140,19 @@ class Schulden{
 				$query_speichern = "UPDATE zahlungsteilnehmer SET restbetrag = '0', status = 'beglichen' WHERE u_id = '".$row['u_id']."' AND z_id ='".$row['z_id']."';";
 				$dbStmt->execute($query_speichern);
 				
+				
+				//Abhandlung des Gruppenereignisses zur Statusaenderung von offen nach beglichen
+				//Erstellen des Zahlungsobjektes
+				$zahlung = new Zahlung();
+				$zahlung->laden($row['z_id']);
+				
+					
+				//Erstellen des Gruppenobjektes
+				$gruppe = new Gruppe();
+				$gruppe->laden($row['g_id']);
+				
+				Gruppenereignis::zahlungstatusaenderungEreignis($zahlung, $gruppe, $this->schuldner);
+				
 			}
 			
 			
@@ -181,28 +194,18 @@ class Schulden{
 				
 			//Es wird mehr zurückgezahlt, als die Restschulden der aktuellen Zahlung betragen
 			if($row['restbetrag'] <= $restwert){
-				echo "2222";
+
 				$restwert = $restwert - $row['restbetrag'];
 				$query_speichern = "UPDATE zahlungsteilnehmer SET restbetrag = '0', status = 'beglichen' WHERE u_id = '".$row['u_id']."' AND z_id ='".$row['z_id']."';";
 				$dbStmt->execute($query_speichern);
-				echo "5";
+
 				
 				
 				
 				
-				//Abhandlung des Gruppenereignisses zur Statusaenderung von offen nach beglichen
-					//Erstellen des Zahlungsobjektes
-					$zahlung = new Zahlung();
-					$zahlung->laden($row['z_id']);
-					echo "1";
-					
-					//Erstellen des Gruppenobjektes
-					$gruppe = new Gruppe();
-					$gruppe->laden($row['g_id']);	
-					echo "2";
-				Gruppenereignis::zahlungstatusaenderungEreignis($zahlung, $gruppe, $this->schuldner);
 				
-				echo "3";
+				
+
 				
 				
 	
