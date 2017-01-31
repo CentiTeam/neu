@@ -82,6 +82,13 @@ class FremdesprofilController extends AbstractActionController {
 				
 				$schulden->schuldenVonGlaeubigerAnSchuldnerBegleichen($_POST['begleichen_an_angemeldeten']);
 				
+				
+				//Neuberechnen der Schulden, bei denen der aufgerufene Benutzer der Gläubiger ist
+				$schulden_an_aufgerufenen = $schulden->getBetragVonSchuldnerAnGlaeubiger();
+				
+				//Neuberechnen der Schulden, bei denen der angemeldete Benutzer der Gläubiger ist
+				$schulden_an_angemeldeten = $schulden->getBetragVonGlaeubigerAnSchuldner();
+				
 				$view = new ViewModel([
 						'user' => array($user),
 						'schulden_an_aufgerufenen' => array($schulden_an_aufgerufenen),
