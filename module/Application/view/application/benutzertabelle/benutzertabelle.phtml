@@ -15,7 +15,7 @@
 <thead class="datentabelle">
 <tr class="datentabelle" id="myHead">
 
-<div>Suche: <input type="text" placeholder="Search..." id="search_field" onchange="myFunction()" ></div>
+<div>Suche: <input type="text" placeholder="Search..." id="search_field" oninput="myFunction()" ></div>
 <br>
 
 <th class="datentabelle"> User-ID 		</th>
@@ -69,7 +69,7 @@
 
 // Nur ein Versuch
 
-myFunction() {
+function myFunction() {
 var elem1=document.getElementById("myBody");
 elem1.style.visibility == "visible";
 
