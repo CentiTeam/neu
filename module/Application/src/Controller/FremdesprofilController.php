@@ -71,7 +71,7 @@ class FremdesprofilController extends AbstractActionController {
 				
 				return $view;
 				
-				
+				 
 			
 			}
 			
@@ -81,6 +81,13 @@ class FremdesprofilController extends AbstractActionController {
 			if ($_REQUEST['speichern_an_angemeldeten']) {
 				
 				$schulden->schuldenVonGlaeubigerAnSchuldnerBegleichen($_POST['begleichen_an_angemeldeten']);
+				
+				
+				//Neuberechnen der Schulden, bei denen der aufgerufene Benutzer der Gläubiger ist
+				$schulden_an_aufgerufenen = $schulden->getBetragVonSchuldnerAnGlaeubiger();
+				
+				//Neuberechnen der Schulden, bei denen der angemeldete Benutzer der Gläubiger ist
+				$schulden_an_angemeldeten = $schulden->getBetragVonGlaeubigerAnSchuldner();
 				
 				$view = new ViewModel([
 						'user' => array($user),
