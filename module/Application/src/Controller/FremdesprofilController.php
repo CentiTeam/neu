@@ -30,7 +30,7 @@ class FremdesprofilController extends AbstractActionController {
 			$u_id=$_REQUEST['u_id'];
 			$user = new User();
 			$user->laden($u_id);
-
+ 
 			$saved= false;
 			$msg = array();
 			
