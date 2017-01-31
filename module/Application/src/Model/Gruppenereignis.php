@@ -268,6 +268,7 @@ class Gruppenereignis{
 			
 			
 		} 
+	}
 		
 		
 		public static function benutzerreaktivierenEreignis($user){
@@ -291,12 +292,14 @@ class Gruppenereignis{
 					
 					
 			}
+		}
+
 		
 		
 		
 		
 		
-	}
+	
 	
 	
 	/**
