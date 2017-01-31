@@ -114,7 +114,7 @@ class ZahlungloeschenController extends AbstractActionController {
 				
 					if ($zahlungloeschen) {
 						echo "Die Zahlung wurde erfolgreich gel&oumlscht!";
-						Gruppenereignis::zahlungloeschenEreignis($zahlung_fuer_ereignis, $zahlung_fuer_ereignis->getGruppe(), $user);
+						Gruppenereignis::zahlungloeschenEreignis($zahlung_fuer_ereignis, $zahlung_fuer_ereignis->getGruppe(), $_SESSION['user']);
 					}
 					else {
 						echo "Die Zahlung konnte nicht gel&oumlscht werden!";
