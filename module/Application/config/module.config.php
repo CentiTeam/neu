@@ -122,6 +122,17 @@ return [
         			],
         	],
         		
+        	'search' => [
+        			'type'    => Segment::class,
+       				'options' => [
+       						'route'    => '/search[/:action]',
+       						'defaults' => [
+       								//'controller' => Controller\IndexController::class,
+       								'action'     => 'search',
+       						],
+       				],
+       		],
+        		
         		
         		
         		'passwordreset' => [
