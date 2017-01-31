@@ -30,7 +30,7 @@ class ZahlunganlegenController extends AbstractActionController {
 			$view->setTemplate('application/index/index.phtml');
 			return $view;
 
-		} else {
+		} else { 
 			
 			// Berechtigungsprüfung, ob Gruppenmitglied
 			$g_id=$_REQUEST['g_id'];

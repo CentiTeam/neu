@@ -16,7 +16,10 @@ class FremdesprofilController extends AbstractActionController {
 		$errors = array();
 
 		if($_SESSION['angemeldet'] ==NULL) {
-		
+			
+			
+			
+		 
 			$msg="Nicht berechtigt!";
 			
 			$view = new ViewModel([
@@ -27,28 +30,59 @@ class FremdesprofilController extends AbstractActionController {
 			return $view;
 			
 		} else {
-						
+			
+			
 			$u_id=$_REQUEST['u_id'];
 			$user = new User();
 			$user->laden($u_id);
- 
+			
 			$saved= false;
 			$msg = array();
-			
+				
 			//Schreiben des aufgerufenen Benutzers und des angemeldeten Benutzers in Variablen
 			$user_aufgerufen = $user;
-			
+				
 			$user_angemeldet = $_SESSION['user'];
-			
+				
 			//Berechnen der Schulden
 			$schulden = new Schulden();
 			$schulden -> laden($user_aufgerufen, $user_angemeldet);
-			
+				
 			//Berechnen der Schulden, bei denen der aufgerufene Benutzer der Gläubiger ist
 			$schulden_an_aufgerufenen = $schulden->getBetragVonSchuldnerAnGlaeubiger();
-			
+				
 			//Berechnen der Schulden, bei denen der angemeldete Benutzer der Gläubiger ist
 			$schulden_an_angemeldeten = $schulden->getBetragVonGlaeubigerAnSchuldner();
+				
+			
+			
+			
+			
+			//Wenn das Formular zum Speichern des Begleichungsbetrags bezüglich der Schulden des angemeldeten an den aufgerufenen abgesendet wurde
+			if ($_REQUEST['speichern_an_aufgerufenen']) {
+				
+				
+			
+			}
+			
+			
+			
+			//Wenn das Formular zum Speichern des Begleichungsbetrags bezüglich der Schulden des aufgerufenen an den angemeldeten abgesendet wurde
+			if ($_REQUEST['speichern_an_angemeldeten']) {
+				
+				$schulden->schuldenVonGlaeubigerAnSchuldnerBegleichen($_POST['offen_an_angemeldeten']);
+			
+					
+			}
+			
+			
+			
+			
+			else{
+			
+			
+			
+						
 			
 			
 			
@@ -74,6 +108,7 @@ class FremdesprofilController extends AbstractActionController {
 			$view->setTemplate('application/fremdesprofil/fremdesprofil.phtml');
 	
 			return $view;
+		}
 		}
 	
 	}

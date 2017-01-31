@@ -1,5 +1,6 @@
 <?=$msg?>
-
+<?php session_start();
+?>
 <h3><?=$user[0]->getUsername()?>'s Profil</h3>
 
 	<table>	
@@ -11,27 +12,27 @@
 	
 <br><br>
 <h4>Schulden von mir an <?=$user[0]->getUsername()?> (gruppenunabh&aumlngig):</h4>
-<form action="pflegen" method="post">
+<form action="fremdesprofil" method="post">
 <table>
 <th>Schulden pflegen</th>
 <tr><td>Offene Schulden: </td><td><input name="offen_an_aufgerufenen" type="text" maxlength="50" size="20" value="<?=$schulden_an_aufgerufenen[0]?>" required readonly> </td></tr>
 <tr><td>Begleichen: </td><td><input name="begleichen_an_aufgerugenen" type="number" step=".01" maxlength="50" size="20" placeholder="Euro.Cent" required min="0" max="<?=$schulden_an_aufgerufenen[0]?>"></td></tr>										
-<tr><td><input class="button" type="submit" name="speichern" value="Betrag als bezahlt speichern"></td> </tr>
+<tr><td><input class="button" type="submit" name="speichern_an_aufgerufenen" value="Betrag als bezahlt speichern"></td> </tr>
 </table>
 </form>
-
+ 
 
 <br><br> 
 
 
 
 <h4>Schulden von <?=$user[0]->getUsername()?> an mich (gruppenunabh&aumlngig):</h4>
-<form action="pflegen" method="post">
+<form action="fremdesprofil" method="post">
 <table>
 <th>Schulden pflegen</th>
 <tr><td>Offene Schulden: </td><td><input name="offen_an_angemeldeten" type="text" maxlength="50" size="20" value="<?=$schulden_an_angemeldeten[0]?>" required readonly> </td></tr>
 <tr><td>Begleichen: </td><td><input name="begleichen_an_angemeldeten" type="number" step=".01" maxlength="50" size="20" placeholder="Euro.Cent" min="0" max="<?=$schulden_an_angemeldeten[0]?>" required></td></tr>										
-<tr><td><input class="button" type="submit" name="speichern" value="Betrag als bezahlt speichern"></td> </tr>
+<tr><td><input class="button" type="submit" name="speichern_an_angemeldeten" value="Betrag als bezahlt speichern"></td> </tr>
 </table>
 </form>
 
