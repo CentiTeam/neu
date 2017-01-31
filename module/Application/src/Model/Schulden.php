@@ -44,15 +44,19 @@ class Schulden{
 		
 		// Ergebnis der Schuldnerliste Zeile f�r Zeile verarbeiten
 		while ($row_schuldner = mysqli_fetch_array($result_schuldner)) {
+			echo "in erster schleife":
 			
 			//Ueberpruefen, ob Schuldner dem ausgewaehlten Glaeubiger etwas schuldet
 			while ($row_glaeubiger = mysqli_fetch_array($result_glaeubiger)) {
+				echo "in zweiter schleife";
 				
 				//Wenn beide Teilnehmer an einer Zahlung sind
 				if($row_schuldner['z_id'] == $row_glaeubiger['z_id']){
+					echo "bedingung beide";
 					
 					//Wenn der Schuldner den Status offen hat
-					if($row_schuldner['status'] == 'offen'){						
+					if($row_schuldner['status'] == 'offen'){
+						echo "berechnung";
 						//Berechnen der Schulden des Schuldners an den Glaeubiger
 						$betragvonschuldneranglaeubiger = $betragvonschuldneranglaeubiger + $row_schuldner['restbetrag'];
 					}
