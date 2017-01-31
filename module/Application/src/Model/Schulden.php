@@ -228,6 +228,10 @@ class Schulden{
 				//Erstellen des Gruppenobjektes
 				$gruppe = new Gruppe();
 				$gruppe->laden($row['g_id']);
+				
+				
+				Gruppenereignis::zahlungbegleichenEreignis($zahlung, $gruppe, $this->schuldner, $this->schuldner, $this->glaeubiger, $betrag);
+				
 				Gruppenereignis::zahlungstatusaenderungzubeglichenEreignis($zahlung, $gruppe, $this->schuldner, $this->schuldner, $this->glaeubiger);				
 				
 				
@@ -242,6 +246,21 @@ class Schulden{
 				$neuerwert = $row['restbetrag'] - $restwert;
 				$query_speichern = "UPDATE zahlungsteilnehmer SET restbetrag = '".$neuerwert."' WHERE u_id = '".$row['u_id']."' AND z_id ='".$row['z_id']."';";
 				$dbStmt->execute($query_speichern);
+				
+				
+				
+				
+				//Abhandlung des Gruppenereignisses zum Begleichen
+				//Erstellen des Zahlungsobjektes
+				$zahlung = new Zahlung();
+				$zahlung->laden($row['z_id']);
+				
+					
+				//Erstellen des Gruppenobjektes
+				$gruppe = new Gruppe();
+				$gruppe->laden($row['g_id']);
+				
+				Gruppenereignis::zahlungbegleichenEreignis($zahlung, $gruppe, $this->schuldner, $this->schuldner, $this->glaeubiger, $betrag);
 	
 				//Wenn der Restbetrag in der DB kleiner ist, als der gezahlte Restwert, dann wird nach Schreiben in die DB, die Schleife abgebrochen
 				break;
