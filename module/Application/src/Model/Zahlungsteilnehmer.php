@@ -67,7 +67,7 @@ class Zahlungsteilnehmer {
 			$status = "offen";
 			$uebrig=0;
 		}
-		restbetragQuery($restbetrag, $status, $zahlungsteilnehmer);
+		$this->restbetragQuery($restbetrag, $status, $zahlungsteilnehmer);
 	
 	return $uebrig;
 	
