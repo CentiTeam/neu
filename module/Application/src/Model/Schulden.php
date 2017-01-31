@@ -24,6 +24,9 @@ class Schulden{
 		// Datenbankstatement erzeugen
 		$dbStmt = new DB_connection();
 		
+		//Schuldenbetrag vor Berechnung initialisieren
+		$betragvonschuldneranglaeubiger = 0;
+		
 		
 		//Holen aller Datensätze aus Tabelle zahlungsteilnehmer, in denen der Glaeubiger mit Status 'ersteller' eingegtragen ist
 		$query_glaeubiger = "SELECT * FROM zahlungsteilnehmer WHERE status = 'ersteller' AND u_id = '".$glaeubiger->getU_id()."';";
@@ -33,8 +36,7 @@ class Schulden{
 		$query_schuldner = "SELECT * FROM zahlungsteilnehmer WHERE status = 'offen' AND u_id = '".$schuldner->getU_id()."';";
 		$result_schuldner = $dbStmt->execute($query_schuldner);
 		
-		//Schuldenbetrag vor Berechnung initialisieren
-		$betragvonschuldneranglaeubiger = 0;
+
 		
 		// Ergebnis der Schuldnerliste Zeile fï¿½r Zeile verarbeiten
 		while ($row_schuldner = mysqli_fetch_array($result_schuldner)) {
