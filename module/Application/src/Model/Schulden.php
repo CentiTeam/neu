@@ -46,6 +46,7 @@ class Schulden{
 			
 			//Ueberpruefen, ob Schuldner dem ausgewaehlten Glaeubiger etwas schuldet
 			while ($row_glaeubiger = mysqli_fetch_array($result_glaeubiger)) {
+				echo "chleifeoft";
 				
 				//Wenn beide Teilnehmer an einer Zahlung sind
 				if($row_schuldner['z_id'] == $row_glaeubiger['z_id']){
@@ -65,10 +66,11 @@ class Schulden{
 	}
 	
 	
-	public function getBetragVonSchuldnerAnGlaeubiger(){
-		
-		return $this->betragvonschuldneranglaeubiger;
-		
+	public function getBetragVonSchuldnerAnGlaeubiger(){		
+		return $this->betragvonschuldneranglaeubiger;		
+	}
+	public function getBetragVonGlaeubigerAnSchuldner(){
+		return $this->betragvonglaeubigeranschuldner;
 	}
 	
 }
