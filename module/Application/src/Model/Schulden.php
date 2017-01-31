@@ -161,4 +161,49 @@ class Schulden{
 	}
 	
 	
+	public function schuldenVonSchuldnerAnGlaeubigerBegleichen($wert){
+	
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+	
+		//Query, um die Zahlungen, sortiert nach Zahlungsdatum, aus der Datenbank auszulesen
+		$schuldner_u_id = $this->schuldner->getU_id();
+		$glaeubiger_u_id = $this->glaeubiger->getU_id();
+		$query = "SELECT zahlungsteilnehmer.u_id, zahlungsteilnehmer.z_id, zahlungsteilnehmer.status, zahlungsteilnehmer.restbetrag, zahlung.zahlungsdatum FROM zahlungsteilnehmer JOIN zahlung USING (z_id) WHERE u_id = '".$schuldner_u_id."' AND zahlungsempfaenger_id ='".$glaeubiger_u_id."' AND status='offen' ORDER BY zahlungsdatum ASC;";
+		$result = $dbStmt->execute($query);
+	
+	
+		//Schleife, um die Zahlungen zu begleichen (Zahlungen mit aeltestem Zahlungsdatum werden zuerst beglichen)
+		$restwert = $wert;
+		while(($row = mysqli_fetch_array($result)) && $restwert>0){
+				
+			//Es wird mehr zurückgezahlt, als die Restschulden der aktuellen Zahlung betragen
+			if($row['restbetrag'] <= $restwert){
+				$restwert = $restwert - $row['restbetrag'];
+				$query_speichern = "UPDATE zahlungsteilnehmer SET restbetrag = '0', status = 'beglichen' WHERE u_id = '".$row['u_id']."' AND z_id ='".$row['z_id']."';";
+				$dbStmt->execute($query_speichern);
+	
+			}
+				
+				
+			//Es wird weniger zurückgezahlt, als die Restschulden der aktuellen Zahlung betragen
+			else if($row['restbetrag']>$restwert){
+				//Schreiben des neuen Restbetrages in die Datenbank
+				$neuerwert = $row['restbetrag'] - $restwert;
+				$query_speichern = "UPDATE zahlungsteilnehmer SET restbetrag = '".$neuerwert."' WHERE u_id = '".$row['u_id']."' AND z_id ='".$row['z_id']."';";
+				$dbStmt->execute($query_speichern);
+	
+				//Wenn der Restbetrag in der DB kleiner ist, als der gezahlte Restwert, dann wird nach Schreiben in die DB, die Schleife abgebrochen
+				break;
+	
+			}
+		}
+	
+	
+		//Holen der neuen Werte aus der Datenbank
+		$this->laden();
+	
+	}
+	
+	
 }
