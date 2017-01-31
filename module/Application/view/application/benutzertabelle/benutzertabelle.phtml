@@ -68,11 +68,28 @@
 <script type="text/javascript">
 
 // Nur ein Versuch
-$('#myTable').find('tr').each(function() {
-	if (!($('#search_field').on('keyup'))) {
+
+	if (! $('#search_field')) {
 		$(this).not('#myHead').hide();
 	}
- });
+
+//Versuch 2
+/**
+$('#search_field').off('keyup', function() {
+	  var value = $(this).val();
+	  var patt = new RegExp(value, "i");
+
+	  $('#myTable').find('tr').each(function() {
+	    if (!($(this).find('td').text().search(patt) >= 0)) {
+	      $(this).not('#myHead').hide();
+	    }
+	    if (($(this).find('td').text().search(patt) >= 0)) {
+	      $(this).show();
+	    }
+	  });
+
+	});
+*/	
 // Versuch Ende
 
 $('#search_field').on('keyup', function() {
