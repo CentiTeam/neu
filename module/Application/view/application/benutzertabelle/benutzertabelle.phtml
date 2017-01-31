@@ -15,7 +15,7 @@
 <thead class="datentabelle">
 <tr class="datentabelle" id="myHead">
 
-<div>Suche: <input type="text" placeholder="Search..." id="search_field"></div>
+<div>Suche: <input type="text" placeholder="Search..." id="search_field" onchange="myFunction()" ></div>
 <br>
 
 <th class="datentabelle"> User-ID 		</th>
@@ -99,8 +99,10 @@ $('#search_field').off('keyup', function() {
 	});
 */	
 //Versuch 3
+myFunctio() {
 var elem1=document.getElementById("myBody");
-elem1.style.visibility == "visible"
+elem1.style.visibility == "visible";
+}
 // Versuch Ende
 
 
