@@ -78,6 +78,18 @@ $g_id = $_REQUEST['g_id'];
     <input class="button" type="submit"  name = "abschicken" value="Abschicken">
 </form>
 
+	<br> 
+
+		<form action="groupcsv" method="post">
+		<table>
+		<th>Download aller Zahlungen dieser Gruppe als CSV</th></tr>
+		<td><input type="hidden" name='g_id' value='<?=$g_id?>'></td> </tr>
+		<td><input class="button" type="submit" value="CSV-Download"></td> </tr>
+		
+	</table>
+	</form>		
+	<br>
+
 
 
 
@@ -146,17 +158,7 @@ $g_id = $_REQUEST['g_id'];
 
 	
 	<br>
-	<br> 
 
-		<form action="groupcsv" method="post">
-		<table>
-		<th>Download aller Zahlungen dieser Gruppe als CSV</th></tr>
-		<td><input type="hidden" name='g_id' value='<?=$g_id?>'></td> </tr>
-		<td><input class="button" type="submit" value="CSV-Download"></td> </tr>
-		
-	</table>
-	</form>		
-	<br>
 	<br>
 	
 	<?php if ($aktgruppenmitglied->getGruppenadmin()=="1") {?>
