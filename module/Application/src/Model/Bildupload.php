@@ -42,6 +42,18 @@ class Bildupload
 			return $path;
 		}
 
+		//Länge des Filenamen bestimmen, falls der Name mehr als 12 Zeichen hat, werden diese gekürzt
+		//Es wird auf 12 Zeichen gekürzt, damit im Falle von mehreren Dateien die Erweiterungen
+		//nicht über 15 Zeichen hinausgehen kann
+		$length = strlen($filename);
+		
+		if($length > 12) {
+			$altfilename = substr($filename, 0, 12);
+			$filename = $altfilename;
+		}
+		
+		
+		//Pfadangabe zum Ordner, in dem das Bild gespeichert wird
 		$upload_folder = $this->upload_folder;
 		
 		//Pfad zusammensetzen
