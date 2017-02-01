@@ -34,7 +34,7 @@ class GroupcsvController extends AbstractActionController
 			
 			
 			
-			
+			/**
 				
 			$view = new ViewModel([
 					'msg' => $msg, 
@@ -42,7 +42,7 @@ class GroupcsvController extends AbstractActionController
 				
 			$view->setTemplate('application/index/index.phtml');
 				
-			return $view;
+			return $view; */
 			
 			
 			
