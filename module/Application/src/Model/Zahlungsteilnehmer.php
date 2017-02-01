@@ -184,6 +184,7 @@ class Zahlungsteilnehmer {
  			//User A hat gerade eine Zahlung erstellt, in welcher B einen offenen Restbetrag hat. 
  			//A schuldet B basierend auf alten Zahlungen etwas.
  			//Neue Zahlung ist Zahlungsteilnehmer B in der neuen Zahlung
+ 			echo "autausgleichen aufgerufen";
  			
  			foreach($gemeinsameoffenezahlungen as $zaehler => $gemeinsamezahlung){
  				//offener Restbetrag v B der zuerst ältesten Zahlung wird benötigt
@@ -195,8 +196,8 @@ class Zahlungsteilnehmer {
  					//$this->restbetragQuery($restbetrag, $status, $zTeilnehmerB);
  					$this->zahlungbegleichen($neueZahlung->getRestbetrag(), $zTeilnehmerA);
  					$restbetragA = $restbetragA - $neueZahlung->getRestbetrag();
- 					$this->restbetragQuery(0, "beglichen", $neueZahlung);
  					$neueZahlung ->setRestbetrag(0);
+ 					$this->restbetragQuery(0, "beglichen", $neueZahlung);
  					//jetzt sollte im foreach loop nichts mehr aufgerufen werden.
  				}
  				
