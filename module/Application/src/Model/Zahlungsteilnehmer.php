@@ -347,7 +347,9 @@ class Zahlungsteilnehmer {
 				AND g_id= '".$gruppen_id."'
 				AND status='".$offen."'
 				";
-	
+		
+		var_dump($query);
+		
 		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
 		if ($result = $db->execute($query)) {
 	
