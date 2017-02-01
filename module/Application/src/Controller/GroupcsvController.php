@@ -43,21 +43,8 @@ class GroupcsvController extends AbstractActionController
 		$isOK=$aktgruppenmitglied->laden($g_id, $user_id);
 		
 		if (!$isOK) { 
-			
-			
-			
-			$view = new ViewModel([
-					'msg' => $msg,
-			]);
-				
-			$view->setTemplate('error/404');
-				
-			return $view;
-			
-			
-			/**
-			
-		
+
+
 			$msg="Nicht berechtigt!";
 		
 			$view = new ViewModel([
@@ -66,7 +53,7 @@ class GroupcsvController extends AbstractActionController
 		
 			$view->setTemplate('application/index/index.phtml');
 		
-			return $view; */
+			return $view;
 		}
 		
 		
