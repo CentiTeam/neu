@@ -17,7 +17,7 @@ class GroupcsvController extends AbstractActionController
 	{
 		session_start();
 		// Berechtigungsprüfung
-		if ($_SESSION['angemeldet']==NULL) {
+		if (0) {
 				
 			$msg="Nicht berechtigt!";
 				
@@ -37,7 +37,7 @@ class GroupcsvController extends AbstractActionController
 		$aktgruppenmitglied=new Gruppenmitglied();
 		$isOK=$aktgruppenmitglied->laden($g_id, $user_id);
 		
-		if (0) { 
+		if (!$isOK) { 
 		
 			$msg="Nicht berechtigt!";
 		
