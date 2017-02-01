@@ -64,9 +64,14 @@ class LoginController extends AbstractActionController{
 	
 					}
 					else{
-						$msg= "Der Benutzername oder das Passwort sind falsch oder leer oder Dein Benutzerkonto deaktiviert!";
-						$msg .= "Falls Du das Passwort vergessen hast, klicke bitte auf den Link unten!";
 						
+						if ($email == "" || $pwd=="")
+							$msg= "Der Benutzername oder das Passwort sind leer!";
+						 else 
+							$msg= "Der Benutzername oder das Passwort sind falsch oder Dein Benutzerkonto wurde deaktiviert!";	
+						
+						
+						$msg .= "Falls Du das Passwort vergessen hast, klicke bitte auf den Link unten!";
 						
 						return new ViewModel([
 							'email' => $email	
