@@ -13,7 +13,7 @@ use Application\Model\Csvdownload;
 
 class GroupcsvController extends AbstractActionController
 {
-	public function GroupcsvAction()
+	public function groupcsvAction()
 	{
 		session_start();
 		// Berechtigungsprüfung
