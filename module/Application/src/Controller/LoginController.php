@@ -22,7 +22,7 @@ class LoginController extends AbstractActionController{
 			
 		session_start();
 		
-		if ($_REQUEST["loginfunc"])	{	
+		if ($_REQUEST["loginfunc"] && isset($_POST['email']) && isset($_POST['pwd']))	{	
 			$email = $_POST['email'];
 			$pwd = $_POST['pwd'];	
 			
