@@ -22,12 +22,12 @@ class LoginController extends AbstractActionController{
 			
 		session_start();
 		
-		if ($_REQUEST["loginfunc"] && $_POST['email'] != "" && $_POST['pwd'] != "")	{	
+		if ($_REQUEST["loginfunc"])	{	
 			$email = $_POST['email'];
 			$pwd = $_POST['pwd'];	
 			
 					
-					if ($user->login($email, $pwd)){
+					if ($user->login($email, $pwd) && $email !="" && $pwd !=""){
 					
 					$_SESSION['user'] = $user;
 					
@@ -51,13 +51,13 @@ class LoginController extends AbstractActionController{
 					
 					if ($_SESSION['systemadmin'] == "ja")
 					{
-					$view->setTemplate('application/adminoverview/adminoverview.phtml');
+						$view->setTemplate('application/adminoverview/adminoverview.phtml');
 					}
 					
 					else
 					{
-					$view->setTemplate('application/overview/overview.phtml');
-					return $view;
+						$view->setTemplate('application/overview/overview.phtml');
+						return $view;
 					}
 					
 					return $view;
