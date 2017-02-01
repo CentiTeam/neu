@@ -37,7 +37,7 @@ class GroupcsvController extends AbstractActionController
 		$aktgruppenmitglied=new Gruppenmitglied();
 		$isOK=$aktgruppenmitglied->laden($g_id, $user_id);
 		
-		if (!$isOK) { 
+		if (0) { 
 		
 			$msg="Nicht berechtigt!";
 		
