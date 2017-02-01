@@ -22,20 +22,7 @@ class GroupcsvController extends AbstractActionController
 	
 	
 	{
-		
-		
-		$view = new ViewModel([
-				'msg' => $msg,
-		]);
-		
-		$view->setTemplate('error/404');
-		
-		return $view;
-		
-		
-		
-		
-		
+
 		
 		session_start();
 		// Berechtigungsprüfung
@@ -77,14 +64,7 @@ class GroupcsvController extends AbstractActionController
 		
 			return $view;
 		}
-		
-		
-		
 
-		
-		
-		
-		
 		 
 		// Gruppen-Objekt laden
 		$msg = "beginn";
@@ -100,11 +80,6 @@ class GroupcsvController extends AbstractActionController
 
 
 		Csvdownload::makeCsv($zahlungsliste);
-		
-		
-		
-		 
-		
 
 		
 	
