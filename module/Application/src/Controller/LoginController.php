@@ -71,7 +71,7 @@ class LoginController extends AbstractActionController{
 							$msg= "Der Benutzername oder das Passwort sind falsch oder Dein Benutzerkonto wurde deaktiviert!<br>";	
 						
 						
-						$msg .= "Falls Du das Passwort vergessen hast, klicke bitte auf den Link unten!";
+						$msg .= "Falls Du das Passwort vergessen hast, klicke bitte auf den 'Passwort vergessen'-Link unten!";
 						
 						return new ViewModel([
 							'email' => $email,

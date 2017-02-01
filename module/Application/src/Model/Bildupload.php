@@ -26,7 +26,7 @@ class Bildupload
 		//Maximale Bildgr��e �berpr�fen
 		if($_FILES["uploadedfile"]["size"] > $this->max_size)
 		{
-			echo "Bilder k&oumlnnen nicht grouml;&szlig;er als 2 MB sein!";
+			echo "Bilder d&oumlfen nicht grouml;&szlig;er als 2 MB sein!";
 			$path = false;
 			return $path;
 		}
