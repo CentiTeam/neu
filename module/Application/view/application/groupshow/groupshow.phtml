@@ -6,14 +6,7 @@ echo "angemeldet ".$_SESSION['user']->getU_id();
 
 ?>
 
-		<form action="groupcsv" method="post">
-		<table>
-		<th>Download aller Zahlungen dieser Gruppe als CSV</th></tr>
-		<td><input type="hidden" name='g_id' value='<?=$_REQUEST['g_id']?>'></td> </tr>
-		<td><input class="button" type="submit" value="CSV-Download"></td> </tr>
-		
-	</table>
-	</form>	
+
 
 
 
@@ -154,7 +147,14 @@ echo "angemeldet ".$_SESSION['user']->getU_id();
 	<br>
 	<br> 
 
-	
+		<form action="groupcsv" method="post">
+		<table>
+		<th>Download aller Zahlungen dieser Gruppe als CSV</th></tr>
+		<td><input type="hidden" name='g_id' value='<?=$_REQUEST['g_id']?>'></td> </tr>
+		<td><input class="button" type="submit" value="CSV-Download"></td> </tr>
+		
+	</table>
+	</form>		
 	<br>
 	<br>
 	
