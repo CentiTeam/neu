@@ -64,8 +64,8 @@ class LoginController extends AbstractActionController{
 	
 					}
 					else{
-						echo "Benutzername oder Passwort falsch, oder Benutzerkonto deaktiviert!";
-						echo "Falls das Passwort vergessen wurde, bitte unten auf den Link klicken!";
+						$msg= "Der Benutzername oder das Passwort sind falsch oder leer oder Dein Benutzerkonto deaktiviert!";
+						$msg .= "Falls Du das Passwort vergessen hast, klicke bitte auf den Link unten!";
 						
 						
 						return new ViewModel([
