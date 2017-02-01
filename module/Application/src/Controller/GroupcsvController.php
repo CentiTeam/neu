@@ -20,6 +20,21 @@ class GroupcsvController extends AbstractActionController
 		if ($_SESSION['angemeldet']==NULL) {
 				
 			$msg="Nicht berechtigt!";
+			
+			
+			
+			
+			$view = new ViewModel([
+					'msg' => $msg,
+			]);
+			
+			$view->setTemplate('error/404');
+			
+			return $view;
+			
+			
+			
+			
 				
 			$view = new ViewModel([
 					'msg' => $msg, 
@@ -28,6 +43,9 @@ class GroupcsvController extends AbstractActionController
 			$view->setTemplate('application/index/index.phtml');
 				
 			return $view;
+			
+			
+			
 		
 		}
 		// Überprüfen, ob Gruppenmitglied
@@ -52,13 +70,7 @@ class GroupcsvController extends AbstractActionController
 		
 		
 		
-		$view = new ViewModel([
-				'msg' => $msg,
-		]);
 		
-		$view->setTemplate('error/404');
-		
-		return $view;
 		 
 		// Gruppen-Objekt laden
 		$msg = "beginn";
