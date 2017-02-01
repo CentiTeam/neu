@@ -56,24 +56,6 @@ $g_id = $_REQUEST['g_id'];
 </table>
 
 
-<br>
-
-<form  action="groupshow?g_id=<?=$gruppe[0]->getG_id()?>" method='post'>
-    <label>Nachricht:</label><br>
-    <textarea name="text" required rows="5" cols="40"></textarea>
-    <br>
-    <input class="button" type="submit"  name = "abschicken" value="Abschicken">
-</form>
-</div>
-	<br> 
-
-		
-
-
-
-
-<br><br><br>
-
 <form>
 <table width="70%" border="0">
 	<tr><th>Gruppenmitglieder:</th></tr>
@@ -135,11 +117,23 @@ $g_id = $_REQUEST['g_id'];
 	?>
 	</table>
 
-	
-	<br>
 
-	<br>
+
+
+<br>
+
+<form  action="groupshow?g_id=<?=$gruppe[0]->getG_id()?>" method='post'>
+    <label>Nachricht:</label><br>
+    <textarea name="text" required rows="5" cols="40"></textarea>
+    <br>
+    <input class="button" type="submit"  name = "abschicken" value="Abschicken">
+</form>
+</div>
+
+
+	<br> 
 	
+		
 	<?php if ($aktgruppenmitglied->getGruppenadmin()=="1") {?>
 	<form action="usersuchen" method="post">
 
