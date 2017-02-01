@@ -41,7 +41,7 @@ class GroupshowController extends AbstractActionController
 		$aktgruppenmitglied=new Gruppenmitglied();
 		$isOK=$aktgruppenmitglied->laden($g_id, $user_id);
 		
-		if ($isOK==false) {
+		if (!$isOK==false) {
 		
 			$msg="Nicht berechtigt!";
 			
