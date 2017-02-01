@@ -75,8 +75,7 @@ class GruppeverlassenController extends AbstractActionController
 		// !!!!
 		// Pr�fen, ob es noch offene Zahlungen gibt
 		// !!!!!
-		echo $user->getU_id();
-		echo $g_id;
+		
 		
 		$offenezahlungen=Zahlungsteilnehmer::offeneteilnehmerzahlungennachgruppeholen($user->getU_id(), $g_id);
 		
