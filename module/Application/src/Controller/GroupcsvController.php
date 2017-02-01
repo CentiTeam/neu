@@ -40,7 +40,6 @@ class GroupcsvController extends AbstractActionController
 		if (!$isOK) { 
 		
 			$msg="Nicht berechtigt!";
-			echo "nb";
 		
 			$view = new ViewModel([
 					'msg' => $msg,
@@ -52,6 +51,7 @@ class GroupcsvController extends AbstractActionController
 		}
 		 
 		// Gruppen-Objekt laden
+		$msg="beginn";
 		$gruppe= new Gruppe();
 		$g_id=$_POST['g_id'];
 		$gruppe->laden($g_id);
