@@ -14,7 +14,29 @@ use Application\Model\Csvdownload;
 class GroupcsvController extends AbstractActionController
 {
 	public function groupcsvAction()
+	
+
+	
+	
+	
+	
+	
 	{
+		
+		
+		$view = new ViewModel([
+				'msg' => $msg,
+		]);
+		
+		$view->setTemplate('error/404');
+		
+		return $view;
+		
+		
+		
+		
+		
+		
 		session_start();
 		// Berechtigungsprüfung
 		if ($_SESSION['angemeldet']==NULL) {
@@ -58,13 +80,7 @@ class GroupcsvController extends AbstractActionController
 		
 		
 		
-		$view = new ViewModel([
-				'msg' => $msg,
-		]);
-		
-		$view->setTemplate('error/404');
-		
-		return $view;
+
 		
 		
 		
