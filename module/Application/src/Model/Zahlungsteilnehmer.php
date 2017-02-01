@@ -345,7 +345,7 @@ class Zahlungsteilnehmer {
 				LEFT JOIN `zahlung` USING (z_id)
 				WHERE u_id= '".$user_id."'
 				AND g_id= '".$gruppen_id."'
-				AND status='".$offen."'
+				
 				";
 		
 		
