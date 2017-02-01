@@ -134,7 +134,7 @@ class Zahlungsteilnehmer {
  			}
  					//wenn ich ihm etwas schulde
  					
-				if($schuldstand<0){
+				if(($schuldstand-$andererzahlungsteilnehmer->getRestbetrag())<0){
 					
 					$this->autAusgleichen($gemeinsamezahlungen, $andererzahlungsteilnehmer);
 					
