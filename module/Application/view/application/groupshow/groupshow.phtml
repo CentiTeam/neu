@@ -1,8 +1,9 @@
 <?php session_start();?>
 <?=$msg?>
 
+
 <?php 
-echo "angemeldet ".$_SESSION['user']->getU_id();
+$g_id = $_REQUEST['g_id'];
 
 ?>
 
@@ -150,7 +151,7 @@ echo "angemeldet ".$_SESSION['user']->getU_id();
 		<form action="groupcsv" method="post">
 		<table>
 		<th>Download aller Zahlungen dieser Gruppe als CSV</th></tr>
-		<td><input type="hidden" name='g_id' value='<?=$_REQUEST['g_id']?>'></td> </tr>
+		<td><input type="hidden" name='g_id' value='<?=$g_id?>'></td> </tr>
 		<td><input class="button" type="submit" value="CSV-Download"></td> </tr>
 		
 	</table>
