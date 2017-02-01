@@ -186,7 +186,7 @@ class Zahlungsteilnehmer {
  			//Neue Zahlung ist Zahlungsteilnehmer B in der neuen Zahlung
  			
  			foreach($gemeinsameoffenezahlungen as $zaehler => $gemeinsamezahlung){
- 				//offener Restbetrag v B der zuerst ältesten Zahlung wird benötigt
+ 				//offener Restbetrag v B der zuerst ï¿½ltesten Zahlung wird benï¿½tigt
  				$zTeilnehmerA = $gemeinsamezahlung-> einenzahlungsteilnehmerholen($gemeinsamezahlung -> getZahlung() -> getZ_id(), 
  						$this->getUser()->getU_id());
  				$restbetragA = $zTeilnehmerA->getRestbetrag();
@@ -308,6 +308,43 @@ class Zahlungsteilnehmer {
 				LEFT JOIN 'zahlung' USING (z_id)
 				WHERE u_id= '".$user_id."' 
 				AND g_id= '".$gruppen_id."' 		
+				";
+	
+		// Wenn die Datenbankabfrage erfolgreich ausgefï¿½hrt worden ist
+		if ($result = $db->execute($query)) {
+	
+			// Ergebnis Zeile fï¿½r Zeile verarbeiten
+			while ($row = mysqli_fetch_array($result)) {
+					
+				// neues Model erzeugen
+				$model = new Zahlungsteilnehmer();
+	
+				// Model anhand der Nummer aus der Datenbankabfrage laden
+				$model->laden($row["z_id"], $row["u_id"]);
+	
+				// neues Model ans Ende des $gruppeListe-Arrays anfï¿½gen
+				$zahlungListe[] = $model;
+			}
+	
+			// fertige Liste von Gruppe-Objekten zurï¿½ckgeben
+			return $zahlungListe;
+		}
+	}
+	
+	
+	// Alle Zahlungen aus einer Gruppe mit gruppe_id, an denen ein User user_id teilnimmt (wurde noch nciht verwendet)
+	public static function offeneteilnehmerzahlungennachgruppeholen($user_id, $gruppen_id) {
+	
+		// Liste initialisieren
+		$zahlungenListe = array ();
+	
+		$db = new DB_connection();
+	
+		$query="SELECT * FROM `zahlungsteilnehmer`
+				LEFT JOIN 'zahlung' USING (z_id)
+				WHERE u_id= '".$user_id."'
+				AND g_id= '".$gruppen_id."'
+				AND status='".offen."'
 				";
 	
 		// Wenn die Datenbankabfrage erfolgreich ausgefï¿½hrt worden ist

@@ -8,6 +8,7 @@ use Application\Model\Gruppe;
 use Application\Model\Gruppenmitglied;
 use Application\Model\User;
 use Application\Model\Gruppenereignis;  
+use Application\Model\Zahlungsteilnehmer;
 
 #TODO @Tanja Fehler abpr�fen!
 
@@ -69,13 +70,16 @@ class GruppeverlassenController extends AbstractActionController
 
 		
 		
-		$errStr="";
+		$msg="";
 
 		// !!!!
 		// Pr�fen, ob es noch offene Zahlungen gibt
 		// !!!!!
 
-
+		$offenezahlungen=Zahlungsteilnehmer::offeneteilnehmerzahlungennachgruppeholen($user->getU_id(), $g_id);
+		
+		var_dump($offenezahlungen);
+		
 
 		// wenn die Aktion abgebrochen werden soll
 		if ($_REQUEST['abbrechen']) {
