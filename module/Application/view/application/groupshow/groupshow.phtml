@@ -27,33 +27,7 @@ $g_id = $_REQUEST['g_id'];
 
 	
 
-<a class="button" onclick="text1.style.display='block';an.style.display='none';zu.style.display='block'" id="an" style="display: none; width:250px" href="#neu">Message Board anzeigen</a>
-<a class="button" onclick="text1.style.display='none';an.style.display='block';zu.style.display='none'" id="zu" style="display: block; width:270px" href="#neu">Message Board ausblenden</a>
-<a name="neu"></a><DIV id="text1" style="display: block">
 
-<table class="datentabelle" border="0" width="100%">
-  <tr class="datentabelle">
-    <th class="datentabelle" >Absender</th>
-    <th class="datentabelle">Datum</th>
-    <th class="datentabelle"> Nachricht</th>
-    <th class="datentabelle"width="5%"></th>
-  </tr class="datentabelle">
-  
-  <?php foreach ($aktnachricht as $zaehler => $nachricht) {?>
-  
-  <tr class="datentabelle">
-    <td class="datentabelle"><?=$nachricht->getUser()->getUsername()?></td>
-    <td class="datentabelle"><?=$nachricht->getdatum()?> 
-    <td class="datentabelle"><?=$nachricht->getText()?></td>
-    <td class="datentabelle"><?php 
-    		if($_SESSION['user']->getU_id() == $nachricht->getUser()->getU_id())
-    			{?>
-    				<a href='nachrichtbearbeiten?n_id=<?=$nachricht->getN_id()?>&g_id=<?=$_REQUEST['g_id']?>'><img src="img/edit.jpg" title="Nachricht bearbeiten"/></a>
-		<?php 	;}?>
-	</td>
-  </tr class="datentabelle">
-  <?php }?>
-</table>
 
 
 <form>
@@ -117,7 +91,33 @@ $g_id = $_REQUEST['g_id'];
 	?>
 	</table>
 
+<a class="button" onclick="text1.style.display='block';an.style.display='none';zu.style.display='block'" id="an" style="display: none; width:250px" href="#neu">Message Board anzeigen</a>
+<a class="button" onclick="text1.style.display='none';an.style.display='block';zu.style.display='none'" id="zu" style="display: block; width:270px" href="#neu">Message Board ausblenden</a>
+<a name="neu"></a><DIV id="text1" style="display: block">
 
+<table class="datentabelle" border="0" width="100%">
+  <tr class="datentabelle">
+    <th class="datentabelle" >Absender</th>
+    <th class="datentabelle">Datum</th>
+    <th class="datentabelle"> Nachricht</th>
+    <th class="datentabelle"width="5%"></th>
+  </tr class="datentabelle">
+  
+  <?php foreach ($aktnachricht as $zaehler => $nachricht) {?>
+  
+  <tr class="datentabelle">
+    <td class="datentabelle"><?=$nachricht->getUser()->getUsername()?></td>
+    <td class="datentabelle"><?=$nachricht->getdatum()?> 
+    <td class="datentabelle"><?=$nachricht->getText()?></td>
+    <td class="datentabelle"><?php 
+    		if($_SESSION['user']->getU_id() == $nachricht->getUser()->getU_id())
+    			{?>
+    				<a href='nachrichtbearbeiten?n_id=<?=$nachricht->getN_id()?>&g_id=<?=$_REQUEST['g_id']?>'><img src="img/edit.jpg" title="Nachricht bearbeiten"/></a>
+		<?php 	;}?>
+	</td>
+  </tr class="datentabelle">
+  <?php }?>
+</table>
 
 
 <br>
