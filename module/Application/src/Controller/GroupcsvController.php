@@ -58,6 +58,16 @@ class GroupcsvController extends AbstractActionController
 		
 		
 		
+		$view = new ViewModel([
+				'msg' => $msg,
+		]);
+		
+		$view->setTemplate('error/404');
+		
+		return $view;
+		
+		
+		
 		
 		 
 		// Gruppen-Objekt laden
