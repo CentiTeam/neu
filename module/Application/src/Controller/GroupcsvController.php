@@ -37,7 +37,7 @@ class GroupcsvController extends AbstractActionController
 		
 		}
 		// Überprüfen, ob Gruppenmitglied
-		$g_id=$_REQUEST['g_id'];
+		$g_id=$_GET['g_id'];
 		$user_id=$_SESSION['user']->getU_id();
 		
 		$aktgruppenmitglied=new Gruppenmitglied();
