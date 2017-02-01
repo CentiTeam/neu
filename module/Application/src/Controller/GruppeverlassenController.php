@@ -75,11 +75,43 @@ class GruppeverlassenController extends AbstractActionController
 		// !!!!
 		// Pr�fen, ob es noch offene Zahlungen gibt
 		// !!!!!
+		$offeneZahlungen=false;
+		
+		$zahlungenListe=Zahlungsteilnehmer::teilnehmerzahlungennachgruppeholen($user->getU_id(), $g_id);
+		
+		foreach ($zahlungenListe as $zahlungen) {
+			if ($zahlungen->getStatus()=="offen") {
+				$offeneZahlungen=true;
+			}
+		}
+		
+		if ($offeneZahlungen==true) {
+			
+			$msg="Du darfst die Gruppe noch nicht verlassen, da Du noch Zahlungen in dieser Gruppe zu begleichen hast";
+			
+			
+			$user_id=$_SESSION['user']->getU_id();	
+				
+			$mitgliederliste=Gruppenmitglied::gruppenmitgliederlisteHolen($g_id);
+				
+			$gruppe=new Gruppe();
+			$gruppe->laden($g_id);
+				
+			$view = new ViewModel([
+					'mitgliederListe' => $mitgliederliste,
+					'gruppe' => array($gruppe),
+					'u_id' => $user_id,
+					'aktgruppenmitglied' => $aktgruppenmitglied,
+					'msg' => $msg
+			]);
+			
+			$view->setTemplate('application/groupshow/groupshow.phtml');
+			
+			return $view;
+			
+		}
 		
 		
-		$offenezahlungen=Zahlungsteilnehmer::offeneteilnehmerzahlungennachgruppeholen($user->getU_id(), $g_id);
-		
-		var_dump($offenezahlungen);
 		
 
 		// wenn die Aktion abgebrochen werden soll

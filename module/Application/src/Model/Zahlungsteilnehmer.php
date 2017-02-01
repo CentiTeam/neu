@@ -332,49 +332,6 @@ class Zahlungsteilnehmer {
 	}
 	
 	
-	// Alle Zahlungen aus einer Gruppe mit gruppe_id, an denen ein User user_id teilnimmt (wurde noch nciht verwendet)
-	public static function offeneteilnehmerzahlungennachgruppeholen($user_id, $gruppen_id) {
-	
-		// Liste initialisieren
-		$zahlungListe = array ();
-	
-		$db = new DB_connection();
-		
-		$query="SELECT * FROM `zahlungsteilnehmer`
-				LEFT JOIN `zahlung` USING (z_id)
-				WHERE u_id= '".$user_id."'
-				AND g_id= '".$gruppen_id."'
-				AND status= 'offen'
-				";
-		
-		var_dump($query);
-		
-		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
-		if ($result = $db->execute($query)) {
-	
-			// Ergebnis Zeile f�r Zeile verarbeiten
-			while ($row = mysqli_fetch_array($result)) {
-					
-				// neues Model erzeugen
-				$model = new Zahlungsteilnehmer();
-	
-				// Model anhand der Nummer aus der Datenbankabfrage laden
-				$model->laden($row["z_id"], $row["u_id"]);
-	
-				// neues Model ans Ende des $gruppeListe-Arrays anf�gen
-				$zahlungListe[] = $model;
-			}
-			
-			var_dump($zahlungListe);
-			
-			// fertige Liste von Gruppe-Objekten zur�ckgeben
-			return $zahlungListe;
-		}
-	}
-	
-	
-	
-	
 	// Alle Teilnehmer an einer Zahlung, die mit z_id übergeben wird
 	public function zahlungsteilnehmerholen($z_id){
 		// Liste initialisieren
