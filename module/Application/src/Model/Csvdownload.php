@@ -13,7 +13,7 @@ class Csvdownload{
 		$table = "Zahlungen";
 		
 		//Aufbau der ersten CSV-Zeile
-		$csv = '\n"z_id","zahlungsbeschreibung","erstellungsdatum","zahlungsdatum","betrag","k_id","aenderungsdatum","g_id"' . "\n"; 
+		$csv = "\n".'"z_id","zahlungsbeschreibung","erstellungsdatum","zahlungsdatum","betrag","k_id","aenderungsdatum","g_id"' . "\n"; 
 		
 		//Aufbau der CSV-Zeilen		
 		foreach ($zahlungsliste as $zahlung){
