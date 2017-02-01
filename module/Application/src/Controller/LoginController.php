@@ -66,9 +66,9 @@ class LoginController extends AbstractActionController{
 					else{
 						
 						if ($email == "" || $pwd=="")
-							$msg= "Der Benutzername oder das Passwort sind leer!";
+							$msg= "Der Benutzername oder das Passwort sind leer!<br>";
 						 else 
-							$msg= "Der Benutzername oder das Passwort sind falsch oder Dein Benutzerkonto wurde deaktiviert!";	
+							$msg= "Der Benutzername oder das Passwort sind falsch oder Dein Benutzerkonto wurde deaktiviert!<br>";	
 						
 						
 						$msg .= "Falls Du das Passwort vergessen hast, klicke bitte auf den Link unten!";

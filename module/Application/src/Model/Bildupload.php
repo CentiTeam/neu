@@ -15,7 +15,7 @@ class Bildupload
 		$filename = pathinfo($_FILES["uploadedfile"]["name"], PATHINFO_FILENAME);
 		$extension = strtolower(pathinfo($_FILES["uploadedfile"]["name"], PATHINFO_EXTENSION));
 		
-		//Dateiendung überprüfen
+		//Dateiendung ï¿½berprï¿½fen
 		if(!in_array($extension, $this->allowed_extensions))
 		{
 			echo "Ung&uumlltige Dateiendung! Nur png, jpg, jpeg und gif Dateien!";
@@ -23,10 +23,10 @@ class Bildupload
 			return $path;
 		}
 		
-		//Maximale Bildgröße überprüfen
+		//Maximale Bildgrï¿½ï¿½e ï¿½berprï¿½fen
 		if($_FILES["uploadedfile"]["size"] > $this->max_size)
 		{
-			echo "Bilder k&oumlnnen nicht mehr als 2 mb groß sein!";
+			echo "Bilder k&oumlnnen nicht grouml;&szlig;er als 2 MB sein!";
 			$path = false;
 			return $path;
 		}
@@ -42,9 +42,9 @@ class Bildupload
 			return $path;
 		}
 
-		//Länge des Filenamen bestimmen, falls der Name mehr als 12 Zeichen hat, werden diese gekürzt
-		//Es wird auf 12 Zeichen gekürzt, damit im Falle von mehreren Dateien die Erweiterungen
-		//nicht über 15 Zeichen hinausgehen kann
+		//Lï¿½nge des Filenamen bestimmen, falls der Name mehr als 12 Zeichen hat, werden diese gekï¿½rzt
+		//Es wird auf 12 Zeichen gekï¿½rzt, damit im Falle von mehreren Dateien die Erweiterungen
+		//nicht ï¿½ber 15 Zeichen hinausgehen kann
 		$length = strlen($filename);
 		
 		if($length > 12) {
@@ -60,7 +60,7 @@ class Bildupload
 		$new_path = $this->upload_folder.$filename.'.'.$extension;
 		$path = $this->img_folder.$filename.'.'.$extension;
 		
-		//Falls Dateiname bereits vorhanden, Erweiterung des Pfades um nächsthöhere Nummer
+		//Falls Dateiname bereits vorhanden, Erweiterung des Pfades um nï¿½chsthï¿½here Nummer
 		if(file_exists($new_path))
 		{
 			$id = 1;
@@ -74,10 +74,10 @@ class Bildupload
 		
 		}
 		
-		//Das Bild wird in den Ordner Bilder mit absoluten Pfad verschoben, der relative Pfad wird zurückgegeben
+		//Das Bild wird in den Ordner Bilder mit absoluten Pfad verschoben, der relative Pfad wird zurï¿½ckgegeben
 		if (move_uploaded_file($_FILES["uploadedfile"]["tmp_name"], $new_path))
 		{	
-			//Maximale Auflösung überprüfen
+			//Maximale Auflï¿½sung ï¿½berprï¿½fen
 			
 			 $size = getimagesize($new_path);
 			 $width = $size[0];
