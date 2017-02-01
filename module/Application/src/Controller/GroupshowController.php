@@ -35,13 +35,13 @@ class GroupshowController extends AbstractActionController
 		
 		}
 		
-		$g_id=$_REQUEST['g_id'];
+		$g_id=$_GET['g_id'];
 		$user_id=$_SESSION['user']->getU_id();
 		
 		$aktgruppenmitglied=new Gruppenmitglied();
 		$isOK=$aktgruppenmitglied->laden($g_id, $user_id);
 		
-		if (!$isOK==false) {
+		if ($isOK==false) {
 		
 			$msg="Nicht berechtigt!";
 			
