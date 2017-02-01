@@ -117,20 +117,20 @@ $g_id = $_REQUEST['g_id'];
   </tr class="datentabelle">
   <?php }?>
 </table>
-
-
+</div>
 <br>
+
+<!--  Abschicken neuer Nachrichten -->
 
 <form  action="groupshow?g_id=<?=$gruppe[0]->getG_id()?>" method='post'>
     <label>Nachricht:</label><br>
-    <textarea name="text" required rows="5" cols="40"></textarea>
-    <br>
+   	 <textarea name="text" required rows="5" cols="40"></textarea>
+ <br>
     <input class="button" type="submit"  name = "abschicken" value="Abschicken">
 </form>
-</div>
 
 
-	<br> 
+<br> 
 	
 <!--  Neue Mitglieder hinzufügen -->	
 
