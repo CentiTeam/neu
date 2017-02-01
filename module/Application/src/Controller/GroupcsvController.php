@@ -66,15 +66,7 @@ class GroupcsvController extends AbstractActionController
 		Csvdownload::makeCsv($zahlungsliste);
 		
 		
-		$msg="Nicht berechtigt!";
 		
-		$view = new ViewModel([
-				'msg' => $msg,
-		]);
-		
-		$view->setTemplate('application/index/index.phtml');
-		
-		return $view;
 		 
 		
 
