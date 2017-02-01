@@ -74,7 +74,8 @@ class LoginController extends AbstractActionController{
 						$msg .= "Falls Du das Passwort vergessen hast, klicke bitte auf den Link unten!";
 						
 						return new ViewModel([
-							'email' => $email	
+							'email' => $email,
+							'msg' => $msg
 						]);
 					}
 			}
