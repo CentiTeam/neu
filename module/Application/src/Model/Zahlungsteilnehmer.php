@@ -339,15 +339,15 @@ class Zahlungsteilnehmer {
 		$zahlungListe = array ();
 	
 		$db = new DB_connection();
-		$offen='offen';
 		
 		$query="SELECT * FROM `zahlungsteilnehmer`
 				LEFT JOIN `zahlung` USING (z_id)
 				WHERE u_id= '".$user_id."'
 				AND g_id= '".$gruppen_id."'
-				AND status='".$offen."'
+				AND status= 'offen'
 				";
 		
+		var_dump($query);
 		
 		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
 		if ($result = $db->execute($query)) {
