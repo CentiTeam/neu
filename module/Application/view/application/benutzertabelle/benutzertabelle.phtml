@@ -1,6 +1,7 @@
 <?= $this->doctype() ?>
 <?=$msg?>
 
+
 <h1>Benutzerliste</h1>
 <center>
 
@@ -11,12 +12,13 @@
 <br>
  -->
  
-<table id="myTable" class="datentabelle" border="0" width="100%">
+<div>Suche: <input type="text" placeholder="Search..." id="search_field" oninput="myTable.style.visibility=(search_field.value.length<1)?'hidden':'visible';" ></div>
+<br> 
+ 
+<table id="myTable" style="visibility: hidden" class="datentabelle" border="0" width="100%">
 <thead class="datentabelle">
 <tr class="datentabelle" id="myHead">
 
-<div id="myBody" style="visibility:collapse">Suche: <input type="text" placeholder="Search..." id="search_field"></div>
-<br>
 
 <th class="datentabelle"> User-ID 		</th>
 <th class="datentabelle"> Benutzername 	</th>
@@ -30,7 +32,7 @@
 </tr>
 </thead>
 
-<tbody class="datentabelle">
+<tbody id="myBody" class="datentabelle">
 <?php 
 	foreach ($userListe as $zaehler => $user) {
 	?>
@@ -58,8 +60,6 @@
 </tbody>
 </table>
 
-
-
 </center>
 
 
@@ -67,51 +67,11 @@
 
 <script type="text/javascript">
 
-// Nur ein Versuch
-/**
-alert $('#search_field');
-
 $('#search_field').on('keyup', function() {
 	  var value = $(this).val();
 	  var patt = new RegExp(value, "i");
 
-
-	if ( $('#search_field') === "undefined") {
-		$(this).not('#myHead').hide();
-	}
-});
-*/
-//Versuch 2
-/**
-$('#search_field').off('keyup', function() {
-	  var value = $(this).val();
-	  var patt = new RegExp(value, "i");
-
 	  $('#myTable').find('tr').each(function() {
-	    if (!($(this).find('td').text().search(patt) >= 0)) {
-	      $(this).not('#myHead').hide();
-	    }
-	    if (($(this).find('td').text().search(patt) >= 0)) {
-	      $(this).show();
-	    }
-	  });
-
-	});
-*/	
-
-
-
-$('#search_field').on('keyup', function() {
-	  var value = $(this).val();
-	  var patt = new RegExp(value, "i");
-	  
-
-	  $('#myTable').find('tr').each(function() {
-
-		//Versuch 3
-		  var elem1=document.getElementById("myBody");
-		  elem1.style.visibility == "visible"
-		  // Versuch Ende
 		  
 	    if (!($(this).find('td').text().search(patt) >= 0)) {
 	      $(this).not('#myHead').hide();

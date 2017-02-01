@@ -1,4 +1,8 @@
 <?php session_start();?>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 
 <h1>Neue Gruppe anlegen</h1>
 
@@ -9,18 +13,21 @@
 }?>
 
 <form enctype="multipart/form-data" action="gruppeanlegen" method="POST">	
-	<table>
-		<tr><td>Gruppenname</td><td><input type="text" name="gruppenname" required value="<?=$gruppe[0]->getGruppenname()?>" ></td></tr>
-		<tr><td>Beschreibung</td><td><input type="text" name="gruppenbeschreibung" value="<?=$gruppe[0]->getGruppenbeschreibung()  ?>" ></td></tr>
-	</table>
+	<div class="form-group" style="width:300px">
+		<label>Gruppenname: </label>
+		<input class="form-control" type="text" name="gruppenname" required value="<?=$gruppe[0]->getGruppenname()?>" >
+	</div>
+	<div class="form-group" style="width:300px">
+		<label>Beschreibung: </label>
+		<input class="form-control" type="text" name="gruppenbeschreibung" value="<?=$gruppe[0]->getGruppenbeschreibung()  ?>" >
 
 	<input type="hidden" name="g_id" readonly="readonly" value="<?=!is_null ($gruppe[0]->getG_id()) ? $gruppe[0]->getG_id():"<automatisch>"?>">
-
+	</div>
     
        <!-- <input type="hidden" name="MAX_FILE_SIZE" value="100000" /> -->
-	<table>
-       	<tr><td>Gruppenbild ausw&auml;hlen:</td></tr>
-	</table>
+	<div class="form-group">
+       	<label>Gruppenbild ausw&auml;hlen: </label>
+	</div>
 	<input type="file" name="uploadedfile" />
     <input type="hidden" name="g_id" readonly="readonly" value="<?=!is_null ($gruppe[0]->getG_id()) ? $gruppe[0]->getG_id():"<automatisch>"?>">
     <br />
