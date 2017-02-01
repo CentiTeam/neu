@@ -25,12 +25,7 @@ $g_id = $_REQUEST['g_id'];
 
 <br><br><br>
 
-<form action="gruppenverlauf?g_id=<?=$gruppe[0]->getG_id()?>" method="post">
-		<table>
-		<tr><td><input type="hidden" name='g_id' value='<?=$gruppe[0]->getG_id()?>'></td> </tr>
-		<tr><td><input class="button" type="submit" value="Gruppenverlauf"></td> </tr>
-		</table>
-</form>	
+	
 
 
 <form action="statistiken?gruppe=<?=$gruppe[0]->getG_id()?>" method="post">
@@ -175,6 +170,14 @@ $g_id = $_REQUEST['g_id'];
 	</form>
 	<br><br>
 	<?php }?>
+	
+	
+	<form action="gruppenverlauf?g_id=<?=$gruppe[0]->getG_id()?>" method="post">
+		<table>
+		<tr><td><input type="hidden" name='g_id' value='<?=$gruppe[0]->getG_id()?>'></td> </tr>
+		<tr><td><input class="button" type="submit" value="Gruppenverlauf"></td> </tr>
+		</table>
+</form>
 	
 	<form action="gruppeverlassen" method="post">
 	 <input type="hidden" name="g_id" readonly="readonly" value="<?=$gruppe[0]->getG_id()?>">
