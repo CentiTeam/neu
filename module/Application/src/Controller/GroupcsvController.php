@@ -14,16 +14,8 @@ use Application\Model\Csvdownload;
 class GroupcsvController extends AbstractActionController
 {
 	public function groupcsvAction()
-	
 
-	
-	
-	
-	
-	
-	{
-
-		
+	{		
 		session_start();
 		// Berechtigungsprüfung
 		if ($_SESSION['angemeldet']==NULL) {
@@ -51,7 +43,7 @@ class GroupcsvController extends AbstractActionController
 		$aktgruppenmitglied=new Gruppenmitglied();
 		$isOK=$aktgruppenmitglied->laden($g_id, $user_id);
 		
-		if (!$isOK) { 
+		if ($isOK==false) { 
 
 
 			$msg="Nicht berechtigt!";
