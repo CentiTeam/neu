@@ -336,10 +336,10 @@ class Zahlungsteilnehmer {
 	public static function offeneteilnehmerzahlungennachgruppeholen($user_id, $gruppen_id) {
 	
 		// Liste initialisieren
-		$zahlungenListe = array ();
+		$zahlungListe = array ();
 	
 		$db = new DB_connection();
-		$offen="offen";
+		$offen='offen';
 		
 		$query="SELECT * FROM `zahlungsteilnehmer`
 				LEFT JOIN `zahlung` USING (z_id)
@@ -348,7 +348,6 @@ class Zahlungsteilnehmer {
 				AND status='".$offen."'
 				";
 		
-		var_dump($query);
 		
 		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
 		if ($result = $db->execute($query)) {
@@ -365,7 +364,9 @@ class Zahlungsteilnehmer {
 				// neues Model ans Ende des $gruppeListe-Arrays anf�gen
 				$zahlungListe[] = $model;
 			}
-	
+			
+			var_dump($zahlungListe);
+			
 			// fertige Liste von Gruppe-Objekten zur�ckgeben
 			return $zahlungListe;
 		}
