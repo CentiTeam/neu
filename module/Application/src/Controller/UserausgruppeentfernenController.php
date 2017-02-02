@@ -7,7 +7,7 @@ use Zend\View\Model\ViewModel;
 use Application\Model\Gruppe;
 use Application\Model\Gruppenmitglied;
 use Application\Model\Gruppenereignis;
-
+use Application\Model\Zahlungsteilnehmer;
 
 class UserausgruppeentfernenController extends AbstractActionController
 {
