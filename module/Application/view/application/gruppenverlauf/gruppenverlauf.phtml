@@ -16,15 +16,19 @@
 <br><br>
 
 
-<table><tr><th>Zeitpunkt</th><th>Beschreibung</th></tr>
+<table class="datentabelle">
+<tr class="datentabelle">
+	<th class="datentabelle">Zeitpunkt</th>
+	<th class="datentabelle">Beschreibung</th>
+</tr>
 <?php
-foreach($ereignisListe as $zaehler => $ereignis){
-
-
-
+foreach($ereignisListe as $zaehler => $ereignis) {
 ?>
 
-<tr><td><?=$ereignis->getZeitpunkt()?></td><td><?=$ereignis->getBeschreibung()?></td></tr>
+<tr class="datentabelle">
+	<td class="datentabelle"><?=$ereignis->getZeitpunkt()?></td>
+	<td class="datentabelle"><?=$ereignis->getBeschreibung()?></td>
+</tr>
 
 <?php 
 }
