@@ -26,10 +26,14 @@
 
 
 <table class="datentabelle sortierbar">
+<thead>
 <tr class="datentabelle">
 	<th class="datentabelle sortierbar">Zeitpunkt</th>
 	<th class="datentabelle">Beschreibung</th>
 </tr>
+</thead>
+
+<tbody>
 <?php
 foreach($ereignisListe as $zaehler => $ereignis) {
 ?>
@@ -42,5 +46,6 @@ foreach($ereignisListe as $zaehler => $ereignis) {
 <?php 
 }
 ?>
+</tbody>
 </table>
 
