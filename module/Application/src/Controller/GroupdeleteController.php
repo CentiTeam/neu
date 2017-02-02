@@ -106,18 +106,19 @@ class GroupdeleteController extends AbstractActionController
 			// $msg="Du darfst die Gruppe '$gruppenname' nicht l&ouml;schen, da mindestens ein Teilnehmer noch offene Zahlungen in dieser Gruppe zu begleichen hat!";
 			if ($counter==1) {
 				
-					$msg="Du darfst die Gruppe '$gruppenname' nicht l&ouml;schen, da noch $counter Teilnehmer offene Zahlungen in dieser Gruppe zu begleichen hat!";
-					
-					echo "Hallo 1";
+					$msg="Du darfst die Gruppe '$gruppenname' nicht l&ouml;schen, da noch $counter Teilnehmer offene Zahlungen in dieser Gruppe zu begleichen hat: <br>";
 					 
 					$teilnehmer=$offeneTeilnehmer[0]->getUser()->getUsername();
-					
 					$msg.= "$teilnehmer";
-					
-					echo "Hallo 2";
-					
+								
 			} else { 
-					$msg="Du darfst die Gruppe '$gruppenname' nicht l&ouml;schen, da noch $counter Teilnehmer offene Zahlungen in dieser Gruppe zu begleichen haben!";
+					$msg="Du darfst die Gruppe '$gruppenname' nicht l&ouml;schen, da noch $counter Teilnehmer offene Zahlungen in dieser Gruppe zu begleichen haben!<br>";
+					
+					for ($zaehler=0; $zahler<$counter; $zaehler++) {
+						$teilnehmer=$offeneTeilnehmer[$zaehler]->getUser()->getUsername();
+						$msg.= "$teilnehmer";
+					}
+					
 			}
 			// View Groupoverview wieder aufrufen
 			$user_id=$_SESSION['user']->getU_id();
