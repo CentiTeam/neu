@@ -72,6 +72,45 @@ class GroupdeleteController extends AbstractActionController
 		// !!!!
 		// Prï¿½fen, ob es noch offene Zahlungen gibt
 		// !!!!!
+		$offeneZahlungen=false;
+		
+		$gruppenmitgliederListe=Gruppenmitglied::gruppenmitgliederlisteHolen($g_id);
+		
+		foreach ($gruppenmitgliederListe as $gruppenmitglied) { 
+		
+			$zahlungenListe=Zahlungsteilnehmer::teilnehmerzahlungennachgruppeholen($gruppenmitglied->getUser()->getU_id(), $g_id);
+		
+			foreach ($zahlungenListe as $zahlungen) {
+				if ($zahlungen->getStatus()=="offen") {
+					$offeneZahlungen=true;
+				}
+			}
+			
+		}
+		
+		if ($offeneZahlungen==true) {
+			
+			// Fehlermeldung generieren
+			$gruppenname=$gruppenmitglied->getGruppe()->getGruppenname();
+				
+			$msg="Du darfst die Gruppe '$gruppenname' nicht löschen, da mindestens ein Teilnehmer noch offene Zahlungen in dieser Gruppe zu begleichen hat!";
+			
+			// View Groupoverview wieder aufrufen
+			$user_id=$_SESSION['user']->getU_id();
+				
+			$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
+				
+			$view = new ViewModel([
+					'gruppenListe' => $gruppenliste,
+					'u_id' => $user_id,
+					'msg' => $msg
+			]);
+			
+			$view->setTemplate('application/groupoverview/groupoverview.phtml');
+				
+			return $view;
+		
+		}
 		
 		
 		
