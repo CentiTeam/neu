@@ -94,7 +94,7 @@ class ZahlunganlegenController extends AbstractActionController {
 			
 				if($summe != $_REQUEST["betrag"]){
 				
-					echo ("Die Anteile m�ssen zusammen der Gesamtsumme entsprechen.");
+					echo ("Die Anteile m&uuml;ssen zusammen der Gesamtsumme entsprechen.");
 					
 				}else {
 				
@@ -162,7 +162,8 @@ class ZahlunganlegenController extends AbstractActionController {
 					}
 						
 					$zahlungsbeschreibung=$_POST['zahlungsbeschreibung'];
-						
+					
+					/** Sollte wegfallen, da man nicht selbst teilnehmer sein muss
 					if ($anzahlteilnehmer <= 1){
 						$msg="Du bist momentan der einzige Zahlungsteilnehmer. W&auml;hl noch ein weiteres Gruppenmitglied aus!";
 								
@@ -175,7 +176,8 @@ class ZahlunganlegenController extends AbstractActionController {
 								'zahlung' => array($zahlung)
 					
 						]);
-					}				
+					}
+					*/				
 						
 					
 					// Wenn tempor�res Objekt gef�llt wurde kann mit diesen Werten das Objekt �ber die anlegen-Fkt in die DB geschrieben werden
