@@ -76,7 +76,7 @@ class ZahlunganlegenController extends AbstractActionController {
 				
 
 			$saved= false;
-			$msg = array();
+			
 
 			if ($_REQUEST['speichern']) {
 				
@@ -91,12 +91,13 @@ class ZahlunganlegenController extends AbstractActionController {
 					$summe += $anteil;
 				}
 				
-			
+				/** SIEHE UNTEN; Fehlermeldung anteile wurde weoter unten reingepackt
 				if($summe != $_REQUEST["betrag"]){
 				
 					echo ("Die Anteile m&uuml;ssen zusammen der Gesamtsumme entsprechen.");
 					
 				}else {
+				*/
 				
 					
 					// Schritt 1:  Werte aus Formular einlesen
@@ -132,9 +133,13 @@ class ZahlunganlegenController extends AbstractActionController {
 				
 				
 					// Schritt 2: Daten pr�fen und Fehler in Array füllen
-					$errorStr ="";
-					$msg="";
-				
+					if($summe != $_REQUEST["betrag"]){
+					
+						$errorStr.= "Die Anteile m&uuml;ssen zusammen der Gesamtsumme entsprechen.";
+							
+					}
+					
+					
 					// #TODO Fehlerüberprüfung fehlt!
 				
 				
@@ -293,7 +298,7 @@ class ZahlunganlegenController extends AbstractActionController {
 					 	$saved = false;
 
 					}
-				}
+				// Siehe OBEN!!!}
 			}
 		
 
