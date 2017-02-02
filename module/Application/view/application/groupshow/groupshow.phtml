@@ -31,7 +31,7 @@ $g_id = $_REQUEST['g_id'];
 	
 	<td><form action="statistiken?gruppe=<?=$gruppe[0]->getG_id()?>" method="post">
 	
-		<input class="button" type="submit" name='sofortauslesen' value="Meine Zahlungen in dieser Gruppe">
+		<input class="button" type="submit" style="width:200px" name='sofortauslesen' value="Meine Zahlungen in dieser Gruppe">
 		
 	</form></td>	
 	
@@ -40,7 +40,7 @@ $g_id = $_REQUEST['g_id'];
 	<td><form action="gruppenverlauf?g_id=<?=$gruppe[0]->getG_id()?>" method="post">
 	
 			<input type="hidden" name='g_id' value='<?=$gruppe[0]->getG_id()?>'>
-			<input class="button" type="submit" value="Gruppenverlauf">
+			<input class="button" style="width:200px" type="submit" value="Gruppenverlauf">
 			
 	</form></td>
 </tr>
@@ -183,7 +183,7 @@ $g_id = $_REQUEST['g_id'];
     <input class="button" type="submit"  name = "abschicken" value="Abschicken">
 </form>
 </div>	
-<br>
+<br><br>
 	
 <!-- Gruppe verlassen -->	
 	
