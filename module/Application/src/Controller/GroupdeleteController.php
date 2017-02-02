@@ -92,9 +92,10 @@ class GroupdeleteController extends AbstractActionController
 				if ($zahlungen->getStatus()=="offen") {
 					$offeneZahlungen=true;
 					$offeneTeilnehmer[]=$gruppenmitglied;
+					
+					$counter++;
 				}
 				
-				$counter++;
 			}
 			
 			
