@@ -22,6 +22,64 @@ $g_id = $_REQUEST['g_id'];
 
 <br><br><br>
 
+<table>
+	
+	
+<tr>	
+<!-- Meine Zahlungen in dieser Gruppe -->	
+
+	
+	<td><form action="statistiken?gruppe=<?=$gruppe[0]->getG_id()?>" method="post">
+	
+		<input class="button" type="submit" name='sofortauslesen' value="Meine Zahlungen in dieser Gruppe">
+		
+	</form></td>	
+	
+<!-- Gruppenverlauf -->	
+
+	<td><form action="gruppenverlauf?g_id=<?=$gruppe[0]->getG_id()?>" method="post">
+	
+			<input type="hidden" name='g_id' value='<?=$gruppe[0]->getG_id()?>'>
+			<input class="button" type="submit" value="Gruppenverlauf">
+			
+	</form></td>
+</tr>
+
+<tr>	
+<!--  CSV Download -->
+
+	<td><form action="groupcsv" method="post">
+			
+			<input type="hidden" name='g_id' value='<?=$g_id?>'>
+			<input class="button" type="submit" value="CSV-Download">
+		
+	</form></td>
+	
+	
+<!--  Neue Mitglieder hinzufügen -->	
+
+
+	<?php if ($aktgruppenmitglied->getGruppenadmin()=="1") {?>
+	<td><form action="usersuchen" method="post">
+
+		<!--  Kann wegen neuer intelligenter Suche weg
+		<th>Neues Mitglied hinzuf&uuml;gen</th>
+		<tr><td>Suche:</td><td><input name="suche" type="text" maxlength="255" size="20" required></td> 
+		-->
+		 <input type="hidden" name="g_id" readonly="readonly" value="<?=$gruppe[0]->getG_id()?>">
+		<input class="button" type="submit" value="Neues Mitglied hinzuf&uuml;gen">
+		
+	</form></td>
+	<?php }?>
+</tr>
+
+</table>
+
+
+
+
+
+
 <!--  Anzeige der Gruppenmitglieder mit fremden Profilaufruf und Adminrechten -->
 
 
@@ -128,59 +186,7 @@ $g_id = $_REQUEST['g_id'];
  <br>
     <input class="button" type="submit"  name = "abschicken" value="Abschicken">
 </form>
-</div>
-
-	
-<!--  Neue Mitglieder hinzufügen -->	
-
-
-	<?php if ($aktgruppenmitglied->getGruppenadmin()=="1") {?>
-	<form action="usersuchen" method="post">
-
-		<table>
-		<!--  Kann wegen neuer intelligenter Suche weg
-		<th>Neues Mitglied hinzuf&uuml;gen</th>
-		<tr><td>Suche:</td><td><input name="suche" type="text" maxlength="255" size="20" required></td> 
-		-->
-		 <input type="hidden" name="g_id" readonly="readonly" value="<?=$gruppe[0]->getG_id()?>">
-		<tr><td><input class="button" type="submit" value="Neues Mitglied hinzuf&uuml;gen"></td> </tr>
-	</table>
-	</form>
-	<?php }?>
-	
-	
-	
-<!-- Meine Zahlungen in dieser Gruppe -->	
-
-	<form action="statistiken?gruppe=<?=$gruppe[0]->getG_id()?>" method="post">
-	
-		<input class="button" type="submit" name='sofortauslesen' value="Meine Zahlungen in dieser Gruppe">
-		
-	</form>	
-	
-<!-- Gruppenverlauf -->	
-
-	<form action="gruppenverlauf?g_id=<?=$gruppe[0]->getG_id()?>" method="post">
-	
-		<table>
-			<tr><td><input type="hidden" name='g_id' value='<?=$gruppe[0]->getG_id()?>'></td> </tr>
-			<tr><td><input class="button" type="submit" value="Gruppenverlauf"></td> </tr>
-		
-		</table>
-	</form>
-	
-<!--  CSV Download -->
-
-	<form action="groupcsv" method="post">
-	
-		<table>
-
-			<td><input type="hidden" name='g_id' value='<?=$g_id?>'></td> 
-			<td><input class="button" type="submit" value="CSV-Download"></td>
-		
-		</table>
-		
-	</form>		
+</div>	
 	
 	
 <!-- Gruppe verlassen -->	
