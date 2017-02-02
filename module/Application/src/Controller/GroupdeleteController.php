@@ -76,9 +76,12 @@ class GroupdeleteController extends AbstractActionController
 		$offeneZahlungen=false;
 		
 		$gruppenmitgliederListe=Gruppenmitglied::gruppenmitgliederlisteHolen($g_id);
+		$counter=0;
 		
 		foreach ($gruppenmitgliederListe as $gruppenmitglied) { 
-		
+			
+			$offeneZahlungen=false;
+			
 			$zahlungenListe=Zahlungsteilnehmer::teilnehmerzahlungennachgruppeholen($gruppenmitglied->getUser()->getU_id(), $g_id);
 		
 			foreach ($zahlungenListe as $zahlungen) {
@@ -87,14 +90,19 @@ class GroupdeleteController extends AbstractActionController
 				}
 			}
 			
+			$counter++;
 		}
 		
-		if ($offeneZahlungen==true) {
+		if ($counter>0) {
 			
 			// Fehlermeldung generieren
 			$gruppenname=$gruppenmitglied->getGruppe()->getGruppenname();
 				
-			$msg="Du darfst die Gruppe '$gruppenname' nicht löschen, da mindestens ein Teilnehmer noch offene Zahlungen in dieser Gruppe zu begleichen hat!";
+			// $msg="Du darfst die Gruppe '$gruppenname' nicht l&ouml;schen, da mindestens ein Teilnehmer noch offene Zahlungen in dieser Gruppe zu begleichen hat!";
+			if ($counter==1)
+				$msg="Du darfst die Gruppe '$gruppenname' nicht l&ouml;schen, da noch $counter Teilnehmer offene Zahlungen in dieser Gruppe zu begleichen haben!";
+			else 
+				$msg="Du darfst die Gruppe '$gruppenname' nicht l&ouml;schen, da noch $counter Teilnehmer offene Zahlungen in dieser Gruppe zu begleichen hat!";
 			
 			// View Groupoverview wieder aufrufen
 			$user_id=$_SESSION['user']->getU_id();
