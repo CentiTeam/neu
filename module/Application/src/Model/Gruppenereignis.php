@@ -28,7 +28,9 @@ class Gruppenereignis{
 	
 		$db = new DB_connection();
 	
-		$query="SELECT e_id FROM ereignis WHERE g_id = ".$gruppe->getG_id().";";
+		$query="SELECT e_id FROM ereignis 
+					WHERE g_id = ".$gruppe->getG_id()." 
+					ORDER BY e_id DESC;";
 	
 		// Wenn die Datenbankabfrage erfolgreich ausgef�hrt worden ist
 		if ($result = $db->execute($query)) {
