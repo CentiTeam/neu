@@ -43,10 +43,14 @@ class ZahlunganzeigenController extends AbstractActionController
 		$aktuser_id=$_SESSION['user']->getU_id();
 		$gruppen_id=$_REQUEST['g_id'];
 		$istTeilnehmer=false;
+		$veraenderbar==false;
 		
 		foreach ($teilnehmerliste as $teilnehmer) {
 			if ($aktuser_id==$teilnehmer->getUser()->getU_id() && $gruppen_id==$teilnehmer->getZahlung()->getGruppe()->getG_id()) {
 				$istTeilnehmer=true;
+				
+				if ($teilnehmer->getStatus()=="ersteller")
+					$veraenderbar=false;
 			}
 		}
 		
@@ -69,11 +73,14 @@ class ZahlunganzeigenController extends AbstractActionController
 			return $view;
 		}
 		
+		
+		
 		// Was ist das???
 		if ($_REQUEST['zahlungsteilnehmeranzeigen']) {
 		}
 		
-		$nichtveraenderbar==false;
+		
+		
 		
 		return new ViewModel([
  				'zahlung' => array($zahlung),

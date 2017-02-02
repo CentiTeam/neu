@@ -54,7 +54,7 @@
 	</DIV>
 </table>
 <br>
-<?php if($nichtveraenderbar==false) {?>
+<?php if($veraenderbar==true) {?>
 <h3>Aktionen:</h3>
 <a href="zahlungbearbeiten?z_id=<?=$zahlung[0]->getZ_id()?>&g_id=<?=$zahlung[0]->getGruppe()->getG_id()?>"><img src="img/edit.jpg" /></a>
 <a href="zahlungloeschen?z_id=<?=$zahlung[0]->getZ_id()?>&g_id=<?=$zahlung[0]->getGruppe()->getG_id()?>"><img src="img/delete.png" /></a>
