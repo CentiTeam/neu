@@ -97,7 +97,6 @@ class GroupdeleteController extends AbstractActionController
 				
 			}	
 		}
-		echo "Hallo 1";
 		
 		if ($counter>0) {
 			
@@ -106,11 +105,16 @@ class GroupdeleteController extends AbstractActionController
 				
 			// $msg="Du darfst die Gruppe '$gruppenname' nicht l&ouml;schen, da mindestens ein Teilnehmer noch offene Zahlungen in dieser Gruppe zu begleichen hat!";
 			if ($counter==1) {
-				echo "Hallo 2";
 				
-				$msg="Du darfst die Gruppe '$gruppenname' nicht l&ouml;schen, da noch $counter Teilnehmer offene Zahlungen in dieser Gruppe zu begleichen hat!";
+					$msg="Du darfst die Gruppe '$gruppenname' nicht l&ouml;schen, da noch $counter Teilnehmer offene Zahlungen in dieser Gruppe zu begleichen hat!";
 					
-					$msg.= "$offeneTeilnehmer[0]->getUser()->getUsername()";
+					echo "Hallo 1";
+					 
+					$teilnehmer=$offeneTeilnehmer[0]->getUser()->getUsername();
+					
+					$msg.= "$teilnehmer";
+					
+					echo "Hallo 2";
 					
 			} else { 
 					$msg="Du darfst die Gruppe '$gruppenname' nicht l&ouml;schen, da noch $counter Teilnehmer offene Zahlungen in dieser Gruppe zu begleichen haben!";
