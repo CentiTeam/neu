@@ -93,9 +93,11 @@ class GroupdeleteController extends AbstractActionController
 					$offeneZahlungen=true;
 					$offeneTeilnehmer[]=$gruppenmitglied;
 				}
+				
+				$counter++;
 			}
 			
-			$counter++;
+			
 		}
 		
 		if ($counter>0) {
