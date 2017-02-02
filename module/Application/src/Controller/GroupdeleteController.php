@@ -104,7 +104,7 @@ class GroupdeleteController extends AbstractActionController
 		if ($counter>0) {
 			
 			// Fehlermeldung generieren
-			$gruppenname=$gruppenmitglied->getGruppe()->getGruppenname();
+			$gruppenname=$gruppe->getGruppenname();
 				
 			// $msg="Du darfst die Gruppe '$gruppenname' nicht l&ouml;schen, da mindestens ein Teilnehmer noch offene Zahlungen in dieser Gruppe zu begleichen hat!";
 			if ($counter==1) {
