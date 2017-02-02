@@ -260,7 +260,7 @@ class Gruppenereignis{
 		$dbStmt = new DB_connection();
 		
 		
-		//Schreiben des Ereignisses in die Tabelle für jede Gruppe
+		//Schreiben des Ereignisses in die Tabelle fï¿½r jede Gruppe
 		
 		foreach($gruppenmitgliederliste as $zaehler => $gruppenmitglied_aktuell){
 			$gruppe_aktuell = $gruppenmitglied_aktuell->getGruppe();
@@ -284,7 +284,7 @@ class Gruppenereignis{
 			$dbStmt = new DB_connection();
 		 
 		
-			//Schreiben des Ereignisses in die Tabelle für jede Gruppe
+			//Schreiben des Ereignisses in die Tabelle fï¿½r jede Gruppe
 		
 			foreach($gruppenmitgliederliste as $zaehler => $gruppenmitglied_aktuell){
 				$gruppe_aktuell = $gruppenmitglied_aktuell->getGruppe();
@@ -304,7 +304,7 @@ class Gruppenereignis{
 	
 	
 	
-	/**
+	
 	public function gruppenmitgliedbeitretenEreignis($gruppe, $user){
 	
 		$ereignisbeschreibung = "Der Benutzer ".$user->getUsername()." ist der Gruppe beigetreten";
@@ -316,6 +316,7 @@ class Gruppenereignis{
 	
 	}
 	
+	/**
 	public function gruppenmitgliedaustretenEreignis($user, $gruppe){
 	
 		$ereignisbeschreibung = "Der Benutzer ".$user->getUsername()." ist aus der Gruppe ausgetreten";
