@@ -13,11 +13,10 @@ use Application\Model\Gruppenmitglied;?>
 <br>
 <a class="button" href='gruppeanlegen'>Neue Gruppe anlegen</a>
 <br><br><br>
-<table>
+<table style="border-collapse: separate; border-spacing: 15px;">
 
 	<tr>
 		<th>Gruppenbild</th>
-		<th>GruppenNr</th>
 		<th>Gruppenname</th>
 		<th>Beschreibung</th>
 		<th></th>
@@ -32,7 +31,6 @@ use Application\Model\Gruppenmitglied;?>
 
 		<tr>
 			<td><div class="small-circular-image"><img src ="<?=$gruppenmitglied->getGruppe()->getGruppenbildpfad()?>" height = "50" width = "50" alt = "Kein Bild vorhanden"></div></td>
-			<td><?=$gruppenmitglied->getGruppe()->getG_id()?></td>
 			<td><?=$gruppenmitglied->getGruppe()->getGruppenname()?></td>
 			<td><?=$gruppenmitglied->getGruppe()->getGruppenbeschreibung()?></td>
 			

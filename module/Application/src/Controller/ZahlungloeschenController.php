@@ -97,50 +97,68 @@ class ZahlungloeschenController extends AbstractActionController {
 					}
 				}
 				
-				//Fï¿½r jeden Teilnehmer wird die Lï¿½schfunktion aufgerufen
-				foreach ($teilnehmerliste as $zahlungsteilnehmer)
+				//Wenn die Variable beglichen auf Null steht, kann die Zahlung gelöscht werden
+				if ($beglichen==0)
 				{
-					$teilnehmerloeschen = Zahlungsteilnehmer::teilnehmerloeschen($z_id, $zahlungsteilnehmer->getUser()->getU_id());
-				}
+				
+					//Fï¿½r jeden Teilnehmer wird die Lï¿½schfunktion aufgerufen
+					foreach ($teilnehmerliste as $zahlungsteilnehmer)
+					{
+						$teilnehmerloeschen = Zahlungsteilnehmer::teilnehmerloeschen($z_id, $zahlungsteilnehmer->getUser()->getU_id());
+					}
 			
-				//Lï¿½schen der Zahlung
+					//Lï¿½schen der Zahlung
 				
-					//Erstellen einer Instanz der zu loeschenden Zahlung, um die Ereignisbehandlung nachher durchfuehren zu koennen
-					$zahlung_fuer_ereignis = new Zahlung();
-					$zahlung_fuer_ereignis->laden($z_id);
+						//Erstellen einer Instanz der zu loeschenden Zahlung, um die Ereignisbehandlung nachher durchfuehren zu koennen
+						$zahlung_fuer_ereignis = new Zahlung();
+						$zahlung_fuer_ereignis->laden($z_id);
 				
 				
-					$zahlungloeschen = Zahlung::loeschen($z_id);
+						$zahlungloeschen = Zahlung::loeschen($z_id);
 				
-					if ($zahlungloeschen) {
-						echo "Die Zahlung wurde erfolgreich gel&oumlscht!";
-						Gruppenereignis::zahlungloeschenEreignis($zahlung_fuer_ereignis, $zahlung_fuer_ereignis->getGruppe(), $_SESSION['user']);
-					}
-					else {
-						echo "Die Zahlung konnte nicht gel&oumlscht werden!";
-					}
+						if ($zahlungloeschen) {
+							echo "Die Zahlung wurde erfolgreich gel&oumlscht!";
+							Gruppenereignis::zahlungloeschenEreignis($zahlung_fuer_ereignis, $zahlung_fuer_ereignis->getGruppe(), $_SESSION['user']);
+						}
+						else {
+							echo "Die Zahlung konnte nicht gel&oumlscht werden!";
+						}
 					
 					
-					// Relevante Daten Laden
-					$kategorieliste = Kategorie::listeHolen();
-					$saldo = Zahlungsteilnehmer::gibsaldo($user_id);
-					$zahlungenliste = Zahlungsteilnehmer::teilnehmerzahlungenholen($user_id);
-					
+						// Relevante Daten Laden
+						$kategorieliste = Kategorie::listeHolen();
+						$saldo = Zahlungsteilnehmer::gibsaldo($user_id);
+						$zahlungenliste = Zahlungsteilnehmer::teilnehmerzahlungenholen($user_id);
+						
+						$view = new ViewModel([
+								'gruppe' => array($gruppe),
+								'errors' => $errors,
+								'msg' => $msg,
+								'zahlung' => array($zahlung),
+								'zahlungenliste' => $zahlungenliste,
+								'kategorieliste' => $kategorieliste,
+								'u_id' => $user_id,
+								'teilnehmerliste' => $teilnehmerliste,
+								'saldo' => $saldo
+						]);
+						
+						$view->setTemplate('application/statistiken/statistiken.phtml');
+						return $view;
+				}
+				else
+				{
+					echo "Diese Zahlung wurde bereits teilweise oder vollst&aumlndig beglichen und kann daher nicht mehr bearbeitet werden";
 					$view = new ViewModel([
 							'gruppe' => array($gruppe),
 							'errors' => $errors,
 							'msg' => $msg,
 							'zahlung' => array($zahlung),
-							'zahlungenliste' => $zahlungenliste,
-							'kategorieliste' => $kategorieliste,
-							'u_id' => $user_id,
-							'teilnehmerliste' => $teilnehmerliste,
-							'saldo' => $saldo
+							'teilnehmerliste' => $teilnehmerliste
 					]);
 					
-					$view->setTemplate('application/statistiken/statistiken.phtml');
+					$view->setTemplate('application/zahlunganzeigen/zahlunganzeigen.phtml');
 					return $view;
-					
+				}
 			}
 			else {
 				echo "Sie k&oumlnnen diese Zahlung nicht l&oumlschen, da Sie sie nicht erstellt haben";
