@@ -84,7 +84,7 @@ class GroupdeleteController extends AbstractActionController
 			$offeneZahlungen=false;
 			
 			$zahlungenListe=Zahlungsteilnehmer::teilnehmerzahlungennachgruppeholen($gruppenmitglied->getUser()->getU_id(), $g_id);
-			var_dump($zahlungenListe);
+			var_dump($zahlungenListe->getStatus());
 			
 			foreach ($zahlungenListe as $zahlungen) {
 				if ($zahlungen->getStatus()=="offen") {
