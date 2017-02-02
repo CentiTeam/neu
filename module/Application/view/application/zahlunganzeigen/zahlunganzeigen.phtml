@@ -27,7 +27,6 @@
 
 <table class="datentabelle">
 <tr class="datentabelle">
-		<th class="datentabelle">User ID  </th>
 		<th class="datentabelle">Username </th>
 		<th class="datentabelle">Anteil </th>
 		<th class="datentabelle">Restbetrag </th>
@@ -40,8 +39,7 @@
 	?>
 
 		<tr class="datentabelle">
-			<td class="datentabelle"><?=$zahlungsteilnehmer->getUser()->getU_id()?></td>
-			<td class="datentabelle"><?=$zahlungsteilnehmer->getUser()->getUsername()?></td>
+			<td class="datentabelle"> <a href="fremdesprofil?u_id=<?=$gruppenmitglied->getUser()->getU_id()?>"><?=$zahlungsteilnehmer->getUser()->getUsername()?></a></td>
 			<td class="datentabelle"><?=$zahlungsteilnehmer->getAnteil()?></td>
 			<td class="datentabelle"><?=$zahlungsteilnehmer->getRestbetrag()?></td>
 			<td class="datentabelle"><?=$zahlungsteilnehmer->getStatus()?></td>
