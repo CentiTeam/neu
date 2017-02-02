@@ -50,7 +50,7 @@ class ZahlunganzeigenController extends AbstractActionController
 				$istTeilnehmer=true;
 				
 				if ($teilnehmer->getStatus()=="ersteller")
-					$veraenderbar=false;
+					$veraenderbar=true;
 			}
 		}
 		
