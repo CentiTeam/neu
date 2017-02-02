@@ -91,6 +91,7 @@ class GroupdeleteController extends AbstractActionController
 				if ($zahlungen->getStatus()=="offen") {
 					$offeneZahlungen=true;
 					
+					
 					$bereitsinListe=false;
 					
 					for ($zaehler=0; $zaehler<$counter; $zaehler++) {
@@ -100,9 +101,10 @@ class GroupdeleteController extends AbstractActionController
 						}
 					}
 					
-					if ($bereitsinListe==false)
-					$offeneTeilnehmer[]=$gruppenmitglied;
-					$counter++;
+					if ($bereitsinListe==false) {
+						$offeneTeilnehmer[]=$gruppenmitglied;
+						$counter++;
+					}
 				}
 				
 			}	
@@ -124,7 +126,7 @@ class GroupdeleteController extends AbstractActionController
 			} else { 
 					$msg="Du darfst die Gruppe '$gruppenname' nicht l&ouml;schen, da noch $counter Teilnehmer offene Zahlungen in dieser Gruppe zu begleichen haben: <br>";
 					
-					var_dump($offeneTeilnehmer);
+					
 					for ($zaehler=0; $zaehler<$counter; $zaehler++) {
 						
 						$teilnehmer=$offeneTeilnehmer[$zaehler]->getUser()->getUsername();
