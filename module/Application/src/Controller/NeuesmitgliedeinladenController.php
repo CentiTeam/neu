@@ -51,7 +51,7 @@ class NeuesmitgliedeinladenController extends AbstractActionController
 						$empfaenger_id=$liste->getU_id();
 						$empfaengerUsername=$liste->getUsername();
 						
-						$link= "<a href=\"http://132.231.36.206/fremdesprofil?u_id=$empfaenger_id\" class=\"button\">Hier geht es zum Profil von '$empfaengerUsername'</a>";
+						$link= "<a href=\"http://132.231.36.206/fremdesprofil?u_id=$empfaenger_id\" class=\"button\">Profil von '$empfaengerUsername'</a>";
 						
 						$msg="Unter dieser E-Mail-Adresse ist bereits der User '$empfaengerUsername' registriert! <br>
 								$link ";
