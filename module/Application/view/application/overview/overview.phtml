@@ -29,8 +29,10 @@
 <?php if($_SESSION['gelesenam'] != $aktdatum) {?>
 <form method="post" action="overview">
 <input class="button" type="submit" name="hide" value="X">
-<h4>In den letzten f&uumlnf Tagen wurden in Ihren Gruppen folgende Zahlungen erstellt:</h4>
 
+<!-- Die Zahlungen der letzten 5 Tage --> 
+
+<h4>In den letzten f&uumlnf Tagen wurden in Ihren Gruppen folgende Zahlungen erstellt:</h4>
 
 <a class="button" onclick="text1.style.display='block';an.style.display='none';zu.style.display='block'" id="an" style="display: block; text-align:center" href="#neu">Anzeigen</a>
 <a class="button" onclick="text1.style.display='none';an.style.display='block';zu.style.display='none'" id="zu" style="display: none; text-align:center" href="#neu">Ausblenden</a>
@@ -67,20 +69,20 @@
 <br>
 <br>
 
-
+<!-- Die Nachrichten der letzten 5 Tage --> 
 
 <h4>In den letzten f&uumlnf Tagen wurden in Ihren Gruppen diese Nachrichten gepostet:</h4>
 <a class="button" onclick="text2.style.display='block';an2.style.display='none';zu2.style.display='block'" id="an2" style="display: block; text-align:center" href="#neu2">Anzeigen</a>
 <a class="button" onclick="text2.style.display='none';an2.style.display='block';zu2.style.display='none'" id="zu2" style="display: none; text-align:center" href="#neu2">Ausblenden</a>
 <a name="neu2"></a><DIV id="text2" style="display: none">
 
-<table class="datentabelle" width="80%">
+<table class="datentabelle sortierbar" width="80%">
 <thead class="datentabelle">
   <tr class="datentabelle">
-    <th class="datentabelle" width="15%">Gruppe</th>
-    <th class="datentabelle" width="15%">Absender</th>
-    <th class="datentabelle" width="15%">Datum</th>
-    <th class="datentabelle">Nachricht</th>
+    <th class="datentabelle sortierbar" width="15%">Gruppe</th>
+    <th class="datentabelle sortierbar" width="15%">Absender</th>
+    <th class="datentabelle sortierbar" width="15%">Datum</th>
+    <th class="datentabelle sortierbar">Nachricht</th>
   </tr>
  </thead>
   
@@ -102,17 +104,20 @@
 <br>
 <br>
 <br>
+
+<!-- Die Gruppenereignisse der letzten 5 Tage --> 
+
 <h4>In den letzten f&uumlnf Tagen gab es in Ihren Gruppen folgende Ereignisse:</h4>
 
 <a class="button" onclick="text3.style.display='block';an3.style.display='none';zu3.style.display='block'" id="an3" style="display: block; text-align:center" href="#neu3" >Anzeigen</a>
 <a class="button" onclick="text3.style.display='none';an3.style.display='block';zu3.style.display='none'" id="zu3" style="display: none; text-align:center" href="#neu3">Ausblenden</a>
 <a name="neu3"></a><DIV id="text3" style="display: none">
-<table class="datentabelle" width="80%">
+<table class="datentabelle sortierbar" width="80%">
 <thead class="datentabelle">
   <tr class="datentabelle">
-  	<th class="datentabelle">Gruppe</th>
-  	<th class="datentabelle">Ereignis</th>
-  	<th class="datentabelle">Datum</th>
+  	<th class="datentabelle sortierbar">Gruppe</th>
+  	<th class="datentabelle sortierbar">Ereignis</th>
+  	<th class="datentabelle sortierbar">Datum</th>
   </tr>
  </thead>
  
