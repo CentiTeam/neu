@@ -115,7 +115,7 @@ class GroupdeleteController extends AbstractActionController
 					$msg="Du darfst die Gruppe '$gruppenname' nicht l&ouml;schen, da noch $counter Teilnehmer offene Zahlungen in dieser Gruppe zu begleichen haben: <br>";
 					
 					var_dump($offeneTeilnehmer);
-					for ($zaehler=0; $zahler<$counter; $zaehler++) {
+					for ($zaehler=0; $zaehler<$counter; $zaehler++) {
 						
 						$teilnehmer=$offeneTeilnehmer[$zaehler]->getUser()->getUsername();
 						$msg.= "$teilnehmer <br>";
