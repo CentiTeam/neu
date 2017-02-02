@@ -148,7 +148,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 		
 
 				$saved= false;
-				$msg = array();
+				$nichtveraenderbar=false;
 			
 				//Wenn die Variable beglichen auf Null steht, kann die Zahlung bearbeitet werden
 				if ($beglichen==0)
@@ -171,7 +171,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 	
 
 					if($summe != $_REQUEST["betrag"]){
-						echo ("Die Anteile m�ssen zusammen der Gesamtsumme entsprechen.");
+						echo ("Die Anteile m&uuml;ssen zusammen der Gesamtsumme entsprechen.");
 					}else {
 				
 						// Schritt 1:  Werte aus Formular einlesen
@@ -231,7 +231,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						
 						
 						$zahlungsbeschreibung=$_POST['zahlungsbeschreibung'];
-						
+						/** Sollte rausfallen, da man nun auch Zahlungen für andere Erstellen darf, an denen man nicht teilnimmt
 						if ($anzahlteilnehmer <= 1){
 							$msg="Du bist momentan der einzige Zahlungsteilnehmer. W&auml;hl noch ein weiteres Gruppenmitglied aus!";
 						
@@ -245,7 +245,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 										
 							]);
 						}
-						
+						*/
 
 							// Wenn tempor�res Objekt gef�llt wurde kann mit diesen Werten das Objekt �ber die Bearbeiten-Fkt in die DB geschrieben werden
 							if ($errorStr == "" && $zahlung->bearbeiten()) {
@@ -354,13 +354,15 @@ class ZahlungbearbeitenController extends AbstractActionController {
 					}
 				}
 				else {
+					$nichtveraenderbar=true;
 					echo "Diese Zahlung wurde bereits teilweise oder vollst&aumlndig beglichen und kann daher nicht mehr bearbeitet werden";
 					$view = new ViewModel([
 							'gruppe' => array($gruppe),
 							'errors' => $errors,
 							'msg' => $msg,
 							'zahlung' => array($zahlung),
-							'teilnehmerliste' => $teilnehmerliste
+							'teilnehmerliste' => $teilnehmerliste,
+							'nichtveraenderbar' => $nichtveraenderbar
 					]);
 				
 					$view->setTemplate('application/zahlunganzeigen/zahlunganzeigen.phtml');

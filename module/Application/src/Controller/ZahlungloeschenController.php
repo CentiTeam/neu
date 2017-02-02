@@ -83,7 +83,7 @@ class ZahlungloeschenController extends AbstractActionController {
 			
 			}
 			// BerechtigungsprÃ¼fung Ende
-			
+			$nichtveraenderbar==false;
 			
 			
 			if ($ersteller->getZahlungsempfaenger()->getU_id()==$user_id) {
@@ -97,7 +97,7 @@ class ZahlungloeschenController extends AbstractActionController {
 					}
 				}
 				
-				//Wenn die Variable beglichen auf Null steht, kann die Zahlung gelöscht werden
+				//Wenn die Variable beglichen auf Null steht, kann die Zahlung gelï¿½scht werden
 				if ($beglichen==0)
 				{
 				
@@ -147,13 +147,15 @@ class ZahlungloeschenController extends AbstractActionController {
 				}
 				else
 				{
+					$nichtveraenderbar==true;
 					echo "Diese Zahlung wurde bereits teilweise oder vollst&aumlndig beglichen und kann daher nicht mehr bearbeitet werden";
 					$view = new ViewModel([
 							'gruppe' => array($gruppe),
 							'errors' => $errors,
 							'msg' => $msg,
 							'zahlung' => array($zahlung),
-							'teilnehmerliste' => $teilnehmerliste
+							'teilnehmerliste' => $teilnehmerliste,
+							'nichtveraenderbar' => $nichtveraenderbar
 					]);
 					
 					$view->setTemplate('application/zahlunganzeigen/zahlunganzeigen.phtml');
