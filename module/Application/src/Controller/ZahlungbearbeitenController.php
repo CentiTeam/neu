@@ -148,7 +148,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 		
 
 				$saved= false;
-				$nichtveraenderbar=false;
+				$veraenderbar=false;
 			
 				//Wenn die Variable beglichen auf Null steht, kann die Zahlung bearbeitet werden
 				if ($beglichen==0)
@@ -354,7 +354,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 					}
 				}
 				else {
-					$nichtveraenderbar=true;
+					$veraenderbar=false;
 					echo "Diese Zahlung wurde bereits teilweise oder vollst&aumlndig beglichen und kann daher nicht mehr bearbeitet werden";
 					$view = new ViewModel([
 							'gruppe' => array($gruppe),
@@ -362,7 +362,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 							'msg' => $msg,
 							'zahlung' => array($zahlung),
 							'teilnehmerliste' => $teilnehmerliste,
-							'nichtveraenderbar' => $nichtveraenderbar
+							'veraenderbar' => $veraenderbar
 					]);
 				
 					$view->setTemplate('application/zahlunganzeigen/zahlunganzeigen.phtml');
