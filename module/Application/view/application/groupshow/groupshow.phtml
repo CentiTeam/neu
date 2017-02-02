@@ -145,6 +145,8 @@ $g_id = $_REQUEST['g_id'];
 <!--  Messageboard -->
 
 
+<?php if ($aktnachricht != NULL) {?>
+
 <a class="button" onclick="text1.style.display='block';an.style.display='none';zu.style.display='block'" id="an" style="display: none; width:250px" href="#neu">Message Board anzeigen</a>
 <a class="button" onclick="text1.style.display='none';an.style.display='block';zu.style.display='none'" id="zu" style="display: block; width:270px" href="#neu">Message Board ausblenden</a>
 <a name="neu"></a><DIV id="text1" style="display: block">
@@ -174,6 +176,8 @@ $g_id = $_REQUEST['g_id'];
 </table>
 
 <br>
+
+<?php }?>
 
 <!--  Abschicken neuer Nachrichten -->
 
