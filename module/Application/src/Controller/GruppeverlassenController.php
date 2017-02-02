@@ -69,8 +69,6 @@ class GruppeverlassenController extends AbstractActionController
 		$gruppenmitglied->laden($g_id, $user->getU_id());
 
 		
-		
-		$msg="";
 
 		// !!!!
 		// Pr�fen, ob es noch offene Zahlungen gibt

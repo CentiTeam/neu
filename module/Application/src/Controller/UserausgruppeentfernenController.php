@@ -67,11 +67,50 @@ class UserausgruppeentfernenController extends AbstractActionController
 		$gruppenmitglied->laden ($g_id, $user_id);
 
 		
-		$errStr="";
 
+		
 		// !!!!
 		// Pr�fen, ob es noch offene Zahlungen gibt
 		// !!!!!
+		$offeneZahlungen=false;
+		
+		$zahlungenListe=Zahlungsteilnehmer::teilnehmerzahlungennachgruppeholen($user_id, $g_id);
+		
+		foreach ($zahlungenListe as $zahlungen) {
+			if ($zahlungen->getStatus()=="offen") {
+				$offeneZahlungen=true;
+			}
+		}
+		
+		if ($offeneZahlungen==true) {
+			
+			$username=$gruppenmitglied->getUser()->getUsername();
+			
+			$msg="Du darfst den User $username nicht aus der Gruppe entfernen, da er noch offene Zahlungen in dieser Gruppe zu begleichen hat!";
+				
+				
+			$aktuser_id=$_SESSION['user']->getU_id();
+		
+			$mitgliederliste=Gruppenmitglied::gruppenmitgliederlisteHolen($g_id);
+		
+			$gruppe=new Gruppe();
+			$gruppe->laden($g_id);
+		
+			$view = new ViewModel([
+					'mitgliederListe' => $mitgliederliste,
+					'gruppe' => array($gruppe),
+					'u_id' => $aktuser_id,
+					'aktgruppenmitglied' => $aktgruppenmitglied,
+					'msg' => $msg
+			]);
+				
+			$view->setTemplate('application/groupshow/groupshow.phtml');
+				
+			return $view;
+				
+		}
+		
+		
 
 
 		// wenn die Aktion abgebrochen werden soll
