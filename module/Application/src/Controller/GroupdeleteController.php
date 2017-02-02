@@ -116,7 +116,7 @@ class GroupdeleteController extends AbstractActionController
 					
 					for ($zaehler=0; $zahler<$counter; $zaehler++) {
 						$teilnehmer=$offeneTeilnehmer[$zaehler]->getUser()->getUsername();
-						$msg.= "$teilnehmer";
+						$msg.= "$teilnehmer <br>";
 					}
 					
 			}
