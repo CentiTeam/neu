@@ -294,7 +294,7 @@ class ZahlunganlegenController extends AbstractActionController {
 					} else {
 
 						// array_push($msg, "Fehler bei der Datenpr�fung. Gruppe nicht gespeichert!");
-						$msg .= "Fehler bei der Datenprüfung. Zahlung nicht gespeichert!";
+						$msg .= "Fehler bei der Datenprüfung. Zahlung nicht gespeichert!<br>";
 					 	$saved = false;
 
 					}
