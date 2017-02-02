@@ -85,7 +85,7 @@ class ZahlunganzeigenController extends AbstractActionController
 		return new ViewModel([
  				'zahlung' => array($zahlung),
 				'teilnehmerliste' => $teilnehmerliste,
-				'nichtveraenderbar' => $nichtveraenderbar
+				'veraenderbar' => $veraenderbar
 		]);
 	}
 }
