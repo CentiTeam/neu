@@ -86,7 +86,7 @@ class UserausgruppeentfernenController extends AbstractActionController
 			
 			$username=$gruppenmitglied->getUser()->getUsername();
 			
-			$msg="Du darfst den User $username nicht aus der Gruppe entfernen, da er noch offene Zahlungen in dieser Gruppe zu begleichen hat!";
+			$msg="Du darfst das Gruppenmitglied '$username' nicht aus der Gruppe entfernen, da '$username' noch offene Zahlungen in dieser Gruppe zu begleichen hat!";
 				
 				
 			$aktuser_id=$_SESSION['user']->getU_id();
