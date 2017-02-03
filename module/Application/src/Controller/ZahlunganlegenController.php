@@ -271,14 +271,14 @@ class ZahlunganlegenController extends AbstractActionController {
 						// Part Tanja zu Ende
 						
 						$veraenderbar=false;
-						
 						$schonbeglicheneZahlungen=false;
+						
 						// Abprüfen, ob die Zahlung gleich automatisch bereits ganz oder teilweise beglichen worden ist
 						foreach ($teilnehmerliste as $zahlungsteilnehmer)
 						{
 						
 							//In dem Fall, dass der Restbetrag nicht dem Anteil entspricht, ist die Zahlung teils oder ganz beglichen
-							if ($zahlungsteilnehmer->getAnteil()!=$zahlungsteilnehmer->getRestbetrag() && $zahlungsteilnehmer->getUser()->getU_id()!=$aktuser_id)
+							if ($zahlungsteilnehmer->getAnteil()!=$zahlungsteilnehmer->getRestbetrag() && $zahlungsteilnehmer->getUser()->getU_id()!=$user_id)
 							{
 								$schonbeglicheneZahlungen=true;
 							}
