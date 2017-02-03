@@ -112,7 +112,7 @@ $g_id = $_REQUEST['g_id'];
 
 <table style="border-collapse: separate; border-spacing: 15px;">
 	<tr><th>Gruppenmitglieder:</th></tr>
-		<tr>
+		<tr class="untereinander">
 			<th></th>
 			<th class="untereinander">Vorname</th>
 			<th class="untereinander">Nachname</th>
@@ -126,7 +126,7 @@ $g_id = $_REQUEST['g_id'];
 	foreach ($mitgliederListe as $zaehler => $gruppenmitglied) {
 	?>
 		
-		<tr>
+		<tr class="untereinander">
 			<?php if ($gruppenmitglied->getUser()->getU_id()==$aktgruppenmitglied->getUser()->getU_id()) { ?>
 				<td><div class="small-circular-image"><img src =<?=$gruppenmitglied->getUser()->getTeilnehmerbildpfad()?> height = "100" width = "100" alt = "Kein Bild vorhanden"></div></td>
 			<?php } else { ?>
