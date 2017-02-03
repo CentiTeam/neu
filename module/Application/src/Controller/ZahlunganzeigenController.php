@@ -59,6 +59,7 @@ class ZahlunganzeigenController extends AbstractActionController
 			}
 		}
 		
+		echo $schonbeglicheneZahlungen;
 		
 		
 		// Abprüfen, ob der Teilnehmer ersteller ist (wg. Edit- und Delete-Symbol)
