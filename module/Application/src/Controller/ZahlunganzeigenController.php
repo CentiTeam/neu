@@ -43,10 +43,35 @@ class ZahlunganzeigenController extends AbstractActionController
 		$aktuser_id=$_SESSION['user']->getU_id();
 		$gruppen_id=$_REQUEST['g_id'];
 		$istTeilnehmer=false;
+		$veraenderbar==false;
 		
+		
+		$schonbeglicheneZahlungen=false;
+		
+		// Abprüfen, ob die Zahlung bereits ganz oder teilweise beglichen worden ist
+		foreach ($teilnehmerliste as $zahlungsteilnehmer)
+		{
+		
+			//In dem Fall, dass der Restbetrag nicht dem Anteil entspricht, ist die Zahlung teils oder ganz beglichen
+			if ($zahlungsteilnehmer->getAnteil()!=$zahlungsteilnehmer->getRestbetrag() && $zahlungsteilnehmer->getUser()->getU_id()!=$aktuser_id)
+			{
+				$schonbeglicheneZahlungen=true;
+				$beglichen++;
+			}
+		}
+		
+		
+		
+		// Abprüfen, ob der Teilnehmer ersteller ist (wg. Edit- und Delete-Symbol)
 		foreach ($teilnehmerliste as $teilnehmer) {
+			
 			if ($aktuser_id==$teilnehmer->getUser()->getU_id() && $gruppen_id==$teilnehmer->getZahlung()->getGruppe()->getG_id()) {
 				$istTeilnehmer=true;
+				
+	
+				if ($teilnehmer->getStatus()=="ersteller" && $schonbeglicheneZahlungen==false) {
+					$veraenderbar=true;
+				}
 			}
 		}
 		
@@ -69,13 +94,19 @@ class ZahlunganzeigenController extends AbstractActionController
 			return $view;
 		}
 		
+		
+		
 		// Was ist das???
 		if ($_REQUEST['zahlungsteilnehmeranzeigen']) {
 		}
 		
+		
+		
+		
 		return new ViewModel([
  				'zahlung' => array($zahlung),
-				'teilnehmerliste' => $teilnehmerliste		
+				'teilnehmerliste' => $teilnehmerliste,
+				'veraenderbar' => $veraenderbar
 		]);
 	}
 }

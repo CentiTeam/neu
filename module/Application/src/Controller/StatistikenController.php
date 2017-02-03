@@ -66,6 +66,8 @@ class StatistikenController extends AbstractActionController
   					$zahlungenliste = $this->katFilter($zahlungenliste, $_REQUEST["kategorie"]);
   				}
   				if($_REQUEST["afterdate"] != null || $_REQUEST["beforedate"] != null){
+  					$beforeDate=$_REQUEST["beforedate"];
+  					$afterDate=$_REQUEST["afterdate"];
   					$zahlungenliste = $this->datFilter($zahlungenliste,$_REQUEST["afterdate"], $_REQUEST["beforedate"]);
   				}
   				
@@ -81,6 +83,7 @@ class StatistikenController extends AbstractActionController
   			
   			// Die ausgewählte Gruppen_id wird wieder mitgeladen 
   			$g_id=$_REQUEST["gruppe"];
+  			$k_id=$_REQUEST["kategorie"];
   				
   			return new ViewModel([
   					'zahlungenliste' => $zahlungenliste,
@@ -89,7 +92,10 @@ class StatistikenController extends AbstractActionController
   					'katzahlungen' => $katzahlungen,
   					'saldo' => $saldo,
   					'gruppenliste' => $gruppenliste,
-  					'gruppe' => $g_id
+  					'gruppe' => $g_id,
+  					'k_id' => $k_id,
+  					'beforeDate' => $beforeDate,
+  					'afterDate' => $afterDate
   			]);
   			
 

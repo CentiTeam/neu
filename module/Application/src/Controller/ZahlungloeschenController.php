@@ -30,10 +30,6 @@ class ZahlungloeschenController extends AbstractActionController {
 		} else {
 			
 			
-			
-			
-			
-			
 			//Holen der z_id aus Formular
 			$z_id = $_REQUEST['z_id'];			
 			
@@ -83,7 +79,8 @@ class ZahlungloeschenController extends AbstractActionController {
 			
 			}
 			// Berechtigungsprüfung Ende
-			
+			$veraenderbar==false;
+			$schonbeglicheneZahlungen=false;
 			
 			
 			if ($ersteller->getZahlungsempfaenger()->getU_id()==$user_id) {
@@ -91,65 +88,93 @@ class ZahlungloeschenController extends AbstractActionController {
 				foreach ($teilnehmerliste as $zahlungsteilnehmer)
 				{
 					//In dem Fall, dass der Restbetrag nicht dem Anteil entspricht, ist die Zahlung teils oder ganz beglichen
-					if ($zahlungsteilnehmer->getAnteil()!=$zahlungsteilnehmer->getRestbetrag() AND $zahlungsteilnehmer->getUser()->getU_id()!=$user_id)
+					if ($zahlungsteilnehmer->getAnteil()!=$zahlungsteilnehmer->getRestbetrag() AND $zahlungsteilnehmer->getUser()->getU_id()!=$aktuser_id)
 					{
+						
 						$beglichen++;
+						$schonbeglicheneZahlungen=true;
+						
 					}
 				}
 				
-				//F�r jeden Teilnehmer wird die L�schfunktion aufgerufen
-				foreach ($teilnehmerliste as $zahlungsteilnehmer)
+				//Wenn die Variable beglichen auf Null steht, kann die Zahlung gel�scht werden
+				if ($beglichen==0 && $schonbeglicheneZahlungen==false)
 				{
-					$teilnehmerloeschen = Zahlungsteilnehmer::teilnehmerloeschen($z_id, $zahlungsteilnehmer->getUser()->getU_id());
-				}
+					$veraenderbar=true;
+					
+					//F�r jeden Teilnehmer wird die L�schfunktion aufgerufen
+					foreach ($teilnehmerliste as $zahlungsteilnehmer)
+					{
+						$teilnehmerloeschen = Zahlungsteilnehmer::teilnehmerloeschen($z_id, $zahlungsteilnehmer->getUser()->getU_id());
+					}
 			
-				//L�schen der Zahlung
+					//L�schen der Zahlung
 				
-					//Erstellen einer Instanz der zu loeschenden Zahlung, um die Ereignisbehandlung nachher durchfuehren zu koennen
-					$zahlung_fuer_ereignis = new Zahlung();
-					$zahlung_fuer_ereignis->laden($z_id);
+						//Erstellen einer Instanz der zu loeschenden Zahlung, um die Ereignisbehandlung nachher durchfuehren zu koennen
+						$zahlung_fuer_ereignis = new Zahlung();
+						$zahlung_fuer_ereignis->laden($z_id);
 				
 				
-					$zahlungloeschen = Zahlung::loeschen($z_id);
+						$zahlungloeschen = Zahlung::loeschen($z_id);
 				
-					if ($zahlungloeschen) {
-						echo "Die Zahlung wurde erfolgreich gel&oumlscht!";
-						Gruppenereignis::zahlungloeschenEreignis($zahlung_fuer_ereignis, $zahlung_fuer_ereignis->getGruppe(), $_SESSION['user']);
-					}
-					else {
-						echo "Die Zahlung konnte nicht gel&oumlscht werden!";
-					}
+						if ($zahlungloeschen) {
+							echo "Die Zahlung wurde erfolgreich gel&oumlscht!";
+							Gruppenereignis::zahlungloeschenEreignis($zahlung_fuer_ereignis, $zahlung_fuer_ereignis->getGruppe(), $_SESSION['user']);
+						}
+						else {
+							echo "Die Zahlung konnte nicht gel&oumlscht werden!";
+						}
 					
 					
-					// Relevante Daten Laden
-					$kategorieliste = Kategorie::listeHolen();
-					$saldo = Zahlungsteilnehmer::gibsaldo($user_id);
-					$zahlungenliste = Zahlungsteilnehmer::teilnehmerzahlungenholen($user_id);
+						// Relevante Daten Laden
+						$kategorieliste = Kategorie::listeHolen();
+						$saldo = Zahlungsteilnehmer::gibsaldo($user_id);
+						$zahlungenliste = Zahlungsteilnehmer::teilnehmerzahlungenholen($user_id);
+						
+						$view = new ViewModel([
+								'gruppe' => array($gruppe),
+								'errors' => $errors,
+								'msg' => $msg,
+								'zahlung' => array($zahlung),
+								'zahlungenliste' => $zahlungenliste,
+								'kategorieliste' => $kategorieliste,
+								'u_id' => $user_id,
+								'teilnehmerliste' => $teilnehmerliste,
+								'saldo' => $saldo
+						]);
+						
+						$view->setTemplate('application/statistiken/statistiken.phtml');
+						return $view;
+				}
+				else
+				{
+					$veraenderbar==false;
+					echo "Diese Zahlung wurde bereits teilweise oder vollst&aumlndig beglichen und kann daher nicht mehr bearbeitet werden";
 					
 					$view = new ViewModel([
 							'gruppe' => array($gruppe),
 							'errors' => $errors,
 							'msg' => $msg,
 							'zahlung' => array($zahlung),
-							'zahlungenliste' => $zahlungenliste,
-							'kategorieliste' => $kategorieliste,
-							'u_id' => $user_id,
 							'teilnehmerliste' => $teilnehmerliste,
-							'saldo' => $saldo
+							'veraenderbar' => $veraenderbar
 					]);
 					
-					$view->setTemplate('application/statistiken/statistiken.phtml');
+					$view->setTemplate('application/zahlunganzeigen/zahlunganzeigen.phtml');
 					return $view;
-					
+				}
 			}
 			else {
+				$veraenderbar=false;
 				echo "Sie k&oumlnnen diese Zahlung nicht l&oumlschen, da Sie sie nicht erstellt haben";
+				
 				$view = new ViewModel([
 						'gruppe' => array($gruppe),
 						'errors' => $errors,
 						'msg' => $msg,
 						'zahlung' => array($zahlung),
-						'teilnehmerliste' => $teilnehmerliste
+						'teilnehmerliste' => $teilnehmerliste,
+						'veraenderbar' => $veraenderbar
 				]);
 				
 				$view->setTemplate('application/zahlunganzeigen/zahlunganzeigen.phtml');
@@ -161,7 +186,8 @@ class ZahlungloeschenController extends AbstractActionController {
 					'errors' => $errors,
 					'msg' => $msg,
 					'zahlung' => array($zahlung),
-					'teilnehmerliste' => $teilnehmerliste
+					'teilnehmerliste' => $teilnehmerliste,
+					'veraenderbar' => $veraenderbar
 			]);
 			
 			$view->setTemplate('application/zahlunganzeigen/zahlunganzeigen.phtml');

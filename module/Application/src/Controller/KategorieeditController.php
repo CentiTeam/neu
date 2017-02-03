@@ -92,11 +92,14 @@ class KategorieeditController extends AbstractActionController {
 				 $saved = false;
 
 				}
-					
+				
+				$kategorieListe=Kategorie::listeHolen();
+				
 				$view = new ViewModel([
 						'kategorie' => array($kategorie),
 						'errors'   => $errors,
-						'msg' => $msg
+						'msg' => $msg,
+						'kategorieListe' => $kategorieListe
 				]);
 					
 				$view->setTemplate('application/kategorien/kategorien.phtml');

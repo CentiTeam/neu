@@ -158,6 +158,20 @@ class GruppeanlegenController extends AbstractActionController {
 
 				 }
 				 
+				 $gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
+				 
+				 // Hier die Groupoverview zurückgeben statt wie unten Groupshow
+				 $view = new ViewModel([
+				 		'gruppenListe' => $gruppenliste,
+				 		'msg' => $msg,
+				 		'u_id' => $user_id
+				 ]);
+				 
+				 $view->setTemplate('application/groupoverview/groupoverview.phtml');
+				 	
+				 return $view;
+				 
+				 /** Fliegt raus, da es so Fehler mit Groupedit gibt, wenn man diese Action sofort ausfuehren will
 				 $aktgruppenmitglied=$gruppenmitglied;
 				 $mitgliederliste=Gruppenmitglied::gruppenmitgliederlisteHolen($gruppen_id);
 				 
@@ -175,6 +189,7 @@ class GruppeanlegenController extends AbstractActionController {
 				 $view->setTemplate('application/groupshow/groupshow.phtml');
 				 	
 				 return $view;
+				 */
 			}
 		}
 

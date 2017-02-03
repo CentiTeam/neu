@@ -76,7 +76,7 @@ class ZahlunganlegenController extends AbstractActionController {
 				
 
 			$saved= false;
-			$msg = array();
+			
 
 			if ($_REQUEST['speichern']) {
 				
@@ -91,12 +91,13 @@ class ZahlunganlegenController extends AbstractActionController {
 					$summe += $anteil;
 				}
 				
-			
+				/** SIEHE UNTEN; Fehlermeldung anteile wurde weoter unten reingepackt
 				if($summe != $_REQUEST["betrag"]){
 				
-					echo ("Die Anteile m�ssen zusammen der Gesamtsumme entsprechen.");
+					echo ("Die Anteile m&uuml;ssen zusammen der Gesamtsumme entsprechen.");
 					
 				}else {
+				*/
 				
 					
 					// Schritt 1:  Werte aus Formular einlesen
@@ -132,9 +133,13 @@ class ZahlunganlegenController extends AbstractActionController {
 				
 				
 					// Schritt 2: Daten pr�fen und Fehler in Array füllen
-					$errorStr ="";
-					$msg="";
-				
+					if($summe != $_REQUEST["betrag"]){
+					
+						$errorStr.= "Die Anteile m&uuml;ssen zusammen der Gesamtsumme entsprechen.";
+							
+					}
+					
+					
 					// #TODO Fehlerüberprüfung fehlt!
 				
 				
@@ -162,7 +167,8 @@ class ZahlunganlegenController extends AbstractActionController {
 					}
 						
 					$zahlungsbeschreibung=$_POST['zahlungsbeschreibung'];
-						
+					
+					/** Sollte wegfallen, da man nicht selbst teilnehmer sein muss
 					if ($anzahlteilnehmer <= 1){
 						$msg="Du bist momentan der einzige Zahlungsteilnehmer. W&auml;hl noch ein weiteres Gruppenmitglied aus!";
 								
@@ -175,7 +181,8 @@ class ZahlunganlegenController extends AbstractActionController {
 								'zahlung' => array($zahlung)
 					
 						]);
-					}				
+					}
+					*/				
 						
 					
 					// Wenn tempor�res Objekt gef�llt wurde kann mit diesen Werten das Objekt �ber die anlegen-Fkt in die DB geschrieben werden
@@ -253,6 +260,7 @@ class ZahlunganlegenController extends AbstractActionController {
 						 	
 						 }
 						 $temp ->ausgleichen();
+						
 						 
 						//Erstellen des Ereignisses f�r Gruppenverlauf und Speicher in DB
 						$zahlungsersteller = $_SESSION['user']; 						 
@@ -262,12 +270,36 @@ class ZahlunganlegenController extends AbstractActionController {
 						$teilnehmerliste=Zahlungsteilnehmer::zahlungsteilnehmerholen($zahlungs_id);
 						// Part Tanja zu Ende
 						
+						$veraenderbar=false;
+						$schonbeglicheneZahlungen=false;
+						
+						// Abprüfen, ob die Zahlung gleich automatisch bereits ganz oder teilweise beglichen worden ist
+						foreach ($teilnehmerliste as $zahlungsteilnehmer)
+						{
+						
+							//In dem Fall, dass der Restbetrag nicht dem Anteil entspricht, ist die Zahlung teils oder ganz beglichen
+							if ($zahlungsteilnehmer->getAnteil()!=$zahlungsteilnehmer->getRestbetrag() && $zahlungsteilnehmer->getUser()->getU_id()!=$user_id)
+							{
+								$schonbeglicheneZahlungen=true;
+							}
+						}
+						
+						
+						if ($schonbeglicheneZahlungen==false) {
+							$veraenderbar=true;
+						}
+						
+						
+						
+						
+						
 						 $view = new ViewModel([
 						 		'gruppe' => array($gruppe),
 						 		'errors'   => $errors,
 						 		'msg' => $msg,
 						 		'zahlung' => array($zahlung),
-						 		'teilnehmerliste' => $teilnehmerliste
+						 		'teilnehmerliste' => $teilnehmerliste,
+						 		'veraenderbar' => $veraenderbar
 						 
 						 ]);
 						 	
@@ -287,11 +319,11 @@ class ZahlunganlegenController extends AbstractActionController {
 					} else {
 
 						// array_push($msg, "Fehler bei der Datenpr�fung. Gruppe nicht gespeichert!");
-						$msg .= "Fehler bei der Datenprüfung. Zahlung nicht gespeichert!";
+						$msg .= "Fehler bei der Datenprüfung. Zahlung nicht gespeichert!<br>";
 					 	$saved = false;
 
 					}
-				}
+				// Siehe OBEN!!!}
 			}
 		
 
@@ -303,7 +335,9 @@ class ZahlunganlegenController extends AbstractActionController {
 					'kategorieListe' => $kategorieliste,
 					'mitgliederListe' => $mitgliederliste,
 					'erstellungsdatum' => $erstellungsdatum,
-					'zahlung' => array($zahlung)
+					'zahlung' => array($zahlung),
+					'k_id' => $kategorie_id,
+					'err' => $errorStr
 			]);
 		}
 	}

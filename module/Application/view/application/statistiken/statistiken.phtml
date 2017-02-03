@@ -13,8 +13,11 @@ use Application\Model\Zahlungsteilnehmer;?>
 <?=$msg?>
 <?=$err?>
 
-<tr><td>Gesamtsaldo: <?=$saldo?> </td><td>
-
+<h2>Gesamtsaldo: <?php if($saldo>=0){?>
+<font color="#1AA11C"><?=$saldo?></font></h2>
+<?php }if($saldo<0){?>
+<font color="#FF0000"><?=$saldo?></font></h2>
+<?php } ?>
 
 <form action="statistiken" method="post">
 
@@ -25,12 +28,17 @@ use Application\Model\Zahlungsteilnehmer;?>
 	<?php
 	//Alle Kategorien in die Auswahlliste schreiben
 	foreach ($kategorieliste as $zaehler => $kategorie) { ?>
-			<option value='<?=$kategorie->getK_id()?>'> <?=$kategorie->getKategoriebeschreibung() ?> </option>
+			<option value='<?=$kategorie->getK_id()?>'
+				<?php // Die ausgewählte Kategorie wird wieder mitgeladen
+					if ($kategorie->getK_id() == $k_id)
+						echo "selected='selected'";
+				?>
+			> <?=$kategorie->getKategoriebeschreibung() ?> </option>
 	<?php } ?> 
 	</select>
 </td>
-<td>nach: </td><td><input type="date" name="afterdate" value="<?=$datum?>" placeholder="DD.MM.YYYY">
-<td>vor: </td><td><input type="date" name="beforedate" value="<?=$datum?>" placeholder="DD.MM.YYYY"><td>
+<td>nach: </td><td><input type="date" name="afterdate" value="<?=$afterDate?>" placeholder="YYYY-MM-DD">
+<td>vor: </td><td><input type="date" name="beforedate" value="<?=$beforeDate?>" placeholder="YYYY-MM-DD"><td>
 </td>
 
 

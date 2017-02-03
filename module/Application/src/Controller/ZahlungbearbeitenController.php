@@ -116,18 +116,18 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			}
 			
 			
-			
-			
-			
+			$nochoffeneZahlungen=false;
 			
 			if ($ersteller->getZahlungsempfaenger()->getU_id()==$user_id) {
-			
+				
+				// Abprüfen, ob die Zahlung bereits ganz oder teilweise beglichen worden ist
 				foreach ($teilnehmerliste as $zahlungsteilnehmer)
 				{
 					//In dem Fall, dass der Restbetrag nicht dem Anteil entspricht, ist die Zahlung teils oder ganz beglichen
 					if ($zahlungsteilnehmer->getAnteil()!=$zahlungsteilnehmer->getRestbetrag() AND $zahlungsteilnehmer->getUser()->getU_id()!=$user_id)
 					{
 						$beglichen++;
+						$nochoffeneZahlungen=true;
 					}
 				}
 			
@@ -148,12 +148,13 @@ class ZahlungbearbeitenController extends AbstractActionController {
 		
 
 				$saved= false;
-				$msg = array();
+				$veraenderbar=false;
 			
 				//Wenn die Variable beglichen auf Null steht, kann die Zahlung bearbeitet werden
-				if ($beglichen==0)
-				{
-			
+				if ($beglichen==0 && $ersteller->getUser()->getU_id()==$aktuser_id) {
+					
+					$veraenderbar=true;
+					
 					if ($_REQUEST['speichern']) {
 				
 				
@@ -171,7 +172,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 	
 
 					if($summe != $_REQUEST["betrag"]){
-						echo ("Die Anteile m�ssen zusammen der Gesamtsumme entsprechen.");
+						echo ("Die Anteile m&uuml;ssen zusammen der Gesamtsumme entsprechen.");
 					}else {
 				
 						// Schritt 1:  Werte aus Formular einlesen
@@ -231,7 +232,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						
 						
 						$zahlungsbeschreibung=$_POST['zahlungsbeschreibung'];
-						
+						/** Sollte rausfallen, da man nun auch Zahlungen für andere Erstellen darf, an denen man nicht teilnimmt
 						if ($anzahlteilnehmer <= 1){
 							$msg="Du bist momentan der einzige Zahlungsteilnehmer. W&auml;hl noch ein weiteres Gruppenmitglied aus!";
 						
@@ -245,7 +246,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 										
 							]);
 						}
-						
+						*/
 
 							// Wenn tempor�res Objekt gef�llt wurde kann mit diesen Werten das Objekt �ber die Bearbeiten-Fkt in die DB geschrieben werden
 							if ($errorStr == "" && $zahlung->bearbeiten()) {
@@ -320,12 +321,18 @@ class ZahlungbearbeitenController extends AbstractActionController {
 								
 								//Schreiben des Ereignisses das die Zahlung bearbeitet wurde in die Ereignistabelle der Datenbank
 								Gruppenereignis::zahlungbearbeitenEreignis($zahlung, $gruppe);
-									
+								
+								
+								$teilnehmerliste = Zahlungsteilnehmer::zahlungsteilnehmerholen($z_id);
+								
 								$view = new ViewModel([
 										'gruppe' => array($gruppe),
 										'errors'   => $errors,
 										'msg' => $msg,
 										'zahlung' => array($zahlung),
+										'veraenderbar' => $veraenderbar,
+										'teilnehmerliste' => $teilnehmerliste
+ 										
 											
 								]);
 
@@ -354,13 +361,16 @@ class ZahlungbearbeitenController extends AbstractActionController {
 					}
 				}
 				else {
+					$veraenderbar=false;
 					echo "Diese Zahlung wurde bereits teilweise oder vollst&aumlndig beglichen und kann daher nicht mehr bearbeitet werden";
+					
 					$view = new ViewModel([
 							'gruppe' => array($gruppe),
 							'errors' => $errors,
 							'msg' => $msg,
 							'zahlung' => array($zahlung),
-							'teilnehmerliste' => $teilnehmerliste
+							'teilnehmerliste' => $teilnehmerliste,
+							'veraenderbar' => $veraenderbar
 					]);
 				
 					$view->setTemplate('application/zahlunganzeigen/zahlunganzeigen.phtml');
@@ -368,13 +378,16 @@ class ZahlungbearbeitenController extends AbstractActionController {
 				}
 			}
 			else {
+				$veraenderbar=false;
 				echo "Sie k&oumlnnen diese Zahlung nicht bearbeiten, da Sie sie nicht erstellt haben";
+				
 				$view = new ViewModel([
 						'gruppe' => array($gruppe),
 						'errors' => $errors,
 						'msg' => $msg,
 						'zahlung' => array($zahlung),
-						'teilnehmerliste' => $teilnehmerliste
+						'teilnehmerliste' => $teilnehmerliste,
+						'veraenderbar' => $veraenderbar
 				]);
 				
 				$view->setTemplate('application/zahlunganzeigen/zahlunganzeigen.phtml');
@@ -391,7 +404,8 @@ class ZahlungbearbeitenController extends AbstractActionController {
 					'mitgliederListe' => $mitgliederliste,
 					'erstellungsdatum' => $erstellungsdatum,
 					'zahlung' => array($zahlung),
-					'zahlungsteilnehmerliste' => $zahlungsteilnehmerliste
+					'zahlungsteilnehmerliste' => $zahlungsteilnehmerliste,
+					'veraenderbar' => $veraenderbar
 			]);
 		}
 	}

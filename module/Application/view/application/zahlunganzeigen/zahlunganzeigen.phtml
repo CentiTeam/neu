@@ -1,5 +1,5 @@
 <?=$msg?>
-
+<?php session_start();?>
 
 <h1>Zahlung: <?=$zahlung[0]->getZahlungsbeschreibung()?></h1>
 
@@ -27,7 +27,6 @@
 
 <table class="datentabelle">
 <tr class="datentabelle">
-		<th class="datentabelle">User ID  </th>
 		<th class="datentabelle">Username </th>
 		<th class="datentabelle">Anteil </th>
 		<th class="datentabelle">Restbetrag </th>
@@ -40,8 +39,12 @@
 	?>
 
 		<tr class="datentabelle">
-			<td class="datentabelle"><?=$zahlungsteilnehmer->getUser()->getU_id()?></td>
-			<td class="datentabelle"><?=$zahlungsteilnehmer->getUser()->getUsername()?></td>
+			<?php if($zahlungsteilnehmer->getUser()->getU_id()==$_SESSION['user']->getU_id()) { ?>
+			<td class="datentabelle"><a href="http://132.231.36.206/profil"><?=$zahlungsteilnehmer->getUser()->getUsername()?></a></td> 
+			<?php } else {?>
+			<td class="datentabelle"> <a href="fremdesprofil?u_id=<?=$zahlungsteilnehmer->getUser()->getU_id()?>"><?=$zahlungsteilnehmer->getUser()->getUsername()?></a></td>
+			<?php }?>	
+			
 			<td class="datentabelle"><?=$zahlungsteilnehmer->getAnteil()?></td>
 			<td class="datentabelle"><?=$zahlungsteilnehmer->getRestbetrag()?></td>
 			<td class="datentabelle"><?=$zahlungsteilnehmer->getStatus()?></td>
@@ -56,10 +59,11 @@
 	</DIV>
 </table>
 <br>
+<?php  if($veraenderbar==true) {?>
 <h3>Aktionen:</h3>
 <a href="zahlungbearbeiten?z_id=<?=$zahlung[0]->getZ_id()?>&g_id=<?=$zahlung[0]->getGruppe()->getG_id()?>"><img src="img/edit.jpg" /></a>
 <a href="zahlungloeschen?z_id=<?=$zahlung[0]->getZ_id()?>&g_id=<?=$zahlung[0]->getGruppe()->getG_id()?>"><img src="img/delete.png" /></a>
-
+<?php }?>
 <!--  
 <form action="zahlungbearbeiten" method="post">
 <table>

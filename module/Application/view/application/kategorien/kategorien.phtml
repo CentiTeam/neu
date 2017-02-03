@@ -1,13 +1,25 @@
+<head>
+  <meta charset="UTF-8" /">
+
+  <!--weitere Angaben f�r den head-->
+
+  <script type="text/javascript" src="js/TableSort.js"></script>
+ </head>
+
 <?=$msg?>
 <h1>Kategorien</h1>
 <center>
-<table class="datentabelle" width="30%" border="0">
+<table class="datentabelle sortierbar" width="30%" border="0">
+<thead>
 <tr class="datentabelle" >
 
-<th class="datentabelle" > Kategorie-ID	</th>
-<th class="datentabelle" > Kategoriebeschreibung 	</th>
+<th class="datentabelle sortierbar" > Kategorie-ID	</th>
+<th class="datentabelle sortierbar" > Kategoriebeschreibung 	</th>
 
 </tr>
+</thead>
+
+<tbody>
 <?php 
 	foreach ($kategorieListe as $zaehler => $kategorie) {
 	?>
@@ -27,6 +39,7 @@
 </tr>
 		
 </tr>
+</tbody>
 </table>
 
 </center>
