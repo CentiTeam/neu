@@ -121,7 +121,8 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			
 			
 			if ($ersteller->getZahlungsempfaenger()->getU_id()==$user_id) {
-			
+				
+				// Abprüfen, ob die Zahlung bereits ganz oder teilweise beglichen worden ist
 				foreach ($teilnehmerliste as $zahlungsteilnehmer)
 				{
 					//In dem Fall, dass der Restbetrag nicht dem Anteil entspricht, ist die Zahlung teils oder ganz beglichen

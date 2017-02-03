@@ -45,11 +45,29 @@ class ZahlunganzeigenController extends AbstractActionController
 		$istTeilnehmer=false;
 		$veraenderbar==false;
 		
+		
+		$nochoffeneZahlungen=false;
+		
+		// Abprüfen, ob die Zahlung bereits ganz oder teilweise beglichen worden ist
+		foreach ($teilnehmerliste as $zahlungsteilnehmer)
+		{
+			//In dem Fall, dass der Restbetrag nicht dem Anteil entspricht, ist die Zahlung teils oder ganz beglichen
+			if ($zahlungsteilnehmer->getAnteil()!=$zahlungsteilnehmer->getRestbetrag() AND $zahlungsteilnehmer->getUser()->getU_id()!=$user_id)
+			{
+				$nochoffeneZahlungen=true;
+				$beglichen++;
+			}
+		}
+		
+		
+		
+		// Abprüfen, ob der Teilnehmer ersteller ist (wg. Edit- und Delete-Symbol)
 		foreach ($teilnehmerliste as $teilnehmer) {
+			
 			if ($aktuser_id==$teilnehmer->getUser()->getU_id() && $gruppen_id==$teilnehmer->getZahlung()->getGruppe()->getG_id()) {
 				$istTeilnehmer=true;
 				
-				if ($teilnehmer->getStatus()=="ersteller")
+				if ($teilnehmer->getStatus()=="ersteller" && $nochoffeneZahlungen==false)
 					$veraenderbar=true;
 			}
 		}
