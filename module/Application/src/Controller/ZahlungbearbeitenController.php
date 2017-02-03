@@ -264,8 +264,6 @@ class ZahlungbearbeitenController extends AbstractActionController {
 								
 								//Bisherige Zahlungsteilnehmer l�schen
 								Zahlungsteilnehmer::loeschen($zahlung->getZ_id());
-
-								var_dump($zahlung);
 									
 								$counter=0;
 								// Legt die zugeh�rigen Zahlungsteilnehmer Datens�tze an, au�er f�r sich selbst (info wird aber f�r Anteil ben�tigt!)
