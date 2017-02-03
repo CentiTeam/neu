@@ -134,15 +134,15 @@ $g_id = $_REQUEST['g_id'];
 			<?php }?>
 			<td><?=$gruppenmitglied->getUser()->getVorname()?></td>
 			<td><?=$gruppenmitglied->getUser()->getNachname()?></td>
-			<td class="untereinander"><a href="fremdesprofil?u_id=<?=$gruppenmitglied->getUser()->getU_id()?>"><?=$gruppenmitglied->getUser()->getUsername()?></a></td>
+			<td ><a href="fremdesprofil?u_id=<?=$gruppenmitglied->getUser()->getU_id()?>"><?=$gruppenmitglied->getUser()->getUsername()?></a></td>
 			
 			<?php
 			if ($gruppenmitglied->getGruppenadmin() == "1") {
 				?>
-					<td>ja</td>
+					<td class="untereinander">ja</td>
 			<?php } else {
 				?>
-					<td>nein</td> 
+					<td class="untereinander">nein</td> 
 			<?php 
 			}	
 			if ($aktgruppenmitglied->getGruppenadmin()=="1" && $aktgruppenmitglied != $gruppenmitglied && $gruppenmitglied->getUser()->getDeaktiviert()=="0") {
