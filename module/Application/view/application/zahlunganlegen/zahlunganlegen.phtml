@@ -18,7 +18,12 @@
 				foreach ($kategorieListe as $counter => $kategorie) {
 					if ($kategorie->getKategoriebeschreibung()=="Keine Kategorie") {
 						?>
-						<option selected value='<?=$kategorie->getK_id()?>'>
+						<option selected value='<?=$kategorie->getK_id()?>'
+						<?php // Die ausgewählte Kategorie wird wieder mitgeladen
+									if ($kategorie->getK_id() == $kategorie)
+										echo "selected='selected'";
+								?>
+						>
 						<?=$kategorie->getKategoriebeschreibung()?>
 						</option>						
 			<?php	} else {

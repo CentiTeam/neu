@@ -30,10 +30,6 @@ class ZahlungloeschenController extends AbstractActionController {
 		} else {
 			
 			
-			
-			
-			
-			
 			//Holen der z_id aus Formular
 			$z_id = $_REQUEST['z_id'];			
 			
@@ -84,6 +80,7 @@ class ZahlungloeschenController extends AbstractActionController {
 			}
 			// Berechtigungsprüfung Ende
 			$veraenderbar==false;
+			$schonbeglicheneZahlungen=false;
 			
 			
 			if ($ersteller->getZahlungsempfaenger()->getU_id()==$user_id) {
@@ -91,16 +88,20 @@ class ZahlungloeschenController extends AbstractActionController {
 				foreach ($teilnehmerliste as $zahlungsteilnehmer)
 				{
 					//In dem Fall, dass der Restbetrag nicht dem Anteil entspricht, ist die Zahlung teils oder ganz beglichen
-					if ($zahlungsteilnehmer->getAnteil()!=$zahlungsteilnehmer->getRestbetrag() AND $zahlungsteilnehmer->getUser()->getU_id()!=$user_id)
+					if ($zahlungsteilnehmer->getAnteil()!=$zahlungsteilnehmer->getRestbetrag() AND $zahlungsteilnehmer->getUser()->getU_id()!=$aktuser_id)
 					{
+						
 						$beglichen++;
+						$schonbeglicheneZahlungen=true;
+						
 					}
 				}
 				
 				//Wenn die Variable beglichen auf Null steht, kann die Zahlung gel�scht werden
-				if ($beglichen==0)
+				if ($beglichen==0 && $schonbeglicheneZahlungen==false)
 				{
-				
+					$veraenderbar=true;
+					
 					//F�r jeden Teilnehmer wird die L�schfunktion aufgerufen
 					foreach ($teilnehmerliste as $zahlungsteilnehmer)
 					{
@@ -149,6 +150,7 @@ class ZahlungloeschenController extends AbstractActionController {
 				{
 					$veraenderbar==false;
 					echo "Diese Zahlung wurde bereits teilweise oder vollst&aumlndig beglichen und kann daher nicht mehr bearbeitet werden";
+					
 					$view = new ViewModel([
 							'gruppe' => array($gruppe),
 							'errors' => $errors,
@@ -163,13 +165,16 @@ class ZahlungloeschenController extends AbstractActionController {
 				}
 			}
 			else {
+				$veraenderbar=false;
 				echo "Sie k&oumlnnen diese Zahlung nicht l&oumlschen, da Sie sie nicht erstellt haben";
+				
 				$view = new ViewModel([
 						'gruppe' => array($gruppe),
 						'errors' => $errors,
 						'msg' => $msg,
 						'zahlung' => array($zahlung),
-						'teilnehmerliste' => $teilnehmerliste
+						'teilnehmerliste' => $teilnehmerliste,
+						'veraenderbar' => $veraenderbar
 				]);
 				
 				$view->setTemplate('application/zahlunganzeigen/zahlunganzeigen.phtml');
@@ -181,7 +186,8 @@ class ZahlungloeschenController extends AbstractActionController {
 					'errors' => $errors,
 					'msg' => $msg,
 					'zahlung' => array($zahlung),
-					'teilnehmerliste' => $teilnehmerliste
+					'teilnehmerliste' => $teilnehmerliste,
+					'veraenderbar' => $veraenderbar
 			]);
 			
 			$view->setTemplate('application/zahlunganzeigen/zahlunganzeigen.phtml');

@@ -357,6 +357,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 				else {
 					$veraenderbar=false;
 					echo "Diese Zahlung wurde bereits teilweise oder vollst&aumlndig beglichen und kann daher nicht mehr bearbeitet werden";
+					
 					$view = new ViewModel([
 							'gruppe' => array($gruppe),
 							'errors' => $errors,
@@ -371,7 +372,9 @@ class ZahlungbearbeitenController extends AbstractActionController {
 				}
 			}
 			else {
+				$veraenderbar=false;
 				echo "Sie k&oumlnnen diese Zahlung nicht bearbeiten, da Sie sie nicht erstellt haben";
+				
 				$view = new ViewModel([
 						'gruppe' => array($gruppe),
 						'errors' => $errors,
