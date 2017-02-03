@@ -42,8 +42,6 @@ class ZahlungbearbeitenController extends AbstractActionController {
 		$gruppen_id=$_REQUEST['g_id'];
 		$istTeilnehmer=false;
 		
-		echo $zahlung->getZ_id();
-		
 		foreach ($teilnehmerliste as $teilnehmer) {
 			if ($aktuser_id==$teilnehmer->getUser()->getU_id() && $gruppen_id==$teilnehmer->getZahlung()->getGruppe()->getG_id()) {
 				$istTeilnehmer=true;
@@ -267,6 +265,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 								//Bisherige Zahlungsteilnehmer l�schen
 								Zahlungsteilnehmer::loeschen($zahlung->getZ_id());
 
+								var_dump($zahlung);
 									
 								$counter=0;
 								// Legt die zugeh�rigen Zahlungsteilnehmer Datens�tze an, au�er f�r sich selbst (info wird aber f�r Anteil ben�tigt!)
