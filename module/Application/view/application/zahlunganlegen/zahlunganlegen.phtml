@@ -18,17 +18,17 @@
 				foreach ($kategorieListe as $counter => $kategorie) {
 					if ($kategorie->getKategoriebeschreibung()=="Keine Kategorie") {
 						?>
-						<option selected value='<?=$kategorie->getK_id()?>'
-						<?php // Die ausgewählte Kategorie wird wieder mitgeladen
-									if ($kategorie->getK_id() == $zahlung[0]->getKategorie()->getK_id())
-										echo "selected='selected'";
-								?>
-						>
+						<option selected value='<?=$kategorie->getK_id()?>'>
 						<?=$kategorie->getKategoriebeschreibung()?>
 						</option>						
 			<?php	} else {
 				?>
-					<option value='<?=$kategorie->getK_id()?>'>
+					<option value='<?=$kategorie->getK_id()?>'
+					<?php // Die ausgewählte Kategorie wird wieder mitgeladen
+									if ($kategorie->getK_id() == $zahlung[0]->getKategorie()->getK_id())
+										echo "selected='selected'";
+								?>
+								>
 						<?=$kategorie->getKategoriebeschreibung()?>
 					</option>
 				<?php 
