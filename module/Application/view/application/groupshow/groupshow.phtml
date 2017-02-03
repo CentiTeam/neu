@@ -111,38 +111,40 @@ $g_id = $_REQUEST['g_id'];
 
 
 <table style="border-collapse: separate; border-spacing: 15px;">
+	<thead>
 	<tr><th>Gruppenmitglieder:</th></tr>
-		<tr class="untereinander">
-			<th class="untereinander"></th>
-			<th class="untereinander">Vorname</th>
-			<th class="untereinander">Nachname</th>
-			<th class="untereinander">Benutzername</th>
-			<th class="untereinander">Gruppenadmin</th>
-			<th class="untereinander"></th>
+		<tr>
+			<th></th>
+			<th>Vorname</th>
+			<th>Nachname</th>
+			<th>Benutzername</th>
+			<th>Gruppenadmin</th>
+			<th></th>
 		</tr>
+	</thead>
 	
-	
+	<tbody>
 	<?php 
 	foreach ($mitgliederListe as $zaehler => $gruppenmitglied) {
 	?>
 		
-		<tr class="untereinander">
+		<tr>
 			<?php if ($gruppenmitglied->getUser()->getU_id()==$aktgruppenmitglied->getUser()->getU_id()) { ?>
-				<td class="untereinander"><div class="small-circular-image"><img src =<?=$gruppenmitglied->getUser()->getTeilnehmerbildpfad()?> height = "100" width = "100" alt = "Kein Bild vorhanden"></div></td>
+				<td><div class="small-circular-image"><img src =<?=$gruppenmitglied->getUser()->getTeilnehmerbildpfad()?> height = "100" width = "100" alt = "Kein Bild vorhanden"></div></td>
 			<?php } else { ?>
-				<td class="untereinander"><div class="small-circular-image"><a href="fremdesprofil?u_id=<?=$gruppenmitglied->getUser()->getU_id()?>"><img src =<?=$gruppenmitglied->getUser()->getTeilnehmerbildpfad()?> height = "100" width = "100" alt = "Kein Bild vorhanden"></a></div></td>
+				<td><div class="small-circular-image"><a href="fremdesprofil?u_id=<?=$gruppenmitglied->getUser()->getU_id()?>"><img src =<?=$gruppenmitglied->getUser()->getTeilnehmerbildpfad()?> height = "100" width = "100" alt = "Kein Bild vorhanden"></a></div></td>
 			<?php }?>
-			<td class="untereinander"><?=$gruppenmitglied->getUser()->getVorname()?></td>
-			<td class="untereinander"><?=$gruppenmitglied->getUser()->getNachname()?></td>
-			<td class="untereinander"><a href="fremdesprofil?u_id=<?=$gruppenmitglied->getUser()->getU_id()?>"><?=$gruppenmitglied->getUser()->getUsername()?></a></td>
+			<td data-label="Vorname"><?=$gruppenmitglied->getUser()->getVorname()?></td>
+			<td data-label="Nachname"><?=$gruppenmitglied->getUser()->getNachname()?></td>
+			<td data-label="Benutzername"><a href="fremdesprofil?u_id=<?=$gruppenmitglied->getUser()->getU_id()?>"><?=$gruppenmitglied->getUser()->getUsername()?></a></td>
 			
 			<?php
 			if ($gruppenmitglied->getGruppenadmin() == "1") {
 				?>
-					<td class="untereinander">ja</td>
+					<td data-label="Gruppenadmin">ja</td>
 			<?php } else {
 				?>
-					<td class="untereinander">nein</td> 
+					<td data-label="Gruppenadmin">nein</td> 
 			<?php 
 			}	
 			if ($aktgruppenmitglied->getGruppenadmin()=="1" && $aktgruppenmitglied != $gruppenmitglied && $gruppenmitglied->getUser()->getDeaktiviert()=="0") {
@@ -162,13 +164,14 @@ $g_id = $_REQUEST['g_id'];
 			
 			<?php }
 			if ($gruppenmitglied->getUser()->getDeaktiviert()=="1") {?>
-			<td class="untereinander">User ist deaktiviert!</td>
+			<td>User ist deaktiviert!</td>
 			<?php }?>
 		</tr>
 
 	<?php 
 	}
 	?>
+	</tbody>
 	</table>
 	
 <br><br><br>
