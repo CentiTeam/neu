@@ -93,7 +93,9 @@ class StatistikenController extends AbstractActionController
   					'saldo' => $saldo,
   					'gruppenliste' => $gruppenliste,
   					'gruppe' => $g_id,
-  					'k_id' => $k_id
+  					'k_id' => $k_id,
+  					'beforeDate' => $beforeDate,
+  					'afterDate' => $afterDate
   			]);
   			
 
