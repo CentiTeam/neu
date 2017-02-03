@@ -42,6 +42,8 @@ class ZahlungbearbeitenController extends AbstractActionController {
 		$gruppen_id=$_REQUEST['g_id'];
 		$istTeilnehmer=false;
 		
+		echo $zahlung->getZ_id();
+		
 		foreach ($teilnehmerliste as $teilnehmer) {
 			if ($aktuser_id==$teilnehmer->getUser()->getU_id() && $gruppen_id==$teilnehmer->getZahlung()->getGruppe()->getG_id()) {
 				$istTeilnehmer=true;
