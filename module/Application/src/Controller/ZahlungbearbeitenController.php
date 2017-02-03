@@ -116,9 +116,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 			}
 			
 			
-			
-			
-			
+			$nochoffeneZahlungen=false;
 			
 			if ($ersteller->getZahlungsempfaenger()->getU_id()==$user_id) {
 				
@@ -129,6 +127,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 					if ($zahlungsteilnehmer->getAnteil()!=$zahlungsteilnehmer->getRestbetrag() AND $zahlungsteilnehmer->getUser()->getU_id()!=$user_id)
 					{
 						$beglichen++;
+						$nochoffeneZahlungen=true;
 					}
 				}
 			
@@ -152,9 +151,10 @@ class ZahlungbearbeitenController extends AbstractActionController {
 				$veraenderbar=false;
 			
 				//Wenn die Variable beglichen auf Null steht, kann die Zahlung bearbeitet werden
-				if ($beglichen==0)
-				{
-			
+				if ($beglichen==0 && $ersteller->getUser()->getU_id()==$aktuser_id) {
+					
+					$veraenderbar=true;
+					
 					if ($_REQUEST['speichern']) {
 				
 				
@@ -377,7 +377,8 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						'errors' => $errors,
 						'msg' => $msg,
 						'zahlung' => array($zahlung),
-						'teilnehmerliste' => $teilnehmerliste
+						'teilnehmerliste' => $teilnehmerliste,
+						'veraenderbar' => $veraenderbar
 				]);
 				
 				$view->setTemplate('application/zahlunganzeigen/zahlunganzeigen.phtml');
@@ -394,7 +395,8 @@ class ZahlungbearbeitenController extends AbstractActionController {
 					'mitgliederListe' => $mitgliederliste,
 					'erstellungsdatum' => $erstellungsdatum,
 					'zahlung' => array($zahlung),
-					'zahlungsteilnehmerliste' => $zahlungsteilnehmerliste
+					'zahlungsteilnehmerliste' => $zahlungsteilnehmerliste,
+					'veraenderbar' => $veraenderbar
 			]);
 		}
 	}

@@ -46,7 +46,7 @@ class ZahlunganzeigenController extends AbstractActionController
 		$veraenderbar==false;
 		
 		
-		$nochoffeneZahlungen=false;
+		$schonbeglicheneZahlungen=false;
 		
 		// Abprüfen, ob die Zahlung bereits ganz oder teilweise beglichen worden ist
 		foreach ($teilnehmerliste as $zahlungsteilnehmer)
@@ -54,7 +54,7 @@ class ZahlunganzeigenController extends AbstractActionController
 			//In dem Fall, dass der Restbetrag nicht dem Anteil entspricht, ist die Zahlung teils oder ganz beglichen
 			if ($zahlungsteilnehmer->getAnteil()!=$zahlungsteilnehmer->getRestbetrag() AND $zahlungsteilnehmer->getUser()->getU_id()!=$user_id)
 			{
-				$nochoffeneZahlungen=true;
+				$schonbeglicheneZahlungen=true;
 				$beglichen++;
 			}
 		}
@@ -67,7 +67,8 @@ class ZahlunganzeigenController extends AbstractActionController
 			if ($aktuser_id==$teilnehmer->getUser()->getU_id() && $gruppen_id==$teilnehmer->getZahlung()->getGruppe()->getG_id()) {
 				$istTeilnehmer=true;
 				
-				if ($teilnehmer->getStatus()=="ersteller" && $nochoffeneZahlungen==false)
+				echo "Hallo";
+				if ($teilnehmer->getStatus()=="ersteller" && $schonbeglicheneZahlungen==false)
 					$veraenderbar=true;
 			}
 		}
