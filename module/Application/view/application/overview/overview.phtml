@@ -38,8 +38,6 @@
 <a class="button" onclick="text1.style.display='none';an.style.display='block';zu.style.display='none'" id="zu" style="display: none; text-align:center" href="#neu">Ausblenden</a>
 <a name="neu"></a><DIV id="text1" style="display: none">
 
-
-<div style="overflow-x:auto">
 <table class="datentabelle sortierbar" width="80%">
 <thead class="datentabelle">
   <tr class="datentabelle">
@@ -66,7 +64,6 @@
   <?php }?>
 </tbody>
 </table>
-</div>
 </DIV>
 <br>
 <br>
@@ -79,12 +76,12 @@
 <a class="button" onclick="text2.style.display='none';an2.style.display='block';zu2.style.display='none'" id="zu2" style="display: none; text-align:center" href="#neu2">Ausblenden</a>
 <a name="neu2"></a><DIV id="text2" style="display: none">
 
-<table class="datentabelle sortierbar" width="80%">
+<table class="datentabelle sortierbar" style="width:100%">
 <thead class="datentabelle">
   <tr class="datentabelle">
-    <th class="datentabelle sortierbar" width="15%">Gruppe</th>
-    <th class="datentabelle sortierbar" width="15%">Absender</th>
-    <th class="datentabelle sortierbar" width="15%">Datum</th>
+    <th class="datentabelle sortierbar" >Gruppe</th>
+    <th class="datentabelle sortierbar" >Absender</th>
+    <th class="datentabelle sortierbar" >Datum</th>
     <th class="datentabelle sortierbar">Nachricht</th>
   </tr>
  </thead>
@@ -93,7 +90,7 @@
   <?php foreach ($aktnachricht as $zaehler => $nachricht) {?>
   
   <tr class="datentabelle">
-    <td class="datentabelle" height="45"><?=$nachricht->getGruppe()->getGruppenname()?></td>
+    <td class="datentabelle"><?=$nachricht->getGruppe()->getGruppenname()?></td>
     <td class="datentabelle"><?=$nachricht->getUser()->getUsername()?></td>
     <td class="datentabelle"><?=$nachricht->getdatum()?> 
     <td class="datentabelle"><?=$nachricht->getText()?></td>
