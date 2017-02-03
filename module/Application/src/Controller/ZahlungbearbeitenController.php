@@ -285,6 +285,13 @@ class ZahlungbearbeitenController extends AbstractActionController {
 
 										$zahlungs_id=$zahlung->getZ_id();
 										
+										// Wenn der Ersteller nicht mitzahlt
+										if($anteile[$counter]) {
+											$anteil=$anteile[$counter];
+										} else {
+											$anteil="0";
+										}
+										
 										if($value == $user_id) {
 											//Der Status bei dem, der die Zahlung erstellt hat ist "ersteller", dies erleichtert die nachtr�gliche Bearbeitung von
 											//Zahlungen, da Zahlungen nur bearbeitet werden d�rfen, wenn sie nicht den Status "beglichen" Aufweisen.
@@ -296,12 +303,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 								 		$restbetrag=$anteil;
 										}
 										
-										// Wenn der Ersteller nicht mitzahlt
-										if($anteile[$counter]) {
-											$anteil=$anteile[$counter];
-										} else {
-											$anteil="0";
-										}
+
 
 										$zahlungsempfaenger=$_SESSION['user'];
 
