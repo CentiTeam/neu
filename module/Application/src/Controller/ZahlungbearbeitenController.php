@@ -258,7 +258,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 								$saved = true;
 
 								// Neue Z_id durch Laden der neu erstellten Gruppe ins Objekt laden
-								$zahlung->laden();
+								$zahlung->laden($z_id);
 								
 								// hier war der Code nach if ($_REQUEST['speichern']) { zuvor
 								
