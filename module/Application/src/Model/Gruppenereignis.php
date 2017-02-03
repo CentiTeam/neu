@@ -290,8 +290,8 @@ class Gruppenereignis{
 	
 	
 	
-	// Wird gebraucht
-	public function gruppenmitgliedbeitretenEreignis($gruppe, $user){
+	// User hat Einladung in Gruppe angenommen
+	public static function gruppenmitgliedbeitretenEreignis($gruppe, $user){
 	
 		$ereignisbeschreibung = "Der Benutzer ".$user->getUsername()." ist der Gruppe beigetreten";
 		// Datenbankstatement erzeugen
@@ -303,7 +303,7 @@ class Gruppenereignis{
 	}
 	
 	// Wird gebraucht
-	public function gruppenmitgliedaustretenEreignis($user, $gruppe){
+	public static function gruppenmitgliedaustretenEreignis($user, $gruppe){
 	
 		$ereignisbeschreibung = "Der Benutzer ".$user->getUsername()." ist aus der Gruppe ausgetreten";
 		// Datenbankstatement erzeugen
