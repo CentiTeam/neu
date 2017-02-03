@@ -67,9 +67,11 @@ class ZahlunganzeigenController extends AbstractActionController
 			if ($aktuser_id==$teilnehmer->getUser()->getU_id() && $gruppen_id==$teilnehmer->getZahlung()->getGruppe()->getG_id()) {
 				$istTeilnehmer=true;
 				
-				echo "Hallo";
-				if ($teilnehmer->getStatus()=="ersteller" && $schonbeglicheneZahlungen==false)
+	
+				if ($teilnehmer->getStatus()=="ersteller" && $schonbeglicheneZahlungen==false) {
 					$veraenderbar=true;
+					echo "Hallo";
+				}
 			}
 		}
 		
