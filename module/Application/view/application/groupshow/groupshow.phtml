@@ -135,6 +135,7 @@ $g_id = $_REQUEST['g_id'];
 			<td><?=$gruppenmitglied->getUser()->getVorname()?></td>
 			<td><?=$gruppenmitglied->getUser()->getNachname()?></td>
 			<td><a href="fremdesprofil?u_id=<?=$gruppenmitglied->getUser()->getU_id()?>"><?=$gruppenmitglied->getUser()->getUsername()?></a></td>
+			
 			<?php
 			if ($gruppenmitglied->getGruppenadmin() == "1") {
 				?>
@@ -150,18 +151,18 @@ $g_id = $_REQUEST['g_id'];
 			<input type="hidden" name="gruppenadminwert" value="<?=$gruppenmitglied->getGruppenadmin()?>">
 			<input type="hidden" name="g_id" value="<?=$gruppenmitglied->getGruppe()->getG_id()?>">
 			<input type="hidden" name="u_id" value="<?=$gruppenmitglied->getUser()->getU_id()?>">
-			<td><input class="button" type="submit" name="gruppenadmin" value="Gruppenadminrechte &auml;ndern"></td>
+			<td class="untereinander"><input class="button" type="submit" name="gruppenadmin" value="Gruppenadminrechte &auml;ndern"></td>
 			</form>
 			
 			<form action="userausgruppeentfernen" method="post"> 
 			<input type="hidden" name="g_id" value="<?=$gruppenmitglied->getGruppe()->getG_id()?>">
 			<input type="hidden" name="u_id" value="<?=$gruppenmitglied->getUser()->getU_id()?>">
-			<td><input class="button" type="submit" name="userentfernen" value="Aus Gruppe entfernen"></td>
+			<td class="untereinander"><input class="button" type="submit" name="userentfernen" value="Aus Gruppe entfernen"></td>
 			</form>
 			
 			<?php }
 			if ($gruppenmitglied->getUser()->getDeaktiviert()=="1") {?>
-			<td>User ist deaktiviert!</td>
+			<td class="untereinander">User ist deaktiviert!</td>
 			<?php }?>
 		</tr>
 
