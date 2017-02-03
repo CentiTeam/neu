@@ -20,7 +20,7 @@ use Application\Model\Zahlungsteilnehmer;?>
 <?php } ?>
 
 <form action="statistiken" method="post">
-
+<table>
 <tr><td>Kategorie: </td><td>
 	<select name="kategorie">
 		<option value=''>alle Kategorien</option>
@@ -76,10 +76,10 @@ use Application\Model\Zahlungsteilnehmer;?>
 
 </tr>
 
+
 <p></p>
-		<table>
-		<td><input class="button" type="submit" name="filteranwenden" value="Filtern"></td> </tr>
-		</table>
+	<tr><td><input class="button" type="submit" name="filteranwenden" value="Filtern"></td></tr>
+</table>
 	</form>	
 
 
