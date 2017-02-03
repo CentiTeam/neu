@@ -158,7 +158,7 @@ class GruppeanlegenController extends AbstractActionController {
 
 				 }
 				 
-				 $gruppenListe=Gruppenmitglied::eigenelisteholen($user_id);
+				 $gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
 				 
 				 // Hier die Groupoverview zurückgeben statt wie unten Groupshow
 				 $view = new ViewModel([
