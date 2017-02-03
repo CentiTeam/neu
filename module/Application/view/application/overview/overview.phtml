@@ -41,11 +41,11 @@
 <table class="datentabelle sortierbar" style="width:80%">
 <thead class="datentabelle">
   <tr class="datentabelle">
-    <th class="datentabelle sortierbar" width="12%">Gruppe</th>
+    <th class="datentabelle sortierbar" >Gruppe</th>
     <th class="datentabelle sortierbar">Zahlungsbeschreibung</th>
     <th class="datentabelle sortierbar">Zahlungsdatum</th>
-    <th class="datentabelle sortierbar" width="7%">Betrag</th>
-    <th class="datentabelle sortierbar" width="12%">Kategorie</th>
+    <th class="datentabelle sortierbar" >Betrag</th>
+    <th class="datentabelle sortierbar" >Kategorie</th>
     <th class="datentabelle sortierbar">Erstellungsdatum</th>
   </tr>
 </thead>  
@@ -54,7 +54,7 @@
 	<?php foreach ($aktzahlung as $zaehler => $zahlung) {?>
 
   <tr class="datentabelle">
-    <td class="datentabelle" height="45"><?=$zahlung->getGruppe()->getGruppenname()?></td>
+    <td class="datentabelle" ><?=$zahlung->getGruppe()->getGruppenname()?></td>
     <td class="datentabelle"><?=$zahlung->getZahlungsbeschreibung()?></td>
     <td class="datentabelle"><?=$zahlung->getZahlungsdatum()?></td>
     <td class="datentabelle" align="center"><?=$zahlung->getBetrag()?></td>
