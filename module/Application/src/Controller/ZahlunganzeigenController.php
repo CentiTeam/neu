@@ -45,6 +45,7 @@ class ZahlunganzeigenController extends AbstractActionController
 		$istTeilnehmer=false;
 		$veraenderbar==false;
 		
+		echo $zahlung->getZ_id();
 		
 		$schonbeglicheneZahlungen=false;
 		
