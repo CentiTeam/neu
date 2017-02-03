@@ -311,6 +311,7 @@ class ZahlunganlegenController extends AbstractActionController {
 					'mitgliederListe' => $mitgliederliste,
 					'erstellungsdatum' => $erstellungsdatum,
 					'zahlung' => array($zahlung),
+					'k_id' => $kategorie_id,
 					'err' => $errorStr
 			]);
 		}
