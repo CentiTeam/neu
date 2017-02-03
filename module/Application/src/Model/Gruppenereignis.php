@@ -88,20 +88,6 @@ class Gruppenereignis{
 		return $isLoaded;
 	}
 	
-
-	// Ein User wurde von einem Admin aus der Gruppe entfernt
-	public static function userausgruppeentfernenEreignis($gruppenmitglied){
-	
-		$ereignisbeschreibung = "Der Benutzer ".$gruppenmitglied->getUser()->getUsername()." wurde aus der Gruppe ".$gruppenmitglied->getGruppe()->getGruppenname()." vom Admin entfernt";
-		// Datenbankstatement erzeugen
-		$dbStmt = new DB_connection();
-	
-		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
-		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppenmitglied->getGruppe()->getG_id()."', '".$ereignisbeschreibung."', NOW());");
-	
-	}
-	
-	
 	
 
 	
@@ -304,7 +290,7 @@ class Gruppenereignis{
 	
 	
 	
-	
+	// Wird gebraucht
 	public function gruppenmitgliedbeitretenEreignis($gruppe, $user){
 	
 		$ereignisbeschreibung = "Der Benutzer ".$user->getUsername()." ist der Gruppe beigetreten";
@@ -316,7 +302,7 @@ class Gruppenereignis{
 	
 	}
 	
-	/**
+	// Wird gebraucht
 	public function gruppenmitgliedaustretenEreignis($user, $gruppe){
 	
 		$ereignisbeschreibung = "Der Benutzer ".$user->getUsername()." ist aus der Gruppe ausgetreten";
@@ -328,6 +314,20 @@ class Gruppenereignis{
 	
 	}
 	
+	// Ein User wurde von einem Admin aus der Gruppe entfernt
+	public static function userausgruppeentfernenEreignis($gruppenmitglied){
+	
+		$ereignisbeschreibung = "Der Benutzer ".$gruppenmitglied->getUser()->getUsername()." wurde aus der Gruppe ".$gruppenmitglied->getGruppe()->getGruppenname()." vom Admin entfernt";
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+	
+		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
+		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppenmitglied->getGruppe()->getG_id()."', '".$ereignisbeschreibung."', NOW());");
+	
+	} 
+	
+	
+	/** Wurde durch 'userausgruppeentfernenEreignis($gruppenmitglied)' ersetzt
 	public function gruppenmitgliedloeschenEreignis($user, $gruppe){
 	
 		$ereignisbeschreibung = "Der Benutzer ".$user->getUsername()." wurde aus dem System geloescht";
