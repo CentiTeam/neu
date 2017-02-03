@@ -110,41 +110,41 @@ $g_id = $_REQUEST['g_id'];
 <!--  Anzeige der Gruppenmitglieder mit fremden Profilaufruf und Adminrechten -->
 
 
-<table style="border-collapse: separate; border-spacing: 15px;">
-	<thead>
-	<tr><th>Gruppenmitglieder:</th></tr>
-		<tr>
-			<th></th>
-			<th>Vorname</th>
-			<th>Nachname</th>
-			<th>Benutzername</th>
-			<th>Gruppenadmin</th>
-			<th></th>
+<table class="datenuntereinander" style="border-collapse: separate; border-spacing: 15px;">
+	<thead class="datenuntereinander">
+	<tr class="datenuntereinander"><th class="datenuntereinander">Gruppenmitglieder:</th></tr>
+		<tr class="datenuntereinander">
+			<th class="datenuntereinander"></th>
+			<th class="datenuntereinander">Vorname</th>
+			<th class="datenuntereinander">Nachname</th>
+			<th class="datenuntereinander">Benutzername</th>
+			<th class="datenuntereinander">Gruppenadmin</th>
+			<th class="datenuntereinander"></th>
 		</tr>
 	</thead>
 	
-	<tbody>
+	<tbody class="datenuntereinander">
 	<?php 
 	foreach ($mitgliederListe as $zaehler => $gruppenmitglied) {
 	?>
 		
-		<tr>
+		<tr class="datenuntereinander">
 			<?php if ($gruppenmitglied->getUser()->getU_id()==$aktgruppenmitglied->getUser()->getU_id()) { ?>
-				<td><div class="small-circular-image"><img src =<?=$gruppenmitglied->getUser()->getTeilnehmerbildpfad()?> height = "100" width = "100" alt = "Kein Bild vorhanden"></div></td>
+				<td class="datenuntereinander"><div class="small-circular-image"><img src =<?=$gruppenmitglied->getUser()->getTeilnehmerbildpfad()?> height = "100" width = "100" alt = "Kein Bild vorhanden"></div></td>
 			<?php } else { ?>
-				<td><div class="small-circular-image"><a href="fremdesprofil?u_id=<?=$gruppenmitglied->getUser()->getU_id()?>"><img src =<?=$gruppenmitglied->getUser()->getTeilnehmerbildpfad()?> height = "100" width = "100" alt = "Kein Bild vorhanden"></a></div></td>
+				<td class="datenuntereinander"><div class="small-circular-image"><a href="fremdesprofil?u_id=<?=$gruppenmitglied->getUser()->getU_id()?>"><img src =<?=$gruppenmitglied->getUser()->getTeilnehmerbildpfad()?> height = "100" width = "100" alt = "Kein Bild vorhanden"></a></div></td>
 			<?php }?>
-			<td data-label="Vorname"><?=$gruppenmitglied->getUser()->getVorname()?></td>
-			<td data-label="Nachname"><?=$gruppenmitglied->getUser()->getNachname()?></td>
-			<td data-label="Benutzername"><a href="fremdesprofil?u_id=<?=$gruppenmitglied->getUser()->getU_id()?>"><?=$gruppenmitglied->getUser()->getUsername()?></a></td>
+			<td class="datenuntereinander" data-label="Vorname"><?=$gruppenmitglied->getUser()->getVorname()?></td>
+			<td class="datenuntereinander" data-label="Nachname"><?=$gruppenmitglied->getUser()->getNachname()?></td>
+			<td class="datenuntereinander" data-label="Benutzername"><a href="fremdesprofil?u_id=<?=$gruppenmitglied->getUser()->getU_id()?>"><?=$gruppenmitglied->getUser()->getUsername()?></a></td>
 			
 			<?php
 			if ($gruppenmitglied->getGruppenadmin() == "1") {
 				?>
-					<td data-label="Gruppenadmin">ja</td>
+					<td class="datenuntereinander" data-label="Gruppenadmin">ja</td>
 			<?php } else {
 				?>
-					<td data-label="Gruppenadmin">nein</td> 
+					<td class="datenuntereinander" data-label="Gruppenadmin">nein</td> 
 			<?php 
 			}	
 			if ($aktgruppenmitglied->getGruppenadmin()=="1" && $aktgruppenmitglied != $gruppenmitglied && $gruppenmitglied->getUser()->getDeaktiviert()=="0") {
@@ -153,18 +153,18 @@ $g_id = $_REQUEST['g_id'];
 			<input type="hidden" name="gruppenadminwert" value="<?=$gruppenmitglied->getGruppenadmin()?>">
 			<input type="hidden" name="g_id" value="<?=$gruppenmitglied->getGruppe()->getG_id()?>">
 			<input type="hidden" name="u_id" value="<?=$gruppenmitglied->getUser()->getU_id()?>">
-			<td class="untereinander"><input class="button" type="submit" name="gruppenadmin" value="Gruppenadminrechte &auml;ndern"></td>
+			<td class="datenuntereinander"><input class="button" type="submit" name="gruppenadmin" value="Gruppenadminrechte &auml;ndern"></td>
 			</form>
 			
 			<form action="userausgruppeentfernen" method="post"> 
 			<input type="hidden" name="g_id" value="<?=$gruppenmitglied->getGruppe()->getG_id()?>">
 			<input type="hidden" name="u_id" value="<?=$gruppenmitglied->getUser()->getU_id()?>">
-			<td class="untereinander"><input class="button" type="submit" name="userentfernen" value="Aus Gruppe entfernen"></td>
+			<td class="datenuntereinander"><input class="button" type="submit" name="userentfernen" value="Aus Gruppe entfernen"></td>
 			</form>
 			
 			<?php }
 			if ($gruppenmitglied->getUser()->getDeaktiviert()=="1") {?>
-			<td>User ist deaktiviert!</td>
+			<td class="datenuntereinander">User ist deaktiviert!</td>
 			<?php }?>
 		</tr>
 

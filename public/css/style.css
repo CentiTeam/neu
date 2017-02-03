@@ -229,32 +229,32 @@ tbody.datentabelle:hover tr.datentabelle:hover td.datentabelle  {
  		display: block;
 	}
  
-table {
+table.datenuntereinander {
 border: 0;
 }
  
-table thead {
+table.datenuntereinander thead.datenuntereinander {
 display: none;
 }
  
-table tr {
+table.datenuntereinander tr.datenuntereinander {
 margin-bottom: 10px;
 display: block;
 border-bottom: 2px solid #ddd;
 }
  
-table td {
+table.datenuntereinander td.datenuntereinander {
 display: block;
 text-align: right;
 font-size: 13px;
 border-bottom: 1px dotted #ccc;
 }
  
-table td:last-child {
+table.datenuntereinander td.datenuntereinander:last-child {
 border-bottom: 0;
 }
  
-table td:before {
+table.datenuntereinander td.datenuntereinander:before {
 content: attr(data-label);
 float: left;
 text-transform: uppercase;
