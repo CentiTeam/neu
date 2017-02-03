@@ -2,10 +2,10 @@
 
 <h3><?=$user[0]->getUsername()?>'s Profil</h3>
 
-	<table style="width:100%">	
+	<table>	
 		<tr><th></th><th></th><th><th></tr>
-		<tr><td style="width:75px"><i>Name: </i></td><td><?=$user[0]->getVorname()?> <?=$user[0]->getNachname()?></td><td rowspan=2 width="200px" align="center"><div class="big-circular-image"><img src =<?=$user[0]->getTeilnehmerbildpfad()?> height = "100" width = "100" alt = "Kein Bild vorhanden"></div></td></tr>
-		<tr><td style="width:75px"><i>E-Mail: </i></td><td><?=$user[0]->getEmail()?></td></tr>
+		<tr><td width="50"><i>Name: </i></td><td><?=$user[0]->getVorname()?> <?=$user[0]->getNachname()?></td><td rowspan=2 width="300" align="center"><div class="big-circular-image"><img src =<?=$user[0]->getTeilnehmerbildpfad()?> height = "100" width = "100" alt = "Kein Bild vorhanden"></div></td></tr>
+		<tr><td width="50"><i>E-Mail: </i></td><td><?=$user[0]->getEmail()?></td></tr>
 		<tr><td></td></tr>
 		<tr><td></td><td></td><td width="300" align="center">	<form enctype="multipart/form-data" method="POST">
 									<input type="file" name="uploadedfile" />
