@@ -66,6 +66,8 @@ class StatistikenController extends AbstractActionController
   					$zahlungenliste = $this->katFilter($zahlungenliste, $_REQUEST["kategorie"]);
   				}
   				if($_REQUEST["afterdate"] != null || $_REQUEST["beforedate"] != null){
+  					$beforeDate=$_REQUEST["beforedate"];
+  					$afterDate=$_REQUEST["afterdate"];
   					$zahlungenliste = $this->datFilter($zahlungenliste,$_REQUEST["afterdate"], $_REQUEST["beforedate"]);
   				}
   				
