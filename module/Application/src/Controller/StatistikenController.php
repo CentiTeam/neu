@@ -81,6 +81,7 @@ class StatistikenController extends AbstractActionController
   			
   			// Die ausgewählte Gruppen_id wird wieder mitgeladen 
   			$g_id=$_REQUEST["gruppe"];
+  			$k_id=$_REQUEST["kategorie"];
   				
   			return new ViewModel([
   					'zahlungenliste' => $zahlungenliste,
@@ -89,7 +90,8 @@ class StatistikenController extends AbstractActionController
   					'katzahlungen' => $katzahlungen,
   					'saldo' => $saldo,
   					'gruppenliste' => $gruppenliste,
-  					'gruppe' => $g_id
+  					'gruppe' => $g_id,
+  					'k_id' => $k_id
   			]);
   			
 
