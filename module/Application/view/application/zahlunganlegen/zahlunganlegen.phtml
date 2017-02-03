@@ -24,8 +24,11 @@
 			<?php	} else {
 				?>
 					<option value='<?=$kategorie->getK_id()?>'
-					
-								>
+						<?php // Die ausgewählte Kategorie wird wieder mitgeladen
+									if ($kategorie->getK_id() == $zahlung[0]->getKategorie()->getK_id())
+										echo "selected='selected'";
+							?>
+					>
 						<?=$kategorie->getKategoriebeschreibung()?>
 					</option>
 				<?php 
