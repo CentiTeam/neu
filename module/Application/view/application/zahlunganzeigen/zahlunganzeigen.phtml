@@ -40,11 +40,10 @@
 
 		<tr class="datentabelle">
 			<?php if($zahlungsteilnehmer->getUser()->getU_id()==$_SESSION['user']->getU_id()) { ?>
-			<td class="datentabelle"><a href="http://132.231.36.206/profil"></a><?=$zahlungsteilnehmer->getUser()->getUsername()?></td> 
+			<td class="datentabelle"><a href="http://132.231.36.206/profil"><?=$zahlungsteilnehmer->getUser()->getUsername()?></a></td> 
 			<?php } else {?>
 			<td class="datentabelle"> <a href="fremdesprofil?u_id=<?=$zahlungsteilnehmer->getUser()->getU_id()?>"><?=$zahlungsteilnehmer->getUser()->getUsername()?></a></td>
-			<?php }?>
-			
+			<?php }?>	
 			
 			<td class="datentabelle"><?=$zahlungsteilnehmer->getAnteil()?></td>
 			<td class="datentabelle"><?=$zahlungsteilnehmer->getRestbetrag()?></td>
