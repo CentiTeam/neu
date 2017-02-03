@@ -260,6 +260,7 @@ class ZahlunganlegenController extends AbstractActionController {
 						 	
 						 }
 						 $temp ->ausgleichen();
+						
 						 
 						//Erstellen des Ereignisses f�r Gruppenverlauf und Speicher in DB
 						$zahlungsersteller = $_SESSION['user']; 						 
@@ -269,12 +270,36 @@ class ZahlunganlegenController extends AbstractActionController {
 						$teilnehmerliste=Zahlungsteilnehmer::zahlungsteilnehmerholen($zahlungs_id);
 						// Part Tanja zu Ende
 						
+						$veraenderbar=false;
+						
+						$schonbeglicheneZahlungen=false;
+						// Abprüfen, ob die Zahlung gleich automatisch bereits ganz oder teilweise beglichen worden ist
+						foreach ($teilnehmerliste as $zahlungsteilnehmer)
+						{
+						
+							//In dem Fall, dass der Restbetrag nicht dem Anteil entspricht, ist die Zahlung teils oder ganz beglichen
+							if ($zahlungsteilnehmer->getAnteil()!=$zahlungsteilnehmer->getRestbetrag() && $zahlungsteilnehmer->getUser()->getU_id()!=$aktuser_id)
+							{
+								$schonbeglicheneZahlungen=true;
+							}
+						}
+						
+						
+						if ($schonbeglicheneZahlungen==false) {
+							$veraenderbar=true;
+						}
+						
+						
+						
+						
+						
 						 $view = new ViewModel([
 						 		'gruppe' => array($gruppe),
 						 		'errors'   => $errors,
 						 		'msg' => $msg,
 						 		'zahlung' => array($zahlung),
-						 		'teilnehmerliste' => $teilnehmerliste
+						 		'teilnehmerliste' => $teilnehmerliste,
+						 		'veraenderbar' => $veraenderbar
 						 
 						 ]);
 						 	

@@ -60,7 +60,6 @@ class ZahlunganzeigenController extends AbstractActionController
 			}
 		}
 		
-		echo $schonbeglicheneZahlungen;
 		
 		
 		// Abprüfen, ob der Teilnehmer ersteller ist (wg. Edit- und Delete-Symbol)
@@ -72,7 +71,6 @@ class ZahlunganzeigenController extends AbstractActionController
 	
 				if ($teilnehmer->getStatus()=="ersteller" && $schonbeglicheneZahlungen==false) {
 					$veraenderbar=true;
-					echo "Hallo";
 				}
 			}
 		}
