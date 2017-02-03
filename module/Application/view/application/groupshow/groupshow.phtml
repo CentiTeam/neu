@@ -132,9 +132,9 @@ $g_id = $_REQUEST['g_id'];
 			<?php } else { ?>
 				<td><div class="small-circular-image"><a href="fremdesprofil?u_id=<?=$gruppenmitglied->getUser()->getU_id()?>"><img src =<?=$gruppenmitglied->getUser()->getTeilnehmerbildpfad()?> height = "100" width = "100" alt = "Kein Bild vorhanden"></a></div></td>
 			<?php }?>
-			<td><?=$gruppenmitglied->getUser()->getVorname()?></td>
-			<td><?=$gruppenmitglied->getUser()->getNachname()?></td>
-			<td ><a href="fremdesprofil?u_id=<?=$gruppenmitglied->getUser()->getU_id()?>"><?=$gruppenmitglied->getUser()->getUsername()?></a></td>
+			<td class="untereinander"><?=$gruppenmitglied->getUser()->getVorname()?></td>
+			<td class="untereinander"><?=$gruppenmitglied->getUser()->getNachname()?></td>
+			<td class="untereinander"><a href="fremdesprofil?u_id=<?=$gruppenmitglied->getUser()->getU_id()?>"><?=$gruppenmitglied->getUser()->getUsername()?></a></td>
 			
 			<?php
 			if ($gruppenmitglied->getGruppenadmin() == "1") {
