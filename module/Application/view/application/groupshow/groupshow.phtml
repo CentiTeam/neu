@@ -113,7 +113,7 @@ $g_id = $_REQUEST['g_id'];
 <table style="border-collapse: separate; border-spacing: 15px;">
 	<tr><th>Gruppenmitglieder:</th></tr>
 		<tr class="untereinander">
-			<th></th>
+			<th class="untereinander"></th>
 			<th class="untereinander">Vorname</th>
 			<th class="untereinander">Nachname</th>
 			<th class="untereinander">Benutzername</th>
@@ -128,9 +128,9 @@ $g_id = $_REQUEST['g_id'];
 		
 		<tr class="untereinander">
 			<?php if ($gruppenmitglied->getUser()->getU_id()==$aktgruppenmitglied->getUser()->getU_id()) { ?>
-				<td><div class="small-circular-image"><img src =<?=$gruppenmitglied->getUser()->getTeilnehmerbildpfad()?> height = "100" width = "100" alt = "Kein Bild vorhanden"></div></td>
+				<td class="untereinander"><div class="small-circular-image"><img src =<?=$gruppenmitglied->getUser()->getTeilnehmerbildpfad()?> height = "100" width = "100" alt = "Kein Bild vorhanden"></div></td>
 			<?php } else { ?>
-				<td><div class="small-circular-image"><a href="fremdesprofil?u_id=<?=$gruppenmitglied->getUser()->getU_id()?>"><img src =<?=$gruppenmitglied->getUser()->getTeilnehmerbildpfad()?> height = "100" width = "100" alt = "Kein Bild vorhanden"></a></div></td>
+				<td class="untereinander"><div class="small-circular-image"><a href="fremdesprofil?u_id=<?=$gruppenmitglied->getUser()->getU_id()?>"><img src =<?=$gruppenmitglied->getUser()->getTeilnehmerbildpfad()?> height = "100" width = "100" alt = "Kein Bild vorhanden"></a></div></td>
 			<?php }?>
 			<td class="untereinander"><?=$gruppenmitglied->getUser()->getVorname()?></td>
 			<td class="untereinander"><?=$gruppenmitglied->getUser()->getNachname()?></td>
