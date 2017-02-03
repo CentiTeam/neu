@@ -52,9 +52,11 @@ class ZahlunganzeigenController extends AbstractActionController
 		foreach ($teilnehmerliste as $zahlungsteilnehmer)
 		{
 			var_dump($zahlungsteilnehmer->getUser()->getUsername());
+			echo "Anteil:";
+			var_dump($zahlungsteilnehmer->getAnteil());
 			
 			//In dem Fall, dass der Restbetrag nicht dem Anteil entspricht, ist die Zahlung teils oder ganz beglichen
-			if ($zahlungsteilnehmer->getAnteil()!=$zahlungsteilnehmer->getRestbetrag() && $zahlungsteilnehmer->getUser()->getU_id()!=$user_id)
+			if ($zahlungsteilnehmer->getAnteil()!=$zahlungsteilnehmer->getRestbetrag() && $zahlungsteilnehmer->getUser()->getU_id()!=$aktuser_id)
 			{
 				$schonbeglicheneZahlungen=true;
 				$beglichen++;
