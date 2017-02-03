@@ -321,12 +321,18 @@ class ZahlungbearbeitenController extends AbstractActionController {
 								
 								//Schreiben des Ereignisses das die Zahlung bearbeitet wurde in die Ereignistabelle der Datenbank
 								Gruppenereignis::zahlungbearbeitenEreignis($zahlung, $gruppe);
-									
+								
+								
+								$teilnehmerliste = Zahlungsteilnehmer::zahlungsteilnehmerholen($z_id);
+								
 								$view = new ViewModel([
 										'gruppe' => array($gruppe),
 										'errors'   => $errors,
 										'msg' => $msg,
 										'zahlung' => array($zahlung),
+										'veraenderbar' => $veraenderbar,
+										'teilnehmerliste' => $teilnehmerliste
+ 										
 											
 								]);
 
