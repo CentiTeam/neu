@@ -5,23 +5,21 @@
 <br>
 <form action="zahlunganlegen" method="post">
 
-<div class="form-group" style="width:300px">
-<label>Zahlungsbeschreibung: </label>
-<input class="form-control" name="zahlungsbeschreibung" type="text" maxlength="50" size="20" value="<?=$zahlung[0]->getZahlungsbeschreibung()?>" required>
-</div>
+<table>
+<tr><td>Zahlungsbeschreibung: </td>
+<td><input class="form-control" name="zahlungsbeschreibung" type="text" maxlength="50" size="20" value="<?=$zahlung[0]->getZahlungsbeschreibung()?>" required>
+</td></tr>
 
-<div class="form-group" style="width:300px">
-<label>Betrag: </label>
-<input class="form-control" name="betrag" type="text" maxlength="50" size="20"  value="<?=$zahlung[0]->getBetrag()?>" required>
-</div>
+<tr><td>Betrag: </td>
+<td><input class="form-control" name="betrag" type="text" maxlength="50" size="20"  value="<?=$zahlung[0]->getBetrag()?>" required>
+</td></tr>
 
-<div class="form-group" style="width:300px">
-<label>Zahlungsdatum: </label>
-<input class="form-control" type="date" name="zahlungsdatum" value="<?=$erstellungsdatum?>" placeholder="YYYY-MM-DD" required>
-</div>
+<tr><td>Zahlungsdatum: </td>
+<td><input class="form-control" type="date" name="zahlungsdatum" value="<?=$erstellungsdatum?>" placeholder="YYYY-MM-DD" required>
+</td></tr>
 
-<div class="form-group">
-	<label>Kategorie:</label>
+<tr>
+	<td>Kategorie:</td><td>
 			<select name='kategorie'>
 				<?php 
 				foreach ($kategorieListe as $counter => $kategorie) {
@@ -44,8 +42,8 @@
 					}
 				}
 				?>
-			</select>
-</div>
+			</select></td>
+</tr>
 
 <!--  Oben die alternative Kategorieliste
 <tr><td>Kategorie: </td><td>
@@ -59,23 +57,26 @@
 </td></tr> 
 -->
 
-<label>Teilnehmer: </label>
+<tr>
+<td>Teilnehmer: </td><td>
 
 	<fieldset>
 		<?php 
 		//Alle Gruppenmitglieder in die Auswahlliste schreiben
 		foreach ($mitgliederListe as $zaehler => $mitglied) { ?>	
-			<label>
 			<input type="hidden" name="zahlungsteilnehmer[]" value='<?=$mitglied->getU_id()?>'>
 			<?=$mitglied->getUsername()?>	
 			<br>Anteil: <input type="text" name="anteilsbetrag[]" placeholder="Euro.Cent">
-			</label><br>	 	 			
+			<br>	 	 			
 		<?php 
 		} ?> 
-	</fieldset>
+	</fieldset></td>
+</tr>
 
 
-										
+<tr><td>										
 <input type="hidden" name="g_id" value='<?=$gruppe[0]->getG_id()?>'>																		
 <input class="button" type="submit" name="speichern" value="Zahlung anlegen">
+</td></tr>
+</table>
 	</form>
