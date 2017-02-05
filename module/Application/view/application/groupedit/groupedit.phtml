@@ -8,13 +8,17 @@
 	}
 }?>
 
-    <form enctype="multipart/form-data" class="form-group" action="groupedit" method="POST">
+    <form enctype="multipart/form-data" action="groupedit" method="POST">
+	<div class="form-group" style="width:300px">
 	<label>Gruppenname</label>
 	<input class="form-control" type="text" name="gruppenname" value="<?=$gruppe[0]->getGruppenname()?>" readonly="readonly" required >
-		
+	</div>
+	
+	<div class="form-group" style="width:300px">	
 	<label>Beschreibung</label>
 	<input class="form-control" type="text" name="gruppenbeschreibung" value="<?=$gruppe[0]->getGruppenbeschreibung()  ?>" >
-
+	</div>
+	
 	<input type="hidden" name="gruppenbildpfad" readonly="readonly" value="<?=$gruppe[0]->getGruppenbildpfad()?>">
 
 <br>
