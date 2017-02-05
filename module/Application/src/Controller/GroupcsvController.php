@@ -17,13 +17,12 @@ class GroupcsvController extends AbstractActionController
 
 	{		
 		session_start();
-		// Berechtigungsprüfung
+		// Berechtigungsprüfung; Überprüfen, ob User angemeldet ist
 		if ($_SESSION['angemeldet']==NULL) {
 				
 			$msg="Nicht berechtigt!";
 			
 
-				
 			$view = new ViewModel([
 					'msg' => $msg, 
 			]);
@@ -32,10 +31,8 @@ class GroupcsvController extends AbstractActionController
 				
 			return $view;
 			
-			
-			
-		
 		}
+		
 		// Überprüfen, ob Gruppenmitglied
 		$g_id=$_REQUEST['g_id'];
 		$user_id=$_SESSION['user']->getU_id();
@@ -69,10 +66,9 @@ class GroupcsvController extends AbstractActionController
 		$zahlungsliste = Zahlung::gruppenzahlungenlisteholen($g_id);
 		
 
-
+		// CSV-Datei downloaden
 		Csvdownload::makeCsv($zahlungsliste);
 
-		
-	
+
 	}
 }

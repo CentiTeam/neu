@@ -7,6 +7,8 @@ use Zend\View\Model\ViewModel;
 use Application\Model\User;
 use Application\Model\Schulden;
 
+// Das Profil eines anderen Users anzeigen. Hier kann man Zahlungen mit diesem User begleichen
+
 class FremdesprofilController extends AbstractActionController {
 
 	function fremdesprofilAction() {
@@ -14,11 +16,9 @@ class FremdesprofilController extends AbstractActionController {
 		session_start();
 
 		$errors = array();
-
-		if($_SESSION['angemeldet'] ==NULL) {
-			
-			
-			
+		
+		// AbprÃ¼fen, ob User angemeldet ist
+		if($_SESSION['angemeldet'] ==NULL) {	
 		 
 			$msg="Nicht berechtigt!";
 			
@@ -48,26 +48,26 @@ class FremdesprofilController extends AbstractActionController {
 			$schulden = new Schulden();
 			$schulden -> laden($user_aufgerufen, $user_angemeldet);
 				
-			//Berechnen der Schulden, bei denen der aufgerufene Benutzer der Gläubiger ist
+			//Berechnen der Schulden, bei denen der aufgerufene Benutzer der Glï¿½ubiger ist
 			$schulden_an_aufgerufenen = $schulden->getBetragVonSchuldnerAnGlaeubiger();
 				
-			//Berechnen der Schulden, bei denen der angemeldete Benutzer der Gläubiger ist
+			//Berechnen der Schulden, bei denen der angemeldete Benutzer der Glï¿½ubiger ist
 			$schulden_an_angemeldeten = $schulden->getBetragVonGlaeubigerAnSchuldner();
 				
 			
 			
 			
 			
-			//Wenn das Formular zum Speichern des Begleichungsbetrags bezüglich der Schulden des angemeldeten an den aufgerufenen abgesendet wurde
+			//Wenn das Formular zum Speichern des Begleichungsbetrags bezï¿½glich der Schulden des angemeldeten an den aufgerufenen abgesendet wurde
 			if ($_REQUEST['speichern_an_aufgerufenen']) {
 				
 				$schulden->schuldenVonSchuldnerAnGlaeubigerBegleichen($_POST['begleichen_an_aufgerufenen']);
 				
 				
-				//Neuberechnen der Schulden, bei denen der aufgerufene Benutzer der Gläubiger ist
+				//Neuberechnen der Schulden, bei denen der aufgerufene Benutzer der Glï¿½ubiger ist
 				$schulden_an_aufgerufenen = $schulden->getBetragVonSchuldnerAnGlaeubiger();
 				
-				//Neuberechnen der Schulden, bei denen der angemeldete Benutzer der Gläubiger ist
+				//Neuberechnen der Schulden, bei denen der angemeldete Benutzer der Glï¿½ubiger ist
 				$schulden_an_angemeldeten = $schulden->getBetragVonGlaeubigerAnSchuldner();
 				
 				$view = new ViewModel([
@@ -87,16 +87,16 @@ class FremdesprofilController extends AbstractActionController {
 			
 			
 			
-			//Wenn das Formular zum Speichern des Begleichungsbetrags bezüglich der Schulden des aufgerufenen an den angemeldeten abgesendet wurde
+			//Wenn das Formular zum Speichern des Begleichungsbetrags bezï¿½glich der Schulden des aufgerufenen an den angemeldeten abgesendet wurde
 			if ($_REQUEST['speichern_an_angemeldeten']) {
 				
 				$schulden->schuldenVonGlaeubigerAnSchuldnerBegleichen($_POST['begleichen_an_angemeldeten']);
 				
 				
-				//Neuberechnen der Schulden, bei denen der aufgerufene Benutzer der Gläubiger ist
+				//Neuberechnen der Schulden, bei denen der aufgerufene Benutzer der Glï¿½ubiger ist
 				$schulden_an_aufgerufenen = $schulden->getBetragVonSchuldnerAnGlaeubiger();
 				
-				//Neuberechnen der Schulden, bei denen der angemeldete Benutzer der Gläubiger ist
+				//Neuberechnen der Schulden, bei denen der angemeldete Benutzer der Glï¿½ubiger ist
 				$schulden_an_angemeldeten = $schulden->getBetragVonGlaeubigerAnSchuldner();
 				
 				$view = new ViewModel([
@@ -116,19 +116,7 @@ class FremdesprofilController extends AbstractActionController {
 			
 			
 			else{
-			
-			
-			
-						
-			
-			
-			
-
-			
-			
-
-			
-			
+		
 			//Aufbauen des aktuellen Schuldenbetrages, den der angemeldete Benutzer dem aufgerufenen Benutzer schuldet
 			
 			

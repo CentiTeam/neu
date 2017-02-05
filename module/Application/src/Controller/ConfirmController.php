@@ -11,7 +11,7 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Model\User;
 
-// Hier wird die Email bestätigt 
+// Hier wird die Email-Adresse nach dem Registrieren bestätigt bestätigt 
 
 class ConfirmController extends AbstractActionController
 {

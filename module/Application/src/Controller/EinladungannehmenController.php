@@ -43,7 +43,7 @@ class EinladungannehmenController extends AbstractActionController
 			return $view;
 		}
 
-		// wenn das Formular zur Best�tigung des L�schens schon abgesendet wurde, soll dies hier ausgewertet werden
+		// wenn das Formular zur Best�tigung des Annehmens der Einladung schon abgesendet wurde, soll dies hier ausgewertet werden
 		if ($_REQUEST['speichern']) {
 				
 			$msg = "";
@@ -63,7 +63,7 @@ class EinladungannehmenController extends AbstractActionController
 					
 				}
 			}
-			// wenn der Ladevorgang erfolgreich war, wird versucht die Gruppe zu l�schen
+			// wenn der Ladevorgang erfolgreich war, wird der eingeladene User der Gruppe hinzugefügt
 			if ($errorStr=="" && $gruppenmitglied->anlegen()) {
 				$gruppenname=$gruppe->getGruppenname();
 				$vorname=$user->getVorname();
@@ -75,7 +75,7 @@ class EinladungannehmenController extends AbstractActionController
 				Gruppenereignis::gruppenmitgliedbeitretenEreignis($gruppe, $user);
 
 			} else {
-				// ausgeben, dass das Team nicht gel�scht werden konnte (kein Template n�tig!)
+				// ausgeben, dass der User ncht zur Gruppe hinzugefügt werden konnte
 				$msg .= "Fehler beim Hinzufügen zu der Gruppe!<br>";
 				
 				
@@ -90,8 +90,7 @@ class EinladungannehmenController extends AbstractActionController
 			}
 		} else {
 
-			// da das Formular zum Best�tigen des L�schens der Gruppe noch nicht angezeigt wurde, wird es hier generiert und an den ViewModelController
-			// zur Ausgabe �bergeben
+			// da das Formular zum Best�tigen der Gruppeneinladung noch nicht angezeigt wurde, wird es hier generiert 
 				
 			return new ViewModel([
 					'gruppe' => array($gruppe),

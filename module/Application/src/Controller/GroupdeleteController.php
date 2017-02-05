@@ -70,9 +70,7 @@ class GroupdeleteController extends AbstractActionController
 		
 		$errStr="";
 		
-		// !!!!
-		// Pr�fen, ob es noch offene Zahlungen gibt
-		// !!!!!
+		// Pruefen, ob es noch offene Zahlungen gibt
 		$offeneZahlungen=false;
 		
 		$gruppenmitgliederListe=Gruppenmitglied::gruppenmitgliederlisteHolen($g_id);
@@ -112,19 +110,21 @@ class GroupdeleteController extends AbstractActionController
 			}	
 		}
 		
+		// Wenn noch offene Zahlungen in der Gruppe sind, wird eine Fehlermeldung generiert
 		if ($counter>0) {
 			
 			// Fehlermeldung generieren
 			$gruppenname=$gruppe->getGruppenname();
-				
-			// $msg="Du darfst die Gruppe '$gruppenname' nicht l&ouml;schen, da mindestens ein Teilnehmer noch offene Zahlungen in dieser Gruppe zu begleichen hat!";
+			
+			// Wenn noch 1 Teilnehmer offene Zahlungen hat
 			if ($counter==1) {
 				
 					$msg="Du darfst die Gruppe '$gruppenname' nicht l&ouml;schen, da noch $counter Teilnehmer offene Zahlungen in dieser Gruppe zu begleichen hat: <br>";
 					 
 					$teilnehmer=$offeneTeilnehmer[0]->getUser()->getUsername();
 					$msg.= "$teilnehmer";
-								
+			
+			// Wenn mehrere Teilnehmer offene Zahlungen haben
 			} else { 
 					$msg="Du darfst die Gruppe '$gruppenname' nicht l&ouml;schen, da noch $counter Teilnehmer offene Zahlungen in dieser Gruppe zu begleichen haben: <br>";
 					

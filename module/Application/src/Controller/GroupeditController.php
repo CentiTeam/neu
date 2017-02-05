@@ -54,19 +54,6 @@ class GroupeditController extends AbstractActionController {
 			return $view;
 		}
 		
-		
-		$errors = array();
-
-		if($_SESSION['angemeldet'] != 'ja') {
-
-			array_push($errors, "Sie müssen angemeldet sein um eine Gruppe zu bearbeiten!");
-			$view = new ViewModel(array(
-					$errors
-			));
-			$view->setTemplate('application/index/index.phtml');
-			return $view;
-				
-		} else {
 
 			$gruppe = new Gruppe();
 			
@@ -174,7 +161,6 @@ class GroupeditController extends AbstractActionController {
 				 	
 				 return $view;
 			}
-		}
 
 
 		return new ViewModel([

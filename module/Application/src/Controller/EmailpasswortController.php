@@ -11,6 +11,8 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Model\User;
 
+// Wenn man sein Passwort vergessen hat kann man hier seine E-Mail angeben um ein neues zugeschickt bekommen
+
 class EmailpasswortController extends AbstractActionController
 {
 	public function emailpasswortAction()
@@ -42,7 +44,7 @@ class EmailpasswortController extends AbstractActionController
 				
 			} else {
 			
-			$betreff = "Grouppay: Passwort zurücksetzen";		
+			$betreff = "Grouppay: Passwort zurï¿½cksetzen";		
 
 
 $link= "<a href=\"http://132.231.36.206/passwortvergessen?email=$empfaenger\">Passwort zur&uuml;cksetzen</a>";
