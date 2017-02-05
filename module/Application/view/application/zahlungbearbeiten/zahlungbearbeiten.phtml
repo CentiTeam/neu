@@ -1,8 +1,9 @@
+<h1>Zahlung bearbeiten</h1>
 <form action="zahlungbearbeiten" method="post">
 
 <table>
-<th>Zahlung bearbeiten</th>
-<tr><td>Zahlungsbeschreibung: </td><td><input name="zahlungsbeschreibung" type="text" maxlength="50" size="20" value="<?=$zahlung[0]->getZahlungsbeschreibung()?>" required></td></tr>
+
+<tr><td>Zahlungsbeschreibung: </td><td><input class="form-control" name="zahlungsbeschreibung" type="text" maxlength="50" size="20" value="<?=$zahlung[0]->getZahlungsbeschreibung()?>" required></td></tr>
 <tr><td>Betrag: </td><td><input name="betrag" type="text" maxlength="50" size="20" value="<?=$zahlung[0]->getBetrag()?>" required></td></tr>
 <tr><td>Zahlungsdatum: </td><td><input type="date" name="zahlungsdatum" value="<?=$zahlung[0]->getZahlungsdatum()?>" placeholder="YYYY-MM-DD" required></td></tr>
 <tr><td>Kategorie: </td><td>
@@ -47,13 +48,12 @@
 		?> 
 	</fieldset></td>
 
-</tr>
-
-
-										
+</tr>										
+																		
+<tr><td>
 <input type="hidden" name="z_id" value='<?=$zahlung[0]->getZ_id()?>'>
-<input type="hidden" name="g_id" value='<?=$gruppe[0]->getG_id()?>'>																		
-<tr><td><input class="button" type="submit" name="speichern" value="Speichern"></td> </tr>
+<input type="hidden" name="g_id" value='<?=$gruppe[0]->getG_id()?>'>
+<input class="button" type="submit" name="speichern" value="Speichern"></td> </tr>
 
 </table>
 </form>
