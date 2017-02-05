@@ -13,6 +13,7 @@ class BenutzerreaktivierenController extends AbstractActionController{
 	public function benutzerreaktivierenAction(){
 		session_start();
 		
+		// Abprüfen, ob angemeldeter User
 		if ($_SESSION['angemeldet']==NULL) {
 				
 			$msg="Nicht berechtigt!";
@@ -24,7 +25,7 @@ class BenutzerreaktivierenController extends AbstractActionController{
 			$view->setTemplate('application/index/index.phtml');
 				
 			return $view;
-		
+			// Abprüfen, ob Systemadmin
 		} elseif ($_SESSION['user']->getSystemadmin()=="0") {
 		
 			$msg="Nicht berechtigt!";

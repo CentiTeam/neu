@@ -14,6 +14,7 @@ class BenutzerdeaktivierenController extends AbstractActionController{
 		
 		session_start();
 		
+		// Abprüfen, ob angemeldeter User
 		if ($_SESSION['angemeldet']==NULL) {
 				
 			$msg="Nicht berechtigt!";
@@ -25,7 +26,7 @@ class BenutzerdeaktivierenController extends AbstractActionController{
 			$view->setTemplate('application/index/index.phtml');
 				
 			return $view;
-		
+			// Abprüfen, ob Systemadmin
 		} elseif ($_SESSION['user']->getSystemadmin()=="0") {
 		
 			$msg="Nicht berechtigt!";
@@ -42,7 +43,7 @@ class BenutzerdeaktivierenController extends AbstractActionController{
 		//neues Model anlegen
 		$user = new User(); 
 		
-		// Model anhand der �bergebenen $u_id laden lassen und speichern, ob dies funktioniert hat
+		// Model anhand der uebergebenen $u_id laden lassen und speichern, ob dies funktioniert hat
 		$u_id=$_REQUEST['u_id'];
 		
 		$isOK = $user->laden($u_id);

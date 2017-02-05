@@ -16,6 +16,7 @@ class BenutzertabelleController extends AbstractActionController
 	{
 		session_start();
 		
+		// Abprüfen, ob angemeldeter User
 		if ($_SESSION['angemeldet']==NULL) {
 				
 			$msg="Nicht berechtigt!";
@@ -30,6 +31,7 @@ class BenutzertabelleController extends AbstractActionController
 		
 		}
 		
+		// Abprüfen, ob Systemadmin
 		$user=$_SESSION['user'];
 		
 		if($_SESSION['systemadmin'] != 'ja') {
@@ -44,7 +46,7 @@ class BenutzertabelleController extends AbstractActionController
 			return $view;
 		}
 		
-
+		// Liste aller User holen
 		$liste = User::listeHolen();
 	
 		return new ViewModel([
