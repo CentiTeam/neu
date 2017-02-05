@@ -4,8 +4,7 @@
 <br>
 <h1>Zahlung erstellen</h1>
 <form action="zahlunganlegen" method="post">
-<table>
-<tr><td>
+
 <div class="form-group" style="width:300px">
 <label>Zahlungsbeschreibung: </label>
 <input class="form-control" name="zahlungsbeschreibung" type="text" maxlength="50" size="20" value="<?=$zahlung[0]->getZahlungsbeschreibung()?>" required>
@@ -47,7 +46,7 @@
 				?>
 			</select>
 </div>
-</td></tr>
+
 <!--  Oben die alternative Kategorieliste
 <tr><td>Kategorie: </td><td>
 	<select name="kategorie" size="5">
@@ -59,8 +58,8 @@
 	</select>
 </td></tr> 
 -->
-<tr><td>
-<div class="form-group" style="width:300px">
+
+<div class="form-group">
 <label>Teilnehmer: </label>
 
 	<fieldset>
@@ -68,16 +67,15 @@
 		//Alle Gruppenmitglieder in die Auswahlliste schreiben
 		foreach ($mitgliederListe as $zaehler => $mitglied) { ?>	
 			<label>
-			<input class="form-control" type="hidden" name="zahlungsteilnehmer[]" value='<?=$mitglied->getU_id()?>'>
+			<input type="hidden" name="zahlungsteilnehmer[]" value='<?=$mitglied->getU_id()?>'>
 			<?=$mitglied->getUsername()?>	
-			<br>Anteil: <input class="form-control" type="text" name="anteilsbetrag[]" placeholder="Euro.Cent">
+			<br>Anteil: <input type="text" name="anteilsbetrag[]" placeholder="Euro.Cent">
 			</label><br>	 	 			
 		<?php 
 		} ?> 
 	</fieldset>
 </div>
-</td></tr>
-</table>
+
 
 										
 <input type="hidden" name="g_id" value='<?=$gruppe[0]->getG_id()?>'>																		
