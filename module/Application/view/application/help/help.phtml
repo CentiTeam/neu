@@ -1,11 +1,14 @@
 <?php session_start();?>
 <h1>FAQ </h1>
+
+<ul class="list-group">
+ <li class="list-group-item">
  <br>
  <b>Frage: </b>
  <br>Was ist Grouppay?
  <br>
  <b>Antwort: </b>
- <br>Grouppay ist eine Zahlungsverwaltung-App f&uumlr Gruppen, mehr Informationen gibt es auf der
+ <br>Grouppay ist eine Zahlungsverwaltung-App f&uuml;r Gruppen, mehr Informationen gibt es auf der
  	<?php if ($_SESSION['angemeldet']=='ja' || $_SESSION['systemadmin']=="ja") {?>
  				Startseite.
  	<?php }
@@ -13,51 +16,50 @@
  				<a href="<?= $this->url('application') ?>">Startseite</a>.
  	<?php }?>
  <br><br><br>
+ </li>
  
+ <li class="list-group-item">
  <b>Frage: </b>
- <br>Kann ich &uumlber die App nur meine Ausgaben verwalten?
+ <br>Kann ich &uuml;ber die App nur meine Ausgaben verwalten?
  <br>
  <b>Antwort: </b>
- <br>Grouppay wurde f&uumlr Gruppen entwickelt. Um Zahlungen anlegen zu k&oumlnnen muss man Mitglied einer Gruppe sein.
+ <br>Grouppay wurde f&uuml;r Gruppen entwickelt. Um Zahlungen anlegen zu k&ouml;nnen muss man Mitglied einer Gruppe sein.
  <br><br><br>
+ </li>
  
+ <li class="list-group-item">
  <b>Frage: </b>
  <br>Wie kann ich Zahlungen anlegen?
  <br>
  <b>Antwort: </b>
- <br>Eine Zahlung kann angelegt werden, sobald man sich eine Gruppe anzeigen l&aumlsst. In diesem Fall erscheint im Men&uuml der Punkt "Zahlung anlegen".
+ <br>Eine Zahlung kann angelegt werden, sobald man sich eine Gruppe anzeigen l&auml;sst. In diesem Fall erscheint im Men&uuml; der Punkt "Zahlung anlegen".
  <br><br><br>
+ </li>
  
+ <li class="list-group-item">
   <b>Frage: </b>
- <br>Wie kann ich eine Nachricht l&oumlschen?
+ <br>Wie kann ich eine Nachricht l&ouml;schen?
  <br>
  <b>Antwort: </b>
- <br>Nachrichten k&oumlnnen nur von ihrem Verfasser gel&oumlscht werden. Dem Verfasser wird im Message Board hinter der Nachricht ein Icon angezeigt. Dieses leitet ihn auf eine Seite, auf der er die Nachricht bearbeiten oder entfernen kann.
+ <br>Nachrichten k&ouml;nnen nur von ihrem Verfasser gel&ouml;scht werden. Dem Verfasser wird im Message Board hinter der Nachricht ein Icon angezeigt. Dieses leitet ihn auf eine Seite, auf der er die Nachricht bearbeiten oder entfernen kann.
  <br><br><br>
+ </li>
  
+ <li class="list-group-item">
  <b>Frage: </b>
- <br>Ich wei&szlig mein Passwort nicht mehr, was nun?
+ <br>Ich wei&szlig; mein Passwort nicht mehr, was nun?
  <br>
  <b>Antwort: </b>
  <br>In dem Fall, dass das Passwort vergessen wurde, kann bei der Anmeldung der entspechende Link verwendet werden.
  <br><br><br>
+ </li>
  
+ <li class="list-group-item">
  <b>Frage: </b>
  <br>Ich wurde deaktiviert, warum?
  <br>
  <b>Antwort: </b>
- <br>User werden von einem Admin deaktiviert, falls sie unter anderem unangemessene W&oumlrter verwenden. Sollte die Deaktivierung unrechtm&auml&szligig erfolgt sein, kann ein Admin verst&aumlndigt werden.
+ <br>User werden von einem Admin deaktiviert, falls sie unter anderem unangemessene W&ouml;rter verwenden. Sollte die Deaktivierung unrechtm&auml;&szlig;ig erfolgt sein, kann ein Admin verst&auml;ndigt werden.
  <br><br><br>
- 
- <script type="text/javascript">
-    jQuery(function ($) {
-        $("#code").html("&lt;div class=&quot;container&quot;&gt;\r\n    &lt;br /&gt;\r\n    &lt;br /&gt;\r\n    &lt;br /&gt;\r\n\r\n    &lt;div class=&quot;alert alert-warning alert-dismissible&quot; role=&quot;alert&quot;&gt;\r\n        &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/span&gt;&lt;span class=&quot;sr-only&quot;&gt;Close&lt;/span&gt;&lt;/button&gt;\r\n        This section contains a wealth of information, related to &lt;strong&gt;PrepBootstrap&lt;/strong&gt; and its store. If you cannot find an answer to your question, \r\n        make sure to contact us. \r\n    &lt;/div&gt;\r\n\r\n    &lt;br /&gt;\r\n\r\n    &lt;div class=&quot;panel-group&quot; id=&quot;accordion&quot;&gt;\r\n        &lt;div class=&quot;faqHeader&quot;&gt;General questions&lt;/div&gt;\r\n        &lt;div class=&quot;panel panel-default&quot;&gt;\r\n            &lt;div class=&quot;panel-heading&quot;&gt;\r\n                &lt;h4 class=&quot;panel-title&quot;&gt;\r\n                    &lt;a class=&quot;accordion-toggle&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#collapseOne&quot;&gt;Is account registration required?&lt;/a&gt;\r\n                &lt;/h4&gt;\r\n            &lt;/div&gt;\r\n            &lt;div id=&quot;collapseOne&quot; class=&quot;panel-collapse collapse in&quot;&gt;\r\n                &lt;div class=&quot;panel-body&quot;&gt;\r\n                    Account registration at &lt;strong&gt;PrepBootstrap&lt;/strong&gt; is only required if you will be selling or buying themes. \r\n                    This ensures a valid communication channel for all parties involved in any transactions. \r\n                &lt;/div&gt;\r\n            &lt;/div&gt;\r\n        &lt;/div&gt;\r\n        &lt;div class=&quot;panel panel-default&quot;&gt;\r\n            &lt;div class=&quot;panel-heading&quot;&gt;\r\n                &lt;h4 class=&quot;panel-title&quot;&gt;\r\n                    &lt;a class=&quot;accordion-toggle collapsed&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#collapseTen&quot;&gt;Can I submit my own Bootstrap templates or themes?&lt;/a&gt;\r\n                &lt;/h4&gt;\r\n            &lt;/div&gt;\r\n            &lt;div id=&quot;collapseTen&quot; class=&quot;panel-collapse collapse&quot;&gt;\r\n                &lt;div class=&quot;panel-body&quot;&gt;\r\n                    A lot of the content of the site has been submitted by the community. Whether it is a commercial element/template/theme \r\n                    or a free one, you are encouraged to contribute. All credits are published along with the resources. \r\n                &lt;/div&gt;\r\n            &lt;/div&gt;\r\n        &lt;/div&gt;\r\n        &lt;div class=&quot;panel panel-default&quot;&gt;\r\n            &lt;div class=&quot;panel-heading&quot;&gt;\r\n                &lt;h4 class=&quot;panel-title&quot;&gt;\r\n                    &lt;a class=&quot;accordion-toggle collapsed&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#collapseEleven&quot;&gt;What is the currency used for all transactions?&lt;/a&gt;\r\n                &lt;/h4&gt;\r\n            &lt;/div&gt;\r\n            &lt;div id=&quot;collapseEleven&quot; class=&quot;panel-collapse collapse&quot;&gt;\r\n                &lt;div class=&quot;panel-body&quot;&gt;\r\n                    All prices for themes, templates and other items, including each seller&#39;s or buyer&#39;s account balance are in &lt;strong&gt;USD&lt;/strong&gt;\r\n                &lt;/div&gt;\r\n            &lt;/div&gt;\r\n        &lt;/div&gt;\r\n\r\n        &lt;div class=&quot;faqHeader&quot;&gt;Sellers&lt;/div&gt;\r\n        &lt;div class=&quot;panel panel-default&quot;&gt;\r\n            &lt;div class=&quot;panel-heading&quot;&gt;\r\n                &lt;h4 class=&quot;panel-title&quot;&gt;\r\n                    &lt;a class=&quot;accordion-toggle collapsed&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#collapseTwo&quot;&gt;Who cen sell items?&lt;/a&gt;\r\n                &lt;/h4&gt;\r\n            &lt;/div&gt;\r\n            &lt;div id=&quot;collapseTwo&quot; class=&quot;panel-collapse collapse&quot;&gt;\r\n                &lt;div class=&quot;panel-body&quot;&gt;\r\n                    Any registed user, who presents a work, which is genuine and appealing, can post it on &lt;strong&gt;PrepBootstrap&lt;/strong&gt;.\r\n                &lt;/div&gt;\r\n            &lt;/div&gt;\r\n        &lt;/div&gt;\r\n        &lt;div class=&quot;panel panel-default&quot;&gt;\r\n            &lt;div class=&quot;panel-heading&quot;&gt;\r\n                &lt;h4 class=&quot;panel-title&quot;&gt;\r\n                    &lt;a class=&quot;accordion-toggle collapsed&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#collapseThree&quot;&gt;I want to sell my items - what are the steps?&lt;/a&gt;\r\n                &lt;/h4&gt;\r\n            &lt;/div&gt;\r\n            &lt;div id=&quot;collapseThree&quot; class=&quot;panel-collapse collapse&quot;&gt;\r\n                &lt;div class=&quot;panel-body&quot;&gt;\r\n                    The steps involved in this process are really simple. All you need to do is:\r\n                    &lt;ul&gt;\r\n                        &lt;li&gt;Register an account&lt;/li&gt;\r\n                        &lt;li&gt;Activate your account&lt;/li&gt;\r\n                        &lt;li&gt;Go to the &lt;strong&gt;Themes&lt;/strong&gt; section and upload your theme&lt;/li&gt;\r\n                        &lt;li&gt;The next step is the approval step, which usually takes about 72 hours.&lt;/li&gt;\r\n                    &lt;/ul&gt;\r\n                &lt;/div&gt;\r\n            &lt;/div&gt;\r\n        &lt;/div&gt;\r\n        &lt;div class=&quot;panel panel-default&quot;&gt;\r\n            &lt;div class=&quot;panel-heading&quot;&gt;\r\n                &lt;h4 class=&quot;panel-title&quot;&gt;\r\n                    &lt;a class=&quot;accordion-toggle collapsed&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#collapseFive&quot;&gt;How much do I get from each sale?&lt;/a&gt;\r\n                &lt;/h4&gt;\r\n            &lt;/div&gt;\r\n            &lt;div id=&quot;collapseFive&quot; class=&quot;panel-collapse collapse&quot;&gt;\r\n                &lt;div class=&quot;panel-body&quot;&gt;\r\n                    Here, at &lt;strong&gt;PrepBootstrap&lt;/strong&gt;, we offer a great, 70% rate for each seller, regardless of any restrictions, such as volume, date of entry, etc.\r\n                    &lt;br /&gt;\r\n                &lt;/div&gt;\r\n            &lt;/div&gt;\r\n        &lt;/div&gt;\r\n        &lt;div class=&quot;panel panel-default&quot;&gt;\r\n            &lt;div class=&quot;panel-heading&quot;&gt;\r\n                &lt;h4 class=&quot;panel-title&quot;&gt;\r\n                    &lt;a class=&quot;accordion-toggle collapsed&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#collapseSix&quot;&gt;Why sell my items here?&lt;/a&gt;\r\n                &lt;/h4&gt;\r\n            &lt;/div&gt;\r\n            &lt;div id=&quot;collapseSix&quot; class=&quot;panel-collapse collapse&quot;&gt;\r\n                &lt;div class=&quot;panel-body&quot;&gt;\r\n                    There are a number of reasons why you should join us:\r\n                    &lt;ul&gt;\r\n                        &lt;li&gt;A great 70% flat rate for your items.&lt;/li&gt;\r\n                        &lt;li&gt;Fast response/approval times. Many sites take weeks to process a theme or template. And if it gets rejected, there is another iteration. We have aliminated this, and made the process very fast. It only takes up to 72 hours for a template/theme to get reviewed.&lt;/li&gt;\r\n                        &lt;li&gt;We are not an exclusive marketplace. This means that you can sell your items on &lt;strong&gt;PrepBootstrap&lt;/strong&gt;, as well as on any other marketplate, and thus increase your earning potential.&lt;/li&gt;\r\n                    &lt;/ul&gt;\r\n                &lt;/div&gt;\r\n            &lt;/div&gt;\r\n        &lt;/div&gt;\r\n        &lt;div class=&quot;panel panel-default&quot;&gt;\r\n            &lt;div class=&quot;panel-heading&quot;&gt;\r\n                &lt;h4 class=&quot;panel-title&quot;&gt;\r\n                    &lt;a class=&quot;accordion-toggle collapsed&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#collapseEight&quot;&gt;What are the payment options?&lt;/a&gt;\r\n                &lt;/h4&gt;\r\n            &lt;/div&gt;\r\n            &lt;div id=&quot;collapseEight&quot; class=&quot;panel-collapse collapse&quot;&gt;\r\n                &lt;div class=&quot;panel-body&quot;&gt;\r\n                    The best way to transfer funds is via Paypal. This secure platform ensures timely payments and a secure environment. \r\n                &lt;/div&gt;\r\n            &lt;/div&gt;\r\n        &lt;/div&gt;\r\n        &lt;div class=&quot;panel panel-default&quot;&gt;\r\n            &lt;div class=&quot;panel-heading&quot;&gt;\r\n                &lt;h4 class=&quot;panel-title&quot;&gt;\r\n                    &lt;a class=&quot;accordion-toggle collapsed&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#collapseNine&quot;&gt;When do I get paid?&lt;/a&gt;\r\n                &lt;/h4&gt;\r\n            &lt;/div&gt;\r\n            &lt;div id=&quot;collapseNine&quot; class=&quot;panel-collapse collapse&quot;&gt;\r\n                &lt;div class=&quot;panel-body&quot;&gt;\r\n                    Our standard payment plan provides for monthly payments. At the end of each month, all accumulated funds are transfered to your account. \r\n                    The minimum amount of your balance should be at least 70 USD. \r\n                &lt;/div&gt;\r\n            &lt;/div&gt;\r\n        &lt;/div&gt;\r\n\r\n        &lt;div class=&quot;faqHeader&quot;&gt;Buyers&lt;/div&gt;\r\n        &lt;div class=&quot;panel panel-default&quot;&gt;\r\n            &lt;div class=&quot;panel-heading&quot;&gt;\r\n                &lt;h4 class=&quot;panel-title&quot;&gt;\r\n                    &lt;a class=&quot;accordion-toggle collapsed&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#collapseFour&quot;&gt;I want to buy a theme - what are the steps?&lt;/a&gt;\r\n                &lt;/h4&gt;\r\n            &lt;/div&gt;\r\n            &lt;div id=&quot;collapseFour&quot; class=&quot;panel-collapse collapse&quot;&gt;\r\n                &lt;div class=&quot;panel-body&quot;&gt;\r\n                    Buying a theme on &lt;strong&gt;PrepBootstrap&lt;/strong&gt; is really simple. Each theme has a live preview. \r\n                    Once you have selected a theme or template, which is to your liking, you can quickly and securely pay via Paypal.\r\n                    &lt;br /&gt;\r\n                    Once the transaction is complete, you gain full access to the purchased product. \r\n                &lt;/div&gt;\r\n            &lt;/div&gt;\r\n        &lt;/div&gt;\r\n        &lt;div class=&quot;panel panel-default&quot;&gt;\r\n            &lt;div class=&quot;panel-heading&quot;&gt;\r\n                &lt;h4 class=&quot;panel-title&quot;&gt;\r\n                    &lt;a class=&quot;accordion-toggle collapsed&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#collapseSeven&quot;&gt;Is this the latest version of an item&lt;/a&gt;\r\n                &lt;/h4&gt;\r\n            &lt;/div&gt;\r\n            &lt;div id=&quot;collapseSeven&quot; class=&quot;panel-collapse collapse&quot;&gt;\r\n                &lt;div class=&quot;panel-body&quot;&gt;\r\n                    Each item in &lt;strong&gt;PrepBootstrap&lt;/strong&gt; is maintained to its latest version. This ensures its smooth operation.\r\n                &lt;/div&gt;\r\n            &lt;/div&gt;\r\n        &lt;/div&gt;\r\n    &lt;/div&gt;\r\n&lt;/div&gt;\r\n\r\n&lt;style&gt;\r\n    .faqHeader {\r\n        font-size: 27px;\r\n        margin: 20px;\r\n    }\r\n\r\n    .panel-heading [data-toggle=&quot;collapse&quot;]:after {\r\n        font-family: &#39;Glyphicons Halflings&#39;;\r\n        content: &quot;\e072&quot;; /* &quot;play&quot; icon */\r\n        float: right;\r\n        color: #F58723;\r\n        font-size: 18px;\r\n        line-height: 22px;\r\n        /* rotate &quot;play&quot; icon from &gt; (right arrow) to down arrow */\r\n        -webkit-transform: rotate(-90deg);\r\n        -moz-transform: rotate(-90deg);\r\n        -ms-transform: rotate(-90deg);\r\n        -o-transform: rotate(-90deg);\r\n        transform: rotate(-90deg);\r\n    }\r\n\r\n    .panel-heading [data-toggle=&quot;collapse&quot;].collapsed:after {\r\n        /* rotate &quot;play&quot; icon from &gt; (right arrow) to ^ (up arrow) */\r\n        -webkit-transform: rotate(90deg);\r\n        -moz-transform: rotate(90deg);\r\n        -ms-transform: rotate(90deg);\r\n        -o-transform: rotate(90deg);\r\n        transform: rotate(90deg);\r\n        color: #454444;\r\n    }\r\n&lt;/style&gt;\r\n");
-
-        $("#convertBtnLink").click(function (e) {
-            e.preventDefault();
-
-            $('#convertForm input[name="Content"]').val($("#code").text());
-            $('#convertForm').submit();
-        });
-    });
-</script>
+ </li>
+ </ul>
