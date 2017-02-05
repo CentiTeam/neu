@@ -4,8 +4,8 @@
 <table>
 
 <tr><td>Zahlungsbeschreibung: </td><td><input class="form-control" name="zahlungsbeschreibung" type="text" maxlength="50" size="20" value="<?=$zahlung[0]->getZahlungsbeschreibung()?>" required></td></tr>
-<tr><td>Betrag: </td><td><input name="betrag" type="text" maxlength="50" size="20" value="<?=$zahlung[0]->getBetrag()?>" required></td></tr>
-<tr><td>Zahlungsdatum: </td><td><input type="date" name="zahlungsdatum" value="<?=$zahlung[0]->getZahlungsdatum()?>" placeholder="YYYY-MM-DD" required></td></tr>
+<tr><td>Betrag: </td><td><input class="form-control" name="betrag" type="text" maxlength="50" size="20" value="<?=$zahlung[0]->getBetrag()?>" required></td></tr>
+<tr><td>Zahlungsdatum: </td><td><input class="form-control" type="date" name="zahlungsdatum" value="<?=$zahlung[0]->getZahlungsdatum()?>" placeholder="YYYY-MM-DD" required></td></tr>
 <tr><td>Kategorie: </td><td>
 	<select name="kategorie">
 	<?php
