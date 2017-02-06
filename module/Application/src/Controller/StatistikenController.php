@@ -135,6 +135,9 @@ class StatistikenController extends AbstractActionController
  				if($zahlungsteilnehmer->getStatus()== 'beglichen' && $status == 'beglichen'){
  					$filteredlist[] =  $zahlungsteilnehmer;
  				}
+ 				if($zahlungsteilnehmer->getStatus()== 'ersteller'){
+ 					$filteredlist[] =  $zahlungsteilnehmer;
+ 				}
  			}
  		}
  		return $filteredlist;
