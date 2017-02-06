@@ -77,6 +77,9 @@ class StatistikenController extends AbstractActionController
    				if($_REQUEST["gruppe"] != null){
    					$zahlungenliste = $this->gruppeFilter($zahlungenliste, $_REQUEST["gruppe"]);
    						}
+    				if($_REQUEST["ersteller"] != null){
+    					$zahlungenliste = $this->erstellerFilter($zahlungenliste, $_REQUEST["ersteller"]);
+    						}
   			}		
   			
   			$saldo = Zahlungsteilnehmer::gibsaldo($user_id, $zahlungenliste);
@@ -126,14 +129,35 @@ class StatistikenController extends AbstractActionController
  		$filteredlist = array();
  		foreach($status as $zaehler => $status){
  			foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
- 				if($zahlungsteilnehmer->getStatus()== 'offen' && $status == 'offen'){
+ 				if($zahlungsteilnehmer->getStatus()== 'offen' && $status == 'offen' 
+ 						&& $zahlungsteilnehmer->istzahlungoffen($zahlungsteilnehmer->getZahlung()->getZ_id())== true){
  					$filteredlist[] =  $zahlungsteilnehmer;
  				}
- 				if($zahlungsteilnehmer->getStatus()== 'beglichen' && $status == 'beglichen'){
+ 				if($zahlungsteilnehmer->getStatus()== 'beglichen' && $status == 'beglichen'
+ 						&& $zahlungsteilnehmer->istzahlungoffen($zahlungsteilnehmer->getZahlung()->getZ_id())== false){
+ 					$zahlungsteilnehmer->zahlungsteilnehmerholen($zahlungsteilnehmer->getZahlung()->getZ_id());
  					$filteredlist[] =  $zahlungsteilnehmer;
  				}
- 				if($zahlungsteilnehmer->getStatus()== 'ersteller' && $status == 'ersteller'){
+ 			}
+ 		}
+ 		return $filteredlist;
+ 	}
+ 	
+ 	function erstellerFilter($zahlungenliste, $ersteller){
+ 		$filteredlist = array();
+ 		echo "hi";
+ 		foreach($ersteller as $zaehler => $erstellerobj){
+ 			foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
+ 				echo "var dumps:";
+ 				var_dump($zahlungsteilnehmer->getStatus());
+ 				var_dump($erstellerobj);
+ 				if($zahlungsteilnehmer->getStatus()== 'ersteller' && $erstellerobj == 'ersteller'){
  					$filteredlist[] =  $zahlungsteilnehmer;
+ 					echo "hi ersteller";
+ 				}
+ 				if($zahlungsteilnehmer->getStatus()!= 'ersteller' && $erstellerobj == 'nersteller'){
+ 					$filteredlist[] =  $zahlungsteilnehmer;
+ 					
  				}
  			}
  		}
