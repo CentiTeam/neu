@@ -330,7 +330,13 @@ class Zahlungsteilnehmer {
 			return $zahlungListe;
 		}
 	}
-	
+	public function istzahlungoffen($z_id){
+		$offen = false;
+		foreach(zahlungsteilnehmerholen($z_id) as $zaehler=> $zahlungsteilnehmer){
+			if($zahlungsteilnehmer->getRestbetrag()>0) $offen = true;
+		}
+		return $offen;
+	}
 	
 	// Alle Teilnehmer an einer Zahlung, die mit z_id übergeben wird
 	public function zahlungsteilnehmerholen($z_id){

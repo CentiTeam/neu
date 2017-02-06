@@ -77,9 +77,9 @@ class StatistikenController extends AbstractActionController
    				if($_REQUEST["gruppe"] != null){
    					$zahlungenliste = $this->gruppeFilter($zahlungenliste, $_REQUEST["gruppe"]);
    						}
-   				if($_REQUEST["ersteller"] != null){
-   					$zahlungenliste = $this->erstellerFilter($zahlungenliste, $_REQUEST["ersteller"]);
-   						}
+    				if($_REQUEST["ersteller"] != null){
+    					$zahlungenliste = $this->erstellerFilter($zahlungenliste, $_REQUEST["ersteller"]);
+    						}
   			}		
   			
   			$saldo = Zahlungsteilnehmer::gibsaldo($user_id, $zahlungenliste);
@@ -129,13 +129,13 @@ class StatistikenController extends AbstractActionController
  		$filteredlist = array();
  		foreach($status as $zaehler => $status){
  			foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
- 				if($zahlungsteilnehmer->getStatus()== 'offen' && $status == 'offen'){
+ 				if($zahlungsteilnehmer->getStatus()== 'offen' && $status == 'offen' 
+ 						&& $zahlungsteilnehmer->istzahlungoffen($zahlungsteilnehmer->getZahlung()->getZ_id())== true){
  					$filteredlist[] =  $zahlungsteilnehmer;
  				}
- 				if($zahlungsteilnehmer->getStatus()== 'beglichen' && $status == 'beglichen'){
- 					$filteredlist[] =  $zahlungsteilnehmer;
- 				}
- 				if($zahlungsteilnehmer->getStatus()== 'ersteller'){
+ 				if($zahlungsteilnehmer->getStatus()== 'beglichen' && $status == 'beglichen'
+ 						&& $zahlungsteilnehmer->istzahlungoffen($zahlungsteilnehmer->getZahlung()->getZ_id())== false){
+ 					$zahlungsteilnehmer->zahlungsteilnehmerholen($zahlungsteilnehmer->getZahlung()->getZ_id());
  					$filteredlist[] =  $zahlungsteilnehmer;
  				}
  			}
