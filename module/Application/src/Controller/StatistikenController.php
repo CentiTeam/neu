@@ -142,13 +142,17 @@ class StatistikenController extends AbstractActionController
  	
  	function erstellerFilter($zahlungenliste, $ersteller){
  		$filteredlist = array();
+ 		echo "hi";
  		foreach($ersteller as $zaehler => $erstellerobj){
  			foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
  				if($zahlungsteilnehmer->getStatus()== 'ersteller' && $erstellerobj == 'ersteller'){
  					$filteredlist[] =  $zahlungsteilnehmer;
+ 					echo "hi ersteller";
  				}
- 				if($zahlungsteilnehmer->getStatus()!= 'ersteller' && $status == 'nersteller'){
+ 				if($zahlungsteilnehmer->getStatus()!= 'ersteller' && $erstellerobj == 'nersteller'){
  					$filteredlist[] =  $zahlungsteilnehmer;
+ 					echo "hi nersteller";
+ 					
  				}
  			}
  		}
