@@ -29,12 +29,12 @@ use Application\Model\Gruppenmitglied;?>
 		
 	?>
 
-		<tr>
-			<td><div class="small-circular-image"><img src ="<?=$gruppenmitglied->getGruppe()->getGruppenbildpfad()?>" height = "50" width = "50" alt = "Kein Bild vorhanden"></div></td>
-			<td><?=$gruppenmitglied->getGruppe()->getGruppenname()?></td>
-			<td><?=$gruppenmitglied->getGruppe()->getGruppenbeschreibung()?></td>
+		<tr class="untereinander">
+			<td class="untereinander"><div class="small-circular-image"><img src ="<?=$gruppenmitglied->getGruppe()->getGruppenbildpfad()?>" height = "50" width = "50" alt = "Kein Bild vorhanden"></div></td>
+			<td class="untereinander"><?=$gruppenmitglied->getGruppe()->getGruppenname()?></td>
+			<td class="untereinander"><?=$gruppenmitglied->getGruppe()->getGruppenbeschreibung()?></td>
 			
-			<td><a href='groupshow?g_id=<?=$gruppenmitglied->getGruppe()->getG_id()?>'><img src="img/show.jpg" title="Gruppendetails anzeigen"/></a></td>
+			<td class="untereinander"><a href='groupshow?g_id=<?=$gruppenmitglied->getGruppe()->getG_id()?>'><img src="img/show.jpg" title="Gruppendetails anzeigen"/></a></td>
 			<?php //Nicht schön programmiert
 			if ($gruppenmitglied->getGruppenadmin()=="1") {
 			?>
