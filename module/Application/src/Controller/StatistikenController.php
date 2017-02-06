@@ -78,7 +78,7 @@ class StatistikenController extends AbstractActionController
    					$zahlungenliste = $this->gruppeFilter($zahlungenliste, $_REQUEST["gruppe"]);
    						}
    				if($_REQUEST["ersteller"] != null){
-   					$zahlungenliste = $this->statusFilter($zahlungenliste, $_REQUEST["ersteller"]);
+   					$zahlungenliste = $this->erstellerFilter($zahlungenliste, $_REQUEST["ersteller"]);
    						}
   			}		
   			
