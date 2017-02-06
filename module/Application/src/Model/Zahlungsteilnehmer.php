@@ -332,7 +332,7 @@ class Zahlungsteilnehmer {
 	}
 	public function istzahlungoffen($z_id){
 		$offen = false;
-		foreach(zahlungsteilnehmerholen($z_id) as $zaehler=> $zahlungsteilnehmer){
+		foreach($this ->zahlungsteilnehmerholen($z_id) as $zaehler=> $zahlungsteilnehmer){
 			if($zahlungsteilnehmer->getRestbetrag()>0) $offen = true;
 		}
 		return $offen;
