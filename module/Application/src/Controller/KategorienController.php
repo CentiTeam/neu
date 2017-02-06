@@ -17,6 +17,7 @@ class KategorienController extends AbstractActionController
 		session_start();
 		
 		// Berechtigungsprüfung
+		// Überprüfen, ob User angemeldet ist
 		if ($_SESSION['angemeldet']==NULL) {
 		
 			$msg="Nicht berechtigt!";
@@ -31,6 +32,8 @@ class KategorienController extends AbstractActionController
 		
 		}
 		
+		
+		// Überprüfen, ob Admin
 		$user=$_SESSION['user'];
 		
 		if($_SESSION['systemadmin'] != 'ja') {

@@ -10,6 +10,9 @@ namespace Application\Controller;
 
 header("Content-Type: text/html; charset=utf-8");
 
+// Wenn Sytemadmin, wird die Benutzertabelle zurückgegeben, damit der Admin einen User suchen und reaktivieren/deaktivieren kann
+// Wenn regulärer User, wird die Usersuche zum Einladen neuer Gruppenmitglieder aufgerufen
+
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Model\User;
@@ -17,12 +20,13 @@ use Application\Model\Gruppe;
 use Application\Model\Gruppenmitglied;
 
 
+
 class UsersuchenController extends AbstractActionController
 {
 	public function usersuchenAction()
 	{
 		session_start(); 
-
+		// Abprüfen, ob User angemeldet ist
 		if ($_SESSION['user']==NULL) {
 			$msg="Nicht berechtigt!";
 			$view = new ViewModel([
@@ -36,6 +40,8 @@ class UsersuchenController extends AbstractActionController
 		
 		$suche = $_REQUEST ["suche"];
 		
+		// Wenn der User Systemadmin ist wird die gesamte Usertabelle als Suchliste ausgegeben 
+		// Die View "Benutzertabelle für Admins wird aufgerufen
 		if ($_SESSION['user']->getSystemadmin()==true) {
 			
 			
@@ -54,6 +60,8 @@ class UsersuchenController extends AbstractActionController
 			return $view;
 		}
 		
+		// Wenn der User nicht Systemadmin ist werden aus der Usertabelle nur die User, die noch nicht in der Gruppe sind,
+		// als Suchliste ausgegeben
 		else {
 			
 			// Pr�fen, ob Gruppeadmin
@@ -90,7 +98,7 @@ class UsersuchenController extends AbstractActionController
 			$gruppe->laden($g_id);
 			
 			$liste = User::gruppensuchlisteHolen($suche, $g_id);
-			
+			// Formular wird abgeschickt 
 			if ($_REQUEST['einladen']) {
 				
 				if ($aktgruppenmitglied->getGruppenadmin()=="0") {

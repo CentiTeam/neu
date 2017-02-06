@@ -10,7 +10,8 @@ use Application\Model\Bildupload;
 class ProfilController extends AbstractActionController {
 
 	function profilAction() {
-		// TODO Berechtigungspr�fung
+		
+		// Berechtigungspr�fung, ob User angemeldet oder systemadmin ist
 		session_start();
 		
 		if ($_SESSION['user']==NULL && $_SESSION['systemadmin']==NULL) {
@@ -26,7 +27,8 @@ class ProfilController extends AbstractActionController {
 		}
 		
 		$user=$_SESSION['user'];
-
+		
+		// Wenn das Formular "Profilbild aendern" abgesendet wird
 			if ($_REQUEST['profilbild']) {
 				
 					$bildupload = new Bildupload();
@@ -70,7 +72,8 @@ class ProfilController extends AbstractActionController {
 					}
 				
 			}
-
+			
+			// Zurückgeben der Profil-View
 				return new ViewModel([
 						'user' => array($user),
 				]);	

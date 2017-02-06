@@ -28,9 +28,9 @@ class KategorieeditController extends AbstractActionController {
 		
 		}
 		
-		$errors = array();
+		// Abprüfen, ob Administrator
 		$user=$_SESSION['user'];
-
+		
 		if($_SESSION['systemadmin'] != 'ja') {
 
 			$msg= "Sie müssen ein Administrator sein, um eine Kategorie zu bearbeiten!";
@@ -47,11 +47,10 @@ class KategorieeditController extends AbstractActionController {
 			$kategorie = new Kategorie();
 				
 			if (! $kategorie->laden($_REQUEST['k_id'])) {
-				array_push($errors, "Fehler beim Laden der Kategorie!");
+				$msg= "Fehler beim Laden der Kategorie!";
 			}
 
 			$saved= false;
-			$msg = array();
 
 			if ($_REQUEST['speichern']) {
 
@@ -64,7 +63,6 @@ class KategorieeditController extends AbstractActionController {
 
 				// Schritt 2: Daten pr�fen und Fehler in Array füllen
 				$errorStr ="";
-				$msg="";
 					
 					
 				// Gruppe-Objekt mit Daten aus Request-Array f�llen
@@ -75,21 +73,18 @@ class KategorieeditController extends AbstractActionController {
 
 				if ($errorStr == "" && $kategorie->bearbeiten()) {
 
-				 // array_push($msg, "Gruppe erfolgreich gespeichert!");
-				 $msg .= "Kategorie erfolgreich gespeichert!";
-				 $saved = true;
+				 	$msg .= "Kategorie erfolgreich gespeichert!";
+				 	$saved = true;
 
 				} elseif ($errorStr == "") {
 
-				 // array_push($msg, "Datenpr�fung in Ordnung, Fehler beim Speichern der Gruppe!");
 					$msg .= "Datenpr�fung in Ordnung, Fehler beim Speichern der Kategorie!";
-				 $saved = false;
+				 	$saved = false;
 
 				} else {
 
-				 // array_push($msg, "Fehler bei der Datenpr�fung. Gruppe nicht gespeichert!");
 					$msg .= "Fehler bei der Datenpr�fung. Kategorie nicht gespeichert!";
-				 $saved = false;
+					$saved = false;
 
 				}
 				

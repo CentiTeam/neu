@@ -15,10 +15,7 @@ class NachrichtbearbeitenController extends AbstractActionController {
 
 	function nachrichtbearbeitenAction() {
 
-		session_start();
-
-		$errors = array();
-		
+		session_start();		
 
 		// Berechtigungsprüfung
 		if ($_SESSION['angemeldet']==NULL) {
@@ -38,9 +35,9 @@ class NachrichtbearbeitenController extends AbstractActionController {
 		$n_id=$_REQUEST['n_id'];
 		$user_id=$_SESSION['user']->getU_id();
 		
+		// Abprüfen, ob der aktuelle User der Ersteller der Nachricht ist
 		$aktnachricht=new Nachricht();
 		$isOK=$aktnachricht->laden($n_id);
-		
 		
 		if ($isOK == false || $aktnachricht->getUser()->getU_id() != $user_id) {
 		

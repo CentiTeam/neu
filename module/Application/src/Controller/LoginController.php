@@ -48,12 +48,11 @@ class LoginController extends AbstractActionController{
 					]);
 					
 					// Meldet man sich als Systemadmin an, wird auf ein anderes Template verwiesen
-					
 					if ($_SESSION['systemadmin'] == "ja")
 					{
 						$view->setTemplate('application/adminoverview/adminoverview.phtml');
 					}
-					
+					// Ansonsten als regulärer User angemeldet und das Overview-Template wird geladen
 					else
 					{
 						$view->setTemplate('application/overview/overview.phtml');
@@ -63,6 +62,7 @@ class LoginController extends AbstractActionController{
 					return $view;
 	
 					}
+					// Wenn beim Ausführen des Logins ein Fehler austritt 
 					else{
 						
 						if ($email == "" || $pwd=="")

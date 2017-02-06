@@ -55,7 +55,8 @@ class UserausgruppeentfernenController extends AbstractActionController
 		
 			return $view;
 		}
-
+		// Ende Berechtigungsprüfung
+		
 
 		// neues Model anlegen
 		$gruppenmitglied = new Gruppenmitglied ();
@@ -67,11 +68,7 @@ class UserausgruppeentfernenController extends AbstractActionController
 		$gruppenmitglied->laden ($g_id, $user_id);
 
 		
-
-		
-		// !!!!
 		// Pr�fen, ob es noch offene Zahlungen gibt
-		// !!!!!
 		$offeneZahlungen=false;
 		
 		$zahlungenListe=Zahlungsteilnehmer::teilnehmerzahlungennachgruppeholen($user_id, $g_id);
@@ -82,6 +79,8 @@ class UserausgruppeentfernenController extends AbstractActionController
 			}
 		}
 		
+		// Wenn der User noch offene Zahungen in dieser Gruppe hat darf er die Gruppe nicht verlassen
+		// Es wird eine Fehlermeldung generiert
 		if ($offeneZahlungen==true) {
 			
 			$username=$gruppenmitglied->getUser()->getUsername();
@@ -137,7 +136,7 @@ class UserausgruppeentfernenController extends AbstractActionController
 				
 			$msg = "";
 			
-			// wenn der Ladevorgang erfolgreich war, wird versucht die Gruppe zu l�schen
+			// wenn der Ladevorgang erfolgreich war, wird versucht die Gruppenmitgliedschaft zu l�schen
 			if ($gruppenmitglied->loeschen ($g_id, $user_id)) {
 
 
@@ -149,18 +148,18 @@ class UserausgruppeentfernenController extends AbstractActionController
 				
 				
 	
-				// Muss geändert werden zu:
+				// Muss geändert werden zu: (sollte jetzt passen)
 				Gruppenereignis::userausgruppeentfernenEreignis($gruppenmitglied);
 
 			} else {
 
-				// ausgeben, dass das Team nicht gel�scht werden konnte (kein Template n�tig!)
+				// ausgeben, dass die Gruppenmitgliedschaft nicht gel�scht werden konnte (kein Template n�tig!)
 				$msg .= "Fehler beim Entfernen des Gruppenmitglieds!<br>";
 				return sprintf ( "<div class='error'>Fehler beim Entfernen des Gruppenmitglieds!</div>");
 			}
 		} else {
 
-			// da das Formular zum Best�tigen des L�schens der Gruppe noch nicht angezeigt wurde, wird es hier generiert und an den ViewModelController
+			// da das Formular zum Best�tigen des L�schens der Gruppenmitgliedschaft noch nicht angezeigt wurde, wird es hier generiert und an den ViewModelController
 			// zur Ausgabe �bergeben
 				
 			return new ViewModel([

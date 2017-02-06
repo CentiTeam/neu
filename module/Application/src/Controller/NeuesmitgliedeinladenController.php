@@ -16,13 +16,15 @@ use Application\Model\User;
 use Application\Model\Gruppe;
 use Application\Model\Gruppenmitglied;
 
+// neues Mitglied zu Grouppay einladen
 
 class NeuesmitgliedeinladenController extends AbstractActionController
 {
 	public function neuesmitgliedeinladenAction()
 	{
 		session_start();
-
+		
+		// Abprüfen, ob User eingeloggt ist
 		if ($_SESSION['user']==NULL) {
 			$msg="Nicht berechtigt!";
 			$view = new ViewModel([
@@ -34,7 +36,7 @@ class NeuesmitgliedeinladenController extends AbstractActionController
 			return $view;
 		
 		} else {
-			
+			// Wenn das Formular abgeschickt worden ist
 			if ($_REQUEST['einladen']) {
 
 				$msg="";
@@ -42,10 +44,11 @@ class NeuesmitgliedeinladenController extends AbstractActionController
 				// Variablen füllen für E-mail-Text
 				$empfaengerMail=$_REQUEST['email'];
 				
-				
+				// Prüfen, ob der einzuladene User bereits bei Grouppay registriert ist
 				$userListe=User::listeHolen();
 				
 				foreach ($userListe as $liste) {
+					// Wenn ja wird dieser geladen und ein Link generiert, über den der User auf das Profil des gesuchten User kommt
 					if ($liste->getEmail()==$empfaengerMail) {
 						
 						$empfaenger_id=$liste->getU_id();
@@ -63,7 +66,7 @@ class NeuesmitgliedeinladenController extends AbstractActionController
 					}
 				}
 				
-				
+				// Wenn der User noch nicht bei Grouppay ist wird ein E-Mail Text generiert und die E-Mail abgeschickt
 				$absenderVorname=$_SESSION['user']->getVorname();
 				$absenderNachname=$_SESSION['user']->getNachname();
 
