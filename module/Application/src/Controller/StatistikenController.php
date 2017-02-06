@@ -129,11 +129,11 @@ class StatistikenController extends AbstractActionController
  		$filteredlist = array();
  		foreach($status as $zaehler => $status){
  			foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
- 				if($zahlungsteilnehmer->getStatus()== 'offen' && $status == 'offen' 
+ 				if($status == 'offen' 
  						&& $zahlungsteilnehmer->istzahlungoffen($zahlungsteilnehmer->getZahlung()->getZ_id())== true){
  					$filteredlist[] =  $zahlungsteilnehmer;
  				}
- 				if($zahlungsteilnehmer->getStatus()== 'beglichen' && $status == 'beglichen'
+ 				if($status == 'beglichen'
  						&& $zahlungsteilnehmer->istzahlungoffen($zahlungsteilnehmer->getZahlung()->getZ_id())== false){
  					$zahlungsteilnehmer->zahlungsteilnehmerholen($zahlungsteilnehmer->getZahlung()->getZ_id());
  					$filteredlist[] =  $zahlungsteilnehmer;
