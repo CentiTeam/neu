@@ -46,10 +46,7 @@ use Application\Model\Zahlungsteilnehmer;?>
 			<input type="checkbox" name="status[]" value='offen' checked>offen
 			</input>
 			
-	
 			<input type="checkbox" name="status[]" value=beglichen> beglichen
-			</input>
-			<input type="checkbox" name="status[]" value='ersteller' checked> ersteller
 			</input>
 	
 	</td>
@@ -72,7 +69,15 @@ use Application\Model\Zahlungsteilnehmer;?>
 	<?php } ?> 
 	</select>
 </td>
+
+	<td>
+			<input type="checkbox" name="ersteller[]" value='ersteller' checked>Zahlungen, die ich erstellt habe
+			</input>
+			
+			<input type="checkbox" name="ersteller[]" value=nersteller> Zahlungen, die ich nicht erstellt habe
+			</input>
 	
+	</td>
 
 </tr>
 

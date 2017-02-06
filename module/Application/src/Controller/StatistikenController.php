@@ -77,6 +77,9 @@ class StatistikenController extends AbstractActionController
    				if($_REQUEST["gruppe"] != null){
    					$zahlungenliste = $this->gruppeFilter($zahlungenliste, $_REQUEST["gruppe"]);
    						}
+   				if($_REQUEST["ersteller"] != null){
+   					$zahlungenliste = $this->statusFilter($zahlungenliste, $_REQUEST["ersteller"]);
+   						}
   			}		
   			
   			$saldo = Zahlungsteilnehmer::gibsaldo($user_id, $zahlungenliste);
@@ -132,7 +135,19 @@ class StatistikenController extends AbstractActionController
  				if($zahlungsteilnehmer->getStatus()== 'beglichen' && $status == 'beglichen'){
  					$filteredlist[] =  $zahlungsteilnehmer;
  				}
- 				if($zahlungsteilnehmer->getStatus()== 'ersteller' && $status == 'ersteller'){
+ 			}
+ 		}
+ 		return $filteredlist;
+ 	}
+ 	
+ 	function erstellerFilter($zahlungenliste, $ersteller){
+ 		$filteredlist = array();
+ 		foreach($ersteller as $zaehler => $erstellerobj){
+ 			foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
+ 				if($zahlungsteilnehmer->getStatus()== 'ersteller' && $erstellerobj == 'ersteller'){
+ 					$filteredlist[] =  $zahlungsteilnehmer;
+ 				}
+ 				if($zahlungsteilnehmer->getStatus()!= 'ersteller' && $status == 'nersteller'){
  					$filteredlist[] =  $zahlungsteilnehmer;
  				}
  			}
