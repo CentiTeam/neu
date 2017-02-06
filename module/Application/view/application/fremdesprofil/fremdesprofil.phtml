@@ -11,7 +11,7 @@
 	</table>
 	
 <br><br>
-<h4>Schulden von mir an <?=$user[0]->getUsername()?> (gruppenunabh&aumlngig):</h4>
+<h4>Schulden von mir an <?=$user[0]->getUsername()?> (gruppenunabh&auml;ngig):</h4>
 <form action="fremdesprofil?u_id=<?=$_REQUEST['u_id']?>" method="post">
 
 <div class="form-group" style="width:300px">
@@ -36,15 +36,25 @@
 <br><br> 
 
 
-
-<h4>Schulden von <?=$user[0]->getUsername()?> an mich (gruppenunabh&aumlngig):</h4>
+<h4>Schulden von <?=$user[0]->getUsername()?> an mich (gruppenunabh&auml;ngig):</h4>
 <form action="fremdesprofil?u_id=<?=$_REQUEST['u_id']?>" method="post">
-<table>
-<tr><th>Schulden pflegen</th></tr>
-<tr><td>Offene Schulden: </td><td><input name="offen_an_angemeldeten" type="text" maxlength="50" style="width: 13em;" value="<?=$schulden_an_angemeldeten[0]?>" required readonly> </td></tr>
-<tr><td>Begleichen: </td><td><input name="begleichen_an_angemeldeten" type="number" step=".01" maxlength="50" style="width: 13em;" placeholder="Euro.Cent" min="0" max="<?=$schulden_an_angemeldeten[0]?>" required></td></tr>										
-<tr><td><input class="button" type="submit" name="speichern_an_angemeldeten" value="Betrag als bezahlt speichern"></td> </tr>
-</table> 
+
+<div class="form-group" style="width:300px">
+<label>Schulden pflegen</label>
+</div>
+
+<div class="form-group" style="width:300px">
+	<label>Offene Schulden: </label>
+	<input class="form-control" name="offen_an_angemeldeten" type="text" maxlength="50" style="width: 13em;" value="<?=$schulden_an_angemeldeten[0]?>" required readonly>
+</div>
+
+<div class="form-group" style="width:300px">
+	<label>Begleichen: </label>
+	<input class="form-control" name="begleichen_an_angemeldeten" type="number" step=".01" maxlength="50" style="width: 13em;" placeholder="Euro.Cent" min="0" max="<?=$schulden_an_angemeldeten[0]?>" required>									
+</div>
+
+<input class="button" type="submit" name="speichern_an_angemeldeten" value="Betrag als bezahlt speichern">
+
 </form>
 
 
