@@ -94,8 +94,9 @@ use Application\Model\Zahlungsteilnehmer;?>
 		<th class="datentabelle">Zahlungsbeschreibung  </th>
 		<th class="datentabelle">Zahlungsdatum </th>
 		<th class="datentabelle">Betrag </th>
+		<th class="datentabelle">Restbetrag </th>
 		<th class="datentabelle">Kategorie </th>
-		<th class="datentabelle">Status </th>
+		<th class="datentabelle">Status der Zahlung</th>
 		<th class="datentabelle">Gruppenname</th>
 		<th class="datentabelle"></th>
 	</tr>
@@ -111,8 +112,9 @@ use Application\Model\Zahlungsteilnehmer;?>
 			<td class="datentabelle"><?=$zahlungsteilnehmer->getZahlung()->getZahlungsbeschreibung()?></td>
 			<td class="datentabelle"><?=$zahlungsteilnehmer->getZahlung()->getZahlungsdatum()?></td>
 			<td class="datentabelle"><?=$zahlungsteilnehmer->getZahlung()->getBetrag()?></td>
+			<td class="datentabelle"><?=$zahlungsteilnehmer->getRestbetrag()?></td>
 			<td class="datentabelle"><?=$zahlungsteilnehmer->getZahlung()->getKategorie()->getKategoriebeschreibung()?></td> 
-			<td class="datentabelle"><?=$zahlungsteilnehmer->getStatus()?></td>
+			<td class="datentabelle"><?=$zahlungsteilnehmer->istzahlungoffen($zahlungsteilnehmer->getZahlung()->getZ_id())?></td>
 			<td class="datentabelle"><?=$zahlungsteilnehmer->getZahlung()->getGruppe()->getGruppenname()?></td>
 			<td class="datentabelle"><a href='zahlunganzeigen?z_id=<?=$zahlungsteilnehmer->getZahlung()->getZ_id()?>&g_id=<?=$zahlungsteilnehmer->getZahlung()->getGruppe()->getG_id()?>'><img src="img/show.jpg" /></a>
 		</tr>

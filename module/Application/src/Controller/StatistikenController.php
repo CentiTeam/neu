@@ -145,15 +145,10 @@ class StatistikenController extends AbstractActionController
  	
  	function erstellerFilter($zahlungenliste, $ersteller){
  		$filteredlist = array();
- 		echo "hi";
  		foreach($ersteller as $zaehler => $erstellerobj){
  			foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
- 				echo "var dumps:";
- 				var_dump($zahlungsteilnehmer->getStatus());
- 				var_dump($erstellerobj);
  				if($zahlungsteilnehmer->getStatus()== 'ersteller' && $erstellerobj == 'ersteller'){
  					$filteredlist[] =  $zahlungsteilnehmer;
- 					echo "hi ersteller";
  				}
  				if($zahlungsteilnehmer->getStatus()!= 'ersteller' && $erstellerobj == 'nersteller'){
  					$filteredlist[] =  $zahlungsteilnehmer;
@@ -166,11 +161,9 @@ class StatistikenController extends AbstractActionController
  	
  	
  	function datFilter($zahlungenliste, $afterdate, $beforedate){
- 		echo "im datFilter angekommen";
  		$filteredlist = array();
  		if($beforedate == ""){
  			$beforedate = ('2038-01-01');
- 			echo "im datFilter if Zweig angekommen";
  		}
  		foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
  			if($zahlungsteilnehmer->getZahlung()->getZahlungsdatum() > $afterdate && $zahlungsteilnehmer->getZahlung()->getZahlungsdatum() < $beforedate){
