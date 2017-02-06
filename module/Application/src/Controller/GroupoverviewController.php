@@ -8,8 +8,7 @@ use Application\Model\Gruppe;
 use Application\Model\Gruppenmitglied;
 use Application\Model\User;
 
-#TODO nur die Gruppen anzeigen, zu denen man geh�rt; hierf�r "Listeholen aus Gruppenmitglied" und 
-#"Listeholen aus Gruppe" kombinieren
+// Liste aller eigenen Gruppen anzeigen
 
 class GroupoverviewController extends AbstractActionController
 {

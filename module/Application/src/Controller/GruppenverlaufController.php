@@ -35,11 +35,9 @@ class GruppenverlaufController extends AbstractActionController
 		$g_id=$_GET['g_id'];
 		$user_id=$_SESSION['user']->getU_id();
 		
+		// Überprüfen, ob Gruppenmitglied
 		$aktgruppenmitglied=new Gruppenmitglied();
 		$isOK=$aktgruppenmitglied->laden($g_id, $user_id);
-		
-		
-	
 		
 		if ($isOK==false) {
 		

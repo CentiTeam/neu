@@ -11,6 +11,18 @@ use Application\Model\Nachricht;
 use Application\Model\Gruppenereignis;
 
 
+/**
+ * 
+ * @author Tanja
+ *
+ *Übersicht über eine Gruppe:
+ *- Gruppendetails
+ *- Weiterfuehrende Funktionen
+ *- Gruppenmitglieder
+ *- Nachrichten und Messageboard
+ *- Gruppe verlassen
+ * 
+ */
 
 class GroupshowController extends AbstractActionController
 {
@@ -41,6 +53,7 @@ class GroupshowController extends AbstractActionController
 		$aktgruppenmitglied=new Gruppenmitglied();
 		$isOK=$aktgruppenmitglied->laden($g_id, $user_id);
 		
+		// Wenn der User, der auf die Gruppe zugreifen will, kein Gruppenmitglied ist wird seine Groupoverview aufgerufen
 		if ($isOK==false) {
 		
 			$msg="Nicht berechtigt!";
@@ -59,11 +72,9 @@ class GroupshowController extends AbstractActionController
 		
 		
 		
-		
 		$user_id=$_SESSION['user']->getU_id();
 		$user=$_SESSION['user'];
 		$errStr="";
-		
 
 		
 		// Gruppen-Objekt laden
@@ -71,6 +82,8 @@ class GroupshowController extends AbstractActionController
 		$g_id=$_REQUEST['g_id'];
 		$gruppe->laden($g_id);
 		
+		// Wohl nochmals dieselbe Überprüfung (bleibt stehen, damit keine Bugs entstehen)
+		// Wenn der User, der auf die Gruppe zugreifen will, kein Gruppenmitglied ist wird seine Groupoverview aufgerufen
 		$allegruppenliste=Gruppenmitglied::listeholen();
 		
 		$mitglied=false;
@@ -96,6 +109,9 @@ class GroupshowController extends AbstractActionController
 		
 			return $view;
 		}
+		
+		// BErechtigungsprüfung Ende
+		
 	
 		// Gruppenadminrechte �ndern
 		$mitgliederliste=Gruppenmitglied::gruppenmitgliederlisteHolen($g_id);
@@ -110,7 +126,7 @@ class GroupshowController extends AbstractActionController
 			$gruppenmitglied=new Gruppenmitglied();
 			$gruppenmitglied->laden($_REQUEST['g_id'],$admin_U_id);
 			
-			
+			// Wenn der betreffende User bereits Admin ist werden ihm die Rechte entzogen
 			if ($gruppenmitglied->getGruppenadmin()=="1") {
 				$adminaenderung="0";
 				
@@ -120,7 +136,8 @@ class GroupshowController extends AbstractActionController
 				$genommener = $gruppenmitglied->getUser();
 				
 				Gruppenereignis::gruppenadminrechtenehmenEreignis($nehmer, $genommener, $gruppe);
-				
+			
+			// Wenn der betreffende User noch nicht Admin ist werden ihm Adminrechte gegeben
 			} else {
 				$adminaenderung="1";
 				
@@ -190,7 +207,7 @@ class GroupshowController extends AbstractActionController
 		}
 	
 		
-			
+		// Groupshow-Model zurückgeben	
 		return new ViewModel([
 				'gruppe' => array($gruppe),
 				'nachricht' => $nachricht,

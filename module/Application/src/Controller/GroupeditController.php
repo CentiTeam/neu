@@ -58,12 +58,13 @@ class GroupeditController extends AbstractActionController {
 			$gruppe = new Gruppe();
 			
 			if (! $gruppe->laden($_REQUEST['g_id'])) {
-				array_push($errors, "Fehler beim Laden der Gruppe!");	
+				$msg= "Fehler beim Laden der Gruppe!";	
 			}
 
 			$saved= false;
 			$msg = array();
-
+			
+			// Wenn das Forumlar abgesendet worden ist
 			if ($_REQUEST['speichern']) {
 
 					
@@ -72,15 +73,16 @@ class GroupeditController extends AbstractActionController {
 				$gruppenname=$_REQUEST["gruppenname"];
 				$gruppenbeschreibung=$_REQUEST["gruppenbeschreibung"];
 				
-				
+				// Wenn kein neues Bild hochgeladen wird, wird das bereits existierende Bild geladen
 				if ($_FILES ["uploadedfile"]["name"] == NULL) {
 					$path=$gruppe->getGruppenbildpfad();
 				}
+				
+				// Ansonsten wird das eingelesene Bild hochgeladen
 				else {
 					
 					$bildupload = new Bildupload();
 					
-					// Schritt 1:  Werte aus Formular einlesen
 					$uploadedfile=$_REQUEST["uploadedfile"];
 					
 					//Bilddatei an die Funktion Bildupload �bergeben, R�ckgabe des Bildpfades
@@ -119,25 +121,21 @@ class GroupeditController extends AbstractActionController {
 				$gruppe->setGruppenbeschreibung($gruppenbeschreibung);
 				$gruppe->setGruppenbildpfad($path);
 					
-				
+				// Wenn es keine Fehler bei den eingelesenen Daten gibt wird das Gruppe-Objekt in die DB gespeichert
 				 if ($errorStr == "" && $gruppe->bearbeiten()) {
 		
-				 // array_push($msg, "Gruppe erfolgreich gespeichert!");
-				 $msg .= "Gruppe erfolgreich gespeichert!";
-				 $saved = true;
+					 $msg .= "Gruppe erfolgreich gespeichert!";
+					 $saved = true;
 				 	
 				 } elseif ($errorStr == "") {
 
-				 // array_push($msg, "Datenpr�fung in Ordnung, Fehler beim Speichern der Gruppe!");
 				 	$msg .= "Datenpr�fung in Ordnung, Fehler beim Speichern der Gruppe!";
-				 $saved = false;
+					$saved = false;
 				 	
 				 } else {
-
-				 // array_push($msg, "Fehler bei der Datenpr�fung. Gruppe nicht gespeichert!");
+				 	
 				 	$msg .= "Fehler bei der Datenpr�fung. Gruppe nicht gespeichert!";
-				 $saved = false;
-
+					$saved = false;
 				 }
 				 
 				 

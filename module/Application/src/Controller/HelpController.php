@@ -10,6 +10,8 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
+// FAQ
+
 class HelpController extends AbstractActionController
 {
 	public function helpAction()
