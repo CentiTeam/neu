@@ -127,6 +127,7 @@ class StatistikenController extends AbstractActionController
  	
  	function statusFilter($zahlungenliste, $status){
  		$filteredlist = array();
+ 		
  		foreach($status as $zaehler => $status){
  			foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
  				if($status == 'offen' 
