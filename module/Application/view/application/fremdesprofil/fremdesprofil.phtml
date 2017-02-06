@@ -11,12 +11,8 @@
 	</table>
 	
 <br><br>
-<h4>Schulden von mir an <?=$user[0]->getUsername()?> (gruppenunabh&auml;ngig):</h4>
+<h4>Schulden von mir an <?=$user[0]->getUsername()?> pflegen (gruppenunabh&auml;ngig):</h4>
 <form action="fremdesprofil?u_id=<?=$_REQUEST['u_id']?>" method="post">
-
-<div class="form-group" style="width:300px">
-	<label>Schulden pflegen</label>
-</div>
 
 <div class="form-group" style="width:300px">
 	<label>Offene Schulden: </label>
@@ -36,12 +32,8 @@
 <br><br> 
 
 
-<h4>Schulden von <?=$user[0]->getUsername()?> an mich (gruppenunabh&auml;ngig):</h4>
+<h4>Schulden von <?=$user[0]->getUsername()?> an mich pflegen (gruppenunabh&auml;ngig):</h4>
 <form action="fremdesprofil?u_id=<?=$_REQUEST['u_id']?>" method="post">
-
-<div class="form-group" style="width:300px">
-<label>Schulden pflegen</label>
-</div>
 
 <div class="form-group" style="width:300px">
 	<label>Offene Schulden: </label>
