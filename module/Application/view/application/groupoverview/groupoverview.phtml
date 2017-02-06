@@ -13,28 +13,31 @@ use Application\Model\Gruppenmitglied;?>
 <br>
 <a class="button" href='gruppeanlegen'>Neue Gruppe anlegen</a>
 <br><br><br>
-<table style="border-collapse: separate; border-spacing: 15px">
+<table class="datenuntereinander" style="border-collapse: separate; border-spacing: 15px">
+<thead class="datenuntereinander">
 
-	<tr>
-		<th>Gruppenbild</th>
-		<th>Gruppenname</th>
-		<th>Beschreibung</th>
-		<th></th>
-		<th></th>
-		<th></th>
+	<tr class="datenuntereinander">
+		<th class="datenuntereinander">Gruppenbild</th>
+		<th class="datenuntereinander">Gruppenname</th>
+		<th class="datenuntereinander">Beschreibung</th>
+		<th class="datenuntereinander"></th>
+		<th class="datenuntereinander"></th>
+		<th class="datenuntereinander"></th>
 	</tr>
-	
+</thead>
+
+<tbody class="datenuntereinander" >
 	<?php 
 	foreach ($gruppenListe as $zaehler => $gruppenmitglied) {
 		
 	?>
 
-		<tr class="untereinander">
-			<td class="untereinander"><div class="small-circular-image"><img src ="<?=$gruppenmitglied->getGruppe()->getGruppenbildpfad()?>" height = "50" width = "50" alt = "Kein Bild vorhanden"></div></td>
-			<td class="untereinander"><?=$gruppenmitglied->getGruppe()->getGruppenname()?></td>
-			<td class="untereinander"><?=$gruppenmitglied->getGruppe()->getGruppenbeschreibung()?></td>
+		<tr class="datenuntereinander">
+			<td class="datenuntereinander"><div class="small-circular-image"><img src ="<?=$gruppenmitglied->getGruppe()->getGruppenbildpfad()?>" height = "50" width = "50" alt = "Kein Bild vorhanden"></div></td>
+			<td class="datenuntereinander"><?=$gruppenmitglied->getGruppe()->getGruppenname()?></td>
+			<td class="datenuntereinander"><?=$gruppenmitglied->getGruppe()->getGruppenbeschreibung()?></td>
 			
-			<td class="untereinander"><a href='groupshow?g_id=<?=$gruppenmitglied->getGruppe()->getG_id()?>'><img src="img/show.jpg" title="Gruppendetails anzeigen"/></a></td>
+			<td><a href='groupshow?g_id=<?=$gruppenmitglied->getGruppe()->getG_id()?>'><img src="img/show.jpg" title="Gruppendetails anzeigen"/></a></td>
 			<?php //Nicht schön programmiert
 			if ($gruppenmitglied->getGruppenadmin()=="1") {
 			?>
@@ -50,7 +53,7 @@ use Application\Model\Gruppenmitglied;?>
 	}
 	?>
 		<tr><td> </td></tr>
-		
+</tbody>		
 
 </table>	
 </div>
