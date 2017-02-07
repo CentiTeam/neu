@@ -50,7 +50,7 @@ class NeuesmitgliedeinladenController extends AbstractActionController
 					
 					return new ViewModel([
 							'msg' => $msg,
-							'maileingabepruefungnachricht' => $maileingabpruefungnachricht
+							'maileingabepruefungnachricht' => $maileingabepruefungnachricht
 					]);
 				}
 				
