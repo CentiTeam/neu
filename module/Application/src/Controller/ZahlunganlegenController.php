@@ -67,12 +67,12 @@ class ZahlunganlegenController extends AbstractActionController {
 			
 			$mitgliederliste = User::gruppenmitgliederlisteholen($gruppe->getG_id());
 			
-			// HEutigers Datum als erstellungsdatum
+		/**	// Heutiges Datum als erstellungsdatum
 			date_default_timezone_set("Europe/Berlin");
 			$timestamp=time();
 			$erstellungsdatum= date('Y-m-d', $timestamp);
 			
-			$zahlung = new Zahlung();
+			$zahlung = new Zahlung(); */
 				
 
 			$saved= false;
