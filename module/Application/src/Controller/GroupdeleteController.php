@@ -186,7 +186,7 @@ class GroupdeleteController extends AbstractActionController
 				
 				$z_id=$zahlung->getZ_id();
 				
-				$zahlungsteilnehmer=Zahlungsmitglied::zahlungsteilnehmerholen($z_id);
+				$zahlungsteilnehmer=Zahlungsteilnehmer::zahlungsteilnehmerholen($z_id);
 				
 				foreach ($zahlungsteilnehmer as $teilnehmer) {
 					$t_user_id=$teilnehmer->getUser()->getU_id();
