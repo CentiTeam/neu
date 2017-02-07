@@ -183,7 +183,7 @@ class GroupshowController extends AbstractActionController
 			$timestamp=time();
 			$u_id=$_SESSION['user']->getU_id();
 			$datum = date('Y-m-d', $timestamp);
-			$g_id = $_REQUEST ['g_id'];
+			$g_id = $_REQUEST ['g_id']; 
 			
 			//Wenn keine Nachricht eingegeben wurde, dann Fehler
 			if (!strlen(trim($text))){
