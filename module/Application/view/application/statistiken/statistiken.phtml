@@ -22,7 +22,9 @@ use Application\Model\Zahlungsteilnehmer;?>
 <form action="statistiken" method="post">
 
 <table>
-<tr><td>Kategorie: </td><td>
+<tr>
+	<td>Kategorie: </td>
+	<td>
 	<select name="kategorie">
 		<option value=''>alle Kategorien</option>
 	
@@ -37,13 +39,11 @@ use Application\Model\Zahlungsteilnehmer;?>
 			> <?=$kategorie->getKategoriebeschreibung() ?> </option>
 	<?php } ?> 
 	</select>
-</td>
-</tr>
-
-<tr>
-	<td>Zeitraum:</td>
-	<td></td><td>nach: </td><td><input type="date" name="afterdate" value="<?=$afterDate?>" placeholder="YYYY-MM-DD"></td>
-	<td></td><td>vor: </td><td><input type="date" name="beforedate" value="<?=$beforeDate?>" placeholder="YYYY-MM-DD"></td>
+	</td>
+	
+	<td> Zeitraum:</td>
+	<td>nach: </td><td><input type="date" name="afterdate" value="<?=$afterDate?>" placeholder="YYYY-MM-DD"></td>
+	<td>vor: </td><td><input type="date" name="beforedate" value="<?=$beforeDate?>" placeholder="YYYY-MM-DD"></td>
 </tr>
 
 <tr>
