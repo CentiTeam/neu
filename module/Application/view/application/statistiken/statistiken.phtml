@@ -63,33 +63,29 @@ use Application\Model\Zahlungsteilnehmer;?>
 	</select>
 	</td>
 </tr>
+</table>
 
-
-<tr>
-	<td>Status: 
-			<input type="checkbox" name="status[]" value='offen' checked>offen
-			</input>
-			
-			<input type="checkbox" name="status[]" value=beglichen> beglichen
-			</input>
+<table>
+	<tr>
+		<td>Status:</td>
+		<td> <input type="checkbox" name="status[]" value='offen' checked>offen</td>
+	</tr>
 	
-	</td>
-</tr>
+	<tr>
+		<td></td>
+		<td><input type="checkbox" name="status[]" value=beglichen> beglichen</td>
+	</tr>
 
+	<tr>
+		<td></td>
+		<td><input type="checkbox" name="ersteller[]" value='ersteller' checked>Zahlungen, die ich erstellt habe</td>
+	</tr>
 
-<tr>
-	<td>
-			<input type="checkbox" name="ersteller[]" value='ersteller' checked>Zahlungen, die ich erstellt habe
-			</input>
-			
-			<input type="checkbox" name="ersteller[]" value='nersteller' checked> Zahlungen, die ich nicht erstellt habe
-			</input>
-	
-	</td>
+	<tr>
+		<td></td>
+		<td><input type="checkbox" name="ersteller[]" value='nersteller' checked> Zahlungen, die ich nicht erstellt habe</td>
+	</tr>
 
-</tr>
-
-<p></p>
 </table>
 
 <table>
