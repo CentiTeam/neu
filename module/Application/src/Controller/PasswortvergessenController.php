@@ -48,6 +48,10 @@ class PasswortvergessenController extends AbstractActionController
 			if ($pwcode!=$passwortcode) {
 					echo "<center><h4>Keine &Uumlbereinstimmung des Codes! Bitte erneut versuchen</h4></center>";
 					$error = true;
+					
+					return new ViewModel([
+						'email' => $email			
+					]);
 			}
 			// Keine Errors vorhanden, Funktion kann ausgef�hrt werden
 			if (!$error) {
