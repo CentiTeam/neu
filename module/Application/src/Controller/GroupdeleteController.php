@@ -178,7 +178,7 @@ class GroupdeleteController extends AbstractActionController
 		// wenn das Formular zur Best�tigung des L�schens schon abgesendet wurde, soll dies hier ausgewertet werden
 		if ($_REQUEST['send']) {
 			
-			// WICHTIG: Alle zur Gruppe geh�rende Zahlungsteilnehmer und Zahlungen loeschen
+			// WICHTIG: Alle zur Gruppe geh�rende Zahlungsteilnehmer und Zahlungen loeschen
 			$gruppenzahlungen=Zahlung::gruppenzahlungenlisteHolen($gruppen_id);
 			$loescherror=false;
 			
@@ -205,7 +205,7 @@ class GroupdeleteController extends AbstractActionController
 					
 			}
 			
-			
+			// Wenn es einen Fehler beim Löschen der verknüpften Models gibt wird eine Fehlermeldung ausgegeben und die Aktion abgebrochen
 			if ($loescherror==true) {
 				
 				$user_id=$_SESSION['user']->getU_id();

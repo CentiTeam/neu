@@ -134,19 +134,81 @@ class GruppeverlassenController extends AbstractActionController
 				
 			return $view;
 		} 
+		
+
 
 		// wenn das Formular zur Best�tigung des Austretens aus der Gruppe schon abgesendet wurde, soll dies hier ausgewertet werden
 		if ($_REQUEST['send']) {
-				
+			
+			
 			$msg = "";
 				
 			// wenn der Ladevorgang erfolgreich war, wird versucht die Gruppenmitgliedschaft geloescht
 			if ($gruppenmitglied->loeschen ($g_id, $user->getU_id())) {
-
+				
 				$msg .= "Gruppenmitgliedschaft erfolgreich gel&ouml;scht!<br>";
 				
 				//Schreiben des Gruppenaustritts in die Ereignistabelle der Datenbank
 				Gruppenereignis::gruppenmitgliedaustretenEreignis($user, $gruppenmitglied->getGruppe()); 
+				
+				
+				// WICHTIG: Falls das letzte Gruppenmitglied austritt werden
+				// alle zur Gruppe geh�renden Zahlungsteilnehmer und Zahlungen loeschen,
+				// damit keine Inkonstenzen in der DB entstehen
+					
+				// Liste aller Gruppenmitglieder holen
+				$gruppenmitgliederliste=Gruppenmitglied::gruppenmitgliederlisteHolen($g_id);
+				
+				var_dump($gruppenmitgliederliste);
+				die ("test");
+					
+				// Falls keine Gruppenmitglieder mehr vorhanden sind werden die verknüoften Models gelöscht
+				if ($gruppenmitgliederliste==NULL) {
+						
+					$gruppenzahlungen=Zahlung::gruppenzahlungenlisteHolen($gruppen_id);
+					$loescherror=false;
+				
+					foreach ($gruppenzahlungen as $zahlung) {
+				
+						$z_id=$zahlung->getZ_id();
+				
+						$zahlungsteilnehmer=Zahlungsteilnehmer::zahlungsteilnehmerholen($z_id);
+				
+						foreach ($zahlungsteilnehmer as $teilnehmer) {
+							$t_user_id=$teilnehmer->getUser()->getU_id();
+							// 1. Alle Zahlungsteilnehmer einer Zahlung loeschen
+							if ($teilnehmer->teilnehmerloeschen ($z_id, $t_user_id )==false) {
+								$loescherror=true;
+							}
+						}
+				
+						// 2. Die Zahlung selbst loeschen
+						if ($zahlung->loeschen($z_id)==false) {
+							$loescherror=true;
+						}
+				
+					}
+				
+					// Wenn es einen Fehler beim Löschen der verknüpften Models gibt wird eine Fehlermeldung ausgegeben und die Aktion abgebrochen
+					if ($loescherror==true) {
+				
+						$user_id=$_SESSION['user']->getU_id();
+						$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
+				
+						$msg="Fehler beim L&ouml;schen der verkn&uuml;pften Datens&auml;tze 'Zahlung' oder 'Zahlungsteilnehmer'!";
+				
+						$view = new ViewModel([
+								'gruppenListe' => $gruppenliste,
+								'msg' => $msg
+						]);
+				
+						$view->setTemplate('application/groupoverview/groupoverview.phtml');
+				
+						return $view;
+				
+					}
+				}
+				
 
 			} else {
 
