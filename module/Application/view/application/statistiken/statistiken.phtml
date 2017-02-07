@@ -74,15 +74,15 @@ use Application\Model\Zahlungsteilnehmer;?>
 
 	<tr>
 		<td><b>Zahlungsstatus:</b> </td>
-		<td> <input type="checkbox" name="status[]"   <?php if ((!empty($_POST["status"]) && in_array("offen", $_POST["status"]))) {
-echo "checked = 'checked'"; }?> value='offen' unchecked> offen</td>
+		<td> <input type="checkbox" name="status[]"   <?php if ((empty($_POST["status"]))) {
+echo "checked = 'unchecked'"; }?> value='offen' checked> offen</td>
 	</tr>
 	
 	<tr>
 		<td></td>
 		<td><input type="checkbox" name="status[]"  <?php  if ((!empty($_POST["status"]) && in_array("beglichen", $_POST["status"]))) {
 echo "checked = 'checked'"; }?>
-		value='beglichen' > beglichen</td>
+		value='beglichen'> beglichen</td>
 	</tr>
 
 	
