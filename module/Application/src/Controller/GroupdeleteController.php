@@ -8,6 +8,7 @@ use Application\Model\Gruppe;
 use Application\Model\Gruppenmitglied;
 use Application\Model\Gruppenereignis;
 use Application\Model\Zahlungsteilnehmer;
+use Application\Model\Zahlung;
 
 #TODO @Tanja Fehler abpr�fen!
 
