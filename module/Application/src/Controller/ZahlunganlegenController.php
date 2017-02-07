@@ -108,12 +108,10 @@ class ZahlunganlegenController extends AbstractActionController {
 					$kategorie_id=$_REQUEST["kategorie"];
 					
 					//Prüfen ob Zahlungsdatum das richtige Format hat
-					$ds = split('\.',$zahlungsdatum); 
-					
-					if ( checkdate( $ds[1], $ds[0], $ds[2] ) )
-						echo 'jo';
+					if(check_date($zahlungsdatum,"YYYYmmdd","-"))
+						echo 'Das Datum ist korrekt.<br>';
 						else
-							echo 'nö';
+							echo 'Bitte überprüfen Sie Ihr Datum!<br>';
 					
 					
 				
