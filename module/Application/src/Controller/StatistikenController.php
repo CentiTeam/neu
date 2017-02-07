@@ -84,7 +84,7 @@ class StatistikenController extends AbstractActionController
   			
   			$saldo = Zahlungsteilnehmer::gibsaldo($user_id, $zahlungenliste);
   			
-  			// Die ausgewählte Gruppen_id wird wieder mitgeladen 
+  			// Die ausgewählten Filterwerte wird wieder mitgeladen 
   			$g_id=$_REQUEST["gruppe"];
   			$k_id=$_REQUEST["kategorie"];
   				
