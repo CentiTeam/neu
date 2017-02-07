@@ -23,6 +23,8 @@ class Bildupload
 			return $path;
 		}
 		
+		var_dump($_FILES["uploadedfile"]["size"]);
+		
 		//Maximale Bildgr��e �berpr�fen
 		if($_FILES["uploadedfile"]["size"] > $this->max_size)
 		{
