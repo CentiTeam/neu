@@ -106,6 +106,16 @@ class ZahlunganlegenController extends AbstractActionController {
 					$zahlungsdatum=$_REQUEST["zahlungsdatum"];
 					$betrag=$_REQUEST["betrag"];
 					$kategorie_id=$_REQUEST["kategorie"];
+					
+					//Prüfen ob Zahlungsdatum das richtige Format hat
+					$ds = split('\.',$zahlungsdatum);
+					
+					if ( checkdate( $ds[1], $ds[0], $ds[2] ) )
+						echo 'jo';
+						else
+							echo 'nö';
+					
+					
 				
 					//date_default_timezone_set("Europe/Berlin");
 					//$timestamp=time();
