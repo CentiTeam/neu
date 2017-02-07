@@ -4,9 +4,10 @@
 
 	<table>	
 		<tr><th></th><th></th><th><th></tr>
-		<tr><td></td><td></td><td width="200" align="center"><div class="big-circular-image"><img src =<?=$user[0]->getTeilnehmerbildpfad()?> height = "100" width = "100" alt = "Kein Bild vorhanden"></div></td></tr>
 		<tr><td width="50"><i>Name: </i></td><td><?=$user[0]->getVorname()?> <?=$user[0]->getNachname()?></td></tr>
 		<tr><td width="50"><i>E-Mail: </i></td><td><?=$user[0]->getEmail()?></td></tr>
+		<tr><td></td><td width="200" align="center"><div class="big-circular-image"><img src =<?=$user[0]->getTeilnehmerbildpfad()?> height = "100" width = "100" alt = "Kein Bild vorhanden"></div></td></tr>
+		
 		<tr><td></td></tr>
 		<tr><td></td><td></td><td width="300" align="center">	<form enctype="multipart/form-data" method="POST">
 									<input type="file" name="uploadedfile" />
