@@ -114,6 +114,25 @@ class ZahlunganlegenController extends AbstractActionController {
 					$aenderungsdatum= date('Y-m-d',$timestamp);
 					$gruppen_id=$_REQUEST["g_id"];
 					
+					
+					
+					//Wen Zahlungbeschreibung, Betrag oder Zahlungsdatum nicht eingegeben wurde, dann Fehler
+					if ($zahlungsbeschreibung == "" || $betrag == "" || $zahlungsdatum == ""){
+						$feldpruefungnachricht= "Zahlungsbeschreibung, Betrag oder Zahlungsdatum ist leer!<br>";
+							
+						return new ViewModel([
+								'gruppe' => array($gruppe),
+								'msg' => $msg,
+								'kategorieListe' => $kategorieliste,
+								'mitgliederListe' => $mitgliederliste,
+								'erstellungsdatum' => $erstellungsdatum,
+								'zahlung' => array($zahlung),
+								'k_id' => $kategorie_id,
+								'err' => $errorStr,
+								'feldpruefungsnachricht' => $feldpruefung
+						]);
+					}
+					
 				
 					// verkn�pfte Models laden
 					if ($kategorie_id != null) {
