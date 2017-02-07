@@ -224,7 +224,7 @@ tbody.datentabelle:hover tr.datentabelle:hover td.datentabelle  {
 
 
 
-@media screen and (max-width: 45em) {
+@media screen and (max-width: 60em) {
 	tr.untereinander, th.untereinander, td.untereinander {
  		display: block;
 	}
