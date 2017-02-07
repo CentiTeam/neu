@@ -159,8 +159,8 @@ class GruppeverlassenController extends AbstractActionController
 				// Liste aller Gruppenmitglieder holen
 				$gruppenmitgliederliste=Gruppenmitglied::gruppenmitgliederlisteHolen($g_id);
 				
-				var_dump($gruppenmitgliederliste);
-				die ("test");
+				if($gruppenmitgliederliste==NULL)
+					die ("test");
 					
 				// Falls keine Gruppenmitglieder mehr vorhanden sind werden die verknüoften Models gelöscht
 				if ($gruppenmitgliederliste==NULL) {
