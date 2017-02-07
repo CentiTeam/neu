@@ -126,7 +126,13 @@ use Application\Model\Zahlungsteilnehmer;?>
 			<td class="datentabelle"><?=$zahlungsteilnehmer->getZahlung()->getBetrag()?></td>
 			<td class="datentabelle"><?=$zahlungsteilnehmer->getRestbetrag()?></td>
 			<td class="datentabelle"><?=$zahlungsteilnehmer->getZahlung()->getKategorie()->getKategoriebeschreibung()?></td> 
-			<td class="datentabelle"><?=$zahlungsteilnehmer->istzahlungoffen($zahlungsteilnehmer->getZahlung()->getZ_id())?></td>
+			
+			<?php if($zahlungsteilnehmer->istzahlungoffen($zahlungsteilnehmer->getZahlung()->getZ_id())==true) {?>
+				<td class="datentabelle">offen</td>
+			<?php } else {?>
+				<td class="datentabelle">beglichen</td>
+			<?php }?>
+			
 			<td class="datentabelle"><?=$zahlungsteilnehmer->getZahlung()->getGruppe()->getGruppenname()?></td>
 			<td class="datentabelle"><a href='zahlunganzeigen?z_id=<?=$zahlungsteilnehmer->getZahlung()->getZ_id()?>&g_id=<?=$zahlungsteilnehmer->getZahlung()->getGruppe()->getG_id()?>'><img src="img/show.jpg" /></a>
 		</tr>
