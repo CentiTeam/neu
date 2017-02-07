@@ -26,6 +26,7 @@ class RegistrierenController extends AbstractActionController{
 			$email = $_REQUEST ["email"];
 			$vorname = $_REQUEST ["vorname"];
 			$nachname = $_REQUEST ["nachname"];
+			$pwcode = mt_rand (10000,99999);
 			
 
 			// �berpr�fung, ob Passwort zwei mal richtig eingegeben wurde
@@ -45,6 +46,7 @@ class RegistrierenController extends AbstractActionController{
 			$user->setEmail ($email);
 			$user->setVorname ($vorname);
 			$user->setNachname ($nachname);
+			$user->setPwcode ($pwcode);
 				
 			
 			$empfaenger= $email;

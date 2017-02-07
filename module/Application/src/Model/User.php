@@ -15,6 +15,7 @@ class User
 	protected $deaktiviert;
 	protected $systemadmin;
 	protected $teilnehmerbildpfad;
+	protected $pwcode;
 	
 	private $isloggedin;
 	
@@ -23,7 +24,7 @@ class User
 		$this->username = $user_id;
 	}
 
-		public function registrieren ($username, $passwort, $email, $vorname, $nachname) 
+		public function registrieren ($username, $passwort, $email, $vorname, $nachname, $pwcode) 
 		{
 			//Aufbau einer Datenbankverbindung
 			$db = new DB_connection;
@@ -36,12 +37,12 @@ class User
 			$query_benutzernamenueberpruefung = "SELECT * FROM User WHERE username ='".$this->username."';";
 			$result_benutzernamenueberpruefung = $db->execute($query_benutzernamenueberpruefung);
 			
-			
+		
 			
 			//Falls E-Mailadresse noch nicht verwendet wird, dann Schreiben der Daten in die Datenbank.
 			if(mysqli_num_rows($result_emailueberpruefung) == 0 && mysqli_num_rows($result_benutzernamenueberpruefung) == 0){ 
 			
-			$query = "INSERT INTO User (username, vorname, nachname, passwort, email, deaktiviert, systemadmin, teilnehmerbildpfad) VALUES (
+			$query = "INSERT INTO User (username, vorname, nachname, passwort, email, deaktiviert, systemadmin, teilnehmerbildpfad, pwcode) VALUES (
 			
 				'".$this->username."',
 				'".$this->vorname."',
@@ -50,7 +51,9 @@ class User
 				'".$this->email."',
 					1,
 					0,
-				'/img/anonymeruser.png')";
+				'/img/anonymeruser.png',
+				'".$this->pwcode."		
+				)";
 		
 			$result = $db->execute($query);
 			$isOK = mysqli_affected_rows ($result) > 0;
@@ -481,6 +484,14 @@ class User
 		return $this->emailwdh;
 	}
 	
+	
+	public function setPwcode($value) {
+		$this->pwcode = $value;
+	}
+	//Getter für pw code
+	public function getPwcode() {
+		return $this->pwcode;
+	}
 	// Getter für die EIgenschaft isloggedin
 	public function isloggedin() {
 		return $this->isloggedin;
