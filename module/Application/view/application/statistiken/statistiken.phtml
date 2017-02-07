@@ -109,6 +109,7 @@ use Application\Model\Zahlungsteilnehmer;?>
 		<th class="datentabelle">Restbetrag </th>
 		<th class="datentabelle">Kategorie </th>
 		<th class="datentabelle">Status der Zahlung</th>
+		<th class="datentabelle">Mein Zahlungsstatus</th>
 		<th class="datentabelle">Gruppenname</th>
 		<th class="datentabelle"></th>
 	</tr>
@@ -132,6 +133,17 @@ use Application\Model\Zahlungsteilnehmer;?>
 			<?php } else {?>
 				<td class="datentabelle">beglichen</td>
 			<?php }?>
+			
+			<?php if($zahlungsteilnehmer->getStatus()=="ersteller") {?>
+				<td class="datentabelle">Ersteller</td>
+			<?php } elseif($zahlungsteilnehmer->getRestbetrag()=="0")  {?>
+				<td class="datentabelle">beglichen</td>
+			<?php } else { ?>
+				<td class="datentabelle">offen</td>
+			<?php }?>
+			
+			
+			
 			
 			<td class="datentabelle"><?=$zahlungsteilnehmer->getZahlung()->getGruppe()->getGruppenname()?></td>
 			<td class="datentabelle"><a href='zahlunganzeigen?z_id=<?=$zahlungsteilnehmer->getZahlung()->getZ_id()?>&g_id=<?=$zahlungsteilnehmer->getZahlung()->getGruppe()->getG_id()?>'><img src="img/show.jpg" /></a>
