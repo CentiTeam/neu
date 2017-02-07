@@ -21,9 +21,9 @@ use Application\Model\Zahlungsteilnehmer;?>
 
 <form action="statistiken" method="post">
 
-<table style="border-spacing: 5px">
+<table style="border-spacing: 5px; border:5px;">
 <tr>
-	<td>Kategorie: </td>
+	<td><b>Kategorie: </b> </td>
 	<td>
 	<select name="kategorie">
 		<option value=''>alle Kategorien</option>
@@ -43,7 +43,7 @@ use Application\Model\Zahlungsteilnehmer;?>
 </tr>
 
 <tr>
-	<td>Gruppe: </td> <td>
+	<td><b>Gruppe: </b> </td> <td>
 	
 	<select name="gruppe">
 	<option value=''>alle Gruppen </option>
@@ -64,7 +64,7 @@ use Application\Model\Zahlungsteilnehmer;?>
 </tr>
 
 <tr>
-	<td> Zeitraum: </td>
+	<td><b>Zeitraum:</b>  </td>
 </tr>
 	<td align="right">nach: </td><td><input type="date" name="afterdate" value="<?=$afterDate?>" placeholder="YYYY-MM-DD"></td>
 </tr>
@@ -76,7 +76,7 @@ use Application\Model\Zahlungsteilnehmer;?>
 
 <table>
 	<tr>
-		<td>Status:</td>
+		<td><b>Status:</b> </td>
 		<td> <input type="checkbox" name="status[]" value='offen' checked>offen</td>
 	</tr>
 	
