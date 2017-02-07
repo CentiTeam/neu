@@ -20,36 +20,36 @@ use Application\Model\Gruppenmitglied;?>
  -->
 
 
-<table class="datenuntereinander">
-<thead class="datenuntereinander">
-	<tr class="datenuntereinander">
-		<th class="datenuntereinander"></th>
-		<th class="datenuntereinander">Gruppenbild</th>
-		<th class="datenuntereinander">Gruppenname</th>
-		<th class="datenuntereinander">Beschreibung</th>
-		<th class="datenuntereinander"></th>
-		<th class="datenuntereinander"></th>
-		<th class="datenuntereinander"></th>
+<table class="datenuntereinander datentabelle">
+<thead class="datenuntereinander datentabelle">
+	<tr class="datenuntereinander datentabelle">
+		<th class="datenuntereinander datentabelle"></th>
+		<th class="datenuntereinander datentabelle">Gruppenbild</th>
+		<th class="datenuntereinander datentabelle">Gruppenname</th>
+		<th class="datenuntereinander datentabelle">Beschreibung</th>
+		<th class="datenuntereinander datentabelle"></th>
+		<th class="datenuntereinander datentabelle"></th>
+		<th class="datenuntereinander datentabelle"></th>
 	</tr>
 </thead>
 
-<tbody class="datenuntereinander" >
+<tbody class="datenuntereinander datentabelle" >
 	<?php 
 	foreach ($gruppenListe as $zaehler => $gruppenmitglied) {
 		
 	?>
 
-		<tr class="datenuntereinander">
-			<td class="datenuntereinander" ><div class="small-circular-image"><img src ="<?=$gruppenmitglied->getGruppe()->getGruppenbildpfad()?>" height = "50" width = "50" alt = "Kein Bild vorhanden"></div></td>
-			<td class="datenuntereinander" data-label="Gruppenname"><?=$gruppenmitglied->getGruppe()->getGruppenname()?></td>
-			<td class="datenuntereinander" data-label="Gruppenbeschreibung"><?=$gruppenmitglied->getGruppe()->getGruppenbeschreibung()?></td>
+		<tr class="datenuntereinander datentabelle">
+			<td class="datenuntereinander datentabelle" ><div class="small-circular-image"><img src ="<?=$gruppenmitglied->getGruppe()->getGruppenbildpfad()?>" height = "50" width = "50" alt = "Kein Bild vorhanden"></div></td>
+			<td class="datenuntereinander datentabelle" data-label="Gruppenname"><?=$gruppenmitglied->getGruppe()->getGruppenname()?></td>
+			<td class="datenuntereinander datentabelle" data-label="Gruppenbeschreibung"><?=$gruppenmitglied->getGruppe()->getGruppenbeschreibung()?></td>
 			
-			<td class="" data-label="Gruppenname"><a href='groupshow?g_id=<?=$gruppenmitglied->getGruppe()->getG_id()?>'><img src="img/show.jpg" title="Gruppendetails anzeigen"/></a></td>
+			<td class="datentabelle" data-label="Gruppenname"><a href='groupshow?g_id=<?=$gruppenmitglied->getGruppe()->getG_id()?>'><img src="img/show.jpg" title="Gruppendetails anzeigen"/></a></td>
 			<?php 
 			if ($gruppenmitglied->getGruppenadmin()=="1") {
 			?>
-				<td class=""><a href='groupedit?g_id=<?=$gruppenmitglied->getGruppe()->getG_id()?>'><img src="img/edit.jpg" title="Gruppendetails bearbeiten"/></a></td>
-				<td class=""><a href='groupdelete?g_id=<?=$gruppenmitglied->getGruppe()->getG_id()?>'><img src="img/delete.png" title="Gruppe l&ouml;schen"/></a></td>
+				<td class="datentabelle"><a href='groupedit?g_id=<?=$gruppenmitglied->getGruppe()->getG_id()?>'><img src="img/edit.jpg" title="Gruppendetails bearbeiten"/></a></td>
+				<td class="datentabelle"><a href='groupdelete?g_id=<?=$gruppenmitglied->getGruppe()->getG_id()?>'><img src="img/delete.png" title="Gruppe l&ouml;schen"/></a></td>
 			<?php }
 			?>
 			
