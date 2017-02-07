@@ -44,6 +44,16 @@ class NeuesmitgliedeinladenController extends AbstractActionController
 				// Variablen füllen für E-mail-Text
 				$empfaengerMail=$_REQUEST['email'];
 				
+				//Wenn keine Mail uebergeben wurde, dann Ausgabe einer Fehlermeldung
+				if($empfaengerMail == ""){
+					$maileingabpruefungnachricht = "Es wurde keine E-Mailadresse eingegeben!";
+					
+					return new ViewModel([
+							'msg' => $msg,
+							'maileingabpruefung' => $maileingabpruefung
+					]);
+				}
+				
 				// Prüfen, ob der einzuladene User bereits bei Grouppay registriert ist
 				$userListe=User::listeHolen();
 				
