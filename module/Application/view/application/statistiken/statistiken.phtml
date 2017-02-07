@@ -13,7 +13,7 @@ use Application\Model\Zahlungsteilnehmer;?>
 <?=$msg?>
 <?=$err?>
 
-<h2>Gesamtsaldo: <?php if($saldo>=0){?>
+<h2 align= "right"> Gesamtsaldo: <?php if($saldo>=0){?>
 <font color="#1AA11C"><?=$saldo?></font></h2>
 <?php }if($saldo<0){?>
 <font color="#FF0000"><?=$saldo?></font></h2>
@@ -73,6 +73,8 @@ use Application\Model\Zahlungsteilnehmer;?>
 </tr>
 
 	<tr>
+	</tr>
+	<tr>
 		<td><b>Zahlungsstatus:</b> </td>
 		<td> <input type="checkbox" name="status[]"   <?php if ((!empty($_POST["status"]) && in_array("offen", $_POST["status"]))) {
 echo "checked = 'checked'"; }?> value='offen' > offen</td>
@@ -86,6 +88,8 @@ echo "checked = 'checked'"; }?>
 	</tr>
 
 	
+	<tr>
+	</tr>
 	<tr>
 				<td><b>Ersteller:</b> </td>
 		<td><input type="checkbox" name="ersteller[]" <?php if ((!empty($_POST["ersteller"]) && in_array("ersteller", $_POST["ersteller"]))) {
@@ -102,10 +106,12 @@ echo "checked = 'checked'"; }?>
 
 	
 	<tr>
+	</tr>
+	<tr>
 				<td><b>Zahlungen die noch</b> </td>
 				</tr><tr>
 				<td><b>zu t&auml;tigen sind:</b> </td>
-		<td><input type="checkbox" name="meineoffenen" > Meine offenen Zahlungen</td>
+		<td><input type="checkbox" name="meineoffenen" checked> Meine offenen Zahlungen</td>
 	</tr>
 
 
