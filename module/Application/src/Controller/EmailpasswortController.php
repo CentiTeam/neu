@@ -30,6 +30,7 @@ class EmailpasswortController extends AbstractActionController
 			$empfaenger= $_REQUEST ['email'];
 			
 			$pwcode = "SELECT pwcode FROM User WHERE email = $empfaenger;";
+			$pwcode2 = $db->execute ($pwcode);
 			
 			$userListe=User::listeHolen();
 			$emailvorhanden=false;
@@ -58,7 +59,7 @@ $text=
 <br>
 <div>&Uuml;ber diesen Link kannst Du Dein Passwort zur&uuml;cksetzen:</div>
 <div>$link</div><br>
-<div> Bitte den Code eingeben: $pwcode </div><br>
+<div> Bitte den Code eingeben: $pwcode2 </div><br>
 
 <div>Viele Gr&uuml;&szlig;e</div>
 <div>Dein Grouppay-Team</div>
