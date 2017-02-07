@@ -347,6 +347,7 @@ class User
 			$this->deaktiviert=$row["deaktiviert"];
 			$this->systemadmin=$row["systemadmin"];
 			$this->teilnehmerbildpfad=$row["teilnehmerbildpfad"];
+			$this->pwcode=$row["pwcode"];
 	
 			// speichern, dass die Basisinformationen der User erfolgreich geladen werden konnten
 			$isLoaded=true;
