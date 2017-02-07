@@ -41,7 +41,7 @@ use Application\Model\Gruppenmitglied;?>
 			<td class="datenuntereinander datentabelle" data-label="Gruppenname"><?=$gruppenmitglied->getGruppe()->getGruppenname()?></td>
 			<td class="datenuntereinander datentabelle" data-label="Gruppenbeschreibung"><?=$gruppenmitglied->getGruppe()->getGruppenbeschreibung()?></td>
 			
-			<td class="datentabelle datenuntereinander" style="text-align: center; width:20%" data-label="Aktionen"><a href='groupshow?g_id=<?=$gruppenmitglied->getGruppe()->getG_id()?>'><img src="img/show.jpg" title="Gruppendetails anzeigen"/></a>
+			<td class="datentabelle datenuntereinander" style="text-align: center; width:200px" data-label="Aktionen"><a href='groupshow?g_id=<?=$gruppenmitglied->getGruppe()->getG_id()?>'><img src="img/show.jpg" title="Gruppendetails anzeigen"/></a>
 			<?php 
 			if ($gruppenmitglied->getGruppenadmin()=="1") {
 			?>
