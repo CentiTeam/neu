@@ -197,7 +197,7 @@ class GroupshowController extends AbstractActionController
 						'aktnachricht' => $aktnachrichtliste,
 						'aktgruppenmitglied' => $aktgruppenmitglied,
 						'user_id' => $user_id,
-						'suche' => $suche
+						'suche' => $suche,
 						'nachrichtenfeldpruefungsnachricht' => $nachrichtenfeldpruefungsnachricht
 				]);
 				
