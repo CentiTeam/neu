@@ -40,17 +40,9 @@ use Application\Model\Zahlungsteilnehmer;?>
 <td>nach: </td><td><input type="date" name="afterdate" value="<?=$afterDate?>" placeholder="YYYY-MM-DD">
 <td>vor: </td><td><input type="date" name="beforedate" value="<?=$beforeDate?>" placeholder="YYYY-MM-DD"><td>
 </td>
+</tr>
 
-
-<td>Status: 
-			<input type="checkbox" name="status[]" value='offen' checked>offen
-			</input>
-			
-			<input type="checkbox" name="status[]" value=beglichen> beglichen
-			</input>
-	
-	</td>
-	
+<tr>
 	<td>Gruppe: </td> <td>
 	
 	<select name="gruppe">
@@ -68,8 +60,23 @@ use Application\Model\Zahlungsteilnehmer;?>
 			><?=$gruppenmitglied->getGruppe()->getGruppenname()?></option>
 	<?php } ?> 
 	</select>
-</td>
+	</td>
+</tr>
 
+
+<tr>
+	<td>Status: 
+			<input type="checkbox" name="status[]" value='offen' checked>offen
+			</input>
+			
+			<input type="checkbox" name="status[]" value=beglichen> beglichen
+			</input>
+	
+	</td>
+</tr>
+
+
+<tr>
 	<td>
 			<input type="checkbox" name="ersteller[]" value='ersteller' checked>Zahlungen, die ich erstellt habe
 			</input>
