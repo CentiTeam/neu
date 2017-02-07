@@ -26,14 +26,13 @@ $g_id = $_REQUEST['g_id'];
 	
 	
 <tr class="untereinander">	
-<!-- Meine Zahlungen in dieser Gruppe -->	
 
+<!-- Zahlung anlegen -->
+	<td class="untereinander"><form action="zahlunganlegen?g_id=<?=$gruppe[0]->getG_id()?>" method="post">
 	
-	<td class="untereinander"><form action="statistiken?gruppe=<?=$gruppe[0]->getG_id()?>" method="post">
-	
-		<input class="button" type="submit" style="width:330px" name='sofortauslesen' value="Meine Zahlungen in dieser Gruppe">
+		<input class="button" type="submit" style="width:330px" value="Neue Zahlung anlegen">
 		
-	</form></td>	
+	</form></td>
 	
 <!-- Gruppenverlauf -->	
 
@@ -43,10 +42,21 @@ $g_id = $_REQUEST['g_id'];
 			<input class="button" style="width:330px" type="submit" value="Gruppenverlauf">
 			
 	</form>
-	</td>
+	</td>	
+
 </tr>
 
-<tr>	
+<tr>
+
+<!-- Meine Zahlungen in dieser Gruppe -->	
+
+	
+	<td class="untereinander"><form action="statistiken?gruppe=<?=$gruppe[0]->getG_id()?>" method="post">
+	
+		<input class="button" type="submit" style="width:330px" name='sofortauslesen' value="Meine Zahlungen in dieser Gruppe">
+		
+	</form></td>
+		
 <!--  CSV Download -->
 
 	<td class="untereinander"><form action="groupcsv" method="post">
@@ -56,22 +66,6 @@ $g_id = $_REQUEST['g_id'];
 		
 	</form></td>
 	
-	
-<!--  Neue Mitglieder hinzufügen -->	
-
-
-	<?php if ($aktgruppenmitglied->getGruppenadmin()=="1") {?>
-	<td class="untereinander"><form action="usersuchen" method="post">
-
-		<!--  Kann wegen neuer intelligenter Suche weg
-		<th>Neues Mitglied hinzuf&uuml;gen</th>
-		<tr><td>Suche:</td><td><input name="suche" type="text" maxlength="255" size="20" required></td> 
-		-->
-		 <input type="hidden" name="g_id" readonly="readonly" value="<?=$gruppe[0]->getG_id()?>">
-		<input class="button" style="width:330px" type="submit" value="Neues Mitglied hinzuf&uuml;gen">
-		
-	</form></td>
-	<?php }?>
 </tr>
 
 
@@ -100,6 +94,25 @@ $g_id = $_REQUEST['g_id'];
 	<?php } ?>
 </tr>
 
+
+
+<tr>	
+<!--  Neue Mitglieder hinzufügen -->	
+
+
+	<?php if ($aktgruppenmitglied->getGruppenadmin()=="1") {?>
+	<td class="untereinander"><form action="usersuchen" method="post">
+
+		<!--  Kann wegen neuer intelligenter Suche weg
+		<th>Neues Mitglied hinzuf&uuml;gen</th>
+		<tr><td>Suche:</td><td><input name="suche" type="text" maxlength="255" size="20" required></td> 
+		-->
+		 <input type="hidden" name="g_id" readonly="readonly" value="<?=$gruppe[0]->getG_id()?>">
+		<input class="button" style="width:330px" type="submit" value="Neues Mitglied hinzuf&uuml;gen">
+		
+	</form></td>
+	<?php }?>
+</tr>
 
 
 
