@@ -38,6 +38,8 @@ class LoginController extends AbstractActionController{
 					
 					$aktnachrichtliste=Nachricht::aktuellenachrichten($user_id);
 					
+					// Button "Was gibts neues?" verbergen, falls X aktiviert wird
+					$_SESSION['keineneuigkeiten']=false;
 					
 					$view = new ViewModel([
 							'message' => 'Erfolgreich eingeloggt!',
