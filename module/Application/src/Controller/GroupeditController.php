@@ -73,6 +73,15 @@ class GroupeditController extends AbstractActionController {
 				$gruppenname=$_REQUEST["gruppenname"];
 				$gruppenbeschreibung=$_REQUEST["gruppenbeschreibung"];
 				
+				//Wen kein Gruppenname eingegeben wurde, dann Fehler
+				if ($gruppenname == ""){
+					$feldpruefungsnachricht= "Der Gruppenname ist leer!<br>";
+						
+					return new ViewModel([
+							'msg' => $msg,
+							'feldpruefungsnachricht' => $feldpruefungsnachricht
+					]);
+				
 				// Wenn kein neues Bild hochgeladen wird, wird das bereits existierende Bild geladen
 				if ($_FILES ["uploadedfile"]["name"] == NULL) {
 					$path=$gruppe->getGruppenbildpfad();
