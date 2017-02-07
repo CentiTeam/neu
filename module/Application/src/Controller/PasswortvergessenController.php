@@ -26,7 +26,7 @@ class PasswortvergessenController extends AbstractActionController
 			$passwort = $_REQUEST ["passwort"];
 			$passwortwdh = $_REQUEST ["passwortwdh"];
 			$pwcode = $_REQUEST ["pwcode"];
-			// $vorhandenercode = $user->getPwcode;
+			//$passwortcode = $user->getPwcode;
 		
 	
 			// �berpr�fung, ob Passwort zwei mal richtig eingegeben wurde		
@@ -35,7 +35,7 @@ class PasswortvergessenController extends AbstractActionController
 				$error = true;
 			}
 
-			if ($pwcode!=$vorhandenercode) {
+			if ($pwcode!=$passwortcode) {
 					echo "<center><h4>Keine &Uumlbereinstimmung des Codes! Bitte erneut versuchen</h4></center>";
 					$error = true;
 			}
@@ -46,6 +46,8 @@ class PasswortvergessenController extends AbstractActionController
 				$user->setEmail ($email);
 				$user->setPasswort ($passwort);
 				$user->setPasswortwdh($passwortwdh);
+				$user->setPwcode ($pwcode);
+				$user->setPasswortcode ($passwortcode);
 	
 				$user->passwortvergessen();	
 		
