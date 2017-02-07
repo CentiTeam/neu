@@ -28,6 +28,8 @@ class EmailpasswortController extends AbstractActionController
 			$msg="";
 			
 			$empfaenger= $_REQUEST ['email'];
+			
+			$user->laden ($u_id);
 			$pwcode = $user->getPwcode();
 			
 			$userListe=User::listeHolen();
