@@ -39,7 +39,7 @@ class EmailpasswortController extends AbstractActionController
 					$emailvorhanden=true;
 					$pwcode=$liste->getPwcode();
 					
-					echo $pwcode;
+					var_dump ($pwcode);
 				}
 			}
 
