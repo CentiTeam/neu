@@ -97,7 +97,7 @@ class ZahlunganlegenController extends AbstractActionController {
 					echo ("Die Anteile m&uuml;ssen zusammen der Gesamtsumme entsprechen.");
 					
 				}else {
-				*/
+				*/ 
 				
 					
 					// Schritt 1:  Werte aus Formular einlesen
