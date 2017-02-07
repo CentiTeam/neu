@@ -21,7 +21,7 @@
 <div class=><h3>Hallo <?=$user[0]->getVorname()?>! Willkommen bei Grouppay.</h3></div>
 <br>
 <br>
-<?php if($_SESSION['neuigkeiten']!="ja") {?>
+<?php if($_SESSION['neuigkeiten']!="ja" && $keineneuigkeiten==false) {?>
 <form method="post" action="overview">
 <input class="button" type="submit" name="neues" value="Was gibt es Neues?">
 </form>

@@ -63,11 +63,16 @@ class OverviewController extends AbstractActionController
 			date_default_timezone_set("Europe/Berlin");
 			$timestamp=time();
 			$datum= date('Y-m-d', $timestamp);
-			
+		
+		
+		// Button "Was gibts neues?" verbergen, falls X aktiviert wird
+		$keineneuigkeiten=false;
+		
 		//Speichern des aktuellen Datums bei Aktivierung von X
 		if ($_REQUEST['hide'])
 		{		
 			$_SESSION['gelesenam']=$datum;
+			$keineneuigkeiten=true;
 		}
 		
 			return new ViewModel([
@@ -76,7 +81,8 @@ class OverviewController extends AbstractActionController
 				'aktzahlung' => $aktzahlungliste,
 				'aktnachricht' => $aktnachrichtliste,
 				'aktereignis' => $aktereignisliste,
-				'aktdatum' => $datum
+				'aktdatum' => $datum,
+				'keineneuigkeiten' => $keineneuigkeiten
 		]);
 	}
 		
