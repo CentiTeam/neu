@@ -15,6 +15,15 @@ class Bildupload
 		$filename = pathinfo($_FILES["uploadedfile"]["name"], PATHINFO_FILENAME);
 		$extension = strtolower(pathinfo($_FILES["uploadedfile"]["name"], PATHINFO_EXTENSION));
 		
+		if($_FILES['uploadedfile']['error'] !== UPLOAD_ERR_OK) {
+			echo "Der Upload ist fehlgeschlagen! W&auml;hl bitte ein anderes Bild aus.";
+			$path = false;
+			return $path;
+		}
+		
+		
+		
+		
 		//Dateiendung �berpr�fen
 		if(!in_array($extension, $this->allowed_extensions))
 		{
@@ -23,7 +32,6 @@ class Bildupload
 			return $path;
 		}
 		
-		var_dump($_FILES["uploadedfile"]["error"]);
 		
 		//Maximale Bildgr��e �berpr�fen
 		if($_FILES["uploadedfile"]["size"] > $this->max_size)
