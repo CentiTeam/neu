@@ -33,7 +33,7 @@ class EmailpasswortController extends AbstractActionController
 			
 			$userListe=User::listeHolen();
 			$emailvorhanden=false;
-			$pwcode = $user->getPwcode();
+			//$pwcode = $user->getPwcode();
 			
 			foreach ($userListe as $liste) {
 				if ($liste->getEmail()==$empfaenger) {
