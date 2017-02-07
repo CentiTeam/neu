@@ -88,6 +88,17 @@ class NachrichtbearbeitenController extends AbstractActionController {
 				
 				$text = $_POST['text'];
 				
+				if ($text == ""){
+					$nachrichtenfeldpruefungsnachricht= "Die Nachricht ist leer!<br>";
+						
+					$view = new ViewModel([
+							'nachricht' => $nachricht,
+							'feldpruefungsnachricht' => $nachrichtenfeldpruefungsnachricht
+					]);
+				
+					return $view;
+				}
+				
 				$nachricht=Nachricht::bearbeiten($n_id, $text);
 				
 				echo "Ihre Nachricht wurde bearbeitet";
