@@ -74,7 +74,7 @@ use Application\Model\Zahlungsteilnehmer;?>
 
 	<tr>
 		<td><b>Zahlungsstatus:</b> </td>
-		<td> <input type="checkbox" name="status[]"   <?php if ((!in_array("offen", $_POST["status"]))) {
+		<td> <input type="checkbox" name="status[]"   <?php if ((empty($_POST["status"]))) {
 echo "checked = 'unchecked'"; }?> value='offen' checked> offen</td>
 	</tr>
 	
