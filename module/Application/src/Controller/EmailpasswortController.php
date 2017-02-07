@@ -29,11 +29,11 @@ class EmailpasswortController extends AbstractActionController
 			
 			$empfaenger= $_REQUEST ['email'];
 			
-			$pwcode = "SELECT pwcode FROM User WHERE email = $empfaenger;";
-			$pwcode2 = $db->execute ($pwcode);
+		 
 			
 			$userListe=User::listeHolen();
 			$emailvorhanden=false;
+			$pwcode = $liste->getPwcode();
 			
 			foreach ($userListe as $liste) {
 				if ($liste->getEmail()==$empfaenger) {
