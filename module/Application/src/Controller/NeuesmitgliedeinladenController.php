@@ -46,11 +46,11 @@ class NeuesmitgliedeinladenController extends AbstractActionController
 				
 				//Wenn keine Mail uebergeben wurde, dann Ausgabe einer Fehlermeldung
 				if($empfaengerMail == ""){
-					$maileingabpruefungnachricht = "Es wurde keine E-Mailadresse eingegeben!";
+					$maileingabepruefungnachricht = "Es wurde keine E-Mailadresse eingegeben!";
 					
 					return new ViewModel([
 							'msg' => $msg,
-							'maileingabpruefung' => $maileingabpruefung
+							'maileingabepruefungnachricht' => $maileingabpruefungnachricht
 					]);
 				}
 				
