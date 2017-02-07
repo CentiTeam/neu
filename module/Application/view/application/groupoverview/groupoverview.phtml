@@ -32,7 +32,7 @@ use Application\Model\Gruppenmitglied;?>
 	</tr>
 </thead>
 
-<tbody class="datenuntereinander " >
+<tbody class="datenuntereinander" >
 	<?php 
 	foreach ($gruppenListe as $zaehler => $gruppenmitglied) {
 		
@@ -40,8 +40,8 @@ use Application\Model\Gruppenmitglied;?>
 
 		<tr class="datenuntereinander">
 			<td class="datenuntereinander"><div class="small-circular-image"><img src ="<?=$gruppenmitglied->getGruppe()->getGruppenbildpfad()?>" height = "50" width = "50" alt = "Kein Bild vorhanden"></div></td>
-			<td class="datenuntereinander><?=$gruppenmitglied->getGruppe()->getGruppenname()?></td>
-			<td class="datenuntereinander "><?=$gruppenmitglied->getGruppe()->getGruppenbeschreibung()?></td>
+			<td class="datenuntereinander"><?=$gruppenmitglied->getGruppe()->getGruppenname()?></td>
+			<td class="datenuntereinander"><?=$gruppenmitglied->getGruppe()->getGruppenbeschreibung()?></td>
 			
 			<td class=""><a href='groupshow?g_id=<?=$gruppenmitglied->getGruppe()->getG_id()?>'><img src="img/show.jpg" title="Gruppendetails anzeigen"/></a></td>
 			<?php 
