@@ -52,7 +52,7 @@ class RegistrierenController extends AbstractActionController{
 			$empfaenger= $email;
 				
 				
-			$betreff = "Grouppay: Registrierung best&auml;tigen";
+			$betreff = "Grouppay: Registrierung bestaetigen";
 			
 			$link= "<a href=\"http://132.231.36.206/confirm\">Registrierung best&auml;tigen</a>";
 			
