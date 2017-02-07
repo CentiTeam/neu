@@ -26,7 +26,17 @@ class PasswortvergessenController extends AbstractActionController
 			$passwort = $_REQUEST ["passwort"];
 			$passwortwdh = $_REQUEST ["passwortwdh"];
 			$pwcode = $_REQUEST ["pwcode"];
-			//$passwortcode = $user[0]->getPwcode();
+			
+			$userListe=User::listeHolen();
+				
+			foreach ($userListe as $liste) {
+				if ($liste->getEmail()==$email) {
+					$passwortcode=$liste->getPwcode();
+
+				}
+			}
+			
+			//$passwortcode = $user->getPwcode();
 		
 	
 			// �berpr�fung, ob Passwort zwei mal richtig eingegeben wurde		

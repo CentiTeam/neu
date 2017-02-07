@@ -38,8 +38,7 @@ class EmailpasswortController extends AbstractActionController
 				if ($liste->getEmail()==$empfaenger) {
 					$emailvorhanden=true;
 					$pwcode=$liste->getPwcode();
-					
-					var_dump ($pwcode);
+				
 				}
 			}
 
