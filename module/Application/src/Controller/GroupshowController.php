@@ -190,6 +190,14 @@ class GroupshowController extends AbstractActionController
 				$feldpruefungsnachricht= "Die Nachricht ist leer!<br>"; 
 			
 				$view = new ViewModel([
+						'gruppe' => array($gruppe),
+						'nachricht' => $nachricht,
+						'mitgliederListe' => $mitgliederliste,
+						'mitgliedschaft' => $mitgliedschaft,
+						'aktnachricht' => $aktnachrichtliste,
+						'aktgruppenmitglied' => $aktgruppenmitglied,
+						'user_id' => $user_id,
+						'suche' => $suche
 						'nachrichtenfeldpruefungsnachricht' => $nachrichtenfeldpruefungsnachricht
 				]);
 				
