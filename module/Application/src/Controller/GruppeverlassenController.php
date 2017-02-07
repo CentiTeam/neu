@@ -158,14 +158,9 @@ class GruppeverlassenController extends AbstractActionController
 					
 				// Liste aller Gruppenmitglieder holen
 				$gruppenmitgliederliste=Gruppenmitglied::gruppenmitgliederlisteHolen($g_id);
-				
-				if(empty($gruppenmitgliederliste))
-					die ("test");
-				
-				die ("test fehlgeschlagen");
 					
 				// Falls keine Gruppenmitglieder mehr vorhanden sind werden die verknüoften Models gelöscht
-				if ($gruppenmitgliederliste==NULL) {
+				if (empty($gruppenmitgliederliste==NULL)) {
 						
 					$gruppenzahlungen=Zahlung::gruppenzahlungenlisteHolen($gruppen_id);
 					$loescherror=false;
@@ -190,6 +185,11 @@ class GruppeverlassenController extends AbstractActionController
 						}
 				
 					}
+					
+					if($gruppe->loeschen ($g_id)==false) {
+						$loescherror=true;
+					}
+						
 				
 					// Wenn es einen Fehler beim Löschen der verknüpften Models gibt wird eine Fehlermeldung ausgegeben und die Aktion abgebrochen
 					if ($loescherror==true) {
