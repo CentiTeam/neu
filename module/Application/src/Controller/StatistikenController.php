@@ -19,6 +19,8 @@ use Application\Model\Gruppenmitglied;
 
 class StatistikenController extends AbstractActionController 
 {
+	
+	static $offen = 'false';
 	public function statistikenAction(){
 
 		session_start();
@@ -58,6 +60,7 @@ class StatistikenController extends AbstractActionController
   			$zahlungenliste = Zahlungsteilnehmer::teilnehmerzahlungenholen($user_id);
   			$kategorieliste = Kategorie::listeHolen();
   			$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
+  			
   			
   				
   			// Bei Klicken auf "Filtern" in 'statistiken'-View oder bei Klicken auf "Deine Zahlungen in dieser Gruppe" in 'groupshow'-View
@@ -104,7 +107,8 @@ class StatistikenController extends AbstractActionController
   					'gruppe' => $g_id,
   					'k_id' => $k_id,
   					'beforeDate' => $beforeDate,
-  					'afterDate' => $afterDate
+  					'afterDate' => $afterDate,
+  					'offen' => $offen
   			]);
   			
 
@@ -139,6 +143,7 @@ class StatistikenController extends AbstractActionController
  				if($status == 'offen' 
  						&& $zahlungsteilnehmer->istzahlungoffen($zahlungsteilnehmer->getZahlung()->getZ_id())== true){
  					$filteredlist[] =  $zahlungsteilnehmer;
+ 					$offen = 'offen';
  				}
  				if($status == 'beglichen'
  						&& $zahlungsteilnehmer->istzahlungoffen($zahlungsteilnehmer->getZahlung()->getZ_id())== false){
