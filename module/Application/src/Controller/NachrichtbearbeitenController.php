@@ -86,7 +86,7 @@ class NachrichtbearbeitenController extends AbstractActionController {
 			//Bearbeiten der Nachricht
 			if($_REQUEST['bearbeiten']) {
 				
-				$text = $_POST['text'];
+				$text = $_POST['text']; 
 				
 				if ($text == ""){
 					$nachrichtenfeldpruefungsnachricht= "Die Nachricht ist leer!<br>";
