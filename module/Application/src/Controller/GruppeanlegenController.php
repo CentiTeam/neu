@@ -44,7 +44,16 @@ class GruppeanlegenController extends AbstractActionController {
 				$g_id=$_REQUEST["g_id"];
 				$gruppenname=$_REQUEST["gruppenname"];
 				$gruppenbeschreibung=$_REQUEST["gruppenbeschreibung"];
-	
+				
+				//Wen kein Gruppenname eingegeben wurde, dann Fehler
+				if ($gruppenname == ""){
+					$msg= "Der Gruppenname ist leer!<br>";
+					
+					return new ViewModel([
+							'gruppe' => array($gruppe),
+							'msg' => $msg
+					]);
+				}
 				// Wenn kein Gruppenbild mitgeladen wird, wird ein leerer String in die Variable $path geladen
 				if ($_FILES ["uploadedfile"]["name"] == NULL) {
 					$path="";
