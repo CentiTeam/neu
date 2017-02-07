@@ -356,6 +356,39 @@ class User
 		return $isLoaded;
 	}
 	
+	
+	/** Kann wohl doch weg
+	public function codeperemailladen ($email) {
+	
+		// Datenbankstatement erzeugen
+		$dbStmt = new DB_connection();
+	
+		// DB-Befehl absetzen: alle Basisinformationen des Teams mit der ï¿½bergebenen $t_id abfragen
+	
+		$result=$dbStmt->execute("SELECT pwcode FROM User WHERE email= '".$email."';");
+	
+		// Variable, die speichert, ob das Team geladen werden konnte oder nicht
+		$isLoaded=false;
+	
+		// Ergebnis verarbeiten, falls vorhanden
+		if ($row=mysqli_fetch_array($result)) {
+			$this->email=$row["email"];
+			$this->pwcode=$row["pwcode"];
+	
+			// speichern, dass die Basisinformationen der User erfolgreich geladen werden konnten
+			$isLoaded=true;
+		}
+	
+		// zurï¿½ckgeben, ob beim Laden ein Fehler aufgetreten ist
+		return $isLoaded;
+	}
+	
+	*/
+	
+	
+	
+	
+	
 	//Methode um Benutzer in Datenbank und im Objekt selbst zu deaktivieren
 	public function deaktivieren(){
 		

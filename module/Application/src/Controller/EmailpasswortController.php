@@ -37,6 +37,7 @@ class EmailpasswortController extends AbstractActionController
 			foreach ($userListe as $liste) {
 				if ($liste->getEmail()==$empfaenger) {
 					$emailvorhanden=true;
+					$pwcode=$liste->getPwcode();
 				}
 			}
 
@@ -46,8 +47,10 @@ class EmailpasswortController extends AbstractActionController
 				
 			} else {
 			
-				$user=$_SESSION['user'];
-				$pwcode = $user->getPwcode();
+				$user=new User();
+				
+				
+				// $pwcode = $user->getPwcode();
 				
 			$betreff = "Grouppay: Passwort zurücksetzen";		
 	
