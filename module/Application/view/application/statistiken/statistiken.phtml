@@ -114,7 +114,7 @@ echo "checked = 'checked'"; }?>
 				<td><b>Zahlungen die noch</b> </td>
 				</tr><tr>
 				<td><b>zu t&auml;tigen sind:</b> </td>
-		<td><input type="checkbox" name="meineoffenen" <?php if ((!empty($_POST["meineoffenen"]) && in_array("meineoffenen", $_POST["meineoffenen"]))
+		<td><input type="checkbox" name="meineoffenen" <?php if ((isset($_POST["meineoffenen"]))
 				|| !isset($_POST['filteranwenden'])) {
 echo "checked = 'checked'"; }?>
 		> Meine offenen Zahlungen</td>
