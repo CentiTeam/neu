@@ -129,7 +129,7 @@ class ZahlunganlegenController extends AbstractActionController {
 								'zahlung' => array($zahlung),
 								'k_id' => $kategorie_id,
 								'err' => $errorStr,
-								'feldpruefungsnachricht' => $feldpruefung
+								'feldpruefungsnachricht' => $feldpruefungsnachricht
 						]);
 					}
 					
