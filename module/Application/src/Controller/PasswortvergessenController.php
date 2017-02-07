@@ -60,9 +60,7 @@ class PasswortvergessenController extends AbstractActionController
 				$user->setEmail ($email);
 				$user->setPasswort ($passwort);
 				$user->setPasswortwdh($passwortwdh);
-				$user->setPwcode ($pwcode);
-				$user->setPasswortcode ($passwortcode);
-	
+				
 				$user->passwortvergessen();	
 		
 			}
