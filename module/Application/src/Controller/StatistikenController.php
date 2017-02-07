@@ -60,6 +60,11 @@ class StatistikenController extends AbstractActionController
   			$count = 0;
   				
   			// Bei Klicken auf "Filtern" in 'statistiken'-View oder bei Klicken auf "Deine Zahlungen in dieser Gruppe" in 'groupshow'-View
+  			
+  			if($_REQUEST["ersteller"] != null){
+  				$zahlungenliste = $this->erstellerFilter($zahlungenliste, $_REQUEST["ersteller"]);
+  				$count ++;
+  			}
   			if ($_REQUEST['filteranwenden'] || $_REQUEST['sofortauslesen']) {
   				if($_REQUEST["kategorie"] != null){
   					$zahlungenliste = $this->katFilter($zahlungenliste, $_REQUEST["kategorie"]);
@@ -72,10 +77,7 @@ class StatistikenController extends AbstractActionController
   					$count ++;
   				}
   				
-   				if($_REQUEST["status"] != null){
-   					$zahlungenliste = $this->statusFilter($zahlungenliste, $_REQUEST["status"]);
-   					$count ++;
-   				}
+   				
    				
    				if($_REQUEST["meineoffenen"] != null){
    					$zahlungenliste = $this->meineoffenenFilter($zahlungenliste);
@@ -87,9 +89,10 @@ class StatistikenController extends AbstractActionController
    					$zahlungenliste = $this->gruppeFilter($zahlungenliste, $_REQUEST["gruppe"]);
    					$count ++;
    						}
-    				if($_REQUEST["ersteller"] != null){
-    					$zahlungenliste = $this->erstellerFilter($zahlungenliste, $_REQUEST["ersteller"]);
-    					$count ++;
+    			
+    						if($_REQUEST["status"] != null){
+    							$zahlungenliste = $this->statusFilter($zahlungenliste, $_REQUEST["status"]);
+    							$count ++;
     						}
 
     						$leer = array();
