@@ -61,36 +61,43 @@ class StatistikenController extends AbstractActionController
   			$kategorieliste = Kategorie::listeHolen();
   			$gruppenliste=Gruppenmitglied::eigenelisteholen($user_id);
   			
-  			
+  			$count = 0;
   				
   			// Bei Klicken auf "Filtern" in 'statistiken'-View oder bei Klicken auf "Deine Zahlungen in dieser Gruppe" in 'groupshow'-View
   			if ($_REQUEST['filteranwenden'] || $_REQUEST['sofortauslesen']) {
   				if($_REQUEST["kategorie"] != null){
   					$zahlungenliste = $this->katFilter($zahlungenliste, $_REQUEST["kategorie"]);
+  					$count ++;
   				}
   				if($_REQUEST["afterdate"] != null || $_REQUEST["beforedate"] != null){
   					$beforeDate=$_REQUEST["beforedate"];
   					$afterDate=$_REQUEST["afterdate"];
   					$zahlungenliste = $this->datFilter($zahlungenliste,$_REQUEST["afterdate"], $_REQUEST["beforedate"]);
+  					$count ++;
   				}
   				
    				if($_REQUEST["status"] != null){
    					$zahlungenliste = $this->statusFilter($zahlungenliste, $_REQUEST["status"]);
+   					$count ++;
    				}
    				
    				if($_REQUEST["meineoffenen"] != null){
    					$zahlungenliste = $this->meineoffenenFilter($zahlungenliste);
+   					$count ++;
    				}
    				
    				
    				if($_REQUEST["gruppe"] != null){
    					$zahlungenliste = $this->gruppeFilter($zahlungenliste, $_REQUEST["gruppe"]);
+   					$count ++;
    						}
     				if($_REQUEST["ersteller"] != null){
     					$zahlungenliste = $this->erstellerFilter($zahlungenliste, $_REQUEST["ersteller"]);
+    					$count ++;
     						}
   			}		
-  			
+  			$leer;
+  			if($count <1) $zahlungenliste = $leer;
   			$saldo = Zahlungsteilnehmer::gibsaldo($user_id, $zahlungenliste);
   			
   			// Die ausgewählten Filterwerte wird wieder mitgeladen 
