@@ -65,16 +65,12 @@ use Application\Model\Zahlungsteilnehmer;?>
 
 <tr>
 	<td><b>Zeitraum:</b>  </td>
-</tr>
 	<td align="center">nach: </td><td><input type="date" name="afterdate" value="<?=$afterDate?>" placeholder="YYYY-MM-DD"></td>
 </tr>
 <tr>
 	<td align="center">vor: </td><td><input type="date" name="beforedate" value="<?=$beforeDate?>" placeholder="YYYY-MM-DD"></td>
 </tr>
 
-	<tr>
-	""
-	</tr>
 	<tr>
 		<td><b>Zahlungsstatus:</b> </td>
 		<td> <input type="checkbox" name="status[]"   <?php if ((!empty($_POST["status"]) && in_array("offen", $_POST["status"]))) {
@@ -89,8 +85,9 @@ echo "checked = 'checked'"; }?>
 	</tr>
 
 	
-	<tr>
-	</tr>
+	<tr class="blank_row">
+    <td colspan="3"></td>
+</tr>
 	<tr>
 				<td><b>Ersteller:</b> </td>
 		<td><input type="checkbox" name="ersteller[]" <?php if ((!empty($_POST["ersteller"]) && in_array("ersteller", $_POST["ersteller"]))) {
