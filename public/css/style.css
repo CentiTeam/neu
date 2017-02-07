@@ -222,7 +222,11 @@ tbody.datentabelle:hover tr.datentabelle:hover td.datentabelle  {
 	text-shadow: 0 1px 0 #fff;
 }
 
-
+@media screen and (min-width: 45em) {
+	table.profil {
+ 		width: 40%;
+	}
+}
 
 @media screen and (max-width: 45em) {
 	tr.untereinander, th.untereinander, td.untereinander {
