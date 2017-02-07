@@ -33,7 +33,6 @@ class EmailpasswortController extends AbstractActionController
 			
 			$userListe=User::listeHolen();
 			$emailvorhanden=false;
-			//$pwcode = $user->getPwcode();
 			
 			foreach ($userListe as $liste) {
 				if ($liste->getEmail()==$empfaenger) {
@@ -47,8 +46,11 @@ class EmailpasswortController extends AbstractActionController
 				
 			} else {
 			
+				$user=$_SESSION['user'];
+				$pwcode = $user->getPwcode();
+				
 			$betreff = "Grouppay: Passwort zurücksetzen";		
-
+	
 
 $link= "<a href=\"http://132.231.36.206/passwortvergessen?email=$empfaenger\">Passwort zur&uuml;cksetzen</a>";
 
