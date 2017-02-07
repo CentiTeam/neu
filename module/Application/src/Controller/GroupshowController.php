@@ -187,7 +187,7 @@ class GroupshowController extends AbstractActionController
 			
 			//Wenn keine Nachricht eingegeben wurde, dann Fehler
 			if ($text == ""){
-				$feldpruefungsnachricht= "Die Nachricht ist leer!<br>"; 
+				$nachrichtenfeldpruefungsnachricht= "Die Nachricht ist leer!<br>"; 
 			
 				$view = new ViewModel([
 						'gruppe' => array($gruppe),
