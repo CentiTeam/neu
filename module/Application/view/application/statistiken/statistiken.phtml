@@ -74,7 +74,8 @@ use Application\Model\Zahlungsteilnehmer;?>
 
 	<tr>
 		<td><b>Zahlungsstatus:</b> </td>
-		<td> <input type="checkbox" name="status[]"   <?php if ((!empty($_POST["status"]) && in_array("offen", $_POST["status"]))) {
+		<td> <input type="checkbox" name="status[]"   <?php if ((!empty($_POST["status"]) && in_array("offen", $_POST["status"]))
+				|| !isset($_POST['filteranwenden'])) {
 echo "checked = 'unchecked'"; }?> value='offen' > offen</td>
 	</tr>
 	
@@ -92,14 +93,16 @@ echo "checked = 'checked'"; }?>
 </tr>
 	<tr>
 				<td><b>Ersteller:</b> </td>
-		<td><input type="checkbox" name="ersteller[]" <?php if ((!empty($_POST["ersteller"]) && in_array("ersteller", $_POST["ersteller"]))) {
+		<td><input type="checkbox" name="ersteller[]" <?php if ((!empty($_POST["ersteller"]) && in_array("ersteller", $_POST["ersteller"]))
+				|| !isset($_POST['filteranwenden'])) {
 echo "checked = 'checked'"; }?>
 		value='ersteller'> Zahlungen, die ich erstellt habe</td>
 	</tr>
 
 	<tr>
 		<td></td>
-		<td><input type="checkbox" name="ersteller[]" <?php if ((!empty($_POST["ersteller"]) && in_array("nersteller", $_POST["ersteller"]))) {
+		<td><input type="checkbox" name="ersteller[]" <?php if ((!empty($_POST["ersteller"]) && in_array("nersteller", $_POST["ersteller"]))
+				|| !isset($_POST['filteranwenden'])) {
 echo "checked = 'checked'"; }?>
 		value='nersteller'> Zahlungen, die ich nicht erstellt habe</td>
 	</tr>
@@ -111,7 +114,10 @@ echo "checked = 'checked'"; }?>
 				<td><b>Zahlungen die noch</b> </td>
 				</tr><tr>
 				<td><b>zu t&auml;tigen sind:</b> </td>
-		<td><input type="checkbox" name="meineoffenen" checked> Meine offenen Zahlungen</td>
+		<td><input type="checkbox" name="meineoffenen" <?php if ((!empty($_POST["meineoffenen"]) && in_array("meineoffenen", $_POST["meineoffenen"]))
+				|| !isset($_POST['filteranwenden'])) {
+echo "checked = 'checked'"; }?>
+		> Meine offenen Zahlungen</td>
 	</tr>
 
 
