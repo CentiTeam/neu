@@ -59,6 +59,17 @@ class KategorieeditController extends AbstractActionController {
 				$k_id=$_REQUEST["k_id"];
 				$kategoriebeschreibung=$_REQUEST["kategoriebeschreibung"];
 				
+				//Wenn keine Kategoriebeschreibung eingegeben wurde, dann wird ein Fehler geworfen
+				if($kategoriebeschreibung == ""){
+					$keineeingabenachricht = "Es wurde kein Kategoriename eingegeben!";
+						
+					return new ViewModel([
+							'kategorie' => array($kategorie),
+							'msg' => $msg,
+							'keineeingabenachricht' => $keineeingabenachricht
+								
+					]);
+				
 
 
 				// Schritt 2: Daten pr�fen und Fehler in Array füllen
