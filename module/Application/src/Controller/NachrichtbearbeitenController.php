@@ -92,7 +92,7 @@ class NachrichtbearbeitenController extends AbstractActionController {
 					$nachrichtenfeldpruefungsnachricht= "Die Nachricht ist leer!<br>";
 						
 					$view = new ViewModel([
-							'nachricht' => $nachricht,
+							'nachricht' => array($nachricht)
 							'feldpruefungsnachricht' => $nachrichtenfeldpruefungsnachricht
 					]);
 				
