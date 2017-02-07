@@ -87,17 +87,21 @@ echo "checked = 'checked'"; }?>
 	
 	<tr>
 		<td></td>
-		<td><input type="checkbox" name="meineoffenen" checked> Meine offenen Zahlungen</td>
+		<td><input type="checkbox" name="meineoffenen" > Meine offenen Zahlungen</td>
 	</tr>
 	
 	<tr>
 				<td><b>Ersteller:</b> </td>
-		<td><input type="checkbox" name="ersteller[]" value='ersteller'> Zahlungen, die ich erstellt habe</td>
+		<td><input type="checkbox" name="ersteller[]" <?php if ((!empty($_POST["ersteller"]) && in_array("ersteller", $_POST["ersteller"]))) {
+echo "checked = 'checked'"; }?>
+		value='ersteller'> Zahlungen, die ich erstellt habe</td>
 	</tr>
 
 	<tr>
 		<td></td>
-		<td><input type="checkbox" name="ersteller[]" value='nersteller'> Zahlungen, die ich nicht erstellt habe</td>
+		<td><input type="checkbox" name="ersteller[]" <?php if ((!empty($_POST["ersteller"]) && in_array("nersteller", $_POST["ersteller"]))) {
+echo "checked = 'checked'"; }?>
+		value='nersteller'> Zahlungen, die ich nicht erstellt habe</td>
 	</tr>
 
 </table>
