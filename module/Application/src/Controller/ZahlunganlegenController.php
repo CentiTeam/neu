@@ -118,7 +118,7 @@ class ZahlunganlegenController extends AbstractActionController {
 					
 					//Wen Zahlungbeschreibung, Betrag oder Zahlungsdatum nicht eingegeben wurde, dann Fehler
 					if ($zahlungsbeschreibung == "" || $betrag == "" || $zahlungsdatum == ""){
-						$feldpruefungnachricht= "Zahlungsbeschreibung, Betrag oder Zahlungsdatum ist leer!<br>";
+						$feldpruefungsnachricht= "Zahlungsbeschreibung, Betrag oder Zahlungsdatum ist leer!<br>";
 							
 						return new ViewModel([
 								'gruppe' => array($gruppe),
