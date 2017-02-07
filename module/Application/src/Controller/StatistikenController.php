@@ -97,7 +97,7 @@ class StatistikenController extends AbstractActionController
     						}
   			}		
   			$leer;
-  			if($count <1) $zahlungenliste = $leer;
+  			//if($count <1) $zahlungenliste = $leer;
   			$saldo = Zahlungsteilnehmer::gibsaldo($user_id, $zahlungenliste);
   			
   			// Die ausgewählten Filterwerte wird wieder mitgeladen 
