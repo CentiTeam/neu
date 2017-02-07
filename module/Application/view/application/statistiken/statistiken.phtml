@@ -80,7 +80,7 @@ echo "checked = 'checked'"; }?> value='offen' > offen</td>
 	
 	<tr>
 		<td></td>
-		<td><input type="checkbox" name="status[]"  <?php if ((!empty($_POST["status"]) && in_array("beglichen", $_POST["status"]))) {
+		<td><input type="checkbox" name="status[]"  <?php $_POST["status"]="beglichen"; if ((!empty($_POST["status"]) && in_array("beglichen", $_POST["status"]))) {
 echo "checked = 'checked'"; }?>
 		value='beglichen' > beglichen</td>
 	</tr>
@@ -90,7 +90,6 @@ echo "checked = 'checked'"; }?>
 		<td><input type="checkbox" name="meineoffenen" checked> Meine offenen Zahlungen</td>
 	</tr>
 	
-
 	<tr>
 		<td></td>
 		<td><input type="checkbox" name="ersteller[]" value='ersteller'> Zahlungen, die ich erstellt habe</td>
