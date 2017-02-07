@@ -69,6 +69,8 @@ class KategorieeditController extends AbstractActionController {
 							'keineeingabenachricht' => $keineeingabenachricht
 								
 					]);
+					
+				}
 				
 
 
