@@ -52,7 +52,7 @@ class User
 					1,
 					0,
 				'/img/anonymeruser.png',
-				'".$this->pwcode."		
+				'".$this->pwcode."'		
 				)";
 		
 			$result = $db->execute($query);
