@@ -74,6 +74,12 @@ class StatistikenController extends AbstractActionController
    				if($_REQUEST["status"] != null){
    					$zahlungenliste = $this->statusFilter($zahlungenliste, $_REQUEST["status"]);
    				}
+   				
+   				if($_REQUEST["meineoffenen"] != null){
+   					$zahlungenliste = $this->meineoffenenFilter($zahlungenliste);
+   				}
+   				
+   				
    				if($_REQUEST["gruppe"] != null){
    					$zahlungenliste = $this->gruppeFilter($zahlungenliste, $_REQUEST["gruppe"]);
    						}
@@ -143,6 +149,25 @@ class StatistikenController extends AbstractActionController
  		}
  		return $filteredlist;
  	}
+ 	
+ 	
+ 	function meineoffenenFilter($zahlungenliste){
+ 		$filteredlist = array();
+ 			
+ 			foreach($zahlungenliste as $zaehler => $zahlungsteilnehmer){
+ 				if($zahlungsteilnehmer->getRestbetrag()>0){
+ 							$filteredlist[] =  $zahlungsteilnehmer;
+ 				}
+ 			}
+ 		return $filteredlist;
+ 	}
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
  	
  	function erstellerFilter($zahlungenliste, $ersteller){
  		$filteredlist = array();
