@@ -233,6 +233,8 @@ $g_id = $_REQUEST['g_id'];
 
 <!--  Abschicken neuer Nachrichten -->
 
+<?=$nachrichtenfeldpruefungsnachricht?>
+
 <form  action="groupshow?g_id=<?=$gruppe[0]->getG_id()?>" method='post'>
     <label>Nachricht:</label><br>
    	 <textarea name="text" required rows="5" cols="40"></textarea>

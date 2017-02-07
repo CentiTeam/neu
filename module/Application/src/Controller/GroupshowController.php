@@ -184,6 +184,15 @@ class GroupshowController extends AbstractActionController
 			$u_id=$_SESSION['user']->getU_id();
 			$datum = date('Y-m-d', $timestamp);
 			$g_id = $_REQUEST ['g_id'];
+			
+			//Wen keine Nachricht eingegeben wurde, dann Fehler
+			if ($gruppenname == ""){
+				$feldpruefungsnachricht= "Die Nachricht ist leer!<br>";
+			
+				$view = new ViewModel([
+						'nachrichtenfeldpruefungsnachricht' => $nachrichtenfeldpruefungsnachricht
+				]);
+			}
 
 			
 			// Keine Errors vorhanden, Funktion kann ausgef�hrt werden
