@@ -16,10 +16,8 @@ use Application\Model\Kategorie;
 use Application\Model\Zahlungsteilnehmer;
 use Application\Model\Gruppenmitglied;
 
-
 class StatistikenController extends AbstractActionController 
 {
-	
 	static $offen = 'false';
 	public function statistikenAction(){
 
@@ -50,8 +48,6 @@ class StatistikenController extends AbstractActionController
 				
 				return $view;
 			}
-			
-			
 			
 		}
 		
@@ -95,9 +91,10 @@ class StatistikenController extends AbstractActionController
     					$zahlungenliste = $this->erstellerFilter($zahlungenliste, $_REQUEST["ersteller"]);
     					$count ++;
     						}
+
+    						$leer = array();
+    						if($count ==0) $zahlungenliste = $leer;
   			}		
-  			$leer = array();
-  			if($count ==0) $zahlungenliste = $leer;
   			$saldo = Zahlungsteilnehmer::gibsaldo($user_id, $zahlungenliste);
   			
   			// Die ausgewählten Filterwerte wird wieder mitgeladen 
@@ -118,8 +115,6 @@ class StatistikenController extends AbstractActionController
   					'offen' => $offen
   			]);
   			
-
-
 }
 
  		function katFilter($zahlungenliste, $kategorie_id){
@@ -175,12 +170,6 @@ class StatistikenController extends AbstractActionController
  	}
  	
  	
- 	
- 	
- 	
- 	
- 	
- 	
  	function erstellerFilter($zahlungenliste, $ersteller){
  		$filteredlist = array();
  		foreach($ersteller as $zaehler => $erstellerobj){
@@ -212,8 +201,4 @@ class StatistikenController extends AbstractActionController
  		return $filteredlist;
  		
  	}
- 	
- 	
- 	
- 	
 }
