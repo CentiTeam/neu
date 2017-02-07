@@ -81,7 +81,8 @@ echo "checked = 'unchecked'"; }?> value='offen' > offen</td>
 	
 	<tr>
 		<td></td>
-		<td><input type="checkbox" name="status[]"  <?php  if ((!empty($_POST["status"]) && in_array("beglichen", $_POST["status"]))) {
+		<td><input type="checkbox" name="status[]"  <?php  if ((!empty($_POST["status"]) && in_array("beglichen", $_POST["status"]))
+				|| !isset($_POST['filteranwenden'])) {
 echo "checked = 'checked'"; }?>
 		value='beglichen'> beglichen</td>
 	</tr>
@@ -113,8 +114,7 @@ echo "checked = 'checked'"; }?>
 				<td><b>Zahlungen die noch</b> </td>
 				</tr><tr>
 				<td><b>zu t&auml;tigen sind:</b> </td>
-		<td><input type="checkbox" name="meineoffenen" <?php if ((isset($_POST["meineoffenen"]))
-		|| !isset($_POST['filteranwenden'])) {
+		<td><input type="checkbox" name="meineoffenen" <?php if ((isset($_POST["meineoffenen"]))) {
 echo "checked = 'checked'"; }?>
 		> Meine offenen Zahlungen</td>
 	</tr>
