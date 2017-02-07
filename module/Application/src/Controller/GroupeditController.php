@@ -80,6 +80,8 @@ class GroupeditController extends AbstractActionController {
 					$view = new ViewModel([
 							'feldpruefungsnachricht' => $feldpruefungsnachricht
 					]);
+					
+					return $view;
 				}
 				
 				// Wenn kein neues Bild hochgeladen wird, wird das bereits existierende Bild geladen
