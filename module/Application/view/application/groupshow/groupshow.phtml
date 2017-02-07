@@ -136,7 +136,12 @@ $g_id = $_REQUEST['g_id'];
 			<?php }?>
 			<td class="datenuntereinander" data-label="Vorname"><?=$gruppenmitglied->getUser()->getVorname()?></td>
 			<td class="datenuntereinander" data-label="Nachname"><?=$gruppenmitglied->getUser()->getNachname()?></td>
-			<td class="datenuntereinander" data-label="Benutzername"><b><a href="fremdesprofil?u_id=<?=$gruppenmitglied->getUser()->getU_id()?>" style="color:#96b296"><?=$gruppenmitglied->getUser()->getUsername()?></a></b></td>
+			
+			<?php if($gruppenmitglied->getUser()->getU_id()==$_SESSION['user']->getU_id()) { ?>
+				<td class="datenuntereinander" data-label="Benutzername"><b><a href="http://132.231.36.206/profil" style="color:#96b296"><?=$gruppenmitglied->getUser()->getUsername()?></a></b></td> 
+			<?php } else {?>
+				<td class="datenuntereinander" data-label="Benutzername"> <b><a href="fremdesprofil?u_id=<?=$gruppenmitglied->getUser()->getU_id()?>" style="color:#96b296"><?=$gruppenmitglied->getUser()->getUsername()?></a></b></td>
+			<?php }?>
 			
 			<?php
 			if ($gruppenmitglied->getGruppenadmin() == "1") {
