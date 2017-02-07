@@ -19,6 +19,7 @@ use Application\Model\Gruppenmitglied;?>
 <table class="datenuntereinander datentabelle" style="border-collapse: separate; border-spacing: 15px">
  -->
 
+
 <table class="datenuntereinander">
 <thead class="datenuntereinander">
 <tr class="datenuntereinander"><th class="datenuntereinander">Gruppen:</th></tr>
@@ -40,9 +41,9 @@ use Application\Model\Gruppenmitglied;?>
 	?>
 
 		<tr class="datenuntereinander">
-			<td class="datenuntereinander"><div class="small-circular-image"><img src ="<?=$gruppenmitglied->getGruppe()->getGruppenbildpfad()?>" height = "50" width = "50" alt = "Kein Bild vorhanden"></div></td>
-			<td class="datenuntereinander"><?=$gruppenmitglied->getGruppe()->getGruppenname()?></td>
-			<td class="datenuntereinander"><?=$gruppenmitglied->getGruppe()->getGruppenbeschreibung()?></td>
+			<td class="datenuntereinander" ><div class="small-circular-image"><img src ="<?=$gruppenmitglied->getGruppe()->getGruppenbildpfad()?>" height = "50" width = "50" alt = "Kein Bild vorhanden"></div></td>
+			<td class="datenuntereinander" data-label="Gruppenname"><?=$gruppenmitglied->getGruppe()->getGruppenname()?></td>
+			<td class="datenuntereinander" data-label="Gruppenbeschreibung"><?=$gruppenmitglied->getGruppe()->getGruppenbeschreibung()?></td>
 			
 			<td class=""><a href='groupshow?g_id=<?=$gruppenmitglied->getGruppe()->getG_id()?>'><img src="img/show.jpg" title="Gruppendetails anzeigen"/></a></td>
 			<?php 
