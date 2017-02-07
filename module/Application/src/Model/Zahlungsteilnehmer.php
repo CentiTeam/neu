@@ -339,7 +339,7 @@ class Zahlungsteilnehmer {
 	}
 	
 	// Alle Teilnehmer an einer Zahlung, die mit z_id übergeben wird
-	public function zahlungsteilnehmerholen($z_id){
+	public static function  zahlungsteilnehmerholen($z_id){
 		// Liste initialisieren
 		$teilnehmerListe = array ();
 		
