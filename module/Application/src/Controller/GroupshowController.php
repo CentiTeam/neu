@@ -185,8 +185,8 @@ class GroupshowController extends AbstractActionController
 			$datum = date('Y-m-d', $timestamp);
 			$g_id = $_REQUEST ['g_id'];
 			
-			//Wen keine Nachricht eingegeben wurde, dann Fehler
-			if ($text == ""){
+			//Wenn keine Nachricht eingegeben wurde, dann Fehler
+			if (empty($text)){
 				$feldpruefungsnachricht= "Die Nachricht ist leer!<br>";
 			
 				$view = new ViewModel([
