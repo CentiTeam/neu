@@ -47,12 +47,12 @@ class GruppeanlegenController extends AbstractActionController {
 				
 				//Wen kein Gruppenname eingegeben wurde, dann Fehler
 				if ($gruppenname == ""){
-					$feldpruefungnachricht= "Der Gruppenname ist leer!<br>";
+					$feldpruefungsnachricht= "Der Gruppenname ist leer!<br>";
 					
 					return new ViewModel([
 							'gruppe' => array($gruppe),
 							'msg' => $msg,
-							'feldpruefungsnachricht' => $feldpruefung
+							'feldpruefungsnachricht' => $feldpruefungsnachricht
 					]);
 				}
 				// Wenn kein Gruppenbild mitgeladen wird, wird ein leerer String in die Variable $path geladen
