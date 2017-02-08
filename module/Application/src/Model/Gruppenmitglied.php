@@ -17,7 +17,7 @@ class Gruppenmitglied {
 		$this->gruppe= $gruppen_id;
 	}
 	
-	
+	// Gruppenmitglied anlegen
 	public function anlegen () { 
 		
 		$db = new DB_connection();
@@ -48,6 +48,7 @@ class Gruppenmitglied {
 		return $result;
 	}
 	
+	// Gruppenmitglied loeschen
 	public function loeschen ($gruppe_id, $user_id) {
 		
 		// Datenbankstatement erzeugen
@@ -62,7 +63,8 @@ class Gruppenmitglied {
 		// R�ckgabe, ob die Gruppenmitgliedschaft gel�scht wurde oder nicht
 		return $result;
 	}
-		
+	
+	// Gruppenmitglied laden
 	public function laden ($g_id, $u_id) {
 	
 		// Datenbankstatement erzeugen
@@ -95,7 +97,7 @@ class Gruppenmitglied {
 		return $isLoaded;
 	}
 	
-	
+	// Liste aller Gruppenmitglieder in einer mit $gruppen_id übergebenen Gruppe zurueckgeben
 	public static function gruppenmitgliederlisteHolen($gruppen_id) {
 	
 		// Liste initialisieren
@@ -127,8 +129,7 @@ class Gruppenmitglied {
 	}
 	
 	
-	
-	
+	// Liste aller eigenen Gruppenmitgliedschaften mit eines mit $user_id übergebenen Users zurueckgeben
 	public static function eigenelisteHolen($user_id) {
 	
 		// Liste initialisieren
@@ -160,7 +161,7 @@ class Gruppenmitglied {
 	}
 	
 	
-	
+	// Liste aller Gruppenmitglieder zurueckgeben
 	public static function listeHolen() {
 	
 		// Liste initialisieren
