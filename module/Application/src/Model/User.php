@@ -23,7 +23,8 @@ class User
 	public function __construct($user_id = null) {
 		$this->username = $user_id;
 	}
-
+		
+		// Registrieren eines neuen Users
 		public function registrieren ($username, $passwort, $email, $vorname, $nachname, $pwcode) 
 		{
 			//Aufbau einer Datenbankverbindung
@@ -66,8 +67,8 @@ class User
 		}
 		}
 		
-		// Methode für das Zurücksetzen des Passwortes
 		
+		// Methode für das Zurücksetzen des Passwortes
 		public function passwordreset ($passwort, $u_id) {
 			
 			$db = new DB_connection;
@@ -82,7 +83,6 @@ class User
 		
 		
 		// Methode beim Vergessen des Passwortes
-		
 		public function passwortvergessen ($email, $passwort) {
 			
 			$db = new DB_connection;
@@ -94,7 +94,6 @@ class User
 		}
 		
 		// Methode zur Email-Bestätigung bei der Registrierung
-		
 		public function confirm ($email) {
 			
 			$db = new DB_connection;
@@ -106,10 +105,8 @@ class User
 			return $result;
 		}
 		
-		
 	
-	
-	
+		// Login eines Users
 		public function login($email, $passwort) {
 		
 		$db = new DB_connection;
@@ -167,7 +164,7 @@ class User
 		
 	}
 	
-	
+	// Liste aller User holen
 	public static function listeHolen() {
 	
 		// Liste initialisieren
@@ -199,7 +196,7 @@ class User
 	}
 	
 	
-	// Nur die nicht deaktivierten Gruppenmitglieder
+	// Nur die nicht deaktivierten Gruppenmitglieder als Liste zurueckgeben
 	public static function gruppenmitgliederlisteHolen($gruppen_id) {
 	
 		// Liste initialisieren
@@ -236,7 +233,7 @@ class User
 	}
 	
 	
-	
+	// Liste aller User holen, die den Suchkriterien entsprechen (like Username, Vorname, Nachname, E-Mail)
 	public static function suchlisteHolen($suche) {
 	
 		// Liste initialisieren
@@ -273,7 +270,8 @@ class User
 		}
 	}
 	
-	
+	// Liste aller User holen, die den Suchkriterien entsprechen (like Username, Vorname, Nachname, E-Mail)
+	// Nur diejenigen User, die noch nicht in der Gruppe $gruppen_id vorhanden sind
 	public static function gruppensuchlisteHolen($suche, $gruppen_id) {
 	
 		// Liste initialisieren
@@ -358,38 +356,6 @@ class User
 	}
 	
 	
-	/** Kann wohl doch weg
-	public function codeperemailladen ($email) {
-	
-		// Datenbankstatement erzeugen
-		$dbStmt = new DB_connection();
-	
-		// DB-Befehl absetzen: alle Basisinformationen des Teams mit der ï¿½bergebenen $t_id abfragen
-	
-		$result=$dbStmt->execute("SELECT pwcode FROM User WHERE email= '".$email."';");
-	
-		// Variable, die speichert, ob das Team geladen werden konnte oder nicht
-		$isLoaded=false;
-	
-		// Ergebnis verarbeiten, falls vorhanden
-		if ($row=mysqli_fetch_array($result)) {
-			$this->email=$row["email"];
-			$this->pwcode=$row["pwcode"];
-	
-			// speichern, dass die Basisinformationen der User erfolgreich geladen werden konnten
-			$isLoaded=true;
-		}
-	
-		// zurï¿½ckgeben, ob beim Laden ein Fehler aufgetreten ist
-		return $isLoaded;
-	}
-	
-	*/
-	
-	
-	
-	
-	
 	//Methode um Benutzer in Datenbank und im Objekt selbst zu deaktivieren
 	public function deaktivieren(){
 		
@@ -427,7 +393,8 @@ class User
 		return $result;
 	
 	}
-
+	
+	// Profilbild für einen User setzen
 	public static function bild($path, $u_id) {
 	
 		// Datenbankstatement erzeugen
