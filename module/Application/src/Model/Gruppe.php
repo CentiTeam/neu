@@ -16,7 +16,7 @@ class Gruppe {
 		$this->g_id= $gruppen_id;
 	}
 	
-	
+	// Anlegen einer Gruppe
 	public function anlegen () {
 		
 		$db = new DB_connection();
@@ -32,7 +32,7 @@ class Gruppe {
 		return $result;
 	}
 	
-		
+	// Bearbeiten einer Gruppe	
 	public function bearbeiten () {
 	
 		$db = new DB_connection();
@@ -49,17 +49,15 @@ class Gruppe {
 		return $result;
 	}
 	
-	
+	// Loeschen einer Gruppe
 	public function loeschen ($gruppe_id) {
 		
 		// Datenbankstatement erzeugen
 		$db = new DB_connection();
 		
-		// !!!
-		// !!!!! Loeschen der verbundenen Daten fehlt noch!!!!!
-		// !!!!
+		// Loeschen der verbundenen Daten wird im Controller durch den Aufruf der entspr. Funktionen erledigt
 		
-		// Löschen der Gruppenmitglied-Einträge, die die zu löschende Gruppe betreffen
+		// Lï¿½schen der Gruppenmitglied-Eintrï¿½ge, die die zu lï¿½schende Gruppe betreffen
 		$query_verbundeneDaten1="DELETE FROM gruppenmitglied WHERE g_id='".$gruppe_id."' ";
 		$db->execute($query_verbundeneDaten1);
 		
@@ -70,32 +68,11 @@ class Gruppe {
 		$result = $db->execute($query);
 		
 		
-		// speichert, ob mindestens eine Zeile gelöscht wurde
-		// dies ist gleichbedeutet mit der Information, ob eine Gruppe gelöscht wurde
-		//$deleted = mysqli_affected_rows() > 0;
-		//return $deleted;
-		
-		// Rückgabe, ob die Gruppe gelöscht wurde oder nicht
+		// Rï¿½ckgabe, ob die Gruppe gelï¿½scht wurde oder nicht
 		return $result;
 	}
 	
-	/** wird nicht mehr benötigt
-	public static function bild($path, $g_id) {
-		
-		// Datenbankstatement erzeugen
-		$db = new DB_connection();
-		
-		$query = "UPDATE gruppe SET
-				gruppenbildpfad = '".$path."'
-				WHERE g_id = '".$g_id."'
-				";
-				
-		$result = $db->execute($query);
-		
-		return $result;
-	}
-	*/
-	
+	// Liste aller Gruppen holens
 	public static function listeHolen() {
 	
 		// Liste initialisieren
@@ -105,7 +82,7 @@ class Gruppe {
 		
 		$query="SELECT g_id FROM gruppe";
 		
-		// Wenn die Datenbankabfrage erfolgreich ausgeführt worden ist
+		// Wenn die Datenbankabfrage erfolgreich ausgefï¿½hrt worden ist
 		if ($result = $db->execute($query)) {
 		
 		// Ergebnis Zeile fï¿½r Zeile verarbeiten
@@ -126,7 +103,7 @@ class Gruppe {
 		}
 	}
 	
-	
+	// Liste aller Gruppen, in denen ein mit $user_id Ã¼bergebener User Mitglied ist
 	public static function eigenelisteHolen($user_id) {
 	
 		// Liste initialisieren
@@ -138,7 +115,7 @@ class Gruppe {
 				LEFT JOIN gruppenmitglied ON (gruppe.g_id=gruppenmitglied.g_id) 
 				WHERE u_id= '".$user_id."' ";
 	
-		// Wenn die Datenbankabfrage erfolgreich ausgeführt worden ist
+		// Wenn die Datenbankabfrage erfolgreich ausgefï¿½hrt worden ist
 		if ($result = $db->execute($query)) {
 	
 			// Ergebnis Zeile fï¿½r Zeile verarbeiten

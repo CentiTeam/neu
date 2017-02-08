@@ -17,10 +17,7 @@ class Gruppenereignis{
 		$this->gruppe= $gruppe;
 	}
 	
-	
-	
-	
-	
+	// Liste aller Gruppenereignisse holen
 	public static function listeHolen($gruppe) {
 	
 		// Liste initialisieren
@@ -53,10 +50,7 @@ class Gruppenereignis{
 		}
 	}
 	
-	
-	
-	
-
+	// Laden eines Gruppenereignisses
 	public function laden ($e_id) {
 	
 		// Datenbankstatement erzeugen
@@ -89,8 +83,7 @@ class Gruppenereignis{
 	}
 	
 	
-
-	
+	// Anlegen einer Zahlung wird als Ereignis eingespeichert
 	public static function zahlunganlegenEreignis($zahlung, $gruppe, $user){
 	
 		$ereignisbeschreibung = "Die Zahlung ".$zahlung->getZahlungsbeschreibung()." mit der ID ".$zahlung->getZ_id()." in Hoehe von ".$zahlung->getBetrag()." wurde in der Kategorie ".$zahlung->getKategorie()->getKategoriebeschreibung()." von ".$user->getUsername()." angelegt";
@@ -102,7 +95,7 @@ class Gruppenereignis{
 	
 	}
 	
-	
+	// Begleichen einer Zahlung wird als Ereignis eingespeichert
 	public static function zahlungbegleichenEreignis($zahlung, $gruppe, $bearbeiter, $schuldner, $glaeubiger, $betrag){
 	
 		$ereignisbeschreibung = "Die Zahlung ".$zahlung->getZahlungsbeschreibung()." mit der ID ".$zahlung->getZ_id()." in Hoehe von ".$zahlung->getBetrag()." wurde von ".$bearbeiter->getUsername()." als (teilweise) beglichen angegeben.";
@@ -115,7 +108,7 @@ class Gruppenereignis{
 	
 	}
 	
-	
+	// Bearbeiten einer Zahlung wird als Ereignis eingespeichert
 	public static function zahlungbearbeitenEreignis($zahlung, $gruppe){
 	
 		$ereignisbeschreibung = "Die Zahlung ".$zahlung->getZahlungsbeschreibung()." mit der ID ".$zahlung->getZ_id()." wurde von ihrem Ersteller bearbeitet.";
@@ -127,6 +120,7 @@ class Gruppenereignis{
 	
 	}
 	
+	// Begleichen einer Zahlung wird als Ereignis eingespeichert
 	public static function zahlungstatusaenderungzubeglichenEreignis($zahlung, $gruppe, $bearbeiter, $schuldner, $glaeubiger){
 		
 	
@@ -146,7 +140,7 @@ class Gruppenereignis{
 	
 	}
 	
-	
+	// Loeschen einer Zahlung wird als Ereignis eingespeichert
 	public static function zahlungloeschenEreignis($zahlung, $gruppe, $user){
 	
 		$ereignisbeschreibung = "Die Zahlung ".$zahlung->getZahlungsbeschreibung()." mit der ID ".$zahlung->getZ_id()." in Hoehe von ".$zahlung->getBetrag()." wurde von ".$user->getUsername()." geloescht";
@@ -158,7 +152,7 @@ class Gruppenereignis{
 	
 	}
 	
-	
+	// Weitergabe von Gruppenadminrechten wird als Ereignis eingespeichert
 	public static function gruppenadminrechteweitergebenEreignis($geber, $nehmer, $gruppe){
 	
 		$ereignisbeschreibung = $geber->getUsername()." hat Gruppenadminrechte an ".$nehmer->getUsername()." weitergegeben";
@@ -170,6 +164,7 @@ class Gruppenereignis{
 	
 	}
 	
+	// Entziehen von Gruppenadminrechten wird als Ereignis eingespeichert
 	public static function gruppenadminrechtenehmenEreignis($nehmer, $genommener, $gruppe){
 	
 		$ereignisbeschreibung = $nehmer->getUsername()." hat Gruppenadminrechte von ".$genommener->getUsername()." wieder genommen";
@@ -181,6 +176,7 @@ class Gruppenereignis{
 	
 	}
 	
+	// Anlegen einer Gruppe wird als Ereignis eingespeichert
 	public static function gruppeanlegenEreignis($gruppe){
 	
 		$ereignisbeschreibung = "Die Gruppe wurde erstellt";
@@ -192,6 +188,7 @@ class Gruppenereignis{
 	
 	}
 	
+	// Loeschen einer Gruppe wird als Ereignis eingespeichert
 	public static function gruppeloeschenEreignis($gruppe){
 	
 		$ereignisbeschreibung = "Die Gruppe wurde gel�scht";
@@ -203,6 +200,7 @@ class Gruppenereignis{
 	
 	}
 	
+	// Auslesen der aktuellen Ereignisse eines Users (der letzten 5 Tage)
 	public static function akutelleereignisse($user_id) {
 		
 		$dbStmt = new DB_connection();
@@ -235,6 +233,7 @@ class Gruppenereignis{
 		}
 	}
 	
+	// Deaktivierung eines Users wird als Ereignis und in den entspr. Gruppen als Ereignis gespeichert
 	public static function benutzerdeaktivierenEreignis($user){
 		
 		$ereignisbeschreibung = "Der Benutzer ".$user->getUsername()." wurde deaktiviert!";
@@ -258,7 +257,7 @@ class Gruppenereignis{
 		} 
 	}
 		
-		
+	// Deaktivierung eines Users wird als Ereignis und in den entspr. Gruppen als Ereignis gespeichert
 		public static function benutzerreaktivierenEreignis($user){
 		
 			$ereignisbeschreibung = "Der Benutzer ".$user->getUsername()." wurde reaktiviert!";
@@ -283,13 +282,6 @@ class Gruppenereignis{
 		}
 
 		
-		
-		
-		
-		
-	
-	
-	
 	// User hat Einladung in Gruppe angenommen
 	public static function gruppenmitgliedbeitretenEreignis($gruppe, $user){
 	
@@ -302,7 +294,7 @@ class Gruppenereignis{
 	
 	}
 	
-	// Wird gebraucht
+	// Ein Gruppenmitglied tritt aus der Gruppe aus als Ereignis
 	public static function gruppenmitgliedaustretenEreignis($user, $gruppe){
 	
 		$ereignisbeschreibung = "Der Benutzer ".$user->getUsername()." ist aus der Gruppe ausgetreten";
@@ -326,21 +318,6 @@ class Gruppenereignis{
 	
 	} 
 	
-	
-	/** Wurde durch 'userausgruppeentfernenEreignis($gruppenmitglied)' ersetzt
-	public function gruppenmitgliedloeschenEreignis($user, $gruppe){
-	
-		$ereignisbeschreibung = "Der Benutzer ".$user->getUsername()." wurde aus dem System geloescht";
-		// Datenbankstatement erzeugen
-		$dbStmt = new DB_connection();
-	
-		// DB-Befehl absetzen: alle Basisinformationen des Ereignisses anhand der uebergebenen e_id abrufen
-		$result=$dbStmt->execute("INSERT INTO ereignis (g_id, beschreibung, zeitpunkt) VALUES ('".$gruppe->getG_id()."', '".$ereignisbeschreibung."', NOW());");
-	
-	
-	}
-	
-	*/
 	
 	
 	// Getter und Setter
