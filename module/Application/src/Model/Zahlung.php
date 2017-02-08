@@ -23,7 +23,7 @@ class Zahlung {
 			
 	}
 	
-	
+	// Zahlung anlegen
 	public function anlegen () {
 	
 		$db = new DB_connection();
@@ -44,6 +44,7 @@ class Zahlung {
 		return $result;
 	}
 	
+	// Zahlung bearbeiten
 	public function bearbeiten() {
 		
 		$db = new DB_connection();
@@ -62,7 +63,7 @@ class Zahlung {
 		return $result;
 	}
 	
-	
+	// Zahlung laden
 	public function laden ($z_id = null) {
 	
 		// Datenbankstatement erzeugen
@@ -106,7 +107,7 @@ class Zahlung {
 		return $isLoaded;
 	}
 	
-	
+	// Liste aller Zahlungen in einer Gruppe $gruppen_id holen
 	public static function gruppenzahlungenlisteHolen($gruppen_id) {
 	
 		// Liste initialisieren
@@ -140,6 +141,7 @@ class Zahlung {
 		}
 	}
 	
+	// Liste aller Zahlungen eines Users $user_id holen
 	public static function eigenezahlungenholen($user_id) {
 	
 		// Liste initialisieren
@@ -171,7 +173,8 @@ class Zahlung {
 			return $gruppeListe;
 		}
 	}
-
+	
+	// Liste aller aktuellen Zahlungen eines Users $user_id holen (innerhalb der letzten 5 Tage)
 	public static function aktuellezahlungenholen($user_id) {
 	
 		// Liste initialisieren
@@ -205,6 +208,7 @@ class Zahlung {
 		}
 	}
 	
+	// Zahlung loeschen
 	public static function loeschen ($z_id) {
 		$db = new DB_connection();
 		
@@ -214,6 +218,7 @@ class Zahlung {
 		
 		return $result;
 	}
+	
 	
 	// Getter und Setter
 	

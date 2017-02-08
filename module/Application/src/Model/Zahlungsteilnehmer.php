@@ -14,14 +14,14 @@ class Zahlungsteilnehmer {
 	protected  $zahlungsempfaenger;
 	protected  $restbetrag;
 	
-	// HIER Kann evtl. ein Fehler liegen!!! (Objekt muss beachtet werden?)
+	
 	public function __construct($zahlung_id = null, $user_id = null) {
 		$this->zahlung= $zahlung_id;
 		$this->user=$user_id;
-		//echo "$this->zahlung";
-		//echo "$this->user";
+		
 	}
 	
+	// Zahlungsteilnehmer anlegen
 	public function anlegen () {
 	
 		$db = new DB_connection();
@@ -47,7 +47,8 @@ class Zahlungsteilnehmer {
 // 		}
 		
 // 	}
-
+	
+	
 	public function zahlungbegleichen($betrag, $zahlungsteilnehmer){
 // 		if($zahlungsempfaenger == 1){
 // 			echo "Fehler, ein Zahlungsempfaenger kann nichts begleichen";
@@ -70,6 +71,8 @@ class Zahlungsteilnehmer {
 	return $uebrig;
 	
 	}
+	
+	// Restbetrag einer Zahlung ausgeben
 	public function restbetragQuery($restbetrag, $status, $zahlungsteilnehmer){
 		$db = new DB_connection();
 		
@@ -263,7 +266,7 @@ class Zahlungsteilnehmer {
 		return $teilnehmerListe;
 	}
 	
-	// Alle Zahlungen, an denen ein User teilnimmt
+	// Alle Zahlungen, an denen ein User $user_id teilnimmt, als Liste zurueckgeben
 	public static function teilnehmerzahlungenholen($user_id) {
 	
 		// Liste initialisieren
@@ -330,6 +333,8 @@ class Zahlungsteilnehmer {
 			return $zahlungListe;
 		}
 	}
+	
+	// Abfragen, ob eine Zahlung ganz oder teilweise beglichen worden ist (-> offen ist)
 	public function istzahlungoffen($z_id){
 		$offen = false;
 		foreach($this ->zahlungsteilnehmerholen($z_id) as $zaehler=> $zahlungsteilnehmer){
@@ -338,7 +343,7 @@ class Zahlungsteilnehmer {
 		return $offen;
 	}
 	
-	// Alle Teilnehmer an einer Zahlung, die mit z_id übergeben wird
+	// Alle Teilnehmer an einer Zahlung, die mit z_id übergeben wird als Liste zurueckgeben
 	public static function  zahlungsteilnehmerholen($z_id){
 		// Liste initialisieren
 		$teilnehmerListe = array ();
@@ -369,9 +374,9 @@ class Zahlungsteilnehmer {
 		}
 	}
 	
-	
-	
-	
+	// Einen Zahlungsteilnehmer anhand seiner $z_id und $u_id holen;
+	// Zurueckgegeben wird der Zahlungsteilnehmer
+	// Aehnlich zu laden-Funktion, allerdings wird der Zahlungsteilnehmer statt "true" oder "false" zurueckgegeben
 	public function einenzahlungsteilnehmerholen($z_id, $u_id){
 		// Liste initialisieren
 		$zteilnehmer = 'null';
@@ -402,11 +407,9 @@ class Zahlungsteilnehmer {
 			return $zteilnehmer;
 		}
 	}
+
 	
-	
-	
-	
-	
+	// Zahlungsteilnehmer laden	
 	public function laden ($z_id, $u_id) {
 	
 		// Datenbankstatement erzeugen
@@ -451,7 +454,7 @@ class Zahlungsteilnehmer {
 	}
 	
 	
-	
+	// Zahlungsteilnehmer loeschen
 	public static function loeschen($z_id){
 		$db = new DB_connection();
 		
