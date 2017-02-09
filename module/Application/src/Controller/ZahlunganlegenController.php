@@ -107,13 +107,14 @@ class ZahlunganlegenController extends AbstractActionController {
 					$betrag=$_REQUEST["betrag"];
 					$kategorie_id=$_REQUEST["kategorie"];
 					
-					//Prüfen ob Zahlungsdatum das richtige Format hat
-					if(strlen($zahlungsdatum) == 4){
-						echo '<meta http-equiv="refresh" content="3; URL=http://www.example.com/">';
-					}
-					else{
-						echo '<meta http-equiv="refresh" content="3; URL=http://www.naaaa.com/">';
-					}
+					//Prüfen ob Zahlungsdatum im Format YYYY-MM-DD vorliegt
+						//Teilen des Datums an den Bindestrichen
+						$yyyy = substr($zahlungsdatum, 0, 4);
+						
+						//Testen ob die ersten vier Zeichen eine Zahl sind
+						if(ctype_digit($yyyy) == true){
+							echo '<meta http-equiv="refresh" content="3; URL=http://www.example.com/';
+						}
 					
 					
 				
