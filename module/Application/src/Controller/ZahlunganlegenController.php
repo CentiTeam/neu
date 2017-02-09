@@ -130,7 +130,9 @@ class ZahlunganlegenController extends AbstractActionController {
 						$mm = substr($zahlungsdatum, 5, 1);
 						//Testen, ob Monat richtig eingegeben wurde als Zahl zwischen 1 und 12
 						if(ctype_digit($mm) == true){
-							if($mm>0 && $mm<13){
+							//Konvertieren des Strings in einen Integer
+							$mm_int = intval($mm);
+							if($mm_int>0 && $mm_int<13){
 								$bool_monat_okay = true;
 								echo '<meta http-equiv="refresh" content="1; URL=http://www.example.com/';
 							}
