@@ -107,7 +107,7 @@ class ZahlunganlegenController extends AbstractActionController {
 					$betrag=$_REQUEST["betrag"];
 					$kategorie_id=$_REQUEST["kategorie"];
 					
-					//Prüfen ob Zahlungsdatum im Format YYYY-MM-DD vorliegt
+					/** //Prüfen ob Zahlungsdatum im Format YYYY-MM-DD vorliegt
 					$bool_jahr_okay = false;
 					$bool_erster_strich = false;
 					$bool_monat_okay = false;
@@ -136,7 +136,7 @@ class ZahlunganlegenController extends AbstractActionController {
 								$bool_monat_okay = true;
 								echo '<meta http-equiv="refresh" content="1; URL='.$mm_int.'';
 							}
-						}
+						} */
 					
 					
 				
