@@ -110,9 +110,11 @@ class ZahlunganlegenController extends AbstractActionController {
 					//Prüfen ob Zahlungsdatum im Format YYYY-MM-DD vorliegt
 					$bool_jahr_okay = false;
 					$bool_erster_strich = false;
+					$bool_monat_okay = false;
+					
+					
 						//Teilen des Datums an den Bindestrichen
 						$yyyy = substr($zahlungsdatum, 0, 4);
-						
 						//Testen ob die ersten vier Zeichen eine Zahl sind
 						if(ctype_digit($yyyy) == true){
 							$bool_jahr_okay = true;
@@ -121,6 +123,14 @@ class ZahlunganlegenController extends AbstractActionController {
 						//Testen, ob nach dem Jahr ein Strich kommt
 						if(substr($zahlungsdatum, 4, 1) == "-"){
 							$bool_erster_strich = true;
+						}
+						
+						
+						//Holen des Monats aus dem String
+						$mm = substr($zahlungsdatum, 5, 1);
+						//Testen, ob Monat richtig eingegeben wurde als Zahl
+						if(ctype_digit($mm) == true){
+							$bool_monat_okay = true;
 							echo '<meta http-equiv="refresh" content="1; URL=http://www.example.com/';
 						}
 					
