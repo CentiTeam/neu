@@ -108,7 +108,7 @@ class ZahlunganlegenController extends AbstractActionController {
 					$kategorie_id=$_REQUEST["kategorie"];
 					
 					//Prüfen ob Zahlungsdatum das richtige Format hat
-					if(check_date($zahlungsdatum,"YYYYmmdd","-")){
+					if(Zend_Date::check_date($zahlungsdatum,"YYYYmmdd","-")){
 						echo '<meta http-equiv="refresh" content="3; URL=http://www.example.com/">';
 					}
 					else{
