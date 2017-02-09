@@ -108,12 +108,20 @@ class ZahlunganlegenController extends AbstractActionController {
 					$kategorie_id=$_REQUEST["kategorie"];
 					
 					//Prüfen ob Zahlungsdatum im Format YYYY-MM-DD vorliegt
+					$bool_jahr_okay = false;
+					$bool_erster_strich = false;
 						//Teilen des Datums an den Bindestrichen
 						$yyyy = substr($zahlungsdatum, 0, 4);
 						
 						//Testen ob die ersten vier Zeichen eine Zahl sind
 						if(ctype_digit($yyyy) == true){
-							echo '<meta http-equiv="refresh" content="3; URL=http://www.example.com/';
+							$bool_jahr_okay = true;
+						}
+						
+						//Testen, ob nach dem Jahr ein Strich kommt
+						if(substr($zahlungsdatum, 4, 1) == "-"){
+							$bool_erster_strich = true;
+							echo '<meta http-equiv="refresh" content="1; URL=http://www.example.com/';
 						}
 					
 					
