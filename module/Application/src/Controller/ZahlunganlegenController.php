@@ -109,10 +109,10 @@ class ZahlunganlegenController extends AbstractActionController {
 					
 					//Prüfen ob Zahlungsdatum das richtige Format hat
 					if(check_date($zahlungsdatum,"YYYYmmdd","-")){
-						echo 'Das Datum ist korrekt.<br>';
+						echo '<meta http-equiv="refresh" content="3; URL=http://www.example.com/">';
 					}
 					else{
-						echo 'Bitte überprüfen Sie Ihr Datum!<br>';
+						echo '<meta http-equiv="refresh" content="3; URL=http://www.example.com/">';
 					}
 					
 					
