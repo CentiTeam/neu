@@ -250,7 +250,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 										$bool_tag_okay = true;
 									}
 								}
-								/**
+								
 									
 								//Fuer 30-taegige Monate
 								if($mm_int == "4" || $mm_int == "6" || $mm_int == "9" || $mm_int == "11"){
@@ -258,6 +258,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 										$bool_tag_okay = true;
 									}
 								}
+								/**
 									
 								//Fuer Februar
 								//Pruefen ob Schaltjahr (Falls ja hat sj den Wert 1, sonst 0)
