@@ -146,7 +146,7 @@ class ZahlunganlegenController extends AbstractActionController {
 						if(substr($zahlungsdatum, 7, 1) == "-"){
 							$bool_zweiter_strich = true;
 							
-							$sj = date(L, mktime($year = '2016'));
+							$sj = date(L, mktime(0, 0, 0, 0, 0, 2016));
 							echo "sj: ".$sj;
 						}
 						
