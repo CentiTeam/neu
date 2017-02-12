@@ -156,6 +156,11 @@ class ZahlungbearbeitenController extends AbstractActionController {
 					$veraenderbar=true;
 					
 					if ($_REQUEST['speichern']) {
+						
+						
+						
+						
+						
 				
 				
 					// Anteile in Schleife speichern und Ã¼berprÃ¼fen, ob Summe dem Gesamtbetrag entspricht
@@ -182,6 +187,125 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						$kategorie_id=$_REQUEST["kategorie"];
 						$aenderungsdatum= date('Y-m-d',$timestamp);
 						$gruppen_id=$zahlung->getGruppe()->getG_id();
+						
+						
+						
+						//Prüfen ob Zahlungsdatum im Format YYYY-MM-DD vorliegt
+						$bool_jahr_okay = false;
+						$bool_erster_strich = false;
+						$bool_monat_okay = false;
+						$bool_zweiter_strich = false;
+						$bool_tag_okay = false;
+							
+							
+						//Teilen des Datums an den Bindestrichen
+						$yyyy = substr($zahlungsdatum, 0, 4);
+						//Testen ob die ersten vier Zeichen eine Zahl sind
+						if(ctype_digit($yyyy) == true){
+							$bool_jahr_okay = true;
+						}
+						
+						//Testen, ob nach dem Jahr ein Strich kommt
+						if(substr($zahlungsdatum, 4, 1) == "-"){
+							$bool_erster_strich = true;
+						}
+						
+						
+						//Holen des Monats aus dem String
+						$mm = substr($zahlungsdatum, 5, 2);
+						//Testen, ob Monat richtig eingegeben wurde als Zahl zwischen 1 und 12
+						
+						//Mit ctype_digit prüfen, ob jedes Zeichen in $mm eine Ziffer ist
+						if(ctype_digit($mm) == true){
+							//Konvertieren des Strings in einen Integer
+							$mm_int = (int)$mm;
+							//Prüfen, ob Monat zwischen 1 und 12
+							if($mm_int>0 && $mm_int<13){
+								$bool_monat_okay = true;
+							}
+								
+								
+							//Testen, ob nach dem Monat ein Strich kommt
+							if(substr($zahlungsdatum, 7, 1) == "-"){
+								$bool_zweiter_strich = true;
+									
+									
+							}
+						
+						
+						
+						
+							//Holen des Tag aus dem String
+							$tt = substr($zahlungsdatum, 8, 2);
+							//Testen, ob Tag richtig eingegeben wurde als Zahl zwischen 1 und 12
+						
+							//Mit ctype_digit prüfen, ob jedes Zeichen in $tt eine Ziffer ist
+							if(ctype_digit($tt) == true){
+								//Konvertieren des Strings in einen Integer
+								$tt_int = (int)$tt;
+									
+								//Fuer 31-taegige Monate
+								if($mm_int == "1" || $mm_int == "3" || $mm_int == "5" || $mm_int == "7" || $mm_int == "8" || $mm_int == "10" || $mm_int == "12" ){
+									if($tt_int>0 && $tt_int<32){
+										$bool_tag_okay = true;
+									}
+								}
+									
+								//Fuer 30-taegige Monate
+								if($mm_int == "4" || $mm_int == "6" || $mm_int == "9" || $mm_int == "11"){
+									if($tt_int>0 && $tt_int<31){
+										$bool_tag_okay = true;
+									}
+								}
+									
+								//Fuer Februar
+								//Pruefen ob Schaltjahr (Falls ja hat sj den Wert 1, sonst 0)
+								$sj = date(L, mktime(1, 1, 1, 1, 1, $yyyy));
+									
+								//Wenn Februar und Schaltjahr
+								if($mm_int = 2 && $sj == 1){
+									if($tt_int>0 && $tt_int<30){
+										$bool_tag_okay = true;
+									}
+								}
+									
+								//Wenn Februar und kein Schaltjahr
+								if($mm_int = 2 && $sj == 0){
+									if($tt_int>0 && $tt_int<29){
+										$bool_tag_okay = true;
+									}
+								}
+									
+									
+									
+									
+									
+								//Abschliesende Prüfung der Boolean-Variablen, ob Datum korrekt ist
+								if($bool_jahr_okay == true && $bool_tag_okay == true && $bool_monat_okay == true && $bool_erster_strich == true && bool_zweiter_strich == true){
+									$bool_datum_okay = true;
+								}
+								else{
+									$bool_datum_okay = false;
+								}
+						
+							}
+						
+						
+							if($bool_datum_okay == false){
+								$datumspruefungsnachricht = "Das angegebene Datum ist nicht korrekt!";
+								return new ViewModel([
+										'gruppe' => array($gruppe),
+										'zahlungsteilnehmer' => array($teilnehmer),
+										'msg' => $msg,
+										'kategorieListe' => $kategorieliste,
+										'mitgliederListe' => $mitgliederliste,
+										'erstellungsdatum' => $erstellungsdatum,
+										'zahlung' => array($zahlung),
+										'zahlungsteilnehmerliste' => $zahlungsteilnehmerliste,
+										'veraenderbar' => $veraenderbar,
+										'datumspruefungsnachricht' => $datumspruefungsnachricht
+								]);
+							}
 						
 
 						// verknï¿½pfte Models laden
