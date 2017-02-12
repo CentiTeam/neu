@@ -176,7 +176,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						$summe += $anteil;
 						
 						//Überprüft, ob die einzelnen Anteile Zahlen enthalten						
-						if (!is_float($anteile[$i]) AND !is_integer($anteile[$i]))
+						if ($anteile[$i] != "" AND !is_float($anteile[$i]) AND !is_integer($anteile[$i]))
 						{
 							echo ("Bitte geb f&uumlr die Anteile Zahlen ein");
 							
