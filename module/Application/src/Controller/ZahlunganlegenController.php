@@ -200,13 +200,29 @@ class ZahlunganlegenController extends AbstractActionController {
 							//Abschliesende Prüfung der Boolean-Variablen, ob Datum korrekt ist
 							if($bool_jahr_okay == true && $bool_tag_okay == true && $bool_monat_okay == true && $bool_erster_strich == true && bool_zweiter_strich == true){
 								$bool_datum_okay = true;
-								echo "stimmt";
 							}
 							else{
 								$bool_datum_okay = false;
-								echo "stimmt ned";
 							}
 								
+						}
+						
+						
+						if($bool_datum_okay == false){
+							$datumspruefungsnachricht = "Das angegebene Datum ist nicht korrekt!";
+							
+							return new ViewModel([
+									'gruppe' => array($gruppe),
+									'msg' => $msg,
+									'kategorieListe' => $kategorieliste,
+									'mitgliederListe' => $mitgliederliste,
+									'erstellungsdatum' => $erstellungsdatum,
+									'zahlung' => array($zahlung),
+									'k_id' => $kategorie_id,
+									'err' => $errorStr,
+									'feldpruefungsnachricht' => $feldpruefungsnachricht,
+									'datumspruefungsnachricht' => $datumspruefungsnachricht
+							]);
 						}
 						
 						
