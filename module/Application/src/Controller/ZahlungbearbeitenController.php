@@ -388,21 +388,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						
 						
 						$zahlungsbeschreibung=$_POST['zahlungsbeschreibung'];
-						/** Sollte rausfallen, da man nun auch Zahlungen für andere Erstellen darf, an denen man nicht teilnimmt
-						if ($anzahlteilnehmer <= 1){
-							$msg="Du bist momentan der einzige Zahlungsteilnehmer. W&auml;hl noch ein weiteres Gruppenmitglied aus!";
-						
-							return new ViewModel([
-									'gruppe' => array($gruppe),
-									'msg' => $msg,
-									'kategorieListe' => $kategorieliste,
-									'mitgliederListe' => $mitgliederliste,
-									'erstellungsdatum' => $erstellungsdatum,
-									'zahlung' => array($zahlung)
-										
-							]);
-						}
-						*/
+
 
 							// Wenn tempor�res Objekt gef�llt wurde kann mit diesen Werten das Objekt �ber die Bearbeiten-Fkt in die DB geschrieben werden
 							if ($errorStr == "" && $zahlung->bearbeiten()) {
