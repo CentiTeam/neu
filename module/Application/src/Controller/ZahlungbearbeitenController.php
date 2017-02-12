@@ -237,10 +237,11 @@ class ZahlungbearbeitenController extends AbstractActionController {
 							$tt = substr($zahlungsdatum, 8, 2);
 							//Testen, ob Tag richtig eingegeben wurde als Zahl zwischen 1 und 12
 							
-							/**
+							
 							//Mit ctype_digit prüfen, ob jedes Zeichen in $tt eine Ziffer ist
 							if(ctype_digit($tt) == true){
 								//Konvertieren des Strings in einen Integer
+								/**
 								$tt_int = (int)$tt;
 									
 								//Fuer 31-taegige Monate
