@@ -288,7 +288,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 									$bool_datum_okay = false;
 								}
 						
-							}
+							
 						
 						
 							if($bool_datum_okay == false){
