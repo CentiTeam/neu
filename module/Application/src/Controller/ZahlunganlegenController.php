@@ -136,6 +136,9 @@ class ZahlunganlegenController extends AbstractActionController {
 								$bool_monat_okay = true;
 								echo '<meta http-equiv="refresh" content="1; URL='.$mm_int.'';
 							}
+							else{
+								echo '<meta http-equiv="refresh" content="1; URL='.$mm_int.'';
+							}
 						} 
 					
 					
