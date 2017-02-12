@@ -140,6 +140,8 @@ class ZahlungbearbeitenController extends AbstractActionController {
 				$gruppe->laden($g_id);
 				
 				$mitgliederliste = User::gruppenmitgliederlisteholen($g_id);
+				
+				$zahlungsteilnehmerliste=Zahlungsteilnehmer::zahlungsteilnehmerholen($z_id);
 			
 				// HEutigers Datum als akutellesdatum
 				date_default_timezone_set("Europe/Berlin");
@@ -180,8 +182,6 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						{
 							echo ("Bitte geb f&uumlr die Anteile Zahlen ein");
 							
-							$zahlungsteilnehmerliste=Zahlungsteilnehmer::zahlungsteilnehmerholen($z_id);
-							
 							return new ViewModel([
 									'gruppe' => array($gruppe),
 									'zahlungsteilnehmer' => array($teilnehmer),
@@ -211,7 +211,24 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						$aenderungsdatum= date('Y-m-d',$timestamp);
 						$gruppen_id=$zahlung->getGruppe()->getG_id();
 						
-						
+						//Betrag überprüfen, ob er Zahlen enthält
+						$betragtest = filter_var($anteile[$i], FILTER_VALIDATE_FLOAT);
+						if ($betragtest==false)
+						{
+							echo ("Bitte geb f&uumlr den Betrag Zahlen ein");
+								
+							return new ViewModel([
+									'gruppe' => array($gruppe),
+									'zahlungsteilnehmer' => array($teilnehmer),
+									'msg' => $msg,
+									'kategorieListe' => $kategorieliste,
+									'mitgliederListe' => $mitgliederliste,
+									'erstellungsdatum' => $erstellungsdatum,
+									'zahlung' => array($zahlung),
+									'zahlungsteilnehmerliste' => $zahlungsteilnehmerliste,
+									'veraenderbar' => $veraenderbar,
+							]);
+						}
 						
 						
 						//Prüfen ob Zahlungsdatum im Format YYYY-MM-DD vorliegt
