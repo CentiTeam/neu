@@ -275,7 +275,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 								}
 								
 								
-								*//
+								*/
 						
 						
 						
