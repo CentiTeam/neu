@@ -172,6 +172,27 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						$anteile[]=$anteil;
 						$i++;
 						$summe += $anteil;
+						
+						//Überprüft, ob die einzelnen Anteile Zahlen enthalten
+						$zahltest = filter_var($anteil, FILTER_VALIDATE_FLOAT);
+						
+						if ($zahltest==false)
+						{
+							$msg="Bitte geb für die Anteile Zahlen ein";
+							
+							return new ViewModel([
+									'gruppe' => array($gruppe),
+									'zahlungsteilnehmer' => array($teilnehmer),
+									'msg' => $msg,
+									'kategorieListe' => $kategorieliste,
+									'mitgliederListe' => $mitgliederliste,
+									'erstellungsdatum' => $erstellungsdatum,
+									'zahlung' => array($zahlung),
+									'zahlungsteilnehmerliste' => $zahlungsteilnehmerliste,
+									'veraenderbar' => $veraenderbar,
+							]);
+						}
+						
 					}
 				
 	
