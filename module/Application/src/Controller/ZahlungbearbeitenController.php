@@ -178,7 +178,9 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						
 						if ($zahltest==false)
 						{
-							echo ("Bitte geb für die Anteile Zahlen ein");
+							echo ("Bitte geb f&uumlr die Anteile Zahlen ein");
+							
+							$zahlungsteilnehmerliste=Zahlungsteilnehmer::zahlungsteilnehmerholen($z_id);
 							
 							return new ViewModel([
 									'gruppe' => array($gruppe),
