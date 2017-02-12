@@ -281,15 +281,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 									
 									
 									
-								//Abschliesende Prüfung der Boolean-Variablen, ob Datum korrekt ist
-								if($bool_jahr_okay == true && $bool_tag_okay == true && $bool_monat_okay == true && $bool_erster_strich == true && bool_zweiter_strich == true){
-									$bool_datum_okay = true;
-								}
-								else{
-									$bool_datum_okay = false;
-								}
-						
-							}
+								
 						
 							if($bool_datum_okay == false){
 								$datumspruefungsnachricht = "Das angegebene Datum ist nicht korrekt!";
