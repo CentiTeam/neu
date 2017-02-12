@@ -239,9 +239,9 @@ class ZahlungbearbeitenController extends AbstractActionController {
 							
 							
 							//Mit ctype_digit prüfen, ob jedes Zeichen in $tt eine Ziffer ist
-							if(ctype_digit($tt) == true){ }
+							if(ctype_digit($tt) == true){
 								//Konvertieren des Strings in einen Integer
-								/**
+								/
 								$tt_int = (int)$tt;
 									
 								//Fuer 31-taegige Monate
@@ -250,6 +250,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 										$bool_tag_okay = true;
 									}
 								}
+								/**
 									
 								//Fuer 30-taegige Monate
 								if($mm_int == "4" || $mm_int == "6" || $mm_int == "9" || $mm_int == "11"){
@@ -278,6 +279,8 @@ class ZahlungbearbeitenController extends AbstractActionController {
 								
 								
 								*/
+								
+							}
 						
 						
 						
