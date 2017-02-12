@@ -174,7 +174,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						$summe += $anteil;
 						
 						//Überprüft, ob die einzelnen Anteile Zahlen enthalten
-						$zahltest = filter_var($anteil, FILTER_VALIDATE_FLOAT);
+						$zahltest = filter_var($anteile[$i], FILTER_VALIDATE_FLOAT);
 						
 						if ($zahltest==false)
 						{
