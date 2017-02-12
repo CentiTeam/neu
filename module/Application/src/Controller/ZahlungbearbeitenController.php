@@ -258,7 +258,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 										$bool_tag_okay = true;
 									}
 								}
-								/**
+								
 									
 								//Fuer Februar
 								//Pruefen ob Schaltjahr (Falls ja hat sj den Wert 1, sonst 0)
@@ -279,7 +279,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 								}
 								
 								
-								*/
+								
 								
 							}
 						
