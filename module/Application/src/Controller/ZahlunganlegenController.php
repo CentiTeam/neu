@@ -111,6 +111,7 @@ class ZahlunganlegenController extends AbstractActionController {
 					$bool_jahr_okay = false;
 					$bool_erster_strich = false;
 					$bool_monat_okay = false;
+					$bool_zweiter_strich = false;
 					
 					
 						//Teilen des Datums an den Bindestrichen
@@ -135,13 +136,21 @@ class ZahlunganlegenController extends AbstractActionController {
 							//Konvertieren des Strings in einen Integer
 							$mm_int = (int)$mm;
 							echo "mm_int: ".$mm_int;
+							//Prüfen, ob Monat zwischen 1 und 12
 							if($mm_int>0 && $mm_int<13){
 								$bool_monat_okay = true;
-								echo 'monat okay';
 							}
-							else{
-								echo 'monat buttbutt';
-							}
+							
+							
+						//Testen, ob nach dem MOnat ein Strich kommt
+						if(substr($zahlungsdatum, 7, 1) == "-"){
+							$bool_zweiter_strich = true;
+							echo "strich basst";
+						}
+						else echo "strich hi";
+						
+								
+							
 						} 
 					
 					
