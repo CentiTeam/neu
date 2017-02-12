@@ -232,6 +232,47 @@ class ZahlungbearbeitenController extends AbstractActionController {
 									
 									
 							}
+							
+							//Holen des Tag aus dem String
+							$tt = substr($zahlungsdatum, 8, 2);
+							//Testen, ob Tag richtig eingegeben wurde als Zahl zwischen 1 und 12
+							
+							//Mit ctype_digit prüfen, ob jedes Zeichen in $tt eine Ziffer ist
+							if(ctype_digit($tt) == true){
+								//Konvertieren des Strings in einen Integer
+								$tt_int = (int)$tt;
+									
+								//Fuer 31-taegige Monate
+								if($mm_int == "1" || $mm_int == "3" || $mm_int == "5" || $mm_int == "7" || $mm_int == "8" || $mm_int == "10" || $mm_int == "12" ){
+									if($tt_int>0 && $tt_int<32){
+										$bool_tag_okay = true;
+									}
+								}
+									
+								//Fuer 30-taegige Monate
+								if($mm_int == "4" || $mm_int == "6" || $mm_int == "9" || $mm_int == "11"){
+									if($tt_int>0 && $tt_int<31){
+										$bool_tag_okay = true;
+									}
+								}
+									
+								//Fuer Februar
+								//Pruefen ob Schaltjahr (Falls ja hat sj den Wert 1, sonst 0)
+								$sj = date(L, mktime(1, 1, 1, 1, 1, $yyyy));
+									
+								//Wenn Februar und Schaltjahr
+								if($mm_int = 2 && $sj == 1){
+									if($tt_int>0 && $tt_int<30){
+										$bool_tag_okay = true;
+									}
+								}
+									
+								//Wenn Februar und kein Schaltjahr
+								if($mm_int = 2 && $sj == 0){
+									if($tt_int>0 && $tt_int<29){
+										$bool_tag_okay = true;
+									}
+								}
 						
 						
 						
