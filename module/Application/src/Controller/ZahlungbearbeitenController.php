@@ -140,8 +140,6 @@ class ZahlungbearbeitenController extends AbstractActionController {
 				$gruppe->laden($g_id);
 				
 				$mitgliederliste = User::gruppenmitgliederlisteholen($g_id);
-				
-				$zahlungsteilnehmerliste=Zahlungsteilnehmer::zahlungsteilnehmerholen($z_id);
 			
 				// HEutigers Datum als akutellesdatum
 				date_default_timezone_set("Europe/Berlin");
@@ -174,25 +172,6 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						$anteile[]=$anteil;
 						$i++;
 						$summe += $anteil;
-						
-						//Überprüft, ob die einzelnen Anteile Zahlen enthalten						
-						if ($anteile[$i] != "" AND !is_float($anteile[$i]) AND !is_integer($anteile[$i]))
-						{
-							echo ("Bitte geb f&uumlr die Anteile Zahlen ein");
-							
-							return new ViewModel([
-									'gruppe' => array($gruppe),
-									'zahlungsteilnehmer' => array($teilnehmer),
-									'msg' => $msg,
-									'kategorieListe' => $kategorieliste,
-									'mitgliederListe' => $mitgliederliste,
-									'erstellungsdatum' => $erstellungsdatum,
-									'zahlung' => array($zahlung),
-									'zahlungsteilnehmerliste' => $zahlungsteilnehmerliste,
-									'veraenderbar' => $veraenderbar,
-							]);
-						}
-						
 					}
 				
 	
@@ -208,7 +187,9 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						$kategorie_id=$_REQUEST["kategorie"];
 						$aenderungsdatum= date('Y-m-d',$timestamp);
 						$gruppen_id=$zahlung->getGruppe()->getG_id();
-												
+						
+						
+						
 						
 						//Prüfen ob Zahlungsdatum im Format YYYY-MM-DD vorliegt
 						$bool_jahr_okay = false;
@@ -386,7 +367,21 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						
 						
 						$zahlungsbeschreibung=$_POST['zahlungsbeschreibung'];
-
+						/** Sollte rausfallen, da man nun auch Zahlungen fÃ¼r andere Erstellen darf, an denen man nicht teilnimmt
+						if ($anzahlteilnehmer <= 1){
+							$msg="Du bist momentan der einzige Zahlungsteilnehmer. W&auml;hl noch ein weiteres Gruppenmitglied aus!";
+						
+							return new ViewModel([
+									'gruppe' => array($gruppe),
+									'msg' => $msg,
+									'kategorieListe' => $kategorieliste,
+									'mitgliederListe' => $mitgliederliste,
+									'erstellungsdatum' => $erstellungsdatum,
+									'zahlung' => array($zahlung)
+										
+							]);
+						}
+						*/
 
 							// Wenn temporï¿½res Objekt gefï¿½llt wurde kann mit diesen Werten das Objekt ï¿½ber die Bearbeiten-Fkt in die DB geschrieben werden
 							if ($errorStr == "" && $zahlung->bearbeiten()) {
