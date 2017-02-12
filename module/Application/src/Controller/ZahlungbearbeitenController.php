@@ -140,7 +140,9 @@ class ZahlungbearbeitenController extends AbstractActionController {
 				$gruppe->laden($g_id);
 				
 				$mitgliederliste = User::gruppenmitgliederlisteholen($g_id);
-			
+				
+				$zahlungsteilnehmerliste=Zahlungsteilnehmer::zahlungsteilnehmerholen($z_id);
+				
 				// HEutigers Datum als akutellesdatum
 				date_default_timezone_set("Europe/Berlin");
 				$timestamp=time();
@@ -170,8 +172,30 @@ class ZahlungbearbeitenController extends AbstractActionController {
 
 					foreach ($_POST['anteilsbetrag'] as $zaehler => $anteil) {
 						$anteile[]=$anteil;
-						$i++;
+						
 						$summe += $anteil;
+						
+						//Überprüfen, ob Anteile Zahlen sind
+						$testanteil = filter_var($anteile[$i]);
+						
+						if ($testanteil == false && $anteile[$i])
+						{
+							echo ("Die Anteile müssen Zahlen sein");
+						
+							return new ViewModel([
+									'gruppe' => array($gruppe),
+									'zahlungsteilnehmer' => array($teilnehmer),
+									'msg' => $msg,
+									'kategorieListe' => $kategorieliste,
+									'mitgliederListe' => $mitgliederliste,
+									'erstellungsdatum' => $erstellungsdatum,
+									'zahlung' => array($zahlung),
+									'zahlungsteilnehmerliste' => $zahlungsteilnehmerliste,
+									'veraenderbar' => $veraenderbar
+							]);
+							
+						}
+						$i++;
 					}
 				
 	
