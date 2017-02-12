@@ -175,10 +175,8 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						$i++;
 						$summe += $anteil;
 						
-						//Überprüft, ob die einzelnen Anteile Zahlen enthalten
-						$zahltest = filter_var($anteile[$i], FILTER_VALIDATE_FLOAT);
-						
-						if ($zahltest==false)
+						//Überprüft, ob die einzelnen Anteile Zahlen enthalten						
+						if (!is_float($anteil) && !is_int($anteil))
 						{
 							echo ("Bitte geb f&uumlr die Anteile Zahlen ein");
 							
@@ -212,8 +210,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						$gruppen_id=$zahlung->getGruppe()->getG_id();
 						
 						//Betrag überprüfen, ob er Zahlen enthält
-						$betragtest = filter_var($anteile[$i], FILTER_VALIDATE_FLOAT);
-						if ($betragtest==false)
+						if (!is_float($betrag) && !is_int($betrag))
 						{
 							echo ("Bitte geb f&uumlr den Betrag Zahlen ein");
 								
