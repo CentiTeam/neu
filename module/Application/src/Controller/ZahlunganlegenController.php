@@ -142,12 +142,32 @@ class ZahlunganlegenController extends AbstractActionController {
 							}
 							
 							
-						//Testen, ob nach dem MOnat ein Strich kommt
+						//Testen, ob nach dem Monat ein Strich kommt
 						if(substr($zahlungsdatum, 7, 1) == "-"){
 							$bool_zweiter_strich = true;
-							echo "strich basst";
+							
+							$sj = date(L, 2016);
+							echo "sj: ".$sj;
 						}
-						else echo "strich hi";
+						
+						
+						
+						
+						/** //Holen des Tag aus dem String
+						$mm = substr($zahlungsdatum, 8, 2);
+						//Testen, ob Monat richtig eingegeben wurde als Zahl zwischen 1 und 12
+						
+						//Mit ctype_digit prüfen, ob jedes Zeichen in $mm eine Ziffer ist
+						if(ctype_digit($mm) == true){
+							//Konvertieren des Strings in einen Integer
+							$mm_int = (int)$mm;
+							echo "mm_int: ".$mm_int;
+							//Prüfen, ob Monat zwischen 1 und 12
+							if($mm_int>0 && $mm_int<13){
+								$bool_monat_okay = true;
+							}
+							
+							**/
 						
 								
 							
