@@ -233,7 +233,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 									
 							}
 							
-							//Holen des Tag aus dem String
+							/** //Holen des Tag aus dem String
 							$tt = substr($zahlungsdatum, 8, 2);
 							//Testen, ob Tag richtig eingegeben wurde als Zahl zwischen 1 und 12
 							
@@ -273,6 +273,9 @@ class ZahlungbearbeitenController extends AbstractActionController {
 										$bool_tag_okay = true;
 									}
 								}
+								
+								
+								*//
 						
 						
 						
