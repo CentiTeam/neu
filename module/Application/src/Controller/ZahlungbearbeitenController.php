@@ -208,25 +208,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						$kategorie_id=$_REQUEST["kategorie"];
 						$aenderungsdatum= date('Y-m-d',$timestamp);
 						$gruppen_id=$zahlung->getGruppe()->getG_id();
-						
-						//Betrag überprüfen, ob er Zahlen enthält
-						if ($betrag != "" AND !is_float($betrag) AND !is_integer($betrag))
-						{
-							echo ("Bitte geb f&uumlr den Betrag Zahlen ein");
-								
-							return new ViewModel([
-									'gruppe' => array($gruppe),
-									'zahlungsteilnehmer' => array($teilnehmer),
-									'msg' => $msg,
-									'kategorieListe' => $kategorieliste,
-									'mitgliederListe' => $mitgliederliste,
-									'erstellungsdatum' => $erstellungsdatum,
-									'zahlung' => array($zahlung),
-									'zahlungsteilnehmerliste' => $zahlungsteilnehmerliste,
-									'veraenderbar' => $veraenderbar,
-							]);
-						}
-						
+												
 						
 						//Prüfen ob Zahlungsdatum im Format YYYY-MM-DD vorliegt
 						$bool_jahr_okay = false;
