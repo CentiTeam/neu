@@ -180,7 +180,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						
 						if ($testanteil == false && $anteile[$i])
 						{
-							echo ("Die Anteile müssen Zahlen sein");
+							echo ("Die Anteile m&uumlssen Zahlen sein");
 						
 							return new ViewModel([
 									'gruppe' => array($gruppe),
@@ -212,7 +212,26 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						$aenderungsdatum= date('Y-m-d',$timestamp);
 						$gruppen_id=$zahlung->getGruppe()->getG_id();
 						
+						//Betrag überprüfen, ob Zahl
+						$testbetrag = filter_var($betrag);
 						
+						if ($testbetrag == false)
+						{
+							echo ("Der Betrag muss eine Zahl sein");
+						
+							return new ViewModel([
+									'gruppe' => array($gruppe),
+									'zahlungsteilnehmer' => array($teilnehmer),
+									'msg' => $msg,
+									'kategorieListe' => $kategorieliste,
+									'mitgliederListe' => $mitgliederliste,
+									'erstellungsdatum' => $erstellungsdatum,
+									'zahlung' => array($zahlung),
+									'zahlungsteilnehmerliste' => $zahlungsteilnehmerliste,
+									'veraenderbar' => $veraenderbar
+							]);
+								
+						}
 						
 						
 						//Prüfen ob Zahlungsdatum im Format YYYY-MM-DD vorliegt
@@ -391,21 +410,7 @@ class ZahlungbearbeitenController extends AbstractActionController {
 						
 						
 						$zahlungsbeschreibung=$_POST['zahlungsbeschreibung'];
-						/** Sollte rausfallen, da man nun auch Zahlungen fÃ¼r andere Erstellen darf, an denen man nicht teilnimmt
-						if ($anzahlteilnehmer <= 1){
-							$msg="Du bist momentan der einzige Zahlungsteilnehmer. W&auml;hl noch ein weiteres Gruppenmitglied aus!";
-						
-							return new ViewModel([
-									'gruppe' => array($gruppe),
-									'msg' => $msg,
-									'kategorieListe' => $kategorieliste,
-									'mitgliederListe' => $mitgliederliste,
-									'erstellungsdatum' => $erstellungsdatum,
-									'zahlung' => array($zahlung)
-										
-							]);
-						}
-						*/
+
 
 							// Wenn temporï¿½res Objekt gefï¿½llt wurde kann mit diesen Werten das Objekt ï¿½ber die Bearbeiten-Fkt in die DB geschrieben werden
 							if ($errorStr == "" && $zahlung->bearbeiten()) {
